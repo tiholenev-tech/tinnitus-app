@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<!--
+  AURALIS · Mixer v3 — "Препоръчани" таб
+  Версия: 3.0 · 23.05.2026
+  Какво е новото спрямо v2:
+  - 5 компактни карти (вместо 1 огромна аналитична)
+  - Експандиращ "Искате ли да знаете повече?" бутон
+  - SOFT NIGHT MODE — намалена neon интензивност за легло (50+, тинитус, вечер)
+  - Без glow / glow-bottom (сензорна неутралност)
+  - Audio е акцент, не текст
+-->
+<html lang="bg" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#08090d">
+<title>AURALIS · Препоръчани миксове</title>
+<style>
+/* ═══════════════════════════════════════════════════════════════════
+   BICHROMATIC TOKENS (от v2, SOFTENED за вечерна употреба)
+   ═══════════════════════════════════════════════════════════════════ */
+:root {
+  --hue1: 255;  /* indigo */
+  --hue2: 222;  /* sky blue */
+  --champagne: #F1E6C8;
+
+  --radius-lg: 22px;
+  --radius-md: 14px;
+  --radius-pill: 100px;
+
+  --font: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+
+  /* DARK — soft night mode (намалена интензивност) */
+  --bg-base: hsl(220, 25%, 6.5%);
+  --bg-grad-1-opacity: 0.07;  /* беше 0.13 в v2 — намалено */
+  --bg-grad-2-opacity: 0.07;  /* беше 0.13 — намалено */
+  --noise-opacity: 0.025;     /* беше 0.03 — leko намалено */
+
+  --glass-bg-1: hsl(var(--hue1), 35%, 22% / 0.18);  /* по-малко saturated */
+  --glass-bg-2: hsl(var(--hue2), 30%, 25% / 0.14);
+  --glass-bg-base: hsl(220, 25%, 6% / 0.82);
+
+  --shine-intensity: 0.42;    /* беше ~0.7 в v2 — soft */
+  --shine-light-spread: 18%;
+  --border-soft: hsl(var(--hue1), 20%, 35% / 0.22);
+
+  --text: hsl(220, 18%, 88%);
+  --text-muted: hsl(220, 12%, 62%);
+  --text-faint: hsl(220, 10%, 48%);
+
+  --primary: hsl(var(--hue1), 65%, 68%);
+  --primary-soft: hsl(var(--hue1), 55%, 55%);
+  --secondary: hsl(var(--hue2), 60%, 70%);
+  --champagne-soft: hsl(42, 45%, 78%);
+}
+
+[data-theme="light"] {
+  --bg-base: #f7f5ef;
+  --bg-grad-1-opacity: 0.18;
+  --bg-grad-2-opacity: 0.16;
+  --noise-opacity: 0.04;
+
+  --glass-bg-1: hsl(var(--hue1), 60%, 92%);
+  --glass-bg-2: hsl(var(--hue2), 55%, 94%);
+  --glass-bg-base: hsl(0, 0%, 100% / 0.72);
+
+  --shine-intensity: 0.55;
+  --border-soft: hsl(var(--hue1), 30%, 75% / 0.4);
+
+  --text: hsl(220, 28%, 18%);
+  --text-muted: hsl(220, 18%, 42%);
+  --text-faint: hsl(220, 12%, 56%);
+
+  --primary: hsl(var(--hue1), 55%, 48%);
+  --primary-soft: hsl(var(--hue1), 50%, 60%);
+  --secondary: hsl(var(--hue2), 50%, 48%);
+  --champagne-soft: hsl(42, 50%, 65%);
+}
+
+/* ═══════════════════════════════════════════════════════════════════ */
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--text);
+  background: var(--bg-base);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  position: relative;
+  background:
+    radial-gradient(circle at 15% 12%,
+      hsl(var(--hue1), 55%, 38% / var(--bg-grad-1-opacity)) 0%,
+      transparent 45%),
+    radial-gradient(circle at 88% 92%,
+      hsl(var(--hue2), 50%, 42% / var(--bg-grad-2-opacity)) 0%,
+      transparent 50%),
+    var(--bg-base);
+}
+
+/* Fractal noise overlay (от v2, soft) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  opacity: var(--noise-opacity);
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: overlay;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   LAYOUT
+   ═══════════════════════════════════════════════════════════════════ */
+.app {
+  position: relative;
+  z-index: 1;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px 16px 80px;
+  min-height: 100vh;
+}
+
+/* ═══ HEADER ═══ */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 4px 20px;
+}
+
+.header-brand {
+  flex: 1;
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.header-brand .brand-2 {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.icon-btn {
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s, transform 0.1s;
+}
+.icon-btn:hover { color: var(--text); }
+.icon-btn:active { transform: scale(0.92); }
+.icon-btn svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ═══ TABS (pill rail) ═══ */
+.tabs {
+  display: flex;
+  gap: 6px;
+  padding: 4px;
+  background: var(--glass-bg-base);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-soft);
+  margin-bottom: 18px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  min-height: 44px;
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg,
+    hsl(var(--hue1), 50%, 32% / 0.5),
+    hsl(var(--hue2), 45%, 35% / 0.5));
+  color: var(--text);
+  box-shadow: 0 2px 8px hsl(var(--hue1), 50%, 10% / 0.3) inset;
+}
+[data-theme="light"] .tab-btn.active {
+  background: linear-gradient(135deg,
+    hsl(var(--hue1), 55%, 88%),
+    hsl(var(--hue2), 50%, 90%));
+  color: var(--primary);
+  box-shadow: 0 1px 4px hsl(var(--hue1), 40%, 50% / 0.2);
+}
+
+/* ═══ PROFILE PILL ═══ */
+.profile-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: var(--glass-bg-base);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  letter-spacing: 0.01em;
+}
+
+.profile-pill .profile-code {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--secondary);
+  padding: 2px 6px;
+  background: hsl(var(--hue2), 40%, 30% / 0.25);
+  border-radius: 4px;
+}
+[data-theme="light"] .profile-pill .profile-code {
+  background: hsl(var(--hue2), 55%, 88%);
+  color: hsl(var(--hue2), 60%, 38%);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   GLASS RECIPE (от v2 — без glow!)
+   ═══════════════════════════════════════════════════════════════════ */
+.glass {
+  position: relative;
+  background:
+    linear-gradient(235deg, var(--glass-bg-1) 0%, transparent 65%),
+    linear-gradient(45deg, var(--glass-bg-2) 0%, transparent 65%),
+    var(--glass-bg-base);
+  backdrop-filter: blur(12px) saturate(1.1);
+  -webkit-backdrop-filter: blur(12px) saturate(1.1);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  isolation: isolate;
+  overflow: visible;  /* НЕ изрязва shine */
+}
+
+[data-theme="light"] .glass {
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  box-shadow:
+    inset 0 1px 0 hsl(0, 0%, 100% / 0.7),
+    0 4px 12px hsl(220, 30%, 60% / 0.15);
+}
+
+/* Shine spans — soft за нощ */
+.shine {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+  padding: 1px;
+  background: conic-gradient(
+    from 235deg at 95% 8%,
+    oklch(0.72 0.08 285 / var(--shine-intensity)) 0deg,
+    oklch(0.72 0.08 285 / 0) 50deg,
+    transparent 360deg);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.shine-bottom {
+  background: conic-gradient(
+    from 55deg at 5% 92%,
+    oklch(0.72 0.08 220 / var(--shine-intensity)) 0deg,
+    oklch(0.72 0.08 220 / 0) 50deg,
+    transparent 360deg);
+}
+
+[data-theme="light"] .shine,
+[data-theme="light"] .shine-bottom {
+  mix-blend-mode: multiply;
+  background: conic-gradient(
+    from 235deg at 95% 8%,
+    oklch(0.55 0.18 285 / 0.5) 0deg,
+    oklch(0.55 0.18 285 / 0) 50deg,
+    transparent 360deg);
+}
+[data-theme="light"] .shine-bottom {
+  background: conic-gradient(
+    from 55deg at 5% 92%,
+    oklch(0.55 0.18 220 / 0.5) 0deg,
+    oklch(0.55 0.18 220 / 0) 50deg,
+    transparent 360deg);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   SOUND CARDS — компактни
+   ═══════════════════════════════════════════════════════════════════ */
+.cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.sound-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 16px 16px 18px;
+  cursor: pointer;
+  min-height: 88px;
+  transition: transform 0.15s ease, border-color 0.2s;
+}
+.sound-card:active {
+  transform: scale(0.99);
+}
+
+.sound-card.featured {
+  border-color: hsl(var(--hue1), 40%, 50% / 0.4);
+}
+[data-theme="light"] .sound-card.featured {
+  border-color: hsl(var(--hue1), 50%, 60% / 0.6);
+}
+
+.sound-card-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sound-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--champagne-soft);
+  margin-bottom: 2px;
+}
+.sound-tag svg {
+  width: 11px; height: 11px;
+  fill: var(--champagne-soft);
+  stroke: none;
+}
+
+.sound-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.sound-subtitle {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.005em;
+  line-height: 1.35;
+}
+
+.sound-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.info-btn {
+  width: 36px; height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-faint);
+  cursor: pointer;
+  display: grid; place-items: center;
+  transition: color 0.2s, background 0.2s;
+}
+.info-btn:hover { color: var(--text-muted); background: hsl(var(--hue1), 20%, 35% / 0.15); }
+.info-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.play-btn {
+  width: 48px; height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg,
+    hsl(var(--hue1), 55%, 52%),
+    hsl(var(--hue2), 50%, 48%));
+  color: white;
+  cursor: pointer;
+  display: grid; place-items: center;
+  box-shadow:
+    0 2px 8px hsl(var(--hue1), 50%, 30% / 0.4),
+    inset 0 1px 0 hsl(0, 0%, 100% / 0.2);
+  transition: transform 0.15s, box-shadow 0.2s;
+  flex-shrink: 0;
+}
+.play-btn:active {
+  transform: scale(0.94);
+  box-shadow:
+    0 1px 4px hsl(var(--hue1), 50%, 30% / 0.5),
+    inset 0 1px 0 hsl(0, 0%, 100% / 0.15);
+}
+.play-btn svg {
+  width: 18px; height: 18px;
+  fill: currentColor;
+  stroke: none;
+  margin-left: 2px;
+}
+[data-theme="light"] .play-btn {
+  background: linear-gradient(135deg,
+    hsl(var(--hue1), 55%, 48%),
+    hsl(var(--hue2), 50%, 50%));
+  box-shadow:
+    0 3px 10px hsl(var(--hue1), 50%, 50% / 0.35),
+    inset 0 1px 0 hsl(0, 0%, 100% / 0.3);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   EXPANDABLE INFO BUTTON
+   ═══════════════════════════════════════════════════════════════════ */
+.info-expandable {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.info-toggle {
+  width: 100%;
+  padding: 16px 20px;
+  background: var(--glass-bg-base);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: color 0.2s, border-color 0.2s;
+  min-height: 48px;
+}
+.info-toggle:hover {
+  color: var(--text);
+  border-color: hsl(var(--hue1), 30%, 50% / 0.35);
+}
+.info-toggle svg {
+  width: 14px; height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.2;
+  transition: transform 0.3s ease;
+}
+.info-expandable.open .info-toggle svg {
+  transform: rotate(180deg);
+}
+
+.info-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease-out, opacity 0.25s ease;
+  opacity: 0;
+}
+.info-expandable.open .info-content {
+  max-height: 800px;
+  opacity: 1;
+  transition: max-height 0.45s ease-in, opacity 0.3s ease 0.1s;
+}
+
+.info-body {
+  padding: 16px 4px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.info-section h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.info-section p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  letter-spacing: 0.005em;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 14px;
+  background: hsl(var(--hue1), 25%, 18% / 0.25);
+  border-radius: 10px;
+  border-left: 2px solid var(--primary-soft);
+}
+[data-theme="light"] .timeline-item {
+  background: hsl(var(--hue1), 50%, 95%);
+  border-left-color: var(--primary);
+}
+
+.timeline-week {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--secondary);
+  flex-shrink: 0;
+  min-width: 70px;
+  padding-top: 1px;
+}
+[data-theme="light"] .timeline-week {
+  color: hsl(var(--hue2), 60%, 40%);
+}
+
+.timeline-text {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.disclaimer {
+  padding: 12px 14px;
+  background: hsl(42, 35%, 25% / 0.18);
+  border-radius: 10px;
+  border-left: 2px solid var(--champagne-soft);
+}
+[data-theme="light"] .disclaimer {
+  background: hsl(42, 60%, 94%);
+  border-left-color: hsl(42, 50%, 55%);
+}
+.disclaimer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.disclaimer li {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--text-muted);
+  padding-left: 14px;
+  position: relative;
+}
+.disclaimer li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--champagne-soft);
+  font-weight: 700;
+}
+
+/* ═══ Accessibility ═══ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible (keyboard nav) */
+.tab-btn:focus-visible,
+.icon-btn:focus-visible,
+.play-btn:focus-visible,
+.info-btn:focus-visible,
+.info-toggle:focus-visible,
+.sound-card:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="header">
+    <button class="icon-btn" id="themeBtn" aria-label="Смяна на тема">
+      <svg id="themeIconMoon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      <svg id="themeIconSun" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+    <div class="header-brand">
+      tinnitus<span class="brand-2">-app</span>
+    </div>
+    <button class="icon-btn" aria-label="Настройки">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+    </button>
+  </header>
+
+  <!-- ═══ TABS ═══ -->
+  <div class="tabs" role="tablist">
+    <button class="tab-btn active" role="tab" aria-selected="true">Препоръчани</button>
+    <button class="tab-btn" role="tab" aria-selected="false">Всички звуци</button>
+  </div>
+
+  <!-- ═══ PROFILE PILL ═══ -->
+  <div class="profile-pill">
+    За Вашия профил: <span class="profile-code">TH_C</span> Тонален висок
+  </div>
+
+  <!-- ═══ SOUND CARDS ═══ -->
+  <div class="cards-list">
+
+    <!-- Card 1 — Featured (Най-добър за Вас) -->
+    <div class="glass sound-card featured" tabindex="0" role="button" aria-label="Пусни Подводна тишина">
+      <span class="shine"></span>
+      <span class="shine shine-bottom"></span>
+      <div class="sound-card-body">
+        <div class="sound-tag">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9.5 17,14 19,21 12,17.5 5,21 7,14 2,9.5 9,9"/></svg>
+          Най-добър за Вас
+        </div>
+        <div class="sound-title">Подводна тишина</div>
+        <div class="sound-subtitle">Дълбоки честоти · 60–120 Hz</div>
+      </div>
+      <div class="sound-actions">
+        <button class="info-btn" aria-label="Информация" onclick="event.stopPropagation()">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        </button>
+        <button class="play-btn" aria-label="Пусни звука">
+          <svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="glass sound-card" tabindex="0" role="button" aria-label="Пусни Дълбок сън">
+      <span class="shine"></span>
+      <span class="shine shine-bottom"></span>
+      <div class="sound-card-body">
+        <div class="sound-title">Дълбок сън</div>
+        <div class="sound-subtitle">60% кафяв шум · 30% вълни · 10% делта тон</div>
+      </div>
+      <div class="sound-actions">
+        <button class="info-btn" aria-label="Информация" onclick="event.stopPropagation()">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        </button>
+        <button class="play-btn" aria-label="Пусни звука">
+          <svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="glass sound-card" tabindex="0" role="button" aria-label="Пусни Морски бряг">
+      <span class="shine"></span>
+      <span class="shine shine-bottom"></span>
+      <div class="sound-card-body">
+        <div class="sound-title">Морски бряг</div>
+        <div class="sound-subtitle">Бавни вълни на разстояние</div>
+      </div>
+      <div class="sound-actions">
+        <button class="info-btn" aria-label="Информация" onclick="event.stopPropagation()">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        </button>
+        <button class="play-btn" aria-label="Пусни звука">
+          <svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="glass sound-card" tabindex="0" role="button" aria-label="Пусни Тих дъжд">
+      <span class="shine"></span>
+      <span class="shine shine-bottom"></span>
+      <div class="sound-card-body">
+        <div class="sound-title">Тих дъжд</div>
+        <div class="sound-subtitle">Пролетен дъжд в гората</div>
+      </div>
+      <div class="sound-actions">
+        <button class="info-btn" aria-label="Информация" onclick="event.stopPropagation()">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        </button>
+        <button class="play-btn" aria-label="Пусни звука">
+          <svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="glass sound-card" tabindex="0" role="button" aria-label="Пусни Розов шум">
+      <span class="shine"></span>
+      <span class="shine shine-bottom"></span>
+      <div class="sound-card-body">
+        <div class="sound-title">Розов шум</div>
+        <div class="sound-subtitle">Базов терапевтичен шум</div>
+      </div>
+      <div class="sound-actions">
+        <button class="info-btn" aria-label="Информация" onclick="event.stopPropagation()">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        </button>
+        <button class="play-btn" aria-label="Пусни звука">
+          <svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══ EXPANDABLE INFO ═══ -->
+  <div class="info-expandable" id="infoExpand">
+    <button class="info-toggle" id="infoToggle" aria-expanded="false">
+      Искате ли да знаете повече?
+      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="info-content">
+      <div class="info-body">
+
+        <div class="info-section">
+          <h3>Защо тези миксове за Вас</h3>
+          <p>Вашият профил (TH_C — тонален висок тинитус) реагира най-добре на звуци с преобладаващи ниски и средни честоти. Тази комбинация частично маскира високите тонове на тинитуса, без да го „застъпва" напълно — целта е мозъкът да го свикне да чува по-малко с времето.</p>
+        </div>
+
+        <div class="info-section">
+          <h3>Какво да очаквате</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-week">Седмица 1–2</span>
+              <span class="timeline-text">По-лесно заспиване. Тинитусът все още присъства, но е по-малко натрапчив.</span>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-week">Седмица 3–4</span>
+              <span class="timeline-text">Започвате да забравяте за тинитуса по време на тиха работа. По-добра концентрация.</span>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-week">Месец 2–3</span>
+              <span class="timeline-text">Хабитуация — тинитусът се отдалечава от съзнателното внимание за дълги периоди.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <div class="disclaimer">
+            <ul>
+              <li>AURALIS е wellness инструмент, не медицински продукт.</li>
+              <li>Ако имате остри симптоми (внезапна загуба на слух, виене на свят), консултирайте се с УНГ лекар.</li>
+              <li>Слушайте на умерена сила — звукът никога не трябва да заглушава напълно тинитуса.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ═══ Theme toggle с localStorage ═══
+(function(){
+  const themeBtn = document.getElementById('themeBtn');
+  const iconMoon = document.getElementById('themeIconMoon');
+  const iconSun = document.getElementById('themeIconSun');
+
+  function setTheme(theme){
+    document.documentElement.setAttribute('data-theme', theme);
+    if (theme === 'light') {
+      iconMoon.style.display = 'none';
+      iconSun.style.display = 'block';
+    } else {
+      iconMoon.style.display = 'block';
+      iconSun.style.display = 'none';
+    }
+    try { localStorage.setItem('auralis-theme', theme); } catch(_) {}
+  }
+
+  // Възстановяване от localStorage
+  let savedTheme = 'dark';
+  try { savedTheme = localStorage.getItem('auralis-theme') || 'dark'; } catch(_) {}
+  setTheme(savedTheme);
+
+  themeBtn.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    setTheme(current === 'light' ? 'dark' : 'light');
+  });
+})();
+
+// ═══ Expandable info toggle ═══
+(function(){
+  const wrap = document.getElementById('infoExpand');
+  const btn = document.getElementById('infoToggle');
+  btn.addEventListener('click', () => {
+    const isOpen = wrap.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+})();
+
+// ═══ Sound card → play (visual mockup) ═══
+document.querySelectorAll('.sound-card').forEach(card => {
+  card.addEventListener('click', (e) => {
+    if (e.target.closest('.info-btn')) return;
+    const title = card.querySelector('.sound-title').textContent;
+    console.log('Play:', title);
+    // Тук бъдеща audio логика
+  });
+});
+</script>
+
+</body>
+</html>
