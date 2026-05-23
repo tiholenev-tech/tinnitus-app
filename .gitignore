@@ -1,0 +1,51 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# Editor
+.vscode/
+.idea/
+*.sublime-*
+
+# Node (за бъдеще)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+package-lock.json
+
+# Build (за бъдеще)
+dist/
+build/
+.cache/
+
+# Env / Secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.crt
+**/secrets/
+**/credentials/
+
+# Audio raw (твърде големи за git)
+audio/raw/
+audio/*.wav
+audio/*.aiff
+# WAV-овете са твърде големи. Само компресиран mp3/m4a/ogg в git.
+# Raw файлове се пазят локално в Desktop/auralis-audio-raw/
+
+# Test / coverage
+coverage/
+*.log
+
+# Temporary
+tmp/
+temp/
+*.tmp
