@@ -1,0 +1,190 @@
+/* AURALIS base styles — typography, layout, primitive components */
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-base);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-body);
+  background: var(--bg);
+  color: var(--text);
+  transition:
+    background var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  color: var(--text);
+}
+
+h1 { font-size: var(--font-xxl); font-weight: var(--fw-bold); letter-spacing: -0.01em; }
+h2 { font-size: var(--font-xl); }
+h3 { font-size: var(--font-lg); }
+
+p { color: var(--text); }
+
+/* ====================================================================
+   Layout
+   ==================================================================== */
+
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+  padding-block: var(--space-xxl);
+}
+
+/* ====================================================================
+   App header
+   ==================================================================== */
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  transition:
+    background var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+
+.app-header-inner {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.app-header-brand {
+  font-size: var(--font-base);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.01em;
+  color: var(--text);
+}
+
+/* ====================================================================
+   Icon button (theme toggle и др.)
+   ==================================================================== */
+
+.icon-button {
+  width: var(--tap-target);
+  height: var(--tap-target);
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  background: transparent;
+  transition:
+    background var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+
+.icon-button:hover {
+  background: var(--accent-dim);
+}
+
+.icon-button:active {
+  transform: scale(0.96);
+}
+
+.icon-button svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Theme toggle: показва правилния icon според активна тема */
+:root[data-theme="dark"] .icon-sun  { display: none; }
+:root[data-theme="dark"] .icon-moon { display: block; }
+:root[data-theme="light"] .icon-sun  { display: block; }
+:root[data-theme="light"] .icon-moon { display: none; }
+:root:not([data-theme]) .icon-sun   { display: none; }
+:root:not([data-theme]) .icon-moon  { display: block; }
+
+/* ====================================================================
+   Hello card (Етап 1 — placeholder skeleton)
+   ==================================================================== */
+
+.hello-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xxl) var(--space-xl);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  transition:
+    background var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+
+.hello-title {
+  font-size: var(--font-xxl);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.01em;
+}
+
+.hello-subtitle {
+  font-size: var(--font-lg);
+  color: var(--muted);
+  font-weight: var(--fw-medium);
+}
+
+.hello-body {
+  font-size: var(--font-base);
+  color: var(--text);
+  line-height: var(--lh-body);
+}
+
+/* ====================================================================
+   Primitive button (placeholder за бъдещи UI компоненти)
+   ==================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap-target);
+  min-width: var(--tap-target);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-family);
+  font-size: var(--font-base);
+  font-weight: var(--fw-semibold);
+  background: var(--accent);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-card-sm);
+  transition:
+    transform var(--dur-fast) var(--ease),
+    background var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+}
+
+.btn:active {
+  transform: scale(0.97);
+  box-shadow: var(--shadow-pressed);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text);
+  box-shadow: none;
+  border: 1px solid var(--border-strong);
+}
+
+.btn--ghost:hover {
+  background: var(--accent-dim);
+}

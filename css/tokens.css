@@ -1,0 +1,149 @@
+/* AURALIS Design Tokens v1.0 — bichromatic (light + dark)
+   Source: design/README.md (Тихол-confirmed dark palette)
+           + RunMyStore design system v4.0 (light neumorphism pendant + shadow recipes)
+   Default theme: dark
+   Light theme: data-theme="light" attribute on <html>
+*/
+
+:root {
+  /* === Spacing (8pt grid) === */
+  --space-xs:    4px;
+  --space-sm:    8px;
+  --space-md:   12px;
+  --space-lg:   16px;
+  --space-xl:   24px;
+  --space-xxl:  32px;
+  --space-xxxl: 48px;
+
+  /* === Typography === */
+  --font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+
+  --font-xs:   13px;
+  --font-sm:   14px;
+  --font-base: 16px;   /* 50+ четивност — минимум */
+  --font-lg:   20px;
+  --font-xl:   28px;
+  --font-xxl:  36px;
+
+  --fw-normal:   400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  --lh-body:    1.5;
+  --lh-heading: 1.2;
+
+  /* === Radii (max 16px без pills) === */
+  --radius-sm:    8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-pill: 100px;
+
+  /* === Easing & duration === */
+  --ease:        cubic-bezier(0.5, 1, 0.89, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 150ms;
+  --dur:      250ms;
+  --dur-slow: 350ms;
+
+  /* === Layout === */
+  --container-max: 480px;
+  --tap-target:     44px;   /* 50+ UX — минимум */
+
+  /* === Z-index scale === */
+  --z-content: 1;
+  --z-header: 10;
+  --z-overlay: 50;
+  --z-modal:  100;
+}
+
+/* ====================================================================
+   DARK THEME (default) — AURALIS palette от design/README.md
+   ==================================================================== */
+
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --bg:            #080813;
+  --card:          #151026;
+  --card-2:        #1E1838;
+  --border:        rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.12);
+
+  /* Accent */
+  --accent:        #4F46E5;     /* индиго primary */
+  --accent-dim:    #2A2547;
+  --accent-hover:  #6359EB;
+  --champagne:     #F1E6C8;     /* топъл акцент — за premium моменти */
+
+  /* Text */
+  --text:  #F8F5F0;
+  --muted: #8A82A8;
+  --faint: rgba(255, 255, 255, 0.4);
+
+  /* Status */
+  --success: hsl(145, 70%, 55%);
+  --warning: hsl(38, 90%, 60%);
+  --danger:  hsl(0, 85%, 60%);
+
+  /* Shadows — Neon Glass (адаптирано от RMS dark pendant, hue 255 = indigo) */
+  --shadow-card:
+    hsl(255 50% 2%) 0 10px 16px -8px,
+    hsl(255 50% 4%) 0 20px 36px -14px;
+  --shadow-card-sm:
+    hsl(255 50% 2%) 0 4px 8px -2px;
+  --shadow-pressed:
+    inset 0 2px 4px hsl(255 50% 2%);
+
+  /* Glow effects (само dark) */
+  --glow-accent:    0 0 24px hsl(244, 75%, 60%, 0.35);
+  --glow-champagne: 0 0 28px hsl(45, 70%, 75%, 0.22);
+}
+
+/* ====================================================================
+   LIGHT THEME (RMS neumorphism pendant + AURALIS accent anchor)
+   ==================================================================== */
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  /* Surfaces — soft neumorphic gray-blue с лек purple lift */
+  --bg:            #E8E3EE;   /* TBC by Тихол — RMS #e0e5ec + slight indigo undertone */
+  --card:          #E8E3EE;
+  --card-2:        #DCD6E6;   /* TBC by Тихол */
+  --border:        transparent;
+  --border-strong: rgba(30, 22, 53, 0.12);
+
+  /* Accent — anchor (same indigo #4F46E5 в двата режима) */
+  --accent:        #4F46E5;
+  --accent-dim:    #C6C0EC;   /* TBC by Тихол — light tint на accent */
+  --accent-hover:  #4039D3;
+  --champagne:     #B89456;   /* TBC by Тихол — потъмнен за контраст върху light bg */
+
+  /* Text */
+  --text:  #1E1635;
+  --muted: #5E5680;
+  --faint: rgba(30, 22, 53, 0.45);
+
+  /* Status — slightly darker за контраст */
+  --success: hsl(155, 60%, 38%);
+  --warning: hsl(38, 80%, 42%);
+  --danger:  hsl(0, 75%, 48%);
+
+  /* Shadows — Neumorphism double-convex (RMS light recipe) */
+  --shadow-card:
+    8px 8px 16px #B3ABC8,
+    -8px -8px 16px #FFFFFF;
+  --shadow-card-sm:
+    4px 4px 8px #B3ABC8,
+    -4px -4px 8px #FFFFFF;
+  --shadow-pressed:
+    inset 4px 4px 8px #B3ABC8,
+    inset -4px -4px 8px #FFFFFF;
+
+  /* Glow off в light — neumorphism сама дава дълбочина */
+  --glow-accent:    0 0 0 transparent;
+  --glow-champagne: 0 0 0 transparent;
+}
