@@ -85,13 +85,9 @@
       this.distressIndex = (diRaw === null || diRaw === '') ? null : parseInt(diRaw, 10);
 
       if (this.isQuizDone()) {
-        var savedPhase = get(KEY_PHASE);
-        if (savedPhase === 'mixer') {
-          this.current = 'mixer';
-        } else {
-          this.current = 'quiz';
-          this.quizSubphase = 'results';
-        }
+        // Quiz done → винаги към Mixer (междинният 'results' екран е премахнат).
+        // Това обхваща и legacy state където KEY_PHASE='quiz' + quizSubphase='results'.
+        this.current = 'mixer';
         return;
       }
 

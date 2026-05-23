@@ -235,8 +235,17 @@ window.Quiz = (function () {
   // ============================================================
 
   function pickScreenHtml() {
-    if (window.AppState.current === 'mixer') return renderMixerPlaceholder();
-    if (window.AppState.quizSubphase === 'results') return renderResults();
+    // Mixer phase или results subphase → делегирай към Mixer
+    // (старият results екран и mixer placeholder са премахнати).
+    if (window.AppState.current === 'mixer' ||
+        window.AppState.quizSubphase === 'results') {
+      if (window.Mixer && window.Mixer.render) {
+        window.Mixer.render();
+        return null; // Mixer пое контрол върху #app
+      }
+      // Fallback ако Mixer не е зареден — placeholder
+      return renderMixerPlaceholder();
+    }
     return renderQuestion(currentQuestionNumber());
   }
 
@@ -245,6 +254,7 @@ window.Quiz = (function () {
     if (!app) return;
 
     var html = pickScreenHtml();
+    if (html === null) return; // Mixer пое контрол; не пипай #app
 
     if (skipFade || prefersReducedMotion()) {
       app.innerHTML = html;
@@ -341,9 +351,15 @@ window.Quiz = (function () {
   function computeAndShowResults() {
     var result = window.QuizEngine.compute(window.AppState.quizAnswers);
     window.AppState.markQuizDone(result.profile, result.di);
-    window.AppState.transitionQuizSubphase('results');
-    history.pushState({ phase: 'quiz', quizSubphase: 'results' }, '');
-    render();
+    // Skip междинния results екран → директно към Mixer
+    // (profile + DI вече се показват в Mixer-а през profile pill + info-expandable)
+    window.AppState.transition('mixer');
+    history.pushState({ phase: 'mixer' }, '');
+    if (window.Mixer && window.Mixer.render) {
+      window.Mixer.render();
+    } else {
+      render(); // fallback ако Mixer модул не зареди
+    }
   }
 
   function finishToMixer() {
