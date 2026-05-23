@@ -174,7 +174,7 @@ window.Onboarding = (function () {
         '<div class="ob-illustration">' + SVG.wave + '</div>' +
 
         '<h1 class="ob-title">Контролирайте шума.<br>Възстановете покоя.</h1>' +
-        '<p class="ob-subtitle">Научно валидирана терапия за хроничен тинитус.</p>' +
+        '<p class="ob-subtitle">Звукова релаксация за облекчение при хроничен тинитус.</p>' +
 
         '<div class="ob-actions">' +
           '<button class="btn-cta" type="button" data-action="next">' +
