@@ -1,0 +1,390 @@
+/* AURALIS Quiz Wizard — 15 въпроса + резултат
+   Mobile-first, bichromatic, 50+ UX (бутони ≥64px, висок контраст) */
+
+/* ====================================================================
+   Layout
+   ==================================================================== */
+
+.quiz-screen {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  padding-block-end: var(--space-xxl);
+}
+
+/* ====================================================================
+   Top row: back + question counter
+   ==================================================================== */
+
+.quiz-top {
+  display: grid;
+  grid-template-columns: var(--tap-target) 1fr var(--tap-target);
+  align-items: center;
+  gap: var(--space-sm);
+  margin-block-end: var(--space-xs);
+}
+
+.quiz-back-spacer {
+  display: block;
+  width: var(--tap-target);
+  height: var(--tap-target);
+}
+
+.quiz-progress-text {
+  text-align: center;
+  font-size: var(--font-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+/* ====================================================================
+   Progress bar
+   ==================================================================== */
+
+.quiz-progress-track {
+  height: 6px;
+  background: var(--accent-dim);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.quiz-progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: var(--radius-pill);
+  transition: width var(--dur) var(--ease-spring);
+  box-shadow: var(--glow-accent);
+}
+
+/* ====================================================================
+   Question
+   ==================================================================== */
+
+.quiz-question {
+  font-size: var(--font-lg);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--text);
+  margin: var(--space-md) 0;
+  padding-inline: var(--space-xs);
+}
+
+/* ====================================================================
+   Option buttons (КРИТИЧНО — основният selection елемент)
+   ==================================================================== */
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.quiz-option {
+  width: 100%;
+  min-height: 64px;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--card);
+  border: 2px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  color: var(--text);
+  font-family: var(--font-family);
+  font-size: var(--font-base);
+  font-weight: var(--fw-medium);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  box-shadow: var(--shadow-card-sm);
+  cursor: pointer;
+  transition:
+    transform var(--dur-fast) var(--ease),
+    background var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+.quiz-option:hover {
+  border-color: var(--accent);
+  transform: scale(1.02);
+}
+
+.quiz-option:active {
+  transform: scale(0.99);
+}
+
+.quiz-option:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.quiz-option-letter {
+  flex-shrink: 0;
+  width: 28px;
+  font-size: var(--font-base);
+  font-weight: var(--fw-bold);
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.quiz-option-text {
+  flex: 1;
+  line-height: var(--lh-body);
+}
+
+.quiz-option-mark {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    opacity var(--dur) var(--ease),
+    transform var(--dur) var(--ease-spring);
+}
+
+.quiz-option-mark svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* === Selected state === */
+
+.quiz-option.is-selected {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-card-sm), var(--glow-accent);
+}
+
+.quiz-option.is-selected .quiz-option-letter {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.quiz-option.is-selected .quiz-option-mark {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ====================================================================
+   Results screen
+   ==================================================================== */
+
+.quiz-results-hero {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding-block: var(--space-md);
+}
+
+.quiz-results-laurel {
+  width: 48px;
+  height: 48px;
+  color: var(--champagne);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(var(--glow-champagne));
+}
+
+.quiz-results-laurel svg {
+  width: 100%;
+  height: 100%;
+}
+
+.quiz-results-eyebrow {
+  font-size: var(--font-sm);
+  font-weight: var(--fw-medium);
+  color: var(--muted);
+  margin: 0;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.quiz-results-title {
+  font-size: var(--font-xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  letter-spacing: -0.015em;
+  color: var(--text);
+  margin: 0;
+}
+
+.quiz-results-description {
+  font-size: var(--font-base);
+  color: var(--text);
+  line-height: var(--lh-body);
+  margin: 0;
+}
+
+/* ====================================================================
+   DI card
+   ==================================================================== */
+
+.quiz-di-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.quiz-di-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.quiz-di-eyebrow {
+  font-size: var(--font-sm);
+  color: var(--muted);
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.quiz-di-score {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.quiz-di-num {
+  font-size: var(--font-xl);
+  font-weight: var(--fw-bold);
+  color: var(--text);
+  line-height: 1;
+}
+
+.quiz-di-max {
+  font-size: var(--font-base);
+  color: var(--muted);
+}
+
+.quiz-di-tag {
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: var(--font-sm);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.02em;
+}
+
+/* DI tag цветове — меки за 50+ ("приемане, не страх", БЕЗ червено за аларма) */
+.quiz-di-tag--лек     { background: rgba(138, 130, 168, 0.15); color: var(--muted); }
+.quiz-di-tag--умерен  { background: rgba(241, 230, 200, 0.15); color: var(--champagne); }
+.quiz-di-tag--тежък   { background: rgba(79, 70, 229, 0.18);   color: var(--accent); }
+
+.quiz-di-bar {
+  height: 8px;
+  background: var(--accent-dim);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.quiz-di-fill {
+  /* "Приемане, не страх" — БЕЗ червено-зелен светофар.
+     Същата палитра като tags: muted (нисък DI) → champagne (умерен) → indigo (висок).
+     Червеното задейства lim­бична възбуда — точно това, което тренираме да намалим. */
+  height: 100%;
+  background: linear-gradient(90deg, var(--muted), var(--champagne), var(--accent));
+  border-radius: var(--radius-pill);
+  transition: width var(--dur-slow) var(--ease-spring);
+}
+
+.quiz-di-intensity {
+  font-size: var(--font-sm);
+  color: var(--text);
+  line-height: var(--lh-body);
+  margin: 0;
+  padding-block-start: var(--space-sm);
+  border-top: 1px solid var(--border);
+}
+
+.quiz-di-intensity strong {
+  color: var(--champagne);
+  font-weight: var(--fw-semibold);
+}
+
+/* ====================================================================
+   Recommended mixes
+   ==================================================================== */
+
+.quiz-mixes-title {
+  font-size: var(--font-lg);
+  font-weight: var(--fw-semibold);
+  margin: 0 0 var(--space-md) 0;
+  color: var(--text);
+}
+
+.quiz-mixes-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+}
+
+@media (min-width: 420px) {
+  .quiz-mixes-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.quiz-mix-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: var(--shadow-card-sm);
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.quiz-mix-card:hover {
+  transform: translateY(-2px);
+}
+
+.quiz-mix-label {
+  font-size: var(--font-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--text);
+}
+
+.quiz-mix-code {
+  font-size: 11px;
+  font-family: 'DM Mono', ui-monospace, monospace;
+  color: var(--muted);
+  letter-spacing: 0;
+}
+
+/* ====================================================================
+   Disclaimer + actions
+   ==================================================================== */
+
+.quiz-results-disclaimer {
+  font-size: var(--font-sm);
+  color: var(--muted);
+  font-style: italic;
+  text-align: center;
+  line-height: var(--lh-body);
+  margin: 0;
+}
+
+.quiz-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}

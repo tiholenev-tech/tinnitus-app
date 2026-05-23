@@ -41,8 +41,14 @@ build/
 audio/raw/
 audio/*.wav
 audio/*.aiff
+audio_files/
 # WAV-овете са твърде големи. Само компресиран mp3/m4a/ogg в git.
+# audio_files/ = Тихол's 160+ raw .wav sample library (local only)
 # Raw файлове се пазят локално в Desktop/auralis-audio-raw/
+
+# Audio analysis reports (local working files)
+audio-report.csv
+audio-report.html
 
 # Test / coverage
 coverage/

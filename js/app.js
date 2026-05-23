@@ -1,4 +1,5 @@
-// AURALIS entry point — wires theme toggle + bootstraps onboarding
+// AURALIS entry point — theme toggle + top-level router
+// Делегира към Onboarding или Quiz module според AppState.
 
 (function () {
   'use strict';
@@ -6,6 +7,10 @@
   var STORAGE_KEY = 'auralis-theme';
   var THEME_COLOR_DARK  = '#080813';
   var THEME_COLOR_LIGHT = '#E8E3EE';
+
+  // ============================================================
+  // Theme
+  // ============================================================
 
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
@@ -28,26 +33,105 @@
   function toggleTheme() {
     var next = currentTheme() === 'light' ? 'dark' : 'light';
     applyTheme(next);
-    try {
-      localStorage.setItem(STORAGE_KEY, next);
-    } catch (e) {
-      // localStorage недостъпен (private mode) — игнорираме
+    try { localStorage.setItem(STORAGE_KEY, next); } catch (e) { /* ignore */ }
+  }
+
+  // ============================================================
+  // Router
+  // ============================================================
+
+  function route() {
+    if (!window.AppState.isOnboardingDone()) {
+      if (window.Onboarding && window.Onboarding.render) {
+        window.Onboarding.render(true);
+      }
+      return;
+    }
+    // Onboarding е завършен → quiz/results/mixer
+    if (window.Quiz && window.Quiz.render) {
+      window.Quiz.render(true);
     }
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
-    var btn = document.getElementById('theme-toggle');
-    if (btn) {
-      btn.addEventListener('click', toggleTheme);
+  // ============================================================
+  // Global popstate handler — единствено централно място
+  // ============================================================
+
+  function onPopstate(e) {
+    var s = e.state || {};
+
+    // === Onboarding е завършен → quiz/mixer навигация ===
+    if (window.AppState.isOnboardingDone()) {
+      // Browser back към onboarding entries → блокирай (re-push текущото)
+      if (s.phase === 'onboarding' || s.subphase) {
+        var sub = window.AppState.quizSubphase || 'q1';
+        history.pushState({ phase: window.AppState.current, quizSubphase: sub }, '');
+        if (window.Quiz) window.Quiz.render(true);
+        return;
+      }
+
+      if (s.phase === 'mixer') {
+        window.AppState.transition('mixer');
+        if (window.Quiz) window.Quiz.render();
+        return;
+      }
+
+      if (s.quizSubphase && window.AppState.quizSubphases.indexOf(s.quizSubphase) !== -1) {
+        window.AppState.transitionQuizSubphase(s.quizSubphase);
+        if (window.AppState.current !== 'quiz') window.AppState.transition('quiz');
+        if (window.Quiz) window.Quiz.render();
+        return;
+      }
+
+      // Fallback
+      if (window.Quiz) window.Quiz.render();
+      return;
     }
+
+    // === Все още в onboarding ===
+    if (s.subphase && window.AppState.onboardingSubphases.indexOf(s.subphase) !== -1) {
+      window.AppState.transitionSubphase(s.subphase);
+      if (window.Onboarding) window.Onboarding.render();
+      return;
+    }
+
+    if (s.phase === 'quiz') {
+      window.AppState.transition('quiz');
+      if (window.Quiz) window.Quiz.render();
+      return;
+    }
+  }
+
+  // ============================================================
+  // Bootstrap
+  // ============================================================
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
     applyTheme(currentTheme());
 
-    if (window.Onboarding && typeof window.Onboarding.start === 'function') {
-      window.Onboarding.start();
-    }
+    window.AppState.load();
 
-    console.log('[auralis] app.js loaded · phase:', window.AppState.current,
+    // Initial history state според текуща фаза
+    var initialState;
+    if (!window.AppState.isOnboardingDone()) {
+      initialState = { subphase: window.AppState.subphase };
+    } else if (window.AppState.current === 'mixer') {
+      initialState = { phase: 'mixer' };
+    } else {
+      initialState = { phase: 'quiz', quizSubphase: window.AppState.quizSubphase };
+    }
+    history.replaceState(initialState, '');
+
+    window.addEventListener('popstate', onPopstate);
+
+    route();
+
+    console.log('[auralis] bootstrap · phase:', window.AppState.current,
       '· sub:', window.AppState.subphase,
-      '· done:', window.AppState.isOnboardingDone());
+      '· quiz:', window.AppState.quizSubphase,
+      '· onboarded:', window.AppState.isOnboardingDone(),
+      '· quizDone:', window.AppState.isQuizDone());
   });
 })();

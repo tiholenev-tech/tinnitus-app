@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="bg" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>tinnitus-app · icon generator</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 32px 24px 48px;
+      background: #080813;
+      color: #F8F5F0;
+      font-family: 'Montserrat', system-ui, sans-serif;
+      min-height: 100vh;
+    }
+    .wrap {
+      max-width: 720px;
+      margin-inline: auto;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin: 0 0 8px;
+    }
+    .lead {
+      color: #8A82A8;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0 0 24px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 24px 0 32px;
+    }
+    button {
+      padding: 14px 24px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      background: #4F46E5;
+      color: #FFFFFF;
+      box-shadow: 0 0 24px hsl(244, 75%, 60%, 0.35);
+      transition: transform 150ms;
+    }
+    button:hover { background: #6359EB; }
+    button:active { transform: scale(0.97); }
+    button.ghost {
+      background: transparent;
+      color: #F8F5F0;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: none;
+    }
+    button.ghost:hover { background: rgba(79, 70, 229, 0.25); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: #151026;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      text-align: center;
+    }
+    .card canvas {
+      display: block;
+      width: 100%;
+      max-width: 160px;
+      height: auto;
+      border-radius: 12px;
+      background: #000;
+    }
+    .card-label {
+      font-size: 13px;
+      color: #8A82A8;
+      font-family: 'DM Mono', ui-monospace, monospace;
+    }
+    .card-name {
+      font-size: 14px;
+      color: #F8F5F0;
+      font-weight: 600;
+    }
+    .card button {
+      width: 100%;
+      padding: 10px;
+      font-size: 13px;
+    }
+    .note {
+      margin-top: 32px;
+      padding: 16px 20px;
+      background: rgba(241, 230, 200, 0.06);
+      border: 1px solid rgba(241, 230, 200, 0.2);
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #F1E6C8;
+    }
+    .note code {
+      font-family: 'DM Mono', ui-monospace, monospace;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #F8F5F0;
+    }
+    .swatch {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>tinnitus-app · icon generator</h1>
+    <p class="lead">
+      Концентрични пръстени (звукови вълни) върху bichromatic dark фон.
+      <span class="swatch" style="background:#4F46E5"></span>indigo #4F46E5 за пръстените,
+      <span class="swatch" style="background:#F1E6C8"></span>champagne #F1E6C8 за централната точка.
+      Maskable safe area: 80% (всички елементи в централните 35% радиус).
+    </p>
+
+    <div class="actions">
+      <button onclick="downloadAll()">Свали всички 4 PNG</button>
+      <button class="ghost" onclick="renderAll()">Препрегенерирай</button>
+    </div>
+
+    <div class="grid" id="grid"></div>
+
+    <div class="note">
+      <strong>След като свалите файловете:</strong> преместете ги от папка Downloads в
+      <code>C:\Users\USER\Desktop\auralis\icons\</code>.
+      После refresh-нете <code>http://localhost:8000</code>.
+      Manifest-ът и iOS apple-touch-icon вече сочат към тези имена.
+    </div>
+  </div>
+
+  <script>
+    const ICONS = [
+      { name: 'icon-192.png',          size: 192, purpose: 'any' },
+      { name: 'icon-512.png',          size: 512, purpose: 'any' },
+      { name: 'icon-180.png',          size: 180, purpose: 'apple' },
+      { name: 'icon-maskable-512.png', size: 512, purpose: 'maskable' }
+    ];
+
+    function drawIcon(ctx, size, purpose) {
+      const cx = size / 2;
+      const cy = size / 2;
+
+      // Background: radial gradient (center indigo-tinted → edges deep dark)
+      const bg = ctx.createRadialGradient(cx, cy, 0, cx, cy, size * 0.7);
+      bg.addColorStop(0.00, '#1E1838');
+      bg.addColorStop(1.00, '#080813');
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, size, size);
+
+      // 3 concentric rings — sound wave abstraction
+      // All within 35% radius for safe maskable behavior
+      const rings = [
+        { radius: 0.32, width: 0.020, alpha: 0.35 },
+        { radius: 0.22, width: 0.018, alpha: 0.65 },
+        { radius: 0.13, width: 0.018, alpha: 1.00 }
+      ];
+
+      rings.forEach(function (r) {
+        ctx.beginPath();
+        ctx.arc(cx, cy, r.radius * size, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(79, 70, 229, ' + r.alpha + ')';
+        ctx.lineWidth = Math.max(2, r.width * size);
+        ctx.stroke();
+      });
+
+      // Central champagne dot — soft glow halo + solid core
+      const dotR = 0.060 * size;
+      const haloR = dotR * 2.6;
+
+      const halo = ctx.createRadialGradient(cx, cy, 0, cx, cy, haloR);
+      halo.addColorStop(0.00, 'rgba(241, 230, 200, 0.55)');
+      halo.addColorStop(0.50, 'rgba(241, 230, 200, 0.15)');
+      halo.addColorStop(1.00, 'rgba(241, 230, 200, 0)');
+      ctx.fillStyle = halo;
+      ctx.beginPath();
+      ctx.arc(cx, cy, haloR, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(cx, cy, dotR, 0, Math.PI * 2);
+      ctx.fillStyle = '#F1E6C8';
+      ctx.fill();
+    }
+
+    function renderCard(icon) {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      const canvas = document.createElement('canvas');
+      canvas.width = icon.size;
+      canvas.height = icon.size;
+      drawIcon(canvas.getContext('2d'), icon.size, icon.purpose);
+      card.appendChild(canvas);
+
+      const name = document.createElement('div');
+      name.className = 'card-name';
+      name.textContent = icon.name;
+      card.appendChild(name);
+
+      const label = document.createElement('div');
+      label.className = 'card-label';
+      label.textContent = icon.size + '×' + icon.size + ' · ' + icon.purpose;
+      card.appendChild(label);
+
+      const btn = document.createElement('button');
+      btn.textContent = 'Свали';
+      btn.onclick = function () { downloadCanvas(canvas, icon.name); };
+      card.appendChild(btn);
+
+      icon._canvas = canvas;
+      return card;
+    }
+
+    function renderAll() {
+      const grid = document.getElementById('grid');
+      grid.innerHTML = '';
+      ICONS.forEach(function (icon) {
+        grid.appendChild(renderCard(icon));
+      });
+    }
+
+    function downloadCanvas(canvas, filename) {
+      canvas.toBlob(function (blob) {
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        setTimeout(function () { URL.revokeObjectURL(url); }, 100);
+      }, 'image/png');
+    }
+
+    function downloadAll() {
+      ICONS.forEach(function (icon, i) {
+        // лек stagger, иначе някои браузъри блокират multi-download
+        setTimeout(function () {
+          if (icon._canvas) downloadCanvas(icon._canvas, icon.name);
+        }, i * 250);
+      });
+    }
+
+    renderAll();
+  </script>
+</body>
+</html>

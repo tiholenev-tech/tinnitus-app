@@ -282,32 +282,14 @@ window.Onboarding = (function () {
   }
 
   // ============================================================
-  // After onboarding (placeholder until quiz exists)
-  // ============================================================
-
-  function screenQuizPlaceholder() {
-    return (
-      '<article class="ob-screen" data-screen="placeholder">' +
-        '<section class="ob-placeholder-card">' +
-          '<h1 class="ob-title ob-title--sm">Onboarding завършен</h1>' +
-          '<p class="ob-placeholder-body">' +
-            'Следваща стъпка: Quiz (15 въпроса).<br>' +
-            'Този екран е placeholder — quiz wizard ще се добави в следваща задача.' +
-          '</p>' +
-          '<button class="btn btn--ghost" type="button" data-action="reset">' +
-            'Нулирай и започни отначало' +
-          '</button>' +
-        '</section>' +
-      '</article>'
-    );
-  }
-
-  // ============================================================
   // Render & transition
   // ============================================================
 
   function pickScreenHtml() {
-    if (window.AppState.isOnboardingDone()) return screenQuizPlaceholder();
+    if (window.AppState.isOnboardingDone()) {
+      // След като onboarding е завършен — Quiz модулът поема рендера
+      return null;
+    }
     switch (window.AppState.subphase) {
       case 'welcome': return screenWelcome();
       case 'value':   return screenValue();
@@ -316,13 +298,25 @@ window.Onboarding = (function () {
     }
   }
 
+  function prefersReducedMotion() {
+    return window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
   function render(skipFade) {
     var app = el('app');
     if (!app) return;
 
     var html = pickScreenHtml();
+    if (html === null) {
+      // Onboarding завършен — делегирай към Quiz
+      if (window.Quiz && window.Quiz.render) {
+        window.Quiz.render(skipFade);
+      }
+      return;
+    }
 
-    if (skipFade) {
+    if (skipFade || prefersReducedMotion()) {
       app.innerHTML = html;
       bindHandlers();
       app.classList.remove('is-fading');
@@ -376,10 +370,6 @@ window.Onboarding = (function () {
       case 'finish':
         finishOnboarding();
         break;
-      case 'reset':
-        window.AppState.reset();
-        window.location.reload();
-        break;
     }
   }
 
@@ -397,32 +387,13 @@ window.Onboarding = (function () {
     if (!window.AppState.consentGranted) return;
     window.AppState.markOnboardingDone();
     window.AppState.transition('quiz');
-    history.pushState({ phase: 'quiz' }, '');
-    render();
-  }
-
-  // ============================================================
-  // History (browser back / forward)
-  // ============================================================
-
-  function onPopstate(e) {
-    var s = e.state || {};
-
-    // След като onboarding е завършен, browser back не трябва да връща в него.
-    if (window.AppState.isOnboardingDone()) {
-      if (s.phase !== 'quiz') {
-        history.pushState({ phase: 'quiz' }, '');
-      }
-      render();
-      return;
-    }
-
-    if (s.subphase && window.AppState.onboardingSubphases.indexOf(s.subphase) !== -1) {
-      window.AppState.transitionSubphase(s.subphase);
-      render();
-    } else if (s.phase === 'quiz') {
-      window.AppState.transition('quiz');
-      render();
+    // quiz започва от q1 (или последния запазен) — Quiz.render ще го обработи
+    var startSub = window.AppState.quizSubphase || 'q1';
+    history.pushState({ phase: 'quiz', quizSubphase: startSub }, '');
+    if (window.Quiz && window.Quiz.render) {
+      window.Quiz.render();
+    } else {
+      render(); // fallback — но не би трябвало да се случи
     }
   }
 
@@ -430,16 +401,10 @@ window.Onboarding = (function () {
   // Public API
   // ============================================================
 
+  // start() е legacy — app.js сега прави routing-а централно.
+  // Запазваме за обратна съвместимост / директно извикване.
   function start() {
     window.AppState.load();
-
-    var initial = window.AppState.isOnboardingDone()
-      ? { phase: 'quiz' }
-      : { subphase: window.AppState.subphase };
-    history.replaceState(initial, '');
-
-    window.addEventListener('popstate', onPopstate);
-
     render(true);
   }
 
