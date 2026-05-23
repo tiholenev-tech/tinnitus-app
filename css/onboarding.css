@@ -1,13 +1,15 @@
-/* AURALIS Onboarding — 3-screen flow (welcome → value → consent)
-   Mobile-first, bichromatic. Theme-aware via tokens. */
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · Onboarding v2.0 — chat.php token system
+   ───────────────────────────────────────────────────────────────────
+   Visual recipes идват от base.css (.glass, .icon-btn, etc.)
+   Тук са САМО onboarding-specific layouts.
+   ═══════════════════════════════════════════════════════════════════ */
 
-/* ====================================================================
-   Container / fade
-   ==================================================================== */
+/* ───── Container fade ───── */
 
 #app {
   opacity: 1;
-  transition: opacity 200ms var(--ease);
+  transition: opacity 200ms ease;
 }
 
 #app.is-fading {
@@ -17,66 +19,73 @@
 .ob-screen {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xl);
-  padding-block-end: var(--space-xxl);
+  gap: 18px;
+  padding-top: 8px;
+  animation: fadeInUp 0.5s var(--ease-spring) both;
 }
 
-/* ====================================================================
-   Top row: back + progress
-   ==================================================================== */
+/* ═══════════════════════════════════════════════════════════════════
+   TOP ROW · back (left) + progress dots (center)
+   ═══════════════════════════════════════════════════════════════════ */
 
 .ob-top {
   display: grid;
-  grid-template-columns: var(--tap-target) 1fr var(--tap-target);
+  grid-template-columns: 40px 1fr 40px;
   align-items: center;
-  gap: var(--space-sm);
-  margin-block-end: var(--space-sm);
+  gap: 8px;
 }
 
 .ob-back-spacer {
   display: block;
-  width: var(--tap-target);
-  height: var(--tap-target);
-}
-
-.ob-back {
-  /* inherits .icon-button base */
+  width: 40px;
+  height: 40px;
 }
 
 .ob-progress {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--space-md);
+  gap: 10px;
 }
 
 .ob-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: var(--radius-pill);
-  background: var(--accent-dim);
-  transition:
-    background var(--dur) var(--ease),
-    transform var(--dur) var(--ease-spring),
-    box-shadow var(--dur) var(--ease);
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-icon);
+  transition: transform var(--dur) var(--ease-spring), box-shadow var(--dur) var(--ease);
+}
+
+[data-theme="light"] .ob-dot,
+:root:not([data-theme]) .ob-dot {
+  background: var(--surface);
+  box-shadow: var(--shadow-pressed);
+}
+
+[data-theme="dark"] .ob-dot {
+  background: hsl(220 25% 12%);
 }
 
 .ob-dot.active {
+  transform: scale(1.5);
   background: var(--accent);
-  transform: scale(1.25);
-  box-shadow: var(--glow-accent);
+  box-shadow: 0 2px 8px hsl(var(--hue1) 70% 50% / 0.45);
 }
 
-/* ====================================================================
-   Illustration (audio wave)
-   ==================================================================== */
+[data-theme="dark"] .ob-dot.active {
+  background: hsl(var(--hue1) 80% 65%);
+  box-shadow: 0 0 12px hsl(var(--hue1) 80% 60% / 0.6);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   SCREEN 1 · Wave illustration
+   ═══════════════════════════════════════════════════════════════════ */
 
 .ob-illustration {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-block: var(--space-md);
-  min-height: 140px;
+  padding: 8px 0;
+  min-height: 130px;
 }
 
 .ob-wave {
@@ -85,231 +94,288 @@
   height: auto;
 }
 
-/* ====================================================================
-   Titles & body
-   ==================================================================== */
+.ob-wave-primary {
+  animation: ob-wave-pulse 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes ob-wave-pulse {
+  0%, 100% { opacity: 0.7; }
+  50%      { opacity: 1; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TITLES & SUBTITLES
+   ═══════════════════════════════════════════════════════════════════ */
 
 .ob-title {
-  font-size: var(--font-xl);
-  font-weight: var(--fw-bold);
-  line-height: var(--lh-heading);
-  letter-spacing: -0.015em;
+  font-family: var(--font);
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   text-align: center;
+  color: var(--text);
   margin: 0;
 }
 
 .ob-title--sm {
-  font-size: var(--font-lg);
-  font-weight: var(--fw-semibold);
+  font-size: 18px;
+  font-weight: 800;
 }
 
 .ob-subtitle {
-  font-size: var(--font-base);
-  color: var(--muted);
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
   text-align: center;
-  line-height: var(--lh-body);
+  line-height: 1.5;
   max-width: 320px;
-  margin-inline: auto;
-  margin-block-start: calc(var(--space-lg) * -1);
+  margin: -6px auto 0;
 }
 
-/* ====================================================================
-   Value cards (Screen 2)
-   ==================================================================== */
+/* ═══════════════════════════════════════════════════════════════════
+   SCREEN 2 · Value cards (HTML има class="glass ob-value-card")
+   ═══════════════════════════════════════════════════════════════════ */
 
 .ob-value-list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .ob-value-card {
   display: flex;
   align-items: flex-start;
-  gap: var(--space-lg);
-  padding: var(--space-lg);
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card-sm);
-  transition:
-    background var(--dur) var(--ease),
-    box-shadow var(--dur) var(--ease),
-    border-color var(--dur) var(--ease);
+  gap: 12px;
+  padding: 14px 16px;
 }
+
+.ob-value-card > * { position: relative; z-index: 5; }
 
 .ob-value-icon {
   flex-shrink: 0;
   width: 44px;
   height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-md);
-  background: var(--accent-dim);
-  color: var(--accent);
+  border-radius: var(--radius-icon);
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border-color);
+}
+
+[data-theme="light"] .ob-value-icon,
+:root:not([data-theme]) .ob-value-icon {
+  background: var(--surface);
+  box-shadow: var(--shadow-pressed);
+  border: none;
+}
+
+[data-theme="dark"] .ob-value-icon {
+  background: hsl(220 25% 4%);
 }
 
 .ob-value-icon svg {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+[data-theme="dark"] .ob-value-icon svg {
+  stroke: hsl(var(--hue1) 80% 70%);
 }
 
 .ob-value-text {
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
 .ob-value-heading {
-  font-size: var(--font-base);
-  font-weight: var(--fw-semibold);
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 800;
   color: var(--text);
-  margin: 0 0 4px 0;
-  line-height: var(--lh-heading);
-}
-
-.ob-value-body {
-  font-size: var(--font-sm);
-  color: var(--muted);
-  line-height: var(--lh-body);
+  line-height: 1.2;
+  letter-spacing: -0.005em;
   margin: 0;
 }
 
-/* ====================================================================
-   Timeline expectations
-   ==================================================================== */
+.ob-value-body {
+  font-family: var(--font);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   SCREEN 2 · Timeline (.glass)
+   ═══════════════════════════════════════════════════════════════════ */
 
 .ob-timeline {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
-  padding: var(--space-lg) var(--space-md);
-  border-top: 1px solid var(--border-strong);
-  border-bottom: 1px solid var(--border-strong);
+  gap: 6px;
+  padding: 12px 16px;
 }
+
+.ob-timeline > * { position: relative; z-index: 5; }
 
 .ob-timeline-line {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  gap: var(--space-md);
-  font-size: var(--font-sm);
+  gap: 12px;
+  font-size: 12.5px;
   margin: 0;
 }
 
 .ob-timeline-label {
-  color: var(--muted);
+  color: var(--text-muted);
+  font-weight: 600;
 }
 
 .ob-timeline-value {
-  color: var(--champagne);
-  font-weight: var(--fw-semibold);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 800;
   font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+[data-theme="light"] .ob-timeline-value,
+:root:not([data-theme]) .ob-timeline-value {
+  color: hsl(var(--hue2) 60% 40%);
+}
+
+[data-theme="dark"] .ob-timeline-value {
+  color: hsl(var(--hue3) 70% 65%);
 }
 
 .ob-disclaimer-soft {
-  font-size: var(--font-sm);
-  color: var(--muted);
+  font-size: 12px;
+  color: var(--text-faint);
   font-style: italic;
   text-align: center;
-  line-height: var(--lh-body);
+  line-height: 1.5;
   max-width: 360px;
-  margin-inline: auto;
+  margin: 0 auto;
 }
 
-/* ====================================================================
-   Consent (Screen 3)
-   ==================================================================== */
+/* ═══════════════════════════════════════════════════════════════════
+   SCREEN 3 · Consent (.glass)
+   ═══════════════════════════════════════════════════════════════════ */
 
 .ob-consent-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xl);
-  box-shadow: var(--shadow-card);
+  padding: 18px 18px 14px;
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: 12px;
 }
 
-.ob-consent-intro,
-.ob-consent-footer {
-  font-size: var(--font-base);
+.ob-consent-card > * { position: relative; z-index: 5; }
+
+.ob-consent-intro {
+  font-size: 14px;
+  font-weight: 600;
   color: var(--text);
-  line-height: var(--lh-body);
+  line-height: 1.45;
   margin: 0;
 }
 
 .ob-consent-footer {
-  color: var(--muted);
-  font-size: var(--font-sm);
-  padding-block-start: var(--space-sm);
-  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-color);
+}
+
+[data-theme="light"] .ob-consent-footer,
+:root:not([data-theme]) .ob-consent-footer {
+  border-top: 1px solid hsl(220 18% 80%);
 }
 
 .ob-consent-list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .ob-consent-line {
   display: flex;
   align-items: flex-start;
-  gap: var(--space-md);
-  font-size: var(--font-base);
-  line-height: var(--lh-body);
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
   color: var(--text);
 }
 
 .ob-consent-icon {
   flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
 }
 
 .ob-consent-icon svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.ob-consent-line--no .ob-consent-icon {
-  color: var(--muted);
-}
+.ob-consent-line--no .ob-consent-icon { color: var(--text-faint); }
+.ob-consent-line--yes .ob-consent-icon { color: var(--success); }
 
-.ob-consent-line--yes .ob-consent-icon {
-  color: var(--success);
-}
+.ob-consent-text { flex: 1; }
 
-.ob-consent-text {
-  flex: 1;
-}
-
-/* ====================================================================
-   Custom checkbox
-   ==================================================================== */
+/* ═══════════════════════════════════════════════════════════════════
+   CUSTOM CHECKBOX (neumorphism light / glass dark)
+   ═══════════════════════════════════════════════════════════════════ */
 
 .ob-checkbox-wrap {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
-  padding: var(--space-md);
+  gap: 12px;
+  padding: 10px 14px;
   cursor: pointer;
   user-select: none;
-  min-height: var(--tap-target);
-  border-radius: var(--radius-md);
+  min-height: 44px;
+  border-radius: var(--radius-sm);
   transition: background var(--dur) var(--ease);
 }
 
-.ob-checkbox-wrap:hover {
-  background: var(--accent-dim);
+[data-theme="light"] .ob-checkbox-wrap:hover,
+:root:not([data-theme]) .ob-checkbox-wrap:hover {
+  background: hsl(220 18% 85%);
+}
+
+[data-theme="dark"] .ob-checkbox-wrap:hover {
+  background: hsl(220 25% 8%);
 }
 
 .ob-checkbox {
-  /* hide native, keep accessible */
   position: absolute;
   opacity: 0;
   width: 0;
@@ -318,21 +384,26 @@
 
 .ob-checkbox-box {
   flex-shrink: 0;
-  width: 28px;
-  height: 28px;
-  border-radius: var(--radius-sm);
-  border: 2px solid var(--border-strong);
-  background: var(--card);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition:
-    background var(--dur) var(--ease),
-    border-color var(--dur) var(--ease);
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  transition: background var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+[data-theme="light"] .ob-checkbox-box,
+:root:not([data-theme]) .ob-checkbox-box {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+}
+
+[data-theme="dark"] .ob-checkbox-box {
+  background: hsl(220 25% 8%);
+  border: 1.5px solid hsl(220 15% 30%);
 }
 
 .ob-checkbox-mark {
-  color: #FFFFFF;
   opacity: 0;
   transform: scale(0.6);
   display: inline-flex;
@@ -342,13 +413,19 @@
 }
 
 .ob-checkbox-mark svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
+  stroke: white;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .ob-checkbox:checked + .ob-checkbox-box {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: linear-gradient(135deg, hsl(var(--hue1) 70% 55%), hsl(var(--hue2) 65% 55%));
+  box-shadow: 0 4px 12px hsl(var(--hue1) 60% 50% / 0.4);
+  border: none;
 }
 
 .ob-checkbox:checked + .ob-checkbox-box .ob-checkbox-mark {
@@ -362,88 +439,73 @@
 }
 
 .ob-checkbox-label {
-  font-size: var(--font-base);
+  font-size: 13.5px;
+  font-weight: 600;
   color: var(--text);
-  line-height: var(--lh-body);
+  line-height: 1.4;
 }
 
-/* ====================================================================
-   Actions / CTA
-   ==================================================================== */
+/* ═══════════════════════════════════════════════════════════════════
+   CTA · wide pill primary button
+   ═══════════════════════════════════════════════════════════════════ */
 
 .ob-actions {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
-  margin-block-start: var(--space-md);
+  gap: 10px;
+  margin-top: 4px;
 }
 
-.btn--cta {
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   min-height: 52px;
-  padding-inline: var(--space-xl);
-  font-size: var(--font-base);
-  font-weight: var(--fw-semibold);
+  padding: 0 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.005em;
+  border: none;
   border-radius: var(--radius-pill);
-  background: var(--accent);
-  color: #FFFFFF;
-  box-shadow: var(--shadow-card-sm), var(--glow-accent);
+  cursor: pointer;
+  color: white;
+  transition: box-shadow var(--dur) var(--ease), transform var(--dur-fast) var(--ease);
 }
 
-.btn--cta:hover:not([disabled]) {
-  background: var(--accent-hover);
+[data-theme="light"] .btn-cta,
+:root:not([data-theme]) .btn-cta {
+  background: linear-gradient(135deg, hsl(var(--hue1) 65% 55%), hsl(var(--hue2) 60% 55%));
+  box-shadow:
+    0 6px 16px hsl(var(--hue1) 60% 50% / 0.35),
+    inset 0 1px 0 hsl(0 0% 100% / 0.3);
 }
 
-.btn--cta[disabled] {
-  opacity: 0.45;
+[data-theme="dark"] .btn-cta {
+  background: linear-gradient(135deg, hsl(var(--hue1) 80% 60%), hsl(var(--hue2) 80% 60%));
+  box-shadow:
+    0 6px 18px hsl(var(--hue1) 70% 50% / 0.55),
+    inset 0 1px 0 hsl(0 0% 100% / 0.2);
+}
+
+.btn-cta:active { transform: scale(var(--press)); }
+
+.btn-cta[disabled] {
+  opacity: 0.5;
   cursor: not-allowed;
-  box-shadow: var(--shadow-card-sm);
-  background: var(--accent);
 }
 
-/* ====================================================================
-   Placeholder (post-onboarding)
-   ==================================================================== */
+.btn-cta[disabled]:active { transform: none; }
 
-.ob-placeholder-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xxl) var(--space-xl);
-  box-shadow: var(--shadow-card);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
-  text-align: center;
-  align-items: center;
+.btn-cta:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
-.ob-placeholder-body {
-  font-size: var(--font-base);
-  color: var(--muted);
-  line-height: var(--lh-body);
-  margin: 0;
-}
-
-/* ====================================================================
-   Wave pulse — само главната indigo вълна в Welcome
-   ==================================================================== */
-
-.ob-wave-primary {
-  animation: ob-wave-pulse 4s ease-in-out infinite;
-  transform-origin: center;
-}
-
-@keyframes ob-wave-pulse {
-  0%, 100% { opacity: 0.7; }
-  50%      { opacity: 1; }
-}
-
-/* ====================================================================
-   Reduced motion (a11y — критично за 50+)
-   Спира wave pulse + всички transitions/animations при системно
-   "Reduce motion" setting (Windows/macOS/iOS/Android).
-   ==================================================================== */
+/* ═══════════════════════════════════════════════════════════════════
+   REDUCED MOTION (a11y)
+   ═══════════════════════════════════════════════════════════════════ */
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

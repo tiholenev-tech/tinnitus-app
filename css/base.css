@@ -1,190 +1,316 @@
-/* AURALIS base styles — typography, layout, primitive components */
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · BASE STYLES v2.0 — chat.php sacred 1:1
+   ───────────────────────────────────────────────────────────────────
+   Source: runmystore/chat.php lines 533-699 + 1386-1390 (keyframes)
+   1:1 copy с .rms-* → AURALIS class names (.header, .icon-btn, etc.)
+   ═══════════════════════════════════════════════════════════════════ */
 
-body {
-  font-family: var(--font-family);
-  font-size: var(--font-base);
-  font-weight: var(--fw-normal);
-  line-height: var(--lh-body);
-  background: var(--bg);
+/* ───── Reset (chat.php lines 533-538) ───── */
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html, body { min-height: 100%; }
+body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+button, input, a { font-family: inherit; color: inherit; }
+button { background: none; border: none; cursor: pointer; }
+a { text-decoration: none; }
+
+/* ───── Body bg light/dark (chat.php lines 580-587) ───── */
+
+:root:not([data-theme]) body,
+[data-theme="light"] body {
+  background: var(--bg-main);
   color: var(--text);
-  transition:
-    background var(--dur) var(--ease),
-    color var(--dur) var(--ease);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: var(--fw-semibold);
-  line-height: var(--lh-heading);
+[data-theme="dark"] body {
+  background:
+    radial-gradient(ellipse 800px 500px at 20% 10%, hsl(var(--hue1) 60% 35% / .22) 0%, transparent 60%),
+    radial-gradient(ellipse 700px 500px at 85% 85%, hsl(var(--hue2) 60% 35% / .22) 0%, transparent 60%),
+    linear-gradient(180deg, #0a0b14 0%, #050609 100%);
+  background-attachment: fixed;
   color: var(--text);
 }
 
-h1 { font-size: var(--font-xxl); font-weight: var(--fw-bold); letter-spacing: -0.01em; }
-h2 { font-size: var(--font-xl); }
-h3 { font-size: var(--font-lg); }
+/* ═══════════════════════════════════════════════════════════════════
+   AURORA · animated blurred blobs (само dark) — chat.php lines 589-593
+   ═══════════════════════════════════════════════════════════════════ */
 
-p { color: var(--text); }
-
-/* ====================================================================
-   Layout
-   ==================================================================== */
-
-.container {
-  max-width: var(--container-max);
-  margin-inline: auto;
-  padding-inline: var(--space-lg);
-  padding-block: var(--space-xxl);
+.aurora {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* ====================================================================
-   App header
-   ==================================================================== */
+.aurora-blob {
+  position: absolute;
+  border-radius: var(--radius-icon);
+  filter: blur(60px);
+  opacity: var(--aurora-opacity);
+  mix-blend-mode: var(--aurora-blend);
+  animation: auroraDrift 20s ease-in-out infinite;
+}
 
-.app-header {
+.aurora-blob:nth-child(1) { width: 280px; height: 280px; background: hsl(var(--hue1), 80%, 60%); top: -60px; left: -80px; }
+.aurora-blob:nth-child(2) { width: 240px; height: 240px; background: hsl(var(--hue3), 70%, 60%); top: 35%; right: -100px; animation-delay: 4s; }
+.aurora-blob:nth-child(3) { width: 200px; height: 200px; background: hsl(280, 80%, 55%); bottom: 80px; left: -50px; animation-delay: 8s; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   HEADER · 1:1 от chat.php lines 596-647 (.rms-* → AURALIS)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.header {
   position: sticky;
   top: 0;
-  z-index: var(--z-header);
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  transition:
-    background var(--dur) var(--ease),
-    border-color var(--dur) var(--ease);
-}
-
-.app-header-inner {
-  max-width: var(--container-max);
-  margin-inline: auto;
-  padding: var(--space-md) var(--space-lg);
+  z-index: 50;
+  height: 56px;
+  padding: 0 16px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-md);
+  gap: 8px;
+  border-bottom: 1px solid var(--border-color);
+  padding-top: env(safe-area-inset-top, 0);
 }
 
-.app-header-brand {
-  font-size: var(--font-base);
-  font-weight: var(--fw-semibold);
-  letter-spacing: 0.01em;
-  color: var(--text);
+[data-theme="light"] .header,
+:root:not([data-theme]) .header {
+  background: var(--bg-main);
+  box-shadow: 0 4px 12px rgba(163, 177, 198, 0.15);
 }
 
-/* ====================================================================
-   Icon button (theme toggle и др.)
-   ==================================================================== */
-
-.icon-button {
-  width: var(--tap-target);
-  height: var(--tap-target);
-  border-radius: var(--radius-pill);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text);
-  background: transparent;
-  transition:
-    background var(--dur) var(--ease),
-    color var(--dur) var(--ease),
-    transform var(--dur-fast) var(--ease);
+[data-theme="dark"] .header {
+  background: hsl(220 25% 4.8% / 0.85);
+  backdrop-filter: blur(16px);
 }
 
-.icon-button:hover {
-  background: var(--accent-dim);
-}
-
-.icon-button:active {
-  transform: scale(0.96);
-}
-
-.icon-button svg {
-  width: 22px;
-  height: 22px;
-}
-
-/* Theme toggle: показва правилния icon според активна тема */
-:root[data-theme="dark"] .icon-sun  { display: none; }
-:root[data-theme="dark"] .icon-moon { display: block; }
-:root[data-theme="light"] .icon-sun  { display: block; }
-:root[data-theme="light"] .icon-moon { display: none; }
-:root:not([data-theme]) .icon-sun   { display: none; }
-:root:not([data-theme]) .icon-moon  { display: block; }
-
-/* ====================================================================
-   Hello card (Етап 1 — placeholder skeleton)
-   ==================================================================== */
-
-.hello-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xxl) var(--space-xl);
-  box-shadow: var(--shadow-card);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
-  transition:
-    background var(--dur) var(--ease),
-    box-shadow var(--dur) var(--ease),
-    border-color var(--dur) var(--ease);
-}
-
-.hello-title {
-  font-size: var(--font-xxl);
-  font-weight: var(--fw-bold);
+.header-brand {
+  position: relative;
+  font-size: 17px;
   letter-spacing: -0.01em;
-}
-
-.hello-subtitle {
-  font-size: var(--font-lg);
-  color: var(--muted);
-  font-weight: var(--fw-medium);
-}
-
-.hello-body {
-  font-size: var(--font-base);
-  color: var(--text);
-  line-height: var(--lh-body);
-}
-
-/* ====================================================================
-   Primitive button (placeholder за бъдещи UI компоненти)
-   ==================================================================== */
-
-.btn {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: var(--tap-target);
-  min-width: var(--tap-target);
-  padding: var(--space-md) var(--space-xl);
-  border-radius: var(--radius-pill);
-  font-family: var(--font-family);
-  font-size: var(--font-base);
-  font-weight: var(--fw-semibold);
-  background: var(--accent);
-  color: #FFFFFF;
+  align-items: baseline;
+  gap: 0;
+  cursor: pointer;
+  user-select: none;
+  filter: drop-shadow(0 0 12px hsl(var(--hue1) 70% 50% / 0.4));
+}
+
+.header-brand:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.header-brand .brand-1 {
+  font-weight: 900;
+  background: linear-gradient(90deg,
+    hsl(var(--hue1) 80% 60%),
+    hsl(var(--hue2) 80% 60%),
+    hsl(var(--hue3) 70% 55%),
+    hsl(var(--hue2) 80% 60%),
+    hsl(var(--hue1) 80% 60%));
+  background-size: 200% auto;
+  animation: rmsBrandShimmer 4s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-brand .brand-2 {
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-left: 1px;
+  opacity: 0.85;
+}
+
+.header-spacer { flex: 1; }
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-icon);
+  border: 1px solid var(--border-color);
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+  transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.icon-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--text);
+  fill: none;
+  stroke-width: 2;
+}
+
+.icon-btn:active { transform: scale(var(--press)); }
+
+[data-theme="light"] .icon-btn,
+:root:not([data-theme]) .icon-btn {
   box-shadow: var(--shadow-card-sm);
-  transition:
-    transform var(--dur-fast) var(--ease),
-    background var(--dur) var(--ease),
-    box-shadow var(--dur) var(--ease);
+  border: none;
 }
 
-.btn:hover {
-  background: var(--accent-hover);
-}
-
-.btn:active {
-  transform: scale(0.97);
+[data-theme="light"] .icon-btn:active,
+:root:not([data-theme]) .icon-btn:active {
   box-shadow: var(--shadow-pressed);
 }
 
-.btn--ghost {
-  background: transparent;
-  color: var(--text);
-  box-shadow: none;
-  border: 1px solid var(--border-strong);
+[data-theme="dark"] .icon-btn {
+  background: hsl(220 25% 8% / 0.7);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px hsl(var(--hue2) 50% 4%);
 }
 
-.btn--ghost:hover {
-  background: var(--accent-dim);
+/* ═══════════════════════════════════════════════════════════════════
+   APP container (chat.php line 669)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.app {
+  position: relative;
+  z-index: 5;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 8px 12px calc(80px + env(safe-area-inset-bottom, 0));
+  /* NOTE: chat.php има 168px bottom (заради chat input bar). AURALIS
+     няма такъв, затова 80px достатъчно. */
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   GLASS · 1:1 от chat.php lines 672-686 (.shine + .glow)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.glass {
+  position: relative;
+  border-radius: var(--radius);
+  border: var(--border) solid var(--border-color);
+  isolation: isolate;
+}
+
+.glass.sm { border-radius: var(--radius-sm); }
+
+.glass .shine, .glass .glow { --hue: var(--hue1); }
+.glass .shine-bottom, .glass .glow-bottom { --hue: var(--hue2); --conic: 135deg; }
+
+[data-theme="light"] .glass,
+:root:not([data-theme]) .glass {
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  border: none;
+}
+
+[data-theme="light"] .glass .shine,
+[data-theme="light"] .glass .glow,
+:root:not([data-theme]) .glass .shine,
+:root:not([data-theme]) .glass .glow {
+  display: none;
+}
+
+[data-theme="dark"] .glass {
+  background:
+    linear-gradient(235deg, hsl(var(--hue1) 50% 10% / .8), hsl(var(--hue1) 50% 10% / 0) 33%),
+    linear-gradient(45deg, hsl(var(--hue2) 50% 10% / .8), hsl(var(--hue2) 50% 10% / 0) 33%),
+    linear-gradient(hsl(220 25% 4.8% / .78));
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-card);
+}
+
+[data-theme="dark"] .glass .shine {
+  pointer-events: none;
+  border-radius: 0;
+  border-top-right-radius: inherit;
+  border-bottom-left-radius: inherit;
+  border: 1px solid transparent;
+  width: 75%;
+  aspect-ratio: 1;
+  display: block;
+  position: absolute;
+  right: calc(var(--border) * -1);
+  top: calc(var(--border) * -1);
+  z-index: 1;
+  background: conic-gradient(from var(--conic, -45deg) at center in oklch,
+    transparent 12%,
+    hsl(var(--hue), 80%, 60%),
+    transparent 50%) border-box;
+  mask: linear-gradient(transparent), linear-gradient(black);
+  mask-clip: padding-box, border-box;
+  mask-composite: subtract;
+}
+
+[data-theme="dark"] .glass .shine.shine-bottom {
+  right: auto;
+  top: auto;
+  left: calc(var(--border) * -1);
+  bottom: calc(var(--border) * -1);
+}
+
+[data-theme="dark"] .glass .glow {
+  pointer-events: none;
+  border-top-right-radius: calc(var(--radius) * 2.5);
+  border-bottom-left-radius: calc(var(--radius) * 2.5);
+  border: calc(var(--radius) * 1.25) solid transparent;
+  inset: calc(var(--radius) * -2);
+  width: 75%;
+  aspect-ratio: 1;
+  display: block;
+  position: absolute;
+  left: auto;
+  bottom: auto;
+  background: conic-gradient(from var(--conic, -45deg) at center in oklch,
+    hsl(var(--hue), 80%, 60% / .5) 12%,
+    transparent 50%);
+  filter: blur(12px) saturate(1.25);
+  mix-blend-mode: plus-lighter;
+  z-index: 3;
+  opacity: 0.6;
+}
+
+[data-theme="dark"] .glass .glow.glow-bottom {
+  inset: auto;
+  left: calc(var(--radius) * -2);
+  bottom: calc(var(--radius) * -2);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   KEYFRAMES (chat.php lines 1385-1390)
+   ═══════════════════════════════════════════════════════════════════ */
+
+@keyframes conicSpin { to { transform: rotate(360deg); } }
+
+@keyframes auroraDrift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(30px, -25px) scale(1.1); }
+  66%      { transform: translate(-25px, 35px) scale(0.95); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes rmsBrandShimmer {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes orbSpin { to { transform: rotate(360deg); } }
+
+/* ═══════════════════════════════════════════════════════════════════
+   ACCESSIBILITY
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

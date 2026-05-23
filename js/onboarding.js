@@ -1,5 +1,13 @@
 // AURALIS Onboarding — 3-screen flow (welcome → value → consent)
 // Renders into <main id="app"> based on AppState.subphase
+//
+// Canon retrofit: HTML template strings updated да ползват:
+//  - .glass + 2 shine spans за всеки info container
+//  - .btn-cta (wide pill primary CTA per canon §3)
+//  - .icon-btn (canon class за back button)
+//  - --primary / --champagne-soft / --text-muted (canon tokens) в SVG-те
+//  - "Вие" form навсякъде (canon §1 rule 1)
+// State/persistence/handlers логика — НЕпроменена.
 
 window.Onboarding = (function () {
   'use strict';
@@ -25,9 +33,9 @@ window.Onboarding = (function () {
         '<line x1="6" y1="3" x2="6" y2="21"/>' +
         '<line x1="12" y1="3" x2="12" y2="21"/>' +
         '<line x1="18" y1="3" x2="18" y2="21"/>' +
-        '<circle cx="6" cy="9" r="2.4" fill="var(--card)"/>' +
-        '<circle cx="12" cy="15" r="2.4" fill="var(--card)"/>' +
-        '<circle cx="18" cy="7" r="2.4" fill="var(--card)"/>' +
+        '<circle cx="6" cy="9" r="2.4" fill="var(--bg-main)"/>' +
+        '<circle cx="12" cy="15" r="2.4" fill="var(--bg-main)"/>' +
+        '<circle cx="18" cy="7" r="2.4" fill="var(--bg-main)"/>' +
       '</svg>',
 
     chart:
@@ -62,6 +70,7 @@ window.Onboarding = (function () {
       '</svg>',
 
     // Audio wave illustration — стабилни звукови вълни, преминаващи в тишина
+    // Tokens: --primary (indigo wave), --champagne-soft (gold wave), --text-muted (axis)
     wave:
       '<svg class="ob-wave" viewBox="0 0 320 140" preserveAspectRatio="xMidYMid meet"' +
       ' aria-hidden="true" focusable="false">' +
@@ -70,17 +79,17 @@ window.Onboarding = (function () {
             ' gradientUnits="userSpaceOnUse">' +
             '<stop offset="0%" stop-color="var(--accent)" stop-opacity="0.95"/>' +
             '<stop offset="55%" stop-color="var(--accent)" stop-opacity="0.45"/>' +
-            '<stop offset="100%" stop-color="var(--muted)" stop-opacity="0.05"/>' +
+            '<stop offset="100%" stop-color="var(--text-muted)" stop-opacity="0.05"/>' +
           '</linearGradient>' +
           '<linearGradient id="ob-wave-grad-2" x1="0" y1="0" x2="320" y2="0"' +
             ' gradientUnits="userSpaceOnUse">' +
-            '<stop offset="0%" stop-color="var(--champagne)" stop-opacity="0.55"/>' +
-            '<stop offset="60%" stop-color="var(--champagne)" stop-opacity="0.25"/>' +
-            '<stop offset="100%" stop-color="var(--champagne)" stop-opacity="0"/>' +
+            '<stop offset="0%" stop-color="var(--accent-3)" stop-opacity="0.55"/>' +
+            '<stop offset="60%" stop-color="var(--accent-3)" stop-opacity="0.25"/>' +
+            '<stop offset="100%" stop-color="var(--accent-3)" stop-opacity="0"/>' +
           '</linearGradient>' +
         '</defs>' +
         // dashed silence axis
-        '<line x1="0" y1="70" x2="320" y2="70" stroke="var(--muted)"' +
+        '<line x1="0" y1="70" x2="320" y2="70" stroke="var(--text-muted)"' +
           ' stroke-width="1" stroke-dasharray="2 5" opacity="0.35"/>' +
         // primary wave — pulse animated via .ob-wave-primary class
         '<path class="ob-wave-primary" d="' +
@@ -115,6 +124,13 @@ window.Onboarding = (function () {
       '</svg>'
   };
 
+  // Glass card shines + glows — chat.php 1:1 (light: glow display:none auto)
+  var SHINES =
+    '<span class="shine"></span>' +
+    '<span class="shine shine-bottom"></span>' +
+    '<span class="glow"></span>' +
+    '<span class="glow glow-bottom"></span>';
+
   // ============================================================
   // Helpers
   // ============================================================
@@ -136,7 +152,7 @@ window.Onboarding = (function () {
     return (
       '<div class="ob-top">' +
         (showBack
-          ? '<button class="icon-button ob-back" type="button" data-action="back" aria-label="Назад">' +
+          ? '<button class="icon-btn ob-back" type="button" data-action="back" aria-label="Назад">' +
               SVG.back +
             '</button>'
           : '<span class="ob-back-spacer" aria-hidden="true"></span>') +
@@ -157,11 +173,11 @@ window.Onboarding = (function () {
 
         '<div class="ob-illustration">' + SVG.wave + '</div>' +
 
-        '<h1 class="ob-title">Контролирай шума.<br>Възстанови покоя.</h1>' +
+        '<h1 class="ob-title">Контролирайте шума.<br>Възстановете покоя.</h1>' +
         '<p class="ob-subtitle">Научно валидирана терапия за хроничен тинитус.</p>' +
 
         '<div class="ob-actions">' +
-          '<button class="btn btn--cta" type="button" data-action="next">' +
+          '<button class="btn-cta" type="button" data-action="next">' +
             'Започнете безплатната оценка' +
           '</button>' +
         '</div>' +
@@ -175,7 +191,8 @@ window.Onboarding = (function () {
 
   function valueCard(iconKey, heading, body) {
     return (
-      '<li class="ob-value-card">' +
+      '<li class="glass ob-value-card">' +
+        SHINES +
         '<span class="ob-value-icon" aria-hidden="true">' + SVG[iconKey] + '</span>' +
         '<div class="ob-value-text">' +
           '<h3 class="ob-value-heading">' + heading + '</h3>' +
@@ -204,7 +221,8 @@ window.Onboarding = (function () {
             'Без писане, без сложности.') +
         '</ul>' +
 
-        '<div class="ob-timeline">' +
+        '<div class="glass ob-timeline">' +
+          SHINES +
           '<p class="ob-timeline-line">' +
             '<span class="ob-timeline-label">Първи признаци на облекчение:</span>' +
             '<span class="ob-timeline-value">14–21 ден</span>' +
@@ -220,7 +238,7 @@ window.Onboarding = (function () {
         '</p>' +
 
         '<div class="ob-actions">' +
-          '<button class="btn btn--cta" type="button" data-action="next">Продължи</button>' +
+          '<button class="btn-cta" type="button" data-action="next">Продължете</button>' +
         '</div>' +
       '</article>'
     );
@@ -249,7 +267,8 @@ window.Onboarding = (function () {
 
         '<h2 class="ob-title ob-title--sm">Важно преди да продължите</h2>' +
 
-        '<section class="ob-consent-card">' +
+        '<section class="glass ob-consent-card">' +
+          SHINES +
           '<p class="ob-consent-intro">' +
             'tinnitus-app е инструмент за слухова релаксация.' +
           '</p>' +
@@ -273,8 +292,8 @@ window.Onboarding = (function () {
         '</label>' +
 
         '<div class="ob-actions">' +
-          '<button class="btn btn--cta" type="button" data-action="finish" ' + disabled + '>' +
-            'Продължи към оценка' +
+          '<button class="btn-cta" type="button" data-action="finish" ' + disabled + '>' +
+            'Продължете към оценка' +
           '</button>' +
         '</div>' +
       '</article>'
@@ -282,12 +301,11 @@ window.Onboarding = (function () {
   }
 
   // ============================================================
-  // Render & transition
+  // Render & transition (LOGIC UNCHANGED)
   // ============================================================
 
   function pickScreenHtml() {
     if (window.AppState.isOnboardingDone()) {
-      // След като onboarding е завършен — Quiz модулът поема рендера
       return null;
     }
     switch (window.AppState.subphase) {
@@ -309,7 +327,6 @@ window.Onboarding = (function () {
 
     var html = pickScreenHtml();
     if (html === null) {
-      // Onboarding завършен — делегирай към Quiz
       if (window.Quiz && window.Quiz.render) {
         window.Quiz.render(skipFade);
       }
@@ -330,7 +347,6 @@ window.Onboarding = (function () {
     setTimeout(function () {
       app.innerHTML = html;
       bindHandlers();
-      // double rAF за гарантиран reflow преди fade-in
       requestAnimationFrame(function () {
         requestAnimationFrame(function () {
           app.classList.remove('is-fading');
@@ -387,13 +403,12 @@ window.Onboarding = (function () {
     if (!window.AppState.consentGranted) return;
     window.AppState.markOnboardingDone();
     window.AppState.transition('quiz');
-    // quiz започва от q1 (или последния запазен) — Quiz.render ще го обработи
     var startSub = window.AppState.quizSubphase || 'q1';
     history.pushState({ phase: 'quiz', quizSubphase: startSub }, '');
     if (window.Quiz && window.Quiz.render) {
       window.Quiz.render();
     } else {
-      render(); // fallback — но не би трябвало да се случи
+      render();
     }
   }
 
@@ -401,8 +416,6 @@ window.Onboarding = (function () {
   // Public API
   // ============================================================
 
-  // start() е legacy — app.js сега прави routing-а централно.
-  // Запазваме за обратна съвместимост / директно извикване.
   function start() {
     window.AppState.load();
     render(true);
