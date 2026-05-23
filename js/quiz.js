@@ -349,7 +349,11 @@ window.Quiz = (function () {
   function finishToMixer() {
     window.AppState.transition('mixer');
     history.pushState({ phase: 'mixer' }, '');
-    render();
+    if (window.Mixer && window.Mixer.render) {
+      window.Mixer.render();
+    } else {
+      render(); // fallback към quiz placeholder
+    }
   }
 
   // ============================================================

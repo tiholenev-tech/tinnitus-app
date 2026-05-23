@@ -85,8 +85,13 @@
       this.distressIndex = (diRaw === null || diRaw === '') ? null : parseInt(diRaw, 10);
 
       if (this.isQuizDone()) {
-        this.current = 'quiz';
-        this.quizSubphase = 'results';
+        var savedPhase = get(KEY_PHASE);
+        if (savedPhase === 'mixer') {
+          this.current = 'mixer';
+        } else {
+          this.current = 'quiz';
+          this.quizSubphase = 'results';
+        }
         return;
       }
 

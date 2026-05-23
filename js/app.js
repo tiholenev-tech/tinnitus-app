@@ -47,7 +47,11 @@
       }
       return;
     }
-    // Onboarding е завършен → quiz/results/mixer
+    // Onboarding done → mixer / quiz / results
+    if (window.AppState.current === 'mixer' && window.Mixer && window.Mixer.render) {
+      window.Mixer.render();
+      return;
+    }
     if (window.Quiz && window.Quiz.render) {
       window.Quiz.render(true);
     }
@@ -72,7 +76,11 @@
 
       if (s.phase === 'mixer') {
         window.AppState.transition('mixer');
-        if (window.Quiz) window.Quiz.render();
+        if (window.Mixer && window.Mixer.render) {
+          window.Mixer.render();
+        } else if (window.Quiz) {
+          window.Quiz.render();
+        }
         return;
       }
 
