@@ -10,6 +10,9 @@ desktop.ini
 .idea/
 *.sublime-*
 
+# Claude Code (local permissions / cache)
+.claude/
+
 # Node (за бъдеще)
 node_modules/
 npm-debug.log*
