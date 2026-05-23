@@ -1,0 +1,454 @@
+/* AURALIS Onboarding — 3-screen flow (welcome → value → consent)
+   Mobile-first, bichromatic. Theme-aware via tokens. */
+
+/* ====================================================================
+   Container / fade
+   ==================================================================== */
+
+#app {
+  opacity: 1;
+  transition: opacity 200ms var(--ease);
+}
+
+#app.is-fading {
+  opacity: 0;
+}
+
+.ob-screen {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  padding-block-end: var(--space-xxl);
+}
+
+/* ====================================================================
+   Top row: back + progress
+   ==================================================================== */
+
+.ob-top {
+  display: grid;
+  grid-template-columns: var(--tap-target) 1fr var(--tap-target);
+  align-items: center;
+  gap: var(--space-sm);
+  margin-block-end: var(--space-sm);
+}
+
+.ob-back-spacer {
+  display: block;
+  width: var(--tap-target);
+  height: var(--tap-target);
+}
+
+.ob-back {
+  /* inherits .icon-button base */
+}
+
+.ob-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.ob-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-dim);
+  transition:
+    background var(--dur) var(--ease),
+    transform var(--dur) var(--ease-spring),
+    box-shadow var(--dur) var(--ease);
+}
+
+.ob-dot.active {
+  background: var(--accent);
+  transform: scale(1.25);
+  box-shadow: var(--glow-accent);
+}
+
+/* ====================================================================
+   Illustration (audio wave)
+   ==================================================================== */
+
+.ob-illustration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: var(--space-md);
+  min-height: 140px;
+}
+
+.ob-wave {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+}
+
+/* ====================================================================
+   Titles & body
+   ==================================================================== */
+
+.ob-title {
+  font-size: var(--font-xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  letter-spacing: -0.015em;
+  text-align: center;
+  margin: 0;
+}
+
+.ob-title--sm {
+  font-size: var(--font-lg);
+  font-weight: var(--fw-semibold);
+}
+
+.ob-subtitle {
+  font-size: var(--font-base);
+  color: var(--muted);
+  text-align: center;
+  line-height: var(--lh-body);
+  max-width: 320px;
+  margin-inline: auto;
+  margin-block-start: calc(var(--space-lg) * -1);
+}
+
+/* ====================================================================
+   Value cards (Screen 2)
+   ==================================================================== */
+
+.ob-value-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.ob-value-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card-sm);
+  transition:
+    background var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+
+.ob-value-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+.ob-value-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.ob-value-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.ob-value-heading {
+  font-size: var(--font-base);
+  font-weight: var(--fw-semibold);
+  color: var(--text);
+  margin: 0 0 4px 0;
+  line-height: var(--lh-heading);
+}
+
+.ob-value-body {
+  font-size: var(--font-sm);
+  color: var(--muted);
+  line-height: var(--lh-body);
+  margin: 0;
+}
+
+/* ====================================================================
+   Timeline expectations
+   ==================================================================== */
+
+.ob-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-lg) var(--space-md);
+  border-top: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.ob-timeline-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-md);
+  font-size: var(--font-sm);
+  margin: 0;
+}
+
+.ob-timeline-label {
+  color: var(--muted);
+}
+
+.ob-timeline-value {
+  color: var(--champagne);
+  font-weight: var(--fw-semibold);
+  font-variant-numeric: tabular-nums;
+}
+
+.ob-disclaimer-soft {
+  font-size: var(--font-sm);
+  color: var(--muted);
+  font-style: italic;
+  text-align: center;
+  line-height: var(--lh-body);
+  max-width: 360px;
+  margin-inline: auto;
+}
+
+/* ====================================================================
+   Consent (Screen 3)
+   ==================================================================== */
+
+.ob-consent-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.ob-consent-intro,
+.ob-consent-footer {
+  font-size: var(--font-base);
+  color: var(--text);
+  line-height: var(--lh-body);
+  margin: 0;
+}
+
+.ob-consent-footer {
+  color: var(--muted);
+  font-size: var(--font-sm);
+  padding-block-start: var(--space-sm);
+  border-top: 1px solid var(--border);
+}
+
+.ob-consent-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.ob-consent-line {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  font-size: var(--font-base);
+  line-height: var(--lh-body);
+  color: var(--text);
+}
+
+.ob-consent-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ob-consent-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.ob-consent-line--no .ob-consent-icon {
+  color: var(--muted);
+}
+
+.ob-consent-line--yes .ob-consent-icon {
+  color: var(--success);
+}
+
+.ob-consent-text {
+  flex: 1;
+}
+
+/* ====================================================================
+   Custom checkbox
+   ==================================================================== */
+
+.ob-checkbox-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  cursor: pointer;
+  user-select: none;
+  min-height: var(--tap-target);
+  border-radius: var(--radius-md);
+  transition: background var(--dur) var(--ease);
+}
+
+.ob-checkbox-wrap:hover {
+  background: var(--accent-dim);
+}
+
+.ob-checkbox {
+  /* hide native, keep accessible */
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.ob-checkbox-box {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--border-strong);
+  background: var(--card);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+
+.ob-checkbox-mark {
+  color: #FFFFFF;
+  opacity: 0;
+  transform: scale(0.6);
+  display: inline-flex;
+  transition:
+    opacity var(--dur) var(--ease),
+    transform var(--dur) var(--ease-spring);
+}
+
+.ob-checkbox-mark svg {
+  width: 18px;
+  height: 18px;
+}
+
+.ob-checkbox:checked + .ob-checkbox-box {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.ob-checkbox:checked + .ob-checkbox-box .ob-checkbox-mark {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.ob-checkbox:focus-visible + .ob-checkbox-box {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.ob-checkbox-label {
+  font-size: var(--font-base);
+  color: var(--text);
+  line-height: var(--lh-body);
+}
+
+/* ====================================================================
+   Actions / CTA
+   ==================================================================== */
+
+.ob-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-block-start: var(--space-md);
+}
+
+.btn--cta {
+  width: 100%;
+  min-height: 52px;
+  padding-inline: var(--space-xl);
+  font-size: var(--font-base);
+  font-weight: var(--fw-semibold);
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-card-sm), var(--glow-accent);
+}
+
+.btn--cta:hover:not([disabled]) {
+  background: var(--accent-hover);
+}
+
+.btn--cta[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: var(--shadow-card-sm);
+  background: var(--accent);
+}
+
+/* ====================================================================
+   Placeholder (post-onboarding)
+   ==================================================================== */
+
+.ob-placeholder-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xxl) var(--space-xl);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  text-align: center;
+  align-items: center;
+}
+
+.ob-placeholder-body {
+  font-size: var(--font-base);
+  color: var(--muted);
+  line-height: var(--lh-body);
+  margin: 0;
+}
+
+/* ====================================================================
+   Wave pulse — само главната indigo вълна в Welcome
+   ==================================================================== */
+
+.ob-wave-primary {
+  animation: ob-wave-pulse 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes ob-wave-pulse {
+  0%, 100% { opacity: 0.7; }
+  50%      { opacity: 1; }
+}
+
+/* ====================================================================
+   Reduced motion (a11y — критично за 50+)
+   Спира wave pulse + всички transitions/animations при системно
+   "Reduce motion" setting (Windows/macOS/iOS/Android).
+   ==================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
