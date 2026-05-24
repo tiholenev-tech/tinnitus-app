@@ -47,11 +47,17 @@
       }
       return;
     }
-    // Onboarding done → mixer / quiz / results
-    if (window.AppState.current === 'mixer' && window.Mixer && window.Mixer.render) {
+    // Onboarding done → library (primary post-quiz) / mixer (legacy) / quiz
+    var phase = window.AppState.current;
+    if (phase === 'library' && window.Library && window.Library.render) {
+      window.Library.render();
+      return;
+    }
+    if (phase === 'mixer' && window.Mixer && window.Mixer.render) {
       window.Mixer.render();
       return;
     }
+    // Quiz subphase render (incl. results → ще auto-bounce към library)
     if (window.Quiz && window.Quiz.render) {
       window.Quiz.render(true);
     }
@@ -71,6 +77,16 @@
         var sub = window.AppState.quizSubphase || 'q1';
         history.pushState({ phase: window.AppState.current, quizSubphase: sub }, '');
         if (window.Quiz) window.Quiz.render(true);
+        return;
+      }
+
+      if (s.phase === 'library') {
+        window.AppState.transition('library');
+        if (window.Library && window.Library.render) {
+          window.Library.render();
+        } else if (window.Quiz) {
+          window.Quiz.render();
+        }
         return;
       }
 
@@ -135,6 +151,8 @@
     var initialState;
     if (!window.AppState.isOnboardingDone()) {
       initialState = { subphase: window.AppState.subphase };
+    } else if (window.AppState.current === 'library') {
+      initialState = { phase: 'library' };
     } else if (window.AppState.current === 'mixer') {
       initialState = { phase: 'mixer' };
     } else {

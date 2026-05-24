@@ -227,11 +227,27 @@ window.AudioEngine = (function () {
       console.error('[audio] unknown preset:', presetId);
       return Promise.reject(new Error('Unknown preset: ' + presetId));
     }
+    return playSpec(presetId, spec);
+  }
 
+  /**
+   * playUrl(id, url) — ad-hoc playback за Library sounds
+   * Регистрира спецификацията в PRESET_MAP за бъдещи calls,
+   * после ползва обичайния pipeline.
+   */
+  function playUrl(id, url) {
+    if (!id || !url) {
+      return Promise.reject(new Error('playUrl requires id and url'));
+    }
+    var spec = { type: 'file', url: url };
+    PRESET_MAP[id] = spec;
+    return playSpec(id, spec);
+  }
+
+  function playSpec(presetId, spec) {
     init();
     unlock();
 
-    // Same preset already active → no-op
     if (activePreset === presetId && activeSource) {
       console.log('[audio] already playing:', presetId);
       return Promise.resolve();
@@ -432,6 +448,7 @@ window.AudioEngine = (function () {
     init: init,
     unlock: unlock,
     play: play,
+    playUrl: playUrl,
     pause: pause,
     stop: stop,
     setMasterVolume: setMasterVolume,

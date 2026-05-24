@@ -171,7 +171,66 @@
       }
     },
     "settings": {},
-    "trial": {}
+    "trial": {},
+    "library": {
+      "title": "Звукова библиотека",
+      "loading": "Зареждане...",
+      "empty": "Скоро ще има още звуци",
+      "errorManifest": "Грешка при зареждане на библиотеката.",
+
+      "search": {
+        "placeholder": "Търсете звук...",
+        "noResults": "Няма намерени звуци за \"{query}\"",
+        "clearAria": "Изчисти търсенето"
+      },
+
+      "favorites": {
+        "label": "Любими",
+        "count": "{n}",
+        "empty": "Натиснете ♡ върху звук, за да го запазите тук"
+      },
+
+      "cat": {
+        "all":         "Всички",
+        "ocean":       "Океан",
+        "rain":        "Дъжд",
+        "river":       "Река",
+        "underwater":  "Под вода",
+        "wind":        "Вятър",
+        "forest":      "Гора",
+        "fire":        "Огън",
+        "meditation":  "Медитация",
+        "noise":       "Шумове",
+        "ambient":     "Ambient"
+      },
+
+      "card": {
+        "durationFmt": "{m}:{s}",
+        "playAria": "Пусни {title}",
+        "favoriteAddAria": "Добави {title} в любими",
+        "favoriteRemoveAria": "Премахни {title} от любими"
+      },
+
+      "player": {
+        "playing": "Възпроизвежда се",
+        "paused": "Паузирано",
+        "playAria": "Пусни",
+        "pauseAria": "Пауза",
+        "nextAria": "Следващ звук",
+        "expandAria": "Разгъни плеъра"
+      },
+
+      "sounds": {
+        "sample_ocean_01":       { "title": "Море далечно",           "subtitle": "Тихи вълни в далечината" },
+        "sample_rain_01":        { "title": "Мек дъжд",                "subtitle": "Равномерен пролетен дъжд" },
+        "sample_underwater_01":  { "title": "Подводна тишина",         "subtitle": "Дълбоки честоти · 60–120 Hz" },
+        "sample_deep_01":        { "title": "Дълбок ambient",          "subtitle": "Спокоен басов фон" },
+        "sample_pink_01":        { "title": "Розов шум",               "subtitle": "Генериран в реално време" },
+        "sample_river_01":       { "title": "Планински поток",         "subtitle": "Placeholder (очаква се аудио)" },
+        "sample_forest_01":      { "title": "Сутрин в гората",          "subtitle": "Placeholder (очаква се аудио)" },
+        "sample_meditation_01":  { "title": "Тибетски купи · 15 мин",   "subtitle": "Placeholder (очаква се аудио)" }
+      }
+    }
   },
   "quiz": {
     "questions": {

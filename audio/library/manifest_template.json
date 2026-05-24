@@ -1,0 +1,99 @@
+{
+  "_note": "Template manifest за UI development. Library.js fetches audio/library/manifest.json първо, fallback към manifest_template.json. Истинският manifest.json се генерира от tools/build_manifest.py когато Тихол добави звуци в audio/library/.",
+  "version": "1.0-template",
+  "generated": "2026-05-24T00:00:00Z",
+  "sounds": [
+    {
+      "id": "sample_ocean_01",
+      "filename": "../presets/sea_shore.wav",
+      "title_key": "library.sounds.sample_ocean_01.title",
+      "subtitle_key": "library.sounds.sample_ocean_01.subtitle",
+      "category": "ocean",
+      "duration_sec": 240,
+      "lufs": -23.0,
+      "tags": ["loop", "sleep", "tinnitus_safe"]
+    },
+    {
+      "id": "sample_rain_01",
+      "filename": "../presets/soft_rain.wav",
+      "title_key": "library.sounds.sample_rain_01.title",
+      "subtitle_key": "library.sounds.sample_rain_01.subtitle",
+      "category": "rain",
+      "duration_sec": 180,
+      "lufs": -23.0,
+      "tags": ["loop", "tinnitus_safe"]
+    },
+    {
+      "id": "sample_underwater_01",
+      "filename": "../presets/underwater.wav",
+      "title_key": "library.sounds.sample_underwater_01.title",
+      "subtitle_key": "library.sounds.sample_underwater_01.subtitle",
+      "category": "underwater",
+      "duration_sec": 200,
+      "lufs": -23.0,
+      "tags": ["loop", "sleep", "tinnitus_safe"]
+    },
+    {
+      "id": "sample_deep_01",
+      "filename": "../presets/deep_sleep.wav",
+      "title_key": "library.sounds.sample_deep_01.title",
+      "subtitle_key": "library.sounds.sample_deep_01.subtitle",
+      "category": "ambient",
+      "duration_sec": 220,
+      "lufs": -23.0,
+      "tags": ["loop", "sleep", "tinnitus_safe"]
+    },
+    {
+      "id": "sample_pink_01",
+      "filename": "__runtime_pink__",
+      "title_key": "library.sounds.sample_pink_01.title",
+      "subtitle_key": "library.sounds.sample_pink_01.subtitle",
+      "category": "noise",
+      "duration_sec": 0,
+      "lufs": -23.0,
+      "tags": ["loop", "noise", "tinnitus_safe", "runtime_generated"]
+    },
+    {
+      "id": "sample_river_01",
+      "filename": "TODO_river_placeholder.wav",
+      "title_key": "library.sounds.sample_river_01.title",
+      "subtitle_key": "library.sounds.sample_river_01.subtitle",
+      "category": "river",
+      "duration_sec": 0,
+      "lufs": -23.0,
+      "tags": ["loop", "tinnitus_safe", "placeholder"]
+    },
+    {
+      "id": "sample_forest_01",
+      "filename": "TODO_forest_placeholder.wav",
+      "title_key": "library.sounds.sample_forest_01.title",
+      "subtitle_key": "library.sounds.sample_forest_01.subtitle",
+      "category": "forest",
+      "duration_sec": 0,
+      "lufs": -23.0,
+      "tags": ["loop", "tinnitus_safe", "placeholder"]
+    },
+    {
+      "id": "sample_meditation_01",
+      "filename": "TODO_meditation_placeholder.wav",
+      "title_key": "library.sounds.sample_meditation_01.title",
+      "subtitle_key": "library.sounds.sample_meditation_01.subtitle",
+      "category": "meditation",
+      "duration_sec": 900,
+      "lufs": -23.0,
+      "tags": ["one_shot", "tinnitus_safe", "placeholder"]
+    }
+  ],
+  "categories": [
+    { "id": "ocean",       "name_key": "library.cat.ocean",       "icon": "wave" },
+    { "id": "rain",        "name_key": "library.cat.rain",        "icon": "rain" },
+    { "id": "river",       "name_key": "library.cat.river",       "icon": "stream" },
+    { "id": "underwater",  "name_key": "library.cat.underwater",  "icon": "deep" },
+    { "id": "wind",        "name_key": "library.cat.wind",        "icon": "wind" },
+    { "id": "forest",      "name_key": "library.cat.forest",      "icon": "tree" },
+    { "id": "fire",        "name_key": "library.cat.fire",        "icon": "fire" },
+    { "id": "meditation",  "name_key": "library.cat.meditation",  "icon": "bowl" },
+    { "id": "noise",       "name_key": "library.cat.noise",       "icon": "waves" },
+    { "id": "ambient",     "name_key": "library.cat.ambient",     "icon": "drone" }
+  ]
+}

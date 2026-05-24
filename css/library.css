@@ -1,0 +1,331 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · LIBRARY STYLES — chat.php 1:1
+   ───────────────────────────────────────────────────────────────────
+   Depends on: tokens.css + base.css (header, glass, aurora, icon-btn, app)
+   Library-specific: search, category tabs, sound grid, mini player.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ═══ LOADING / EMPTY STATES ═══ */
+.lib-loading,
+.lib-empty {
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ═══ SEARCH BAR ═══ */
+.lib-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 14px;
+  border: 1px solid var(--border-color);
+}
+[data-theme="light"] .lib-search,
+:root:not([data-theme]) .lib-search {
+  background: var(--surface);
+  box-shadow: var(--shadow-pressed);
+  border: none;
+}
+[data-theme="dark"] .lib-search {
+  background: hsl(220 25% 6% / 0.6);
+  backdrop-filter: blur(8px);
+}
+.lib-search-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: var(--text-muted);
+}
+.lib-search-icon svg { width: 18px; height: 18px; }
+.lib-search-input {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  font-family: inherit;
+  letter-spacing: 0.005em;
+}
+.lib-search-input::placeholder { color: var(--text-faint); }
+.lib-search-input::-webkit-search-cancel-button { display: none; }
+.lib-search-clear {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: var(--radius-icon);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.lib-search-clear:hover {
+  color: var(--text);
+  background: hsl(var(--hue1) 20% 35% / 0.1);
+}
+.lib-search-clear svg { width: 16px; height: 16px; }
+
+/* ═══ CATEGORY TABS (horizontal scroll) ═══ */
+.lib-cats {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 0 12px;
+  margin: 0 -12px 14px;
+  padding-left: 12px;
+  padding-right: 12px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.lib-cats::-webkit-scrollbar { display: none; }
+.lib-cat-tab {
+  flex-shrink: 0;
+  min-height: 36px;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: all var(--dur) var(--ease);
+  border: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+[data-theme="light"] .lib-cat-tab,
+:root:not([data-theme]) .lib-cat-tab {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+  border: none;
+}
+[data-theme="dark"] .lib-cat-tab {
+  background: hsl(220 25% 5% / 0.5);
+  backdrop-filter: blur(8px);
+}
+.lib-cat-tab.is-active {
+  color: white;
+  background: linear-gradient(135deg, hsl(var(--hue1) 70% 55%), hsl(var(--hue2) 65% 55%));
+  box-shadow: 0 4px 12px hsl(var(--hue1) 60% 45% / 0.4);
+  border: none;
+}
+[data-theme="light"] .lib-cat-tab.is-active,
+:root:not([data-theme]) .lib-cat-tab.is-active {
+  box-shadow:
+    0 6px 14px hsl(var(--hue1) 60% 50% / 0.35),
+    inset 0 1px 0 hsl(0 0% 100% / 0.3);
+}
+
+/* ═══ SOUND GRID (2 colums) ═══ */
+.lib-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 80px; /* place for mini player */
+}
+
+.lib-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 12px 12px;
+  cursor: pointer;
+  min-height: 156px;
+  transition: transform var(--dur-fast) var(--ease);
+}
+.lib-card:active { transform: scale(0.98); }
+.lib-card > * { position: relative; z-index: 5; }
+.lib-card.is-playing {
+  box-shadow: var(--shadow-card), 0 0 0 2px hsl(var(--hue3) 70% 55%);
+}
+[data-theme="dark"] .lib-card.is-playing {
+  box-shadow: var(--shadow-card), 0 0 16px hsl(var(--hue3) 70% 55% / 0.5);
+}
+
+.lib-card-icon {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-sm);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+[data-theme="light"] .lib-card-icon,
+:root:not([data-theme]) .lib-card-icon {
+  background: hsl(var(--hue2) 55% 92%);
+}
+[data-theme="dark"] .lib-card-icon {
+  background: hsl(var(--hue1) 40% 14% / 0.6);
+  color: hsl(var(--hue3) 70% 70%);
+}
+.lib-card-icon svg { width: 22px; height: 22px; }
+
+.lib-card-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.lib-card-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  /* clamp 2 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.lib-card-subtitle {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.lib-card-meta {
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.lib-card-duration {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-faint);
+  letter-spacing: 0.04em;
+}
+
+/* Favorite button — top-right corner */
+.lib-card-fav {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: var(--radius-icon);
+  background: transparent;
+  color: var(--text-faint);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  z-index: 10;
+  transition: color var(--dur) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.lib-card-fav:hover { color: hsl(0 75% 60%); }
+.lib-card-fav:active { transform: scale(0.9); }
+.lib-card-fav.is-active { color: hsl(0 75% 60%); }
+.lib-card-fav svg { width: 18px; height: 18px; }
+
+/* ═══ MINI PLAYER (sticky bottom) ═══ */
+.lib-miniplayer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 80;
+  margin: 0 auto;
+  max-width: 480px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0));
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  animation: libMpSlideUp 0.3s var(--ease-spring);
+}
+[data-theme="light"] .lib-miniplayer,
+:root:not([data-theme]) .lib-miniplayer {
+  background: var(--bg-main);
+  box-shadow: 0 -8px 24px rgba(163, 177, 198, 0.4);
+}
+[data-theme="dark"] .lib-miniplayer {
+  background: hsl(220 25% 6% / 0.92);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border-color);
+}
+.lib-mp-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.lib-mp-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.lib-mp-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lib-mp-subtitle {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lib-mp-btn {
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: var(--radius-icon);
+  background: linear-gradient(135deg, hsl(var(--hue1) 70% 55%), hsl(var(--hue2) 65% 55%));
+  color: white;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  box-shadow:
+    0 4px 14px hsl(var(--hue1) 60% 45% / 0.45),
+    inset 0 1px 0 hsl(0 0% 100% / 0.2);
+  transition: transform var(--dur-fast) var(--ease);
+}
+.lib-mp-btn:active { transform: scale(var(--press)); }
+.lib-mp-btn svg { width: 18px; height: 18px; }
+
+@keyframes libMpSlideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lib-miniplayer { animation: none; }
+}

@@ -18,7 +18,7 @@
   var KEY_QUIZ_PROFILE  = 'auralis-quiz-profile';
   var KEY_QUIZ_DI       = 'auralis-quiz-di';
 
-  var PHASES = ['onboarding', 'quiz', 'results', 'mixer'];
+  var PHASES = ['onboarding', 'quiz', 'results', 'mixer', 'library'];
   var ONBOARDING_SUBPHASES = ['welcome', 'value', 'consent'];
 
   function quizSubphaseList() {
@@ -85,9 +85,14 @@
       this.distressIndex = (diRaw === null || diRaw === '') ? null : parseInt(diRaw, 10);
 
       if (this.isQuizDone()) {
-        // Quiz done → винаги към Mixer (междинният 'results' екран е премахнат).
-        // Това обхваща и legacy state където KEY_PHASE='quiz' + quizSubphase='results'.
-        this.current = 'mixer';
+        // Quiz done → primary destination = Library.
+        // Honor saved phase (mixer/library), fallback на library.
+        var savedPhase = get(KEY_PHASE);
+        if (savedPhase === 'mixer' || savedPhase === 'library') {
+          this.current = savedPhase;
+        } else {
+          this.current = 'library';
+        }
         return;
       }
 

@@ -38,10 +38,13 @@ build/
 **/credentials/
 
 # Audio assets (per BIBLE v3 §6 — offline-first, Capacitor-bundled)
-audio/
+# Ignore WAV/AIFF anywhere в audio/ (твърде големи за git), но **позволи** JSON
+# manifest файлове (нужни за UI development без local audio).
+audio/**/*.wav
+audio/**/*.aiff
+audio/**/*.mp3
+audio/**/*.m4a
 audio/raw/
-audio/*.wav
-audio/*.aiff
 audio_files/
 audio_files_safe39/
 audio_files_safe39_normalized/

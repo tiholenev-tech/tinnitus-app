@@ -273,15 +273,18 @@ window.Quiz = (function () {
   // ============================================================
 
   function pickScreenHtml() {
-    // Mixer phase или results subphase → делегирай към Mixer
-    // (старият results екран и mixer placeholder са премахнати).
-    if (window.AppState.current === 'mixer' ||
+    var phase = window.AppState.current;
+    // Library / Mixer / results subphase → делегирай към съответния модул
+    if (phase === 'library' || phase === 'mixer' ||
         window.AppState.quizSubphase === 'results') {
+      if (phase !== 'mixer' && window.Library && window.Library.render) {
+        window.Library.render();
+        return null;
+      }
       if (window.Mixer && window.Mixer.render) {
         window.Mixer.render();
-        return null; // Mixer пое контрол върху #app
+        return null;
       }
-      // Fallback ако Mixer не е зареден — placeholder
       return renderMixerPlaceholder();
     }
     return renderQuestion(currentQuestionNumber());
@@ -390,24 +393,29 @@ window.Quiz = (function () {
   function computeAndShowResults() {
     var result = window.QuizEngine.compute(window.AppState.quizAnswers);
     window.AppState.markQuizDone(result.profile, result.di);
-    // Skip междинния results екран → директно към Mixer
-    // (profile + DI вече се показват в Mixer-а през profile pill + info-expandable)
-    window.AppState.transition('mixer');
-    history.pushState({ phase: 'mixer' }, '');
-    if (window.Mixer && window.Mixer.render) {
+    // Quiz finish → Library (primary per BIBLE v3.1 §11).
+    // Mixer запазен като legacy entry point ('simple mode').
+    window.AppState.transition('library');
+    history.pushState({ phase: 'library' }, '');
+    if (window.Library && window.Library.render) {
+      window.Library.render();
+    } else if (window.Mixer && window.Mixer.render) {
       window.Mixer.render();
     } else {
-      render(); // fallback ако Mixer модул не зареди
+      render();
     }
   }
 
   function finishToMixer() {
-    window.AppState.transition('mixer');
-    history.pushState({ phase: 'mixer' }, '');
-    if (window.Mixer && window.Mixer.render) {
+    // Backward compat: action='finish' от стария results screen → Library
+    window.AppState.transition('library');
+    history.pushState({ phase: 'library' }, '');
+    if (window.Library && window.Library.render) {
+      window.Library.render();
+    } else if (window.Mixer && window.Mixer.render) {
       window.Mixer.render();
     } else {
-      render(); // fallback към quiz placeholder
+      render();
     }
   }
 

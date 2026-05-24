@@ -171,7 +171,66 @@
       }
     },
     "settings": {},
-    "trial": {}
+    "trial": {},
+    "library": {
+      "title": "TODO: Sound library",
+      "loading": "TODO: Loading...",
+      "empty": "TODO: More sounds coming soon",
+      "errorManifest": "TODO: Error loading library.",
+
+      "search": {
+        "placeholder": "TODO: Search sounds...",
+        "noResults": "TODO: No sounds found for \"{query}\"",
+        "clearAria": "TODO: Clear search"
+      },
+
+      "favorites": {
+        "label": "TODO: Favorites",
+        "count": "{n}",
+        "empty": "TODO: Tap ♡ on a sound to save it here"
+      },
+
+      "cat": {
+        "all":         "TODO: All",
+        "ocean":       "TODO: Ocean",
+        "rain":        "TODO: Rain",
+        "river":       "TODO: River",
+        "underwater":  "TODO: Underwater",
+        "wind":        "TODO: Wind",
+        "forest":      "TODO: Forest",
+        "fire":        "TODO: Fire",
+        "meditation":  "TODO: Meditation",
+        "noise":       "TODO: Noise",
+        "ambient":     "TODO: Ambient"
+      },
+
+      "card": {
+        "durationFmt": "{m}:{s}",
+        "playAria": "TODO: Play {title}",
+        "favoriteAddAria": "TODO: Add {title} to favorites",
+        "favoriteRemoveAria": "TODO: Remove {title} from favorites"
+      },
+
+      "player": {
+        "playing": "TODO: Playing",
+        "paused": "TODO: Paused",
+        "playAria": "TODO: Play",
+        "pauseAria": "TODO: Pause",
+        "nextAria": "TODO: Next sound",
+        "expandAria": "TODO: Expand player"
+      },
+
+      "sounds": {
+        "sample_ocean_01":       { "title": "TODO: Distant ocean",       "subtitle": "TODO: Quiet waves in the distance" },
+        "sample_rain_01":        { "title": "TODO: Soft rain",            "subtitle": "TODO: Steady spring rain" },
+        "sample_underwater_01":  { "title": "TODO: Underwater silence",   "subtitle": "TODO: Deep frequencies · 60–120 Hz" },
+        "sample_deep_01":        { "title": "TODO: Deep ambient",         "subtitle": "TODO: Calm bass background" },
+        "sample_pink_01":        { "title": "TODO: Pink noise",           "subtitle": "TODO: Generated in real time" },
+        "sample_river_01":       { "title": "TODO: Mountain stream",      "subtitle": "TODO: Placeholder (audio pending)" },
+        "sample_forest_01":      { "title": "TODO: Morning in the forest","subtitle": "TODO: Placeholder (audio pending)" },
+        "sample_meditation_01":  { "title": "TODO: Tibetan bowls · 15 min","subtitle": "TODO: Placeholder (audio pending)" }
+      }
+    }
   },
   "quiz": {
     "_note": "All quiz strings са TODO placeholders. Запазена структура; DeepL Phase 2 ще попълни преводите от bg.json.",
