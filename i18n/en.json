@@ -7,52 +7,61 @@
     "status": "stub (TODO — DeepL translation pending in Phase 2)",
     "note": "All non-meta strings са TODO placeholders. Bg.json е authoritative source."
   },
-
   "ui": {
     "meta": {
       "title": "tinnitus-app",
       "description": "TODO: A sound relaxation tool for tinnitus"
     },
-
     "header": {
       "brandHomeAria": "TODO: Back to home",
       "themeToggleAria": "TODO: Toggle theme",
       "settingsAria": "TODO: Settings"
     },
-
     "onboarding": {
       "back": "TODO: Back",
       "progressLabel": "TODO: Step {step} of 3",
-
       "welcome": {
         "title": "TODO: Control the noise.<br>Restore your peace.",
         "subtitle": "TODO: Sound relaxation for chronic tinnitus relief.",
         "cta": "TODO: Start free assessment"
       },
-
       "value": {
         "title": "TODO: What you'll get",
         "cards": {
-          "mixer":  { "heading": "TODO: Personalized sound mix", "body": "TODO: Based on your tinnitus profile." },
-          "chart":  { "heading": "TODO: Progress diary",          "body": "TODO: See your improvement in numbers." },
-          "voice":  { "heading": "TODO: Voice assistant",         "body": "TODO: No typing, no complexity." }
+          "mixer": {
+            "heading": "TODO: Personalized sound mix",
+            "body": "TODO: Based on your tinnitus profile."
+          },
+          "chart": {
+            "heading": "TODO: Progress diary",
+            "body": "TODO: See your improvement in numbers."
+          },
+          "voice": {
+            "heading": "TODO: Voice assistant",
+            "body": "TODO: No typing, no complexity."
+          }
         },
         "timeline": {
-          "relief":      { "label": "TODO: First signs of relief:", "value": "TODO: 14–21 days" },
-          "habituation": { "label": "TODO: Full habituation:",      "value": "TODO: 8–12 weeks" }
+          "relief": {
+            "label": "TODO: First signs of relief:",
+            "value": "TODO: 14–21 days"
+          },
+          "habituation": {
+            "label": "TODO: Full habituation:",
+            "value": "TODO: 8–12 weeks"
+          }
         },
         "disclaimerSoft": "TODO: We don't promise miracles. We train the brain to ignore the sound.",
         "cta": "TODO: Continue"
       },
-
       "consent": {
         "title": "TODO: Important before continuing",
         "intro": "TODO: tinnitus-app is a sound relaxation tool.",
         "lines": {
-          "noReplaceConsult":  "TODO: Does not replace medical consultation",
-          "noTreatment":       "TODO: Does not cure tinnitus",
-          "helpsHabituation":  "TODO: Helps with habituation and relaxation",
-          "resultsVary":       "TODO: Results vary individually"
+          "noReplaceConsult": "TODO: Does not replace medical consultation",
+          "noTreatment": "TODO: Does not cure tinnitus",
+          "helpsHabituation": "TODO: Helps with habituation and relaxation",
+          "resultsVary": "TODO: Results vary individually"
         },
         "footer": "TODO: For acute symptoms, consult a doctor.",
         "checkboxLabel": "TODO: I understand and agree",
@@ -65,7 +74,6 @@
       "progressAria": "TODO: Progress {n} of {total}",
       "errorQuestionMissing": "TODO: Error: question {n} does not exist.",
       "confirmRestart": "TODO: Are you sure? This will delete all answers and start over.",
-
       "results": {
         "computing": "TODO: Computing...",
         "notComputed": "TODO: Profile not yet computed.",
@@ -79,7 +87,6 @@
         "continueToMixer": "TODO: Continue to Mixer",
         "restart": "TODO: Restart assessment"
       },
-
       "mixerPlaceholder": {
         "title": "TODO: Mixer coming soon",
         "body": "TODO: Web Audio engine + 5 channels + Sleep Mode coming in next task.",
@@ -91,37 +98,29 @@
         "recommended": "TODO: Recommended",
         "all": "TODO: All sounds"
       },
-
       "profilePillPrefix": "TODO: For your profile: ",
       "starTag": "TODO: Best for you",
-
       "volumeAria": "TODO: Volume 0 to 100",
-
       "playAria": "TODO: Play {title}",
       "playGenericAria": "TODO: Play",
       "infoAria": "TODO: Info",
-
       "infoLoadingMissing": "TODO: Loading... (entry \"{key}\" not found).",
       "categoriesLoading": "TODO: Loading...",
       "categoryCountSuffix": "TODO: {n} files",
-
       "sleepBtn": "TODO: Sleep timer",
       "sleepBtnAria": "TODO: Sleep timer",
       "sleepCurrentSuffix": "TODO: · {n} min",
-
       "sourcePrefix": "TODO: Source: ",
       "infoToggle": "TODO: Want to know more?",
-
       "sleepOverlay": {
         "title": "TODO: Sleep timer",
         "sub": "TODO: Sound will fade out smoothly after the chosen time",
-        "chip15":  "TODO: 15 minutes",
-        "chip30":  "TODO: 30 minutes",
-        "chip60":  "TODO: 60 minutes",
+        "chip15": "TODO: 15 minutes",
+        "chip30": "TODO: 30 minutes",
+        "chip60": "TODO: 60 minutes",
         "chip120": "TODO: 120 minutes",
-        "cancel":  "TODO: Cancel timer"
+        "cancel": "TODO: Cancel timer"
       },
-
       "infoExpand": {
         "whyForYou": {
           "title": "TODO: Why these mixes for you",
@@ -129,9 +128,18 @@
         },
         "expectations": {
           "title": "TODO: What to expect",
-          "weeks1_2":  { "label": "TODO: Week 1–2",   "text": "TODO: Easier falling asleep." },
-          "weeks3_4":  { "label": "TODO: Week 3–4",   "text": "TODO: You start to forget tinnitus during quiet work." },
-          "months2_3": { "label": "TODO: Month 2–3",  "text": "TODO: Habituation — tinnitus moves away from attention." }
+          "weeks1_2": {
+            "label": "TODO: Week 1–2",
+            "text": "TODO: Easier falling asleep."
+          },
+          "weeks3_4": {
+            "label": "TODO: Week 3–4",
+            "text": "TODO: You start to forget tinnitus during quiet work."
+          },
+          "months2_3": {
+            "label": "TODO: Month 2–3",
+            "text": "TODO: Habituation — tinnitus moves away from attention."
+          }
         },
         "disclaimer": [
           "TODO: AURALIS is a wellness tool, not a medical product.",
@@ -139,67 +147,374 @@
           "TODO: Listen at moderate volume."
         ]
       },
-
       "cards": {
-        "underwater":  { "title": "TODO: Underwater silence", "subtitle": "TODO: Deep frequencies · 60–120 Hz" },
-        "deep_calm":   { "title": "TODO: Deep sleep",         "subtitle": "TODO: 60% brown · 30% waves · 10% delta" },
-        "sea_shore":   { "title": "TODO: Sea shore",          "subtitle": "TODO: Slow waves in the distance" },
-        "pink_rain":   { "title": "TODO: Soft rain",          "subtitle": "TODO: Spring rain in the forest" },
-        "brown_noise": { "title": "TODO: Pink noise",         "subtitle": "TODO: Base relief sound" }
+        "underwater": {
+          "title": "TODO: Underwater silence",
+          "subtitle": "TODO: Deep frequencies · 60–120 Hz"
+        },
+        "deep_calm": {
+          "title": "TODO: Deep sleep",
+          "subtitle": "TODO: 60% brown · 30% waves · 10% delta"
+        },
+        "sea_shore": {
+          "title": "TODO: Sea shore",
+          "subtitle": "TODO: Slow waves in the distance"
+        },
+        "pink_rain": {
+          "title": "TODO: Soft rain",
+          "subtitle": "TODO: Spring rain in the forest"
+        },
+        "brown_noise": {
+          "title": "TODO: Pink noise",
+          "subtitle": "TODO: Base relief sound"
+        }
       }
     },
     "settings": {},
     "trial": {}
   },
-
   "quiz": {
     "_note": "All quiz strings са TODO placeholders. Запазена структура; DeepL Phase 2 ще попълни преводите от bg.json.",
-
     "questions": {
-      "q1":  { "text": "TODO: What sound do you hear?",                "options": { "a": "TODO: Ringing (high tone)", "b": "TODO: Buzzing (low tone)", "c": "TODO: Hissing (like steam)", "d": "TODO: Pulsing", "e": "TODO: Other / not sure" } },
-      "q2":  { "text": "TODO: What is the pitch of the sound?",        "options": { "a": "TODO: High (like a whistle)", "b": "TODO: Medium (like a mosquito)", "c": "TODO: Low (like rumbling)", "d": "TODO: Not sure" } },
-      "q3":  { "text": "TODO: In which ear do you hear it?",            "options": { "a": "TODO: Only left", "b": "TODO: Only right", "c": "TODO: Both", "d": "TODO: In my head (not from ears)" } },
-      "q4":  { "text": "TODO: When do you hear the sound?",             "options": { "a": "TODO: Constantly", "b": "TODO: Comes and goes", "c": "TODO: Only in silence", "d": "TODO: Only in the evening" } },
-      "q5":  { "text": "TODO: When is it LOUDEST?",                     "options": { "a": "TODO: Morning", "b": "TODO: During the day", "c": "TODO: Evening", "d": "TODO: At night", "e": "TODO: No difference" } },
-      "q6":  { "text": "TODO: How long have you had tinnitus?",         "options": { "a": "TODO: Less than 6 months", "b": "TODO: 6 months – 2 years", "c": "TODO: 2 – 5 years", "d": "TODO: More than 5 years" } },
-      "q7":  { "text": "TODO: Was there a loud sound before onset?",    "options": { "a": "TODO: Concert / loud music", "b": "TODO: Explosion / gunfire", "c": "TODO: Work in noisy environment", "d": "TODO: I don't remember anything specific" } },
-      "q8":  { "text": "TODO: Do you have hearing loss?",               "options": { "a": "TODO: Yes, clearly", "b": "TODO: Maybe slightly", "c": "TODO: No", "d": "TODO: Haven't checked" } },
-      "q9":  { "text": "TODO: Do you have other conditions? (info only)", "options": { "a": "TODO: High blood pressure", "b": "TODO: Diabetes", "c": "TODO: Anxiety / stress", "d": "TODO: Nothing particular", "e": "TODO: Prefer not to answer" } },
-      "q10": { "text": "TODO: How much does tinnitus affect your sleep?", "options": { "a": "TODO: Not at all", "b": "TODO: A little", "c": "TODO: Quite a lot", "d": "TODO: I can't sleep" } },
-      "q11": { "text": "TODO: How much does it affect concentration?",   "options": { "a": "TODO: Not at all", "b": "TODO: A little", "c": "TODO: Quite a lot", "d": "TODO: I can't focus" } },
-      "q12": { "text": "TODO: How stressful is it for you (0-10)?",      "options": { "a": "TODO: 0–2 (minimal stress)", "b": "TODO: 3–5 (mild to moderate)", "c": "TODO: 6–8 (strong stress)", "d": "TODO: 9–10 (unbearable stress)" } },
-      "q13": { "text": "TODO: What have you tried so far?",              "options": { "a": "TODO: Medication", "b": "TODO: Hearing aids", "c": "TODO: Sound therapy", "d": "TODO: Meditation", "e": "TODO: Nothing yet" } },
-      "q14": { "text": "TODO: What helps you the most?",                 "options": { "a": "TODO: Silence", "b": "TODO: Soft noise", "c": "TODO: Loud noise", "d": "TODO: Nature", "e": "TODO: Nothing helps" } },
-      "q15": { "text": "TODO: What do you expect from the app?",         "options": { "a": "TODO: Better sleep", "b": "TODO: Masking the noise", "c": "TODO: Less stress", "d": "TODO: Long-term change" } }
+      "q1": {
+        "text": "TODO: What sound do you hear?",
+        "options": {
+          "a": "TODO: Ringing (high tone)",
+          "b": "TODO: Buzzing (low tone)",
+          "c": "TODO: Hissing (like steam)",
+          "d": "TODO: Pulsing",
+          "e": "TODO: Other / not sure"
+        }
+      },
+      "q2": {
+        "text": "TODO: What is the pitch of the sound?",
+        "options": {
+          "a": "TODO: High (like a whistle)",
+          "b": "TODO: Medium (like a mosquito)",
+          "c": "TODO: Low (like rumbling)",
+          "d": "TODO: Not sure"
+        }
+      },
+      "q3": {
+        "text": "TODO: In which ear do you hear it?",
+        "options": {
+          "a": "TODO: Only left",
+          "b": "TODO: Only right",
+          "c": "TODO: Both",
+          "d": "TODO: In my head (not from ears)"
+        }
+      },
+      "q4": {
+        "text": "TODO: When do you hear the sound?",
+        "options": {
+          "a": "TODO: Constantly",
+          "b": "TODO: Comes and goes",
+          "c": "TODO: Only in silence",
+          "d": "TODO: Only in the evening"
+        }
+      },
+      "q5": {
+        "text": "TODO: When is it LOUDEST?",
+        "options": {
+          "a": "TODO: Morning",
+          "b": "TODO: During the day",
+          "c": "TODO: Evening",
+          "d": "TODO: At night",
+          "e": "TODO: No difference"
+        }
+      },
+      "q6": {
+        "text": "TODO: How long have you had tinnitus?",
+        "options": {
+          "a": "TODO: Less than 6 months",
+          "b": "TODO: 6 months – 2 years",
+          "c": "TODO: 2 – 5 years",
+          "d": "TODO: More than 5 years"
+        }
+      },
+      "q7": {
+        "text": "TODO: Was there a loud sound before onset?",
+        "options": {
+          "a": "TODO: Concert / loud music",
+          "b": "TODO: Explosion / gunfire",
+          "c": "TODO: Work in noisy environment",
+          "d": "TODO: I don't remember anything specific"
+        }
+      },
+      "q8": {
+        "text": "TODO: Do you have hearing loss?",
+        "options": {
+          "a": "TODO: Yes, clearly",
+          "b": "TODO: Maybe slightly",
+          "c": "TODO: No",
+          "d": "TODO: Haven't checked"
+        }
+      },
+      "q9": {
+        "text": "TODO: Do you have other conditions? (info only)",
+        "options": {
+          "a": "TODO: High blood pressure",
+          "b": "TODO: Diabetes",
+          "c": "TODO: Anxiety / stress",
+          "d": "TODO: Nothing particular",
+          "e": "TODO: Prefer not to answer"
+        }
+      },
+      "q10": {
+        "text": "TODO: How much does tinnitus affect your sleep?",
+        "options": {
+          "a": "TODO: Not at all",
+          "b": "TODO: A little",
+          "c": "TODO: Quite a lot",
+          "d": "TODO: I can't sleep"
+        }
+      },
+      "q11": {
+        "text": "TODO: How much does it affect concentration?",
+        "options": {
+          "a": "TODO: Not at all",
+          "b": "TODO: A little",
+          "c": "TODO: Quite a lot",
+          "d": "TODO: I can't focus"
+        }
+      },
+      "q12": {
+        "text": "TODO: How stressful is it for you (0-10)?",
+        "options": {
+          "a": "TODO: 0–2 (minimal stress)",
+          "b": "TODO: 3–5 (mild to moderate)",
+          "c": "TODO: 6–8 (strong stress)",
+          "d": "TODO: 9–10 (unbearable stress)"
+        }
+      },
+      "q13": {
+        "text": "TODO: What have you tried so far?",
+        "options": {
+          "a": "TODO: Medication",
+          "b": "TODO: Hearing aids",
+          "c": "TODO: Sound therapy",
+          "d": "TODO: Meditation",
+          "e": "TODO: Nothing yet"
+        }
+      },
+      "q14": {
+        "text": "TODO: What helps you the most?",
+        "options": {
+          "a": "TODO: Silence",
+          "b": "TODO: Soft noise",
+          "c": "TODO: Loud noise",
+          "d": "TODO: Nature",
+          "e": "TODO: Nothing helps"
+        }
+      },
+      "q15": {
+        "text": "TODO: What do you expect from the app?",
+        "options": {
+          "a": "TODO: Better sleep",
+          "b": "TODO: Masking the noise",
+          "c": "TODO: Less stress",
+          "d": "TODO: Long-term change"
+        }
+      }
     },
-
     "profiles": {
-      "TH_C": { "shortName": "TODO: Tonal high-frequency",   "fullName": "TODO: Tonal high-frequency / Cognitive",  "description": "TODO: Profile description for TH_C." },
-      "DN_S": { "shortName": "TODO: Noise low-frequency",    "fullName": "TODO: Noise low-frequency / Sleep",       "description": "TODO: Profile description for DN_S." },
-      "SS_R": { "shortName": "TODO: Stress-sensitive",       "fullName": "TODO: Stress-sensitive / Reactive",       "description": "TODO: Profile description for SS_R." },
-      "SM_F": { "shortName": "TODO: Somatic / Fluctuating",  "fullName": "TODO: Somatic / Fluctuating",             "description": "TODO: Profile description for SM_F." },
-      "HB_M": { "shortName": "TODO: Adapted / Mild",         "fullName": "TODO: Adapted / Mild",                    "description": "TODO: Profile description for HB_M." }
+      "TH_C": {
+        "shortName": "TODO: Tonal high-frequency",
+        "fullName": "TODO: Tonal high-frequency / Cognitive",
+        "description": "TODO: Profile description for TH_C."
+      },
+      "DN_S": {
+        "shortName": "TODO: Noise low-frequency",
+        "fullName": "TODO: Noise low-frequency / Sleep",
+        "description": "TODO: Profile description for DN_S."
+      },
+      "SS_R": {
+        "shortName": "TODO: Stress-sensitive",
+        "fullName": "TODO: Stress-sensitive / Reactive",
+        "description": "TODO: Profile description for SS_R."
+      },
+      "SM_F": {
+        "shortName": "TODO: Somatic / Fluctuating",
+        "fullName": "TODO: Somatic / Fluctuating",
+        "description": "TODO: Profile description for SM_F."
+      },
+      "HB_M": {
+        "shortName": "TODO: Adapted / Mild",
+        "fullName": "TODO: Adapted / Mild",
+        "description": "TODO: Profile description for HB_M."
+      }
     },
-
     "diLevels": {
       "low": "TODO: Mild",
       "medium": "TODO: Moderate",
       "high": "TODO: Severe"
     },
-
     "intensity": {
       "low": "TODO: Extremely quiet, barely audible background",
       "medium": "TODO: At the mixing point",
       "high": "TODO: Slightly below tinnitus level; soft timbre"
     }
   },
-
   "content": {
-    "mixer": {},
-    "mechanics": {},
-    "categories": {},
-    "navigation": {},
-    "safety": {},
-    "social": {}
+    "mixer": {
+      "preset_deep_calm": {
+        "title": "TODO: Защо \"Дълбока тишина\"?",
+        "micro": "TODO: Дълбоки, басови звуци които помагат на тялото да с...",
+        "full": "TODO: 📊 КАКЪВ Е ЗВУКЪТ:...",
+        "source": "TODO: Мета-анализ от 14 RCT (n=793), 2024. Виж docs/rese..."
+      },
+      "preset_underwater": {
+        "title": "TODO: Защо \"Подводна релаксация\"?",
+        "micro": "TODO: Звуци като под вода — много дълбоки честоти под 20...",
+        "full": "TODO: 📊 КАКЪВ Е ЗВУКЪТ:...",
+        "source": "TODO: TENT-A1/A2 RCT, 2024. Виж docs/research/11."
+      },
+      "preset_sea_shore": {
+        "title": "TODO: Защо \"Черноморска вечер\"?",
+        "micro": "TODO: Далечен шум на вълни от Черно море плюс дълбок фон...",
+        "full": "TODO: 📊 КАКЪВ Е ЗВУКЪТ:...",
+        "source": "TODO: Tong et al. (2023). 120 пациенти. Виж docs/researc..."
+      },
+      "preset_forest_stream": {
+        "title": "TODO: Защо \"Подводен поток\"?",
+        "micro": "TODO: Звуци от подводно течение в река — средни честоти...",
+        "full": "TODO: 📊 КАКЪВ Е ЗВУКЪТ:...",
+        "source": "TODO: EAEGT vs WN study, 2024. Виж docs/research/11."
+      },
+      "preset_pink_pure": {
+        "title": "TODO: Защо \"Розов шум\"?",
+        "micro": "TODO: Класически базов звук за облекчение на тинитуса. Р...",
+        "full": "TODO: 📊 КАКЪВ Е ЗВУКЪТ:...",
+        "source": "TODO: Tinnitus Retraining Therapy (TRT) clinical practic..."
+      },
+      "preset_brown_pure": {
+        "title": "TODO: Защо \"Кафяв шум\"?",
+        "micro": "TODO: По-дълбок от розовия — звучи като силен дъжд или в...",
+        "full": "TODO: 📊 КАКЪВ Е ЗВУКЪТ:...",
+        "source": "TODO: TRT clinical practice + Sleep research 2024. Виж d..."
+      }
+    },
+    "general": {
+      "why_no_white_noise": {
+        "title": "TODO: Защо нямаме бял шум?",
+        "micro": "TODO: Белият шум е лош за тинитус. Прави го по-силен, не...",
+        "full": "TODO: 📊 КАКЪВ Е БЕЛИЯТ ШУМ:...",
+        "source": "TODO: Comparison of Enriched Acoustic Environment and Wh..."
+      },
+      "why_habituation": {
+        "title": "TODO: Защо \"хабитуация\", а не лечение?",
+        "micro": "TODO: Тинитусът не може да се излекува — той е сигнал в...",
+        "full": "TODO: 📊 КАКВО Е ТИНИТУС РЕАЛНО:...",
+        "source": "TODO: Jastreboff TRT model, 1990+. Виж docs/research/11."
+      },
+      "what_is_di_score": {
+        "title": "TODO: Какво е DI (Стресов Индекс)?",
+        "micro": "TODO: DI измерва колко стрес ви причинява тинитусът сега...",
+        "full": "TODO: 📊 КАКВО Е DI:...",
+        "source": "TODO: Newman, C.W. et al. (1996). THI. Виж docs/research..."
+      },
+      "how_long_to_listen": {
+        "title": "TODO: Колко време да слушам всеки ден?",
+        "micro": "TODO: Минимум 30 минути дневно. Идеално 60-90 минути. По...",
+        "full": "TODO: 📊 ПРЕПОРЪЧИТЕЛНА ПРОДЪЛЖИТЕЛНОСТ:...",
+        "source": "TODO: Мета-анализ от 14 RCT (n=793), 2024. Виж docs/rese..."
+      },
+      "why_no_volume_max": {
+        "title": "TODO: Защо силата на звука е важна?",
+        "micro": "TODO: Не пускайте на максимум! Препоръчителна сила е так...",
+        "full": "TODO: 📊 ПРАВИЛНОТО НИВО НА ЗВУКА:...",
+        "source": "TODO: Phase II LINTS, 2023 + WHO Safe Listening Guidelin..."
+      }
+    },
+    "categories": {
+      "cat_underwater": {
+        "title": "TODO: Подводни звуци",
+        "micro": "TODO: Дълбоки, обгръщащи звуци като да си под вода. Межд...",
+        "full": "TODO: 📊 КАКВО СА:...",
+        "source": "TODO: EAE vs White Noise 4-Month Feasibility Study, 2024..."
+      },
+      "cat_ocean": {
+        "title": "TODO: Океан и морски звуци",
+        "micro": "TODO: Шум на вълни и далечни морски сцени. Естествени зв...",
+        "full": "TODO: 📊 КАКВО СА:...",
+        "source": "TODO: Tong et al. (2023) + TENT-A1/A2 trials, 2024. Виж..."
+      },
+      "cat_river": {
+        "title": "TODO: Реки и потоци",
+        "micro": "TODO: Подводни и надводни звуци от реки. Средночестотни...",
+        "full": "TODO: 📊 КАКВО СА:...",
+        "source": "TODO: Мета-анализ от 14 RCT, 2024. Виж docs/research/11."
+      },
+      "cat_meditation": {
+        "title": "TODO: Медитативни композиции",
+        "micro": "TODO: Дълги, дизайнирани ambient произведения. Между 5 и...",
+        "full": "TODO: 📊 КАКВО СА:...",
+        "source": "TODO: Music therapy for tinnitus review, 2020-2024. Виж..."
+      },
+      "cat_forest": {
+        "title": "TODO: Горски звуци",
+        "micro": "TODO: Зимна гора, мокри листа, далечен дъжд в гората. Вн...",
+        "full": "TODO: 📊 КАКВО СА:...",
+        "source": "TODO: Sound therapy meta-review, 2024. Виж docs/research..."
+      },
+      "cat_base_noise": {
+        "title": "TODO: Базови шумове (Pink, Brown, Green)",
+        "micro": "TODO: Математически генерирани шумове — класиката в звук...",
+        "full": "TODO: 📊 КАКВО СА:...",
+        "source": "TODO: Jastreboff TRT model, 1990+ + Web Audio API resear..."
+      }
+    },
+    "navigation": {
+      "nav_mixer_intro": {
+        "title": "TODO: Какво е \"Микс\"?",
+        "micro": "TODO: Сърцето на AURALIS. Тук пускате звуци които помага...",
+        "full": "TODO: 📊 КАКВО Е MIXER:...",
+        "source": "TODO: Sound therapy duration studies, 2020-2024. Виж doc..."
+      },
+      "nav_calm_intro": {
+        "title": "TODO: Какво е \"Спокойствие\"?",
+        "micro": "TODO: Аудио-водени упражнения за релаксация. Дишане, мус...",
+        "full": "TODO: 📊 КАКВО Е CALM:...",
+        "source": "TODO: CBT for tinnitus systematic review, 2024. Виж docs..."
+      },
+      "nav_diary_intro": {
+        "title": "TODO: Какво е \"Дневник\"?",
+        "micro": "TODO: Ежедневен запис на съня и нивото на тинитуса. Пома...",
+        "full": "TODO: 📊 КАКВО Е DIARY:...",
+        "source": "TODO: Consensus Sleep Diary methodology + THI MCID studi..."
+      }
+    },
+    "mechanics": {
+      "sleep_timer_explained": {
+        "title": "TODO: Какво е \"Sleep таймер\"?",
+        "micro": "TODO: Автоматично спира звука след избрано време. Безопа...",
+        "full": "TODO: 📊 КАКВО ПРАВИ:...",
+        "source": "TODO: Sleep + sound therapy research. Виж docs/research/..."
+      },
+      "theme_toggle_explained": {
+        "title": "TODO: Защо две теми (тъмна и светла)?",
+        "micro": "TODO: Тъмната е за вечер и нощ (по-малко натоварване за...",
+        "full": "TODO: 📊 КАКВО ПРАВИ:...",
+        "source": "TODO: Blue light + sleep research + tinnitus sleep studi..."
+      },
+      "profile_recommendation_explained": {
+        "title": "TODO: Защо тези микси са препоръчани?",
+        "micro": "TODO: Базирани са на отговорите Ви в Quiz-а. Различни ти...",
+        "full": "TODO: 📊 КАК РАБОТИ ПРЕПОРЪЧВАНЕТО:...",
+        "source": "TODO: Tong et al. (2023) + Quiz validation studies. Виж..."
+      },
+      "star_icon_explained": {
+        "title": "TODO: Какво означава звездата?",
+        "micro": "TODO: Звездата маркира най-подходящия микс за Вашия проф...",
+        "full": "TODO: 📊 КАКВО ОЗНАЧАВА:...",
+        "source": "TODO: Tong et al. (2023) + personalization studies. Виж..."
+      },
+      "why_no_medical_advice": {
+        "title": "TODO: Защо не препоръчваме лекарства или добавки?",
+        "micro": "TODO: AURALIS е wellness инструмент, не медицински проду...",
+        "full": "TODO: 📊 КАКВО Е AURALIS:...",
+        "source": "TODO: Regulatory analysis for digital tinnitus tools, 20..."
+      }
+    }
   }
 }

@@ -124,6 +124,11 @@
       window.i18n.applyToDOM(document);
     }
 
+    // Popul-ва window.INFO_CONTENT от i18n.content (thin adapter в info-content.js)
+    if (window.InfoContent && window.InfoContent.rebuild) {
+      window.InfoContent.rebuild();
+    }
+
     window.AppState.load();
 
     // Initial history state според текуща фаза
