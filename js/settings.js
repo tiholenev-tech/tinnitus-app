@@ -1,0 +1,584 @@
+/**
+ * AURALIS Settings v1.0 — bottom sheet с 5 секции
+ * ==================================================
+ * Per BIBLE v3.1 §H:
+ *  1. 🌍 Език (12 езика; BG/EN активни, останалите TODO)
+ *  2. 🌙 Тема (Светла / Тъмна / Авто)
+ *  3. 🔊 Master volume slider (mirror на AudioEngine)
+ *  4. 📊 Моите данни (export JSON / delete all / debug reset)
+ *  5. ℹ За приложението (версия + disclaimer + privacy link)
+ *
+ * UI: bottom sheet slide-up с semi-transparent backdrop (Library виден).
+ * Tap извън sheet / ESC / X → close.
+ *
+ * Public API:
+ *   Settings.open() | close() | toggle()
+ */
+
+window.Settings = (function () {
+  'use strict';
+
+  // ============================================================
+  // CONSTANTS
+  // ============================================================
+
+  var APP_VERSION = '0.1.0';
+  var STORAGE_THEME = 'auralis-theme';
+  var STORAGE_LOCALE = 'auralis_locale';
+  var STORAGE_VOLUME = 'auralis-master-volume';
+  var DEBUG_FLAG = 'debug_mode';
+
+  // Supported locales mirror i18n.SUPPORTED
+  var LOCALES = ['bg', 'en', 'zh', 'hi', 'es', 'ar', 'pt', 'ru', 'fr', 'de', 'ja', 'ko'];
+  var COMPLETE_LOCALES = ['bg'];
+  var PREVIEW_LOCALES = ['en']; // EN е stub mirror, useable за structural test
+
+  // ============================================================
+  // STATE
+  // ============================================================
+
+  var overlay = null;
+  var currentView = 'main'; // 'main' | 'privacy'
+  var escHandlerBound = false;
+  var trialResetMessage = '';
+
+  // ============================================================
+  // Helpers
+  // ============================================================
+
+  function el(id) { return document.getElementById(id); }
+
+  function t(key, fallback, params) {
+    if (window.i18n && window.i18n.t) return window.i18n.t(key, fallback, params);
+    return fallback != null ? fallback : key;
+  }
+
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  function getCurrentLocale() {
+    if (window.i18n && window.i18n.getLocale) return window.i18n.getLocale();
+    try { return localStorage.getItem(STORAGE_LOCALE) || 'bg'; } catch (e) { return 'bg'; }
+  }
+
+  function getCurrentTheme() {
+    try {
+      var saved = localStorage.getItem(STORAGE_THEME);
+      if (saved === 'light' || saved === 'dark') return saved;
+      return 'auto';
+    } catch (e) { return 'auto'; }
+  }
+
+  function getCurrentVolume() {
+    if (window.AudioEngine && window.AudioEngine.getMasterVolume) {
+      return window.AudioEngine.getMasterVolume();
+    }
+    try {
+      var saved = localStorage.getItem(STORAGE_VOLUME);
+      if (saved !== null) {
+        var n = parseInt(saved, 10);
+        if (!isNaN(n)) return n;
+      }
+    } catch (e) {}
+    return 50;
+  }
+
+  function isDebugMode() {
+    try { return localStorage.getItem(DEBUG_FLAG) === 'true'; } catch (e) { return false; }
+  }
+
+  function todayKey() {
+    var d = new Date();
+    return d.getFullYear() + '-' +
+      String(d.getMonth() + 1).padStart(2, '0') + '-' +
+      String(d.getDate()).padStart(2, '0');
+  }
+
+  // ============================================================
+  // SVG icons
+  // ============================================================
+
+  function svgClose() {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"' +
+      ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>' +
+      '</svg>';
+  }
+  function svgBack() {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"' +
+      ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>' +
+      '</svg>';
+  }
+  function svgGlobe() {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"' +
+      ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>' +
+      '<path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>' +
+      '</svg>';
+  }
+  function svgMoon() {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"' +
+      ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>';
+  }
+  function svgSpeaker() {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"' +
+      ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none"/>' +
+      '<path d="M15.54 8.46a5 5 0 010 7.07"/><path d="M19.07 4.93a10 10 0 010 14.14"/>' +
+      '</svg>';
+  }
+  function svgChart() {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"' +
+      ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/>' +
+      '<line x1="6" y1="20" x2="6" y2="14"/></svg>';
+  }
+  function svgInfo() {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"' +
+      ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/>' +
+      '<line x1="12" y1="8" x2="12.01" y2="8"/></svg>';
+  }
+
+  // ============================================================
+  // HTML builders — Main view
+  // ============================================================
+
+  function buildLanguageSection() {
+    var currentLocale = getCurrentLocale();
+    var options = LOCALES.map(function (code) {
+      var name = t('settings.lang.names.' + code, code.toUpperCase());
+      var badge = '';
+      if (COMPLETE_LOCALES.indexOf(code) === -1 && PREVIEW_LOCALES.indexOf(code) === -1) {
+        badge = ' (' + t('settings.lang.todo', 'TODO') + ')';
+      } else if (PREVIEW_LOCALES.indexOf(code) !== -1) {
+        badge = ' (' + t('settings.lang.preview', 'preview') + ')';
+      }
+      return '<option value="' + escapeHtml(code) + '"' +
+        (code === currentLocale ? ' selected' : '') + '>' +
+        escapeHtml(name) + escapeHtml(badge) +
+        '</option>';
+    }).join('');
+
+    return (
+      '<section class="set-section">' +
+        '<div class="set-section-head">' +
+          '<span class="set-section-icon" aria-hidden="true">' + svgGlobe() + '</span>' +
+          '<h3 class="set-section-title">' +
+            escapeHtml(t('settings.lang.label', 'Език')) +
+          '</h3>' +
+        '</div>' +
+        '<select class="set-select" id="setLangSelect" aria-label="' +
+          escapeHtml(t('settings.lang.label', 'Език')) + '">' +
+          options +
+        '</select>' +
+      '</section>'
+    );
+  }
+
+  function buildThemeSection() {
+    var current = getCurrentTheme();
+    var opts = [
+      { id: 'light', label: t('settings.theme.light', 'Светла') },
+      { id: 'dark',  label: t('settings.theme.dark',  'Тъмна') },
+      { id: 'auto',  label: t('settings.theme.auto',  'Автоматична') }
+    ];
+    return (
+      '<section class="set-section">' +
+        '<div class="set-section-head">' +
+          '<span class="set-section-icon" aria-hidden="true">' + svgMoon() + '</span>' +
+          '<h3 class="set-section-title">' +
+            escapeHtml(t('settings.theme.label', 'Тема')) +
+          '</h3>' +
+        '</div>' +
+        '<div class="set-segmented" role="radiogroup"' +
+          ' aria-label="' + escapeHtml(t('settings.theme.label', 'Тема')) + '">' +
+          opts.map(function (o) {
+            var isActive = o.id === current;
+            return (
+              '<button class="set-seg-btn' + (isActive ? ' is-active' : '') + '"' +
+                ' type="button" role="radio" data-theme-id="' + o.id + '"' +
+                ' aria-checked="' + (isActive ? 'true' : 'false') + '">' +
+                escapeHtml(o.label) +
+              '</button>'
+            );
+          }).join('') +
+        '</div>' +
+      '</section>'
+    );
+  }
+
+  function buildVolumeSection() {
+    var vol = getCurrentVolume();
+    return (
+      '<section class="set-section">' +
+        '<div class="set-section-head">' +
+          '<span class="set-section-icon" aria-hidden="true">' + svgSpeaker() + '</span>' +
+          '<h3 class="set-section-title">' +
+            escapeHtml(t('settings.volume.label', 'Сила на звука')) +
+          '</h3>' +
+          '<span class="set-volume-value" id="setVolValue">' + vol + '%</span>' +
+        '</div>' +
+        '<input type="range" class="set-volume-slider" id="setVolSlider"' +
+          ' min="0" max="100" step="1" value="' + vol + '"' +
+          ' aria-label="' + escapeHtml(t('settings.volume.aria', 'Сила на звука 0-100')) + '">' +
+      '</section>'
+    );
+  }
+
+  function buildDataSection() {
+    var debug = isDebugMode();
+    return (
+      '<section class="set-section">' +
+        '<div class="set-section-head">' +
+          '<span class="set-section-icon" aria-hidden="true">' + svgChart() + '</span>' +
+          '<h3 class="set-section-title">' +
+            escapeHtml(t('settings.data.label', 'Моите данни')) +
+          '</h3>' +
+        '</div>' +
+        '<div class="set-data-actions">' +
+          '<button class="set-action" type="button" data-action="data-export">' +
+            escapeHtml(t('settings.data.export', 'Изтегли всичко (JSON)')) +
+          '</button>' +
+          '<button class="set-action set-action--danger" type="button" data-action="data-delete">' +
+            escapeHtml(t('settings.data.delete', 'Изтрий всички данни')) +
+          '</button>' +
+          (debug
+            ? '<button class="set-action set-action--debug" type="button" data-action="data-debug-trial">' +
+                escapeHtml(t('settings.data.debugResetTrial', 'Reset trial period (debug)')) +
+              '</button>'
+            : '') +
+          (trialResetMessage
+            ? '<div class="set-data-msg">' + escapeHtml(trialResetMessage) + '</div>'
+            : '') +
+        '</div>' +
+      '</section>'
+    );
+  }
+
+  function buildAboutSection() {
+    return (
+      '<section class="set-section set-section--about">' +
+        '<div class="set-section-head">' +
+          '<span class="set-section-icon" aria-hidden="true">' + svgInfo() + '</span>' +
+          '<h3 class="set-section-title">' +
+            escapeHtml(t('settings.about.label', 'За приложението')) +
+          '</h3>' +
+        '</div>' +
+        '<div class="set-about-version">' +
+          escapeHtml(t('settings.about.version',
+            'AURALIS · версия ' + APP_VERSION + ' (beta) · 2026', { v: APP_VERSION })) +
+        '</div>' +
+        '<div class="set-about-disclaimer">' +
+          escapeHtml(t('settings.about.disclaimer',
+            'Wellness инструмент, не заместител на лекар.')) +
+        '</div>' +
+        '<button class="set-link" type="button" data-action="open-privacy">' +
+          escapeHtml(t('settings.about.privacyLink', 'Политика за поверителност')) +
+        '</button>' +
+      '</section>'
+    );
+  }
+
+  function buildMainViewHtml() {
+    var closeAria = t('settings.closeAria', 'Затвори настройки');
+    var title = t('settings.title', 'Настройки');
+    return (
+      '<div class="set-sheet" role="dialog" aria-modal="true"' +
+        ' aria-label="' + escapeHtml(title) + '">' +
+        '<div class="set-sheet-grip" aria-hidden="true"></div>' +
+        '<div class="set-header">' +
+          '<h2 class="set-title">' + escapeHtml(title) + '</h2>' +
+          '<button class="set-close" type="button" data-action="close"' +
+            ' aria-label="' + escapeHtml(closeAria) + '">' + svgClose() + '</button>' +
+        '</div>' +
+        '<div class="set-body">' +
+          buildLanguageSection() +
+          buildThemeSection() +
+          buildVolumeSection() +
+          buildDataSection() +
+          buildAboutSection() +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  // ============================================================
+  // HTML builders — Privacy view
+  // ============================================================
+
+  function buildPrivacyViewHtml() {
+    var closeAria = t('settings.closeAria', 'Затвори настройки');
+    var backLabel = t('settings.back', 'Назад');
+    var title = t('privacy.title', 'Политика за поверителност');
+    var body = t('privacy.body', 'AURALIS е инструмент за слухова релаксация...');
+    var paragraphs = body.split('\n\n').map(function (p) {
+      return '<p>' + escapeHtml(p) + '</p>';
+    }).join('');
+    return (
+      '<div class="set-sheet" role="dialog" aria-modal="true"' +
+        ' aria-label="' + escapeHtml(title) + '">' +
+        '<div class="set-sheet-grip" aria-hidden="true"></div>' +
+        '<div class="set-header">' +
+          '<button class="set-back" type="button" data-action="back"' +
+            ' aria-label="' + escapeHtml(backLabel) + '">' + svgBack() + '</button>' +
+          '<h2 class="set-title">' + escapeHtml(title) + '</h2>' +
+          '<button class="set-close" type="button" data-action="close"' +
+            ' aria-label="' + escapeHtml(closeAria) + '">' + svgClose() + '</button>' +
+        '</div>' +
+        '<div class="set-body set-body--privacy">' +
+          paragraphs +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  // ============================================================
+  // Theme apply (sync с index.html logic)
+  // ============================================================
+
+  function applyTheme(themeId) {
+    var actual = themeId;
+    if (themeId === 'auto') {
+      var prefersDark = window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches;
+      actual = prefersDark ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-theme', actual);
+
+    // Update header theme icons (index.html JS)
+    var moon = document.getElementById('themeIconMoon');
+    var sun = document.getElementById('themeIconSun');
+    if (moon && sun) {
+      if (actual === 'light') { moon.style.display = 'none'; sun.style.display = 'block'; }
+      else { moon.style.display = 'block'; sun.style.display = 'none'; }
+    }
+
+    if (themeId === 'auto') {
+      try { localStorage.removeItem(STORAGE_THEME); } catch (e) {}
+    } else {
+      try { localStorage.setItem(STORAGE_THEME, actual); } catch (e) {}
+    }
+  }
+
+  // ============================================================
+  // Data export
+  // ============================================================
+
+  function collectAllData() {
+    var data = {};
+    try {
+      for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        if (key && (key.indexOf('auralis_') === 0 || key.indexOf('auralis-') === 0)) {
+          var val = localStorage.getItem(key);
+          try { data[key] = JSON.parse(val); }
+          catch (e) { data[key] = val; }
+        }
+      }
+    } catch (e) { /* ignore */ }
+    return data;
+  }
+
+  function exportData() {
+    var payload = {
+      version: '1.0',
+      appVersion: APP_VERSION,
+      exportedAt: new Date().toISOString(),
+      locale: getCurrentLocale(),
+      data: collectAllData()
+    };
+    var blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    var url = URL.createObjectURL(blob);
+    var filename = t('settings.data.exportFilename',
+      'auralis-data-' + todayKey() + '.json', { date: todayKey() });
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () {
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }, 100);
+  }
+
+  function deleteAllData() {
+    var ok = window.confirm(
+      t('settings.data.deleteConfirm',
+        'Сигурни ли сте? Това ще изтрие всичко. Действието е необратимо.')
+    );
+    if (!ok) return;
+    // Stop audio преди reset за да не остане suspended source
+    if (window.AudioEngine && window.AudioEngine.stop) window.AudioEngine.stop();
+    try {
+      var keys = [];
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i);
+        if (k && (k.indexOf('auralis_') === 0 || k.indexOf('auralis-') === 0)) {
+          keys.push(k);
+        }
+      }
+      keys.forEach(function (k) { localStorage.removeItem(k); });
+    } catch (e) { /* ignore */ }
+    window.location.reload();
+  }
+
+  function debugResetTrial() {
+    // Trial gate още не съществува, но keep hook за бъдеще
+    try {
+      localStorage.removeItem('auralis_trial_start');
+      localStorage.removeItem('auralis_unlocked');
+    } catch (e) {}
+    trialResetMessage = t('settings.data.debugResetDone', 'Trial reset ✓');
+    refresh();
+  }
+
+  // ============================================================
+  // Interactions
+  // ============================================================
+
+  function onLangChange(e) {
+    var newLocale = e.currentTarget.value;
+    if (!newLocale) return;
+    if (window.i18n && window.i18n.setLocale) {
+      window.i18n.setLocale(newLocale).then(function () {
+        // Reload за full UI refresh
+        window.location.reload();
+      });
+    }
+  }
+
+  function onThemeClick(themeId) {
+    applyTheme(themeId);
+    refresh();
+  }
+
+  function onVolumeInput(e) {
+    var val = parseInt(e.currentTarget.value, 10);
+    if (isNaN(val)) return;
+    val = Math.max(0, Math.min(100, val));
+    if (window.AudioEngine && window.AudioEngine.setMasterVolume) {
+      window.AudioEngine.setMasterVolume(val);
+    }
+    try { localStorage.setItem(STORAGE_VOLUME, String(val)); } catch (e2) {}
+    var label = el('setVolValue');
+    if (label) label.textContent = val + '%';
+  }
+
+  function onClick(e) {
+    var actionBtn = e.target.closest('[data-action]');
+    if (actionBtn) {
+      e.stopPropagation();
+      var action = actionBtn.getAttribute('data-action');
+      if (action === 'close') close();
+      else if (action === 'back') showMainView();
+      else if (action === 'data-export') exportData();
+      else if (action === 'data-delete') deleteAllData();
+      else if (action === 'data-debug-trial') debugResetTrial();
+      else if (action === 'open-privacy') showPrivacyView();
+      return;
+    }
+    var themeBtn = e.target.closest('[data-theme-id]');
+    if (themeBtn) {
+      onThemeClick(themeBtn.getAttribute('data-theme-id'));
+    }
+  }
+
+  function onOverlayClick(e) {
+    if (e.target === overlay) close();
+  }
+
+  function onKeyDown(e) {
+    if (e.key === 'Escape') close();
+  }
+
+  // ============================================================
+  // Render
+  // ============================================================
+
+  function refresh() {
+    if (!overlay) return;
+    var html = currentView === 'privacy' ? buildPrivacyViewHtml() : buildMainViewHtml();
+    overlay.innerHTML = html;
+    bindEvents();
+  }
+
+  function showMainView() {
+    currentView = 'main';
+    refresh();
+  }
+
+  function showPrivacyView() {
+    currentView = 'privacy';
+    refresh();
+  }
+
+  function bindEvents() {
+    if (!overlay) return;
+    overlay.addEventListener('click', onOverlayClick);
+
+    // Action buttons + theme + back/close
+    var sheet = overlay.querySelector('.set-sheet');
+    if (sheet) sheet.addEventListener('click', onClick);
+
+    var langSel = overlay.querySelector('#setLangSelect');
+    if (langSel) langSel.addEventListener('change', onLangChange);
+
+    var volSlider = overlay.querySelector('#setVolSlider');
+    if (volSlider) {
+      volSlider.addEventListener('input', onVolumeInput);
+      volSlider.addEventListener('change', onVolumeInput);
+    }
+  }
+
+  // ============================================================
+  // Open / close / toggle
+  // ============================================================
+
+  function open() {
+    if (overlay) return;
+    currentView = 'main';
+    trialResetMessage = '';
+    overlay = document.createElement('div');
+    overlay.className = 'set-overlay';
+    overlay.innerHTML = buildMainViewHtml();
+    document.body.appendChild(overlay);
+    bindEvents();
+    if (!escHandlerBound) {
+      window.addEventListener('keydown', onKeyDown);
+      escHandlerBound = true;
+    }
+  }
+
+  function close() {
+    if (!overlay) return;
+    overlay.remove();
+    overlay = null;
+    currentView = 'main';
+    if (escHandlerBound) {
+      window.removeEventListener('keydown', onKeyDown);
+      escHandlerBound = false;
+    }
+  }
+
+  function toggle() {
+    if (overlay) close();
+    else open();
+  }
+
+  // ============================================================
+  // Public API
+  // ============================================================
+
+  return {
+    open: open,
+    close: close,
+    toggle: toggle
+  };
+})();

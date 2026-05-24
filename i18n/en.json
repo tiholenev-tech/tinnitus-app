@@ -170,7 +170,62 @@
         }
       }
     },
-    "settings": {},
+    "settings": {
+      "title": "TODO: Settings",
+      "openAria": "TODO: Open settings",
+      "closeAria": "TODO: Close settings",
+      "back": "TODO: Back",
+
+      "lang": {
+        "label": "TODO: Language",
+        "active": "TODO: active",
+        "preview": "TODO: preview",
+        "todo": "TODO: translation pending",
+        "names": {
+          "bg": "Български",
+          "en": "English",
+          "zh": "中文 (简体)",
+          "hi": "हिन्दी",
+          "es": "Español",
+          "ar": "العربية",
+          "pt": "Português",
+          "ru": "Русский",
+          "fr": "Français",
+          "de": "Deutsch",
+          "ja": "日本語",
+          "ko": "한국어"
+        }
+      },
+
+      "theme": {
+        "label": "TODO: Theme",
+        "light": "TODO: Light",
+        "dark": "TODO: Dark",
+        "auto": "TODO: Auto"
+      },
+
+      "volume": {
+        "label": "TODO: Volume",
+        "aria": "TODO: Volume 0 to 100"
+      },
+
+      "data": {
+        "label": "TODO: My data",
+        "export": "TODO: Export all (JSON)",
+        "exportFilename": "auralis-data-{date}.json",
+        "delete": "TODO: Delete all data",
+        "deleteConfirm": "TODO: Are you sure? This will delete quiz, favorites, diary and all settings. Irreversible.",
+        "debugResetTrial": "TODO: Reset trial period (debug)",
+        "debugResetDone": "TODO: Trial reset ✓"
+      },
+
+      "about": {
+        "label": "TODO: About",
+        "version": "TODO: AURALIS · version {v} (beta) · 2026",
+        "disclaimer": "TODO: Wellness tool, not a doctor substitute.",
+        "privacyLink": "TODO: Privacy policy"
+      }
+    },
     "trial": {},
     "library": {
       "title": "TODO: Sound library",
@@ -272,6 +327,11 @@
         "yes": "TODO: Yes, thank you",
         "again": "TODO: One more cycle"
       }
+    },
+
+    "privacy": {
+      "title": "TODO: Privacy policy",
+      "body": "TODO: AURALIS is a sound relaxation tool. It does not cure tinnitus or replace medical consultation.\n\nAll your data (quiz answers, diary, favorites, listening history) is stored locally on your device.\n\nWe collect nothing. We do not send any data to a server. No tracking, no analytics, no third-party cookies.\n\nYou can delete all your data at any time from Settings → My data → Delete all data.\n\nWhen installed from Google Play / App Store, the platform may process your email and payment info — that is their responsibility, not ours.\n\nQuestions: tiholenev@gmail.com"
     },
 
     "calm": {

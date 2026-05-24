@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="css/sos.css">
   <link rel="stylesheet" href="css/diary.css">
   <link rel="stylesheet" href="css/calm.css">
+  <link rel="stylesheet" href="css/settings.css">
 
   <!-- Theme priming (FOUC fix) -->
   <script>
@@ -112,7 +113,19 @@
   <script src="js/sleep.js"></script>
   <script src="js/diary.js"></script>
   <script src="js/calm.js"></script>
+  <script src="js/settings.js"></script>
   <script src="js/app.js"></script>
+
+  <!-- ═══ Settings button wire (header) ═══ -->
+  <script>
+    (function () {
+      var btn = document.getElementById('settingsBtn');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        if (window.Settings && window.Settings.toggle) window.Settings.toggle();
+      });
+    })();
+  </script>
 
   <!-- ═══ Theme toggle (chat.php 1:1) ═══ -->
   <script>
