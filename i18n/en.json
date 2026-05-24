@@ -228,7 +228,11 @@
         "sample_pink_01":        { "title": "TODO: Pink noise",           "subtitle": "TODO: Generated in real time" },
         "sample_river_01":       { "title": "TODO: Mountain stream",      "subtitle": "TODO: Placeholder (audio pending)" },
         "sample_forest_01":      { "title": "TODO: Morning in the forest","subtitle": "TODO: Placeholder (audio pending)" },
-        "sample_meditation_01":  { "title": "TODO: Tibetan bowls · 15 min","subtitle": "TODO: Placeholder (audio pending)" }
+        "sample_meditation_01":  { "title": "TODO: Subconscious",          "subtitle": "TODO: Deep sleep · guided meditation", "author": "TODO: Anna Landström" },
+        "sample_meditation_02":  { "title": "TODO: Tibetan bowls",          "subtitle": "TODO: Relaxation · overtones",         "author": "TODO: Luba Hilman" },
+        "sample_meditation_03":  { "title": "TODO: Body scan",              "subtitle": "TODO: Progressive relaxation",          "author": "TODO: Hanna Lindgren" },
+        "sample_meditation_04":  { "title": "TODO: Breathing 4-7-8",        "subtitle": "TODO: Short pre-sleep meditation",      "author": "TODO: AURALIS" },
+        "sample_meditation_05":  { "title": "TODO: Morning forest",          "subtitle": "TODO: Nature · 30 min",                  "author": "TODO: Joseph Beg" }
       }
     },
 
@@ -268,6 +272,17 @@
         "yes": "TODO: Yes, thank you",
         "again": "TODO: One more cycle"
       }
+    },
+
+    "calm": {
+      "categoryLabel": "TODO: Meditation",
+      "playerAria": "TODO: Meditation player",
+      "closeAria": "TODO: Close player",
+      "playAria": "TODO: Play",
+      "pauseAria": "TODO: Pause",
+      "missingFile": "TODO: Audio file missing (placeholder for UI development).",
+      "ended": "TODO: Finished",
+      "endedSub": "TODO: Returning to library..."
     },
 
     "diary": {

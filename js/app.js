@@ -47,8 +47,12 @@
       }
       return;
     }
-    // Onboarding done → diary / sleep / library (primary) / mixer (legacy) / quiz
+    // Onboarding done → calm / diary / sleep / library (primary) / mixer / quiz
     var phase = window.AppState.current;
+    if (phase === 'calm' && window.Calm && window.Calm.render) {
+      window.Calm.render();
+      return;
+    }
     if (phase === 'diary' && window.Diary && window.Diary.render) {
       window.Diary.render();
       return;
@@ -85,6 +89,16 @@
         var sub = window.AppState.quizSubphase || 'q1';
         history.pushState({ phase: window.AppState.current, quizSubphase: sub }, '');
         if (window.Quiz) window.Quiz.render(true);
+        return;
+      }
+
+      if (s.phase === 'calm') {
+        window.AppState.transition('calm');
+        if (window.Calm && window.Calm.render) {
+          window.Calm.render();
+        } else if (window.Library && window.Library.render) {
+          window.Library.render();
+        }
         return;
       }
 
@@ -179,6 +193,8 @@
     var initialState;
     if (!window.AppState.isOnboardingDone()) {
       initialState = { subphase: window.AppState.subphase };
+    } else if (window.AppState.current === 'calm') {
+      initialState = { phase: 'calm' };
     } else if (window.AppState.current === 'diary') {
       initialState = { phase: 'diary' };
     } else if (window.AppState.current === 'sleep') {

@@ -64,6 +64,9 @@ window.AudioEngine = (function () {
   var activePreset = null;                  // current presetId or null
   var activeSource = null;                  // current BufferSource
   var activePresetGain = null;              // current preset's GainNode
+  var activeStartCtxTime = 0;               // ctx.currentTime when source started
+  var activeBufferDuration = 0;             // seconds (за loop=false progress)
+  var activeIsLooping = true;
 
   var bufferCache = {};                     // url → AudioBuffer
   var generatedPinkBuffer = null;           // cached runtime pink noise
@@ -221,32 +224,33 @@ window.AudioEngine = (function () {
   // PLAY (with crossfade)
   // ============================================================
 
-  function play(presetId) {
+  function play(presetId, opts) {
     var spec = PRESET_MAP[presetId];
     if (!spec) {
       console.error('[audio] unknown preset:', presetId);
       return Promise.reject(new Error('Unknown preset: ' + presetId));
     }
-    return playSpec(presetId, spec);
+    return playSpec(presetId, spec, opts);
   }
 
   /**
-   * playUrl(id, url) — ad-hoc playback за Library sounds
-   * Регистрира спецификацията в PRESET_MAP за бъдещи calls,
-   * после ползва обичайния pipeline.
+   * playUrl(id, url, opts) — ad-hoc playback за Library sounds
+   * Регистрира спецификацията в PRESET_MAP за бъдещи calls.
+   * opts: { loop: bool } — default true.
    */
-  function playUrl(id, url) {
+  function playUrl(id, url, opts) {
     if (!id || !url) {
       return Promise.reject(new Error('playUrl requires id and url'));
     }
     var spec = { type: 'file', url: url };
     PRESET_MAP[id] = spec;
-    return playSpec(id, spec);
+    return playSpec(id, spec, opts);
   }
 
-  function playSpec(presetId, spec) {
+  function playSpec(presetId, spec, opts) {
     init();
     unlock();
+    opts = opts || {};
 
     if (activePreset === presetId && activeSource) {
       console.log('[audio] already playing:', presetId);
@@ -256,11 +260,11 @@ window.AudioEngine = (function () {
     return resumeContext().then(function () {
       if (spec.type === 'file') {
         return fetchAndDecode(spec.url).then(function (buffer) {
-          startSource(presetId, buffer);
+          startSource(presetId, buffer, opts);
         });
       } else if (spec.type === 'generated' && spec.gen === 'pink') {
         var buffer = getOrGeneratePinkBuffer();
-        startSource(presetId, buffer);
+        startSource(presetId, buffer, opts);
         return Promise.resolve();
       } else {
         return Promise.reject(new Error('Bad spec: ' + JSON.stringify(spec)));
@@ -268,10 +272,18 @@ window.AudioEngine = (function () {
     });
   }
 
-  function startSource(presetId, buffer) {
+  function startSource(presetId, buffer, opts) {
+    opts = opts || {};
+    var loop = opts.loop !== false; // default true
+
+    // Manually-stopped previous source → mark стария за да не fire-не sound-ended
+    if (activeSource) activeSource._manualStop = true;
+
     var src = ctx.createBufferSource();
     src.buffer = buffer;
-    src.loop = true;
+    src.loop = loop;
+    src._presetId = presetId;
+    src._manualStop = false;
 
     var presetGain = ctx.createGain();
     src.connect(presetGain);
@@ -302,11 +314,33 @@ window.AudioEngine = (function () {
       presetGain.gain.exponentialRampToValueAtTime(1.0, now + 0.1);
     }
 
+    // onended handles natural completion (за loop=false) — НЕ trigger при manual stop()
+    src.onended = function () {
+      if (src._manualStop) return;
+      // Natural end: clean state и emit event
+      if (activeSource === src) {
+        activeSource = null;
+        activePresetGain = null;
+        activePreset = null;
+        activeStartCtxTime = 0;
+        activeBufferDuration = 0;
+        activeIsLooping = true;
+      }
+      try { src.disconnect(); } catch (e) { /* ignore */ }
+      try { presetGain.disconnect(); } catch (e) { /* ignore */ }
+      window.dispatchEvent(new CustomEvent('auralis-sound-ended', {
+        detail: { presetId: src._presetId }
+      }));
+    };
+
     src.start(0);
     activeSource = src;
     activePresetGain = presetGain;
     activePreset = presetId;
-    console.log('[audio] play:', presetId, hadActive ? '(crossfade)' : '');
+    activeStartCtxTime = now;
+    activeBufferDuration = buffer.duration || 0;
+    activeIsLooping = loop;
+    console.log('[audio] play:', presetId, hadActive ? '(crossfade)' : '', loop ? '(loop)' : '(one-shot)');
   }
 
   // ============================================================
@@ -319,6 +353,7 @@ window.AudioEngine = (function () {
     var now = ctx.currentTime;
     var src = activeSource;
     var gain = activePresetGain;
+    src._manualStop = true; // НЕ trigger sound-ended event
 
     gain.gain.cancelScheduledValues(now);
     gain.gain.setValueAtTime(gain.gain.value, now);
@@ -334,11 +369,15 @@ window.AudioEngine = (function () {
     activeSource = null;
     activePresetGain = null;
     activePreset = null;
+    activeStartCtxTime = 0;
+    activeBufferDuration = 0;
+    activeIsLooping = true;
     console.log('[audio] pause');
   }
 
   function stop() {
     if (activeSource) {
+      activeSource._manualStop = true;
       try { activeSource.stop(); } catch (e) { /* ignore */ }
       try { activeSource.disconnect(); } catch (e) { /* ignore */ }
     }
@@ -348,8 +387,30 @@ window.AudioEngine = (function () {
     activeSource = null;
     activePresetGain = null;
     activePreset = null;
+    activeStartCtxTime = 0;
+    activeBufferDuration = 0;
+    activeIsLooping = true;
     suspendContext();
     console.log('[audio] stop');
+  }
+
+  /**
+   * getPlaybackInfo() — used by Calm player для progress bar.
+   * Returns: { presetId, currentTime, duration, isLooping } or null ако не свири.
+   */
+  function getPlaybackInfo() {
+    if (!activeSource || !ctx) return null;
+    var elapsed = ctx.currentTime - activeStartCtxTime;
+    // За loop, currentTime е по modulo на duration
+    var cur = activeIsLooping && activeBufferDuration > 0
+      ? (elapsed % activeBufferDuration)
+      : elapsed;
+    return {
+      presetId: activePreset,
+      currentTime: cur,
+      duration: activeBufferDuration,
+      isLooping: activeIsLooping
+    };
   }
 
   // ============================================================
@@ -458,6 +519,7 @@ window.AudioEngine = (function () {
     getSleepTimerInfo: getSleepTimerInfo,
     isPlaying: isPlaying,
     getActivePreset: getActivePreset,
+    getPlaybackInfo: getPlaybackInfo,
     // Internal exposed за debugging:
     _getContext: function () { return ctx; }
   };

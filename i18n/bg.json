@@ -228,7 +228,11 @@
         "sample_pink_01":        { "title": "Розов шум",               "subtitle": "Генериран в реално време" },
         "sample_river_01":       { "title": "Планински поток",         "subtitle": "Placeholder (очаква се аудио)" },
         "sample_forest_01":      { "title": "Сутрин в гората",          "subtitle": "Placeholder (очаква се аудио)" },
-        "sample_meditation_01":  { "title": "Тибетски купи · 15 мин",   "subtitle": "Placeholder (очаква се аудио)" }
+        "sample_meditation_01":  { "title": "Подсъзнание",              "subtitle": "Дълбок сън · водена медитация", "author": "Анна Ландстрьом" },
+        "sample_meditation_02":  { "title": "Тибетски купи",            "subtitle": "Релаксация · обертонове",       "author": "Луба Хилман" },
+        "sample_meditation_03":  { "title": "Body scan",                "subtitle": "Прогресивна релаксация",         "author": "Hanna Lindgren" },
+        "sample_meditation_04":  { "title": "Дишане 4-7-8",             "subtitle": "Кратка медитация преди сън",     "author": "AURALIS" },
+        "sample_meditation_05":  { "title": "Гора в утрото",            "subtitle": "Природа · 30 мин",                "author": "Joseph Beg" }
       }
     },
 
@@ -268,6 +272,17 @@
         "yes": "Да, благодаря",
         "again": "Още един цикъл"
       }
+    },
+
+    "calm": {
+      "categoryLabel": "Медитация",
+      "playerAria": "Плеър за медитация",
+      "closeAria": "Затвори плеъра",
+      "playAria": "Пусни",
+      "pauseAria": "Пауза",
+      "missingFile": "Аудио файлът липсва (placeholder за UI development).",
+      "ended": "Завършена",
+      "endedSub": "Връщане към библиотеката..."
     },
 
     "diary": {

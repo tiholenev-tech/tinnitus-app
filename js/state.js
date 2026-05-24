@@ -18,7 +18,7 @@
   var KEY_QUIZ_PROFILE  = 'auralis-quiz-profile';
   var KEY_QUIZ_DI       = 'auralis-quiz-di';
 
-  var PHASES = ['onboarding', 'quiz', 'results', 'mixer', 'library', 'sleep', 'diary'];
+  var PHASES = ['onboarding', 'quiz', 'results', 'mixer', 'library', 'sleep', 'diary', 'calm'];
   var ONBOARDING_SUBPHASES = ['welcome', 'value', 'consent'];
 
   function quizSubphaseList() {

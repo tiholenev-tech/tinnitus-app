@@ -1,0 +1,324 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · Calm / Meditation full-screen player
+   ───────────────────────────────────────────────────────────────────
+   Спокойни цветове, голяма прогрес лента, large play button.
+   Long-form audio: 5-30 минути, loop=false.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ═══ FULL-WIDTH MEDITATION CARDS (in Library) ═══ */
+.lib-med-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 80px; /* place for mini player */
+}
+
+.lib-med-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 12px 16px 18px;
+  min-height: 80px;
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease);
+}
+.lib-med-card:active { transform: scale(0.99); }
+.lib-med-card > * { position: relative; z-index: 5; }
+
+.lib-med-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.lib-med-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+}
+.lib-med-author {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  opacity: 0.75;
+}
+.lib-med-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+.lib-med-duration {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+}
+.lib-med-sep {
+  color: var(--text-faint);
+  font-size: 12px;
+}
+.lib-med-subtitle {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lib-med-fav {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: var(--radius-icon);
+  background: transparent;
+  color: var(--text-faint);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: color var(--dur) var(--ease);
+}
+.lib-med-fav:hover { color: hsl(0 75% 60%); }
+.lib-med-fav.is-active { color: hsl(0 75% 60%); }
+.lib-med-fav svg { width: 18px; height: 18px; }
+
+.lib-med-play {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-icon);
+  background: linear-gradient(135deg, hsl(var(--hue1) 70% 55%), hsl(var(--hue2) 65% 55%));
+  color: white;
+  display: grid;
+  place-items: center;
+  box-shadow:
+    0 4px 12px hsl(var(--hue1) 60% 45% / 0.4),
+    inset 0 1px 0 hsl(0 0% 100% / 0.2);
+}
+.lib-med-play svg { width: 16px; height: 16px; margin-left: 2px; }
+
+/* ═══ FULL-SCREEN CALM PLAYER ═══ */
+.calm-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: env(safe-area-inset-top, 24px) 28px env(safe-area-inset-bottom, 32px);
+  overflow-y: auto;
+  color: hsl(220 15% 92%);
+  background:
+    radial-gradient(ellipse 800px 600px at 50% 35%, hsl(var(--hue3) 60% 25% / 0.5) 0%, transparent 70%),
+    linear-gradient(180deg, #0a0c14 0%, #060810 100%);
+  animation: calmFadeIn 0.4s ease;
+}
+
+/* Light theme retains dark calm canvas (immersive listening) */
+
+.calm-close {
+  position: absolute;
+  top: calc(env(safe-area-inset-top, 0) + 12px);
+  right: 12px;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: var(--radius-icon);
+  background: hsl(220 25% 8% / 0.7);
+  backdrop-filter: blur(8px);
+  color: hsl(220 15% 80%);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.calm-close:hover,
+.calm-close:focus-visible {
+  color: white;
+  background: hsl(220 25% 12% / 0.9);
+  outline: none;
+}
+.calm-close svg { width: 22px; height: 22px; }
+
+.calm-category {
+  margin-top: 36px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: hsl(var(--hue3) 60% 75%);
+}
+
+/* ═══ ART (animated orb като фокус point) ═══ */
+.calm-art {
+  margin: 24px 0 28px;
+  width: 200px;
+  height: 200px;
+  display: grid;
+  place-items: center;
+}
+.calm-art-orb {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%,
+    hsl(var(--hue3) 70% 70% / 0.85),
+    hsl(var(--hue2) 65% 50% / 0.75) 60%,
+    hsl(var(--hue1) 60% 35% / 0.65) 100%);
+  box-shadow:
+    0 0 80px hsl(var(--hue3) 60% 45% / 0.45),
+    inset 0 0 50px hsl(0 0% 100% / 0.12);
+  animation: calmBreathe 6s ease-in-out infinite;
+}
+
+@keyframes calmBreathe {
+  0%, 100% { transform: scale(1); opacity: 0.92; }
+  50%      { transform: scale(1.06); opacity: 1; }
+}
+
+/* ═══ INFO (title + author + subtitle) ═══ */
+.calm-info {
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  margin-bottom: 28px;
+}
+.calm-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: hsl(220 15% 98%);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+.calm-author {
+  font-size: 14px;
+  font-weight: 600;
+  color: hsl(var(--hue3) 60% 75%);
+  margin-bottom: 6px;
+}
+.calm-subtitle {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: hsl(220 15% 70%);
+  letter-spacing: 0.02em;
+}
+
+/* ═══ PROGRESS ═══ */
+.calm-progress {
+  width: 100%;
+  max-width: 380px;
+  margin-bottom: 32px;
+}
+.calm-progress-bar {
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: hsl(220 25% 12%);
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 8px;
+}
+.calm-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, hsl(var(--hue3) 70% 55%), hsl(var(--hue1) 70% 65%));
+  border-radius: var(--radius-pill);
+  transition: width 250ms linear;
+  box-shadow: 0 0 12px hsl(var(--hue3) 70% 50% / 0.5);
+}
+.calm-progress-times {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: hsl(220 15% 65%);
+  letter-spacing: 0.04em;
+}
+
+/* ═══ PLAY BUTTON (large) ═══ */
+.calm-play-btn {
+  width: 80px;
+  height: 80px;
+  border: none;
+  border-radius: var(--radius-icon);
+  background: linear-gradient(135deg, hsl(var(--hue3) 65% 55%), hsl(var(--hue2) 65% 50%));
+  color: white;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow:
+    0 10px 28px hsl(var(--hue3) 60% 30% / 0.5),
+    inset 0 1px 0 hsl(0 0% 100% / 0.2);
+  transition: transform var(--dur-fast) var(--ease);
+}
+.calm-play-btn:active { transform: scale(0.96); }
+.calm-play-btn svg { width: 32px; height: 32px; }
+
+/* ═══ MISSING FILE MESSAGE ═══ */
+.calm-missing-msg {
+  margin-top: 16px;
+  padding: 14px 16px;
+  max-width: 380px;
+  border-radius: var(--radius-sm);
+  background: hsl(38 35% 12% / 0.6);
+  color: hsl(38 80% 75%);
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+  border: 1px solid hsl(38 40% 25% / 0.4);
+}
+
+/* ═══ ENDED SCREEN ═══ */
+.calm-screen--ended {
+  justify-content: center;
+}
+.calm-ended-orb {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%,
+    hsl(145 60% 70%),
+    hsl(145 55% 45%) 70%);
+  box-shadow:
+    0 10px 36px hsl(145 60% 40% / 0.5),
+    inset 0 0 40px hsl(0 0% 100% / 0.18);
+  animation: calmEndedPulse 2s ease-in-out infinite;
+  margin-bottom: 28px;
+}
+@keyframes calmEndedPulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50%      { transform: scale(1.05); opacity: 1; }
+}
+.calm-ended-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: hsl(220 15% 98%);
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+.calm-ended-sub {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: hsl(220 15% 65%);
+  letter-spacing: 0.04em;
+}
+
+@keyframes calmFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .calm-screen, .calm-art-orb, .calm-ended-orb { animation: none; }
+}

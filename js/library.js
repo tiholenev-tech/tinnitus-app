@@ -302,6 +302,42 @@ window.Library = (function () {
     );
   }
 
+  function buildMeditationCardHtml(sound) {
+    var title = soundTitle(sound);
+    var subtitle = soundSubtitle(sound);
+    var author = sound.author_key ? t(sound.author_key, '') : '';
+    var duration = formatDuration(sound.duration_sec);
+    var isFav = favorites.indexOf(sound.id) !== -1;
+    var playAria = t('library.card.playAria', 'Пусни ' + title, { title: title });
+    var favAria = isFav
+      ? t('library.card.favoriteRemoveAria', 'Премахни ' + title + ' от любими', { title: title })
+      : t('library.card.favoriteAddAria', 'Добави ' + title + ' в любими', { title: title });
+
+    return (
+      '<div class="glass lib-med-card" data-sound-id="' + escapeHtml(sound.id) + '"' +
+        ' data-meditation="true" role="button" tabindex="0"' +
+        ' aria-label="' + escapeHtml(playAria) + '">' +
+        SHINES +
+        '<div class="lib-med-body">' +
+          '<div class="lib-med-title">' + escapeHtml(title) + '</div>' +
+          (author ? '<div class="lib-med-author">' + escapeHtml(author) + '</div>' : '') +
+          '<div class="lib-med-meta">' +
+            '<span class="lib-med-duration">' + escapeHtml(duration) + '</span>' +
+            '<span class="lib-med-sep" aria-hidden="true">·</span>' +
+            '<span class="lib-med-subtitle">' + escapeHtml(subtitle) + '</span>' +
+          '</div>' +
+        '</div>' +
+        '<button class="lib-med-fav' + (isFav ? ' is-active' : '') + '"' +
+          ' type="button" data-action="fav"' +
+          ' aria-label="' + escapeHtml(favAria) + '"' +
+          ' aria-pressed="' + (isFav ? 'true' : 'false') + '">' +
+          (isFav ? SVG.heartFilled : SVG.heart) +
+        '</button>' +
+        '<div class="lib-med-play" aria-hidden="true">' + SVG.play + '</div>' +
+      '</div>'
+    );
+  }
+
   function getCatIcon(catId) {
     if (!manifest || !manifest.categories) return 'waves';
     for (var i = 0; i < manifest.categories.length; i++) {
@@ -319,6 +355,16 @@ window.Library = (function () {
             : t('library.empty', 'Скоро ще има още звуци'));
       return '<div class="lib-empty">' + escapeHtml(empty) + '</div>';
     }
+
+    // Meditation category → full-width list (не 2-col grid)
+    if (activeFilter === 'meditation') {
+      return (
+        '<div class="lib-med-list">' +
+          sounds.map(buildMeditationCardHtml).join('') +
+        '</div>'
+      );
+    }
+
     return (
       '<div class="lib-grid">' +
         sounds.map(buildSoundCardHtml).join('') +
@@ -550,6 +596,18 @@ window.Library = (function () {
       return;
     }
 
+    // Meditation card → Calm full-screen player
+    var medCard = e.target.closest('.lib-med-card');
+    if (medCard) {
+      var medId = medCard.getAttribute('data-sound-id');
+      if (window.Calm && window.Calm.open) {
+        window.Calm.open(medId);
+      } else {
+        openSound(medId); // fallback
+      }
+      return;
+    }
+
     // Card body tap → play
     var soundCard = e.target.closest('.lib-card');
     if (soundCard) {
@@ -587,6 +645,7 @@ window.Library = (function () {
     search: search,
     toggleFavorite: toggleFavorite,
     getFavorites: function () { return favorites.slice(); },
+    getSoundById: findSound,
     getPlayingSound: function () {
       if (!window.AudioEngine) return null;
       var id = window.AudioEngine.getActivePreset();
