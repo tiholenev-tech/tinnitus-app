@@ -321,6 +321,27 @@
 .lib-mp-btn:active { transform: scale(var(--press)); }
 .lib-mp-btn svg { width: 18px; height: 18px; }
 
+.lib-mp-sleep {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: var(--radius-icon);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.lib-mp-sleep:hover,
+.lib-mp-sleep:focus-visible {
+  color: var(--accent);
+  background: hsl(var(--hue1) 20% 35% / 0.12);
+  outline: none;
+}
+.lib-mp-sleep svg { width: 20px; height: 20px; }
+
 @keyframes libMpSlideUp {
   from { transform: translateY(100%); opacity: 0; }
   to   { transform: translateY(0);    opacity: 1; }

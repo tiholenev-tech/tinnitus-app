@@ -230,6 +230,44 @@
         "sample_forest_01":      { "title": "TODO: Morning in the forest","subtitle": "TODO: Placeholder (audio pending)" },
         "sample_meditation_01":  { "title": "TODO: Tibetan bowls · 15 min","subtitle": "TODO: Placeholder (audio pending)" }
       }
+    },
+
+    "sleep": {
+      "title": "TODO: Night mode",
+      "closeAria": "TODO: Exit night mode",
+      "nothingPlaying": "TODO: Pick a sound from the library",
+      "openLibrary": "TODO: Open library",
+      "timer": {
+        "label": "TODO: Stop timer",
+        "off": "TODO: No timer",
+        "min15": "TODO: 15 min",
+        "min30": "TODO: 30 min",
+        "min60": "TODO: 1 hour",
+        "min90": "TODO: 1.5 h",
+        "min120": "TODO: 2 hours",
+        "stopTime": "TODO: Stops at: {time}"
+      },
+      "sos": {
+        "button": "TODO: Breathing for panic",
+        "subtitle": "TODO: Tap if anxious"
+      }
+    },
+
+    "sos": {
+      "openAria": "TODO: Open SOS breathing",
+      "closeAria": "TODO: Stop exercise",
+      "inhale": "TODO: INHALE",
+      "hold": "TODO: HOLD",
+      "exhale": "TODO: EXHALE",
+      "pause": "—",
+      "cycle": "TODO: Cycle {n} of {total}",
+      "stop": "TODO: Stop exercise",
+      "instructionsTop": "TODO: Breathe slowly through the nose",
+      "end": {
+        "title": "TODO: Feeling better?",
+        "yes": "TODO: Yes, thank you",
+        "again": "TODO: One more cycle"
+      }
     }
   },
   "quiz": {

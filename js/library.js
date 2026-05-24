@@ -324,6 +324,11 @@ window.Library = (function () {
     var subtitle = soundSubtitle(sound);
     var playingLabel = t('library.player.playing', 'Възпроизвежда се');
     var pauseAria = t('library.player.pauseAria', 'Пауза');
+    var sleepLabel = t('sleep.title', 'Нощен режим');
+
+    var moonSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"' +
+      ' stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>';
 
     return (
       '<div class="lib-miniplayer" id="libMiniPlayer" role="region" aria-label="' +
@@ -333,6 +338,10 @@ window.Library = (function () {
           '<div class="lib-mp-title">' + escapeHtml(title) + '</div>' +
           '<div class="lib-mp-subtitle">' + escapeHtml(subtitle) + '</div>' +
         '</div>' +
+        '<button class="lib-mp-sleep" type="button" data-action="mp-sleep"' +
+          ' aria-label="' + escapeHtml(sleepLabel) + '">' +
+          moonSvg +
+        '</button>' +
         '<button class="lib-mp-btn" type="button" data-action="mp-toggle"' +
           ' aria-label="' + escapeHtml(pauseAria) + '">' +
           SVG.pause +
@@ -502,7 +511,7 @@ window.Library = (function () {
       return;
     }
 
-    // Mini player toggle
+    // Mini player toggle (pause/play)
     var mpBtn = e.target.closest('[data-action="mp-toggle"]');
     if (mpBtn) {
       e.stopPropagation();
@@ -510,6 +519,14 @@ window.Library = (function () {
         window.AudioEngine.pause();
         refresh();
       }
+      return;
+    }
+
+    // Mini player Sleep button
+    var sleepBtn = e.target.closest('[data-action="mp-sleep"]');
+    if (sleepBtn) {
+      e.stopPropagation();
+      if (window.Sleep && window.Sleep.open) window.Sleep.open();
       return;
     }
 

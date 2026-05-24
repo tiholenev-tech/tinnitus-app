@@ -1,0 +1,285 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · SOS Breathing — safety-critical full-screen overlay
+   ───────────────────────────────────────────────────────────────────
+   CSS-only circle animation (transform → GPU-accelerated, battery-friendly).
+   4-7-8 protocol: inhale 4s → hold 7s → exhale 8s → pause 1s = 20s cycle × 4.
+   Total animation runtime: 80 sec (CSS handles, JS само tracks за phase text).
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Block background scroll when SOS active */
+body.sos-active {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+/* ═══ OVERLAY (full-screen takeover) ═══ */
+.sos-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: env(safe-area-inset-top, 16px) 24px env(safe-area-inset-bottom, 24px);
+  animation: sosFadeIn 0.3s ease;
+}
+
+/* Light theme — мек warm cream фон */
+[data-theme="light"] .sos-overlay,
+:root:not([data-theme]) .sos-overlay {
+  background:
+    radial-gradient(ellipse 600px 600px at 50% 50%, hsl(var(--hue1) 70% 88% / 0.6) 0%, transparent 70%),
+    var(--bg-main);
+}
+
+/* Dark theme — calm night */
+[data-theme="dark"] .sos-overlay {
+  background:
+    radial-gradient(ellipse 600px 600px at 50% 50%, hsl(var(--hue1) 50% 20% / 0.6) 0%, transparent 70%),
+    linear-gradient(180deg, #060810 0%, #03050a 100%);
+}
+
+/* ═══ TOP CLOSE BUTTON ═══ */
+.sos-close {
+  position: absolute;
+  top: calc(env(safe-area-inset-top, 0) + 12px);
+  right: 12px;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: var(--radius-icon);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.sos-close:hover,
+.sos-close:focus-visible {
+  color: var(--text);
+  background: hsl(var(--hue1) 20% 50% / 0.12);
+  outline: none;
+}
+.sos-close svg { width: 24px; height: 24px; }
+
+/* ═══ TOP INSTRUCTIONS ═══ */
+.sos-instructions-top {
+  margin-top: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+/* ═══ STAGE (circle + text overlay) ═══ */
+.sos-stage {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 280px;
+}
+
+/* ═══ CIRCLE — CSS animation (transform, battery-friendly) ═══ */
+.sos-circle {
+  width: 220px;
+  height: 220px;
+  display: grid;
+  place-items: center;
+  transform: scale(1);
+  animation: sosBreathe 20s cubic-bezier(0.4, 0, 0.4, 1) 4;
+  /* 20s cycle × 4 = 80s total animation runtime */
+}
+.sos-circle-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%,
+    hsl(var(--hue1) 70% 75% / 0.85),
+    hsl(var(--hue2) 65% 55% / 0.75) 60%,
+    hsl(var(--hue2) 70% 40% / 0.6) 100%);
+  box-shadow:
+    0 0 80px hsl(var(--hue1) 70% 55% / 0.4),
+    inset 0 0 60px hsl(0 0% 100% / 0.15);
+}
+[data-theme="dark"] .sos-circle-inner {
+  background: radial-gradient(circle at 35% 30%,
+    hsl(var(--hue1) 80% 60% / 0.8),
+    hsl(var(--hue2) 75% 45% / 0.7) 60%,
+    hsl(var(--hue2) 80% 25% / 0.6) 100%);
+  box-shadow:
+    0 0 100px hsl(var(--hue1) 80% 60% / 0.5),
+    inset 0 0 60px hsl(0 0% 100% / 0.1);
+}
+
+/* 4-7-8 breathing keyframes:
+   0%   = start of inhale
+   20%  = end of inhale (4s of 20s = 20%)
+   55%  = end of hold (4+7=11s of 20s = 55%)
+   95%  = end of exhale (11+8=19s of 20s = 95%)
+   100% = end of pause (1s) */
+@keyframes sosBreathe {
+  0%   { transform: scale(1.0); }
+  20%  { transform: scale(1.55); }   /* peak — inhale done */
+  55%  { transform: scale(1.55); }   /* hold — stable */
+  95%  { transform: scale(1.0); }    /* exhaled */
+  100% { transform: scale(1.0); }    /* pause */
+}
+
+/* Text inside circle (centered, theme-aware) */
+.sos-text-overlay {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+}
+.sos-phase {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: white;
+  text-shadow: 0 2px 8px hsl(var(--hue2) 50% 20% / 0.5);
+}
+.sos-countdown {
+  font-size: 56px;
+  font-weight: 900;
+  color: white;
+  line-height: 1;
+  text-shadow: 0 2px 12px hsl(var(--hue2) 50% 20% / 0.6);
+  font-variant-numeric: tabular-nums;
+  min-height: 56px;
+}
+
+/* ═══ BOTTOM CYCLE COUNTER + STOP BTN ═══ */
+.sos-cycle {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.sos-stop-btn {
+  min-height: 52px;
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--dur) var(--ease);
+}
+[data-theme="light"] .sos-stop-btn,
+:root:not([data-theme]) .sos-stop-btn {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+  border: none;
+}
+[data-theme="dark"] .sos-stop-btn {
+  background: hsl(220 25% 6% / 0.6);
+  backdrop-filter: blur(8px);
+}
+.sos-stop-btn:hover,
+.sos-stop-btn:focus-visible {
+  color: var(--text);
+  outline: none;
+}
+
+/* ═══ END SCREEN ═══ */
+.sos-end {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  text-align: center;
+  padding: 0 16px;
+}
+.sos-end-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%,
+    hsl(145 60% 70%),
+    hsl(145 55% 50%) 70%);
+  box-shadow:
+    0 8px 32px hsl(145 60% 40% / 0.4),
+    inset 0 0 30px hsl(0 0% 100% / 0.2);
+  animation: sosEndPulse 2s ease-in-out infinite;
+}
+@keyframes sosEndPulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.05); }
+}
+.sos-end-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  max-width: 280px;
+}
+.sos-end-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 280px;
+}
+.sos-btn {
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 24px;
+  border-radius: var(--radius-pill);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: transform var(--dur-fast) var(--ease);
+}
+.sos-btn:active { transform: scale(0.98); }
+.sos-btn--primary {
+  background: linear-gradient(135deg, hsl(var(--hue1) 70% 55%), hsl(var(--hue2) 65% 55%));
+  color: white;
+  box-shadow:
+    0 6px 18px hsl(var(--hue1) 60% 45% / 0.4),
+    inset 0 1px 0 hsl(0 0% 100% / 0.2);
+}
+.sos-btn--ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+}
+[data-theme="light"] .sos-btn--ghost,
+:root:not([data-theme]) .sos-btn--ghost {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+  border: none;
+  color: var(--text);
+}
+
+/* ═══ ANIMATIONS ═══ */
+@keyframes sosFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sos-circle { animation: none; transform: scale(1.3); }
+  .sos-end-circle { animation: none; }
+  .sos-overlay { animation: none; }
+}

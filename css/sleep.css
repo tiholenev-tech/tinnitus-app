@@ -1,0 +1,252 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · Sleep Mode — нощен екран
+   ───────────────────────────────────────────────────────────────────
+   Full-screen takeover (renders into #app). Dark night background дори
+   при light theme (night use case).
+   ═══════════════════════════════════════════════════════════════════ */
+
+.sleep-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: env(safe-area-inset-top, 16px) 24px env(safe-area-inset-bottom, 24px);
+  overflow-y: auto;
+  background:
+    radial-gradient(ellipse 800px 600px at 50% 30%, hsl(var(--hue2) 60% 22% / 0.6) 0%, transparent 70%),
+    linear-gradient(180deg, #0a0c14 0%, #060810 100%);
+  color: hsl(220 15% 92%);
+  animation: sleepFadeIn 0.35s ease;
+}
+
+/* Light theme retains dark sleep canvas (per BIBLE — night use) */
+
+/* ═══ CLOSE BUTTON (top right) ═══ */
+.sleep-close {
+  position: absolute;
+  top: calc(env(safe-area-inset-top, 0) + 12px);
+  right: 12px;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: var(--radius-icon);
+  background: hsl(220 25% 8% / 0.7);
+  backdrop-filter: blur(8px);
+  color: hsl(220 15% 80%);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.sleep-close:hover,
+.sleep-close:focus-visible {
+  color: white;
+  background: hsl(220 25% 12% / 0.9);
+  outline: none;
+}
+.sleep-close svg { width: 22px; height: 22px; }
+
+/* ═══ HEADER ═══ */
+.sleep-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 32px 0 24px;
+}
+.sleep-moon {
+  display: grid;
+  place-items: center;
+  color: hsl(var(--hue1) 60% 75%);
+}
+.sleep-moon svg { width: 24px; height: 24px; }
+.sleep-title {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.005em;
+  color: hsl(220 15% 96%);
+}
+
+/* ═══ CURRENTLY PLAYING ═══ */
+.sleep-now-playing {
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  padding: 28px 16px;
+  margin-bottom: 20px;
+  border-radius: var(--radius);
+  background:
+    linear-gradient(235deg, hsl(var(--hue1) 50% 14% / .8), hsl(var(--hue1) 50% 14% / 0) 33%),
+    linear-gradient(45deg,  hsl(var(--hue2) 50% 14% / .8), hsl(var(--hue2) 50% 14% / 0) 33%),
+    linear-gradient(hsl(220 25% 6% / .85));
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 24px hsl(var(--hue2) 50% 2% / 0.6);
+}
+.sleep-np-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: hsl(220 15% 96%);
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+.sleep-np-subtitle {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: hsl(220 15% 70%);
+  letter-spacing: 0.02em;
+}
+
+/* ═══ EMPTY STATE (no sound playing) ═══ */
+.sleep-no-sound {
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  padding: 28px 20px;
+  margin-bottom: 20px;
+  border-radius: var(--radius);
+  background: hsl(220 25% 6% / 0.6);
+  backdrop-filter: blur(8px);
+}
+.sleep-no-sound-text {
+  font-size: 15px;
+  color: hsl(220 15% 75%);
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+.sleep-open-library {
+  min-height: 44px;
+  padding: 10px 22px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, hsl(var(--hue1) 70% 55%), hsl(var(--hue2) 65% 55%));
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px hsl(var(--hue1) 60% 45% / 0.45);
+  transition: transform var(--dur-fast) var(--ease);
+}
+.sleep-open-library:active { transform: scale(0.97); }
+
+/* ═══ TIMER SECTION ═══ */
+.sleep-timer-section {
+  width: 100%;
+  max-width: 380px;
+  margin-bottom: 24px;
+}
+.sleep-timer-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: hsl(220 15% 70%);
+  margin-bottom: 10px;
+  text-align: center;
+}
+.sleep-timer-chips {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.sleep-chip {
+  min-height: 48px;
+  padding: 10px 8px;
+  border: 1px solid hsl(220 20% 18%);
+  border-radius: var(--radius-sm);
+  background: hsl(220 25% 8% / 0.6);
+  color: hsl(220 15% 85%);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--dur) var(--ease);
+}
+.sleep-chip:hover,
+.sleep-chip:focus-visible {
+  background: hsl(220 25% 12% / 0.8);
+  color: white;
+  outline: none;
+}
+.sleep-chip.is-active {
+  background: linear-gradient(135deg, hsl(var(--hue1) 70% 55%), hsl(var(--hue2) 65% 55%));
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 14px hsl(var(--hue1) 60% 45% / 0.4);
+}
+.sleep-stop-time {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: hsl(var(--hue3) 60% 75%);
+  letter-spacing: 0.04em;
+  text-align: center;
+  min-height: 18px;
+}
+
+/* ═══ SPACER (push SOS to bottom) ═══ */
+.sleep-spacer { flex: 1; min-height: 24px; }
+
+/* ═══ SOS BUTTON (BIG, prominent — safety) ═══ */
+.sleep-sos-btn {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border: none;
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, hsl(345 70% 50%), hsl(355 75% 45%));
+  color: white;
+  cursor: pointer;
+  text-align: left;
+  box-shadow:
+    0 10px 28px hsl(355 70% 30% / 0.5),
+    inset 0 1px 0 hsl(0 0% 100% / 0.15);
+  transition: transform var(--dur-fast) var(--ease);
+  margin-top: 16px;
+}
+.sleep-sos-btn:active { transform: scale(0.98); }
+.sleep-sos-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-icon);
+  background: hsl(0 0% 100% / 0.15);
+}
+.sleep-sos-icon svg { width: 28px; height: 28px; }
+.sleep-sos-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+.sleep-sos-title {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.005em;
+  line-height: 1.2;
+}
+.sleep-sos-sub {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: hsl(0 0% 100% / 0.85);
+  letter-spacing: 0.04em;
+}
+
+/* ═══ ANIMATIONS ═══ */
+@keyframes sleepFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sleep-screen { animation: none; }
+}
