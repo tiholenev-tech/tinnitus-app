@@ -157,6 +157,8 @@ def main():
                         help='Само анализ преди — без convert')
     parser.add_argument('--force', action='store_true',
                         help='Презапиши output папка ако съществува')
+    parser.add_argument('--skip-existing', action='store_true',
+                        help='Прескачай файлове които вече съществуват в output')
     args = parser.parse_args()
 
     check_dependencies()
@@ -238,6 +240,14 @@ def main():
         if not args.dry_run:
             out_path = output_dir / rel.with_suffix(args.ext)
             out_path.parent.mkdir(parents=True, exist_ok=True)
+
+            if args.skip_existing and out_path.exists():
+                print(f'         ⏭  вече нормализиран — прескочен')
+                row['status'] = 'skipped_existing'
+                ok_count += 1
+                rows.append(row)
+                print()
+                continue
 
             success, err = normalize_file(in_path, out_path,
                                           args.target_lufs, args.true_peak, args.lra, args.ext)
