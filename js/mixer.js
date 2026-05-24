@@ -70,6 +70,13 @@ window.Mixer = (function () {
     chevron:
       '<svg viewBox="0 0 24 24" aria-hidden="true">' +
         '<polyline points="6 9 12 15 18 9"/>' +
+      '</svg>',
+    volume:
+      '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor"' +
+        ' stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+        '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none"/>' +
+        '<path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>' +
+        '<path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>' +
       '</svg>'
   };
 
@@ -86,6 +93,9 @@ window.Mixer = (function () {
   var activeCardId = null;
   var expandedCardId = null;
   var sleepMinutes = 0;
+  var masterVolume = 50; // 0-100, loaded from localStorage
+
+  var STORAGE_VOLUME = 'auralis-master-volume';
 
   var tooltipEl = null;
   var tooltipDismissTimer = null;
@@ -193,6 +203,16 @@ window.Mixer = (function () {
           escapeHtml(profileName) +
         '</div>' +
 
+        '<div class="master-volume" role="group" aria-label="Сила на звука">' +
+          '<span class="master-volume-icon" aria-hidden="true">' + SVG.volume + '</span>' +
+          '<input type="range" id="masterVolumeSlider" class="master-volume-slider"' +
+            ' min="0" max="100" step="1" value="' + masterVolume + '"' +
+            ' aria-label="Сила на звука 0 до 100">' +
+          '<span class="master-volume-value" id="masterVolumeValue">' +
+            masterVolume + '%' +
+          '</span>' +
+        '</div>' +
+
         '<div class="cards-list" id="cardsList">' + cardsHtml + '</div>' +
 
         '<div class="sleep-section">' +
@@ -274,15 +294,27 @@ window.Mixer = (function () {
   // ============================================================
 
   function handleCardPlay(cardId) {
-    // TODO(Task 7b · audio-integration): wire to audio-engine.js
-    console.log('[mixer] Play preset:', cardId);
-
-    if (activeCardId === cardId) {
-      setActiveCard(null);
-      console.log('[mixer] Pause:', cardId);
-    } else {
-      setActiveCard(cardId);
+    if (!window.AudioEngine) {
+      console.error('[mixer] AudioEngine not loaded');
+      return;
     }
+
+    // Toggle: same card → pause; нова card → crossfade play
+    if (window.AudioEngine.getActivePreset() === cardId) {
+      window.AudioEngine.pause();
+      setActiveCard(null);
+      return;
+    }
+
+    // Optimistic UI update — engine ще rollback при грешка
+    setActiveCard(cardId);
+    window.AudioEngine.play(cardId).catch(function (err) {
+      console.error('[mixer] play failed:', cardId, err);
+      // Rollback UI ако engine не успя да load-не
+      if (window.AudioEngine.getActivePreset() !== cardId) {
+        setActiveCard(null);
+      }
+    });
   }
 
   function setActiveCard(cardId) {
@@ -433,8 +465,9 @@ window.Mixer = (function () {
       }
     }
     closeSleepOverlay();
-    // TODO(Task 7c · sleep-integration): wire to audio-engine.js sleep timer
-    console.log('[mixer] Sleep timer set to:', min, 'min');
+    if (window.AudioEngine) {
+      window.AudioEngine.setSleepTimer(min);
+    }
   }
 
   // ============================================================
@@ -474,6 +507,33 @@ window.Mixer = (function () {
         infoToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
     }
+
+    // Master volume slider
+    var slider = container.querySelector('#masterVolumeSlider');
+    if (slider) {
+      slider.addEventListener('input', onVolumeInput);
+      slider.addEventListener('change', onVolumeInput);
+    }
+  }
+
+  function onVolumeInput(e) {
+    var val = parseInt(e.currentTarget.value, 10);
+    if (isNaN(val)) return;
+    masterVolume = Math.max(0, Math.min(100, val));
+    var label = el('masterVolumeValue');
+    if (label) label.textContent = masterVolume + '%';
+    if (window.AudioEngine) window.AudioEngine.setMasterVolume(masterVolume);
+    try { localStorage.setItem(STORAGE_VOLUME, String(masterVolume)); } catch (e2) { /* ignore */ }
+  }
+
+  function loadMasterVolume() {
+    try {
+      var saved = localStorage.getItem(STORAGE_VOLUME);
+      if (saved !== null) {
+        var n = parseInt(saved, 10);
+        if (!isNaN(n) && n >= 0 && n <= 100) masterVolume = n;
+      }
+    } catch (e) { /* ignore */ }
   }
 
   function onClick(e) {
@@ -537,13 +597,28 @@ window.Mixer = (function () {
     var app = el('app');
     if (!app) return;
 
-    // Reset mixer state на нов render
-    activeCardId = null;
+    // Зареди volume преди да генерираме HTML (за да popup-не slider value-то)
+    loadMasterVolume();
+
+    // Reset visual state на нов render. AudioEngine запазва playback state.
     expandedCardId = null;
     hideTooltip();
 
     app.innerHTML = buildMixerHtml();
     bindEvents(app);
+
+    // Sync UI с AudioEngine actual state (ако вече свири от предишен render)
+    if (window.AudioEngine) {
+      window.AudioEngine.setMasterVolume(masterVolume);
+      var current = window.AudioEngine.getActivePreset();
+      if (current) {
+        setActiveCard(current);
+      } else {
+        activeCardId = null;
+      }
+    } else {
+      activeCardId = null;
+    }
   }
 
   // ============================================================
