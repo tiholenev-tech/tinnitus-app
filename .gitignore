@@ -37,14 +37,20 @@ build/
 **/secrets/
 **/credentials/
 
-# Audio raw (твърде големи за git)
+# Audio assets (per BIBLE v3 §6 — offline-first, Capacitor-bundled)
+audio/
 audio/raw/
 audio/*.wav
 audio/*.aiff
 audio_files/
-# WAV-овете са твърде големи. Само компресиран mp3/m4a/ogg в git.
-# audio_files/ = Тихол's 160+ raw .wav sample library (local only)
-# Raw файлове се пазят локално в Desktop/auralis-audio-raw/
+audio_files_safe39/
+audio_files_safe39_normalized/
+audio_files_list.txt
+normalize_report_*.csv
+# Beta: локално в audio/presets/, обслужвани от ngrok/local dev server.
+# Production: copied to android/app/src/main/assets/audio/ от build script.
+# Distribution: GitHub Releases (не Git LFS).
+# audio_files/ = Тихол's raw .wav source library (local only)
 
 # Audio analysis reports (local working files)
 audio-report.csv
