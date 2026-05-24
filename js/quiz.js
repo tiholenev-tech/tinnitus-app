@@ -43,6 +43,11 @@ window.Quiz = (function () {
 
   function el(id) { return document.getElementById(id); }
 
+  function t(key, fallback, params) {
+    if (window.i18n && window.i18n.t) return window.i18n.t(key, fallback, params);
+    return fallback != null ? fallback : key;
+  }
+
   function prefersReducedMotion() {
     return window.matchMedia &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -66,18 +71,23 @@ window.Quiz = (function () {
 
   function renderHeader(qNum) {
     var pct = Math.round((qNum / TOTAL) * 100);
+    var backLabel = t('ui.quiz.back', 'Назад');
+    var progressText = t('ui.quiz.progressText', 'Въпрос ' + qNum + ' от ' + TOTAL,
+      { n: qNum, total: TOTAL });
+    var progressAria = t('ui.quiz.progressAria', 'Прогрес ' + qNum + ' от ' + TOTAL,
+      { n: qNum, total: TOTAL });
     return (
       '<div class="quiz-top">' +
         '<button class="icon-button quiz-back" type="button"' +
-          ' data-action="back" aria-label="Назад">' +
+          ' data-action="back" aria-label="' + backLabel + '">' +
           SVG.back +
         '</button>' +
-        '<div class="quiz-progress-text">Въпрос ' + qNum + ' от ' + TOTAL + '</div>' +
+        '<div class="quiz-progress-text">' + progressText + '</div>' +
         '<span class="quiz-back-spacer" aria-hidden="true"></span>' +
       '</div>' +
       '<div class="quiz-progress-track" role="progressbar"' +
         ' aria-valuemin="1" aria-valuemax="' + TOTAL + '" aria-valuenow="' + qNum + '"' +
-        ' aria-label="Прогрес ' + qNum + ' от ' + TOTAL + '">' +
+        ' aria-label="' + progressAria + '">' +
         '<div class="quiz-progress-fill" style="width: ' + pct + '%"></div>' +
       '</div>'
     );
@@ -89,12 +99,17 @@ window.Quiz = (function () {
 
   function renderQuestion(qNum) {
     var q = window.QUIZ_QUESTIONS[qNum - 1];
-    if (!q) return '<p>Грешка: въпрос ' + qNum + ' не съществува.</p>';
+    if (!q) {
+      return '<p>' + escapeHtml(t('ui.quiz.errorQuestionMissing',
+        'Грешка: въпрос ' + qNum + ' не съществува.', { n: qNum })) + '</p>';
+    }
 
     var answeredKey = window.AppState.quizAnswers['q' + q.id];
+    var questionText = t('quiz.questions.q' + q.id + '.text', q.question);
 
     var optionsHtml = q.options.map(function (opt) {
       var isSelected = answeredKey === opt.key;
+      var optLabel = t('quiz.questions.q' + q.id + '.options.' + opt.key, opt.label);
       return (
         '<li>' +
           '<button class="quiz-option' + (isSelected ? ' is-selected' : '') + '"' +
@@ -102,7 +117,7 @@ window.Quiz = (function () {
             '<span class="quiz-option-letter" aria-hidden="true">' +
               opt.key.toUpperCase() + '.' +
             '</span>' +
-            '<span class="quiz-option-text">' + escapeHtml(opt.label) + '</span>' +
+            '<span class="quiz-option-text">' + escapeHtml(optLabel) + '</span>' +
             '<span class="quiz-option-mark" aria-hidden="true">' + SVG.check + '</span>' +
           '</button>' +
         '</li>'
@@ -113,7 +128,7 @@ window.Quiz = (function () {
       '<article class="quiz-screen" data-question="' + qNum + '">' +
         renderHeader(qNum) +
 
-        '<h2 class="quiz-question">' + escapeHtml(q.question) + '</h2>' +
+        '<h2 class="quiz-question">' + escapeHtml(questionText) + '</h2>' +
 
         '<ul class="quiz-options" role="list">' + optionsHtml + '</ul>' +
       '</article>'
@@ -132,19 +147,29 @@ window.Quiz = (function () {
     if (!profile) {
       return (
         '<article class="quiz-screen" data-screen="results-error">' +
-          '<h1 class="quiz-results-title">Изчисляване...</h1>' +
-          '<p class="quiz-results-description">Профилът все още не е изчислен. ' +
-          '<button class="btn btn--ghost" data-action="restart">Започни отначало</button></p>' +
+          '<h1 class="quiz-results-title">' +
+            t('ui.quiz.results.computing', 'Изчисляване...') +
+          '</h1>' +
+          '<p class="quiz-results-description">' +
+            t('ui.quiz.results.notComputed', 'Профилът все още не е изчислен.') + ' ' +
+            '<button class="btn btn--ghost" data-action="restart">' +
+              t('ui.quiz.results.startOver', 'Започни отначало') +
+            '</button>' +
+          '</p>' +
         '</article>'
       );
     }
 
     var intensity = window.QuizEngine.intensityFor(di);
     var diLevel = window.QuizEngine.diLevel(di);
+    var diLevelKey = window.QuizEngine.diLevelKey(di); // low|medium|high
     var diPct = Math.round((di / 20) * 100);
 
-    // TODO (Phase 4): заменú raw mix codes с човешки БГ имена и кратки описания.
-    // Засега показваме snake_case + Title Case за debug visibility на резултата.
+    var shortName = t('quiz.profiles.' + profileCode + '.shortName', profile.shortName);
+    var description = t('quiz.profiles.' + profileCode + '.description', profile.description);
+
+    // NOTE: raw mix codes (snake_case) показват се само ако някак стигне renderResults.
+    // Task 7a skipa този екран — продължава директно към Mixer. Тук е защитен fallback.
     var mixesHtml = profile.recommendedMixes.map(function (mixName) {
       var label = mixName.replace(/_/g, ' ')
         .replace(/\b\w/g, function (c) { return c.toUpperCase(); });
@@ -160,22 +185,28 @@ window.Quiz = (function () {
       '<article class="quiz-screen" data-screen="results">' +
         '<div class="quiz-results-hero">' +
           '<span class="quiz-results-laurel" aria-hidden="true">' + SVG.laurel + '</span>' +
-          '<p class="quiz-results-eyebrow">Вашият профил</p>' +
-          '<h1 class="quiz-results-title">' + escapeHtml(profile.shortName) + '</h1>' +
+          '<p class="quiz-results-eyebrow">' +
+            t('ui.quiz.results.eyebrow', 'Вашият профил') +
+          '</p>' +
+          '<h1 class="quiz-results-title">' + escapeHtml(shortName) + '</h1>' +
         '</div>' +
 
-        '<p class="quiz-results-description">' + escapeHtml(profile.description) + '</p>' +
+        '<p class="quiz-results-description">' + escapeHtml(description) + '</p>' +
 
         '<section class="quiz-di-card" aria-label="Distress Index">' +
           '<div class="quiz-di-row">' +
             '<div>' +
-              '<p class="quiz-di-eyebrow">Ниво на дискомфорт</p>' +
+              '<p class="quiz-di-eyebrow">' +
+                t('ui.quiz.results.diEyebrow', 'Ниво на дискомфорт') +
+              '</p>' +
               '<p class="quiz-di-score">' +
                 '<span class="quiz-di-num">' + di + '</span>' +
-                '<span class="quiz-di-max">/ 20</span>' +
+                '<span class="quiz-di-max">' +
+                  t('ui.quiz.results.diSuffix', '/ 20') +
+                '</span>' +
               '</p>' +
             '</div>' +
-            '<div class="quiz-di-tag quiz-di-tag--' + diLevel.toLowerCase() + '">' +
+            '<div class="quiz-di-tag quiz-di-tag--' + diLevelKey + '">' +
               escapeHtml(diLevel) +
             '</div>' +
           '</div>' +
@@ -184,26 +215,30 @@ window.Quiz = (function () {
             '<div class="quiz-di-fill" style="width: ' + diPct + '%"></div>' +
           '</div>' +
           '<p class="quiz-di-intensity">' +
-            '<strong>Препоръчителен интензитет:</strong> ' + escapeHtml(intensity) +
+            '<strong>' + t('ui.quiz.results.intensityLabel', 'Препоръчителен интензитет:') +
+            '</strong> ' + escapeHtml(intensity) +
           '</p>' +
         '</section>' +
 
-        '<section class="quiz-mixes" aria-label="Препоръчани миксове">' +
-          '<h3 class="quiz-mixes-title">Препоръчани миксове</h3>' +
+        '<section class="quiz-mixes" aria-label="' +
+          t('ui.quiz.results.mixesTitle', 'Препоръчани миксове') + '">' +
+          '<h3 class="quiz-mixes-title">' +
+            t('ui.quiz.results.mixesTitle', 'Препоръчани миксове') +
+          '</h3>' +
           '<ul class="quiz-mixes-list" role="list">' + mixesHtml + '</ul>' +
         '</section>' +
 
         '<p class="quiz-results-disclaimer">' +
-          'Този профил е базиран на Вашите отговори. ' +
-          'Можете да го промените по-късно в настройките.' +
+          t('ui.quiz.results.disclaimer',
+            'Този профил е базиран на Вашите отговори. Можете да го промените по-късно в настройките.') +
         '</p>' +
 
         '<div class="quiz-actions">' +
           '<button class="btn btn--cta" type="button" data-action="finish">' +
-            'Продължи към Mixer' +
+            t('ui.quiz.results.continueToMixer', 'Продължи към Mixer') +
           '</button>' +
           '<button class="btn btn--ghost" type="button" data-action="restart">' +
-            'Започни оценката отначало' +
+            t('ui.quiz.results.restart', 'Започни оценката отначало') +
           '</button>' +
         '</div>' +
       '</article>'
@@ -218,12 +253,15 @@ window.Quiz = (function () {
     return (
       '<article class="quiz-screen" data-screen="mixer-placeholder">' +
         '<section class="ob-placeholder-card">' +
-          '<h1 class="ob-title ob-title--sm">Mixer следва</h1>' +
+          '<h1 class="ob-title ob-title--sm">' +
+            t('ui.quiz.mixerPlaceholder.title', 'Mixer следва') +
+          '</h1>' +
           '<p class="ob-placeholder-body">' +
-            'Web Audio engine + 5 канала + Sleep Mode идват в следваща задача.' +
+            t('ui.quiz.mixerPlaceholder.body',
+              'Web Audio engine + 5 канала + Sleep Mode идват в следваща задача.') +
           '</p>' +
           '<button class="btn btn--ghost" type="button" data-action="restart">' +
-            'Нулирай всичко' +
+            t('ui.quiz.mixerPlaceholder.reset', 'Нулирай всичко') +
           '</button>' +
         '</section>' +
       '</article>'
@@ -315,7 +353,8 @@ window.Quiz = (function () {
 
   function confirmRestart() {
     return window.confirm(
-      'Сигурни ли сте? Това ще изтрие всички отговори и ще започне отначало.'
+      t('ui.quiz.confirmRestart',
+        'Сигурни ли сте? Това ще изтрие всички отговори и ще започне отначало.')
     );
   }
 

@@ -337,36 +337,36 @@
 }
 
 /* DI tag цветове — приемане, не страх (БЕЗ червено) */
-[data-theme="light"] .quiz-di-tag--лек,
-:root:not([data-theme]) .quiz-di-tag--лек {
+[data-theme="light"] .quiz-di-tag--low,
+:root:not([data-theme]) .quiz-di-tag--low {
   background: var(--surface);
   box-shadow: var(--shadow-card-sm);
   color: var(--text-muted);
 }
 
-[data-theme="dark"] .quiz-di-tag--лек {
+[data-theme="dark"] .quiz-di-tag--low {
   background: hsl(220 25% 8%);
   color: var(--text-muted);
 }
 
-[data-theme="light"] .quiz-di-tag--умерен,
-:root:not([data-theme]) .quiz-di-tag--умерен {
+[data-theme="light"] .quiz-di-tag--medium,
+:root:not([data-theme]) .quiz-di-tag--medium {
   background: oklch(0.92 0.08 70 / 0.6);
   color: hsl(38 80% 35%);
 }
 
-[data-theme="dark"] .quiz-di-tag--умерен {
+[data-theme="dark"] .quiz-di-tag--medium {
   background: hsl(38 50% 12%);
   color: hsl(38 90% 65%);
 }
 
-[data-theme="light"] .quiz-di-tag--тежък,
-:root:not([data-theme]) .quiz-di-tag--тежък {
+[data-theme="light"] .quiz-di-tag--high,
+:root:not([data-theme]) .quiz-di-tag--high {
   background: oklch(0.92 0.08 285 / 0.6);
   color: hsl(var(--hue1) 60% 40%);
 }
 
-[data-theme="dark"] .quiz-di-tag--тежък {
+[data-theme="dark"] .quiz-di-tag--high {
   background: hsl(var(--hue1) 50% 14%);
   color: hsl(var(--hue1) 80% 70%);
 }

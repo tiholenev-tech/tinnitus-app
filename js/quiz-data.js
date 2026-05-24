@@ -2,6 +2,11 @@
 // Извлечено директно от docs/research/01-quiz-15-questions-validated.md
 // Тон: уважителен ("Вие"). Формулировки адаптирани от оригинала (от "ти" към "Вие").
 //
+// i18n NOTE (Task A3): question.question и option.label са fallback БГ strings.
+// Authoritative source за UI display strings е i18n/bg.json под quiz.questions.qN.
+// Quiz.js render-ите ползват i18n.t('quiz.questions.q' + q.id + '.text', q.question).
+// Цялото id/category/weights/di/tieBreaker остава тук — НЕ е display data.
+//
 // Профил тегла:
 //   TH_C = Тонален високочестотен / Когнитивен
 //   DN_S = Шумов нискочестотен / Сън

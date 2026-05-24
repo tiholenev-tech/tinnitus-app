@@ -59,17 +59,78 @@
         "cta": "TODO: Continue to assessment"
       }
     },
-    "quiz": {},
+    "quiz": {
+      "back": "TODO: Back",
+      "progressText": "TODO: Question {n} of {total}",
+      "progressAria": "TODO: Progress {n} of {total}",
+      "errorQuestionMissing": "TODO: Error: question {n} does not exist.",
+      "confirmRestart": "TODO: Are you sure? This will delete all answers and start over.",
+
+      "results": {
+        "computing": "TODO: Computing...",
+        "notComputed": "TODO: Profile not yet computed.",
+        "startOver": "TODO: Start over",
+        "eyebrow": "TODO: Your profile",
+        "diEyebrow": "TODO: Discomfort level",
+        "diSuffix": "TODO: / 20",
+        "intensityLabel": "TODO: Recommended intensity:",
+        "mixesTitle": "TODO: Recommended mixes",
+        "disclaimer": "TODO: This profile is based on your answers. You can change it later in settings.",
+        "continueToMixer": "TODO: Continue to Mixer",
+        "restart": "TODO: Restart assessment"
+      },
+
+      "mixerPlaceholder": {
+        "title": "TODO: Mixer coming soon",
+        "body": "TODO: Web Audio engine + 5 channels + Sleep Mode coming in next task.",
+        "reset": "TODO: Reset everything"
+      }
+    },
     "mixer": {},
     "settings": {},
     "trial": {}
   },
 
   "quiz": {
-    "questions": {},
-    "profiles": {},
-    "diLevels": {},
-    "intensity": {}
+    "_note": "All quiz strings са TODO placeholders. Запазена структура; DeepL Phase 2 ще попълни преводите от bg.json.",
+
+    "questions": {
+      "q1":  { "text": "TODO: What sound do you hear?",                "options": { "a": "TODO: Ringing (high tone)", "b": "TODO: Buzzing (low tone)", "c": "TODO: Hissing (like steam)", "d": "TODO: Pulsing", "e": "TODO: Other / not sure" } },
+      "q2":  { "text": "TODO: What is the pitch of the sound?",        "options": { "a": "TODO: High (like a whistle)", "b": "TODO: Medium (like a mosquito)", "c": "TODO: Low (like rumbling)", "d": "TODO: Not sure" } },
+      "q3":  { "text": "TODO: In which ear do you hear it?",            "options": { "a": "TODO: Only left", "b": "TODO: Only right", "c": "TODO: Both", "d": "TODO: In my head (not from ears)" } },
+      "q4":  { "text": "TODO: When do you hear the sound?",             "options": { "a": "TODO: Constantly", "b": "TODO: Comes and goes", "c": "TODO: Only in silence", "d": "TODO: Only in the evening" } },
+      "q5":  { "text": "TODO: When is it LOUDEST?",                     "options": { "a": "TODO: Morning", "b": "TODO: During the day", "c": "TODO: Evening", "d": "TODO: At night", "e": "TODO: No difference" } },
+      "q6":  { "text": "TODO: How long have you had tinnitus?",         "options": { "a": "TODO: Less than 6 months", "b": "TODO: 6 months – 2 years", "c": "TODO: 2 – 5 years", "d": "TODO: More than 5 years" } },
+      "q7":  { "text": "TODO: Was there a loud sound before onset?",    "options": { "a": "TODO: Concert / loud music", "b": "TODO: Explosion / gunfire", "c": "TODO: Work in noisy environment", "d": "TODO: I don't remember anything specific" } },
+      "q8":  { "text": "TODO: Do you have hearing loss?",               "options": { "a": "TODO: Yes, clearly", "b": "TODO: Maybe slightly", "c": "TODO: No", "d": "TODO: Haven't checked" } },
+      "q9":  { "text": "TODO: Do you have other conditions? (info only)", "options": { "a": "TODO: High blood pressure", "b": "TODO: Diabetes", "c": "TODO: Anxiety / stress", "d": "TODO: Nothing particular", "e": "TODO: Prefer not to answer" } },
+      "q10": { "text": "TODO: How much does tinnitus affect your sleep?", "options": { "a": "TODO: Not at all", "b": "TODO: A little", "c": "TODO: Quite a lot", "d": "TODO: I can't sleep" } },
+      "q11": { "text": "TODO: How much does it affect concentration?",   "options": { "a": "TODO: Not at all", "b": "TODO: A little", "c": "TODO: Quite a lot", "d": "TODO: I can't focus" } },
+      "q12": { "text": "TODO: How stressful is it for you (0-10)?",      "options": { "a": "TODO: 0–2 (minimal stress)", "b": "TODO: 3–5 (mild to moderate)", "c": "TODO: 6–8 (strong stress)", "d": "TODO: 9–10 (unbearable stress)" } },
+      "q13": { "text": "TODO: What have you tried so far?",              "options": { "a": "TODO: Medication", "b": "TODO: Hearing aids", "c": "TODO: Sound therapy", "d": "TODO: Meditation", "e": "TODO: Nothing yet" } },
+      "q14": { "text": "TODO: What helps you the most?",                 "options": { "a": "TODO: Silence", "b": "TODO: Soft noise", "c": "TODO: Loud noise", "d": "TODO: Nature", "e": "TODO: Nothing helps" } },
+      "q15": { "text": "TODO: What do you expect from the app?",         "options": { "a": "TODO: Better sleep", "b": "TODO: Masking the noise", "c": "TODO: Less stress", "d": "TODO: Long-term change" } }
+    },
+
+    "profiles": {
+      "TH_C": { "shortName": "TODO: Tonal high-frequency",   "fullName": "TODO: Tonal high-frequency / Cognitive",  "description": "TODO: Profile description for TH_C." },
+      "DN_S": { "shortName": "TODO: Noise low-frequency",    "fullName": "TODO: Noise low-frequency / Sleep",       "description": "TODO: Profile description for DN_S." },
+      "SS_R": { "shortName": "TODO: Stress-sensitive",       "fullName": "TODO: Stress-sensitive / Reactive",       "description": "TODO: Profile description for SS_R." },
+      "SM_F": { "shortName": "TODO: Somatic / Fluctuating",  "fullName": "TODO: Somatic / Fluctuating",             "description": "TODO: Profile description for SM_F." },
+      "HB_M": { "shortName": "TODO: Adapted / Mild",         "fullName": "TODO: Adapted / Mild",                    "description": "TODO: Profile description for HB_M." }
+    },
+
+    "diLevels": {
+      "low": "TODO: Mild",
+      "medium": "TODO: Moderate",
+      "high": "TODO: Severe"
+    },
+
+    "intensity": {
+      "low": "TODO: Extremely quiet, barely audible background",
+      "medium": "TODO: At the mixing point",
+      "high": "TODO: Slightly below tinnitus level; soft timbre"
+    }
   },
 
   "content": {

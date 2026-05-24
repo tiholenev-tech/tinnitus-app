@@ -87,21 +87,42 @@ window.QuizEngine = (function () {
     };
   }
 
+  function t(key, fallback) {
+    if (window.i18n && window.i18n.t) return window.i18n.t(key, fallback);
+    return fallback != null ? fallback : key;
+  }
+
   /**
-   * intensityFor(di) — препоръчителен звуков интензитет
-   * според Distress Index (0-20).
-   * Извлечено от docs/research/01-quiz-15-questions-validated.md
+   * diLevelKey(di) — semantic key (low|medium|high) за CSS class lookup и i18n.
+   * Извлечено от docs/research/01-quiz-15-questions-validated.md.
+   */
+  function diLevelKey(di) {
+    if (di <= 5)  return 'low';
+    if (di <= 12) return 'medium';
+    return 'high';
+  }
+
+  /**
+   * intensityFor(di) — препоръчителен звуков интензитет (i18n string)
    */
   function intensityFor(di) {
+    return t('quiz.intensity.' + diLevelKey(di), defaultIntensity(di));
+  }
+
+  function defaultIntensity(di) {
     if (di <= 5)  return 'Изключително тих, едва доловим фон';
     if (di <= 12) return 'Равен на точката на смесване (Mixing Point)';
     return 'Малко под нивото на тинитуса; мек тембър';
   }
 
   /**
-   * diLevel(di) — текстов лейбъл на нивото
+   * diLevel(di) — текстов лейбъл (i18n string: Лек/Умерен/Тежък)
    */
   function diLevel(di) {
+    return t('quiz.diLevels.' + diLevelKey(di), defaultDiLevel(di));
+  }
+
+  function defaultDiLevel(di) {
     if (di <= 5)  return 'Лек';
     if (di <= 12) return 'Умерен';
     return 'Тежък';
@@ -110,6 +131,7 @@ window.QuizEngine = (function () {
   return {
     compute: compute,
     intensityFor: intensityFor,
-    diLevel: diLevel
+    diLevel: diLevel,
+    diLevelKey: diLevelKey
   };
 })();
