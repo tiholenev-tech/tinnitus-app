@@ -1,7 +1,15 @@
 // AURALIS Mixer — production module
-// Извлечено от design/mockups/mixer-2tabs-v1.html (Task 7a integration)
-// Renders into <main id="app">. Чете profile от AppState.
-// Audio + sleep timer logic — TODO markers (Task 7b/7c wiring).
+// Извлечено от design/mockups/mixer-2tabs-v1.html (Task 7a integration).
+// Renders into <main id="app">. Чете profile от AppState. Wired към AudioEngine.
+//
+// i18n NOTE (Task A4): CARDS.title/subtitle и PROFILE_NAMES са fallback БГ strings.
+// Authoritative source за UI display strings е i18n/bg.json под ui.mixer.* и
+// quiz.profiles.<code>.shortName. getCardTitle/getCardSubtitle/getProfileName
+// look up i18n първо, fallback към data при липса.
+//
+// Audio: wired (Task 7b · commit 3340aef). Sleep timer: wired (Task 7c заедно с 7b).
+// Info-content (entry.title/micro/full/source): остава от info-content.js
+// засега; Task A5 ще ги мигрира в i18n/bg.json content.mixer.*.
 
 window.Mixer = (function () {
   'use strict';
@@ -107,6 +115,19 @@ window.Mixer = (function () {
 
   function el(id) { return document.getElementById(id); }
 
+  function t(key, fallback, params) {
+    if (window.i18n && window.i18n.t) return window.i18n.t(key, fallback, params);
+    return fallback != null ? fallback : key;
+  }
+
+  function tArr(key, fallback) {
+    if (window.i18n && window.i18n.tArr) {
+      var arr = window.i18n.tArr(key);
+      if (arr && arr.length) return arr;
+    }
+    return fallback || [];
+  }
+
   function escapeHtml(s) {
     return String(s)
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -120,10 +141,21 @@ window.Mixer = (function () {
   }
 
   function getProfileName(code) {
+    // i18n приоритет → quiz.profiles.<code>.shortName, после QUIZ_PROFILES, после fallback
+    var i18nName = t('quiz.profiles.' + code + '.shortName', null);
+    if (i18nName && i18nName !== 'quiz.profiles.' + code + '.shortName') return i18nName;
     if (window.QUIZ_PROFILES && window.QUIZ_PROFILES[code] && window.QUIZ_PROFILES[code].shortName) {
       return window.QUIZ_PROFILES[code].shortName;
     }
     return PROFILE_NAMES[code] || code;
+  }
+
+  function getCardTitle(card) {
+    return t('ui.mixer.cards.' + card.id + '.title', card.title);
+  }
+
+  function getCardSubtitle(card) {
+    return t('ui.mixer.cards.' + card.id + '.subtitle', card.subtitle);
   }
 
   // ============================================================
@@ -132,29 +164,33 @@ window.Mixer = (function () {
 
   function buildCardHtml(card) {
     var featuredClass = card.featured ? ' featured' : '';
+    var title = getCardTitle(card);
+    var subtitle = getCardSubtitle(card);
     var tagHtml = card.featured
       ? '<span class="sound-tag" role="button" tabindex="0"' +
           ' data-tooltip="star_icon_explained">' +
-          SVG.star + ' Най-добър за Вас' +
+          SVG.star + ' ' + escapeHtml(t('ui.mixer.starTag', 'Най-добър за Вас')) +
         '</span>'
       : '';
 
     return (
       '<div class="sound-card-wrap" data-card-id="' + card.id + '">' +
         '<div class="glass sound-card' + featuredClass + '" role="button" tabindex="0"' +
-          ' aria-pressed="false" aria-label="Пусни ' + escapeHtml(card.title) + '">' +
+          ' aria-pressed="false" aria-label="' +
+          escapeHtml(t('ui.mixer.playAria', 'Пусни ' + title, { title: title })) + '">' +
           SHINES +
           '<div class="sound-card-body">' +
             tagHtml +
-            '<div class="sound-title">' + escapeHtml(card.title) + '</div>' +
-            '<div class="sound-subtitle">' + escapeHtml(card.subtitle) + '</div>' +
+            '<div class="sound-title">' + escapeHtml(title) + '</div>' +
+            '<div class="sound-subtitle">' + escapeHtml(subtitle) + '</div>' +
           '</div>' +
           '<div class="sound-actions">' +
-            '<button class="info-btn" aria-label="Информация" aria-expanded="false"' +
-              ' data-action="info">' + SVG.info + '</button>' +
-            '<button class="play-btn" aria-label="Пусни" data-action="play">' +
-              SVG.play +
-            '</button>' +
+            '<button class="info-btn" aria-label="' +
+              escapeHtml(t('ui.mixer.infoAria', 'Информация')) +
+              '" aria-expanded="false" data-action="info">' + SVG.info + '</button>' +
+            '<button class="play-btn" aria-label="' +
+              escapeHtml(t('ui.mixer.playGenericAria', 'Пусни')) +
+              '" data-action="play">' + SVG.play + '</button>' +
           '</div>' +
         '</div>' +
         '<div class="card-expand">' +
@@ -165,10 +201,12 @@ window.Mixer = (function () {
   }
 
   function buildCategoryHtml(cat) {
+    // Category title + micro идват от info-content.js (A5 ще ги мигрира в content.categories.*)
     var entry = window.INFO_CONTENT &&
       window.INFO_CONTENT.categories &&
       window.INFO_CONTENT.categories[cat.key];
     if (!entry) return '';
+    var countText = t('ui.mixer.categoryCountSuffix', cat.count + ' файла', { n: cat.count });
     return (
       '<div class="glass category-section" role="button" tabindex="0"' +
         ' data-category-key="' + cat.key + '">' +
@@ -177,7 +215,7 @@ window.Mixer = (function () {
           '<div class="category-section-title">' + escapeHtml(entry.title) + '</div>' +
           '<div class="category-section-micro">' + escapeHtml(entry.micro) + '</div>' +
         '</div>' +
-        '<span class="category-count">' + cat.count + ' файла</span>' +
+        '<span class="category-count">' + escapeHtml(countText) + '</span>' +
       '</div>'
     );
   }
@@ -189,25 +227,68 @@ window.Mixer = (function () {
     var cardsHtml = CARDS.map(buildCardHtml).join('');
     var categoriesHtml = CATEGORIES.map(buildCategoryHtml).join('');
 
+    var sleepBtnText = t('ui.mixer.sleepBtn', 'Sleep таймер');
+    var sleepBtnAria = t('ui.mixer.sleepBtnAria', 'Sleep таймер');
+    var volumeAria = t('ui.mixer.volumeAria', 'Сила на звука 0 до 100');
+    var profilePillPrefix = t('ui.mixer.profilePillPrefix', 'За Вашия профил: ');
+    var infoToggleText = t('ui.mixer.infoToggle', 'Искате ли да знаете повече?');
+    var whyTitle = t('ui.mixer.infoExpand.whyForYou.title', 'Защо тези миксове за Вас');
+    var whyBody = t('ui.mixer.infoExpand.whyForYou.body',
+      'Вашият профил (' + profileCode + ' — ' + profileName + ') реагира най-добре...',
+      { code: profileCode, name: profileName });
+    var expectTitle = t('ui.mixer.infoExpand.expectations.title', 'Какво да очаквате');
+    var w12Label = t('ui.mixer.infoExpand.expectations.weeks1_2.label', 'Седмица 1–2');
+    var w12Text  = t('ui.mixer.infoExpand.expectations.weeks1_2.text',
+      'По-лесно заспиване. Тинитусът все още присъства, но е по-малко натрапчив.');
+    var w34Label = t('ui.mixer.infoExpand.expectations.weeks3_4.label', 'Седмица 3–4');
+    var w34Text  = t('ui.mixer.infoExpand.expectations.weeks3_4.text',
+      'Започвате да забравяте за тинитуса по време на тиха работа. По-добра концентрация.');
+    var m23Label = t('ui.mixer.infoExpand.expectations.months2_3.label', 'Месец 2–3');
+    var m23Text  = t('ui.mixer.infoExpand.expectations.months2_3.text',
+      'Хабитуация — тинитусът се отдалечава от съзнателното внимание за дълги периоди.');
+
+    var disclaimerArr = tArr('ui.mixer.infoExpand.disclaimer', [
+      'AURALIS е wellness инструмент, не медицински продукт.',
+      'При остри симптоми (внезапна загуба на слух, виене на свят) консултирайте се с УНГ лекар.',
+      'Слушайте на умерена сила — звукът никога не трябва да заглушава напълно тинитуса.'
+    ]);
+    var disclaimerHtml = disclaimerArr.map(function (line) {
+      return '<li>' + escapeHtml(line) + '</li>';
+    }).join('');
+
+    var sleepOverlayTitle = t('ui.mixer.sleepOverlay.title', 'Sleep таймер');
+    var sleepOverlaySub   = t('ui.mixer.sleepOverlay.sub',
+      'Звукът ще спре плавно след избраното време');
+    var chip15  = t('ui.mixer.sleepOverlay.chip15',  '15 минути');
+    var chip30  = t('ui.mixer.sleepOverlay.chip30',  '30 минути');
+    var chip60  = t('ui.mixer.sleepOverlay.chip60',  '60 минути');
+    var chip120 = t('ui.mixer.sleepOverlay.chip120', '120 минути');
+    var chipCancel = t('ui.mixer.sleepOverlay.cancel', 'Отмени таймера');
+
     return (
       '<div class="tabs" role="tablist">' +
-        '<button class="tab-btn active" role="tab" data-tab="recommended">Препоръчани</button>' +
-        '<button class="tab-btn" role="tab" data-tab="all">Всички звуци</button>' +
+        '<button class="tab-btn active" role="tab" data-tab="recommended">' +
+          escapeHtml(t('ui.mixer.tabs.recommended', 'Препоръчани')) +
+        '</button>' +
+        '<button class="tab-btn" role="tab" data-tab="all">' +
+          escapeHtml(t('ui.mixer.tabs.all', 'Всички звуци')) +
+        '</button>' +
       '</div>' +
 
       '<div class="tab-panel" id="tab-recommended">' +
         '<div class="profile-pill" role="button" tabindex="0"' +
           ' data-tooltip="profile_recommendation_explained">' +
-          'За Вашия профил: ' +
+          escapeHtml(profilePillPrefix) +
           '<span class="profile-code">' + escapeHtml(profileCode) + '</span> ' +
           escapeHtml(profileName) +
         '</div>' +
 
-        '<div class="master-volume" role="group" aria-label="Сила на звука">' +
+        '<div class="master-volume" role="group" aria-label="' +
+          escapeHtml(volumeAria) + '">' +
           '<span class="master-volume-icon" aria-hidden="true">' + SVG.volume + '</span>' +
           '<input type="range" id="masterVolumeSlider" class="master-volume-slider"' +
             ' min="0" max="100" step="1" value="' + masterVolume + '"' +
-            ' aria-label="Сила на звука 0 до 100">' +
+            ' aria-label="' + escapeHtml(volumeAria) + '">' +
           '<span class="master-volume-value" id="masterVolumeValue">' +
             masterVolume + '%' +
           '</span>' +
@@ -216,50 +297,45 @@ window.Mixer = (function () {
         '<div class="cards-list" id="cardsList">' + cardsHtml + '</div>' +
 
         '<div class="sleep-section">' +
-          '<button class="sleep-btn" id="sleepBtn" aria-label="Sleep таймер">' +
+          '<button class="sleep-btn" id="sleepBtn" aria-label="' +
+            escapeHtml(sleepBtnAria) + '">' +
             SVG.clock +
-            'Sleep таймер' +
+            escapeHtml(sleepBtnText) +
             '<span class="sleep-current" id="sleepCurrent" hidden></span>' +
           '</button>' +
         '</div>' +
 
         '<div class="info-expandable" id="infoExpand">' +
           '<button class="info-toggle" id="infoToggle" aria-expanded="false">' +
-            'Искате ли да знаете повече?' +
+            escapeHtml(infoToggleText) +
             SVG.chevron +
           '</button>' +
           '<div class="info-content">' +
             '<div class="info-body">' +
               '<div class="info-section">' +
-                '<h3>Защо тези миксове за Вас</h3>' +
-                '<p>Вашият профил (' + escapeHtml(profileCode) + ' — ' + escapeHtml(profileName) +
-                  ') реагира най-добре на звуци със спектър, който частично припокрива тинитуса. ' +
-                  'Целта е постепенна хабитуация — мозъкът да го свикне да чува по-малко с времето.</p>' +
+                '<h3>' + escapeHtml(whyTitle) + '</h3>' +
+                '<p>' + escapeHtml(whyBody) + '</p>' +
               '</div>' +
               '<div class="info-section">' +
-                '<h3>Какво да очаквате</h3>' +
+                '<h3>' + escapeHtml(expectTitle) + '</h3>' +
                 '<div class="timeline">' +
                   '<div class="timeline-item">' +
-                    '<span class="timeline-week">Седмица 1–2</span>' +
-                    '<span class="timeline-text">По-лесно заспиване. Тинитусът все още присъства, но е по-малко натрапчив.</span>' +
+                    '<span class="timeline-week">' + escapeHtml(w12Label) + '</span>' +
+                    '<span class="timeline-text">' + escapeHtml(w12Text) + '</span>' +
                   '</div>' +
                   '<div class="timeline-item">' +
-                    '<span class="timeline-week">Седмица 3–4</span>' +
-                    '<span class="timeline-text">Започвате да забравяте за тинитуса по време на тиха работа. По-добра концентрация.</span>' +
+                    '<span class="timeline-week">' + escapeHtml(w34Label) + '</span>' +
+                    '<span class="timeline-text">' + escapeHtml(w34Text) + '</span>' +
                   '</div>' +
                   '<div class="timeline-item">' +
-                    '<span class="timeline-week">Месец 2–3</span>' +
-                    '<span class="timeline-text">Хабитуация — тинитусът се отдалечава от съзнателното внимание за дълги периоди.</span>' +
+                    '<span class="timeline-week">' + escapeHtml(m23Label) + '</span>' +
+                    '<span class="timeline-text">' + escapeHtml(m23Text) + '</span>' +
                   '</div>' +
                 '</div>' +
               '</div>' +
               '<div class="info-section">' +
                 '<div class="disclaimer">' +
-                  '<ul>' +
-                    '<li>AURALIS е wellness инструмент, не медицински продукт.</li>' +
-                    '<li>При остри симптоми (внезапна загуба на слух, виене на свят) консултирайте се с УНГ лекар.</li>' +
-                    '<li>Слушайте на умерена сила — звукът никога не трябва да заглушава напълно тинитуса.</li>' +
-                  '</ul>' +
+                  '<ul>' + disclaimerHtml + '</ul>' +
                 '</div>' +
               '</div>' +
             '</div>' +
@@ -275,14 +351,15 @@ window.Mixer = (function () {
       '<div class="sleep-overlay" id="sleepOverlay" hidden>' +
         '<div class="sleep-sheet">' +
           '<div class="sleep-sheet-grip"></div>' +
-          '<div class="sleep-sheet-title">Sleep таймер</div>' +
-          '<div class="sleep-sheet-sub">Звукът ще спре плавно след избраното време</div>' +
+          '<div class="sleep-sheet-title">' + escapeHtml(sleepOverlayTitle) + '</div>' +
+          '<div class="sleep-sheet-sub">' + escapeHtml(sleepOverlaySub) + '</div>' +
           '<div class="sleep-chips" id="sleepChips">' +
-            '<button class="sleep-chip" data-min="15">15 минути</button>' +
-            '<button class="sleep-chip" data-min="30">30 минути</button>' +
-            '<button class="sleep-chip" data-min="60">60 минути</button>' +
-            '<button class="sleep-chip" data-min="120">120 минути</button>' +
-            '<button class="sleep-chip sleep-chip-cancel" data-min="0">Отмени таймера</button>' +
+            '<button class="sleep-chip" data-min="15">' + escapeHtml(chip15) + '</button>' +
+            '<button class="sleep-chip" data-min="30">' + escapeHtml(chip30) + '</button>' +
+            '<button class="sleep-chip" data-min="60">' + escapeHtml(chip60) + '</button>' +
+            '<button class="sleep-chip" data-min="120">' + escapeHtml(chip120) + '</button>' +
+            '<button class="sleep-chip sleep-chip-cancel" data-min="0">' +
+              escapeHtml(chipCancel) + '</button>' +
           '</div>' +
         '</div>' +
       '</div>'
@@ -368,18 +445,21 @@ window.Mixer = (function () {
       window.INFO_CONTENT.mixer[card.infoKey];
 
     if (!entry) {
+      var missingMsg = t('ui.mixer.infoLoadingMissing',
+        'Информацията се зарежда... (entry "' + card.infoKey + '" не е намерен).',
+        { key: card.infoKey });
       inner.innerHTML =
-        '<div class="card-expand-micro">' +
-          'Информацията се зарежда... (entry "' + escapeHtml(card.infoKey) + '" не е намерен).' +
-        '</div>';
+        '<div class="card-expand-micro">' + escapeHtml(missingMsg) + '</div>';
       return;
     }
+
+    var sourcePrefix = t('ui.mixer.sourcePrefix', 'Източник: ');
 
     var html = '';
     if (entry.title) html += '<div class="card-expand-title">' + escapeHtml(entry.title) + '</div>';
     if (entry.micro) html += '<div class="card-expand-micro">' + escapeHtml(entry.micro) + '</div>';
     if (entry.full)  html += '<div class="card-expand-full">' + escapeHtml(entry.full) + '</div>';
-    if (entry.source) html += '<div class="card-expand-source">Източник: ' + escapeHtml(entry.source) + '</div>';
+    if (entry.source) html += '<div class="card-expand-source">' + escapeHtml(sourcePrefix) + escapeHtml(entry.source) + '</div>';
     inner.innerHTML = html;
   }
 
@@ -458,7 +538,8 @@ window.Mixer = (function () {
     if (label) {
       if (min > 0) {
         label.hidden = false;
-        label.textContent = '· ' + min + ' мин';
+        label.textContent = ' ' + t('ui.mixer.sleepCurrentSuffix',
+          '· ' + min + ' мин', { n: min });
       } else {
         label.hidden = true;
         label.textContent = '';
