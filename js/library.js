@@ -213,18 +213,30 @@ window.Library = (function () {
   function buildSearchBarHtml() {
     var placeholder = t('library.search.placeholder', 'Търсете звук...');
     var clearAria = t('library.search.clearAria', 'Изчисти търсенето');
+    var diaryAria = t('diary.openAria', 'Отвори дневника');
     var hasQuery = !!searchQuery;
+    var diaryIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"' +
+      ' stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>' +
+      '<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>' +
+      '</svg>';
     return (
-      '<div class="lib-search">' +
-        '<span class="lib-search-icon" aria-hidden="true">' + SVG.search + '</span>' +
-        '<input type="search" id="libSearchInput" class="lib-search-input"' +
-          ' placeholder="' + escapeHtml(placeholder) + '"' +
-          ' value="' + escapeHtml(searchQuery) + '"' +
-          ' autocomplete="off" spellcheck="false">' +
-        (hasQuery
-          ? '<button class="lib-search-clear" type="button" data-action="clear-search"' +
-              ' aria-label="' + escapeHtml(clearAria) + '">' + SVG.clear + '</button>'
-          : '') +
+      '<div class="lib-search-row">' +
+        '<div class="lib-search">' +
+          '<span class="lib-search-icon" aria-hidden="true">' + SVG.search + '</span>' +
+          '<input type="search" id="libSearchInput" class="lib-search-input"' +
+            ' placeholder="' + escapeHtml(placeholder) + '"' +
+            ' value="' + escapeHtml(searchQuery) + '"' +
+            ' autocomplete="off" spellcheck="false">' +
+          (hasQuery
+            ? '<button class="lib-search-clear" type="button" data-action="clear-search"' +
+                ' aria-label="' + escapeHtml(clearAria) + '">' + SVG.clear + '</button>'
+            : '') +
+        '</div>' +
+        '<button class="lib-diary-btn" type="button" data-action="open-diary"' +
+          ' aria-label="' + escapeHtml(diaryAria) + '">' +
+          diaryIcon +
+        '</button>' +
       '</div>'
     );
   }
@@ -527,6 +539,14 @@ window.Library = (function () {
     if (sleepBtn) {
       e.stopPropagation();
       if (window.Sleep && window.Sleep.open) window.Sleep.open();
+      return;
+    }
+
+    // Open Diary
+    var diaryBtn = e.target.closest('[data-action="open-diary"]');
+    if (diaryBtn) {
+      e.stopPropagation();
+      if (window.Diary && window.Diary.open) window.Diary.open();
       return;
     }
 

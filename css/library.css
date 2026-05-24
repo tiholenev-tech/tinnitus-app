@@ -15,16 +15,52 @@
   line-height: 1.5;
 }
 
+/* ═══ SEARCH ROW (search + diary button) ═══ */
+.lib-search-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.lib-diary-btn {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: var(--radius-icon);
+  display: grid;
+  place-items: center;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), transform var(--dur-fast) var(--ease);
+}
+[data-theme="light"] .lib-diary-btn,
+:root:not([data-theme]) .lib-diary-btn {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+}
+[data-theme="dark"] .lib-diary-btn {
+  background: hsl(220 25% 6% / 0.6);
+  backdrop-filter: blur(8px);
+}
+.lib-diary-btn:hover,
+.lib-diary-btn:focus-visible {
+  color: var(--accent);
+  outline: none;
+}
+.lib-diary-btn:active { transform: scale(var(--press)); }
+.lib-diary-btn svg { width: 22px; height: 22px; }
+
 /* ═══ SEARCH BAR ═══ */
 .lib-search {
   position: relative;
+  flex: 1;
   display: flex;
   align-items: center;
   gap: 10px;
   min-height: 48px;
   padding: 0 12px;
   border-radius: var(--radius-pill);
-  margin-bottom: 14px;
   border: 1px solid var(--border-color);
 }
 [data-theme="light"] .lib-search,

@@ -268,6 +268,54 @@
         "yes": "TODO: Yes, thank you",
         "again": "TODO: One more cycle"
       }
+    },
+
+    "diary": {
+      "title": "TODO: Diary",
+      "openAria": "TODO: Open diary",
+      "closeAria": "TODO: Close diary",
+      "today": "TODO: Today, {date}",
+
+      "q": {
+        "sleep": "TODO: How many hours did you sleep?",
+        "sleepHoursSuffix": "TODO: {n} h",
+        "tinnitus": "TODO: Tinnitus today:",
+        "tinnitusLow": "TODO: Quiet",
+        "tinnitusHigh": "TODO: Loud",
+        "stress": "TODO: Stress today:",
+        "stressLow": "TODO: Calm",
+        "stressHigh": "TODO: Anxious"
+      },
+
+      "save": "TODO: Save today's entry",
+      "saveUpdate": "TODO: Update today's entry",
+      "saved": "TODO: Saved",
+
+      "history": {
+        "label": "TODO: History",
+        "range7":  "TODO: 7 days",
+        "range30": "TODO: 30 days",
+        "range90": "TODO: 90 days"
+      },
+
+      "chart": {
+        "sleep":    "TODO: Sleep (hours)",
+        "tinnitus": "TODO: Tinnitus (0-10)",
+        "stress":   "TODO: Stress (0-10)",
+        "avg": "TODO: Average: {n}",
+        "noData": "TODO: No entries in this range"
+      },
+
+      "insights": {
+        "title": "TODO: What we notice",
+        "betterWithSleep": "TODO: When you sleep more than 7 hours, tinnitus is on average {delta} points lower.",
+        "moreStressMoreTinnitus": "TODO: When stress is above 6, tinnitus is on average {delta} points higher.",
+        "needMoreData": "TODO: Log at least 7 days to see trends."
+      },
+
+      "empty": "TODO: Start logging today — just 3 questions, 30 seconds.",
+      "export": "TODO: Export history (JSON)",
+      "exportFilename": "auralis-diary-{date}.json"
     }
   },
   "quiz": {
