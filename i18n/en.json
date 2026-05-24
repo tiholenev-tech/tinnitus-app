@@ -20,7 +20,45 @@
       "settingsAria": "TODO: Settings"
     },
 
-    "onboarding": {},
+    "onboarding": {
+      "back": "TODO: Back",
+      "progressLabel": "TODO: Step {step} of 3",
+
+      "welcome": {
+        "title": "TODO: Control the noise.<br>Restore your peace.",
+        "subtitle": "TODO: Sound relaxation for chronic tinnitus relief.",
+        "cta": "TODO: Start free assessment"
+      },
+
+      "value": {
+        "title": "TODO: What you'll get",
+        "cards": {
+          "mixer":  { "heading": "TODO: Personalized sound mix", "body": "TODO: Based on your tinnitus profile." },
+          "chart":  { "heading": "TODO: Progress diary",          "body": "TODO: See your improvement in numbers." },
+          "voice":  { "heading": "TODO: Voice assistant",         "body": "TODO: No typing, no complexity." }
+        },
+        "timeline": {
+          "relief":      { "label": "TODO: First signs of relief:", "value": "TODO: 14–21 days" },
+          "habituation": { "label": "TODO: Full habituation:",      "value": "TODO: 8–12 weeks" }
+        },
+        "disclaimerSoft": "TODO: We don't promise miracles. We train the brain to ignore the sound.",
+        "cta": "TODO: Continue"
+      },
+
+      "consent": {
+        "title": "TODO: Important before continuing",
+        "intro": "TODO: tinnitus-app is a sound relaxation tool.",
+        "lines": {
+          "noReplaceConsult":  "TODO: Does not replace medical consultation",
+          "noTreatment":       "TODO: Does not cure tinnitus",
+          "helpsHabituation":  "TODO: Helps with habituation and relaxation",
+          "resultsVary":       "TODO: Results vary individually"
+        },
+        "footer": "TODO: For acute symptoms, consult a doctor.",
+        "checkboxLabel": "TODO: I understand and agree",
+        "cta": "TODO: Continue to assessment"
+      }
+    },
     "quiz": {},
     "mixer": {},
     "settings": {},

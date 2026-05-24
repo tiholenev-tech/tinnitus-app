@@ -137,10 +137,17 @@ window.Onboarding = (function () {
 
   function el(id) { return document.getElementById(id); }
 
+  function t(key, fallback, params) {
+    if (window.i18n && window.i18n.t) return window.i18n.t(key, fallback, params);
+    return fallback != null ? fallback : key;
+  }
+
   function renderProgress(index) {
+    var step = index + 1;
+    var progressLabel = t('ui.onboarding.progressLabel', 'Стъпка ' + step + ' от 3', { step: step });
     return (
       '<div class="ob-progress" role="progressbar" aria-valuemin="1" aria-valuemax="3"' +
-        ' aria-valuenow="' + (index + 1) + '" aria-label="Стъпка ' + (index + 1) + ' от 3">' +
+        ' aria-valuenow="' + step + '" aria-label="' + progressLabel + '">' +
         '<span class="ob-dot' + (index === 0 ? ' active' : '') + '" aria-hidden="true"></span>' +
         '<span class="ob-dot' + (index === 1 ? ' active' : '') + '" aria-hidden="true"></span>' +
         '<span class="ob-dot' + (index === 2 ? ' active' : '') + '" aria-hidden="true"></span>' +
@@ -149,10 +156,11 @@ window.Onboarding = (function () {
   }
 
   function renderTopRow(index, showBack) {
+    var backLabel = t('ui.onboarding.back', 'Назад');
     return (
       '<div class="ob-top">' +
         (showBack
-          ? '<button class="icon-btn ob-back" type="button" data-action="back" aria-label="Назад">' +
+          ? '<button class="icon-btn ob-back" type="button" data-action="back" aria-label="' + backLabel + '">' +
               SVG.back +
             '</button>'
           : '<span class="ob-back-spacer" aria-hidden="true"></span>') +
@@ -173,12 +181,18 @@ window.Onboarding = (function () {
 
         '<div class="ob-illustration">' + SVG.wave + '</div>' +
 
-        '<h1 class="ob-title">Контролирайте шума.<br>Възстановете покоя.</h1>' +
-        '<p class="ob-subtitle">Звукова релаксация за облекчение при хроничен тинитус.</p>' +
+        '<h1 class="ob-title">' +
+          t('ui.onboarding.welcome.title',
+            'Контролирайте шума.<br>Възстановете покоя.') +
+        '</h1>' +
+        '<p class="ob-subtitle">' +
+          t('ui.onboarding.welcome.subtitle',
+            'Звукова релаксация за облекчение при хроничен тинитус.') +
+        '</p>' +
 
         '<div class="ob-actions">' +
           '<button class="btn-cta" type="button" data-action="next">' +
-            'Започнете безплатната оценка' +
+            t('ui.onboarding.welcome.cta', 'Започнете безплатната оценка') +
           '</button>' +
         '</div>' +
       '</article>'
@@ -207,38 +221,51 @@ window.Onboarding = (function () {
       '<article class="ob-screen" data-screen="value">' +
         renderTopRow(1, true) +
 
-        '<h2 class="ob-title ob-title--sm">Какво ще получите</h2>' +
+        '<h2 class="ob-title ob-title--sm">' +
+          t('ui.onboarding.value.title', 'Какво ще получите') +
+        '</h2>' +
 
         '<ul class="ob-value-list">' +
           valueCard('mixer',
-            'Персонализиран звуков микс',
-            'Според Вашия профил на тинитус.') +
+            t('ui.onboarding.value.cards.mixer.heading', 'Персонализиран звуков микс'),
+            t('ui.onboarding.value.cards.mixer.body', 'Според Вашия профил на тинитус.')) +
           valueCard('chart',
-            'Дневник на прогреса',
-            'Виждате подобрението си с числа.') +
+            t('ui.onboarding.value.cards.chart.heading', 'Дневник на прогреса'),
+            t('ui.onboarding.value.cards.chart.body', 'Виждате подобрението си с числа.')) +
           valueCard('voice',
-            'Гласов асистент',
-            'Без писане, без сложности.') +
+            t('ui.onboarding.value.cards.voice.heading', 'Гласов асистент'),
+            t('ui.onboarding.value.cards.voice.body', 'Без писане, без сложности.')) +
         '</ul>' +
 
         '<div class="glass ob-timeline">' +
           SHINES +
           '<p class="ob-timeline-line">' +
-            '<span class="ob-timeline-label">Първи признаци на облекчение:</span>' +
-            '<span class="ob-timeline-value">14–21 ден</span>' +
+            '<span class="ob-timeline-label">' +
+              t('ui.onboarding.value.timeline.relief.label', 'Първи признаци на облекчение:') +
+            '</span>' +
+            '<span class="ob-timeline-value">' +
+              t('ui.onboarding.value.timeline.relief.value', '14–21 ден') +
+            '</span>' +
           '</p>' +
           '<p class="ob-timeline-line">' +
-            '<span class="ob-timeline-label">Пълна хабитуация:</span>' +
-            '<span class="ob-timeline-value">8–12 седмици</span>' +
+            '<span class="ob-timeline-label">' +
+              t('ui.onboarding.value.timeline.habituation.label', 'Пълна хабитуация:') +
+            '</span>' +
+            '<span class="ob-timeline-value">' +
+              t('ui.onboarding.value.timeline.habituation.value', '8–12 седмици') +
+            '</span>' +
           '</p>' +
         '</div>' +
 
         '<p class="ob-disclaimer-soft">' +
-          'Не обещаваме чудеса. Тренираме мозъка да игнорира звука.' +
+          t('ui.onboarding.value.disclaimerSoft',
+            'Не обещаваме чудеса. Тренираме мозъка да игнорира звука.') +
         '</p>' +
 
         '<div class="ob-actions">' +
-          '<button class="btn-cta" type="button" data-action="next">Продължете</button>' +
+          '<button class="btn-cta" type="button" data-action="next">' +
+            t('ui.onboarding.value.cta', 'Продължете') +
+          '</button>' +
         '</div>' +
       '</article>'
     );
@@ -265,21 +292,32 @@ window.Onboarding = (function () {
       '<article class="ob-screen" data-screen="consent">' +
         renderTopRow(2, true) +
 
-        '<h2 class="ob-title ob-title--sm">Важно преди да продължите</h2>' +
+        '<h2 class="ob-title ob-title--sm">' +
+          t('ui.onboarding.consent.title', 'Важно преди да продължите') +
+        '</h2>' +
 
         '<section class="glass ob-consent-card">' +
           SHINES +
           '<p class="ob-consent-intro">' +
-            'tinnitus-app е инструмент за слухова релаксация.' +
+            t('ui.onboarding.consent.intro',
+              'tinnitus-app е инструмент за слухова релаксация.') +
           '</p>' +
           '<ul class="ob-consent-list">' +
-            consentLine('cross', 'no',  'Не заменя медицинска консултация') +
-            consentLine('cross', 'no',  'Не лекува тинитус') +
-            consentLine('check', 'yes', 'Помага за хабитуация и релаксация') +
-            consentLine('check', 'yes', 'Резултатите варират индивидуално') +
+            consentLine('cross', 'no',
+              t('ui.onboarding.consent.lines.noReplaceConsult',
+                'Не заменя медицинска консултация')) +
+            consentLine('cross', 'no',
+              t('ui.onboarding.consent.lines.noTreatment', 'Не лекува тинитус')) +
+            consentLine('check', 'yes',
+              t('ui.onboarding.consent.lines.helpsHabituation',
+                'Помага за хабитуация и релаксация')) +
+            consentLine('check', 'yes',
+              t('ui.onboarding.consent.lines.resultsVary',
+                'Резултатите варират индивидуално')) +
           '</ul>' +
           '<p class="ob-consent-footer">' +
-            'При остри симптоми консултирайте се с лекар.' +
+            t('ui.onboarding.consent.footer',
+              'При остри симптоми консултирайте се с лекар.') +
           '</p>' +
         '</section>' +
 
@@ -288,12 +326,15 @@ window.Onboarding = (function () {
           '<span class="ob-checkbox-box" aria-hidden="true">' +
             '<span class="ob-checkbox-mark">' + SVG.check + '</span>' +
           '</span>' +
-          '<span class="ob-checkbox-label">Разбирам и съм съгласен / съгласна</span>' +
+          '<span class="ob-checkbox-label">' +
+            t('ui.onboarding.consent.checkboxLabel',
+              'Разбирам и съм съгласен / съгласна') +
+          '</span>' +
         '</label>' +
 
         '<div class="ob-actions">' +
           '<button class="btn-cta" type="button" data-action="finish" ' + disabled + '>' +
-            'Продължете към оценка' +
+            t('ui.onboarding.consent.cta', 'Продължете към оценка') +
           '</button>' +
         '</div>' +
       '</article>'
