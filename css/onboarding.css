@@ -148,6 +148,44 @@
   margin: 0;
 }
 
+/* Beta callout card — преди value cards */
+.ob-beta-card {
+  position: relative;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid hsl(var(--hue3) 65% 55%);
+}
+.ob-beta-card > * { position: relative; z-index: 5; }
+[data-theme="light"] .ob-beta-card,
+:root:not([data-theme]) .ob-beta-card {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+  border: none;
+  border-left: 3px solid hsl(var(--hue3) 65% 55%);
+}
+[data-theme="dark"] .ob-beta-card {
+  background:
+    linear-gradient(235deg, hsl(var(--hue3) 50% 12% / .6), hsl(var(--hue3) 50% 12% / 0) 50%),
+    linear-gradient(hsl(220 25% 5% / .8));
+  backdrop-filter: blur(8px);
+}
+.ob-beta-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: hsl(var(--hue3) 60% 55%);
+  margin-bottom: 6px;
+}
+[data-theme="dark"] .ob-beta-title { color: hsl(var(--hue3) 70% 70%); }
+.ob-beta-text {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
 .ob-value-card {
   display: flex;
   align-items: flex-start;

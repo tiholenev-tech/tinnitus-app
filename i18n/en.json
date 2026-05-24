@@ -22,11 +22,15 @@
       "progressLabel": "TODO: Step {step} of 3",
       "welcome": {
         "title": "TODO: Control the noise.<br>Restore your peace.",
-        "subtitle": "TODO: Sound relaxation for chronic tinnitus relief.",
-        "cta": "TODO: Start free assessment"
+        "subtitle": "TODO: A sound library curated for people with ringing in the ears.<br>Free beta version — no ads, no subscription.",
+        "cta": "TODO: Get started"
       },
       "value": {
         "title": "TODO: What you'll get",
+        "beta": {
+          "title": "TODO: This is a beta version",
+          "text": "TODO: You are among the first testers. Your feedback will help improve the app."
+        },
         "cards": {
           "mixer": {
             "heading": "TODO: Personalized sound mix",

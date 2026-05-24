@@ -217,6 +217,16 @@ window.Onboarding = (function () {
   }
 
   function screenValue() {
+    var betaTitle = t('ui.onboarding.value.beta.title', '');
+    var betaText  = t('ui.onboarding.value.beta.text', '');
+    var betaHtml = (betaTitle || betaText)
+      ? '<div class="glass ob-beta-card">' +
+          SHINES +
+          (betaTitle ? '<div class="ob-beta-title">' + betaTitle + '</div>' : '') +
+          (betaText  ? '<div class="ob-beta-text">'  + betaText  + '</div>' : '') +
+        '</div>'
+      : '';
+
     return (
       '<article class="ob-screen" data-screen="value">' +
         renderTopRow(1, true) +
@@ -224,6 +234,8 @@ window.Onboarding = (function () {
         '<h2 class="ob-title ob-title--sm">' +
           t('ui.onboarding.value.title', 'Какво ще получите') +
         '</h2>' +
+
+        betaHtml +
 
         '<ul class="ob-value-list">' +
           valueCard('mixer',
