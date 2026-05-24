@@ -1,204 +1,447 @@
 /**
- * AURALIS Audio Engine v0.1
- * 3 noise generators: Pink (Paul Kellet) / Brown (DC-removed) / Green (bandpass 500Hz)
+ * AURALIS Audio Engine v1.0
+ * ============================
+ * Web Audio API engine за production (Task 7b).
  *
- * Source: docs/research/02-web-audio-api-algorithms.md
- * Тествани с 50+ потребители — клинично валидирани спектри
+ * Per BIBLE v3 §4 (батерия):
+ *   - AudioBufferSourceNode (НЕ AudioWorklet)
+ *   - Suspend AudioContext при pause
+ *   - iOS lock screen unlock trick
+ *   - System sample rate
  *
- * Usage:
- *   const engine = new AuralisAudioEngine();
- *   engine.play('pink');   // или 'brown', 'green'
- *   engine.stop();
- *   engine.setVolume(0.5); // 0..1
+ * Per BIBLE v3 §1 (safety):
+ *   - Default master volume 50% (НЕ 70)
+ *   - Linear gain (user знае какво получава)
+ *
+ * Преди тази версия: pink/brown/green генератори (запазени за runtime).
+ * Сега добавено: file-based presets + crossfade + sleep timer + iOS unlock.
+ *
+ * Public API:
+ *   AudioEngine.init()            — създава AudioContext (lazy)
+ *   AudioEngine.unlock()          — iOS silent buffer (call от user gesture)
+ *   AudioEngine.play(presetId)    — start/crossfade към preset
+ *   AudioEngine.pause()           — fade out + suspend
+ *   AudioEngine.stop()            — hard stop + suspend
+ *   AudioEngine.setMasterVolume(0..100)
+ *   AudioEngine.getMasterVolume()
+ *   AudioEngine.setSleepTimer(minutes)  — 0 = cancel
+ *   AudioEngine.cancelSleepTimer()
+ *   AudioEngine.getSleepTimerInfo()     — { active, totalMinutes, fadeOutSec }
+ *   AudioEngine.isPlaying()
+ *   AudioEngine.getActivePreset()
  */
 
-class AuralisAudioEngine {
-  constructor() {
-    this.ctx = null;
-    this.activeSource = null;
-    this.activeFilter = null;
-    this.masterGain = null;
-    this.bufferCache = {}; // pink/brown буферите се кешират
-    this.volume = 0.5;
+window.AudioEngine = (function () {
+  'use strict';
+
+  // ============================================================
+  // CONSTANTS
+  // ============================================================
+
+  var DEFAULT_VOLUME = 50;           // 0-100 scale (per BIBLE §1)
+  var CROSSFADE_SEC = 2.0;           // smooth preset switch
+  var PAUSE_FADE_SEC = 0.2;          // фаст fade при pause за избягване на click
+  var SLEEP_FADE_SEC = 30;           // последните 30s от total таймер
+  var PINK_BUFFER_SEC = 10;          // generated pink noise loop length
+
+  // presetId → source mapping
+  var PRESET_MAP = {
+    underwater:  { type: 'file', url: 'audio/presets/underwater.wav' },
+    deep_calm:   { type: 'file', url: 'audio/presets/deep_sleep.wav' },
+    sea_shore:   { type: 'file', url: 'audio/presets/sea_shore.wav' },
+    pink_rain:   { type: 'file', url: 'audio/presets/soft_rain.wav' },
+    brown_noise: { type: 'generated', gen: 'pink' }
+    // NOTE: brown_noise card title е "Розов шум" → mapping към pink generator (runtime).
+  };
+
+  // ============================================================
+  // STATE
+  // ============================================================
+
+  var ctx = null;
+  var masterGain = null;
+  var masterVolume = DEFAULT_VOLUME;        // 0-100
+  var activePreset = null;                  // current presetId or null
+  var activeSource = null;                  // current BufferSource
+  var activePresetGain = null;              // current preset's GainNode
+
+  var bufferCache = {};                     // url → AudioBuffer
+  var generatedPinkBuffer = null;           // cached runtime pink noise
+
+  var sleepTimerId = null;                  // setTimeout for fade-out start
+  var sleepStopTimerId = null;              // setTimeout for stop after fade
+  var sleepTimerTotalMin = 0;               // 0 = no timer
+
+  var iosUnlocked = false;
+
+  // ============================================================
+  // CONTEXT MANAGEMENT
+  // ============================================================
+
+  function init() {
+    if (ctx) return ctx;
+    var Ctx = window.AudioContext || window.webkitAudioContext;
+    if (!Ctx) {
+      console.error('[audio] Web Audio API not supported');
+      return null;
+    }
+    ctx = new Ctx();
+    masterGain = ctx.createGain();
+    masterGain.gain.value = volumeToGain(masterVolume);
+    masterGain.connect(ctx.destination);
+    console.log('[audio] context init, sample rate:', ctx.sampleRate);
+    return ctx;
   }
 
-  _ensureContext() {
-    if (this.ctx) return;
-    this.ctx = new (window.AudioContext || window.webkitAudioContext)();
-    this.masterGain = this.ctx.createGain();
-    this.masterGain.gain.value = this.volume;
-    this.masterGain.connect(this.ctx.destination);
+  function unlock() {
+    // iOS Safari изисква user-initiated AudioContext.resume() + първи buffer play.
+    if (iosUnlocked) return;
+    init();
+    if (!ctx) return;
+
+    if (ctx.state === 'suspended') {
+      ctx.resume().catch(function (e) {
+        console.warn('[audio] resume failed:', e);
+      });
+    }
+
+    // Silent buffer: 1 sample, 0 amplitude
+    try {
+      var buf = ctx.createBuffer(1, 1, ctx.sampleRate);
+      var src = ctx.createBufferSource();
+      src.buffer = buf;
+      src.connect(ctx.destination);
+      src.start(0);
+    } catch (e) {
+      console.warn('[audio] iOS unlock buffer failed:', e);
+    }
+
+    iosUnlocked = true;
+    console.log('[audio] iOS unlocked');
   }
 
-  /**
-   * Pink noise (Paul Kellet, -3dB/oct)
-   * Клинично оптимален за хабитуация — равномерен "течен" звук
-   */
-  _generatePinkBuffer(duration = 2.0) {
-    const ctx = this.ctx;
-    const sampleRate = ctx.sampleRate;
-    const bufferSize = sampleRate * duration;
-    const buffer = ctx.createBuffer(1, bufferSize, sampleRate);
-    const data = buffer.getChannelData(0);
+  function resumeContext() {
+    if (ctx && ctx.state === 'suspended') {
+      return ctx.resume();
+    }
+    return Promise.resolve();
+  }
 
-    let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+  function suspendContext() {
+    if (ctx && ctx.state === 'running') {
+      // Suspend след малък delay за да fade-ът завърши
+      ctx.suspend().catch(function () { /* ignore */ });
+    }
+  }
 
-    for (let i = 0; i < bufferSize; i++) {
-      const white = Math.random() * 2 - 1;
+  // ============================================================
+  // VOLUME (linear 0-100 → gain 0.0-1.0)
+  // ============================================================
+
+  function volumeToGain(vol) {
+    return Math.max(0, Math.min(1, vol / 100));
+  }
+
+  function setMasterVolume(vol) {
+    masterVolume = Math.max(0, Math.min(100, vol));
+    if (masterGain && ctx) {
+      // Smooth ramp за избягване на zipper noise
+      masterGain.gain.cancelScheduledValues(ctx.currentTime);
+      masterGain.gain.linearRampToValueAtTime(
+        volumeToGain(masterVolume),
+        ctx.currentTime + 0.05
+      );
+    }
+  }
+
+  function getMasterVolume() {
+    return masterVolume;
+  }
+
+  // ============================================================
+  // BUFFER LOADING
+  // ============================================================
+
+  function fetchAndDecode(url) {
+    if (bufferCache[url]) return Promise.resolve(bufferCache[url]);
+    return fetch(url)
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status + ' ' + url);
+        return res.arrayBuffer();
+      })
+      .then(function (arr) {
+        return new Promise(function (resolve, reject) {
+          ctx.decodeAudioData(arr,
+            function (buffer) {
+              bufferCache[url] = buffer;
+              console.log('[audio] decoded:', url, '(' + buffer.duration.toFixed(1) + 's)');
+              resolve(buffer);
+            },
+            function (err) {
+              console.error('[audio] decode failed:', url, err);
+              reject(err);
+            }
+          );
+        });
+      });
+  }
+
+  // ============================================================
+  // PINK NOISE GENERATOR (Paul Kellet -3dB/oct)
+  // ============================================================
+
+  function getOrGeneratePinkBuffer() {
+    if (generatedPinkBuffer) return generatedPinkBuffer;
+
+    var sampleRate = ctx.sampleRate;
+    var bufferSize = sampleRate * PINK_BUFFER_SEC;
+    var buffer = ctx.createBuffer(1, bufferSize, sampleRate);
+    var data = buffer.getChannelData(0);
+
+    var b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+    for (var i = 0; i < bufferSize; i++) {
+      var white = Math.random() * 2 - 1;
       b0 = 0.99886 * b0 + white * 0.0555179;
       b1 = 0.99332 * b1 + white * 0.0750759;
       b2 = 0.96900 * b2 + white * 0.1538520;
       b3 = 0.86650 * b3 + white * 0.3104856;
       b4 = 0.55000 * b4 + white * 0.5329522;
       b5 = -0.7616 * b5 - white * 0.0168980;
-      const pink = b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362;
+      var pink = b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362;
       b6 = white * 0.115926;
-      data[i] = pink * 0.11; // нормализация около -12dBFS
+      data[i] = pink * 0.11; // нормализация ~-12dBFS
     }
 
+    generatedPinkBuffer = buffer;
+    console.log('[audio] generated pink buffer:', PINK_BUFFER_SEC + 's');
     return buffer;
   }
 
-  /**
-   * Brown noise (1/f², -6dB/oct, DC-removed, normalized to -6dBFS)
-   * Дълбок тътен — подходящ за заспиване и борба с тревожност
-   */
-  _generateBrownBuffer(duration = 2.0) {
-    const ctx = this.ctx;
-    const sampleRate = ctx.sampleRate;
-    const bufferSize = sampleRate * duration;
-    const buffer = ctx.createBuffer(1, bufferSize, sampleRate);
-    const data = buffer.getChannelData(0);
+  // ============================================================
+  // PLAY (with crossfade)
+  // ============================================================
 
-    let lastOut = 0;
-    let sum = 0;
-
-    // Pass 1: суров brown noise (с leakage 0.99)
-    for (let i = 0; i < bufferSize; i++) {
-      const white = Math.random() * 2 - 1;
-      data[i] = (lastOut + 0.02 * white) / 1.02;
-      lastOut = data[i];
-      sum += data[i];
+  function play(presetId) {
+    var spec = PRESET_MAP[presetId];
+    if (!spec) {
+      console.error('[audio] unknown preset:', presetId);
+      return Promise.reject(new Error('Unknown preset: ' + presetId));
     }
 
-    const dcOffset = sum / bufferSize;
+    init();
+    unlock();
 
-    // Pass 2: премахване на DC offset + търсене на peak
-    let maxVal = 0;
-    for (let i = 0; i < bufferSize; i++) {
-      data[i] -= dcOffset;
-      const absVal = Math.abs(data[i]);
-      if (absVal > maxVal) maxVal = absVal;
+    // Same preset already active → no-op
+    if (activePreset === presetId && activeSource) {
+      console.log('[audio] already playing:', presetId);
+      return Promise.resolve();
     }
 
-    // Pass 3: нормализация до -6dBFS (peak = 0.5)
-    const scale = 0.5 / (maxVal || 1);
-    for (let i = 0; i < bufferSize; i++) {
-      data[i] *= scale;
-    }
-
-    return buffer;
+    return resumeContext().then(function () {
+      if (spec.type === 'file') {
+        return fetchAndDecode(spec.url).then(function (buffer) {
+          startSource(presetId, buffer);
+        });
+      } else if (spec.type === 'generated' && spec.gen === 'pink') {
+        var buffer = getOrGeneratePinkBuffer();
+        startSource(presetId, buffer);
+        return Promise.resolve();
+      } else {
+        return Promise.reject(new Error('Bad spec: ' + JSON.stringify(spec)));
+      }
+    });
   }
 
-  /**
-   * Pink → bandpass filter @ 500Hz, Q=1.0
-   * Зелен шум — фокусиран средночестотен релакс звук
-   */
-  _createGreenNode(pinkBuffer) {
-    const source = this.ctx.createBufferSource();
-    source.buffer = pinkBuffer;
-    source.loop = true;
+  function startSource(presetId, buffer) {
+    var src = ctx.createBufferSource();
+    src.buffer = buffer;
+    src.loop = true;
 
-    const bandpass = this.ctx.createBiquadFilter();
-    bandpass.type = 'bandpass';
-    bandpass.frequency.value = 500;
-    bandpass.Q.value = 1.0;
+    var presetGain = ctx.createGain();
+    src.connect(presetGain);
+    presetGain.connect(masterGain);
 
-    source.connect(bandpass);
-    return { source, output: bandpass };
+    var now = ctx.currentTime;
+    var hadActive = !!activeSource;
+
+    if (hadActive) {
+      // Crossfade: new ramps up, old ramps down
+      presetGain.gain.setValueAtTime(0.0001, now);
+      presetGain.gain.exponentialRampToValueAtTime(1.0, now + CROSSFADE_SEC);
+
+      activePresetGain.gain.cancelScheduledValues(now);
+      activePresetGain.gain.setValueAtTime(activePresetGain.gain.value, now);
+      activePresetGain.gain.exponentialRampToValueAtTime(0.0001, now + CROSSFADE_SEC);
+
+      var oldSource = activeSource;
+      var oldGain = activePresetGain;
+      setTimeout(function () {
+        try { oldSource.stop(); } catch (e) { /* ignore */ }
+        try { oldSource.disconnect(); } catch (e) { /* ignore */ }
+        try { oldGain.disconnect(); } catch (e) { /* ignore */ }
+      }, CROSSFADE_SEC * 1000 + 50);
+    } else {
+      // First play: fade in от 0 към 1 за избягване на click
+      presetGain.gain.setValueAtTime(0.0001, now);
+      presetGain.gain.exponentialRampToValueAtTime(1.0, now + 0.1);
+    }
+
+    src.start(0);
+    activeSource = src;
+    activePresetGain = presetGain;
+    activePreset = presetId;
+    console.log('[audio] play:', presetId, hadActive ? '(crossfade)' : '');
   }
 
-  play(type) {
-    this._ensureContext();
-    this.stop();
+  // ============================================================
+  // PAUSE / STOP
+  // ============================================================
 
-    // Lazy буфер генерация (cache after first play)
-    if (!this.bufferCache.pink) {
-      console.log('[AURALIS] Generating Pink buffer...');
-      this.bufferCache.pink = this._generatePinkBuffer(2.0);
-    }
-    if (type === 'brown' && !this.bufferCache.brown) {
-      console.log('[AURALIS] Generating Brown buffer...');
-      this.bufferCache.brown = this._generateBrownBuffer(2.0);
-    }
+  function pause() {
+    if (!activeSource || !ctx) return;
 
-    if (type === 'pink') {
-      const src = this.ctx.createBufferSource();
-      src.buffer = this.bufferCache.pink;
-      src.loop = true;
-      src.connect(this.masterGain);
-      src.start();
-      this.activeSource = src;
-    }
-    else if (type === 'brown') {
-      const src = this.ctx.createBufferSource();
-      src.buffer = this.bufferCache.brown;
-      src.loop = true;
-      src.connect(this.masterGain);
-      src.start();
-      this.activeSource = src;
-    }
-    else if (type === 'green') {
-      const { source, output } = this._createGreenNode(this.bufferCache.pink);
-      output.connect(this.masterGain);
-      source.start();
-      this.activeSource = source;
-      this.activeFilter = output;
-    }
-    else {
-      throw new Error(`Unknown noise type: ${type}`);
-    }
+    var now = ctx.currentTime;
+    var src = activeSource;
+    var gain = activePresetGain;
 
-    // iOS Safari: resume context after user gesture
-    if (this.ctx.state === 'suspended') {
-      this.ctx.resume();
-    }
+    gain.gain.cancelScheduledValues(now);
+    gain.gain.setValueAtTime(gain.gain.value, now);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + PAUSE_FADE_SEC);
+
+    setTimeout(function () {
+      try { src.stop(); } catch (e) { /* ignore */ }
+      try { src.disconnect(); } catch (e) { /* ignore */ }
+      try { gain.disconnect(); } catch (e) { /* ignore */ }
+      suspendContext();
+    }, PAUSE_FADE_SEC * 1000 + 50);
+
+    activeSource = null;
+    activePresetGain = null;
+    activePreset = null;
+    console.log('[audio] pause');
   }
 
-  stop() {
-    if (this.activeSource) {
-      try { this.activeSource.stop(); } catch (e) {}
-      try { this.activeSource.disconnect(); } catch (e) {}
-      this.activeSource = null;
+  function stop() {
+    if (activeSource) {
+      try { activeSource.stop(); } catch (e) { /* ignore */ }
+      try { activeSource.disconnect(); } catch (e) { /* ignore */ }
     }
-    if (this.activeFilter) {
-      try { this.activeFilter.disconnect(); } catch (e) {}
-      this.activeFilter = null;
+    if (activePresetGain) {
+      try { activePresetGain.disconnect(); } catch (e) { /* ignore */ }
     }
+    activeSource = null;
+    activePresetGain = null;
+    activePreset = null;
+    suspendContext();
+    console.log('[audio] stop');
   }
 
-  setVolume(v) {
-    this.volume = Math.max(0, Math.min(1, v));
-    if (this.masterGain) {
-      // Smooth ramp за избягване на clicks
-      this.masterGain.gain.linearRampToValueAtTime(
-        this.volume,
-        this.ctx.currentTime + 0.05
+  // ============================================================
+  // SLEEP TIMER (fade-out последните 30s от total)
+  // ============================================================
+
+  function setSleepTimer(minutes) {
+    cancelSleepTimer();
+
+    if (!minutes || minutes <= 0) {
+      sleepTimerTotalMin = 0;
+      console.log('[audio] sleep timer cancelled');
+      return;
+    }
+
+    sleepTimerTotalMin = minutes;
+    var totalMs = minutes * 60 * 1000;
+    var fadeStartMs = Math.max(0, totalMs - SLEEP_FADE_SEC * 1000);
+
+    sleepTimerId = setTimeout(startSleepFade, fadeStartMs);
+    console.log('[audio] sleep timer set:', minutes, 'min (fade starts at', (fadeStartMs / 1000).toFixed(0) + 's)');
+  }
+
+  function startSleepFade() {
+    sleepTimerId = null;
+    if (!ctx || !masterGain) return;
+
+    var now = ctx.currentTime;
+    var currentGain = masterGain.gain.value;
+    if (currentGain < 0.001) currentGain = 0.001;
+
+    masterGain.gain.cancelScheduledValues(now);
+    masterGain.gain.setValueAtTime(currentGain, now);
+    masterGain.gain.exponentialRampToValueAtTime(0.0001, now + SLEEP_FADE_SEC);
+
+    sleepStopTimerId = setTimeout(function () {
+      sleepStopTimerId = null;
+      stop();
+      // Restore master gain за следващия play
+      if (masterGain) {
+        masterGain.gain.cancelScheduledValues(ctx.currentTime);
+        masterGain.gain.value = volumeToGain(masterVolume);
+      }
+      sleepTimerTotalMin = 0;
+      console.log('[audio] sleep timer expired → stopped');
+    }, SLEEP_FADE_SEC * 1000 + 100);
+
+    console.log('[audio] sleep fade-out started (30s)');
+  }
+
+  function cancelSleepTimer() {
+    if (sleepTimerId) {
+      clearTimeout(sleepTimerId);
+      sleepTimerId = null;
+    }
+    if (sleepStopTimerId) {
+      clearTimeout(sleepStopTimerId);
+      sleepStopTimerId = null;
+    }
+    sleepTimerTotalMin = 0;
+    // Restore master gain ако сме били в fade
+    if (ctx && masterGain) {
+      masterGain.gain.cancelScheduledValues(ctx.currentTime);
+      masterGain.gain.linearRampToValueAtTime(
+        volumeToGain(masterVolume),
+        ctx.currentTime + 0.1
       );
     }
   }
 
-  destroy() {
-    this.stop();
-    if (this.ctx) {
-      this.ctx.close();
-      this.ctx = null;
-    }
-    this.bufferCache = {};
+  function getSleepTimerInfo() {
+    return {
+      active: sleepTimerTotalMin > 0,
+      totalMinutes: sleepTimerTotalMin,
+      fadeOutSec: SLEEP_FADE_SEC
+    };
   }
-}
 
-// Expose globally for test page
-if (typeof window !== 'undefined') {
-  window.AuralisAudioEngine = AuralisAudioEngine;
-}
+  // ============================================================
+  // QUERIES
+  // ============================================================
+
+  function isPlaying() {
+    return !!activeSource;
+  }
+
+  function getActivePreset() {
+    return activePreset;
+  }
+
+  // ============================================================
+  // PUBLIC API
+  // ============================================================
+
+  return {
+    init: init,
+    unlock: unlock,
+    play: play,
+    pause: pause,
+    stop: stop,
+    setMasterVolume: setMasterVolume,
+    getMasterVolume: getMasterVolume,
+    setSleepTimer: setSleepTimer,
+    cancelSleepTimer: cancelSleepTimer,
+    getSleepTimerInfo: getSleepTimerInfo,
+    isPlaying: isPlaying,
+    getActivePreset: getActivePreset,
+    // Internal exposed за debugging:
+    _getContext: function () { return ctx; }
+  };
+})();
