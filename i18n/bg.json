@@ -220,7 +220,10 @@
         "delete": "Изтрий всички данни",
         "deleteConfirm": "Сигурни ли сте? Това ще изтрие квиза, любимите, дневника и всички настройки. Действието е необратимо.",
         "debugResetTrial": "Reset trial period (debug)",
-        "debugResetDone": "Trial reset ✓"
+        "debugResetDone": "Trial reset ✓",
+        "debugSkipOnboarding": "Skip onboarding → Library (debug)",
+        "debugResetOnboarding": "Reset onboarding (debug)",
+        "debugMockQuiz": "Mock quiz: TH_C profile → Library (debug)"
       },
 
       "about": {

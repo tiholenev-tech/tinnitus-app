@@ -309,6 +309,20 @@
   font-size: 12px;
   letter-spacing: 0.03em;
 }
+[data-theme="dark"] .set-action--debug {
+  color: hsl(38 80% 70%);
+}
+.set-debug-divider {
+  margin-top: 6px;
+  padding: 4px 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: hsl(38 60% 50%);
+  opacity: 0.7;
+}
 .set-data-msg {
   padding: 8px 12px;
   border-radius: var(--radius-sm);

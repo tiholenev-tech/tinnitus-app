@@ -220,7 +220,10 @@
         "delete": "TODO: Delete all data",
         "deleteConfirm": "TODO: Are you sure? This will delete quiz, favorites, diary and all settings. Irreversible.",
         "debugResetTrial": "TODO: Reset trial period (debug)",
-        "debugResetDone": "TODO: Trial reset ✓"
+        "debugResetDone": "TODO: Trial reset ✓",
+        "debugSkipOnboarding": "TODO: Skip onboarding → Library (debug)",
+        "debugResetOnboarding": "TODO: Reset onboarding (debug)",
+        "debugMockQuiz": "TODO: Mock quiz: TH_C profile → Library (debug)"
       },
 
       "about": {

@@ -87,7 +87,20 @@ window.Settings = (function () {
   }
 
   function isDebugMode() {
-    try { return localStorage.getItem(DEBUG_FLAG) === 'true'; } catch (e) { return false; }
+    // Manual override
+    try {
+      if (localStorage.getItem(DEBUG_FLAG) === 'true') return true;
+    } catch (e) { /* ignore */ }
+    // Auto-enable на dev URLs (ngrok / localhost) — production wrap (Capacitor)
+    // няма да match-не и debug ще е off.
+    try {
+      var host = window.location && window.location.hostname || '';
+      if (host === 'localhost' || host === '127.0.0.1' ||
+          host.indexOf('.ngrok') !== -1 || host.indexOf('.local') !== -1) {
+        return true;
+      }
+    } catch (e) { /* ignore */ }
+    return false;
   }
 
   function todayKey() {
@@ -233,6 +246,23 @@ window.Settings = (function () {
 
   function buildDataSection() {
     var debug = isDebugMode();
+    var debugHtml = '';
+    if (debug) {
+      debugHtml =
+        '<div class="set-debug-divider" aria-hidden="true">— DEBUG —</div>' +
+        '<button class="set-action set-action--debug" type="button" data-action="data-debug-trial">' +
+          escapeHtml(t('settings.data.debugResetTrial', 'Reset trial period (debug)')) +
+        '</button>' +
+        '<button class="set-action set-action--debug" type="button" data-action="data-debug-skip-onboarding">' +
+          escapeHtml(t('settings.data.debugSkipOnboarding', 'Skip onboarding → Library (debug)')) +
+        '</button>' +
+        '<button class="set-action set-action--debug" type="button" data-action="data-debug-reset-onboarding">' +
+          escapeHtml(t('settings.data.debugResetOnboarding', 'Reset onboarding (debug)')) +
+        '</button>' +
+        '<button class="set-action set-action--debug" type="button" data-action="data-debug-mock-quiz">' +
+          escapeHtml(t('settings.data.debugMockQuiz', 'Mock quiz: TH_C → Library (debug)')) +
+        '</button>';
+    }
     return (
       '<section class="set-section">' +
         '<div class="set-section-head">' +
@@ -248,11 +278,7 @@ window.Settings = (function () {
           '<button class="set-action set-action--danger" type="button" data-action="data-delete">' +
             escapeHtml(t('settings.data.delete', 'Изтрий всички данни')) +
           '</button>' +
-          (debug
-            ? '<button class="set-action set-action--debug" type="button" data-action="data-debug-trial">' +
-                escapeHtml(t('settings.data.debugResetTrial', 'Reset trial period (debug)')) +
-              '</button>'
-            : '') +
+          debugHtml +
           (trialResetMessage
             ? '<div class="set-data-msg">' + escapeHtml(trialResetMessage) + '</div>'
             : '') +
@@ -507,13 +533,59 @@ window.Settings = (function () {
   }
 
   function debugResetTrial() {
-    // Trial gate още не съществува, но keep hook за бъдеще
     try {
       localStorage.removeItem('auralis_trial_start');
       localStorage.removeItem('auralis_unlocked');
     } catch (e) {}
     trialResetMessage = t('settings.data.debugResetDone', 'Trial reset ✓');
     refresh();
+  }
+
+  function debugSkipOnboarding() {
+    // Mark onboarding done + jump към Library (без quiz още — Mock quiz е separate)
+    try {
+      localStorage.setItem('auralis-onboarding-done', 'true');
+      localStorage.setItem('auralis-consent-granted', 'true');
+    } catch (e) {}
+    if (window.AudioEngine && window.AudioEngine.stop) window.AudioEngine.stop();
+    // Стопи всички phase + redirect
+    close();
+    window.location.reload();
+  }
+
+  function debugResetOnboarding() {
+    // Изтрий onboarding + quiz state — потребителят минава отначало
+    try {
+      var keys = [
+        'auralis-onboarding-done', 'auralis-consent-granted',
+        'auralis-phase', 'auralis-subphase',
+        'auralis-quiz-subphase', 'auralis-quiz-answers',
+        'auralis-quiz-done', 'auralis-quiz-profile', 'auralis-quiz-di'
+      ];
+      keys.forEach(function (k) { localStorage.removeItem(k); });
+    } catch (e) {}
+    if (window.AudioEngine && window.AudioEngine.stop) window.AudioEngine.stop();
+    close();
+    window.location.reload();
+  }
+
+  function debugMockQuiz() {
+    // Set onboarding + consent + quiz done с TH_C profile, DI=8 (умерен).
+    try {
+      localStorage.setItem('auralis-onboarding-done', 'true');
+      localStorage.setItem('auralis-consent-granted', 'true');
+      // Fake answers: всички 'a' (опростено за mock)
+      var fakeAnswers = {};
+      for (var i = 1; i <= 15; i++) fakeAnswers['q' + i] = 'a';
+      localStorage.setItem('auralis-quiz-answers', JSON.stringify(fakeAnswers));
+      localStorage.setItem('auralis-quiz-done', 'true');
+      localStorage.setItem('auralis-quiz-profile', 'TH_C');
+      localStorage.setItem('auralis-quiz-di', '8');
+      localStorage.setItem('auralis-phase', 'library');
+    } catch (e) {}
+    if (window.AudioEngine && window.AudioEngine.stop) window.AudioEngine.stop();
+    close();
+    window.location.reload();
   }
 
   // ============================================================
@@ -558,6 +630,9 @@ window.Settings = (function () {
       else if (action === 'data-export') exportData();
       else if (action === 'data-delete') deleteAllData();
       else if (action === 'data-debug-trial') debugResetTrial();
+      else if (action === 'data-debug-skip-onboarding') debugSkipOnboarding();
+      else if (action === 'data-debug-reset-onboarding') debugResetOnboarding();
+      else if (action === 'data-debug-mock-quiz') debugMockQuiz();
       else if (action === 'open-privacy') showPrivacyView();
       else if (action === 'open-terms') showTermsView();
       return;
