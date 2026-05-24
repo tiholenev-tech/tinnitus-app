@@ -38,7 +38,7 @@ window.Settings = (function () {
   // ============================================================
 
   var overlay = null;
-  var currentView = 'main'; // 'main' | 'privacy'
+  var currentView = 'main'; // 'main' | 'privacy' | 'terms'
   var escHandlerBound = false;
   var trialResetMessage = '';
 
@@ -278,9 +278,14 @@ window.Settings = (function () {
           escapeHtml(t('settings.about.disclaimer',
             'Wellness инструмент, не заместител на лекар.')) +
         '</div>' +
-        '<button class="set-link" type="button" data-action="open-privacy">' +
-          escapeHtml(t('settings.about.privacyLink', 'Политика за поверителност')) +
-        '</button>' +
+        '<div class="set-about-links">' +
+          '<button class="set-link" type="button" data-action="open-privacy">' +
+            escapeHtml(t('settings.about.privacyLink', 'Политика за поверителност')) +
+          '</button>' +
+          '<button class="set-link" type="button" data-action="open-terms">' +
+            escapeHtml(t('settings.about.termsLink', 'Условия за ползване')) +
+          '</button>' +
+        '</div>' +
       '</section>'
     );
   }
@@ -312,14 +317,44 @@ window.Settings = (function () {
   // HTML builders — Privacy view
   // ============================================================
 
+  function buildDocSection(title, text) {
+    if (!title && !text) return '';
+    return (
+      '<section class="set-doc-section">' +
+        (title ? '<h3 class="set-doc-title">' + escapeHtml(title) + '</h3>' : '') +
+        (text ? '<p class="set-doc-text">' + escapeHtml(text) + '</p>' : '') +
+      '</section>'
+    );
+  }
+
   function buildPrivacyViewHtml() {
     var closeAria = t('settings.closeAria', 'Затвори настройки');
     var backLabel = t('settings.back', 'Назад');
     var title = t('privacy.title', 'Политика за поверителност');
-    var body = t('privacy.body', 'AURALIS е инструмент за слухова релаксация...');
-    var paragraphs = body.split('\n\n').map(function (p) {
-      return '<p>' + escapeHtml(p) + '</p>';
+    var lastUpdated = t('privacy.lastUpdated', '');
+    var intro = t('privacy.intro', '');
+
+    var sections = [
+      ['privacy.collection.title', 'privacy.collection.text'],
+      ['privacy.storage.title',    'privacy.storage.text'],
+      ['privacy.sharing.title',    'privacy.sharing.text'],
+      ['privacy.gdpr.title',       'privacy.gdpr.text'],
+      ['privacy.platform.title',   'privacy.platform.text']
+    ];
+    var sectionsHtml = sections.map(function (pair) {
+      return buildDocSection(t(pair[0], ''), t(pair[1], ''));
     }).join('');
+
+    var contactTitle = t('privacy.contact.title', 'Контакт');
+    var contactEmail = t('privacy.contact.email', '');
+    var contactHtml = contactEmail
+      ? '<section class="set-doc-section">' +
+          '<h3 class="set-doc-title">' + escapeHtml(contactTitle) + '</h3>' +
+          '<p class="set-doc-text"><a href="mailto:' + escapeHtml(contactEmail) +
+            '" class="set-doc-link">' + escapeHtml(contactEmail) + '</a></p>' +
+        '</section>'
+      : '';
+
     return (
       '<div class="set-sheet" role="dialog" aria-modal="true"' +
         ' aria-label="' + escapeHtml(title) + '">' +
@@ -331,8 +366,50 @@ window.Settings = (function () {
           '<button class="set-close" type="button" data-action="close"' +
             ' aria-label="' + escapeHtml(closeAria) + '">' + svgClose() + '</button>' +
         '</div>' +
-        '<div class="set-body set-body--privacy">' +
-          paragraphs +
+        '<div class="set-body set-body--doc">' +
+          (lastUpdated ? '<div class="set-doc-meta">' + escapeHtml(lastUpdated) + '</div>' : '') +
+          (intro ? '<p class="set-doc-intro">' + escapeHtml(intro) + '</p>' : '') +
+          sectionsHtml +
+          contactHtml +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  function buildTermsViewHtml() {
+    var closeAria = t('settings.closeAria', 'Затвори настройки');
+    var backLabel = t('settings.back', 'Назад');
+    var title = t('terms.title', 'Условия за ползване');
+    var lastUpdated = t('terms.lastUpdated', '');
+    var intro = t('terms.intro', '');
+
+    var sections = [
+      ['terms.wellness.title',     'terms.wellness.text'],
+      ['terms.disclaimer.title',   'terms.disclaimer.text'],
+      ['terms.volume.title',       'terms.volume.text'],
+      ['terms.noWarranty.title',   'terms.noWarranty.text'],
+      ['terms.license.title',      'terms.license.text'],
+      ['terms.changes.title',      'terms.changes.text']
+    ];
+    var sectionsHtml = sections.map(function (pair) {
+      return buildDocSection(t(pair[0], ''), t(pair[1], ''));
+    }).join('');
+
+    return (
+      '<div class="set-sheet" role="dialog" aria-modal="true"' +
+        ' aria-label="' + escapeHtml(title) + '">' +
+        '<div class="set-sheet-grip" aria-hidden="true"></div>' +
+        '<div class="set-header">' +
+          '<button class="set-back" type="button" data-action="back"' +
+            ' aria-label="' + escapeHtml(backLabel) + '">' + svgBack() + '</button>' +
+          '<h2 class="set-title">' + escapeHtml(title) + '</h2>' +
+          '<button class="set-close" type="button" data-action="close"' +
+            ' aria-label="' + escapeHtml(closeAria) + '">' + svgClose() + '</button>' +
+        '</div>' +
+        '<div class="set-body set-body--doc">' +
+          (lastUpdated ? '<div class="set-doc-meta">' + escapeHtml(lastUpdated) + '</div>' : '') +
+          (intro ? '<p class="set-doc-intro">' + escapeHtml(intro) + '</p>' : '') +
+          sectionsHtml +
         '</div>' +
       '</div>'
     );
@@ -482,6 +559,7 @@ window.Settings = (function () {
       else if (action === 'data-delete') deleteAllData();
       else if (action === 'data-debug-trial') debugResetTrial();
       else if (action === 'open-privacy') showPrivacyView();
+      else if (action === 'open-terms') showTermsView();
       return;
     }
     var themeBtn = e.target.closest('[data-theme-id]');
@@ -504,7 +582,10 @@ window.Settings = (function () {
 
   function refresh() {
     if (!overlay) return;
-    var html = currentView === 'privacy' ? buildPrivacyViewHtml() : buildMainViewHtml();
+    var html;
+    if (currentView === 'privacy') html = buildPrivacyViewHtml();
+    else if (currentView === 'terms') html = buildTermsViewHtml();
+    else html = buildMainViewHtml();
     overlay.innerHTML = html;
     bindEvents();
   }
@@ -516,6 +597,11 @@ window.Settings = (function () {
 
   function showPrivacyView() {
     currentView = 'privacy';
+    refresh();
+  }
+
+  function showTermsView() {
+    currentView = 'terms';
     refresh();
   }
 

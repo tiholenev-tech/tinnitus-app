@@ -223,7 +223,8 @@
         "label": "TODO: About",
         "version": "TODO: AURALIS · version {v} (beta) · 2026",
         "disclaimer": "TODO: Wellness tool, not a doctor substitute.",
-        "privacyLink": "TODO: Privacy policy"
+        "privacyLink": "TODO: Privacy policy",
+        "termsLink": "TODO: Terms of use"
       }
     },
     "trial": {},
@@ -330,8 +331,67 @@
     },
 
     "privacy": {
-      "title": "TODO: Privacy policy",
-      "body": "TODO: AURALIS is a sound relaxation tool. It does not cure tinnitus or replace medical consultation.\n\nAll your data (quiz answers, diary, favorites, listening history) is stored locally on your device.\n\nWe collect nothing. We do not send any data to a server. No tracking, no analytics, no third-party cookies.\n\nYou can delete all your data at any time from Settings → My data → Delete all data.\n\nWhen installed from Google Play / App Store, the platform may process your email and payment info — that is their responsibility, not ours.\n\nQuestions: tiholenev@gmail.com"
+      "title": "Privacy policy",
+      "lastUpdated": "Last updated: May 24, 2026",
+      "intro": "AURALIS respects your privacy. This document explains in plain language what we (do NOT) collect and what happens with your data.",
+
+      "collection": {
+        "title": "What we collect",
+        "text": "AURALIS does NOT collect personal data. Everything runs on your device. No account registration, no email, no phone number."
+      },
+      "storage": {
+        "title": "Where your data lives",
+        "text": "All data (quiz answers, diary, favorites, listening history) is stored only in your browser or app on your own device (localStorage / app sandbox). When you uninstall the app — the data is gone with it."
+      },
+      "sharing": {
+        "title": "Sharing",
+        "text": "We do NOT share data with third parties. No analytics, no advertising trackers, no third-party cookies. We don't operate a cloud server to send anything to."
+      },
+      "gdpr": {
+        "title": "Your rights (GDPR)",
+        "text": "You can download all your data as JSON at any time (Settings → My data → Export all). You can delete all data with one button. Since we don't keep anything on a server, there is no separate request to file."
+      },
+      "platform": {
+        "title": "Google Play / App Store",
+        "text": "When installed from Google Play or App Store, the platform may process your email and payment information — that is their responsibility, not ours. Read their policies separately."
+      },
+      "contact": {
+        "title": "Contact",
+        "email": "tiholenev@gmail.com"
+      },
+
+      "body": "AURALIS is a sound relaxation tool. It does not cure tinnitus or replace medical consultation.\n\nAll your data (quiz answers, diary, favorites, listening history) is stored locally on your device.\n\nWe collect nothing. We do not send any data to a server. No tracking, no analytics, no third-party cookies.\n\nYou can delete all your data at any time from Settings → My data → Delete all data.\n\nWhen installed from Google Play / App Store, the platform may process your email and payment info — that is their responsibility, not ours.\n\nQuestions: tiholenev@gmail.com"
+    },
+
+    "terms": {
+      "title": "Terms of use",
+      "lastUpdated": "Last updated: May 24, 2026",
+      "intro": "By opening AURALIS you accept these terms. They are short and plain.",
+
+      "wellness": {
+        "title": "Wellness, not a medical app",
+        "text": "AURALIS is a sound relaxation tool. It helps with habituation (getting used) to tinnitus through sound enrichment, breathing and guided meditations. It is NOT a medical device. It does NOT replace a doctor, diagnosis or prescribed therapy."
+      },
+      "disclaimer": {
+        "title": "Health disclaimer",
+        "text": "For intense or sudden tinnitus (especially one-sided, with vertigo, or with hearing loss) consult an ENT specialist. For thoughts of self-harm or severe depression seek immediate professional help."
+      },
+      "volume": {
+        "title": "Volume",
+        "text": "Listen at moderate volume. Do not let the sound fully drown out tinnitus (that would be harmful long-term). Recommended volume: about 30–40 % of max on headphones."
+      },
+      "noWarranty": {
+        "title": "No outcome guarantee",
+        "text": "AURALIS does NOT guarantee tinnitus reduction. Results vary individually. Cited studies are references, not promises."
+      },
+      "license": {
+        "title": "License of use",
+        "text": "Paying gives you a personal right to use AURALIS on your devices. You may not resell, decompile, or redistribute the app."
+      },
+      "changes": {
+        "title": "Changes",
+        "text": "We may update the app with new sounds, fixes and features. These Terms may change — you will see the date above on each new version."
+      }
     },
 
     "calm": {
