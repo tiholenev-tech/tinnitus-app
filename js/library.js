@@ -458,26 +458,40 @@ window.Library = (function () {
       return;
     }
 
+    ensureErrorListener();
+
     // Регистрирай файла в AudioEngine ако е runtime pink
     if (sound.filename === '__runtime_pink__') {
-      // AudioEngine има 'brown_noise' за pink generator — re-use
       window.AudioEngine.play('brown_noise').catch(function (e) {
         console.error('[library] pink play failed:', e);
       });
     } else {
-      // Регистрирай custom URL в AudioEngine
       if (window.AudioEngine.playUrl) {
         window.AudioEngine.playUrl(soundId, 'audio/library/' + sound.filename).catch(function (e) {
-          console.error('[library] file play failed:', soundId, e);
+          // Error event е emit-нат от engine; toast се показва от listener.
+          // Само за UI rollback тук:
+          console.warn('[library] file play failed:', soundId, e && e.message);
         });
       } else {
-        // Fallback: ако AudioEngine няма playUrl, ползвай play() със preset map
         console.warn('[library] AudioEngine.playUrl missing — wire не е завършен');
       }
     }
 
-    // Optimistic UI refresh
     setTimeout(refresh, 50);
+  }
+
+  var errorListenerBound = false;
+  function ensureErrorListener() {
+    if (errorListenerBound) return;
+    errorListenerBound = true;
+    window.addEventListener('auralis-sound-error', function (e) {
+      var kind = (e.detail && e.detail.kind) || 'notFound';
+      var msgKey = 'audio.error.' + kind;
+      var msg = t(msgKey, t('audio.error.notFound', 'Звукът не може да се зареди'));
+      if (window.Toast && window.Toast.error) window.Toast.error(msg);
+      // Re-render → mini player автоматично hides ако getActivePreset() === null
+      refresh();
+    });
   }
 
   function toggleFavorite(soundId) {

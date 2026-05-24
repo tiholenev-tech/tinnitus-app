@@ -165,12 +165,31 @@ window.AudioEngine = (function () {
   // BUFFER LOADING
   // ============================================================
 
-  function fetchAndDecode(url) {
+  function emitError(presetId, url, kind, status) {
+    try {
+      window.dispatchEvent(new CustomEvent('auralis-sound-error', {
+        detail: { presetId: presetId, url: url, kind: kind, status: status }
+      }));
+    } catch (e) { /* ignore */ }
+  }
+
+  function fetchAndDecode(url, presetId) {
     if (bufferCache[url]) return Promise.resolve(bufferCache[url]);
     return fetch(url)
       .then(function (res) {
-        if (!res.ok) throw new Error('HTTP ' + res.status + ' ' + url);
+        if (!res.ok) {
+          var kind = res.status === 404 ? 'notFound' : 'network';
+          emitError(presetId, url, kind, res.status);
+          throw new Error('HTTP ' + res.status + ' ' + url);
+        }
         return res.arrayBuffer();
+      })
+      .catch(function (err) {
+        // Network error (no res object) → emit network kind
+        if (err && err.name === 'TypeError') {
+          emitError(presetId, url, 'network', null);
+        }
+        throw err;
       })
       .then(function (arr) {
         return new Promise(function (resolve, reject) {
@@ -182,6 +201,7 @@ window.AudioEngine = (function () {
             },
             function (err) {
               console.error('[audio] decode failed:', url, err);
+              emitError(presetId, url, 'decode', null);
               reject(err);
             }
           );
@@ -259,7 +279,7 @@ window.AudioEngine = (function () {
 
     return resumeContext().then(function () {
       if (spec.type === 'file') {
-        return fetchAndDecode(spec.url).then(function (buffer) {
+        return fetchAndDecode(spec.url, presetId).then(function (buffer) {
           startSource(presetId, buffer, opts);
         });
       } else if (spec.type === 'generated' && spec.gen === 'pink') {

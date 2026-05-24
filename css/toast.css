@@ -1,0 +1,55 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · Toast notifications (bottom-center, 3s auto-hide)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.toast-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(env(safe-area-inset-bottom, 0) + 88px);
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+  padding: 0 16px;
+}
+
+.toast {
+  pointer-events: auto;
+  max-width: 380px;
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 13.5px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.25s var(--ease), transform 0.3s var(--ease-spring);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+.toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast--info {
+  background: linear-gradient(135deg, hsl(var(--hue1) 70% 55%), hsl(var(--hue2) 65% 55%));
+  color: white;
+}
+.toast--error {
+  background: linear-gradient(135deg, hsl(355 75% 50%), hsl(345 70% 45%));
+  color: white;
+}
+.toast--success {
+  background: linear-gradient(135deg, hsl(145 60% 50%), hsl(155 55% 45%));
+  color: white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast { transition: opacity 0.01s; transform: none; }
+}

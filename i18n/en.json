@@ -232,6 +232,14 @@
       }
     },
     "trial": {},
+    "audio": {
+      "error": {
+        "notFound": "TODO: Sound could not be loaded",
+        "network": "TODO: Check your internet connection",
+        "decode": "TODO: File could not be played"
+      }
+    },
+
     "library": {
       "title": "TODO: Sound library",
       "loading": "TODO: Loading...",
