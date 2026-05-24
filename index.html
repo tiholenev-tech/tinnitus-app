@@ -6,6 +6,9 @@
   <meta name="theme-color" content="#08090d">
   <meta name="description" content="Инструмент за слухова релаксация при тинитус">
   <title>tinnitus-app</title>
+  <!-- meta description се обновява от i18n.init() при locale change -->
+  <!-- title остава brand (untranslated per Bible §i18n) -->
+
 
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icons/icon-180.png">
@@ -48,13 +51,16 @@
     <!-- ═══ HEADER · 1:1 от chat.php (brand left + spacer + icons right) ═══ -->
     <header class="header">
       <div class="header-brand" id="brandHome" role="button" tabindex="0"
+           data-i18n-aria-label="ui.header.brandHomeAria"
            aria-label="Към началната страница">
         <span class="brand-1">tinnitus</span><span class="brand-2">-app</span>
       </div>
 
       <div class="header-spacer"></div>
 
-      <button class="icon-btn" id="themeBtn" aria-label="Смяна на тема">
+      <button class="icon-btn" id="themeBtn"
+              data-i18n-aria-label="ui.header.themeToggleAria"
+              aria-label="Смяна на тема">
         <svg id="themeIconMoon" viewBox="0 0 24 24">
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
         </svg>
@@ -71,7 +77,9 @@
         </svg>
       </button>
 
-      <button class="icon-btn" id="settingsBtn" aria-label="Настройки">
+      <button class="icon-btn" id="settingsBtn"
+              data-i18n-aria-label="ui.header.settingsAria"
+              aria-label="Настройки">
         <svg viewBox="0 0 24 24">
           <circle cx="12" cy="12" r="3"/>
           <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
@@ -85,6 +93,7 @@
   </div>
 
   <!-- ═══ Module scripts ═══ -->
+  <script src="js/i18n.js"></script>
   <script src="js/state.js"></script>
   <script src="js/quiz-data.js"></script>
   <script src="js/quiz-engine.js"></script>

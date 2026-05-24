@@ -1,0 +1,45 @@
+{
+  "_meta": {
+    "locale": "bg",
+    "name": "Български",
+    "rtl": false,
+    "version": "1.0.0",
+    "status": "complete (beta)",
+    "note": "BG е reference complete за beta. Други езици се generate-ват от bg.json чрез DeepL Pro в Phase 2."
+  },
+
+  "ui": {
+    "meta": {
+      "title": "tinnitus-app",
+      "description": "Инструмент за слухова релаксация при тинитус"
+    },
+
+    "header": {
+      "brandHomeAria": "Към началната страница",
+      "themeToggleAria": "Смяна на тема",
+      "settingsAria": "Настройки"
+    },
+
+    "onboarding": {},
+    "quiz": {},
+    "mixer": {},
+    "settings": {},
+    "trial": {}
+  },
+
+  "quiz": {
+    "questions": {},
+    "profiles": {},
+    "diLevels": {},
+    "intensity": {}
+  },
+
+  "content": {
+    "mixer": {},
+    "mechanics": {},
+    "categories": {},
+    "navigation": {},
+    "safety": {},
+    "social": {}
+  }
+}

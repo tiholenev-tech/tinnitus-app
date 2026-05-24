@@ -1,0 +1,45 @@
+{
+  "_meta": {
+    "locale": "en",
+    "name": "English",
+    "rtl": false,
+    "version": "0.1.0",
+    "status": "stub (TODO — DeepL translation pending in Phase 2)",
+    "note": "All non-meta strings са TODO placeholders. Bg.json е authoritative source."
+  },
+
+  "ui": {
+    "meta": {
+      "title": "tinnitus-app",
+      "description": "TODO: A sound relaxation tool for tinnitus"
+    },
+
+    "header": {
+      "brandHomeAria": "TODO: Back to home",
+      "themeToggleAria": "TODO: Toggle theme",
+      "settingsAria": "TODO: Settings"
+    },
+
+    "onboarding": {},
+    "quiz": {},
+    "mixer": {},
+    "settings": {},
+    "trial": {}
+  },
+
+  "quiz": {
+    "questions": {},
+    "profiles": {},
+    "diLevels": {},
+    "intensity": {}
+  },
+
+  "content": {
+    "mixer": {},
+    "mechanics": {},
+    "categories": {},
+    "navigation": {},
+    "safety": {},
+    "social": {}
+  }
+}

@@ -114,10 +114,15 @@
   // Bootstrap
   // ============================================================
 
-  document.addEventListener('DOMContentLoaded', function () {
+  function bootstrap() {
     var themeBtn = document.getElementById('theme-toggle');
     if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
     applyTheme(currentTheme());
+
+    // i18n приложи към статичните DOM елементи (aria-labels на header)
+    if (window.i18n && window.i18n.applyToDOM) {
+      window.i18n.applyToDOM(document);
+    }
 
     window.AppState.load();
 
@@ -140,6 +145,22 @@
       '· sub:', window.AppState.subphase,
       '· quiz:', window.AppState.quizSubphase,
       '· onboarded:', window.AppState.isOnboardingDone(),
-      '· quizDone:', window.AppState.isQuizDone());
+      '· quizDone:', window.AppState.isQuizDone(),
+      '· locale:', window.i18n ? window.i18n.getLocale() : 'none');
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Gate bootstrap на i18n.init() — translations трябва да са заредени
+    // преди render-ите на onboarding/quiz/mixer да започнат.
+    if (window.i18n && window.i18n.init) {
+      window.i18n.init()
+        .then(bootstrap)
+        .catch(function (err) {
+          console.error('[auralis] i18n init failed — rendering без translations:', err);
+          bootstrap();
+        });
+    } else {
+      bootstrap();
+    }
   });
 })();
