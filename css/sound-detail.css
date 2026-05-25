@@ -11,6 +11,10 @@
   flex-direction: column;
   gap: 18px;
   animation: sdFadeIn 0.3s ease;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  max-height: calc(100vh - 56px);
+  overscroll-behavior: contain;
 }
 
 .sd-loading {
