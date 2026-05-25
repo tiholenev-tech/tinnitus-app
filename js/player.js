@@ -254,6 +254,8 @@ window.Player = (function () {
             buildSlider('plL1', escapeHtml(title), layer1Vol,
               l1Label + ' 0-100') +
           '</div>' +
+          // BUG2: ако noise === 'none' (meditation scenario) — скрий L2 row.
+          (noiseId === 'none' ? '' :
           '<div class="pl-layer">' +
             '<button class="pl-layer-name pl-layer-name--noise" type="button"' +
               ' data-action="open-noise"' +
@@ -264,7 +266,7 @@ window.Player = (function () {
             '</button>' +
             buildSlider('plL2', escapeHtml(noiseLabel(noiseId)), layer2Vol,
               l2Label + ' 0-100') +
-          '</div>' +
+          '</div>') +
         '</div>' +
 
         '<div class="pl-controls">' +
@@ -790,39 +792,93 @@ window.Player = (function () {
   // value smoothly от 0 до target за duration ms. Slider thumb визуално
   // расте докато audio gain ramps. Reduce-motion users скачат на target.
 
-  function animateSlider(sliderId, fromVal, toVal, durationMs, labelId) {
-    var slider = el(sliderId);
+  // BUG3: cancel stale slider animations при flight-token mismatch.
+  // Без cancel-ване анимациите продължаваха да движат slider thumb-овете
+  // дори след user-ът да е tap-нал друг звук.
+  var currentL1AnimRAF = null;
+  var currentL2AnimRAF = null;
+  var currentL1AnimToken = 0;
+  var currentL2AnimToken = 0;
+
+  function animateSlider(opts) {
+    // opts: { sliderId, fromVal, toVal, durationMs, labelId, animSlot, expectedToken }
+    var slider = el(opts.sliderId);
     if (!slider) return;
-    var lbl = labelId ? el(labelId) : null;
+    var lbl = opts.labelId ? el(opts.labelId) : null;
+
+    // Cancel previous animation on this slot (RAF + token check).
+    if (opts.animSlot === 'l1' && currentL1AnimRAF != null) {
+      cancelAnimationFrame(currentL1AnimRAF);
+      currentL1AnimRAF = null;
+    } else if (opts.animSlot === 'l2' && currentL2AnimRAF != null) {
+      cancelAnimationFrame(currentL2AnimRAF);
+      currentL2AnimRAF = null;
+    }
 
     var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduced) {
-      slider.value = toVal;
-      if (lbl) lbl.textContent = Math.round(toVal) + '%';
+      slider.value = opts.toVal;
+      if (lbl) lbl.textContent = Math.round(opts.toVal) + '%';
       return;
     }
 
+    var myAnimToken = (opts.animSlot === 'l1' ? ++currentL1AnimToken : ++currentL2AnimToken);
     var start = performance.now();
+    var fromVal = opts.fromVal, toVal = opts.toVal, durationMs = opts.durationMs;
+
     function step(now) {
+      // Abort ако нов animation е started на този slot.
+      var activeAnimToken = (opts.animSlot === 'l1' ? currentL1AnimToken : currentL2AnimToken);
+      if (myAnimToken !== activeAnimToken) {
+        console.log('[reveal-anim] stale token', myAnimToken, 'current:', activeAnimToken, '— abort');
+        return;
+      }
+      // Abort ако flight token се е сменил (нов sound е заявен в engine).
+      if (typeof opts.expectedToken === 'number'
+          && window.AudioEngine && window.AudioEngine.getCurrentFlightToken
+          && window.AudioEngine.getCurrentFlightToken() !== opts.expectedToken) {
+        console.log('[reveal-anim] engine flight token changed — abort animation');
+        return;
+      }
       var elapsed = now - start;
       var progress = Math.min(elapsed / durationMs, 1);
-      // ease-out cubic
-      var eased = 1 - Math.pow(1 - progress, 3);
+      var eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
       var v = fromVal + (toVal - fromVal) * eased;
       slider.value = v;
       if (lbl) lbl.textContent = Math.round(v) + '%';
-      if (progress < 1) requestAnimationFrame(step);
+      if (progress < 1) {
+        var rafId = requestAnimationFrame(step);
+        if (opts.animSlot === 'l1') currentL1AnimRAF = rafId;
+        else currentL2AnimRAF = rafId;
+      } else {
+        if (opts.animSlot === 'l1') currentL1AnimRAF = null;
+        else currentL2AnimRAF = null;
+      }
     }
-    requestAnimationFrame(step);
+    var rafId = requestAnimationFrame(step);
+    if (opts.animSlot === 'l1') currentL1AnimRAF = rafId;
+    else currentL2AnimRAF = rafId;
   }
 
   window.addEventListener('audio:reveal-l1', function (e) {
     if (!e || !e.detail) return;
-    animateSlider('plL1', 0, e.detail.targetVol, e.detail.duration, 'plL1Value');
+    var token = (window.AudioEngine && window.AudioEngine.getCurrentFlightToken)
+      ? window.AudioEngine.getCurrentFlightToken() : null;
+    animateSlider({
+      sliderId: 'plL1', labelId: 'plL1Value', animSlot: 'l1',
+      fromVal: 0, toVal: e.detail.targetVol, durationMs: e.detail.duration,
+      expectedToken: token
+    });
   });
   window.addEventListener('audio:reveal-l2', function (e) {
     if (!e || !e.detail) return;
-    animateSlider('plL2', 0, e.detail.targetVol, e.detail.duration, 'plL2Value');
+    var token = (window.AudioEngine && window.AudioEngine.getCurrentFlightToken)
+      ? window.AudioEngine.getCurrentFlightToken() : null;
+    animateSlider({
+      sliderId: 'plL2', labelId: 'plL2Value', animSlot: 'l2',
+      fromVal: 0, toVal: e.detail.targetVol, durationMs: e.detail.duration,
+      expectedToken: token
+    });
   });
 
   return {

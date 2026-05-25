@@ -108,6 +108,13 @@ window.ProfileConfig = (function () {
     'HB_M': 'brown_lp500'
   };
 
+  // SCENARIO override на profile noise (BUG2 — meditation без фонов шум).
+  // Per spec: meditation = САМО музика, без brown/pink noise (концентрация
+  // върху мантра/sing bowl/binaural beat без масков шум).
+  var NOISE_BY_SCENARIO = {
+    'meditation': 'none'
+  };
+
   // ============================================================
   // SEQUENTIAL REVEAL timing — Layer 1 → wait → Layer 2 fade-in
   // ============================================================
@@ -151,7 +158,11 @@ window.ProfileConfig = (function () {
     return (typeof tab[s] === 'number') ? tab[s] : tab[DEFAULT_SCENARIO];
   }
 
-  function getRecommendedNoise(profile) {
+  function getRecommendedNoise(profile, scenario) {
+    // Scenario override — например meditation = 'none' (без фон).
+    if (scenario && Object.prototype.hasOwnProperty.call(NOISE_BY_SCENARIO, scenario)) {
+      return NOISE_BY_SCENARIO[scenario];
+    }
     var p = resolveProfile(profile);
     return NOISE_BY_PROFILE[p];
   }
@@ -214,7 +225,7 @@ window.ProfileConfig = (function () {
 
     var mix = getMix(profile, scenario);
     var targetVol = getTargetVolume(profile, scenario, night);
-    var noise = getRecommendedNoise(profile);
+    var noise = getRecommendedNoise(profile, scenario);
     var reveal = getRevealTiming(profile);
 
     var override = getUserOverride(soundId || (sound && sound.id));
