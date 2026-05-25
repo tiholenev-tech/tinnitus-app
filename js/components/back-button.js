@@ -70,6 +70,10 @@ window.BackButton = (function () {
     return renderers[phase] || null;
   }
 
+  // NAV-STALE: phases които НЕ са валидни back targets ако потребителят
+  // е приключил onboarding+quiz. popPhase ги skip-ва.
+  var STALE_AFTER_ONBOARDING = ['onboarding', 'quiz', 'results', 'thi_baseline'];
+
   function onBack() {
     if (window.Haptics) window.Haptics.light();
 
@@ -78,12 +82,26 @@ window.BackButton = (function () {
       return;
     }
 
-    var prev = window.AppState.popPhase();
+    var s = window.AppState;
+    var onboardingComplete = s.isOnboardingDone && s.isOnboardingDone();
+    var quizComplete = s.isQuizDone && s.isQuizDone();
+
+    var prev = s.popPhase();
+
+    // NAV-STALE: skip phases които вече не са валидни (e.g. q15 след quiz
+    // done) — pop continues докато намерим валиден phase или празно.
+    if (onboardingComplete && quizComplete) {
+      while (prev && STALE_AFTER_ONBOARDING.indexOf(prev) !== -1) {
+        console.log('[back-button] skip stale:', prev);
+        prev = s.popPhase();
+      }
+    }
 
     if (!prev) {
-      // Empty stack — go home.
+      // Empty stack — clear remaining (safety) + go home.
+      if (s.clearPhaseHistory) s.clearPhaseHistory();
       console.log('[back-button] empty stack → home');
-      window.AppState.transition('home');
+      s.transition('home');
       if (window.Home && window.Home.render) window.Home.render();
       return;
     }
@@ -96,7 +114,7 @@ window.BackButton = (function () {
     } else {
       // Renderer missing → fallback Home.
       console.warn('[back-button] no renderer for:', prev, '→ home');
-      window.AppState.transition('home');
+      s.transition('home');
       if (window.Home && window.Home.render) window.Home.render();
     }
   }
