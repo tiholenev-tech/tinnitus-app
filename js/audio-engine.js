@@ -198,9 +198,18 @@ window.AudioEngine = (function () {
     layer1.volume = Math.max(0, Math.min(100, vol));
     applyLayerVolume(layer1);
   }
+  // TEMP HARD CAP (Code 2 audit): noise pack е -18 LUFS (+9 dB над main).
+  // Code 2 ще нормализира към -26 LUFS — тогава премахваме cap.
+  // TODO REMOVE когато audio_normalize.py приключи noise normalization.
+  var TEMP_NOISE_CAP = 30;
+
   function setLayer2Volume(vol) {
-    layer2.volume = Math.max(0, Math.min(100, vol));
+    var cappedVol = Math.min(vol, TEMP_NOISE_CAP);
+    layer2.volume = Math.max(0, Math.min(100, cappedVol));
     applyLayerVolume(layer2);
+    if (vol > TEMP_NOISE_CAP) {
+      console.log('[noise-cap] Requested', vol, 'capped to', TEMP_NOISE_CAP);
+    }
   }
   function getLayer1Volume() { return layer1.volume; }
   function getLayer2Volume() { return layer2.volume; }
