@@ -213,8 +213,10 @@ window.AudioEngine = (function () {
 
   function fetchAndDecode(url, presetId) {
     if (bufferCache[url]) return Promise.resolve(bufferCache[url]);
+    console.log('[audio-engine] fetch attempt:', url);
     return fetch(url)
       .then(function (res) {
+        console.log('[audio-engine] fetch status:', res.status, 'for', url);
         if (!res.ok) {
           var kind = res.status === 404 ? 'notFound' : 'network';
           emitError(presetId, url, kind, res.status);
@@ -302,11 +304,13 @@ window.AudioEngine = (function () {
   // ============================================================
 
   function playLayer1(presetId, opts) {
+    console.log('[audio-engine] playLayer1 called with:', presetId);
     var spec = resolveSpec(presetId);
     if (!spec) {
-      console.error('[audio] L1 unknown preset:', presetId);
+      console.error('[audio-engine] L1 unknown preset (resolveSpec → null):', presetId);
       return Promise.reject(new Error('Unknown preset: ' + presetId));
     }
+    console.log('[audio-engine] resolved spec:', spec);
     return playLayer1Spec(presetId, spec, opts);
   }
 
@@ -324,7 +328,7 @@ window.AudioEngine = (function () {
       var sounds = window.AURALIS_MANIFEST.sounds;
       for (var i = 0; i < sounds.length; i++) {
         if (sounds[i].id === presetId) {
-          var s = { type: 'file', url: 'audio/library/' + sounds[i].filename };
+          var s = { type: 'file', url: 'library_staging_loop_ready/' + sounds[i].filename };
           PRESET_MAP[presetId] = s;
           return s;
         }
@@ -478,7 +482,7 @@ window.AudioEngine = (function () {
         for (var i = 0; i < window.AURALIS_MANIFEST.noises.length; i++) {
           var n = window.AURALIS_MANIFEST.noises[i];
           if (n.id === noiseId && n.filename) {
-            spec = { type: 'file', url: 'audio/library/' + n.filename };
+            spec = { type: 'file', url: 'library_staging_loop_ready/' + n.filename };
             break;
           }
         }

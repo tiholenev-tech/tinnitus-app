@@ -244,7 +244,7 @@ window.Calm = (function () {
         // Pink not really meditation, но защита
         window.AudioEngine.play('brown_noise');
       } else {
-        var url = 'audio/library/' + sound.filename;
+        var url = 'library_staging_loop_ready/' + sound.filename;
         window.AudioEngine.playUrl(soundId, url, { loop: false }).catch(function (err) {
           console.error('[calm] play failed:', soundId, err);
           showMissingFileMessage();
