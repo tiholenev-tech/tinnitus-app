@@ -209,20 +209,51 @@
 
     // ===== Phase / subphase transitions =====
 
+    // NAV-STACK: phaseHistory вместо single previousPhase slot.
+    // Single slot loop-ваше при BACK→transition→overwrites previousPhase.
+    phaseHistory: [],
+
     transition: function (to) {
       if (PHASES.indexOf(to) === -1) {
         console.warn('[state] непозната фаза:', to);
         return false;
       }
       var from = this.current;
-      this.previousPhase = from;
+      if (!this.phaseHistory) this.phaseHistory = [];
+      if (from && from !== to) {
+        this.phaseHistory.push(from);
+        // Cap at 20 entries (memory leak protection)
+        if (this.phaseHistory.length > 20) this.phaseHistory.shift();
+      }
       this.current = to;
       this.save();
-      console.log('[state]', from, '→', to);
+      console.log('[state]', from, '→', to, '(stack:', this.phaseHistory.length + ')');
       return true;
     },
 
-    previousPhase: null,
+    // popPhase: BACK navigation. Pop последния phase БЕЗ да го push-ва
+    // обратно (предотвратява loop). Връща null ако stack-а е празен.
+    popPhase: function () {
+      if (!this.phaseHistory || this.phaseHistory.length === 0) {
+        return null;
+      }
+      var prev = this.phaseHistory.pop();
+      this.current = prev;
+      this.save();
+      console.log('[state] BACK to:', prev, '(stack:', this.phaseHistory.length + ')');
+      return prev;
+    },
+
+    // Backward compat: getter връща top на stack-а (без да pop-ва).
+    // Стария код който чете state.previousPhase да продължи да работи.
+    get previousPhase() {
+      if (!this.phaseHistory || this.phaseHistory.length === 0) return null;
+      return this.phaseHistory[this.phaseHistory.length - 1];
+    },
+
+    clearPhaseHistory: function () {
+      this.phaseHistory = [];
+    },
 
     transitionSubphase: function (to) {
       if (ONBOARDING_SUBPHASES.indexOf(to) === -1) return false;
@@ -413,6 +444,7 @@
       this.quizAnswers = {};
       this.profile = null;
       this.distressIndex = null;
+      this.phaseHistory = [];  // NAV-STACK: clean start
       // 14-day program reset (Wave 3.1-A)
       this.programStartDate = null;
       this.currentProgramDay = null;

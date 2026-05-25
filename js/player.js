@@ -506,23 +506,36 @@ window.Player = (function () {
     }
     activeSoundId = null;
 
-    // Back-navigate към категория/home според previous phase, не legacy library.
+    // NAV-STACK: popPhase връща последния phase (без re-push). Безсмислени
+    // back targets (player, thi_baseline) се пропускат, продължава с home.
     var s = window.AppState;
-    var back = (s && s.previousPhase) || 'home';
-    var BACK_OK = ['home', 'category', 'sound', 'diary_hub'];
-    if (BACK_OK.indexOf(back) === -1) back = 'home';
-    if (s && s.transition) s.transition(back);
+    if (!s) return;
+    var BLOCK = ['player', 'thi_baseline'];
+    var back = s.popPhase ? s.popPhase() : null;
+    while (back && BLOCK.indexOf(back) !== -1) {
+      back = s.popPhase();
+    }
+    if (!back) {
+      back = 'home';
+      if (s.transition) s.transition('home');
+    }
+    // popPhase вече сетва s.current = back; не правим повторно transition().
+    console.log('[player] close → back to:', back);
     history.pushState({ phase: back }, '');
-    if (back === 'category' && window.CategoryView && window.CategoryView.render) {
-      window.CategoryView.render();
-    } else if (back === 'sound' && window.SoundDetail && window.SoundDetail.render) {
-      window.SoundDetail.render();
-    } else if (back === 'diary_hub' && window.DiaryHub && window.DiaryHub.render) {
-      window.DiaryHub.render();
+
+    var renderers = {
+      'home':            window.Home,
+      'category':        window.CategoryView,
+      'sound':           window.SoundDetail,
+      'diary_hub':       window.DiaryHub,
+      'profile_results': window.ProfileResults,
+      'library':         window.Library
+    };
+    var r = renderers[back];
+    if (r && r.render) {
+      r.render();
     } else if (window.Home && window.Home.render) {
       window.Home.render();
-    } else if (window.Library && window.Library.render) {
-      window.Library.render();
     }
   }
 

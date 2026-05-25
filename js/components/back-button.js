@@ -45,70 +45,58 @@ window.BackButton = (function () {
     return backBtn;
   }
 
-  // Phase hierarchy for manual fallback when history is unreliable
-  var BACK_MAP = {
-    sound: 'category',
-    player: 'sound',
-    category: 'home',
-    profile_results: 'home',
-    calm: 'home',
-    diary: 'home',
-    sleep: 'home',
-    library: 'home',
-    mixer: 'home',
-    settings: 'home'
-  };
+  // NAV-STACK: рендеринг dispatch по phase name.
+  // popPhase() в state.js връща предишния phase без да го re-push-ва.
+  function rendererFor(phase) {
+    var renderers = {
+      'home': window.Home,
+      'category': window.CategoryView,
+      'sound': window.SoundDetail,
+      'player': window.Player,
+      'profile_results': window.ProfileResults,
+      'diary_hub': window.DiaryHub,
+      'diary_evening': window.DiaryEvening,
+      'diary_morning': window.DiaryMorning,
+      'cbt_day': window.CbtDay,
+      'thi_baseline': window.ThiBaseline,
+      'diary': window.Diary,
+      'calm': window.Calm,
+      'sleep': window.Sleep,
+      'library': window.Library,
+      'mixer': window.Mixer,
+      'settings': window.Settings
+    };
+    return renderers[phase] || null;
+  }
 
   function onBack() {
     if (window.Haptics) window.Haptics.light();
 
-    // Strategy 1: Use AppState.previousPhase if available and meaningful
-    if (window.AppState && window.AppState.previousPhase) {
-      var prev = window.AppState.previousPhase;
-      // Navigate to previous phase
-      if (prev === 'category') {
-        window.AppState.transition('category');
-        if (window.CategoryView && window.CategoryView.render) {
-          window.CategoryView.render();
-        } else if (window.Home && window.Home.render) {
-          window.AppState.transition('home');
-          window.Home.render();
-        }
-        return;
-      }
-      if (prev === 'home') {
-        window.AppState.transition('home');
-        if (window.Home && window.Home.render) window.Home.render();
-        return;
-      }
-      if (prev === 'sound') {
-        window.AppState.transition('sound');
-        if (window.SoundDetail && window.SoundDetail.render) window.SoundDetail.render();
-        return;
-      }
-      // Generic previous
-      window.AppState.transition(prev);
-      // Try history.back as renderer
-      if (window.history && window.history.length > 1) {
-        window.history.back();
-        return;
-      }
-    }
-
-    // Strategy 2: browser history
-    if (window.history && window.history.length > 2) {
+    if (!window.AppState) {
       window.history.back();
       return;
     }
 
-    // Strategy 3: phase hierarchy fallback
-    if (window.AppState) {
-      var current = window.AppState.current;
-      var target = BACK_MAP[current] || 'home';
-      window.AppState.transition(target);
-      if (target === 'home' && window.Home && window.Home.render) {
-        window.Home.render();
-      }
+    var prev = window.AppState.popPhase();
+
+    if (!prev) {
+      // Empty stack — go home.
+      console.log('[back-button] empty stack → home');
+      window.AppState.transition('home');
+      if (window.Home && window.Home.render) window.Home.render();
+      return;
+    }
+
+    console.log('[back-button] BACK to:', prev);
+
+    var renderer = rendererFor(prev);
+    if (renderer && renderer.render) {
+      renderer.render();
+    } else {
+      // Renderer missing → fallback Home.
+      console.warn('[back-button] no renderer for:', prev, '→ home');
+      window.AppState.transition('home');
+      if (window.Home && window.Home.render) window.Home.render();
     }
   }
 
