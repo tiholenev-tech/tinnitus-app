@@ -110,6 +110,11 @@
       return;
     }
 
+    // SAFETY-2: calibration screen
+    if (phase === 'calibration' && window.VolumeCalibration && window.VolumeCalibration.render) {
+      window.VolumeCalibration.render();
+      return;
+    }
     // 14-day program phases (Wave 3.1-A)
     if (phase === 'thi_baseline' && window.ThiBaseline && window.ThiBaseline.render) {
       window.ThiBaseline.render();
@@ -322,6 +327,15 @@
     // да слуша + practice едновременно.
     if (window.AppState.isProgramActive() && window.AppState.current === 'home') {
       window.AppState.transition('diary_hub');
+    }
+
+    // SAFETY-2: при ПЪРВО profile_results landing → calibration screen първо.
+    // Calibration done flag persistent → не пита пак.
+    if (window.AppState.isQuizDone()
+        && !window.AppState.calibrationDone
+        && window.AppState.current === 'profile_results') {
+      console.log('[bootstrap] calibration pending → redirect from profile_results');
+      window.AppState.transition('calibration');
     }
 
     // Initial history state според текуща фаза

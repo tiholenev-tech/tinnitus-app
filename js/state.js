@@ -28,13 +28,19 @@
   var KEY_STREAK_FREEZES         = 'auralis-streak-freezes-remaining';
   var KEY_STREAK_LAST_ENTRY_DATE = 'auralis-streak-last-entry-date';
 
+  // SAFETY-2: Volume calibration state keys
+  var KEY_CALIBRATION_DONE       = 'auralis-calibration-done';
+  var KEY_MIXING_POINT_VOLUME    = 'auralis-mixing-point-volume';
+
   var PHASES = [
     'onboarding', 'quiz', 'results', 'profile_results',
     'mixer', 'library', 'sleep', 'diary', 'calm',
     'home', 'category', 'sound', 'player',
     // 14-day program phases (Wave 3.1-A)
     'thi_baseline', 'diary_hub', 'diary_evening', 'diary_morning',
-    'cbt_day', 'progress'
+    'cbt_day', 'progress',
+    // SAFETY-2: volume calibration screen
+    'calibration'
   ];
   var ONBOARDING_SUBPHASES = ['welcome', 'value', 'consent'];
 
@@ -92,6 +98,10 @@
     streakFreezesRemaining: 2,      // максимум 2 freeze-а в програмата
     streakLastEntryDate: null,      // 'YYYY-MM-DD' на последния запис
 
+    // ===== Volume calibration (SAFETY-2) =====
+    calibrationDone: false,         // true след първото калибриране
+    mixingPointVolume: null,        // 0..75 — потребителска точка на смесване
+
     // ===== Status checks =====
 
     isOnboardingDone: function () {
@@ -128,6 +138,11 @@
       var sfr = get(KEY_STREAK_FREEZES);
       this.streakFreezesRemaining = (sfr === null || sfr === '') ? 2 : (parseInt(sfr, 10) || 0);
       this.streakLastEntryDate = get(KEY_STREAK_LAST_ENTRY_DATE) || null;
+      // SAFETY-2: calibration restore
+      this.calibrationDone = get(KEY_CALIBRATION_DONE) === 'true';
+      var mpv = get(KEY_MIXING_POINT_VOLUME);
+      this.mixingPointVolume = (mpv === null || mpv === '') ? null : parseInt(mpv, 10);
+      if (isNaN(this.mixingPointVolume)) this.mixingPointVolume = null;
       // Recompute currentProgramDay (capped 1..14)
       if (this.programStartDate) {
         var daysElapsed = Math.floor((Date.now() - this.programStartDate) / 86400000);
@@ -147,7 +162,9 @@
           'profile_results',
           // 14-day program phases
           'thi_baseline', 'diary_hub', 'diary_evening', 'diary_morning',
-          'cbt_day', 'progress'
+          'cbt_day', 'progress',
+          // SAFETY-2
+          'calibration'
         ];
 
         if (savedPhase && LEGACY_TO_HOME.indexOf(savedPhase) !== -1) {
@@ -364,6 +381,14 @@
       set(KEY_THI_DAY14, String(score));
     },
 
+    // SAFETY-2: volume calibration helpers
+    setCalibration: function (volume) {
+      this.mixingPointVolume = Math.max(0, Math.min(75, parseInt(volume, 10) || 0));
+      this.calibrationDone = true;
+      set(KEY_MIXING_POINT_VOLUME, String(this.mixingPointVolume));
+      set(KEY_CALIBRATION_DONE, 'true');
+    },
+
     saveDiaryEntry: function (dateKey, partial) {
       // partial = { evening?:..., morning?:..., cbtCompleted?:..., cbtReflection?:... }
       if (!this.diaryEntries[dateKey]) this.diaryEntries[dateKey] = {};
@@ -472,6 +497,11 @@
       remove(KEY_STREAK_ACTIVE_DAYS);
       remove(KEY_STREAK_FREEZES);
       remove(KEY_STREAK_LAST_ENTRY_DATE);
+      // SAFETY-2: calibration reset
+      this.calibrationDone = false;
+      this.mixingPointVolume = null;
+      remove(KEY_CALIBRATION_DONE);
+      remove(KEY_MIXING_POINT_VOLUME);
     }
   };
 })();
