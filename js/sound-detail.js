@@ -179,10 +179,13 @@ window.SoundDetail = (function () {
   }
 
   function buildPlayCta() {
-    var label = t('soundDetail.playCta', '▶ Слушай');
+    var label = t('soundDetail.playCta', 'Слушай');
+    // Strip leading "▶ " ако някоя legacy locale е дошла с emoji
+    label = label.replace(/^[▶►▸]\s*/, '').trim();
     return (
-      '<button class="sd-play-cta" type="button" data-action="play">' +
-        svgPlay() +
+      '<button class="sd-play-cta" type="button" data-action="play"' +
+        ' aria-label="' + escapeHtml(label) + '">' +
+        '<span class="sd-play-cta-icon" aria-hidden="true">' + svgPlay() + '</span>' +
         '<span class="sd-play-cta-text">' + escapeHtml(label) + '</span>' +
       '</button>'
     );

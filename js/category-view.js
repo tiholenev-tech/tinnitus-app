@@ -83,14 +83,14 @@ window.CategoryView = (function () {
     for (var i = 0; i < arr.length; i++) {
       if (arr[i].id === catId) return arr[i];
     }
-    // Fallback: hardcoded list (mirror на home.js)
+    // Fallback: hardcoded list (mirror на home.js — icon names only)
     var HARDCODED = [
-      { id: 'sleep_deep',     emoji: '🌙' },
-      { id: 'falling_asleep', emoji: '😴' },
-      { id: 'relaxation',     emoji: '🛋' },
-      { id: 'daily',          emoji: '☕' },
-      { id: 'anxiety',        emoji: '🆘' },
-      { id: 'meditation',     emoji: '🧘' }
+      { id: 'sleep_deep',     icon: 'moon'   },
+      { id: 'falling_asleep', icon: 'zzz'    },
+      { id: 'relaxation',     icon: 'waves'  },
+      { id: 'daily',          icon: 'sun'    },
+      { id: 'anxiety',        icon: 'shield' },
+      { id: 'meditation',     icon: 'lotus'  }
     ];
     for (var j = 0; j < HARDCODED.length; j++) {
       if (HARDCODED[j].id === catId) return HARDCODED[j];
@@ -167,6 +167,20 @@ window.CategoryView = (function () {
       '<polygon points="6,4 20,12 6,20" fill="currentColor"/></svg>';
   }
 
+  // Category icon SVGs (mirror на home.js)
+  function _svg(inner, sw) {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' + (sw || 1.8) +
+      '" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + inner + '</svg>';
+  }
+  var CAT_ICONS = {
+    moon:   _svg('<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>'),
+    zzz:    _svg('<path d="M5 7h6L5 13h6"/><path d="M13 14h5l-5 5h5"/>'),
+    waves:  _svg('<path d="M2 9c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M2 14c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M2 19c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>'),
+    sun:    _svg('<circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4" y1="12" x2="2" y2="12"/><line x1="22" y1="12" x2="20" y2="12"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/>'),
+    shield: _svg('<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 11 13 15 9"/>'),
+    lotus:  _svg('<circle cx="12" cy="6" r="2"/><path d="M8 14c0-2 2-3 4-3s4 1 4 3"/><path d="M3 19c3-3 6-3 9-3s6 0 9 3"/>')
+  };
+
   // ============================================================
   // HTML builders
   // ============================================================
@@ -175,14 +189,15 @@ window.CategoryView = (function () {
     var name = getCatName(cat.id);
     var subtitle = getCatSubtitle(cat.id);
     var backAria = t('categoryView.backAria', 'Назад към началото');
+    var iconSvg = (cat.icon && CAT_ICONS[cat.icon]) || CAT_ICONS.waves;
     return (
       '<header class="cv-header">' +
         '<button class="cv-back" type="button" data-action="back"' +
           ' aria-label="' + escapeHtml(backAria) + '">' + svgBack() + '</button>' +
         '<div class="cv-header-text">' +
           '<h1 class="cv-title">' +
-            '<span class="cv-emoji" aria-hidden="true">' + (cat.emoji || '') + '</span>' +
-            escapeHtml(name) +
+            '<span class="cv-icon" aria-hidden="true">' + iconSvg + '</span>' +
+            '<span class="cv-title-text">' + escapeHtml(name) + '</span>' +
           '</h1>' +
           (subtitle ? '<div class="cv-subtitle">' + escapeHtml(subtitle) + '</div>' : '') +
         '</div>' +

@@ -64,12 +64,22 @@
   margin: 0;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   line-height: 1.2;
 }
-.cv-emoji {
-  font-size: 24px;
-  line-height: 1;
+.cv-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+}
+[data-theme="dark"] .cv-icon { color: hsl(var(--hue3) 70% 70%); }
+.cv-icon svg { width: 22px; height: 22px; }
+.cv-title-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
 }
 
 .cv-subtitle {

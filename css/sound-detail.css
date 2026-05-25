@@ -135,9 +135,9 @@
   align-self: center;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   min-height: 56px;
-  padding: 14px 28px;
+  padding: 14px 28px 14px 22px;
   border: none;
   border-radius: var(--radius-pill);
   background: linear-gradient(135deg, hsl(var(--hue1) 70% 55%), hsl(var(--hue2) 65% 55%));
@@ -153,7 +153,16 @@
 }
 .sd-play-cta:active { transform: scale(0.97); }
 .sd-play-cta:hover { filter: brightness(1.05); }
-.sd-play-cta svg { width: 18px; height: 18px; }
+.sd-play-cta-icon {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-icon);
+  background: hsl(0 0% 100% / 0.18);
+}
+.sd-play-cta-icon svg { width: 14px; height: 14px; margin-left: 2px; }
+.sd-play-cta-text { letter-spacing: -0.005em; }
 
 /* ═══ RECOMMENDATION CARD ═══ */
 .sd-recommend {

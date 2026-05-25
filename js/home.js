@@ -25,13 +25,24 @@ window.Home = (function () {
   // ============================================================
 
   var USE_CATEGORIES = [
-    { id: 'sleep_deep',     emoji: '🌙', icon: 'moon'    },
-    { id: 'falling_asleep', emoji: '😴', icon: 'sleep'   },
-    { id: 'relaxation',     emoji: '🛋', icon: 'relax'   },
-    { id: 'daily',          emoji: '☕', icon: 'coffee'  },
-    { id: 'anxiety',        emoji: '🆘', icon: 'shield'  },
-    { id: 'meditation',     emoji: '🧘', icon: 'lotus'   }
+    { id: 'sleep_deep',     icon: 'moon'   },
+    { id: 'falling_asleep', icon: 'zzz'    },
+    { id: 'relaxation',     icon: 'waves'  },
+    { id: 'daily',          icon: 'sun'    },
+    { id: 'anxiety',        icon: 'shield' },
+    { id: 'meditation',     icon: 'lotus'  }
   ];
+
+  // Defense-in-depth BG fallback — used ако i18n keys липсват (path mismatch,
+  // late load, etc.). Content team-ът override-ва тези values през i18n.
+  var CAT_FALLBACK_BG = {
+    sleep_deep:     { name: 'Сън дълбок',  subtitle: 'Цяла нощ' },
+    falling_asleep: { name: 'Заспиване',   subtitle: '30–90 мин преди сън' },
+    relaxation:     { name: 'Релаксация',  subtitle: 'Преди сън, четене' },
+    daily:          { name: 'Ежедневие',   subtitle: 'Работа, концентрация' },
+    anxiety:        { name: 'Тревожност',  subtitle: 'SOS, паник атака' },
+    meditation:     { name: 'Медитация',   subtitle: 'Водени сесии' }
+  };
 
   var manifestPromise = null;
 
@@ -119,10 +130,63 @@ window.Home = (function () {
   // SVG icons
   // ============================================================
 
+  // ============================================================
+  // SVG icons — chat.php style (stroke-based, currentColor)
+  // ============================================================
+
+  function svg(inner, strokeWidth) {
+    var sw = strokeWidth || 1.8;
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' + sw +
+      '" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + inner + '</svg>';
+  }
+
   var SVG = {
-    arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"' +
-      ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-      '<polyline points="9 18 15 12 9 6"/></svg>'
+    arrow: svg('<polyline points="9 18 15 12 9 6"/>', 2),
+
+    // 6 use category icons — outline style, consistent stroke
+    moon:   svg('<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>'),
+    zzz:    svg(
+      '<path d="M5 7h6L5 13h6"/>' +
+      '<path d="M13 14h5l-5 5h5"/>'
+    ),
+    waves:  svg(
+      '<path d="M2 9c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>' +
+      '<path d="M2 14c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>' +
+      '<path d="M2 19c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>'
+    ),
+    sun: svg(
+      '<circle cx="12" cy="12" r="4"/>' +
+      '<line x1="12" y1="2" x2="12" y2="4"/>' +
+      '<line x1="12" y1="20" x2="12" y2="22"/>' +
+      '<line x1="4" y1="12" x2="2" y2="12"/>' +
+      '<line x1="22" y1="12" x2="20" y2="12"/>' +
+      '<line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/>' +
+      '<line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/>' +
+      '<line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/>' +
+      '<line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/>'
+    ),
+    shield: svg(
+      '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>' +
+      '<polyline points="9 11 11 13 15 9"/>'
+    ),
+    lotus: svg(
+      '<circle cx="12" cy="6" r="2"/>' +
+      '<path d="M8 14c0-2 2-3 4-3s4 1 4 3"/>' +
+      '<path d="M3 19c3-3 6-3 9-3s6 0 9 3"/>'
+    ),
+
+    // Bottom row icons
+    book: svg(
+      '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>' +
+      '<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'
+    ),
+    equalizer: svg(
+      '<line x1="6" y1="6" x2="6" y2="18"/>' +
+      '<line x1="10" y1="3" x2="10" y2="21"/>' +
+      '<line x1="14" y1="8" x2="14" y2="16"/>' +
+      '<line x1="18" y1="5" x2="18" y2="19"/>',
+      2
+    )
   };
 
   // ============================================================
@@ -130,27 +194,37 @@ window.Home = (function () {
   // ============================================================
 
   function buildCategoryCard(cat, recommended) {
-    var name = t('home.cat.' + cat.id + '.name', cat.id);
-    var subtitle = t('home.cat.' + cat.id + '.subtitle', '');
+    var bgFallback = CAT_FALLBACK_BG[cat.id] || { name: cat.id, subtitle: '' };
+    var name = t('home.cat.' + cat.id + '.name', bgFallback.name);
+    var subtitle = t('home.cat.' + cat.id + '.subtitle', bgFallback.subtitle);
+    // Strip TODO: prefix ако EN stub дойде като резултат (fallback към БГ)
+    if (name && name.indexOf('TODO:') === 0) name = bgFallback.name;
+    if (subtitle && subtitle.indexOf('TODO:') === 0) subtitle = bgFallback.subtitle;
+
     var count = getCountForCategory(cat.id);
     var countText = count > 0
       ? t('home.soundCountFmt', count + ' звука', { n: count })
-      : t('home.soundCountZero', 'Скоро');
+      : null; // count=0 → не показваме count line (subtitle вече описва)
     var isRecommended = recommended.indexOf(cat.id) !== -1;
+    var iconSvg = SVG[cat.icon] || SVG.waves;
+
+    var ariaLabel = name + (countText ? ' — ' + countText : '');
 
     return (
       '<button class="glass home-cat-card' + (isRecommended ? ' is-recommended' : '') + '"' +
         ' type="button" data-cat-id="' + cat.id + '" data-action="open-cat"' +
-        ' aria-label="' + escapeHtml(name) + ' — ' + escapeHtml(countText) + '">' +
+        ' aria-label="' + escapeHtml(ariaLabel) + '">' +
         '<span class="shine"></span>' +
         '<span class="shine shine-bottom"></span>' +
         '<span class="glow"></span>' +
         '<span class="glow glow-bottom"></span>' +
-        '<span class="home-cat-emoji" aria-hidden="true">' + cat.emoji + '</span>' +
+        '<span class="home-cat-icon" aria-hidden="true">' + iconSvg + '</span>' +
         '<span class="home-cat-body">' +
           '<span class="home-cat-name">' + escapeHtml(name) + '</span>' +
           '<span class="home-cat-subtitle">' + escapeHtml(subtitle) + '</span>' +
-          '<span class="home-cat-count">' + escapeHtml(countText) + '</span>' +
+          (countText
+            ? '<span class="home-cat-count">' + escapeHtml(countText) + '</span>'
+            : '') +
         '</span>' +
         (isRecommended
           ? '<span class="home-cat-badge" aria-hidden="true">★</span>'
@@ -167,9 +241,9 @@ window.Home = (function () {
     }).join('');
 
     var totalSounds = getTotalSounds();
-    var libraryAllLabel = t('home.openLibraryAll', '🎵 Всички звуци') +
+    var libraryAllLabel = t('home.openLibraryAll', 'Всички звуци') +
       (totalSounds > 0 ? '  (' + totalSounds + ')' : '');
-    var diaryLabel = t('home.openDiary', '📖 Дневник');
+    var diaryLabel = t('home.openDiary', 'Дневник');
 
     return (
       '<div class="home-screen" data-screen="home">' +
@@ -181,10 +255,12 @@ window.Home = (function () {
 
         '<div class="home-bottom-row">' +
           '<button class="home-bottom-btn" type="button" data-action="open-diary">' +
-            escapeHtml(diaryLabel) +
+            '<span class="home-bottom-icon" aria-hidden="true">' + SVG.book + '</span>' +
+            '<span class="home-bottom-text">' + escapeHtml(diaryLabel) + '</span>' +
           '</button>' +
           '<button class="home-bottom-btn" type="button" data-action="open-library-all">' +
-            escapeHtml(libraryAllLabel) +
+            '<span class="home-bottom-icon" aria-hidden="true">' + SVG.equalizer + '</span>' +
+            '<span class="home-bottom-text">' + escapeHtml(libraryAllLabel) + '</span>' +
           '</button>' +
         '</div>' +
       '</div>'

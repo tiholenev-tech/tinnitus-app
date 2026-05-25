@@ -54,14 +54,34 @@
   box-shadow: var(--shadow-card), 0 0 18px hsl(var(--hue3) 70% 55% / 0.5);
 }
 
-.home-cat-emoji {
+.home-cat-icon {
   flex-shrink: 0;
-  font-size: 32px;
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   display: grid;
   place-items: center;
-  line-height: 1;
+  border-radius: var(--radius-sm);
+  color: var(--accent);
+}
+[data-theme="light"] .home-cat-icon,
+:root:not([data-theme]) .home-cat-icon {
+  background: hsl(var(--hue2) 55% 92%);
+  color: hsl(var(--hue2) 60% 38%);
+}
+[data-theme="dark"] .home-cat-icon {
+  background: hsl(var(--hue1) 40% 14% / 0.6);
+  color: hsl(var(--hue3) 70% 70%);
+}
+.home-cat-icon svg { width: 26px; height: 26px; }
+
+/* Recommended cards → champagne tint за icon */
+.home-cat-card.is-recommended .home-cat-icon {
+  background: linear-gradient(135deg, hsl(var(--hue3) 60% 55% / 0.18), hsl(var(--hue1) 60% 55% / 0.12));
+  color: hsl(var(--hue3) 65% 50%);
+}
+[data-theme="dark"] .home-cat-card.is-recommended .home-cat-icon {
+  background: linear-gradient(135deg, hsl(var(--hue3) 60% 22% / 0.7), hsl(var(--hue1) 60% 22% / 0.5));
+  color: hsl(var(--hue3) 80% 75%);
 }
 
 .home-cat-body {
@@ -129,6 +149,10 @@
 }
 
 .home-bottom-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   min-height: 52px;
   padding: 12px 14px;
   border: 1px solid var(--border-color);
@@ -139,6 +163,15 @@
   color: var(--text);
   font-family: inherit;
   transition: transform var(--dur-fast) var(--ease);
+}
+.home-bottom-icon {
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+}
+.home-bottom-icon svg { width: 18px; height: 18px; }
+.home-bottom-text {
+  white-space: nowrap;
 }
 [data-theme="light"] .home-bottom-btn,
 :root:not([data-theme]) .home-bottom-btn {

@@ -310,41 +310,6 @@
       }
     },
 
-    "home": {
-      "title": "Изберете режим",
-      "openLibraryAll": "🎵 Всички звуци",
-      "openDiary": "📖 Дневник",
-      "soundCountFmt": "{n} звука",
-      "soundCountZero": "Скоро",
-      "cat": {
-        "sleep_deep":     { "name": "Сън дълбок",   "subtitle": "Цяла нощ" },
-        "falling_asleep": { "name": "Заспиване",    "subtitle": "30–90 мин преди сън" },
-        "relaxation":     { "name": "Релаксация",   "subtitle": "Преди сън, четене" },
-        "daily":          { "name": "Ежедневие",    "subtitle": "Работа, концентрация" },
-        "anxiety":        { "name": "Тревожност",   "subtitle": "SOS, паник атака" },
-        "meditation":     { "name": "Медитация",    "subtitle": "Водени сесии" }
-      }
-    },
-
-    "categoryView": {
-      "backAria": "Назад към началото",
-      "soundsCount": "Звуци ({n})",
-      "noSounds": "Скоро ще има звуци в тази категория.",
-      "description": "За какво е",
-      "faqLabel": "Чести въпроси"
-    },
-
-    "soundDetail": {
-      "backAria": "Назад към категорията",
-      "playCta": "▶ Слушай",
-      "description": "Описание",
-      "recommendedNoise": "Препоръчителен фон",
-      "recommendedMix": "Препоръчителен микс: {ratio}",
-      "noRecommendation": "Без препоръка за фон",
-      "why": "Защо точно този звук",
-      "faqLabel": "Чести въпроси"
-    },
-
     "library": {
       "title": "Звукова библиотека",
       "cat_audio": {
@@ -582,6 +547,41 @@
       "exportFilename": "auralis-diary-{date}.json"
     }
   },
+
+  "home": {
+    "title": "Изберете режим",
+    "openLibraryAll": "Всички звуци",
+    "openDiary": "Дневник",
+    "soundCountFmt": "{n} звука",
+    "cat": {
+      "sleep_deep":     { "name": "Сън дълбок",   "subtitle": "Цяла нощ" },
+      "falling_asleep": { "name": "Заспиване",    "subtitle": "30–90 мин преди сън" },
+      "relaxation":     { "name": "Релаксация",   "subtitle": "Преди сън, четене" },
+      "daily":          { "name": "Ежедневие",    "subtitle": "Работа, концентрация" },
+      "anxiety":        { "name": "Тревожност",   "subtitle": "SOS, паник атака" },
+      "meditation":     { "name": "Медитация",    "subtitle": "Водени сесии" }
+    }
+  },
+
+  "categoryView": {
+    "backAria": "Назад към началото",
+    "soundsCount": "Звуци ({n})",
+    "noSounds": "Скоро ще има звуци в тази категория.",
+    "description": "За какво е",
+    "faqLabel": "Чести въпроси"
+  },
+
+  "soundDetail": {
+    "backAria": "Назад към категорията",
+    "playCta": "Слушай",
+    "description": "Описание",
+    "recommendedNoise": "Препоръчителен фон",
+    "recommendedMix": "Препоръчителен микс: {ratio}",
+    "noRecommendation": "Без препоръка за фон",
+    "why": "Защо точно този звук",
+    "faqLabel": "Чести въпроси"
+  },
+
   "quiz": {
     "questions": {
       "q1": {

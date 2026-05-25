@@ -86,10 +86,18 @@
 
       if (this.isQuizDone()) {
         // Quiz done → primary destination = Home (per BIBLE v3.1 §N2).
-        // Honor saved phase ако е recognized navigation phase.
+        // Bug 1 fix: legacy phases ('library', 'mixer') се MIGRATE към 'home'.
+        // Това гарантира че old session storage не праща юзъра на премахнати
+        // primary екрани.
         var savedPhase = get(KEY_PHASE);
-        var navPhases = ['home', 'library', 'mixer', 'category', 'sound', 'player'];
-        if (savedPhase && navPhases.indexOf(savedPhase) !== -1) {
+        var LEGACY_TO_HOME = ['library', 'mixer', 'results'];
+        var RESTORE_OK = ['home', 'category', 'sound', 'player', 'sleep', 'diary', 'calm'];
+
+        if (savedPhase && LEGACY_TO_HOME.indexOf(savedPhase) !== -1) {
+          // Migrate + persist (предотвратява повторен reload в legacy)
+          this.current = 'home';
+          set(KEY_PHASE, 'home');
+        } else if (savedPhase && RESTORE_OK.indexOf(savedPhase) !== -1) {
           this.current = savedPhase;
         } else {
           this.current = 'home';
