@@ -1,0 +1,78 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · ProgressDay (14-day CBT) — ВЪЛНА 3.1 Task Б
+   ═══════════════════════════════════════════════════════════════════ */
+
+.pd-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 16px;
+  border-radius: var(--radius-sm);
+}
+[data-theme="light"] .pd-card, :root:not([data-theme]) .pd-card {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+}
+[data-theme="dark"] .pd-card {
+  background: hsl(220 25% 6% / 0.5);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+}
+
+.pd-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.pd-dots {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pd-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  background: transparent;
+  cursor: default;
+  padding: 0;
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.pd-dot--done {
+  background: linear-gradient(135deg, hsl(38 80% 50%), hsl(38 70% 42%));
+  border-color: hsl(38 80% 55%);
+  cursor: pointer;
+}
+.pd-dot--done:active { transform: scale(0.9); }
+
+.pd-dot--current {
+  border-color: hsl(38 80% 55%);
+  animation: pdPulse 2s ease-in-out infinite;
+}
+@keyframes pdPulse {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(38 80% 55% / 0.4); }
+  50%      { box-shadow: 0 0 0 6px hsl(38 80% 55% / 0); }
+}
+
+.pd-dot--future {
+  border-color: var(--border-color);
+}
+[data-theme="dark"] .pd-dot--future { border-color: hsl(220 20% 18%); }
+
+.pd-counter {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pd-dot--current { animation: none; box-shadow: 0 0 0 3px hsl(38 80% 55% / 0.3); }
+}
