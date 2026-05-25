@@ -198,18 +198,10 @@ window.AudioEngine = (function () {
     layer1.volume = Math.max(0, Math.min(100, vol));
     applyLayerVolume(layer1);
   }
-  // TEMP HARD CAP (Code 2 audit): noise pack е -18 LUFS (+9 dB над main).
-  // Code 2 ще нормализира към -26 LUFS — тогава премахваме cap.
-  // TODO REMOVE когато audio_normalize.py приключи noise normalization.
-  var TEMP_NOISE_CAP = 30;
-
+  // Noise pack normalized to -26 LUFS (audio_normalize.py done) — cap removed.
   function setLayer2Volume(vol) {
-    var cappedVol = Math.min(vol, TEMP_NOISE_CAP);
-    layer2.volume = Math.max(0, Math.min(100, cappedVol));
+    layer2.volume = Math.max(0, Math.min(100, vol));
     applyLayerVolume(layer2);
-    if (vol > TEMP_NOISE_CAP) {
-      console.log('[noise-cap] Requested', vol, 'capped to', TEMP_NOISE_CAP);
-    }
   }
   function getLayer1Volume() { return layer1.volume; }
   function getLayer2Volume() { return layer2.volume; }
@@ -253,7 +245,7 @@ window.AudioEngine = (function () {
     if (!sound || !sound.filename) {
       return Promise.reject(new Error('sound not in manifest'));
     }
-    var url = 'library_staging_loop_ready/' + sound.filename;
+    var url = 'library_staging_normalized/' + sound.filename;
     if (bufferCache[url]) {
       // Already decoded — bump LRU order.
       var idx = preloadOrder.indexOf(soundId);
@@ -267,7 +259,7 @@ window.AudioEngine = (function () {
         var oldest = preloadOrder.shift();
         var oldSnd = findSoundInManifest(oldest);
         if (oldSnd && oldSnd.filename) {
-          var oldUrl = 'library_staging_loop_ready/' + oldSnd.filename;
+          var oldUrl = 'library_staging_normalized/' + oldSnd.filename;
           delete bufferCache[oldUrl];
         }
       }
@@ -372,14 +364,25 @@ window.AudioEngine = (function () {
   // LAYER 1 — main sound (crossfade при смяна)
   // ============================================================
 
+  // FLIGHT-TOKEN guard в audio-engine (BUG1 fix):
+  // Preload LRU cache + paralelni playLayer1 promises → буферите се
+  // resolve-ваха в реда на decode, не в реда на user заявките → грешен
+  // звук играеше + неочаквани автоматични switch-ове.
+  // ++currentFlightToken на всяко playLayer1 → старите buffer promises
+  // се проверяват преди да започнат playback → abort ако stale.
+  var currentFlightToken = 0;
+  // Exposed за SEQ-REVEAL animation cancel.
+  function getCurrentFlightToken() { return currentFlightToken; }
+
   function playLayer1(presetId, opts) {
-    console.log('[audio-engine] playLayer1 called with:', presetId, opts || '');
+    var myToken = ++currentFlightToken;
+    console.log('[audio-engine] playLayer1 token:', myToken, 'presetId:', presetId, opts || '');
     var spec = resolveSpec(presetId);
     if (!spec) {
       console.error('[audio-engine] L1 unknown preset (resolveSpec → null):', presetId);
       return Promise.reject(new Error('Unknown preset: ' + presetId));
     }
-    return playLayer1Spec(presetId, spec, opts);
+    return playLayer1Spec(presetId, spec, opts, myToken);
   }
 
   // ============================================================
@@ -449,7 +452,8 @@ window.AudioEngine = (function () {
     if (!id || !url) return Promise.reject(new Error('playUrl requires id+url'));
     var spec = { type: 'file', url: url };
     PRESET_MAP[id] = spec;
-    return playLayer1Spec(id, spec, opts);
+    var myToken = ++currentFlightToken;
+    return playLayer1Spec(id, spec, opts, myToken);
   }
 
   function resolveSpec(presetId) {
@@ -459,7 +463,7 @@ window.AudioEngine = (function () {
       var sounds = window.AURALIS_MANIFEST.sounds;
       for (var i = 0; i < sounds.length; i++) {
         if (sounds[i].id === presetId) {
-          var s = { type: 'file', url: 'library_staging_loop_ready/' + sounds[i].filename };
+          var s = { type: 'file', url: 'library_staging_normalized/' + sounds[i].filename };
           PRESET_MAP[presetId] = s;
           return s;
         }
@@ -468,7 +472,7 @@ window.AudioEngine = (function () {
     return null;
   }
 
-  function playLayer1Spec(presetId, spec, opts) {
+  function playLayer1Spec(presetId, spec, opts, myToken) {
     init();
     unlock();
     opts = opts || {};
@@ -479,14 +483,29 @@ window.AudioEngine = (function () {
     }
 
     return resumeContext().then(function () {
+      // FLIGHT-TOKEN: check before starting heavy work (буфер може да дойде от cache).
+      if (typeof myToken === 'number' && myToken !== currentFlightToken) {
+        console.log('[playLayer1] STALE token', myToken, 'current:', currentFlightToken, '— ABORT pre-decode');
+        return;
+      }
       if (spec.type === 'file') {
         return fetchAndDecode(spec.url, presetId).then(function (buffer) {
+          // FLIGHT-TOKEN: re-check след decode (LRU може да върне cached buffer мигновено
+          // докато по-нов user tap е incremented token-а).
+          if (typeof myToken === 'number' && myToken !== currentFlightToken) {
+            console.log('[playLayer1] STALE token', myToken, 'current:', currentFlightToken, '— ABORT post-decode');
+            return;
+          }
           startLayer1Source(presetId, buffer, opts);
         });
       } else if (spec.type === 'generated') {
         var buffer = (spec.gen === 'brown')
           ? getOrGenerateBrownBuffer()
           : getOrGeneratePinkBuffer();
+        if (typeof myToken === 'number' && myToken !== currentFlightToken) {
+          console.log('[playLayer1] STALE token', myToken, 'current:', currentFlightToken, '— ABORT generated');
+          return;
+        }
         startLayer1Source(presetId, buffer, opts);
         return Promise.resolve();
       }
@@ -620,7 +639,7 @@ window.AudioEngine = (function () {
         for (var i = 0; i < window.AURALIS_MANIFEST.noises.length; i++) {
           var n = window.AURALIS_MANIFEST.noises[i];
           if (n.id === noiseId && n.filename) {
-            spec = { type: 'file', url: 'library_staging_loop_ready/' + n.filename };
+            spec = { type: 'file', url: 'library_staging_normalized/' + n.filename };
             break;
           }
         }
@@ -898,6 +917,7 @@ window.AudioEngine = (function () {
     // Preload + sequential reveal
     preloadSound: preloadSound,
     playSequentialReveal: playSequentialReveal,
+    getCurrentFlightToken: getCurrentFlightToken,
 
     // Backward compat
     play: playLayer1,
