@@ -546,27 +546,34 @@ window.ProfileResults = (function () {
     var level = getDILevel(di);
     var title = t('profile_results.title', 'Вашата оценка');
 
+    // BUG2-F: Profile Results показва САМО Profile Badge + Какво означава
+    // + What to expect (timeline). Останалите секции са hidden — кодът остава
+    // за Phase 2 (TopSoundsCarousel, strategy, recommended, additional,
+    // medical флагове).
     return (
       '<div class="pr-screen" data-screen="profile_results">' +
         '<h1 class="pr-title">' + escapeHtml(title) + '</h1>' +
         buildHero(code, di, level) +
 
-        // §1
+        // §1 Какво означава
         buildInfoSection('meaning', 'meaning', 'Какво означава за вас') +
-        // §2
-        buildInfoSection('why', 'why', 'Защо имате този тип') +
-        // §3
-        buildStrategyBlock(code) +
-        // §4
-        buildRecommendedSection(code) +
-        // §5
-        buildTopSoundsSection(code) +
-        // §6
+
+        // §6 What to expect (timeline)
         buildTimelineSection(code) +
-        // §7
-        buildInfoSection('additional', 'additional', 'Допълнителни препоръки') +
-        // §8 (danger tone)
-        buildInfoSection('medical', 'medical', 'Кога към лекар', { danger: true }) +
+
+        // §2 why — hidden Phase 2
+        // buildInfoSection('why', 'why', 'Защо имате този тип') +
+        // §3 strategy — hidden Phase 2
+        // buildStrategyBlock(code) +
+        // §4 recommended — hidden Phase 2
+        // buildRecommendedSection(code) +
+        // §5 TopSoundsCarousel — hidden Phase 2 (Strategy 0 scoring готов, но не я
+        //   показваме докато hand-curated content е готов от Opus)
+        // buildTopSoundsSection(code) +
+        // §7 additional — hidden Phase 2
+        // buildInfoSection('additional', 'additional', 'Допълнителни препоръки') +
+        // §8 medical — hidden Phase 2
+        // buildInfoSection('medical', 'medical', 'Кога към лекар', { danger: true }) +
 
         // Disclaimer + CTA
         '<div class="pr-section pr-section--disclaimer">' +
@@ -626,7 +633,8 @@ window.ProfileResults = (function () {
     app.innerHTML = buildScreenHtml();
     bindEvents(app);
     injectInfoPanels(code);
-    injectTopSoundsCarousel(code);
+    // BUG2-F: TopSoundsCarousel инжекцията е skipped — секцията не се render-ва.
+    // injectTopSoundsCarousel(code);
   }
 
   function open() {
