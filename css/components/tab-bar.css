@@ -1,0 +1,76 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · TabBar component (Task LL)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tb {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: var(--radius-pill);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.tb::-webkit-scrollbar { display: none; }
+
+[data-theme="light"] .tb, :root:not([data-theme]) .tb {
+  background: var(--surface-2);
+  box-shadow: var(--shadow-card-sm);
+}
+[data-theme="dark"] .tb {
+  background: hsl(220 25% 6% / 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+}
+
+.tb-tab {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--dur) var(--ease);
+}
+.tb-tab:hover { color: var(--text); }
+
+.tb-tab.is-active {
+  color: white;
+  background: linear-gradient(135deg, hsl(38 80% 50%), hsl(38 70% 42%));
+  box-shadow: 0 4px 12px hsl(38 70% 45% / 0.35);
+}
+
+.tb-label { }
+
+.tb-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+}
+.tb-tab:not(.is-active) .tb-count {
+  background: hsl(220 15% 80% / 0.2);
+  color: var(--text-faint);
+}
+[data-theme="dark"] .tb-tab:not(.is-active) .tb-count {
+  background: hsl(220 20% 18%);
+}
+.tb-tab.is-active .tb-count {
+  background: hsl(0 0% 100% / 0.25);
+  color: white;
+}

@@ -1,0 +1,94 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · ProfileBadge component (Task MM)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.pb {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease);
+}
+.pb:active { transform: scale(var(--press)); }
+.pb:focus-visible { outline: 2px solid hsl(38 80% 55% / 0.7); outline-offset: 2px; }
+
+[data-theme="light"] .pb, :root:not([data-theme]) .pb {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+}
+[data-theme="dark"] .pb {
+  background: hsl(220 25% 6% / 0.55);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+}
+
+.pb-code {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: hsl(38 80% 55%);
+}
+[data-theme="dark"] .pb-code { color: hsl(38 80% 70%); }
+
+.pb-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pb-di {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 2px;
+}
+.pb-di-track {
+  flex: 1;
+  height: 5px;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+[data-theme="light"] .pb-di-track, :root:not([data-theme]) .pb-di-track {
+  background: var(--surface-2);
+}
+[data-theme="dark"] .pb-di-track {
+  background: hsl(220 25% 14%);
+}
+.pb-di-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width 0.4s var(--ease);
+}
+.pb-di-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* ═══ SIZES ═══ */
+.pb--small {
+  padding: 6px 10px;
+  gap: 2px;
+}
+.pb--small .pb-code { font-size: 11px; }
+.pb--small .pb-name { font-size: 11px; }
+.pb--small .pb-di-track { height: 3px; }
+.pb--small .pb-di-label { font-size: 9px; }
+
+.pb--medium .pb-code { font-size: 14px; }
+
+.pb--large {
+  padding: 16px 20px;
+  gap: 6px;
+}
+.pb--large .pb-code { font-size: 22px; }
+.pb--large .pb-name { font-size: 16px; }
+.pb--large .pb-di-track { height: 8px; }
+.pb--large .pb-di-label { font-size: 12px; }
