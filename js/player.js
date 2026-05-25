@@ -340,27 +340,44 @@ window.Player = (function () {
 
   function togglePlayPause() {
     if (!window.AudioEngine) return;
-    if (window.AudioEngine.isPlaying()) {
+    var wasPlaying = window.AudioEngine.isPlaying();
+    if (wasPlaying) {
       window.AudioEngine.pause();
       stopProgressTick();
+      // A2.3: optimistic update — пейтменим иконата НА Pause→Play незабавно.
+      setPlayButtonIcon(false);
     } else if (activeSoundId) {
-      // Re-trigger через Library
-      if (window.Library && window.Library.openSound) {
+      // A2.3: optimistic update — пейтменим иконата на Play→Pause незабавно.
+      setPlayButtonIcon(true);
+      startProgressTick();
+      // Direct AudioEngine.play (вместо Library.openSound — който не е
+      // нужен сега защото state е готов).
+      if (window.AudioEngine.play) {
+        window.AudioEngine.play(activeSoundId).catch(function (err) {
+          console.warn('[player] play failed:', err && err.message);
+          // Failed → revert to play icon
+          setPlayButtonIcon(false);
+        });
+      } else if (window.Library && window.Library.openSound) {
         window.Library.openSound(activeSoundId);
       }
-      startProgressTick();
     }
-    updatePlayButtonState();
+    // Sanity check — verify state ~250ms по-късно (audio promise може да fail).
+    setTimeout(updatePlayButtonState, 250);
   }
 
-  function updatePlayButtonState() {
+  function setPlayButtonIcon(isPlaying) {
     var btn = document.querySelector('.pl-ctrl--play');
     if (!btn) return;
-    var isPlaying = window.AudioEngine && window.AudioEngine.isPlaying();
     btn.innerHTML = isPlaying ? SVG.pause : SVG.play;
     btn.setAttribute('aria-label',
       isPlaying ? t('components.player.pauseAria', 'Пауза')
                 : t('components.player.playAria', 'Пусни'));
+  }
+
+  function updatePlayButtonState() {
+    var isPlaying = window.AudioEngine && window.AudioEngine.isPlaying();
+    setPlayButtonIcon(!!isPlaying);
   }
 
   function openNoisePicker() {
