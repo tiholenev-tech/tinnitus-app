@@ -542,6 +542,33 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════
+   HH3: VIDEO CTA
+   ═══════════════════════════════════════════════════════════════════ */
+
+.ob-video-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px auto 0;
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.ob-video-cta:hover,
+.ob-video-cta:focus-visible {
+  color: hsl(38 80% 55%);
+  border-color: hsl(38 80% 55% / 0.4);
+  outline: none;
+}
+.ob-video-icon { font-size: 14px; }
+
+/* ═══════════════════════════════════════════════════════════════════
    AA1: WELCOME SCREEN ANIMATIONS
    ═══════════════════════════════════════════════════════════════════ */
 

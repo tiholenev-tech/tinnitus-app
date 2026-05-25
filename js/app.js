@@ -276,6 +276,7 @@
     if (window.Analytics && window.Analytics.init) window.Analytics.init();
     if (window.A11y && window.A11y.init) window.A11y.init();
     if (window.AudioErrorBanner && window.AudioErrorBanner.init) window.AudioErrorBanner.init();
+    if (window.NotificationsMock && window.NotificationsMock.init) window.NotificationsMock.init();
 
     route();
 

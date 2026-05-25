@@ -1,0 +1,79 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · Favorites sheet (Task GG)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.fav-sort {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.fav-sort-btn {
+  flex: 1;
+  min-height: 36px;
+  padding: 6px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--dur) var(--ease);
+}
+.fav-sort-btn.is-active {
+  background: linear-gradient(135deg, hsl(var(--hue1) 70% 55%), hsl(var(--hue2) 65% 55%));
+  color: white;
+  border-color: transparent;
+}
+
+.fav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.fav-item {
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  transition: background var(--dur) var(--ease);
+}
+.fav-item:hover {
+  background: hsl(var(--hue1) 20% 35% / 0.06);
+}
+[data-theme="dark"] .fav-item:hover {
+  background: hsl(var(--hue1) 30% 18% / 0.3);
+}
+.fav-item-main {
+  flex: 1;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+.fav-item-name { flex: 1; }
+.fav-item-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+}
+.fav-item-remove {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: var(--radius-icon);
+  background: transparent;
+  color: var(--text-faint);
+  font-size: 18px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.fav-item-remove:hover { color: var(--danger); }

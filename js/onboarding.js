@@ -190,6 +190,11 @@ window.Onboarding = (function () {
             'Звукова релаксация за облекчение при хроничен тинитус.') +
         '</p>' +
 
+        '<button class="ob-video-cta" type="button" data-action="video">' +
+          '<span class="ob-video-icon" aria-hidden="true">▶</span> ' +
+          t('ui.onboarding.welcome.video', '30-секундно видео какво е AURALIS') +
+        '</button>' +
+
         '<div class="ob-actions ob-welcome-cta">' +
           '<button class="btn-cta" type="button" data-action="next">' +
             t('ui.onboarding.welcome.cta', 'Започнете безплатната оценка') +
@@ -439,6 +444,29 @@ window.Onboarding = (function () {
       case 'finish':
         finishOnboarding();
         break;
+      case 'video':
+        showVideoPlaceholder();
+        break;
+    }
+  }
+
+  // HH3: Video placeholder modal
+  function showVideoPlaceholder() {
+    if (window.BottomSheet) {
+      window.BottomSheet.open({
+        title: t('ui.onboarding.welcome.videoTitle', 'Видео'),
+        content: '<div style="text-align:center;padding:32px 16px;color:var(--text-muted);">' +
+          '<div style="font-size:48px;margin-bottom:12px;">🎬</div>' +
+          '<p style="font-size:15px;font-weight:700;">' +
+            t('ui.onboarding.welcome.videoSoon', 'Видео скоро') +
+          '</p><p style="font-size:13px;margin-top:8px;">' +
+            t('ui.onboarding.welcome.videoDesc', '30-секундно представяне (Phase 2)') +
+          '</p></div>',
+        height: 'auto',
+        actions: [{ label: t('components.bottomSheet.close', 'Затвори'), variant: 'secondary',
+          onClick: function () { window.BottomSheet.closeAll(); }
+        }]
+      });
     }
   }
 

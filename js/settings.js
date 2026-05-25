@@ -441,6 +441,98 @@ window.Settings = (function () {
   }
 
   // ============================================================
+  // JJ: Advanced Audio Settings
+  // ============================================================
+
+  function getAudioSetting(key, def) {
+    try {
+      var val = localStorage.getItem('auralis_audio_' + key);
+      if (val !== null) return parseFloat(val);
+    } catch (e) { /* ignore */ }
+    return def;
+  }
+
+  function setAudioSetting(key, val) {
+    try { localStorage.setItem('auralis_audio_' + key, String(val)); } catch (e) { /* ignore */ }
+  }
+
+  function buildAdvancedAudioSection() {
+    var crossfade = getAudioSetting('crossfade', 2);
+    var l2Default = getAudioSetting('l2_default_vol', 30);
+    var sleepFade = getAudioSetting('sleep_fade', 30);
+
+    return (
+      '<section class="set-section">' +
+        '<div class="set-section-head">' +
+          '<span class="set-section-icon" aria-hidden="true">🎛</span>' +
+          '<h3 class="set-section-title">' +
+            escapeHtml(t('settings.audio.title', 'Advanced Audio')) +
+          '</h3>' +
+        '</div>' +
+
+        // JJ1: Crossfade
+        '<div class="set-slider-group">' +
+          '<div class="set-slider-head">' +
+            '<span class="set-slider-label">' + escapeHtml(t('settings.audio.crossfade', 'Преходи между звуци')) + '</span>' +
+            '<span class="set-slider-val" id="setXfadeVal">' + crossfade.toFixed(1) + 's</span>' +
+          '</div>' +
+          '<input type="range" class="set-volume-slider" id="setXfadeSlider"' +
+            ' min="0.5" max="5" step="0.5" value="' + crossfade + '">' +
+        '</div>' +
+
+        // JJ2: Layer 2 default volume
+        '<div class="set-slider-group">' +
+          '<div class="set-slider-head">' +
+            '<span class="set-slider-label">' + escapeHtml(t('settings.audio.layer2Default', 'Сила на фонов шум (по подразбиране)')) + '</span>' +
+            '<span class="set-slider-val" id="setL2DefVal">' + l2Default + '%</span>' +
+          '</div>' +
+          '<input type="range" class="set-volume-slider" id="setL2DefSlider"' +
+            ' min="0" max="100" step="5" value="' + l2Default + '">' +
+        '</div>' +
+
+        // JJ3: Sleep fade
+        '<div class="set-slider-group">' +
+          '<div class="set-slider-head">' +
+            '<span class="set-slider-label">' + escapeHtml(t('settings.audio.sleepFade', 'Затихване при сън')) + '</span>' +
+            '<span class="set-slider-val" id="setSleepFadeVal">' + sleepFade + 's</span>' +
+          '</div>' +
+          '<input type="range" class="set-volume-slider" id="setSleepFadeSlider"' +
+            ' min="10" max="60" step="5" value="' + sleepFade + '">' +
+        '</div>' +
+
+        // JJ4: Audio output (placeholder)
+        '<div class="set-placeholder-row">' +
+          '<span>' + escapeHtml(t('settings.audio.output', 'Аудио изход')) + '</span>' +
+          '<span class="set-placeholder-badge">' + escapeHtml(t('settings.phase2', 'Phase 2')) + '</span>' +
+        '</div>' +
+
+        // JJ5: Equalizer (placeholder)
+        '<div class="set-placeholder-row">' +
+          '<span>' + escapeHtml(t('settings.audio.eq', 'Еквалайзер')) + '</span>' +
+          '<span class="set-placeholder-badge">' + escapeHtml(t('settings.phase2', 'Phase 2')) + '</span>' +
+        '</div>' +
+
+      '</section>'
+    );
+  }
+
+  // ============================================================
+  // GG: Favorites button in Settings
+  // ============================================================
+
+  function buildFavoritesButton() {
+    return (
+      '<section class="set-section">' +
+        '<div class="set-data-actions">' +
+          '<button class="set-action" type="button" data-action="open-favorites">' +
+            escapeHtml(t('favorites.title', 'Моите любими')) +
+          '</button>' +
+        '</div>' +
+      '</section>'
+    );
+  }
+
+  // ============================================================
   // BB: Analytics stats button
   // ============================================================
 
@@ -479,8 +571,10 @@ window.Settings = (function () {
           buildThemeSection() +
           buildVolumeSection() +
           buildVolumeProfilesSection() +
+          buildAdvancedAudioSection() +
           buildRemindersSection() +
           buildAnalyticsButton() +
+          buildFavoritesButton() +
           buildDataSection() +
           buildAboutSection() +
         '</div>' +
@@ -887,6 +981,7 @@ window.Settings = (function () {
       else if (action === 'export-favorites') exportSection('favorites');
       else if (action === 'vol-profile') applyVolumeProfile(actionBtn);
       else if (action === 'open-stats') { if (window.Analytics) window.Analytics.showStats(); }
+      else if (action === 'open-favorites') { if (window.Favorites) window.Favorites.showSheet(); }
       else if (action === 'open-privacy') showPrivacyView();
       else if (action === 'open-terms') showTermsView();
       return;
@@ -976,6 +1071,35 @@ window.Settings = (function () {
         var rem = loadReminders();
         rem.weekly = weeklyToggle.checked;
         saveReminders(rem);
+      });
+    }
+
+    // JJ: Advanced Audio sliders
+    var xfadeSlider = overlay.querySelector('#setXfadeSlider');
+    if (xfadeSlider) {
+      xfadeSlider.addEventListener('input', function () {
+        var v = parseFloat(xfadeSlider.value);
+        setAudioSetting('crossfade', v);
+        var lbl = overlay.querySelector('#setXfadeVal');
+        if (lbl) lbl.textContent = v.toFixed(1) + 's';
+      });
+    }
+    var l2DefSlider = overlay.querySelector('#setL2DefSlider');
+    if (l2DefSlider) {
+      l2DefSlider.addEventListener('input', function () {
+        var v = parseInt(l2DefSlider.value, 10);
+        setAudioSetting('l2_default_vol', v);
+        var lbl = overlay.querySelector('#setL2DefVal');
+        if (lbl) lbl.textContent = v + '%';
+      });
+    }
+    var sleepFadeSlider = overlay.querySelector('#setSleepFadeSlider');
+    if (sleepFadeSlider) {
+      sleepFadeSlider.addEventListener('input', function () {
+        var v = parseInt(sleepFadeSlider.value, 10);
+        setAudioSetting('sleep_fade', v);
+        var lbl = overlay.querySelector('#setSleepFadeVal');
+        if (lbl) lbl.textContent = v + 's';
       });
     }
   }
