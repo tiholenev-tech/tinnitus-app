@@ -324,10 +324,14 @@ def generate_bg_title(sound_id: str, category_audio: str) -> str:
 
 
 def scan_library(source_dir: Path):
-    """Return list of sound dicts."""
+    """Return list of sound dicts.
+
+    Само файлове които съществуват physically на диска влизат в manifest —
+    Player findSound иначе би показал "sound not found" runtime warning."""
     if not source_dir.exists():
         return []
     sounds = []
+    skipped_missing = 0
     for entry in sorted(source_dir.iterdir()):
         if not entry.is_dir():
             continue
@@ -338,6 +342,14 @@ def scan_library(source_dir: Path):
             if not file_path.is_file():
                 continue
             if file_path.suffix.lower() not in AUDIO_EXTS:
+                continue
+            # Final existence + size check (защита от truncated/empty files)
+            try:
+                if file_path.stat().st_size < 1024:  # под 1 KB → corrupt/empty
+                    skipped_missing += 1
+                    continue
+            except OSError:
+                skipped_missing += 1
                 continue
             sound_id = filename_to_id(file_path.name)
             if not sound_id:
@@ -366,6 +378,8 @@ def scan_library(source_dir: Path):
             if cat_id == 'meditation':
                 entry_obj['author_key'] = f'library.sounds.{sound_id}.author'
             sounds.append(entry_obj)
+    if skipped_missing:
+        print(f'[scan] skipped {skipped_missing} corrupt/empty audio файла')
     return sounds
 
 
@@ -685,6 +699,7 @@ def main() -> int:
 
     manifest = build_manifest(sounds, source_label)
     write_manifest(manifest, args.dry_run)
+    print(f'[manifest] {len(sounds)} sounds available')
 
     warnings = 0
     if args.validate:

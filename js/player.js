@@ -109,9 +109,20 @@ window.Player = (function () {
   }
 
   function findSound(soundId) {
+    if (!soundId) return null;
+    // 1) Library's loaded manifest (preferred — има всичките enrichment)
     if (window.Library && window.Library.getSoundById) {
-      return window.Library.getSoundById(soundId);
+      var s = window.Library.getSoundById(soundId);
+      if (s) return s;
     }
+    // 2) Global manifest (Home/CategoryView/SoundDetail го popull-ват)
+    if (window.AURALIS_MANIFEST && Array.isArray(window.AURALIS_MANIFEST.sounds)) {
+      var sounds = window.AURALIS_MANIFEST.sounds;
+      for (var i = 0; i < sounds.length; i++) {
+        if (sounds[i].id === soundId) return sounds[i];
+      }
+    }
+    // 3) Currently active в AudioEngine
     var ps = window.Library && window.Library.getPlayingSound ?
       window.Library.getPlayingSound() : null;
     return ps && ps.id === soundId ? ps : null;
