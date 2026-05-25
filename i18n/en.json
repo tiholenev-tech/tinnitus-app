@@ -665,7 +665,41 @@
     }
   },
 
+  "categoryInfo": {
+    "sectionTitles": {
+      "definition":      "TODO: What this mode is for",
+      "whenUsed":        "TODO: When to use",
+      "whenNotUsed":     "TODO: When NOT to use",
+      "recommendedNoise":"TODO: Recommended background noise",
+      "mixRatio":        "TODO: Recommended ratio",
+      "expectedEffect":  "TODO: Expected effect",
+      "safety":          "TODO: Safety",
+      "faq":             "TODO: FAQ",
+      "scientificBasis": "TODO: Scientific basis"
+    },
+    "whenUsedLabels": {
+      "timeOfDay": "TODO: Time of day",
+      "context":   "TODO: Context",
+      "duration":  "TODO: Duration"
+    },
+    "mixRatioLabels": {
+      "layer1": "TODO: Layer 1 (main sound)",
+      "layer2": "TODO: Layer 2 (background noise)"
+    },
+    "previewCta": "TODO: Try now",
+    "closeAria":  "TODO: Close",
+    "placeholder": "TODO: This content is being prepared.",
+
+    "sleep_deep":     { "title": "TODO: Deep sleep", "subtitle": "TODO: All night",       "definition": "TODO", "whenUsed": {"timeOfDay":"TODO","context":"TODO","duration":"TODO"}, "whenNotUsed":["TODO"], "recommendedNoise": {"type":"pink_lp2000","description":"TODO"}, "mixRatio":{"layer1":30,"layer2":70,"reasoning":"TODO"}, "expectedEffect":"TODO", "safety":["TODO"], "faq":[{"q":"TODO","a":"TODO"}], "scientificBasis":["TODO"] },
+    "falling_asleep": { "title": "TODO: Falling asleep", "subtitle": "TODO: 30–90 min before bed", "definition": "TODO", "whenUsed": {"timeOfDay":"TODO","context":"TODO","duration":"TODO"}, "whenNotUsed":["TODO"], "recommendedNoise": {"type":"brown_lp1000","description":"TODO"}, "mixRatio":{"layer1":50,"layer2":50,"reasoning":"TODO"}, "expectedEffect":"TODO", "safety":["TODO"], "faq":[{"q":"TODO","a":"TODO"}], "scientificBasis":["TODO"] },
+    "relaxation":     { "title": "TODO: Relaxation", "subtitle": "TODO: Before sleep, reading", "definition": "TODO", "whenUsed": {"timeOfDay":"TODO","context":"TODO","duration":"TODO"}, "whenNotUsed":["TODO"], "recommendedNoise": {"type":"pink_pure","description":"TODO"}, "mixRatio":{"layer1":60,"layer2":40,"reasoning":"TODO"}, "expectedEffect":"TODO", "safety":["TODO"], "faq":[{"q":"TODO","a":"TODO"}], "scientificBasis":["TODO"] },
+    "daily":          { "title": "TODO: Daily", "subtitle": "TODO: Work, focus", "definition": "TODO", "whenUsed": {"timeOfDay":"TODO","context":"TODO","duration":"TODO"}, "whenNotUsed":["TODO"], "recommendedNoise": {"type":"pink_pure","description":"TODO"}, "mixRatio":{"layer1":40,"layer2":60,"reasoning":"TODO"}, "expectedEffect":"TODO", "safety":["TODO"], "faq":[{"q":"TODO","a":"TODO"}], "scientificBasis":["TODO"] },
+    "anxiety":        { "title": "TODO: Anxiety", "subtitle": "TODO: SOS, panic", "definition": "TODO", "whenUsed": {"timeOfDay":"TODO","context":"TODO","duration":"TODO"}, "whenNotUsed":["TODO"], "recommendedNoise": {"type":"pink_lp4000","description":"TODO"}, "mixRatio":{"layer1":50,"layer2":50,"reasoning":"TODO"}, "expectedEffect":"TODO", "safety":["TODO"], "faq":[{"q":"TODO","a":"TODO"}], "scientificBasis":["TODO"] },
+    "meditation":     { "title": "TODO: Meditation", "subtitle": "TODO: Guided sessions", "definition": "TODO", "whenUsed": {"timeOfDay":"TODO","context":"TODO","duration":"TODO"}, "whenNotUsed":["TODO"], "recommendedNoise": {"type":"brown_pure","description":"TODO"}, "mixRatio":{"layer1":70,"layer2":30,"reasoning":"TODO"}, "expectedEffect":"TODO", "safety":["TODO"], "faq":[{"q":"TODO","a":"TODO"}], "scientificBasis":["TODO"] }
+  },
+
   "home": {
+    "infoAria": "TODO: Category info",
     "title": "TODO: Choose a mode",
     "openLibraryAll": "TODO: All sounds",
     "openDiary": "TODO: Diary",

@@ -1,0 +1,459 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · CategoryInfoSheet (Task P4.2)
+   ───────────────────────────────────────────────────────────────────
+   Учебен bottom-sheet съдържание: 9 секции + Preview CTA.
+   Mount-ва се вътре в BottomSheet (.bs-body) или във fallback overlay.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.cis-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 4px 2px 12px;
+  color: var(--text);
+  font-family: inherit;
+}
+
+/* ═══ SECTION ═══ */
+.cis-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cis-section-title {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.005em;
+  color: var(--text);
+  margin: 0;
+  padding-bottom: 2px;
+}
+
+.cis-text {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text);
+  margin: 0;
+}
+.cis-text--reasoning {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 6px;
+}
+.cis-muted {
+  color: var(--text-muted);
+}
+
+/* ═══ CAUTION SECTION (Кога НЕ се ползва) ═══ */
+.cis-section--caution {
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  border-left: 3px solid hsl(20 80% 55% / 0.6);
+}
+[data-theme="light"] .cis-section--caution,
+:root:not([data-theme]) .cis-section--caution {
+  background: hsl(20 80% 96%);
+}
+[data-theme="dark"] .cis-section--caution {
+  background: hsl(20 30% 12% / 0.55);
+}
+
+/* ═══ SCIENCE SECTION (Научна основа) ═══ */
+.cis-section--science {
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  border-left: 3px solid hsl(var(--hue1) 60% 55% / 0.55);
+}
+[data-theme="light"] .cis-section--science,
+:root:not([data-theme]) .cis-section--science {
+  background: hsl(var(--hue1) 50% 96%);
+}
+[data-theme="dark"] .cis-section--science {
+  background: hsl(var(--hue1) 30% 12% / 0.55);
+}
+
+/* ═══ PAIR LIST (timeOfDay / context / duration) ═══ */
+.cis-pair-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cis-pair-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 10px;
+  align-items: baseline;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--border-color);
+}
+.cis-pair-row:last-child { border-bottom: none; }
+.cis-pair-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.cis-pair-value {
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+/* ═══ BULLETS ═══ */
+.cis-bullets {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cis-bullet {
+  position: relative;
+  padding-left: 22px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+}
+.cis-bullet::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+.cis-bullet--safety::before {
+  background: hsl(140 55% 50%);
+}
+
+/* ═══ RECOMMENDED NOISE CARD ═══ */
+.cis-noise-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+[data-theme="light"] .cis-noise-card,
+:root:not([data-theme]) .cis-noise-card {
+  background: hsl(var(--hue3) 50% 96%);
+  box-shadow: var(--shadow-card-sm);
+}
+[data-theme="dark"] .cis-noise-card {
+  background: hsl(var(--hue3) 30% 12% / 0.5);
+  backdrop-filter: blur(6px);
+}
+.cis-noise-type {
+  font-size: 15px;
+  font-weight: 800;
+  color: hsl(var(--hue3) 65% 40%);
+}
+[data-theme="dark"] .cis-noise-type {
+  color: hsl(var(--hue3) 70% 72%);
+}
+.cis-noise-id {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-faint);
+  text-transform: lowercase;
+}
+
+/* ═══ MIX RATIO BARS ═══ */
+.cis-ratio {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+[data-theme="light"] .cis-ratio,
+:root:not([data-theme]) .cis-ratio {
+  background: var(--surface);
+}
+[data-theme="dark"] .cis-ratio {
+  background: hsl(220 25% 8% / 0.5);
+}
+.cis-ratio-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 4px;
+}
+.cis-ratio-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+.cis-ratio-value {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--accent);
+}
+.cis-ratio-bar {
+  height: 6px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--border-color);
+  margin-bottom: 4px;
+}
+.cis-ratio-fill-l1 {
+  height: 100%;
+  background: linear-gradient(90deg, hsl(var(--hue1) 60% 55%), hsl(var(--hue2) 60% 55%));
+  border-radius: 999px;
+  transition: width 0.4s var(--ease);
+}
+.cis-ratio-fill-l2 {
+  height: 100%;
+  background: linear-gradient(90deg, hsl(var(--hue3) 60% 55%), hsl(var(--hue3) 50% 65%));
+  border-radius: 999px;
+  transition: width 0.4s var(--ease);
+}
+
+/* ═══ FAQ (details/summary accordion) ═══ */
+.cis-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cis-faq-item {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+[data-theme="light"] .cis-faq-item,
+:root:not([data-theme]) .cis-faq-item {
+  background: var(--surface);
+}
+[data-theme="dark"] .cis-faq-item {
+  background: hsl(220 25% 8% / 0.5);
+}
+.cis-faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.cis-faq-q::-webkit-details-marker { display: none; }
+.cis-faq-q-text { flex: 1; }
+.cis-faq-chev {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  color: var(--text-muted);
+  transition: transform 0.25s var(--ease);
+}
+.cis-faq-chev svg { width: 18px; height: 18px; }
+.cis-faq-item[open] .cis-faq-chev { transform: rotate(180deg); }
+.cis-faq-a {
+  padding: 0 14px 14px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+/* ═══ CITATIONS (Научна основа) ═══ */
+.cis-citations {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  counter-reset: cit;
+}
+.cis-citation {
+  position: relative;
+  padding-left: 26px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  counter-increment: cit;
+}
+.cis-citation::before {
+  content: "[" counter(cit) "]";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: hsl(var(--hue1) 60% 55%);
+}
+
+/* ═══ PREVIEW CTA ═══ */
+.cis-preview-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 20px;
+  margin-top: 8px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, hsl(var(--hue1) 65% 55%), hsl(var(--hue2) 65% 55%));
+  color: white;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.005em;
+  cursor: pointer;
+  box-shadow: 0 6px 18px hsl(var(--hue1) 60% 50% / 0.35);
+  transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.cis-preview-cta:hover {
+  box-shadow: 0 8px 22px hsl(var(--hue1) 60% 50% / 0.45);
+}
+.cis-preview-cta:active { transform: scale(0.98); }
+.cis-preview-cta:focus { outline: none; }
+.cis-preview-cta:focus-visible {
+  outline: 2px solid hsl(var(--hue3) 70% 55%);
+  outline-offset: 3px;
+}
+.cis-preview-icon {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  color: white;
+}
+.cis-preview-icon svg { width: 16px; height: 16px; }
+.cis-preview-text { white-space: nowrap; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   FALLBACK OVERLAY (ако BottomSheet не е зареден)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.cis-fallback-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(8, 9, 13, 0.55);
+  backdrop-filter: blur(2px);
+  animation: cisOverlayIn 0.25s var(--ease);
+}
+[data-theme="light"] .cis-fallback-overlay,
+:root:not([data-theme]) .cis-fallback-overlay {
+  background: rgba(60, 70, 100, 0.35);
+}
+
+.cis-fallback-sheet {
+  width: 100%;
+  max-width: 480px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  overflow: hidden;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  animation: cisSheetIn 0.32s var(--ease-spring);
+}
+[data-theme="light"] .cis-fallback-sheet,
+:root:not([data-theme]) .cis-fallback-sheet {
+  background: var(--bg-main);
+  box-shadow: 0 -16px 40px rgba(60, 70, 100, 0.35);
+}
+[data-theme="dark"] .cis-fallback-sheet {
+  background: linear-gradient(180deg, hsl(220 25% 7%) 0%, hsl(220 25% 5%) 100%);
+  border-top: 1px solid var(--border-color);
+}
+
+.cis-fallback-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+.cis-fallback-title {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.005em;
+  color: var(--text);
+  margin: 0;
+  flex: 1;
+}
+.cis-fallback-close {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-icon);
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-family: inherit;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.cis-fallback-close:hover {
+  background: var(--surface);
+  color: var(--text);
+}
+.cis-fallback-close:active { transform: scale(0.94); }
+.cis-fallback-close:focus { outline: none; }
+.cis-fallback-close:focus-visible {
+  outline: 2px solid hsl(var(--hue3) 70% 55%);
+  outline-offset: 2px;
+}
+
+.cis-fallback-body {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px;
+}
+
+body.cis-locked {
+  overflow: hidden;
+}
+
+@keyframes cisOverlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes cisSheetIn {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cis-fallback-overlay,
+  .cis-fallback-sheet { animation: none; }
+  .cis-ratio-fill-l1,
+  .cis-ratio-fill-l2 { transition: none; }
+  .cis-faq-chev { transition: none; }
+}

@@ -705,7 +705,262 @@
     }
   },
 
+  "categoryInfo": {
+    "sectionTitles": {
+      "definition":      "За какво е този режим",
+      "whenUsed":        "Кога се ползва",
+      "whenNotUsed":     "Кога НЕ се ползва",
+      "recommendedNoise":"Препоръчителен фонов шум",
+      "mixRatio":        "Препоръчително съотношение",
+      "expectedEffect":  "Очакван ефект",
+      "safety":          "Безопасност",
+      "faq":             "Чести въпроси",
+      "scientificBasis": "Научна основа"
+    },
+    "whenUsedLabels": {
+      "timeOfDay": "Час от деня",
+      "context":   "Контекст",
+      "duration":  "Продължителност"
+    },
+    "mixRatioLabels": {
+      "layer1": "Layer 1 (главен звук)",
+      "layer2": "Layer 2 (фон шум)"
+    },
+    "previewCta": "Опитайте сега",
+    "closeAria":  "Затвори",
+    "placeholder": "Това съдържание се подготвя от научния екип.",
+
+    "sleep_deep": {
+      "title": "Сън дълбок",
+      "subtitle": "Цяла нощ",
+      "definition": "TODO: §1.1 definition — обясни какво представлява режимът 'Сън дълбок' (4–6 изречения).",
+      "whenUsed": {
+        "timeOfDay": "TODO: напр. 22:00 – 07:00",
+        "context":   "TODO: преди и по време на сън, без активни задачи",
+        "duration":  "TODO: 6–8 часа с sleep timer"
+      },
+      "whenNotUsed": [
+        "TODO: bullet 1 — не за активна работа",
+        "TODO: bullet 2 — не за паник атака (виж 'Тревожност')",
+        "TODO: bullet 3 — не при остър тинитус след шумова експозиция"
+      ],
+      "recommendedNoise": {
+        "type": "pink_lp2000",
+        "description": "TODO: защо този noise — спектрален профил + клинични данни."
+      },
+      "mixRatio": {
+        "layer1": 30,
+        "layer2": 70,
+        "reasoning": "TODO: защо 30/70 — фонът доминира, главният звук е спокойна сигнализация."
+      },
+      "expectedEffect": "TODO: какво да очаквате след 2 / 4 / 8 седмици използване.",
+      "safety": [
+        "Максимум 50 dBA нощем",
+        "Без бял шум",
+        "Без пикове >8 kHz"
+      ],
+      "faq": [
+        { "q": "Колко силно да го пускам?", "a": "TODO: §4 отговор." },
+        { "q": "Цяла нощ ли да слушам?",   "a": "TODO." },
+        { "q": "Може ли с шумозащитни тапи?", "a": "TODO." },
+        { "q": "Какво да правя при събуждане?", "a": "TODO." },
+        { "q": "Кога ще видя резултат?",      "a": "TODO." }
+      ],
+      "scientificBasis": [
+        "TODO: Файл „Детайлна невробиология..."
+      ]
+    },
+
+    "falling_asleep": {
+      "title": "Заспиване",
+      "subtitle": "30–90 мин преди сън",
+      "definition": "TODO: §1.2 definition за режима 'Заспиване'.",
+      "whenUsed": {
+        "timeOfDay": "TODO: 30–90 мин преди желания час за сън",
+        "context":   "TODO: вечерна релаксация, четене, легло",
+        "duration":  "TODO: 30–90 мин (auto-stop при заспиване)"
+      },
+      "whenNotUsed": [
+        "TODO: bullet 1 — не за активна задача",
+        "TODO: bullet 2 — не по време на дрямка през деня"
+      ],
+      "recommendedNoise": {
+        "type": "brown_lp1000",
+        "description": "TODO: защо този noise за преход към сън."
+      },
+      "mixRatio": {
+        "layer1": 50,
+        "layer2": 50,
+        "reasoning": "TODO: защо 50/50."
+      },
+      "expectedEffect": "TODO: какво да очаквате — по-кратко време за заспиване.",
+      "safety": [
+        "Sleep timer задължителен (не оставяйте цяла нощ)",
+        "Без слушалки в легло (за безопасност на врата)"
+      ],
+      "faq": [
+        { "q": "Кога точно да започна?", "a": "TODO." },
+        { "q": "Колко минути преди сън?", "a": "TODO." },
+        { "q": "Може ли в легло?",        "a": "TODO." },
+        { "q": "Какво ако не заспя?",      "a": "TODO." },
+        { "q": "Може ли всяка нощ?",       "a": "TODO." }
+      ],
+      "scientificBasis": [
+        "TODO"
+      ]
+    },
+
+    "relaxation": {
+      "title": "Релаксация",
+      "subtitle": "Преди сън, четене",
+      "definition": "TODO: §1.3 definition за режима 'Релаксация'.",
+      "whenUsed": {
+        "timeOfDay": "TODO: вечер преди сън или след работа",
+        "context":   "TODO: четене, статичен отдих, медитация",
+        "duration":  "TODO: 30–120 мин"
+      },
+      "whenNotUsed": [
+        "TODO: bullet 1 — не за концентрация при работа",
+        "TODO: bullet 2 — не за паник атака"
+      ],
+      "recommendedNoise": {
+        "type": "pink_pure",
+        "description": "TODO: защо този noise."
+      },
+      "mixRatio": {
+        "layer1": 60,
+        "layer2": 40,
+        "reasoning": "TODO: защо 60/40."
+      },
+      "expectedEffect": "TODO: какво да очаквате.",
+      "safety": [
+        "Препоръчителна сила 30–40 dBA",
+        "Без слушалки повече от 60 мин подред"
+      ],
+      "faq": [
+        { "q": "Може ли с книга?",  "a": "TODO." },
+        { "q": "Колко често?",       "a": "TODO." },
+        { "q": "На какво устройство?","a": "TODO." }
+      ],
+      "scientificBasis": [
+        "TODO"
+      ]
+    },
+
+    "daily": {
+      "title": "Ежедневие",
+      "subtitle": "Работа, концентрация",
+      "definition": "TODO: §1.4 definition за режима 'Ежедневие'.",
+      "whenUsed": {
+        "timeOfDay": "TODO: работно време",
+        "context":   "TODO: офис, фокусирана задача, четене с разбиране",
+        "duration":  "TODO: 60–240 мин (с почивки)"
+      },
+      "whenNotUsed": [
+        "TODO: bullet 1 — не за заспиване",
+        "TODO: bullet 2 — не за разговори"
+      ],
+      "recommendedNoise": {
+        "type": "pink_pure",
+        "description": "TODO: защо този noise за концентрация."
+      },
+      "mixRatio": {
+        "layer1": 40,
+        "layer2": 60,
+        "reasoning": "TODO: защо 40/60."
+      },
+      "expectedEffect": "TODO: какво да очаквате — фокус + по-малко тинитус-атеншън.",
+      "safety": [
+        "Препоръчителна сила 35–45 dBA",
+        "Паузи на всеки 60 мин"
+      ],
+      "faq": [
+        { "q": "Може ли при онлайн срещи?", "a": "TODO." },
+        { "q": "Колко силно при отворен офис?", "a": "TODO." },
+        { "q": "Как да го комбинирам с музика?", "a": "TODO." }
+      ],
+      "scientificBasis": [
+        "TODO"
+      ]
+    },
+
+    "anxiety": {
+      "title": "Тревожност",
+      "subtitle": "SOS, паник атака",
+      "definition": "TODO: §1.5 definition за режима 'Тревожност'.",
+      "whenUsed": {
+        "timeOfDay": "TODO: при остро повишена тревожност",
+        "context":   "TODO: паник атака, преди публично говорене, остър стрес",
+        "duration":  "TODO: 5–20 мин (краткосрочна интервенция)"
+      },
+      "whenNotUsed": [
+        "TODO: bullet 1 — не като дългосрочен фон",
+        "TODO: bullet 2 — не за заспиване"
+      ],
+      "recommendedNoise": {
+        "type": "pink_lp4000",
+        "description": "TODO: защо този noise — заземяващ ефект."
+      },
+      "mixRatio": {
+        "layer1": 50,
+        "layer2": 50,
+        "reasoning": "TODO: защо 50/50."
+      },
+      "expectedEffect": "TODO: какво да очаквате — заземяване, понижен HR, по-плавно дишане.",
+      "safety": [
+        "Краткосрочна интервенция — НЕ замества медицинско лечение",
+        "При продължителна тревожност (>2 седмици) — потърсете специалист"
+      ],
+      "faq": [
+        { "q": "Колко често може?",  "a": "TODO." },
+        { "q": "Как се комбинира с дишане?", "a": "TODO." },
+        { "q": "Може ли при PTSD?",  "a": "TODO." }
+      ],
+      "scientificBasis": [
+        "TODO"
+      ]
+    },
+
+    "meditation": {
+      "title": "Медитация",
+      "subtitle": "Водени сесии",
+      "definition": "TODO: §1.6 definition за режима 'Медитация'.",
+      "whenUsed": {
+        "timeOfDay": "TODO: сутрин или вечер по предпочитание",
+        "context":   "TODO: ритуал, body scan, mindfulness",
+        "duration":  "TODO: 5–30 мин"
+      },
+      "whenNotUsed": [
+        "TODO: bullet 1 — не по време на шофиране",
+        "TODO: bullet 2 — не като фон на работа"
+      ],
+      "recommendedNoise": {
+        "type": "brown_pure",
+        "description": "TODO: защо този noise за медитация."
+      },
+      "mixRatio": {
+        "layer1": 70,
+        "layer2": 30,
+        "reasoning": "TODO: защо 70/30."
+      },
+      "expectedEffect": "TODO: какво да очаквате — намалена реактивност, парасимпатикова доминация.",
+      "safety": [
+        "Без слушалки на висока сила",
+        "Седнал/легнал в стабилна поза"
+      ],
+      "faq": [
+        { "q": "Колко минути на ден?",  "a": "TODO." },
+        { "q": "Има ли значение часът?", "a": "TODO." },
+        { "q": "Какво ако заспя?",       "a": "TODO." }
+      ],
+      "scientificBasis": [
+        "TODO"
+      ]
+    }
+  },
+
   "home": {
+    "infoAria": "Информация за категорията",
     "title": "Изберете режим",
     "openLibraryAll": "Всички звуци",
     "openDiary": "Дневник",

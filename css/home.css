@@ -27,13 +27,30 @@
   margin-bottom: 28px;
 }
 
+/* Card wrapper — съдържа main button + info (i) button странично.
+   Wrapper е <div>, защото <button> вътре в <button> не е валиден HTML. */
+.home-cat-card-wrap {
+  position: relative;
+  border-radius: var(--radius-sm);
+}
+
+/* Recommended ring сега се прилага на wrapper-а (за да включи и info button) */
+.home-cat-card-wrap.is-recommended .home-cat-card {
+  box-shadow: var(--shadow-card), 0 0 0 2px hsl(var(--hue3) 70% 55% / 0.6);
+}
+[data-theme="dark"] .home-cat-card-wrap.is-recommended .home-cat-card {
+  box-shadow: var(--shadow-card), 0 0 18px hsl(var(--hue3) 70% 55% / 0.5);
+}
+
 .home-cat-card {
   position: relative;
   width: 100%;
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 16px 14px;
+  padding: 16px 14px 16px 14px;
+  /* Right pad с място за (i) бутон + arrow */
+  padding-right: 64px;
   min-height: 88px;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
@@ -46,13 +63,44 @@
 .home-cat-card > * { position: relative; z-index: 5; }
 .home-cat-card:active { transform: scale(0.99); }
 
-/* Recommended cards — accent glow ring */
-.home-cat-card.is-recommended {
-  box-shadow: var(--shadow-card), 0 0 0 2px hsl(var(--hue3) 70% 55% / 0.6);
+/* (i) info button — top-right corner на wrapper */
+.home-cat-info {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-icon);
+  border: 1px solid hsl(var(--hue3) 60% 55% / 0.4);
+  display: grid;
+  place-items: center;
+  color: hsl(var(--hue3) 65% 38%);
+  cursor: pointer;
+  font-family: inherit;
+  z-index: 10;
+  transition: transform var(--dur-fast) var(--ease), background var(--dur) var(--ease);
 }
-[data-theme="dark"] .home-cat-card.is-recommended {
-  box-shadow: var(--shadow-card), 0 0 18px hsl(var(--hue3) 70% 55% / 0.5);
+[data-theme="light"] .home-cat-info,
+:root:not([data-theme]) .home-cat-info {
+  background: hsl(var(--hue3) 55% 95%);
+  box-shadow: 0 2px 6px hsl(var(--hue3) 50% 50% / 0.18);
 }
+[data-theme="dark"] .home-cat-info {
+  background: hsl(var(--hue3) 30% 14% / 0.85);
+  color: hsl(var(--hue3) 70% 75%);
+  backdrop-filter: blur(4px);
+}
+.home-cat-info:hover {
+  background: hsl(var(--hue3) 60% 50%);
+  color: white;
+}
+.home-cat-info:active { transform: scale(0.92); }
+.home-cat-info:focus { outline: none; }
+.home-cat-info:focus-visible {
+  outline: 2px solid hsl(var(--hue3) 70% 55%);
+  outline-offset: 3px;
+}
+.home-cat-info svg { width: 16px; height: 16px; }
 
 .home-cat-icon {
   flex-shrink: 0;
@@ -120,18 +168,24 @@
   margin-top: 2px;
 }
 
+/* Recommended badge — top-left corner на wrapper (sibling на card).
+   Когато (i) бутонът е горе-вдясно, ★ балансира композицията. */
 .home-cat-badge {
-  flex-shrink: 0;
-  width: 28px;
-  height: 28px;
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  z-index: 10;
+  width: 26px;
+  height: 26px;
   display: grid;
   place-items: center;
   border-radius: var(--radius-icon);
   background: linear-gradient(135deg, hsl(var(--hue3) 70% 55%), hsl(var(--hue1) 70% 65%));
   color: white;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 800;
   line-height: 1;
+  box-shadow: 0 2px 8px hsl(var(--hue3) 50% 45% / 0.35);
 }
 
 .home-cat-arrow {

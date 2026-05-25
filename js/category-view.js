@@ -410,7 +410,25 @@ window.CategoryView = (function () {
       app.innerHTML = buildScreenHtml(cat, sounds);
       bindEvents(app);
       injectInfoPanel(cat);
+      maybeAutoplay(cat, sounds);
     });
+  }
+
+  // ============================================================
+  // Autoplay flag consumption (P4.4)
+  // ============================================================
+  // CategoryInfoSheet "Опитайте сега" CTA задава localStorage flag,
+  // тук го consume-ваме веднъж и отваряме първия sound (или Player).
+
+  function maybeAutoplay(cat, sounds) {
+    if (!window.CategoryInfoSheet || !window.CategoryInfoSheet.consumeAutoplayFlag) return;
+    var flag = window.CategoryInfoSheet.consumeAutoplayFlag();
+    if (!flag || flag !== cat.id) return;
+    if (!sounds || !sounds.length) return;
+    // Малка пауза за да се види screen-ът преди да отвори Player
+    setTimeout(function () {
+      openSound(sounds[0].id);
+    }, 250);
   }
 
   return {

@@ -181,6 +181,12 @@ window.Home = (function () {
       '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>' +
       '<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'
     ),
+    info: svg(
+      '<circle cx="12" cy="12" r="10"/>' +
+      '<line x1="12" y1="16" x2="12" y2="12"/>' +
+      '<line x1="12" y1="8" x2="12.01" y2="8"/>',
+      2
+    ),
     equalizer: svg(
       '<line x1="6" y1="6" x2="6" y2="18"/>' +
       '<line x1="10" y1="3" x2="10" y2="21"/>' +
@@ -210,28 +216,38 @@ window.Home = (function () {
     var iconSvg = SVG[cat.icon] || SVG.waves;
 
     var ariaLabel = name + (countText ? ' — ' + countText : '');
+    var infoAria = t('home.infoAria', 'Информация за категорията');
 
+    // Cards трябва да са wrapper <div>, защото <button> вложен в <button>
+    // не е валиден HTML. (i) бутонът е отделен <button> с stopPropagation.
     return (
-      '<button class="glass home-cat-card' + (isRecommended ? ' is-recommended' : '') + '"' +
-        ' type="button" data-cat-id="' + cat.id + '" data-action="open-cat"' +
-        ' aria-label="' + escapeHtml(ariaLabel) + '">' +
-        '<span class="shine"></span>' +
-        '<span class="shine shine-bottom"></span>' +
-        '<span class="glow"></span>' +
-        '<span class="glow glow-bottom"></span>' +
-        '<span class="home-cat-icon" aria-hidden="true">' + iconSvg + '</span>' +
-        '<span class="home-cat-body">' +
-          '<span class="home-cat-name">' + escapeHtml(name) + '</span>' +
-          '<span class="home-cat-subtitle">' + escapeHtml(subtitle) + '</span>' +
-          (countText
-            ? '<span class="home-cat-count">' + escapeHtml(countText) + '</span>'
-            : '') +
-        '</span>' +
-        (isRecommended
-          ? '<span class="home-cat-badge" aria-hidden="true">★</span>'
-          : '') +
-        '<span class="home-cat-arrow" aria-hidden="true">' + SVG.arrow + '</span>' +
-      '</button>'
+      '<div class="home-cat-card-wrap' + (isRecommended ? ' is-recommended' : '') + '"' +
+        ' data-cat-id="' + cat.id + '">' +
+        '<button class="glass home-cat-card" type="button"' +
+          ' data-cat-id="' + cat.id + '" data-action="open-cat"' +
+          ' aria-label="' + escapeHtml(ariaLabel) + '">' +
+          '<span class="shine"></span>' +
+          '<span class="shine shine-bottom"></span>' +
+          '<span class="glow"></span>' +
+          '<span class="glow glow-bottom"></span>' +
+          '<span class="home-cat-icon" aria-hidden="true">' + iconSvg + '</span>' +
+          '<span class="home-cat-body">' +
+            '<span class="home-cat-name">' + escapeHtml(name) + '</span>' +
+            '<span class="home-cat-subtitle">' + escapeHtml(subtitle) + '</span>' +
+            (countText
+              ? '<span class="home-cat-count">' + escapeHtml(countText) + '</span>'
+              : '') +
+          '</span>' +
+          '<span class="home-cat-arrow" aria-hidden="true">' + SVG.arrow + '</span>' +
+        '</button>' +
+        // ★ badge изтрит — recommendation indication остава на ring + (i)
+        // позицията. Per spec design в P4.
+        '<button class="home-cat-info" type="button"' +
+          ' data-action="info-cat" data-cat-id="' + cat.id + '"' +
+          ' aria-label="' + escapeHtml(infoAria + ': ' + name) + '">' +
+          SVG.info +
+        '</button>' +
+      '</div>'
     );
   }
 
@@ -285,6 +301,11 @@ window.Home = (function () {
     if (action === 'open-cat') {
       var catId = actionBtn.getAttribute('data-cat-id');
       if (catId) openCategory(catId);
+    } else if (action === 'info-cat') {
+      var infoCatId = actionBtn.getAttribute('data-cat-id');
+      if (infoCatId && window.CategoryInfoSheet && window.CategoryInfoSheet.open) {
+        window.CategoryInfoSheet.open(infoCatId);
+      }
     } else if (action === 'open-diary') {
       openDiary();
     } else if (action === 'open-library-all') {
