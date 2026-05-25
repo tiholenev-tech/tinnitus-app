@@ -35,6 +35,7 @@ Usage:
 """
 
 import argparse
+import csv
 import io
 import json
 import os
@@ -57,6 +58,25 @@ DEFAULT_SOURCE = REPO_ROOT / 'library_staging_loop_ready'
 LIBRARY_DIR = REPO_ROOT / 'audio' / 'library'
 MANIFEST_PATH = LIBRARY_DIR / 'manifest.json'
 I18N_BG = REPO_ROOT / 'i18n' / 'bg.json'
+
+# Opus's categorization CSV (P3 wire-up).
+# Очаквана структура (header row):
+#   sound_id, categories_use, recommended_noise, recommended_mix_ratio
+# categories_use е comma-separated list (e.g. "sleep_deep,relaxation").
+# recommended_mix_ratio е "70/30" (Layer 1 / Layer 2).
+CSV_CATEGORIZATION = REPO_ROOT / 'tools' / 'auralis_library_categorization.csv'
+
+# Valid use category ids (за CSV validation)
+VALID_USE_CATEGORIES = {
+    'sleep_deep', 'falling_asleep', 'relaxation',
+    'daily', 'anxiety', 'meditation'
+}
+
+# Valid noise ids (за CSV validation)
+VALID_NOISES = {
+    'none', 'brown_pure', 'brown_lp1000', 'brown_lp500',
+    'pink_pure', 'pink_lp2000', 'pink_lp4000'
+}
 
 AUDIO_EXTS = {'.wav', '.mp3', '.m4a', '.ogg', '.flac', '.aac'}
 CATEGORY_FOLDER_PATTERN = re.compile(r'^\d{1,2}_(?P<id>[a-z][a-z0-9_]*)$')
@@ -184,6 +204,114 @@ def scan_library(source_dir: Path):
 
 
 # ============================================================
+# CSV categorization (Opus output → P3 wire-up)
+# ============================================================
+
+def load_categorization_csv(csv_path: Path) -> dict:
+    """Parse Opus's categorization CSV.
+
+    Expected columns (header row):
+      sound_id, categories_use, recommended_noise, recommended_mix_ratio
+
+    Returns dict { sound_id: { categories_use:[], recommended_noise, mix_ratio:[l1,l2] } }
+    or {} if file missing / unreadable.
+
+    Tolerant parsing:
+      - categories_use може да е separated с comma OR pipe OR semicolon
+      - mix_ratio може да е "70/30" или "70 30" или "70,30"
+      - Unknown noises / categories → skipped with warning
+    """
+    if not csv_path.exists():
+        return {}
+    parsed = {}
+    skipped = 0
+    try:
+        with csv_path.open(encoding='utf-8', newline='') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                sid = (row.get('sound_id') or '').strip()
+                if not sid:
+                    skipped += 1
+                    continue
+                # categories_use — accept comma/pipe/semicolon
+                raw_cats = (row.get('categories_use') or '').strip()
+                cats = []
+                if raw_cats:
+                    parts = re.split(r'[,|;]', raw_cats)
+                    for p in parts:
+                        p = p.strip().lower()
+                        if not p:
+                            continue
+                        if p in VALID_USE_CATEGORIES:
+                            cats.append(p)
+                        else:
+                            print(f'[csv] WARN: unknown use_category "{p}" for {sid}')
+
+                # recommended_noise
+                noise = (row.get('recommended_noise') or '').strip()
+                if noise and noise not in VALID_NOISES:
+                    print(f'[csv] WARN: unknown noise "{noise}" for {sid}')
+                    noise = None
+                if noise == '':
+                    noise = None
+
+                # mix ratio
+                raw_ratio = (row.get('recommended_mix_ratio') or '').strip()
+                ratio = None
+                if raw_ratio:
+                    parts = re.split(r'[/\s,]', raw_ratio)
+                    nums = []
+                    for p in parts:
+                        p = p.strip()
+                        if not p:
+                            continue
+                        try:
+                            nums.append(int(p))
+                        except ValueError:
+                            pass
+                    if len(nums) == 2 and 0 <= nums[0] <= 100 and 0 <= nums[1] <= 100:
+                        ratio = nums
+                    elif raw_ratio:
+                        print(f'[csv] WARN: bad mix_ratio "{raw_ratio}" for {sid}')
+
+                parsed[sid] = {
+                    'categories_use': cats,
+                    'recommended_noise': noise,
+                    'recommended_mix_ratio': ratio
+                }
+    except Exception as e:
+        print(f'[csv] ERROR reading {csv_path.name}: {e}')
+        return {}
+    if skipped:
+        print(f'[csv] skipped {skipped} rows without sound_id')
+    return parsed
+
+
+def apply_categorization(sounds: list, cat_data: dict) -> int:
+    """Merge CSV data into scanned sounds. Returns count of matched."""
+    if not cat_data:
+        return 0
+    matched = 0
+    unmatched_csv = set(cat_data.keys())
+    for s in sounds:
+        if s['id'] in cat_data:
+            row = cat_data[s['id']]
+            if row.get('categories_use'):
+                s['categories_use'] = row['categories_use']
+            if row.get('recommended_noise'):
+                s['recommended_noise'] = row['recommended_noise']
+            if row.get('recommended_mix_ratio'):
+                s['recommended_mix_ratio'] = row['recommended_mix_ratio']
+            unmatched_csv.discard(s['id'])
+            matched += 1
+    if unmatched_csv:
+        print(f'[csv] {len(unmatched_csv)} CSV rows did not match any scanned sound (first 5):')
+        for sid in sorted(unmatched_csv)[:5]:
+            print(f'  - {sid}')
+    return matched
+
+
+# ============================================================
 # i18n validation
 # ============================================================
 
@@ -281,6 +409,10 @@ def main() -> int:
                         help='Exit 1 if warnings')
     parser.add_argument('--force', action='store_true',
                         help='Write дори при 0 sounds')
+    parser.add_argument('--csv', type=str, default=str(CSV_CATEGORIZATION),
+                        help='Categorization CSV path (default: tools/auralis_library_categorization.csv)')
+    parser.add_argument('--no-csv', action='store_true',
+                        help='Skip CSV categorization wire-up')
     args = parser.parse_args()
 
     source_dir = Path(args.source).resolve()
@@ -301,6 +433,23 @@ def main() -> int:
         print('       Skipping manifest write (Library falls back to manifest_template.json).')
         print('       Use --force to write empty manifest anyway.')
         return 0
+
+    # P3: Apply Opus's categorization CSV (if present)
+    if not args.no_csv:
+        csv_path = Path(args.csv).resolve()
+        if csv_path.exists():
+            print(f'[csv] reading {csv_path.relative_to(REPO_ROOT) if csv_path.is_relative_to(REPO_ROOT) else csv_path}')
+            cat_data = load_categorization_csv(csv_path)
+            if cat_data:
+                matched = apply_categorization(sounds, cat_data)
+                print(f'[csv] applied categorization to {matched}/{len(sounds)} sounds '
+                      f'({len(cat_data)} rows в CSV)')
+            else:
+                print('[csv] CSV beше четим но не извлече rows.')
+        else:
+            print(f'[csv] no categorization CSV at {csv_path.name} '
+                  '— sounds remain без categories_use / recommended_noise '
+                  '(Opus spec still pending).')
 
     try:
         source_label = source_dir.relative_to(REPO_ROOT).as_posix()

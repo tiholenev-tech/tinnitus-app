@@ -1,0 +1,196 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · TopSoundsCarousel component (Task P2)
+   ───────────────────────────────────────────────────────────────────
+   Horizontal scroll cards (88×88 area + body), tap → Player.open.
+   Used by ProfileResults §5.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tsc-root {
+  width: 100%;
+}
+
+.tsc-carousel {
+  margin: 0 -16px;
+  padding: 6px 0 8px;
+  position: relative;
+}
+
+.tsc-scroll {
+  display: flex;
+  gap: 10px;
+  padding: 4px 16px 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.tsc-scroll::-webkit-scrollbar { display: none; }
+
+/* ═══ CARD ═══ */
+.tsc-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+  width: 132px;
+  padding: 10px 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  color: var(--text);
+  scroll-snap-align: start;
+  transition: transform var(--dur-fast) var(--ease);
+}
+[data-theme="light"] .tsc-card,
+:root:not([data-theme]) .tsc-card {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+  border: none;
+}
+[data-theme="dark"] .tsc-card {
+  background: hsl(220 25% 6% / 0.55);
+  backdrop-filter: blur(8px);
+}
+.tsc-card:active { transform: scale(0.97); }
+@media (hover: hover) and (pointer: fine) {
+  .tsc-card:hover {
+    box-shadow: var(--shadow-card), 0 0 0 2px hsl(var(--hue1) 60% 55% / 0.4);
+  }
+}
+.tsc-card:focus { outline: none; }
+.tsc-card:focus-visible {
+  outline: 2px solid hsl(var(--hue1) 70% 55%);
+  outline-offset: 3px;
+}
+
+.tsc-card-num {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--text-faint);
+}
+
+.tsc-card-art {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-sm);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.tsc-card-orb {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 35% 30%,
+    hsl(var(--hue3) 70% 70% / 0.85),
+    hsl(var(--hue2) 65% 50% / 0.75) 60%,
+    hsl(var(--hue1) 60% 35% / 0.65) 100%);
+}
+.tsc-card-play {
+  position: relative;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-icon);
+  background: hsl(0 0% 100% / 0.95);
+  color: hsl(var(--hue1) 70% 45%);
+  box-shadow: 0 4px 10px hsl(var(--hue2) 50% 20% / 0.4);
+}
+.tsc-card-play svg { width: 16px; height: 16px; margin-left: 1px; }
+
+.tsc-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.tsc-card-title {
+  font-size: 12.5px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  color: var(--text);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.tsc-card-duration {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+}
+[data-theme="dark"] .tsc-card-duration {
+  color: hsl(var(--hue3) 70% 70%);
+}
+
+/* ═══ EMPTY STATE ═══ */
+.tsc-empty {
+  padding: 28px 18px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+}
+[data-theme="light"] .tsc-empty,
+:root:not([data-theme]) .tsc-empty {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+}
+[data-theme="dark"] .tsc-empty {
+  background: hsl(220 25% 6% / 0.5);
+}
+
+/* ═══ VIEW ALL BUTTON ═══ */
+.tsc-view-all {
+  margin-top: 10px;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: transform var(--dur-fast) var(--ease);
+}
+[data-theme="light"] .tsc-view-all,
+:root:not([data-theme]) .tsc-view-all {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+}
+[data-theme="dark"] .tsc-view-all {
+  background: hsl(220 25% 6% / 0.55);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+}
+.tsc-view-all:active { transform: scale(0.98); }
+.tsc-view-all:hover { color: var(--accent); }
+.tsc-view-all-icon {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+}
+.tsc-view-all-icon svg { width: 14px; height: 14px; }
