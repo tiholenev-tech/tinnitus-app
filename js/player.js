@@ -465,6 +465,23 @@ window.Player = (function () {
     var sound = findSound(soundId);
     if (!sound) { console.warn('[player] sound not found:', soundId); return; }
 
+    // SAFETY-3: показваме HeadphonesWarning при първото отваряне.
+    // Bottom sheet с educational съдържание (in-ear contraindication,
+    // mixing point, night exposure limit). След dismiss → продължава.
+    if (window.HeadphonesWarning && window.HeadphonesWarning.showIfFirstTime
+        && !window.HeadphonesWarning.hasBeenSeen()) {
+      window.HeadphonesWarning.showIfFirstTime(function () {
+        openCore(soundId);
+      });
+      return;
+    }
+    openCore(soundId);
+  }
+
+  function openCore(soundId) {
+    var sound = findSound(soundId);
+    if (!sound) return;
+
     // A2.6: single-flight token + sequential pipeline.
     // Симптом: tap нов звук → 60s забавяне + стар продължава + понякога паралелни.
     // Причина: множествени Player.open() извиквания пускаха паралелни playLayer1

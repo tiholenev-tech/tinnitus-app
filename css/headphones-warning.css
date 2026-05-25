@@ -1,0 +1,77 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · HeadphonesWarning (SAFETY-3)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.hw-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 4px 2px 8px;
+  color: var(--text);
+  font-family: inherit;
+}
+.hw-line {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--text);
+  margin: 0;
+}
+.hw-spacer {
+  height: 8px;
+}
+
+/* Fallback overlay (ако BottomSheet липсва) */
+.hw-fallback-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9100;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(8, 9, 13, 0.55);
+  backdrop-filter: blur(2px);
+}
+[data-theme="light"] .hw-fallback-overlay,
+:root:not([data-theme]) .hw-fallback-overlay {
+  background: rgba(60, 70, 100, 0.35);
+}
+.hw-fallback-sheet {
+  width: 100%;
+  max-width: 480px;
+  padding: 20px 18px 24px;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-bottom: calc(24px + env(safe-area-inset-bottom, 0));
+}
+[data-theme="light"] .hw-fallback-sheet,
+:root:not([data-theme]) .hw-fallback-sheet {
+  background: var(--bg-main);
+  box-shadow: 0 -16px 40px rgba(60, 70, 100, 0.35);
+}
+[data-theme="dark"] .hw-fallback-sheet {
+  background: linear-gradient(180deg, hsl(220 25% 7%) 0%, hsl(220 25% 5%) 100%);
+  border-top: 1px solid var(--border-color);
+}
+.hw-fallback-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0;
+}
+.hw-fallback-cta {
+  min-height: 52px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, hsl(var(--hue1) 65% 55%), hsl(var(--hue2) 65% 55%));
+  color: white;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  margin-top: 8px;
+}
+.hw-fallback-cta:active { transform: scale(0.98); }
