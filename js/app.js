@@ -103,6 +103,32 @@
       return;
     }
 
+    // 14-day program phases (Wave 3.1-A)
+    if (phase === 'thi_baseline' && window.ThiBaseline && window.ThiBaseline.render) {
+      window.ThiBaseline.render();
+      return;
+    }
+    if (phase === 'diary_hub' && window.DiaryHub && window.DiaryHub.render) {
+      window.DiaryHub.render();
+      return;
+    }
+    if (phase === 'diary_evening' && window.DiaryEvening && window.DiaryEvening.render) {
+      window.DiaryEvening.render();
+      return;
+    }
+    if (phase === 'diary_morning' && window.DiaryMorning && window.DiaryMorning.render) {
+      window.DiaryMorning.render();
+      return;
+    }
+    if (phase === 'cbt_day' && window.CbtDay && window.CbtDay.render) {
+      window.CbtDay.render();
+      return;
+    }
+    if (phase === 'progress' && window.Progress && window.Progress.render) {
+      window.Progress.render();
+      return;
+    }
+
     // Unknown / unsupported phase след quiz → safety net → Home.
     // (Преди това fallback-ваше към Quiz.render(true), което при quiz-done state
     // може да render-не legacy results screen или library с празно UI — "само
@@ -266,7 +292,10 @@
     var initialState;
     var phase = window.AppState.current;
     var KNOWN_PHASES = ['profile_results','home','category','sound','player',
-                        'calm','diary','sleep','library','mixer'];
+                        'calm','diary','sleep','library','mixer',
+                        // Wave 3.1-A: 14-day program phases
+                        'thi_baseline','diary_hub','diary_evening','diary_morning',
+                        'cbt_day','progress'];
     if (!window.AppState.isOnboardingDone()) {
       initialState = { subphase: window.AppState.subphase };
     } else if (window.AppState.isQuizDone() && KNOWN_PHASES.indexOf(phase) !== -1) {
