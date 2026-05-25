@@ -118,7 +118,7 @@ window.Player = (function () {
   }
 
   function soundTitle(sound) {
-    return sound ? t(sound.title_key, sound.id) : '';
+    return sound ? t(sound.title_key, sound.bg_title || sound.id) : '';
   }
 
   function soundSubtitle(sound) {

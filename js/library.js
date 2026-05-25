@@ -173,7 +173,7 @@ window.Library = (function () {
 
   function soundTitle(sound) {
     if (!sound) return '';
-    return tOrPrettify(sound.title_key, prettifyFilename(sound.id));
+    return tOrPrettify(sound.title_key, sound.bg_title || prettifyFilename(sound.id));
   }
 
   function soundSubtitle(sound) {

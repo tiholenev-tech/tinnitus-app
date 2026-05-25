@@ -141,6 +141,7 @@ window.CategoryView = (function () {
     if (!sound) return '';
     var v = tOrNull(sound.title_key);
     if (v) return v;
+    if (sound.bg_title) return sound.bg_title;
     return prettifyFilename(sound.id);
   }
 

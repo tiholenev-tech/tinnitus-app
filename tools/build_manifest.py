@@ -181,6 +181,148 @@ def filename_to_id(filename: str) -> str:
     return stem
 
 
+# ============================================================
+# БГ title generation (Wave2-A)
+# ============================================================
+# Tokens се извличат от sound_id, премахват се generic noise / dupes,
+# превеждат се чрез BG_TOKEN_MAP. Финалното заглавие е MAX 4 думи.
+
+# Base category title — fallback ако modifier-и не са намерени.
+BG_CATEGORY_BASE = {
+    'ocean':      'Океан',
+    'rain':       'Дъжд',
+    'river':      'Река',
+    'underwater': 'Под вода',
+    'wind':       'Вятър',
+    'forest':     'Гора',
+    'fire':       'Огън',
+    'meditation': 'Медитация',
+    'noise':      'Фонов шум',
+    'ambient':    'Атмосфера',
+}
+
+# Modifier tokens — "REPLACE" заменят base изцяло (по-конкретен noun),
+# "FEATURE" се добавят преди base (характеристика на сцената).
+BG_REPLACE_MODIFIERS = [
+    ('waterfall',  'Водопад'),
+    ('creek',      'Поток'),
+    ('stream',     'Поток'),
+    ('campfire',   'Огнище'),
+    ('fireplace',  'Камина'),
+    ('cave',       'Пещера'),
+    ('tunnel',     'Тунел'),
+    ('beach',      'Бряг'),
+    ('seaside',    'Бряг'),
+    ('shore',      'Бряг'),
+    ('coast',      'Бряг'),
+    ('underwater', 'Под вода'),
+    ('storm',      'Буря'),
+    ('thunder',    'Гръм'),
+]
+
+BG_FEATURE_MODIFIERS = [
+    ('cricket',    'Щурци'),
+    ('birds',      'Птици'),
+    ('chirp',      'Птици'),
+    ('swells',     'Вълни'),
+    ('swell',      'Вълни'),
+    ('waves',      'Вълни'),
+    ('wave',       'Вълни'),
+    ('leaves',     'Листа'),
+    ('whisper',    'Шепот'),
+    ('drizzle',    'Ситен'),
+    ('whirring',   'Бучене'),
+    ('rumble',     'Тътен'),
+    ('mountain',   'Планински'),
+    ('alpine',     'Алпийски'),
+    ('night',      'Нощен'),
+    ('morning',    'Утринен'),
+    ('evening',    'Вечерен'),
+    ('summer',     'Летен'),
+    ('winter',     'Зимен'),
+    ('crackle',    'Пукане'),
+    ('crackling',  'Пукане'),
+]
+
+BG_MODIFIER_TOKENS = BG_REPLACE_MODIFIERS + BG_FEATURE_MODIFIERS
+
+# Adjective qualifiers — поставят се най-отпред като прилагателно.
+BG_ADJECTIVE_TOKENS = [
+    ('distant', 'Далечен'),
+    ('gentle',  'Лек'),
+    ('soft',    'Лек'),
+    ('light',   'Лек'),
+    ('heavy',   'Силен'),
+    ('strong',  'Силен'),
+    ('deep',    'Дълбок'),
+    ('calm',    'Спокоен'),
+    ('warm',    'Топъл'),
+    ('bunker',  'Подземен'),
+]
+
+# Tokens to skip напълно (не носят семантика за title).
+BG_SKIP_TOKENS = {
+    'ambience', 'ambient', 'sound', 'sounds', 'audio', 'noise', 'recording', 'wav',
+    'mp3', 'mono', 'stereo', 'loop', 'session', 'mix', 'final',
+    'from', 'inside', 'outside', 'with', 'and', 'the', 'of', 'a', 'an',
+    'pass', 'by', 'people', 'man', 'woman', 'human', 'human_voice',
+    'microphone', 'mic', 'distant_voice',
+    # Cyrillic-irrelevant city / country tokens
+    'china', 'athens', 'greece', 'tokyo', 'paris', 'london', 'bulgaria',
+    'sofia', 'plovdiv', 'dalian', 'siberia', 'arctic', 'antarctic',
+    # Generic numeric suffixes handled separately
+}
+
+
+_BG_ADJ_MAP = dict(BG_ADJECTIVE_TOKENS)
+_BG_MOD_MAP = dict(BG_MODIFIER_TOKENS)
+
+
+def generate_bg_title(sound_id: str, category_audio: str) -> str:
+    """Generate short БГ title (max 4 думи) от sound_id + category."""
+    tokens = [t for t in sound_id.split('_') if t and not t.isdigit()]
+    tokens = [t for t in tokens if t not in BG_SKIP_TOKENS]
+    base = BG_CATEGORY_BASE.get(category_audio, 'Звук')
+
+    # 1. Find first adjective
+    adj_word = None
+    for src, bg in BG_ADJECTIVE_TOKENS:
+        if src in tokens:
+            adj_word = bg
+            break
+
+    # 2. Find first REPLACE modifier (по-конкретен noun → замества base)
+    replace_word = None
+    for src, bg in BG_REPLACE_MODIFIERS:
+        if src in tokens:
+            replace_word = bg
+            break
+
+    # 3. Find first FEATURE modifier (характеристика → preцeди base)
+    feature_word = None
+    for src, bg in BG_FEATURE_MODIFIERS:
+        if src in tokens:
+            feature_word = bg
+            break
+
+    parts = []
+    if adj_word:
+        parts.append(adj_word)
+    if feature_word:
+        parts.append(feature_word)
+    if replace_word:
+        parts.append(replace_word)
+    else:
+        parts.append(base)
+
+    # Dedupe consecutive same words; truncate до 4 думи.
+    out = []
+    for w in parts:
+        if not out or out[-1] != w:
+            out.append(w)
+    return ' '.join(out[:4])
+
+
 def scan_library(source_dir: Path):
     """Return list of sound dicts."""
     if not source_dir.exists():
@@ -209,6 +351,7 @@ def scan_library(source_dir: Path):
                 'category_audio': cat_id,
                 'categories_use': [],          # populated by content team
                 'duration_sec': duration,
+                'bg_title': generate_bg_title(sound_id, cat_id),
                 'title_key': f'library.sounds.{sound_id}.title',
                 'subtitle_key': f'library.sounds.{sound_id}.subtitle',
                 'description_key': f'library.sounds.{sound_id}.description',

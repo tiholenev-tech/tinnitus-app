@@ -79,7 +79,7 @@ window.SoundDetail = (function () {
 
   function getSoundTitle(sound) {
     if (!sound) return '';
-    return tOrNull(sound.title_key) || prettifyFilename(sound.id);
+    return tOrNull(sound.title_key) || sound.bg_title || prettifyFilename(sound.id);
   }
 
   function getSoundSubtitle(sound) {

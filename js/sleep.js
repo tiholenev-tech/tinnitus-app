@@ -84,7 +84,7 @@ window.Sleep = (function () {
 
   function soundTitle(sound) {
     if (!sound) return null;
-    return t(sound.title_key, sound.id);
+    return t(sound.title_key, sound.bg_title || sound.id);
   }
 
   function soundSubtitle(sound) {
