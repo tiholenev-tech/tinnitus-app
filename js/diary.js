@@ -543,11 +543,14 @@ window.Diary = (function () {
   }
 
   function close() {
+    // BUG2-H: X close → Home (преди ходеше към Library "search-only" screen).
     if (window.AppState && window.AppState.transition) {
-      window.AppState.transition('library');
+      window.AppState.transition('home');
     }
-    history.pushState({ phase: 'library' }, '');
-    if (window.Library && window.Library.render) {
+    history.pushState({ phase: 'home' }, '');
+    if (window.Home && window.Home.render) {
+      window.Home.render();
+    } else if (window.Library && window.Library.render) {
       window.Library.render();
     }
   }
