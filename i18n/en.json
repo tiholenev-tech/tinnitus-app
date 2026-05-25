@@ -179,7 +179,6 @@
       "openAria": "TODO: Open settings",
       "closeAria": "TODO: Close settings",
       "back": "TODO: Back",
-
       "lang": {
         "label": "TODO: Language",
         "active": "TODO: active",
@@ -200,19 +199,16 @@
           "ko": "한국어"
         }
       },
-
       "theme": {
         "label": "TODO: Theme",
         "light": "TODO: Light",
         "dark": "TODO: Dark",
         "auto": "TODO: Auto"
       },
-
       "volume": {
         "label": "TODO: Volume",
         "aria": "TODO: Volume 0 to 100"
       },
-
       "data": {
         "label": "TODO: My data",
         "export": "TODO: Export all (JSON)",
@@ -225,7 +221,6 @@
         "debugResetOnboarding": "TODO: Reset onboarding (debug)",
         "debugMockQuiz": "TODO: Mock quiz: TH_C profile → Library (debug)"
       },
-
       "about": {
         "label": "TODO: About",
         "version": "TODO: AURALIS · version {v} (beta) · 2026",
@@ -242,7 +237,6 @@
         "decode": "TODO: File could not be played"
       }
     },
-
     "components": {
       "infoPanel": {
         "readMore": "TODO: Read more",
@@ -278,7 +272,6 @@
         "noLayer2": "TODO: No background"
       }
     },
-
     "noises": {
       "none": {
         "title": "TODO: None",
@@ -309,58 +302,52 @@
         "description": "TODO: Pink noise with slightly softened highs. Keeps the rain texture but removes sharpness."
       }
     },
-
     "library": {
       "title": "TODO: Sound library",
       "cat_audio": {
-        "ocean":      "TODO: Ocean",
-        "rain":       "TODO: Rain",
-        "river":      "TODO: River",
+        "ocean": "TODO: Ocean",
+        "rain": "TODO: Rain",
+        "river": "TODO: River",
         "underwater": "TODO: Underwater",
-        "wind":       "TODO: Wind",
-        "forest":     "TODO: Forest",
-        "fire":       "TODO: Fire",
+        "wind": "TODO: Wind",
+        "forest": "TODO: Forest",
+        "fire": "TODO: Fire",
         "meditation": "TODO: Meditation",
-        "noise":      "TODO: Noise",
-        "ambient":    "TODO: Ambient"
+        "noise": "TODO: Noise",
+        "ambient": "TODO: Ambient"
       },
       "loading": "TODO: Loading...",
       "empty": "TODO: More sounds coming soon",
       "errorManifest": "TODO: Error loading library.",
-
       "search": {
         "placeholder": "TODO: Search sounds...",
         "noResults": "TODO: No sounds found for \"{query}\"",
         "clearAria": "TODO: Clear search"
       },
-
       "favorites": {
         "label": "TODO: Favorites",
         "count": "{n}",
         "empty": "TODO: Tap ♡ on a sound to save it here"
       },
-
       "cat": {
-        "all":         "TODO: All",
-        "ocean":       "TODO: Ocean",
-        "rain":        "TODO: Rain",
-        "river":       "TODO: River",
-        "underwater":  "TODO: Underwater",
-        "wind":        "TODO: Wind",
-        "forest":      "TODO: Forest",
-        "fire":        "TODO: Fire",
-        "meditation":  "TODO: Meditation",
-        "noise":       "TODO: Noise",
-        "ambient":     "TODO: Ambient"
+        "all": "TODO: All",
+        "ocean": "TODO: Ocean",
+        "rain": "TODO: Rain",
+        "river": "TODO: River",
+        "underwater": "TODO: Underwater",
+        "wind": "TODO: Wind",
+        "forest": "TODO: Forest",
+        "fire": "TODO: Fire",
+        "meditation": "TODO: Meditation",
+        "noise": "TODO: Noise",
+        "ambient": "TODO: Ambient"
       },
-
       "card": {
         "durationFmt": "{m}:{s}",
         "playAria": "TODO: Play {title}",
         "favoriteAddAria": "TODO: Add {title} to favorites",
         "favoriteRemoveAria": "TODO: Remove {title} from favorites"
       },
-
       "player": {
         "playing": "TODO: Playing",
         "paused": "TODO: Paused",
@@ -369,23 +356,62 @@
         "nextAria": "TODO: Next sound",
         "expandAria": "TODO: Expand player"
       },
-
       "sounds": {
-        "sample_ocean_01":       { "title": "TODO: Distant ocean",       "subtitle": "TODO: Quiet waves in the distance" },
-        "sample_rain_01":        { "title": "TODO: Soft rain",            "subtitle": "TODO: Steady spring rain" },
-        "sample_underwater_01":  { "title": "TODO: Underwater silence",   "subtitle": "TODO: Deep frequencies · 60–120 Hz" },
-        "sample_deep_01":        { "title": "TODO: Deep ambient",         "subtitle": "TODO: Calm bass background" },
-        "sample_pink_01":        { "title": "TODO: Pink noise",           "subtitle": "TODO: Generated in real time" },
-        "sample_river_01":       { "title": "TODO: Mountain stream",      "subtitle": "TODO: Placeholder (audio pending)" },
-        "sample_forest_01":      { "title": "TODO: Morning in the forest","subtitle": "TODO: Placeholder (audio pending)" },
-        "sample_meditation_01":  { "title": "TODO: Subconscious",          "subtitle": "TODO: Deep sleep · guided meditation", "author": "TODO: Anna Landström" },
-        "sample_meditation_02":  { "title": "TODO: Tibetan bowls",          "subtitle": "TODO: Relaxation · overtones",         "author": "TODO: Luba Hilman" },
-        "sample_meditation_03":  { "title": "TODO: Body scan",              "subtitle": "TODO: Progressive relaxation",          "author": "TODO: Hanna Lindgren" },
-        "sample_meditation_04":  { "title": "TODO: Breathing 4-7-8",        "subtitle": "TODO: Short pre-sleep meditation",      "author": "TODO: AURALIS" },
-        "sample_meditation_05":  { "title": "TODO: Morning forest",          "subtitle": "TODO: Nature · 30 min",                  "author": "TODO: Joseph Beg" }
+        "sample_ocean_01": {
+          "title": "TODO: Distant ocean",
+          "subtitle": "TODO: Quiet waves in the distance"
+        },
+        "sample_rain_01": {
+          "title": "TODO: Soft rain",
+          "subtitle": "TODO: Steady spring rain"
+        },
+        "sample_underwater_01": {
+          "title": "TODO: Underwater silence",
+          "subtitle": "TODO: Deep frequencies · 60–120 Hz"
+        },
+        "sample_deep_01": {
+          "title": "TODO: Deep ambient",
+          "subtitle": "TODO: Calm bass background"
+        },
+        "sample_pink_01": {
+          "title": "TODO: Pink noise",
+          "subtitle": "TODO: Generated in real time"
+        },
+        "sample_river_01": {
+          "title": "TODO: Mountain stream",
+          "subtitle": "TODO: Placeholder (audio pending)"
+        },
+        "sample_forest_01": {
+          "title": "TODO: Morning in the forest",
+          "subtitle": "TODO: Placeholder (audio pending)"
+        },
+        "sample_meditation_01": {
+          "title": "TODO: Subconscious",
+          "subtitle": "TODO: Deep sleep · guided meditation",
+          "author": "TODO: Anna Landström"
+        },
+        "sample_meditation_02": {
+          "title": "TODO: Tibetan bowls",
+          "subtitle": "TODO: Relaxation · overtones",
+          "author": "TODO: Luba Hilman"
+        },
+        "sample_meditation_03": {
+          "title": "TODO: Body scan",
+          "subtitle": "TODO: Progressive relaxation",
+          "author": "TODO: Hanna Lindgren"
+        },
+        "sample_meditation_04": {
+          "title": "TODO: Breathing 4-7-8",
+          "subtitle": "TODO: Short pre-sleep meditation",
+          "author": "TODO: AURALIS"
+        },
+        "sample_meditation_05": {
+          "title": "TODO: Morning forest",
+          "subtitle": "TODO: Nature · 30 min",
+          "author": "TODO: Joseph Beg"
+        }
       }
     },
-
     "sleep": {
       "title": "TODO: Night mode",
       "closeAria": "TODO: Exit night mode",
@@ -406,7 +432,6 @@
         "subtitle": "TODO: Tap if anxious"
       }
     },
-
     "sos": {
       "openAria": "TODO: Open SOS breathing",
       "closeAria": "TODO: Stop exercise",
@@ -423,12 +448,10 @@
         "again": "TODO: One more cycle"
       }
     },
-
     "privacy": {
       "title": "Privacy policy",
       "lastUpdated": "Last updated: May 24, 2026",
       "intro": "AURALIS respects your privacy. This document explains in plain language what we (do NOT) collect and what happens with your data.",
-
       "collection": {
         "title": "What we collect",
         "text": "AURALIS does NOT collect personal data. Everything runs on your device. No account registration, no email, no phone number."
@@ -453,15 +476,12 @@
         "title": "Contact",
         "email": "tiholenev@gmail.com"
       },
-
       "body": "AURALIS is a sound relaxation tool. It does not cure tinnitus or replace medical consultation.\n\nAll your data (quiz answers, diary, favorites, listening history) is stored locally on your device.\n\nWe collect nothing. We do not send any data to a server. No tracking, no analytics, no third-party cookies.\n\nYou can delete all your data at any time from Settings → My data → Delete all data.\n\nWhen installed from Google Play / App Store, the platform may process your email and payment info — that is their responsibility, not ours.\n\nQuestions: tiholenev@gmail.com"
     },
-
     "terms": {
       "title": "Terms of use",
       "lastUpdated": "Last updated: May 24, 2026",
       "intro": "By opening AURALIS you accept these terms. They are short and plain.",
-
       "wellness": {
         "title": "Wellness, not a medical app",
         "text": "AURALIS is a sound relaxation tool. It helps with habituation (getting used) to tinnitus through sound enrichment, breathing and guided meditations. It is NOT a medical device. It does NOT replace a doctor, diagnosis or prescribed therapy."
@@ -487,7 +507,6 @@
         "text": "We may update the app with new sounds, fixes and features. These Terms may change — you will see the date above on each new version."
       }
     },
-
     "calm": {
       "categoryLabel": "TODO: Meditation",
       "playerAria": "TODO: Meditation player",
@@ -498,13 +517,11 @@
       "ended": "TODO: Finished",
       "endedSub": "TODO: Returning to library..."
     },
-
     "diary": {
       "title": "TODO: Diary",
       "openAria": "TODO: Open diary",
       "closeAria": "TODO: Close diary",
       "today": "TODO: Today, {date}",
-
       "q": {
         "sleep": "TODO: How many hours did you sleep?",
         "sleepHoursSuffix": "TODO: {n} h",
@@ -515,39 +532,33 @@
         "stressLow": "TODO: Calm",
         "stressHigh": "TODO: Anxious"
       },
-
       "save": "TODO: Save today's entry",
       "saveUpdate": "TODO: Update today's entry",
       "saved": "TODO: Saved",
-
       "history": {
         "label": "TODO: History",
-        "range7":  "TODO: 7 days",
+        "range7": "TODO: 7 days",
         "range30": "TODO: 30 days",
         "range90": "TODO: 90 days"
       },
-
       "chart": {
-        "sleep":    "TODO: Sleep (hours)",
+        "sleep": "TODO: Sleep (hours)",
         "tinnitus": "TODO: Tinnitus (0-10)",
-        "stress":   "TODO: Stress (0-10)",
+        "stress": "TODO: Stress (0-10)",
         "avg": "TODO: Average: {n}",
         "noData": "TODO: No entries in this range"
       },
-
       "insights": {
         "title": "TODO: What we notice",
         "betterWithSleep": "TODO: When you sleep more than 7 hours, tinnitus is on average {delta} points lower.",
         "moreStressMoreTinnitus": "TODO: When stress is above 6, tinnitus is on average {delta} points higher.",
         "needMoreData": "TODO: Log at least 7 days to see trends."
       },
-
       "empty": "TODO: Start logging today — just 3 questions, 30 seconds.",
       "export": "TODO: Export history (JSON)",
       "exportFilename": "auralis-diary-{date}.json"
     }
   },
-
   "profile_results": {
     "title": "TODO: Your assessment",
     "code": {
@@ -555,30 +566,30 @@
     },
     "di": {
       "label": "TODO: DI score",
-      "low":    "TODO: Low intensity",
+      "low": "TODO: Low intensity",
       "medium": "TODO: Moderate intensity",
-      "high":   "TODO: High intensity"
+      "high": "TODO: High intensity"
     },
     "sections": {
-      "meaning":    "TODO: What this means for you",
-      "why":        "TODO: Why you have this type",
-      "strategy":   "TODO: Recommended strategy",
-      "recommended":"TODO: Recommended modes",
-      "topSounds":  "TODO: Top recommended sounds",
-      "timeline":   "TODO: Expectations over time",
+      "meaning": "TODO: What this means for you",
+      "why": "TODO: Why you have this type",
+      "strategy": "TODO: Recommended strategy",
+      "recommended": "TODO: Recommended modes",
+      "topSounds": "TODO: Top recommended sounds",
+      "timeline": "TODO: Expectations over time",
       "additional": "TODO: Additional recommendations",
-      "medical":    "TODO: When to see a doctor"
+      "medical": "TODO: When to see a doctor"
     },
     "strategy": {
-      "noiseLabel":     "TODO: Recommended background noise",
-      "mixRatioLabel":  "TODO: Recommended ratio",
-      "mixRatioFmt":    "{l1}/{l2}",
-      "durationLabel":  "TODO: Recommended duration",
+      "noiseLabel": "TODO: Recommended background noise",
+      "mixRatioLabel": "TODO: Recommended ratio",
+      "mixRatioFmt": "{l1}/{l2}",
+      "durationLabel": "TODO: Recommended duration",
       "reasoningLabel": "TODO: Why this strategy"
     },
     "topSounds": {
       "loading": "TODO: Loading recommendations...",
-      "empty":   "TODO: Recommendations coming soon...",
+      "empty": "TODO: Recommendations coming soon...",
       "viewAll": "TODO: View all recommended"
     },
     "timeline": {
@@ -603,101 +614,387 @@
     "continue": "TODO: Continue to sounds",
     "profiles": {
       "TH_C": {
-        "shortName": "TODO: Tonal high", "fullName": "TODO: Tonal high-frequency",
-        "description": "TODO", "expectations": "TODO",
-        "meaning": "TODO", "why": "TODO", "strategyReasoning": "TODO",
+        "shortName": "TODO: Tonal high",
+        "fullName": "TODO: Tonal high-frequency",
+        "description": "TODO",
+        "expectations": "TODO",
+        "meaning": "TODO",
+        "why": "TODO",
+        "strategyReasoning": "TODO",
         "timeline": [
-          { "period": "TODO: Week 1–2", "expectation": "TODO" },
-          { "period": "TODO: Month 1",  "expectation": "TODO" },
-          { "period": "TODO: Month 3",  "expectation": "TODO" }
+          {
+            "period": "TODO: Week 1–2",
+            "expectation": "TODO"
+          },
+          {
+            "period": "TODO: Month 1",
+            "expectation": "TODO"
+          },
+          {
+            "period": "TODO: Month 3",
+            "expectation": "TODO"
+          }
         ],
-        "additional": "TODO", "medicalFlags": "TODO",
-        "reasons": { "sleep_deep": "TODO", "relaxation": "TODO" }
+        "additional": "TODO",
+        "medicalFlags": "TODO",
+        "reasons": {
+          "sleep_deep": "TODO",
+          "relaxation": "TODO"
+        }
       },
       "DN_S": {
-        "shortName": "TODO: Noise low-freq", "fullName": "TODO: Noise low-freq / Sleep",
-        "description": "TODO", "expectations": "TODO",
-        "meaning": "TODO", "why": "TODO", "strategyReasoning": "TODO",
+        "shortName": "TODO: Noise low-freq",
+        "fullName": "TODO: Noise low-freq / Sleep",
+        "description": "TODO",
+        "expectations": "TODO",
+        "meaning": "TODO",
+        "why": "TODO",
+        "strategyReasoning": "TODO",
         "timeline": [
-          { "period": "TODO: Week 1–2", "expectation": "TODO" },
-          { "period": "TODO: Month 1",  "expectation": "TODO" },
-          { "period": "TODO: Month 3",  "expectation": "TODO" }
+          {
+            "period": "TODO: Week 1–2",
+            "expectation": "TODO"
+          },
+          {
+            "period": "TODO: Month 1",
+            "expectation": "TODO"
+          },
+          {
+            "period": "TODO: Month 3",
+            "expectation": "TODO"
+          }
         ],
-        "additional": "TODO", "medicalFlags": "TODO",
-        "reasons": { "relaxation": "TODO", "daily": "TODO" }
+        "additional": "TODO",
+        "medicalFlags": "TODO",
+        "reasons": {
+          "relaxation": "TODO",
+          "daily": "TODO"
+        }
       },
       "SS_R": {
-        "shortName": "TODO: Stress-sensitive", "fullName": "TODO: Stress-sensitive / Reactive",
-        "description": "TODO", "expectations": "TODO",
-        "meaning": "TODO", "why": "TODO", "strategyReasoning": "TODO",
+        "shortName": "TODO: Stress-sensitive",
+        "fullName": "TODO: Stress-sensitive / Reactive",
+        "description": "TODO",
+        "expectations": "TODO",
+        "meaning": "TODO",
+        "why": "TODO",
+        "strategyReasoning": "TODO",
         "timeline": [
-          { "period": "TODO: Week 1–2", "expectation": "TODO" },
-          { "period": "TODO: Month 1",  "expectation": "TODO" },
-          { "period": "TODO: Month 3",  "expectation": "TODO" }
+          {
+            "period": "TODO: Week 1–2",
+            "expectation": "TODO"
+          },
+          {
+            "period": "TODO: Month 1",
+            "expectation": "TODO"
+          },
+          {
+            "period": "TODO: Month 3",
+            "expectation": "TODO"
+          }
         ],
-        "additional": "TODO", "medicalFlags": "TODO",
-        "reasons": { "anxiety": "TODO", "falling_asleep": "TODO" }
+        "additional": "TODO",
+        "medicalFlags": "TODO",
+        "reasons": {
+          "anxiety": "TODO",
+          "falling_asleep": "TODO"
+        }
       },
       "SM_F": {
-        "shortName": "TODO: Somatic", "fullName": "TODO: Somatic / Fluctuating",
-        "description": "TODO", "expectations": "TODO",
-        "meaning": "TODO", "why": "TODO", "strategyReasoning": "TODO",
+        "shortName": "TODO: Somatic",
+        "fullName": "TODO: Somatic / Fluctuating",
+        "description": "TODO",
+        "expectations": "TODO",
+        "meaning": "TODO",
+        "why": "TODO",
+        "strategyReasoning": "TODO",
         "timeline": [
-          { "period": "TODO: Week 1–2", "expectation": "TODO" },
-          { "period": "TODO: Month 1",  "expectation": "TODO" },
-          { "period": "TODO: Month 3",  "expectation": "TODO" }
+          {
+            "period": "TODO: Week 1–2",
+            "expectation": "TODO"
+          },
+          {
+            "period": "TODO: Month 1",
+            "expectation": "TODO"
+          },
+          {
+            "period": "TODO: Month 3",
+            "expectation": "TODO"
+          }
         ],
-        "additional": "TODO", "medicalFlags": "TODO",
-        "reasons": { "meditation": "TODO", "relaxation": "TODO" }
+        "additional": "TODO",
+        "medicalFlags": "TODO",
+        "reasons": {
+          "meditation": "TODO",
+          "relaxation": "TODO"
+        }
       },
       "HB_M": {
-        "shortName": "TODO: Adapted / Mild", "fullName": "TODO: Adapted / Mild",
-        "description": "TODO", "expectations": "TODO",
-        "meaning": "TODO", "why": "TODO", "strategyReasoning": "TODO",
+        "shortName": "TODO: Adapted / Mild",
+        "fullName": "TODO: Adapted / Mild",
+        "description": "TODO",
+        "expectations": "TODO",
+        "meaning": "TODO",
+        "why": "TODO",
+        "strategyReasoning": "TODO",
         "timeline": [
-          { "period": "TODO: Week 1–2", "expectation": "TODO" },
-          { "period": "TODO: Month 1",  "expectation": "TODO" },
-          { "period": "TODO: Month 3",  "expectation": "TODO" }
+          {
+            "period": "TODO: Week 1–2",
+            "expectation": "TODO"
+          },
+          {
+            "period": "TODO: Month 1",
+            "expectation": "TODO"
+          },
+          {
+            "period": "TODO: Month 3",
+            "expectation": "TODO"
+          }
         ],
-        "additional": "TODO", "medicalFlags": "TODO",
-        "reasons": { "daily": "TODO", "falling_asleep": "TODO" }
+        "additional": "TODO",
+        "medicalFlags": "TODO",
+        "reasons": {
+          "daily": "TODO",
+          "falling_asleep": "TODO"
+        }
       }
     }
   },
-
   "categoryInfo": {
     "sectionTitles": {
-      "definition":      "TODO: What this mode is for",
-      "whenUsed":        "TODO: When to use",
-      "whenNotUsed":     "TODO: When NOT to use",
-      "recommendedNoise":"TODO: Recommended background noise",
-      "mixRatio":        "TODO: Recommended ratio",
-      "expectedEffect":  "TODO: Expected effect",
-      "safety":          "TODO: Safety",
-      "faq":             "TODO: FAQ",
+      "definition": "TODO: What this mode is for",
+      "whenUsed": "TODO: When to use",
+      "whenNotUsed": "TODO: When NOT to use",
+      "recommendedNoise": "TODO: Recommended background noise",
+      "mixRatio": "TODO: Recommended ratio",
+      "expectedEffect": "TODO: Expected effect",
+      "safety": "TODO: Safety",
+      "faq": "TODO: FAQ",
       "scientificBasis": "TODO: Scientific basis"
     },
     "whenUsedLabels": {
       "timeOfDay": "TODO: Time of day",
-      "context":   "TODO: Context",
-      "duration":  "TODO: Duration"
+      "context": "TODO: Context",
+      "duration": "TODO: Duration"
     },
     "mixRatioLabels": {
       "layer1": "TODO: Layer 1 (main sound)",
       "layer2": "TODO: Layer 2 (background noise)"
     },
     "previewCta": "TODO: Try now",
-    "closeAria":  "TODO: Close",
+    "closeAria": "TODO: Close",
     "placeholder": "TODO: This content is being prepared.",
-
-    "sleep_deep":     { "title": "TODO: Deep sleep", "subtitle": "TODO: All night",       "definition": "TODO", "whenUsed": {"timeOfDay":"TODO","context":"TODO","duration":"TODO"}, "whenNotUsed":["TODO"], "recommendedNoise": {"type":"pink_lp2000","description":"TODO"}, "mixRatio":{"layer1":30,"layer2":70,"reasoning":"TODO"}, "expectedEffect":"TODO", "safety":["TODO"], "faq":[{"q":"TODO","a":"TODO"}], "scientificBasis":["TODO"] },
-    "falling_asleep": { "title": "TODO: Falling asleep", "subtitle": "TODO: 30–90 min before bed", "definition": "TODO", "whenUsed": {"timeOfDay":"TODO","context":"TODO","duration":"TODO"}, "whenNotUsed":["TODO"], "recommendedNoise": {"type":"brown_lp1000","description":"TODO"}, "mixRatio":{"layer1":50,"layer2":50,"reasoning":"TODO"}, "expectedEffect":"TODO", "safety":["TODO"], "faq":[{"q":"TODO","a":"TODO"}], "scientificBasis":["TODO"] },
-    "relaxation":     { "title": "TODO: Relaxation", "subtitle": "TODO: Before sleep, reading", "definition": "TODO", "whenUsed": {"timeOfDay":"TODO","context":"TODO","duration":"TODO"}, "whenNotUsed":["TODO"], "recommendedNoise": {"type":"pink_pure","description":"TODO"}, "mixRatio":{"layer1":60,"layer2":40,"reasoning":"TODO"}, "expectedEffect":"TODO", "safety":["TODO"], "faq":[{"q":"TODO","a":"TODO"}], "scientificBasis":["TODO"] },
-    "daily":          { "title": "TODO: Daily", "subtitle": "TODO: Work, focus", "definition": "TODO", "whenUsed": {"timeOfDay":"TODO","context":"TODO","duration":"TODO"}, "whenNotUsed":["TODO"], "recommendedNoise": {"type":"pink_pure","description":"TODO"}, "mixRatio":{"layer1":40,"layer2":60,"reasoning":"TODO"}, "expectedEffect":"TODO", "safety":["TODO"], "faq":[{"q":"TODO","a":"TODO"}], "scientificBasis":["TODO"] },
-    "anxiety":        { "title": "TODO: Anxiety", "subtitle": "TODO: SOS, panic", "definition": "TODO", "whenUsed": {"timeOfDay":"TODO","context":"TODO","duration":"TODO"}, "whenNotUsed":["TODO"], "recommendedNoise": {"type":"pink_lp4000","description":"TODO"}, "mixRatio":{"layer1":50,"layer2":50,"reasoning":"TODO"}, "expectedEffect":"TODO", "safety":["TODO"], "faq":[{"q":"TODO","a":"TODO"}], "scientificBasis":["TODO"] },
-    "meditation":     { "title": "TODO: Meditation", "subtitle": "TODO: Guided sessions", "definition": "TODO", "whenUsed": {"timeOfDay":"TODO","context":"TODO","duration":"TODO"}, "whenNotUsed":["TODO"], "recommendedNoise": {"type":"brown_pure","description":"TODO"}, "mixRatio":{"layer1":70,"layer2":30,"reasoning":"TODO"}, "expectedEffect":"TODO", "safety":["TODO"], "faq":[{"q":"TODO","a":"TODO"}], "scientificBasis":["TODO"] }
+    "sleep_deep": {
+      "title": "TODO: Deep sleep",
+      "subtitle": "TODO: All night",
+      "definition": "TODO: translate from bg",
+      "whenUsed": {
+        "timeOfDay": "TODO",
+        "context": "TODO",
+        "duration": "TODO"
+      },
+      "whenNotUsed": [
+        "TODO"
+      ],
+      "recommendedNoise": {
+        "type": "pink_lp2000",
+        "description": "TODO"
+      },
+      "mixRatio": {
+        "layer1": 35,
+        "layer2": 65,
+        "reasoning": "TODO"
+      },
+      "expectedEffect": "TODO",
+      "safety": [
+        "TODO"
+      ],
+      "faq": [
+        {
+          "q": "TODO",
+          "a": "TODO"
+        }
+      ],
+      "scientificBasis": [
+        "TODO"
+      ]
+    },
+    "falling_asleep": {
+      "title": "TODO: Falling asleep",
+      "subtitle": "TODO: 30–90 min before bed",
+      "definition": "TODO: translate from bg",
+      "whenUsed": {
+        "timeOfDay": "TODO",
+        "context": "TODO",
+        "duration": "TODO"
+      },
+      "whenNotUsed": [
+        "TODO"
+      ],
+      "recommendedNoise": {
+        "type": "pink_lp2000",
+        "description": "TODO"
+      },
+      "mixRatio": {
+        "layer1": 45,
+        "layer2": 55,
+        "reasoning": "TODO"
+      },
+      "expectedEffect": "TODO",
+      "safety": [
+        "TODO"
+      ],
+      "faq": [
+        {
+          "q": "TODO",
+          "a": "TODO"
+        }
+      ],
+      "scientificBasis": [
+        "TODO"
+      ]
+    },
+    "relaxation": {
+      "title": "TODO: Relaxation",
+      "subtitle": "TODO: Before sleep, reading",
+      "definition": "TODO: translate from bg",
+      "whenUsed": {
+        "timeOfDay": "TODO",
+        "context": "TODO",
+        "duration": "TODO"
+      },
+      "whenNotUsed": [
+        "TODO"
+      ],
+      "recommendedNoise": {
+        "type": "pink_pure",
+        "description": "TODO"
+      },
+      "mixRatio": {
+        "layer1": 45,
+        "layer2": 55,
+        "reasoning": "TODO"
+      },
+      "expectedEffect": "TODO",
+      "safety": [
+        "TODO"
+      ],
+      "faq": [
+        {
+          "q": "TODO",
+          "a": "TODO"
+        }
+      ],
+      "scientificBasis": [
+        "TODO"
+      ]
+    },
+    "daily": {
+      "title": "TODO: Daily",
+      "subtitle": "TODO: Work, focus",
+      "definition": "TODO: translate from bg",
+      "whenUsed": {
+        "timeOfDay": "TODO",
+        "context": "TODO",
+        "duration": "TODO"
+      },
+      "whenNotUsed": [
+        "TODO"
+      ],
+      "recommendedNoise": {
+        "type": "pink_pure",
+        "description": "TODO"
+      },
+      "mixRatio": {
+        "layer1": 25,
+        "layer2": 75,
+        "reasoning": "TODO"
+      },
+      "expectedEffect": "TODO",
+      "safety": [
+        "TODO"
+      ],
+      "faq": [
+        {
+          "q": "TODO",
+          "a": "TODO"
+        }
+      ],
+      "scientificBasis": [
+        "TODO"
+      ]
+    },
+    "anxiety": {
+      "title": "TODO: Anxiety",
+      "subtitle": "TODO: SOS, panic",
+      "definition": "TODO: translate from bg",
+      "whenUsed": {
+        "timeOfDay": "TODO",
+        "context": "TODO",
+        "duration": "TODO"
+      },
+      "whenNotUsed": [
+        "TODO"
+      ],
+      "recommendedNoise": {
+        "type": "pink_lp2000",
+        "description": "TODO"
+      },
+      "mixRatio": {
+        "layer1": 55,
+        "layer2": 45,
+        "reasoning": "TODO"
+      },
+      "expectedEffect": "TODO",
+      "safety": [
+        "TODO"
+      ],
+      "faq": [
+        {
+          "q": "TODO",
+          "a": "TODO"
+        }
+      ],
+      "scientificBasis": [
+        "TODO"
+      ]
+    },
+    "meditation": {
+      "title": "TODO: Meditation",
+      "subtitle": "TODO: Guided sessions",
+      "definition": "TODO: translate from bg",
+      "whenUsed": {
+        "timeOfDay": "TODO",
+        "context": "TODO",
+        "duration": "TODO"
+      },
+      "whenNotUsed": [
+        "TODO"
+      ],
+      "recommendedNoise": {
+        "type": "pink_pure",
+        "description": "TODO"
+      },
+      "mixRatio": {
+        "layer1": 65,
+        "layer2": 35,
+        "reasoning": "TODO"
+      },
+      "expectedEffect": "TODO",
+      "safety": [
+        "TODO"
+      ],
+      "faq": [
+        {
+          "q": "TODO",
+          "a": "TODO"
+        }
+      ],
+      "scientificBasis": [
+        "TODO"
+      ]
+    }
   },
-
   "home": {
     "infoAria": "TODO: Category info",
     "title": "TODO: Choose a mode",
@@ -705,15 +1002,32 @@
     "openDiary": "TODO: Diary",
     "soundCountFmt": "TODO: {n} sounds",
     "cat": {
-      "sleep_deep":     { "name": "TODO: Deep sleep",      "subtitle": "TODO: Whole night" },
-      "falling_asleep": { "name": "TODO: Falling asleep",  "subtitle": "TODO: 30–90 min before bed" },
-      "relaxation":     { "name": "TODO: Relaxation",      "subtitle": "TODO: Before sleep, reading" },
-      "daily":          { "name": "TODO: Daily",           "subtitle": "TODO: Work, focus" },
-      "anxiety":        { "name": "TODO: Anxiety",         "subtitle": "TODO: SOS, panic" },
-      "meditation":     { "name": "TODO: Meditation",      "subtitle": "TODO: Guided sessions" }
+      "sleep_deep": {
+        "name": "TODO: Deep sleep",
+        "subtitle": "TODO: Whole night"
+      },
+      "falling_asleep": {
+        "name": "TODO: Falling asleep",
+        "subtitle": "TODO: 30–90 min before bed"
+      },
+      "relaxation": {
+        "name": "TODO: Relaxation",
+        "subtitle": "TODO: Before sleep, reading"
+      },
+      "daily": {
+        "name": "TODO: Daily",
+        "subtitle": "TODO: Work, focus"
+      },
+      "anxiety": {
+        "name": "TODO: Anxiety",
+        "subtitle": "TODO: SOS, panic"
+      },
+      "meditation": {
+        "name": "TODO: Meditation",
+        "subtitle": "TODO: Guided sessions"
+      }
     }
   },
-
   "categoryView": {
     "backAria": "TODO: Back to home",
     "soundsCount": "TODO: Sounds ({n})",
@@ -721,7 +1035,6 @@
     "description": "TODO: What it's for",
     "faqLabel": "TODO: FAQ"
   },
-
   "soundDetail": {
     "backAria": "TODO: Back to category",
     "playCta": "TODO: Listen",
@@ -732,7 +1045,6 @@
     "why": "TODO: Why this sound",
     "faqLabel": "TODO: FAQ"
   },
-
   "quiz": {
     "_note": "All quiz strings са TODO placeholders. Запазена структура; DeepL Phase 2 ще попълни преводите от bg.json.",
     "questions": {
