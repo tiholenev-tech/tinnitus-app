@@ -485,6 +485,11 @@ window.Player = (function () {
       window.removeEventListener('noise-changed', noiseChangedHandler);
       noiseChangedHandler = null;
     }
+    // Д5: suppress error banner за 1.5s — in-flight fetch грешки от
+    // самото close да не вдигат banner на следващия екран.
+    if (window.AudioErrorBanner && window.AudioErrorBanner.suppress) {
+      window.AudioErrorBanner.suppress(1500);
+    }
     // Д4: HARD STOP двата слоя при close — преди това sound продължаваше
     // да върви като orphan playback (UI на home/diary, sound в background).
     if (window.AudioEngine) {
