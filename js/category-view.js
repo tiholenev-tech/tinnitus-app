@@ -1,0 +1,406 @@
+/**
+ * AURALIS CategoryView — per use-case sounds list (Task N3)
+ * ============================================================
+ * Per BIBLE v3.1 §N3: tap-ваш use case от Home → CategoryView.
+ *
+ * Layout:
+ *   Header [< back] [emoji] [name] [⚙]
+ *   InfoPanel: "За какво е" description (от i18n) + FAQ
+ *   Sounds (N) — 2-col grid (filter manifest.sounds где
+ *                categories_use includes catId)
+ *   Tap card → SoundDetail.open(soundId)
+ *
+ * Public API:
+ *   CategoryView.open(catId)
+ *   CategoryView.close()
+ *   CategoryView.render()  — router hook
+ */
+
+window.CategoryView = (function () {
+  'use strict';
+
+  // ============================================================
+  // STATE
+  // ============================================================
+
+  var activeCatId = null;
+
+  // ============================================================
+  // Helpers
+  // ============================================================
+
+  function el(id) { return document.getElementById(id); }
+
+  function t(key, fallback, params) {
+    if (window.i18n && window.i18n.t) return window.i18n.t(key, fallback, params);
+    return fallback != null ? fallback : key;
+  }
+
+  function tOrNull(key) {
+    if (!window.i18n || !window.i18n.t) return null;
+    var v = window.i18n.t(key, null);
+    if (typeof v !== 'string' || v === key || v.indexOf('TODO:') === 0) return null;
+    return v;
+  }
+
+  function tArrOrEmpty(key) {
+    if (!window.i18n || !window.i18n.tArr) return [];
+    var arr = window.i18n.tArr(key);
+    return Array.isArray(arr) ? arr : [];
+  }
+
+  function tObjOrNull(key) {
+    if (!window.i18n || !window.i18n.tObj) return null;
+    return window.i18n.tObj(key);
+  }
+
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  function prettifyFilename(id) {
+    if (!id) return '';
+    return String(id).replace(/_/g, ' ').replace(/\s+/g, ' ').trim()
+      .replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+  }
+
+  function fmtDuration(sec) {
+    if (!sec || sec <= 0) return '—';
+    var m = Math.floor(sec / 60);
+    var s = Math.floor(sec % 60);
+    return m + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  // ============================================================
+  // Use category lookup
+  // ============================================================
+
+  function findUseCategory(catId) {
+    if (!window.AURALIS_MANIFEST) return null;
+    var arr = window.AURALIS_MANIFEST.categories_use || [];
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i].id === catId) return arr[i];
+    }
+    // Fallback: hardcoded list (mirror на home.js)
+    var HARDCODED = [
+      { id: 'sleep_deep',     emoji: '🌙' },
+      { id: 'falling_asleep', emoji: '😴' },
+      { id: 'relaxation',     emoji: '🛋' },
+      { id: 'daily',          emoji: '☕' },
+      { id: 'anxiety',        emoji: '🆘' },
+      { id: 'meditation',     emoji: '🧘' }
+    ];
+    for (var j = 0; j < HARDCODED.length; j++) {
+      if (HARDCODED[j].id === catId) return HARDCODED[j];
+    }
+    return null;
+  }
+
+  function getCatName(catId) {
+    return t('home.cat.' + catId + '.name', prettifyFilename(catId));
+  }
+
+  function getCatSubtitle(catId) {
+    return t('home.cat.' + catId + '.subtitle', '');
+  }
+
+  function getCatDescription(catId) {
+    // i18n: categoryView.descriptions.<id> ИЛИ home.cat.<id>.description
+    return tOrNull('home.cat.' + catId + '.description') ||
+           tOrNull('categoryView.descriptions.' + catId);
+  }
+
+  function getCatFaq(catId) {
+    // i18n: home.cat.<id>.faq (array of {q, a}) ИЛИ categoryView.faq.<id>
+    var arr = tObjOrNull('home.cat.' + catId + '.faq');
+    if (Array.isArray(arr)) return arr;
+    arr = tObjOrNull('categoryView.faq.' + catId);
+    if (Array.isArray(arr)) return arr;
+    return [];
+  }
+
+  // ============================================================
+  // Sound filtering
+  // ============================================================
+
+  function getSoundsForCategory(catId) {
+    if (!window.AURALIS_MANIFEST) return [];
+    var all = window.AURALIS_MANIFEST.sounds || [];
+    var matches = [];
+    for (var i = 0; i < all.length; i++) {
+      var s = all[i];
+      var cats = s.categories_use || [];
+      if (cats.indexOf(catId) !== -1) matches.push(s);
+    }
+    return matches;
+  }
+
+  function getSoundTitle(sound) {
+    if (!sound) return '';
+    var v = tOrNull(sound.title_key);
+    if (v) return v;
+    return prettifyFilename(sound.id);
+  }
+
+  function getSoundSubtitle(sound) {
+    if (!sound) return '';
+    var v = tOrNull(sound.subtitle_key);
+    if (v) return v;
+    var catId = sound.category_audio || sound.category || '';
+    return tOrNull('library.cat_audio.' + catId) || prettifyFilename(catId);
+  }
+
+  // ============================================================
+  // SVG icons
+  // ============================================================
+
+  function svgBack() {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"' +
+      ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>';
+  }
+
+  function svgPlay() {
+    return '<svg viewBox="0 0 24 24" aria-hidden="true">' +
+      '<polygon points="6,4 20,12 6,20" fill="currentColor"/></svg>';
+  }
+
+  // ============================================================
+  // HTML builders
+  // ============================================================
+
+  function buildHeader(cat) {
+    var name = getCatName(cat.id);
+    var subtitle = getCatSubtitle(cat.id);
+    var backAria = t('categoryView.backAria', 'Назад към началото');
+    return (
+      '<header class="cv-header">' +
+        '<button class="cv-back" type="button" data-action="back"' +
+          ' aria-label="' + escapeHtml(backAria) + '">' + svgBack() + '</button>' +
+        '<div class="cv-header-text">' +
+          '<h1 class="cv-title">' +
+            '<span class="cv-emoji" aria-hidden="true">' + (cat.emoji || '') + '</span>' +
+            escapeHtml(name) +
+          '</h1>' +
+          (subtitle ? '<div class="cv-subtitle">' + escapeHtml(subtitle) + '</div>' : '') +
+        '</div>' +
+      '</header>'
+    );
+  }
+
+  function buildInfoSection(cat) {
+    var description = getCatDescription(cat.id);
+    var faq = getCatFaq(cat.id);
+    if (!description && (!faq || faq.length === 0)) {
+      // Nothing да показваме засега
+      return '';
+    }
+    // InfoPanel render
+    if (window.InfoPanel && window.InfoPanel.create) {
+      // Build wrapper и inject InfoPanel след initial render
+      return '<div class="cv-info-slot" data-info-slot></div>';
+    }
+    // Fallback (нямам InfoPanel)
+    var html = '<div class="cv-info-fallback">';
+    if (description) html += '<p>' + escapeHtml(description) + '</p>';
+    if (faq && faq.length) {
+      html += '<ul>' + faq.map(function (f) {
+        return '<li><strong>' + escapeHtml(f.q) + '</strong><br>' + escapeHtml(f.a) + '</li>';
+      }).join('') + '</ul>';
+    }
+    html += '</div>';
+    return html;
+  }
+
+  function buildSoundCard(sound) {
+    var title = getSoundTitle(sound);
+    var subtitle = getSoundSubtitle(sound);
+    var duration = fmtDuration(sound.duration_sec);
+    return (
+      '<button class="glass cv-sound-card" type="button"' +
+        ' data-action="open-sound" data-sound-id="' + escapeHtml(sound.id) + '"' +
+        ' aria-label="' + escapeHtml(title) + '">' +
+        '<span class="shine"></span>' +
+        '<span class="shine shine-bottom"></span>' +
+        '<span class="glow"></span>' +
+        '<span class="glow glow-bottom"></span>' +
+        '<span class="cv-sound-body">' +
+          '<span class="cv-sound-title">' + escapeHtml(title) + '</span>' +
+          '<span class="cv-sound-subtitle">' + escapeHtml(subtitle) + '</span>' +
+          '<span class="cv-sound-duration">' + escapeHtml(duration) + '</span>' +
+        '</span>' +
+        '<span class="cv-sound-play" aria-hidden="true">' + svgPlay() + '</span>' +
+      '</button>'
+    );
+  }
+
+  function buildSoundsSection(sounds) {
+    var count = sounds.length;
+    var label = t('categoryView.soundsCount', 'Звуци (' + count + ')', { n: count });
+
+    if (count === 0) {
+      return (
+        '<section class="cv-sounds-section">' +
+          '<h2 class="cv-section-title">' + escapeHtml(label) + '</h2>' +
+          '<div class="cv-empty">' +
+            escapeHtml(t('categoryView.noSounds',
+              'Скоро ще има звуци в тази категория.')) +
+          '</div>' +
+        '</section>'
+      );
+    }
+
+    return (
+      '<section class="cv-sounds-section">' +
+        '<h2 class="cv-section-title">' + escapeHtml(label) + '</h2>' +
+        '<div class="cv-sound-grid">' +
+          sounds.map(buildSoundCard).join('') +
+        '</div>' +
+      '</section>'
+    );
+  }
+
+  function buildScreenHtml(cat, sounds) {
+    return (
+      '<div class="cv-screen" data-screen="category" data-cat-id="' + cat.id + '">' +
+        buildHeader(cat) +
+        buildInfoSection(cat) +
+        buildSoundsSection(sounds) +
+      '</div>'
+    );
+  }
+
+  // ============================================================
+  // InfoPanel injection (след render)
+  // ============================================================
+
+  function injectInfoPanel(cat) {
+    var slot = document.querySelector('[data-info-slot]');
+    if (!slot) return;
+    if (!window.InfoPanel || !window.InfoPanel.create) return;
+
+    var description = getCatDescription(cat.id);
+    var faq = getCatFaq(cat.id);
+
+    var panelTitle = t('categoryView.description', 'За какво е');
+    var opts = {
+      title: panelTitle,
+      icon: 'info'
+    };
+    if (description) {
+      opts.body = description;
+      opts.expandable = description.length > 200;
+    }
+    if (faq && faq.length) opts.faq = faq;
+
+    var panel = window.InfoPanel.create(opts);
+    slot.appendChild(panel);
+  }
+
+  // ============================================================
+  // Interactions
+  // ============================================================
+
+  function bindEvents(container) {
+    container.addEventListener('click', onClick);
+    container.addEventListener('keydown', onKeyDown);
+  }
+
+  function onClick(e) {
+    var actionBtn = e.target.closest('[data-action]');
+    if (!actionBtn) return;
+    var action = actionBtn.getAttribute('data-action');
+    if (action === 'back') {
+      e.stopPropagation();
+      close();
+    } else if (action === 'open-sound') {
+      e.stopPropagation();
+      var soundId = actionBtn.getAttribute('data-sound-id');
+      if (soundId) openSound(soundId);
+    }
+  }
+
+  function onKeyDown(e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var card = e.target.closest('[data-action="open-sound"]');
+    if (card) {
+      e.preventDefault();
+      var soundId = card.getAttribute('data-sound-id');
+      if (soundId) openSound(soundId);
+    }
+  }
+
+  function openSound(soundId) {
+    if (window.SoundDetail && window.SoundDetail.open) {
+      window.SoundDetail.open(soundId);
+    } else if (window.Player && window.Player.open) {
+      // Fallback директно към Player
+      window.Player.open(soundId);
+    } else if (window.Library && window.Library.openSound) {
+      window.Library.openSound(soundId);
+    }
+  }
+
+  // ============================================================
+  // Render / open / close
+  // ============================================================
+
+  function ensureManifest() {
+    if (window.AURALIS_MANIFEST) return Promise.resolve(window.AURALIS_MANIFEST);
+    return fetch('audio/library/manifest.json', { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (data) { window.AURALIS_MANIFEST = data; return data; })
+      .catch(function () { return null; });
+  }
+
+  function open(catId) {
+    if (!catId) return;
+    activeCatId = catId;
+    if (window.AppState && window.AppState.transition) {
+      window.AppState.transition('category');
+    }
+    history.pushState({ phase: 'category', catId: catId }, '');
+    render();
+  }
+
+  function close() {
+    activeCatId = null;
+    if (window.AppState && window.AppState.transition) {
+      window.AppState.transition('home');
+    }
+    history.pushState({ phase: 'home' }, '');
+    if (window.Home && window.Home.render) window.Home.render();
+  }
+
+  function render() {
+    if (!activeCatId) {
+      // Router landing без context → fallback Home
+      if (window.Home && window.Home.render) window.Home.render();
+      return;
+    }
+    var app = el('app');
+    if (!app) return;
+    // Skeleton while manifest loads
+    app.innerHTML = '<div class="cv-loading">Зарежда се...</div>';
+
+    ensureManifest().then(function () {
+      var cat = findUseCategory(activeCatId);
+      if (!cat) {
+        app.innerHTML = '<div class="cv-loading">Категорията не е намерена.</div>';
+        return;
+      }
+      var sounds = getSoundsForCategory(activeCatId);
+      app.innerHTML = buildScreenHtml(cat, sounds);
+      bindEvents(app);
+      injectInfoPanel(cat);
+    });
+  }
+
+  return {
+    open: open,
+    close: close,
+    render: render
+  };
+})();
