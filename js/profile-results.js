@@ -1,47 +1,62 @@
 /**
- * AURALIS ProfileResults — detailed assessment screen (Task O1)
- * ===============================================================
- * Per BIBLE v3.1 §O1: междинен screen между quiz finish и Home.
+ * AURALIS ProfileResults v2 — extended 8-section layout (Task P1)
+ * ====================================================================
+ * Per BIBLE v3.1 §O1 + §P1: detailed assessment screen след quiz finish.
  *
- * Source data (от localStorage чрез AppState):
- *   profile  — 'TH_C' | 'DN_S' | 'SS_R' | 'SM_F' | 'HB_M'
- *   di       — 0-20 (compute level: low/medium/high via QuizEngine)
+ * 8 секции:
+ *   §1 Meaning      — Какво означава за вас (InfoPanel)
+ *   §2 Why          — Защо имате този тип (InfoPanel)
+ *   §3 Strategy     — Препоръчителна стратегия (noise + mix ratio + duration)
+ *   §4 Recommended  — Препоръчителни режими (2 cards с ★ "За Вас" badge)
+ *   §5 TopSounds    — Top препоръчителни звуци (carousel — Code 2 P2 component)
+ *   §6 Timeline     — Очаквания във времето (table)
+ *   §7 Additional   — Допълнителни препоръки (InfoPanel)
+ *   §8 Medical      — Кога към лекар (InfoPanel, danger tone)
  *
- * Layout:
- *   Title "Вашата оценка"
- *   Profile card (code XL + full name + DI scale + level text)
- *   InfoPanel: "Какво означава това" (profile.description)
- *   "Препоръчителни режими" (2 cards с ★ badge)
- *   InfoPanel: "Какво да очаквате" (profile.expectations)
- *   Duration block (Първи 2 седмици / След това)
- *   InfoPanel: "Важно — научни ограничения" (disclaimer)
- *   "Продължете към звуците" CTA → Home
+ * Source data:
+ *   AppState.profile + AppState.distressIndex (localStorage fallback)
+ *   PROFILE_ADVICE — JS const (strategy data + recommendedCategories)
+ *   i18n profile_results.profiles.<code>.{meaning, why, ..., timeline}
  *
  * Public API:
- *   ProfileResults.open()
- *   ProfileResults.close()  — → Home
- *   ProfileResults.render() — router hook
+ *   ProfileResults.open() | close() | render()
  */
 
 window.ProfileResults = (function () {
   'use strict';
 
   // ============================================================
-  // CONSTANTS
+  // PROFILE_ADVICE — non-translatable data (strategy + categories).
+  // Translatable text (meaning/why/etc.) живее в i18n.
+  // Когато Opus output идва — само тук се update-ват ratio/noise/cats.
   // ============================================================
 
-  // Profile → recommended use-case category ids (mirror на N1-N5 plan)
-  var PROFILE_RECOMMENDATIONS = {
-    TH_C: ['sleep_deep', 'relaxation'],
-    DN_S: ['relaxation', 'daily'],
-    SS_R: ['anxiety', 'falling_asleep'],
-    SM_F: ['meditation', 'relaxation'],
-    HB_M: ['daily', 'falling_asleep']
+  var PROFILE_ADVICE = {
+    TH_C: {
+      strategy: { noise: 'pink_lp2000', mixRatio: [60, 40], duration: '8 часа нощно' },
+      recommendedCategories: ['sleep_deep', 'relaxation']
+    },
+    DN_S: {
+      strategy: { noise: 'brown_lp1000', mixRatio: [70, 30], duration: '8 часа нощно' },
+      recommendedCategories: ['relaxation', 'daily']
+    },
+    SS_R: {
+      strategy: { noise: 'pink_lp4000', mixRatio: [50, 50], duration: '4–6 часа на ден' },
+      recommendedCategories: ['anxiety', 'falling_asleep']
+    },
+    SM_F: {
+      strategy: { noise: 'brown_pure', mixRatio: [65, 35], duration: '6–8 часа на ден' },
+      recommendedCategories: ['meditation', 'relaxation']
+    },
+    HB_M: {
+      strategy: { noise: 'pink_pure', mixRatio: [40, 60], duration: '2–4 часа на ден' },
+      recommendedCategories: ['daily', 'falling_asleep']
+    }
   };
 
   var DEFAULT_PROFILE = 'TH_C';
 
-  // Defense-in-depth БГ fallback (mirror на home.js)
+  // Defense-in-depth БГ fallback
   var CAT_FALLBACK_BG = {
     sleep_deep:     { name: 'Сън дълбок',  subtitle: 'Цяла нощ' },
     falling_asleep: { name: 'Заспиване',   subtitle: '30–90 мин преди сън' },
@@ -50,8 +65,6 @@ window.ProfileResults = (function () {
     anxiety:        { name: 'Тревожност',  subtitle: 'SOS, паник атака' },
     meditation:     { name: 'Медитация',   subtitle: 'Водени сесии' }
   };
-
-  // Profile fallback names (защита ако i18n липсва)
   var PROFILE_FALLBACK = {
     TH_C: { short: 'Тонален висок',          full: 'Тонален високочестотен' },
     DN_S: { short: 'Шумов нискочестотен',    full: 'Шумов нискочестотен / Сън' },
@@ -60,7 +73,10 @@ window.ProfileResults = (function () {
     HB_M: { short: 'Адаптиран / Лек',        full: 'Адаптиран / Лек' }
   };
 
-  // SVG icons (mirror на home.js)
+  // ============================================================
+  // SVG icons
+  // ============================================================
+
   function svg(inner, sw) {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' + (sw || 1.8) +
       '" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + inner + '</svg>';
@@ -84,6 +100,18 @@ window.ProfileResults = (function () {
     meditation: 'lotus'
   };
 
+  function svgStar() {
+    return '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
+      '<polygon points="12,2 15,9 22,9.5 17,14 19,21 12,17.5 5,21 7,14 2,9.5 9,9"/>' +
+      '</svg>';
+  }
+
+  function svgChevron() {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"' +
+      ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<polyline points="6 9 12 15 18 9"/></svg>';
+  }
+
   // ============================================================
   // Helpers
   // ============================================================
@@ -102,10 +130,19 @@ window.ProfileResults = (function () {
     return v;
   }
 
+  function tObjOrNull(key) {
+    if (!window.i18n || !window.i18n.tObj) return null;
+    return window.i18n.tObj(key);
+  }
+
   function escapeHtml(s) {
     return String(s)
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  function placeholderText() {
+    return t('profile_results.placeholder', 'Това съдържание се подготвя от научния екип.');
   }
 
   // ============================================================
@@ -139,16 +176,28 @@ window.ProfileResults = (function () {
     if (window.QuizEngine && window.QuizEngine.diLevelKey) {
       return window.QuizEngine.diLevelKey(di);
     }
-    // Fallback per quiz-engine.js logic
     if (di <= 5) return 'low';
     if (di <= 12) return 'medium';
     return 'high';
   }
 
+  function getAdvice(code) {
+    return PROFILE_ADVICE[code] || PROFILE_ADVICE[DEFAULT_PROFILE];
+  }
+
+  function getProfileText(code, field, useTODO) {
+    // useTODO=true: даже TODO се връща (за виждане на дефолт стойност)
+    // useTODO=false: TODO се третира като missing → placeholder
+    if (!window.i18n || !window.i18n.t) return useTODO ? null : null;
+    var key = 'profile_results.profiles.' + code + '.' + field;
+    var v = window.i18n.t(key, null);
+    if (typeof v !== 'string' || v === key) return null;
+    if (!useTODO && v.indexOf('TODO:') === 0) return null;
+    return v;
+  }
+
   function getProfileShortName(code) {
     var v = tOrNull('profile_results.profiles.' + code + '.shortName');
-    if (v) return v;
-    v = tOrNull('quiz.profiles.' + code + '.shortName');
     if (v) return v;
     return (PROFILE_FALLBACK[code] || {}).short || code;
   }
@@ -156,28 +205,14 @@ window.ProfileResults = (function () {
   function getProfileFullName(code) {
     var v = tOrNull('profile_results.profiles.' + code + '.fullName');
     if (v) return v;
-    v = tOrNull('quiz.profiles.' + code + '.fullName');
-    if (v) return v;
     return (PROFILE_FALLBACK[code] || {}).full || code;
   }
 
-  function getProfileDescription(code) {
-    return tOrNull('profile_results.profiles.' + code + '.description') ||
-           tOrNull('quiz.profiles.' + code + '.description') ||
-           '';
-  }
-
-  function getProfileExpectations(code) {
-    return tOrNull('profile_results.profiles.' + code + '.expectations') || '';
-  }
-
-  function getProfileDisclaimer() {
-    return tOrNull('profile_results.disclaimer.text') ||
-      'AURALIS е инструмент за wellness support, не заменя медицинска ' +
-      'диагноза или лечение. Препоръките се базират на агрегирани изследвания ' +
-      'и общи модели, не на личен медицински преглед. При тежки симптоми ' +
-      'или нараствано влошаване — консултирайте се със специалист (УНГ ' +
-      'лекар или аудиолог).';
+  function getNoiseLabel(noiseId) {
+    if (!noiseId || noiseId === 'none') return '—';
+    return tOrNull('noises.' + noiseId + '.title') ||
+           tOrNull('components.noisePicker.options.' + noiseId) ||
+           noiseId;
   }
 
   function getCatName(catId) {
@@ -191,32 +226,15 @@ window.ProfileResults = (function () {
   }
 
   function getRecommendedReason(profile, catId) {
-    // i18n key: profile_results.profiles.<code>.reasons.<catId>
     return tOrNull('profile_results.profiles.' + profile + '.reasons.' + catId) ||
            getCatSubtitle(catId);
   }
 
   // ============================================================
-  // SVG helpers
+  // §0: Hero (profile card with DI bar)
   // ============================================================
 
-  function svgStar() {
-    return '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
-      '<polygon points="12,2 15,9 22,9.5 17,14 19,21 12,17.5 5,21 7,14 2,9.5 9,9"/>' +
-      '</svg>';
-  }
-
-  function svgChevron() {
-    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"' +
-      ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-      '<polyline points="6 9 12 15 18 9"/></svg>';
-  }
-
-  // ============================================================
-  // HTML builders
-  // ============================================================
-
-  function buildProfileCard(code, di, level) {
+  function buildHero(code, di, level) {
     var shortName = getProfileShortName(code);
     var fullName = getProfileFullName(code);
     var diPct = Math.round(Math.min(100, Math.max(0, (di / 20) * 100)));
@@ -256,6 +274,71 @@ window.ProfileResults = (function () {
     );
   }
 
+  // ============================================================
+  // §3: Strategy block (noise + ratio + duration)
+  // ============================================================
+
+  function buildStrategyBlock(code) {
+    var adv = getAdvice(code);
+    var noiseLabel = getNoiseLabel(adv.strategy.noise);
+    var ratio = adv.strategy.mixRatio || [];
+    var ratioText = (ratio.length === 2)
+      ? t('profile_results.strategy.mixRatioFmt', ratio[0] + '/' + ratio[1],
+          { l1: ratio[0], l2: ratio[1] })
+      : '—';
+    var duration = adv.strategy.duration || '—';
+    var reasoning = getProfileText(code, 'strategyReasoning', false);
+
+    var noiseLbl    = t('profile_results.strategy.noiseLabel', 'Препоръчителен фонов шум');
+    var ratioLbl    = t('profile_results.strategy.mixRatioLabel', 'Препоръчително съотношение');
+    var durationLbl = t('profile_results.strategy.durationLabel', 'Препоръчителна продължителност');
+    var reasoningLbl = t('profile_results.strategy.reasoningLabel', 'Защо тази стратегия');
+
+    return (
+      '<section class="pr-section">' +
+        '<h2 class="pr-section-title">' +
+          escapeHtml(t('profile_results.sections.strategy', 'Препоръчителна стратегия')) +
+        '</h2>' +
+        '<div class="glass pr-strategy-card">' +
+          '<span class="shine"></span>' +
+          '<span class="shine shine-bottom"></span>' +
+          '<span class="glow"></span>' +
+          '<span class="glow glow-bottom"></span>' +
+          '<div class="pr-card-inner">' +
+            '<div class="pr-strategy-row">' +
+              '<div class="pr-strategy-label">' + escapeHtml(noiseLbl) + '</div>' +
+              '<div class="pr-strategy-value pr-strategy-value--mono">' +
+                escapeHtml(noiseLabel) + '</div>' +
+            '</div>' +
+            '<div class="pr-strategy-divider" aria-hidden="true"></div>' +
+            '<div class="pr-strategy-row">' +
+              '<div class="pr-strategy-label">' + escapeHtml(ratioLbl) + '</div>' +
+              '<div class="pr-strategy-value pr-strategy-value--mono">' +
+                escapeHtml(ratioText) + '</div>' +
+            '</div>' +
+            '<div class="pr-strategy-divider" aria-hidden="true"></div>' +
+            '<div class="pr-strategy-row">' +
+              '<div class="pr-strategy-label">' + escapeHtml(durationLbl) + '</div>' +
+              '<div class="pr-strategy-value">' +
+                escapeHtml(duration) + '</div>' +
+            '</div>' +
+            (reasoning
+              ? '<div class="pr-strategy-divider" aria-hidden="true"></div>' +
+                '<div class="pr-strategy-reasoning">' +
+                  '<div class="pr-strategy-label">' + escapeHtml(reasoningLbl) + '</div>' +
+                  '<p class="pr-strategy-reasoning-text">' + escapeHtml(reasoning) + '</p>' +
+                '</div>'
+              : '') +
+          '</div>' +
+        '</div>' +
+      '</section>'
+    );
+  }
+
+  // ============================================================
+  // §4: Recommended categories
+  // ============================================================
+
   function buildRecommendedCard(code, catId) {
     var name = getCatName(catId);
     var reason = getRecommendedReason(code, catId);
@@ -285,9 +368,10 @@ window.ProfileResults = (function () {
   }
 
   function buildRecommendedSection(code) {
-    var recs = PROFILE_RECOMMENDATIONS[code] || [];
-    var title = t('profile_results.recommendedTitle', 'Препоръчителни режими');
+    var advice = getAdvice(code);
+    var recs = advice.recommendedCategories || [];
     if (recs.length === 0) return '';
+    var title = t('profile_results.sections.recommended', 'Препоръчителни режими');
     return (
       '<section class="pr-section">' +
         '<h2 class="pr-section-title">' + escapeHtml(title) + '</h2>' +
@@ -298,35 +382,141 @@ window.ProfileResults = (function () {
     );
   }
 
-  function buildDurationBlock() {
-    var title = t('profile_results.duration.title', 'Препоръчителна продължителност');
-    var firstLabel = t('profile_results.duration.firstTwoWeeks', 'Първи 2 седмици');
-    var firstText  = t('profile_results.duration.firstTwoWeeksText', '2-3 часа на ден');
-    var afterLabel = t('profile_results.duration.afterTitle', 'След това');
-    var afterText  = t('profile_results.duration.afterText', 'Цяла нощ (с sleep timer)');
+  // ============================================================
+  // §5: Top sounds carousel (placeholder slot — wired by Code 2 TopSoundsCarousel)
+  // ============================================================
+
+  function buildTopSoundsSection(code) {
+    var title = t('profile_results.sections.topSounds', 'Топ препоръчителни звуци');
     return (
       '<section class="pr-section">' +
         '<h2 class="pr-section-title">' + escapeHtml(title) + '</h2>' +
-        '<div class="glass pr-duration-card">' +
+        '<div class="pr-top-sounds-slot" data-top-sounds-slot></div>' +
+      '</section>'
+    );
+  }
+
+  function injectTopSoundsCarousel(code) {
+    var slot = document.querySelector('[data-top-sounds-slot]');
+    if (!slot) return;
+    if (!window.TopSoundsCarousel || !window.TopSoundsCarousel.create) {
+      // Fallback заглушка
+      slot.innerHTML = '<div class="pr-top-empty">' +
+        escapeHtml(t('profile_results.topSounds.loading', 'Зареждане на препоръки...')) +
+        '</div>';
+      return;
+    }
+    var advice = getAdvice(code);
+    window.TopSoundsCarousel.create({
+      mount: slot,
+      profileCode: code,
+      recommendedCategories: advice.recommendedCategories || [],
+      onTap: function (soundId) {
+        if (window.Player && window.Player.open) window.Player.open(soundId);
+        else if (window.SoundDetail && window.SoundDetail.open) window.SoundDetail.open(soundId);
+      },
+      onViewAll: function () {
+        // Open first recommended category
+        var first = (advice.recommendedCategories || [])[0];
+        if (first && window.CategoryView && window.CategoryView.open) {
+          window.CategoryView.open(first);
+        }
+      }
+    });
+  }
+
+  // ============================================================
+  // §6: Timeline (table)
+  // ============================================================
+
+  function buildTimelineSection(code) {
+    var title = t('profile_results.sections.timeline', 'Очаквания във времето');
+    var rows = tObjOrNull('profile_results.profiles.' + code + '.timeline');
+    if (!Array.isArray(rows) || rows.length === 0) return '';
+
+    var rowsHtml = rows.map(function (row) {
+      var period = row.period || '';
+      var expectation = row.expectation || '';
+      // Strip TODO prefix → show placeholder
+      if (expectation.indexOf('TODO') === 0) expectation = placeholderText();
+      return (
+        '<div class="pr-tl-row">' +
+          '<div class="pr-tl-period">' + escapeHtml(period) + '</div>' +
+          '<div class="pr-tl-expectation">' + escapeHtml(expectation) + '</div>' +
+        '</div>'
+      );
+    }).join('');
+
+    return (
+      '<section class="pr-section">' +
+        '<h2 class="pr-section-title">' + escapeHtml(title) + '</h2>' +
+        '<div class="glass pr-timeline-card">' +
           '<span class="shine"></span>' +
           '<span class="shine shine-bottom"></span>' +
           '<span class="glow"></span>' +
           '<span class="glow glow-bottom"></span>' +
-          '<div class="pr-card-inner">' +
-            '<div class="pr-duration-row">' +
-              '<div class="pr-duration-label">' + escapeHtml(firstLabel) + '</div>' +
-              '<div class="pr-duration-value">' + escapeHtml(firstText) + '</div>' +
-            '</div>' +
-            '<div class="pr-duration-divider" aria-hidden="true"></div>' +
-            '<div class="pr-duration-row">' +
-              '<div class="pr-duration-label">' + escapeHtml(afterLabel) + '</div>' +
-              '<div class="pr-duration-value">' + escapeHtml(afterText) + '</div>' +
-            '</div>' +
-          '</div>' +
+          '<div class="pr-card-inner pr-tl-inner">' + rowsHtml + '</div>' +
         '</div>' +
       '</section>'
     );
   }
+
+  // ============================================================
+  // §1/§2/§7/§8: Section slots → InfoPanel injection
+  // ============================================================
+
+  function buildInfoSection(field, sectionKey, fallbackTitle, opts) {
+    opts = opts || {};
+    var title = t('profile_results.sections.' + sectionKey, fallbackTitle);
+    var extraClass = opts.danger ? ' pr-section--danger' : '';
+    return (
+      '<section class="pr-section' + extraClass + '">' +
+        '<h2 class="pr-section-title">' + escapeHtml(title) + '</h2>' +
+        '<div data-info-slot="' + field + '"></div>' +
+      '</section>'
+    );
+  }
+
+  function injectInfoPanels(code) {
+    if (!window.InfoPanel || !window.InfoPanel.create) return;
+
+    var panels = [
+      { field: 'meaning',    sectionKey: 'meaning',    fallbackTitle: 'Какво означава за вас',    icon: 'info' },
+      { field: 'why',        sectionKey: 'why',        fallbackTitle: 'Защо имате този тип',     icon: 'help' },
+      { field: 'additional', sectionKey: 'additional', fallbackTitle: 'Допълнителни препоръки',  icon: 'book' },
+      { field: 'medical',    sectionKey: 'medical',    fallbackTitle: 'Кога към лекар',          icon: 'warning' }
+    ];
+
+    panels.forEach(function (p) {
+      var slot = document.querySelector('[data-info-slot="' + p.field + '"]');
+      if (!slot) return;
+      var content = getProfileText(code, p.field, false) || placeholderText();
+      var panelTitle = t('profile_results.sections.' + p.sectionKey, p.fallbackTitle);
+      slot.appendChild(window.InfoPanel.create({
+        title: panelTitle,
+        body: content,
+        expandable: content.length > 280,
+        icon: p.icon
+      }));
+    });
+
+    // Disclaimer winner-take-all bottom (allways shown)
+    var discText = t('profile_results.disclaimer.text', '');
+    var discTitle = t('profile_results.disclaimer.title', 'Важно — научни ограничения');
+    var discSlot = document.querySelector('[data-info-slot="disclaimer"]');
+    if (discSlot && discText) {
+      discSlot.appendChild(window.InfoPanel.create({
+        title: discTitle,
+        body: discText,
+        expandable: discText.length > 220,
+        icon: 'warning'
+      }));
+    }
+  }
+
+  // ============================================================
+  // Continue CTA
+  // ============================================================
 
   function buildContinueCta() {
     var label = t('profile_results.continue', 'Продължете към звуците');
@@ -338,6 +528,10 @@ window.ProfileResults = (function () {
     );
   }
 
+  // ============================================================
+  // Screen assembly
+  // ============================================================
+
   function buildScreenHtml() {
     var code = getProfileCode();
     var di = getDIScore();
@@ -347,63 +541,32 @@ window.ProfileResults = (function () {
     return (
       '<div class="pr-screen" data-screen="profile_results">' +
         '<h1 class="pr-title">' + escapeHtml(title) + '</h1>' +
-        buildProfileCard(code, di, level) +
-        '<div class="pr-section pr-section--description">' +
-          '<div data-info-slot="description"></div>' +
-        '</div>' +
+        buildHero(code, di, level) +
+
+        // §1
+        buildInfoSection('meaning', 'meaning', 'Какво означава за вас') +
+        // §2
+        buildInfoSection('why', 'why', 'Защо имате този тип') +
+        // §3
+        buildStrategyBlock(code) +
+        // §4
         buildRecommendedSection(code) +
-        '<div class="pr-section pr-section--expectations">' +
-          '<div data-info-slot="expectations"></div>' +
-        '</div>' +
-        buildDurationBlock() +
+        // §5
+        buildTopSoundsSection(code) +
+        // §6
+        buildTimelineSection(code) +
+        // §7
+        buildInfoSection('additional', 'additional', 'Допълнителни препоръки') +
+        // §8 (danger tone)
+        buildInfoSection('medical', 'medical', 'Кога към лекар', { danger: true }) +
+
+        // Disclaimer + CTA
         '<div class="pr-section pr-section--disclaimer">' +
           '<div data-info-slot="disclaimer"></div>' +
         '</div>' +
         buildContinueCta() +
       '</div>'
     );
-  }
-
-  // ============================================================
-  // InfoPanel injection (Code 2 O)
-  // ============================================================
-
-  function injectInfoPanels(code) {
-    if (!window.InfoPanel || !window.InfoPanel.create) return;
-
-    var description = getProfileDescription(code);
-    var expectations = getProfileExpectations(code);
-    var disclaimer = getProfileDisclaimer();
-
-    var descSlot = document.querySelector('[data-info-slot="description"]');
-    if (descSlot && description) {
-      descSlot.appendChild(window.InfoPanel.create({
-        title: t('profile_results.descriptionTitle', 'Какво означава това'),
-        body: description,
-        expandable: description.length > 280,
-        icon: 'info'
-      }));
-    }
-
-    var expSlot = document.querySelector('[data-info-slot="expectations"]');
-    if (expSlot && expectations) {
-      expSlot.appendChild(window.InfoPanel.create({
-        title: t('profile_results.expectationsTitle', 'Какво да очаквате'),
-        body: expectations,
-        expandable: expectations.length > 280,
-        icon: 'clock'
-      }));
-    }
-
-    var discSlot = document.querySelector('[data-info-slot="disclaimer"]');
-    if (discSlot && disclaimer) {
-      discSlot.appendChild(window.InfoPanel.create({
-        title: t('profile_results.disclaimer.title', 'Важно — научни ограничения'),
-        body: disclaimer,
-        expandable: disclaimer.length > 220,
-        icon: 'warning'
-      }));
-    }
   }
 
   // ============================================================
@@ -451,9 +614,11 @@ window.ProfileResults = (function () {
   function refresh() {
     var app = el('app');
     if (!app) return;
+    var code = getProfileCode();
     app.innerHTML = buildScreenHtml();
     bindEvents(app);
-    injectInfoPanels(getProfileCode());
+    injectInfoPanels(code);
+    injectTopSoundsCarousel(code);
   }
 
   function open() {
@@ -464,17 +629,14 @@ window.ProfileResults = (function () {
     refresh();
   }
 
-  function close() {
-    goToHome();
-  }
-
-  function render() {
-    refresh();
-  }
+  function close() { goToHome(); }
+  function render() { refresh(); }
 
   return {
     open: open,
     close: close,
-    render: render
+    render: render,
+    // Exposed за тестове / отвън:
+    getAdvice: getAdvice
   };
 })();

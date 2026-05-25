@@ -559,6 +559,32 @@
       "medium": "TODO: Moderate intensity",
       "high":   "TODO: High intensity"
     },
+    "sections": {
+      "meaning":    "TODO: What this means for you",
+      "why":        "TODO: Why you have this type",
+      "strategy":   "TODO: Recommended strategy",
+      "recommended":"TODO: Recommended modes",
+      "topSounds":  "TODO: Top recommended sounds",
+      "timeline":   "TODO: Expectations over time",
+      "additional": "TODO: Additional recommendations",
+      "medical":    "TODO: When to see a doctor"
+    },
+    "strategy": {
+      "noiseLabel":     "TODO: Recommended background noise",
+      "mixRatioLabel":  "TODO: Recommended ratio",
+      "mixRatioFmt":    "{l1}/{l2}",
+      "durationLabel":  "TODO: Recommended duration",
+      "reasoningLabel": "TODO: Why this strategy"
+    },
+    "topSounds": {
+      "loading": "TODO: Loading recommendations...",
+      "empty":   "TODO: Recommendations coming soon...",
+      "viewAll": "TODO: View all recommended"
+    },
+    "timeline": {
+      "loading": "TODO: Forecast coming soon..."
+    },
+    "placeholder": "TODO: This content is being prepared.",
     "descriptionTitle": "TODO: What this means",
     "expectationsTitle": "TODO: What to expect",
     "recommendedTitle": "TODO: Recommended modes",
@@ -576,11 +602,66 @@
     },
     "continue": "TODO: Continue to sounds",
     "profiles": {
-      "TH_C": { "shortName": "TODO: Tonal high",          "fullName": "TODO: Tonal high-frequency", "description": "TODO", "expectations": "TODO", "reasons": { "sleep_deep": "TODO", "relaxation": "TODO" } },
-      "DN_S": { "shortName": "TODO: Noise low-freq",      "fullName": "TODO: Noise low-freq / Sleep", "description": "TODO", "expectations": "TODO", "reasons": { "relaxation": "TODO", "daily": "TODO" } },
-      "SS_R": { "shortName": "TODO: Stress-sensitive",    "fullName": "TODO: Stress-sensitive / Reactive", "description": "TODO", "expectations": "TODO", "reasons": { "anxiety": "TODO", "falling_asleep": "TODO" } },
-      "SM_F": { "shortName": "TODO: Somatic",             "fullName": "TODO: Somatic / Fluctuating", "description": "TODO", "expectations": "TODO", "reasons": { "meditation": "TODO", "relaxation": "TODO" } },
-      "HB_M": { "shortName": "TODO: Adapted / Mild",      "fullName": "TODO: Adapted / Mild", "description": "TODO", "expectations": "TODO", "reasons": { "daily": "TODO", "falling_asleep": "TODO" } }
+      "TH_C": {
+        "shortName": "TODO: Tonal high", "fullName": "TODO: Tonal high-frequency",
+        "description": "TODO", "expectations": "TODO",
+        "meaning": "TODO", "why": "TODO", "strategyReasoning": "TODO",
+        "timeline": [
+          { "period": "TODO: Week 1–2", "expectation": "TODO" },
+          { "period": "TODO: Month 1",  "expectation": "TODO" },
+          { "period": "TODO: Month 3",  "expectation": "TODO" }
+        ],
+        "additional": "TODO", "medicalFlags": "TODO",
+        "reasons": { "sleep_deep": "TODO", "relaxation": "TODO" }
+      },
+      "DN_S": {
+        "shortName": "TODO: Noise low-freq", "fullName": "TODO: Noise low-freq / Sleep",
+        "description": "TODO", "expectations": "TODO",
+        "meaning": "TODO", "why": "TODO", "strategyReasoning": "TODO",
+        "timeline": [
+          { "period": "TODO: Week 1–2", "expectation": "TODO" },
+          { "period": "TODO: Month 1",  "expectation": "TODO" },
+          { "period": "TODO: Month 3",  "expectation": "TODO" }
+        ],
+        "additional": "TODO", "medicalFlags": "TODO",
+        "reasons": { "relaxation": "TODO", "daily": "TODO" }
+      },
+      "SS_R": {
+        "shortName": "TODO: Stress-sensitive", "fullName": "TODO: Stress-sensitive / Reactive",
+        "description": "TODO", "expectations": "TODO",
+        "meaning": "TODO", "why": "TODO", "strategyReasoning": "TODO",
+        "timeline": [
+          { "period": "TODO: Week 1–2", "expectation": "TODO" },
+          { "period": "TODO: Month 1",  "expectation": "TODO" },
+          { "period": "TODO: Month 3",  "expectation": "TODO" }
+        ],
+        "additional": "TODO", "medicalFlags": "TODO",
+        "reasons": { "anxiety": "TODO", "falling_asleep": "TODO" }
+      },
+      "SM_F": {
+        "shortName": "TODO: Somatic", "fullName": "TODO: Somatic / Fluctuating",
+        "description": "TODO", "expectations": "TODO",
+        "meaning": "TODO", "why": "TODO", "strategyReasoning": "TODO",
+        "timeline": [
+          { "period": "TODO: Week 1–2", "expectation": "TODO" },
+          { "period": "TODO: Month 1",  "expectation": "TODO" },
+          { "period": "TODO: Month 3",  "expectation": "TODO" }
+        ],
+        "additional": "TODO", "medicalFlags": "TODO",
+        "reasons": { "meditation": "TODO", "relaxation": "TODO" }
+      },
+      "HB_M": {
+        "shortName": "TODO: Adapted / Mild", "fullName": "TODO: Adapted / Mild",
+        "description": "TODO", "expectations": "TODO",
+        "meaning": "TODO", "why": "TODO", "strategyReasoning": "TODO",
+        "timeline": [
+          { "period": "TODO: Week 1–2", "expectation": "TODO" },
+          { "period": "TODO: Month 1",  "expectation": "TODO" },
+          { "period": "TODO: Month 3",  "expectation": "TODO" }
+        ],
+        "additional": "TODO", "medicalFlags": "TODO",
+        "reasons": { "daily": "TODO", "falling_asleep": "TODO" }
+      }
     }
   },
 
