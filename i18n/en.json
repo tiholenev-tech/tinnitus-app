@@ -310,8 +310,55 @@
       }
     },
 
+    "home": {
+      "title": "TODO: Choose a mode",
+      "openLibraryAll": "TODO: 🎵 All sounds",
+      "openDiary": "TODO: 📖 Diary",
+      "soundCountFmt": "TODO: {n} sounds",
+      "soundCountZero": "TODO: Soon",
+      "cat": {
+        "sleep_deep":     { "name": "TODO: Deep sleep",      "subtitle": "TODO: Whole night" },
+        "falling_asleep": { "name": "TODO: Falling asleep",  "subtitle": "TODO: 30–90 min before bed" },
+        "relaxation":     { "name": "TODO: Relaxation",      "subtitle": "TODO: Before sleep, reading" },
+        "daily":          { "name": "TODO: Daily",           "subtitle": "TODO: Work, focus" },
+        "anxiety":        { "name": "TODO: Anxiety",         "subtitle": "TODO: SOS, panic" },
+        "meditation":     { "name": "TODO: Meditation",      "subtitle": "TODO: Guided sessions" }
+      }
+    },
+
+    "categoryView": {
+      "backAria": "TODO: Back to home",
+      "soundsCount": "TODO: Sounds ({n})",
+      "noSounds": "TODO: More sounds coming for this category.",
+      "description": "TODO: What it's for",
+      "faqLabel": "TODO: FAQ"
+    },
+
+    "soundDetail": {
+      "backAria": "TODO: Back to category",
+      "playCta": "TODO: ▶ Listen",
+      "description": "TODO: Description",
+      "recommendedNoise": "TODO: Recommended background",
+      "recommendedMix": "TODO: Recommended mix: {ratio}",
+      "noRecommendation": "TODO: No background recommendation",
+      "why": "TODO: Why this sound",
+      "faqLabel": "TODO: FAQ"
+    },
+
     "library": {
       "title": "TODO: Sound library",
+      "cat_audio": {
+        "ocean":      "TODO: Ocean",
+        "rain":       "TODO: Rain",
+        "river":      "TODO: River",
+        "underwater": "TODO: Underwater",
+        "wind":       "TODO: Wind",
+        "forest":     "TODO: Forest",
+        "fire":       "TODO: Fire",
+        "meditation": "TODO: Meditation",
+        "noise":      "TODO: Noise",
+        "ambient":    "TODO: Ambient"
+      },
       "loading": "TODO: Loading...",
       "empty": "TODO: More sounds coming soon",
       "errorManifest": "TODO: Error loading library.",
