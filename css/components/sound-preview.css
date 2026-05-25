@@ -1,0 +1,45 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · SoundPreview overlay (Task VV)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.sp-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: hsl(var(--hue1) 50% 20% / 0.85);
+  border-radius: inherit;
+  animation: spFadeIn 0.2s ease;
+}
+
+.sp-indicator {
+  width: 20px;
+  height: 20px;
+  border: 2px solid hsl(38 80% 60%);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spSpin 0.8s linear infinite;
+}
+
+.sp-label {
+  font-size: 12px;
+  font-weight: 800;
+  color: hsl(38 80% 70%);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@keyframes spFadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+@keyframes spSpin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-indicator { animation: none; border-color: hsl(38 80% 60%); }
+  .sp-overlay { animation: none; }
+}

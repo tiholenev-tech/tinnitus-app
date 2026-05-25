@@ -1,0 +1,96 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · Language Picker (Task WW)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.lp-search-wrap {
+  margin-bottom: 12px;
+}
+.lp-search {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-color);
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+}
+[data-theme="light"] .lp-search, :root:not([data-theme]) .lp-search {
+  background: var(--surface);
+}
+[data-theme="dark"] .lp-search {
+  background: hsl(220 25% 8%);
+}
+.lp-search:focus {
+  border-color: hsl(38 80% 55%);
+  box-shadow: 0 0 0 2px hsl(38 80% 55% / 0.2);
+}
+
+.lp-current {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  border-radius: var(--radius-sm);
+  background: hsl(38 50% 50% / 0.08);
+}
+[data-theme="dark"] .lp-current { background: hsl(38 40% 20% / 0.15); }
+.lp-current-label {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: hsl(38 70% 50%);
+}
+[data-theme="dark"] .lp-current-label { color: hsl(38 80% 70%); }
+.lp-current-flag { font-size: 20px; }
+.lp-current-name { font-size: 14px; font-weight: 700; color: var(--text); }
+
+.lp-section-label {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+  margin-bottom: 8px;
+}
+
+.lp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.lp-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  transition: background var(--dur) var(--ease);
+}
+.lp-item:hover { background: hsl(var(--hue1) 20% 35% / 0.06); }
+[data-theme="dark"] .lp-item:hover { background: hsl(var(--hue1) 30% 18% / 0.25); }
+.lp-item.is-active {
+  background: hsl(38 50% 50% / 0.1);
+}
+[data-theme="dark"] .lp-item.is-active { background: hsl(38 40% 20% / 0.2); }
+
+.lp-flag { font-size: 22px; flex-shrink: 0; }
+.lp-name { flex: 1; }
+.lp-check {
+  font-size: 16px;
+  color: hsl(38 80% 55%);
+  font-weight: 800;
+}
