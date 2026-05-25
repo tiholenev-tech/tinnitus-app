@@ -83,9 +83,11 @@ window.NotificationsMock = (function () {
           variant: 'primary',
           onClick: function () {
             handle.close();
-            if (window.Diary && window.Diary.render) {
-              if (window.AppState && window.AppState.transition) window.AppState.transition('diary');
-              window.Diary.render();
+            // DIARY-MERGE: notifications redirect-ват към новия DiaryHub.
+            if (window.DiaryHub && window.DiaryHub.open) {
+              window.DiaryHub.open();
+            } else if (window.Diary && window.Diary.open) {
+              window.Diary.open();
             }
           }
         },

@@ -86,8 +86,15 @@
       window.Calm.render();
       return;
     }
-    if (phase === 'diary' && window.Diary && window.Diary.render) {
-      window.Diary.render();
+    // DIARY-MERGE: стария diary → новия diary_hub (14-day program).
+    // Старите въпроси (стрес/сън) се преместват в diary_evening (Wave 3.2).
+    if (phase === 'diary') {
+      window.AppState.transition('diary_hub');
+      if (window.DiaryHub && window.DiaryHub.render) {
+        window.DiaryHub.render();
+      } else if (window.Home && window.Home.render) {
+        window.Home.render();
+      }
       return;
     }
     if (phase === 'sleep' && window.Sleep && window.Sleep.render) {
@@ -201,12 +208,13 @@
         return;
       }
 
-      if (s.phase === 'diary') {
-        window.AppState.transition('diary');
-        if (window.Diary && window.Diary.render) {
-          window.Diary.render();
-        } else if (window.Library && window.Library.render) {
-          window.Library.render();
+      if (s.phase === 'diary' || s.phase === 'diary_hub') {
+        // DIARY-MERGE: popstate landing на legacy 'diary' → diary_hub.
+        window.AppState.transition('diary_hub');
+        if (window.DiaryHub && window.DiaryHub.render) {
+          window.DiaryHub.render();
+        } else if (window.Home && window.Home.render) {
+          window.Home.render();
         }
         return;
       }
@@ -287,6 +295,25 @@
     }
 
     window.AppState.load();
+
+    // ===== Wave 3.1-F: 14-day program bootstrap =====
+    // Auto-start program при first open СЛЕД quiz done. Trigger thi_baseline.
+    if (window.AppState.isQuizDone() && window.AppState.programStartDate == null) {
+      window.AppState.startProgram();
+      window.AppState.transition('thi_baseline');
+      console.log('[bootstrap] program auto-started (Day 1 baseline pending)');
+    } else if (window.AppState.programStartDate != null) {
+      // Recompute текущия program day (date math)
+      window.AppState.recomputeCurrentDay();
+    }
+
+    // Ако program е активен (между Day 1 и Day 14), primary destination = diary_hub.
+    // Когато phase е 'home' след quiz done — coerce към 'diary_hub' (CBT/diary focus).
+    // Nested screens (sound/player/category/etc.) се запазват — потребителят може
+    // да слуша + practice едновременно.
+    if (window.AppState.isProgramActive() && window.AppState.current === 'home') {
+      window.AppState.transition('diary_hub');
+    }
 
     // Initial history state според текуща фаза
     var initialState;

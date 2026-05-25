@@ -59,7 +59,8 @@ window.BackButton = (function () {
       'diary_morning': window.DiaryMorning,
       'cbt_day': window.CbtDay,
       'thi_baseline': window.ThiBaseline,
-      'diary': window.Diary,
+      // DIARY-MERGE: legacy 'diary' phase → новия DiaryHub.
+      'diary': window.DiaryHub,
       'calm': window.Calm,
       'sleep': window.Sleep,
       'library': window.Library,

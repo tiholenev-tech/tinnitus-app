@@ -534,12 +534,19 @@ window.Diary = (function () {
   // ============================================================
 
   function open() {
+    // DIARY-MERGE: стария Diary е deprecated за beta — redirect към новия
+    // DiaryHub. Стария въпросник (стрес/сън) ще се пренесе в diary_evening
+    // по време на Wave 3.2.
+    if (window.DiaryHub && window.DiaryHub.open) {
+      window.DiaryHub.open();
+      return;
+    }
     justSaved = false;
     if (window.AppState && window.AppState.transition) {
-      window.AppState.transition('diary');
+      window.AppState.transition('diary_hub');
     }
-    history.pushState({ phase: 'diary' }, '');
-    render();
+    history.pushState({ phase: 'diary_hub' }, '');
+    if (window.Home && window.Home.render) window.Home.render();
   }
 
   function close() {
