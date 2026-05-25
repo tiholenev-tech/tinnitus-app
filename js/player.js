@@ -634,48 +634,49 @@ window.Player = (function () {
       if (window.AudioEngine.setLayer2Volume) window.AudioEngine.setLayer2Volume(layer2Vol);
     }
 
-    // Layer 2 (noise) async setup — не блокира Layer 1.
-    if (window.AudioEngine && noiseId !== 'none' && window.AudioEngine.playLayer2) {
-      try { window.AudioEngine.playLayer2(noiseId); } catch (e) {}
-    }
-
-    // Layer 1 pipeline — stop old → wait → play new.
+    // SEQ-REVEAL: layered fade-in pipeline (replaces ad-hoc playLayer1/playLayer2).
+    // Маскира audio loading delay + UX educator: чист звук първо, после фон.
     var engine = window.AudioEngine;
-    if (engine) {
+    if (engine && engine.playSequentialReveal) {
       var activePreset = engine.getActivePreset ? engine.getActivePreset() : null;
-
       if (activePreset === soundId) {
-        // Същия sound вече свири — само update state.
-        console.log('[player] Layer 1 already playing same preset, no restart');
+        console.log('[player] same preset already playing — skip reveal');
         activeSoundId = soundId;
       } else {
+        // Stop old → wait 280ms → SEQ-REVEAL.
         var stopPromise = Promise.resolve();
         if (prevSoundId && prevSoundId !== soundId && engine.stopLayer1) {
           console.log('[player] stopping prev Layer 1:', prevSoundId);
           try { engine.stopLayer1(); } catch (e) {}
-          // stopLayer1 schedules fadeout ~250ms; чакаме малко преди play.
           stopPromise = new Promise(function (r) { setTimeout(r, 280); });
         }
-
+        // Get reveal timing per profile.
+        var timing = (window.ProfileConfig && window.ProfileConfig.getRevealTiming)
+          ? window.ProfileConfig.getRevealTiming(window.AppState && window.AppState.profile)
+          : { layer1FadeSec: 2.5, layer2DelaySec: 2.5, layer2FadeSec: 4.0 };
         stopPromise.then(function () {
-          // Verify flight token — user-ът може да е tap-нал друг sound вече.
           if (myToken !== openFlightToken) {
             console.log('[player] flight cancelled (token mismatch):', soundId);
             return;
           }
           activeSoundId = soundId;
-          if (!engine.playLayer1) return;
-          console.log('[player] Layer 1 starting:', soundId);
-          return engine.playLayer1(soundId);
+          console.log('[player] seq-reveal starting:', soundId, 'noise:', noiseId);
+          return engine.playSequentialReveal(soundId, noiseId, timing);
         }).then(function () {
           if (myToken !== openFlightToken) return;
-          console.log('[player] Layer 1 started:', soundId);
           updatePlayButtonState();
         }).catch(function (err) {
           if (myToken !== openFlightToken) return;
-          console.warn('[player] Layer 1 failed:', soundId, err && err.message);
+          console.warn('[player] seq-reveal failed:', soundId, err && err.message);
           setPlayButtonIcon(false);
         });
+      }
+    } else if (engine) {
+      // Fallback (старо поведение): директен playLayer1 без reveal.
+      activeSoundId = soundId;
+      if (engine.playLayer1) engine.playLayer1(soundId).catch(function () {});
+      if (noiseId !== 'none' && engine.playLayer2) {
+        try { engine.playLayer2(noiseId); } catch (e) {}
       }
     } else {
       activeSoundId = soundId;
@@ -781,6 +782,48 @@ window.Player = (function () {
     }
     startProgressTick();
   }
+
+  // ============================================================
+  // SEQ-REVEAL slider animation (animated slider при fade-in)
+  // ============================================================
+  // Listen за audio:reveal-l1 / audio:reveal-l2 → animate native <input>
+  // value smoothly от 0 до target за duration ms. Slider thumb визуално
+  // расте докато audio gain ramps. Reduce-motion users скачат на target.
+
+  function animateSlider(sliderId, fromVal, toVal, durationMs, labelId) {
+    var slider = el(sliderId);
+    if (!slider) return;
+    var lbl = labelId ? el(labelId) : null;
+
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) {
+      slider.value = toVal;
+      if (lbl) lbl.textContent = Math.round(toVal) + '%';
+      return;
+    }
+
+    var start = performance.now();
+    function step(now) {
+      var elapsed = now - start;
+      var progress = Math.min(elapsed / durationMs, 1);
+      // ease-out cubic
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var v = fromVal + (toVal - fromVal) * eased;
+      slider.value = v;
+      if (lbl) lbl.textContent = Math.round(v) + '%';
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  window.addEventListener('audio:reveal-l1', function (e) {
+    if (!e || !e.detail) return;
+    animateSlider('plL1', 0, e.detail.targetVol, e.detail.duration, 'plL1Value');
+  });
+  window.addEventListener('audio:reveal-l2', function (e) {
+    if (!e || !e.detail) return;
+    animateSlider('plL2', 0, e.detail.targetVol, e.detail.duration, 'plL2Value');
+  });
 
   return {
     open: open,

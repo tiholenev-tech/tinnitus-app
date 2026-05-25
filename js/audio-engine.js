@@ -373,14 +373,72 @@ window.AudioEngine = (function () {
   // ============================================================
 
   function playLayer1(presetId, opts) {
-    console.log('[audio-engine] playLayer1 called with:', presetId);
+    console.log('[audio-engine] playLayer1 called with:', presetId, opts || '');
     var spec = resolveSpec(presetId);
     if (!spec) {
       console.error('[audio-engine] L1 unknown preset (resolveSpec → null):', presetId);
       return Promise.reject(new Error('Unknown preset: ' + presetId));
     }
-    console.log('[audio-engine] resolved spec:', spec);
     return playLayer1Spec(presetId, spec, opts);
+  }
+
+  // ============================================================
+  // SEQ-REVEAL: layered fade-in (L1 → wait → L2)
+  // ============================================================
+  // Маскира audio loading delay + UX educator (потребителят чува първо
+  // чистия звук, после как се добавя терапевтичния шум).
+  //
+  // Dispatches:
+  //   audio:reveal-l1 { targetVol, duration }   — start на Layer 1 ramp
+  //   audio:reveal-l2 { targetVol, duration }   — start на Layer 2 ramp
+  //
+  // timing = { layer1FadeSec, layer2DelaySec, layer2FadeSec } от ProfileConfig.
+
+  function playSequentialReveal(soundId, noiseId, timing) {
+    timing = timing || { layer1FadeSec: 2.5, layer2DelaySec: 2.5, layer2FadeSec: 4.0 };
+    console.log('[seq-reveal] start', { soundId: soundId, noiseId: noiseId, timing: timing });
+
+    // Stop L2 first — не искаме L2 да продължи играе докато L1 започне reveal.
+    if (layer2.source) {
+      try { hardStopLayer2(); } catch (e) {}
+    }
+
+    var l1Promise = playLayer1(soundId, { fadeInSec: timing.layer1FadeSec });
+
+    // Emit L1 reveal event след като L1 фактически тръгне (post-fetch).
+    l1Promise.then(function () {
+      try {
+        window.dispatchEvent(new CustomEvent('audio:reveal-l1', {
+          detail: {
+            targetVol: layer1.volume,
+            duration: timing.layer1FadeSec * 1000
+          }
+        }));
+      } catch (e) {}
+    }).catch(function (err) {
+      console.warn('[seq-reveal] L1 failed:', err && err.message);
+    });
+
+    // Delayed Layer 2 start.
+    if (noiseId && noiseId !== 'none') {
+      var delayMs = (timing.layer2DelaySec || 0) * 1000;
+      setTimeout(function () {
+        playLayer2(noiseId, { fadeInSec: timing.layer2FadeSec }).then(function () {
+          try {
+            window.dispatchEvent(new CustomEvent('audio:reveal-l2', {
+              detail: {
+                targetVol: layer2.volume,
+                duration: timing.layer2FadeSec * 1000
+              }
+            }));
+          } catch (e) {}
+        }).catch(function (err) {
+          console.warn('[seq-reveal] L2 failed:', err && err.message);
+        });
+      }, delayMs);
+    }
+
+    return l1Promise;
   }
 
   function playUrl(id, url, opts) {
@@ -469,8 +527,11 @@ window.AudioEngine = (function () {
         try { oldGain.disconnect(); } catch (e) {}
       }, CROSSFADE_SEC * 1000 + 50);
     } else {
+      // SEQ-REVEAL: opts.fadeInSec позволява custom fade-in (по подразбиране 0.1s).
+      var fadeIn = (typeof opts.fadeInSec === 'number' && opts.fadeInSec > 0)
+        ? opts.fadeInSec : 0.1;
       gainNode.gain.setValueAtTime(0.0001, now);
-      gainNode.gain.exponentialRampToValueAtTime(Math.max(0.001, targetGain), now + 0.1);
+      gainNode.gain.exponentialRampToValueAtTime(Math.max(0.001, targetGain), now + fadeIn);
     }
 
     src.onended = function () {
@@ -533,9 +594,10 @@ window.AudioEngine = (function () {
   // LAYER 2 — background noise (HARD swap, без crossfade)
   // ============================================================
 
-  function playLayer2(noiseId) {
+  function playLayer2(noiseId, opts) {
     init();
     unlock();
+    opts = opts || {};
 
     // 'none' / null → stop L2
     if (!noiseId || noiseId === 'none') {
@@ -579,12 +641,13 @@ window.AudioEngine = (function () {
         bufferPromise = Promise.resolve(buf);
       }
       return bufferPromise.then(function (buffer) {
-        startLayer2Source(noiseId, buffer, spec.filter || null);
+        startLayer2Source(noiseId, buffer, spec.filter || null, { fadeInSec: opts.fadeInSec });
       });
     });
   }
 
-  function startLayer2Source(noiseId, buffer, filterFreq) {
+  function startLayer2Source(noiseId, buffer, filterFreq, opts) {
+    opts = opts || {};
     // Hard swap: stop old immediately (no crossfade — continuous noise context)
     if (layer2.source) hardStopLayer2();
 
@@ -612,10 +675,12 @@ window.AudioEngine = (function () {
 
     var now = ctx.currentTime;
     var targetGain = volumeToGain(layer2.volume);
-    // Small fade-in за избягване на click
+    // SEQ-REVEAL: opts.fadeInSec позволява по-дълъг reveal fade (default L2_FADE_SEC=0.25s).
+    var fadeIn = (typeof opts.fadeInSec === 'number' && opts.fadeInSec > L2_FADE_SEC)
+      ? opts.fadeInSec : L2_FADE_SEC;
     gainNode.gain.setValueAtTime(0.0001, now);
     gainNode.gain.exponentialRampToValueAtTime(Math.max(0.001, targetGain),
-      now + L2_FADE_SEC);
+      now + fadeIn);
 
     src.start(0);
     layer2.source = src;
@@ -824,6 +889,7 @@ window.AudioEngine = (function () {
 
     // Preload + sequential reveal
     preloadSound: preloadSound,
+    playSequentialReveal: playSequentialReveal,
 
     // Backward compat
     play: playLayer1,
