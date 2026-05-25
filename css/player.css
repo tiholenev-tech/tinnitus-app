@@ -253,7 +253,15 @@
   cursor: pointer;
   margin: 0;
   padding: 0;
-  touch-action: none;
+  /* A2.2: pan-x позволява horizontal drag на slider-а. touch-action: none
+     преди това блокираше И drag и scroll → потребителят можеше само да
+     tap-не точката. */
+  touch-action: pan-x;
+  pointer-events: auto;
+}
+/* Wrapping container — спира vertical scroll при drag върху slider area. */
+.pl-slider-row {
+  touch-action: pan-x;
 }
 .pl-slider:focus { outline: none; }
 .pl-slider:focus-visible {

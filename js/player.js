@@ -398,18 +398,8 @@ window.Player = (function () {
   // Render / bind / open / close
   // ============================================================
 
-  // Prevent vertical scroll while ACTUALLY dragging slider — без да
-  // блокираме native slider interaction. Преди това preventDefault на
-  // touchstart spirale-ваше touch events напълно → sliders не реагираха.
-  function preventScrollOnSlider(slider) {
-    var dragging = false;
-    slider.addEventListener('touchstart', function () { dragging = true; }, { passive: true });
-    slider.addEventListener('touchend',   function () { dragging = false; }, { passive: true });
-    slider.addEventListener('touchcancel', function () { dragging = false; }, { passive: true });
-    slider.addEventListener('touchmove', function (e) {
-      if (dragging) e.preventDefault();
-    }, { passive: false });
-  }
+  // A2.2: touch-action: pan-x в CSS handles scroll vs drag natively.
+  // JS preventDefault е премахнат — конфликтваше с native range input.
 
   function bindEvents(container) {
     container.addEventListener('click', onClick);
@@ -418,12 +408,10 @@ window.Player = (function () {
     if (l1) {
       l1.addEventListener('input', onL1Input);
       l1.addEventListener('change', onL1Input);
-      preventScrollOnSlider(l1);
     }
     if (l2) {
       l2.addEventListener('input', onL2Input);
       l2.addEventListener('change', onL2Input);
-      preventScrollOnSlider(l2);
     }
   }
 
