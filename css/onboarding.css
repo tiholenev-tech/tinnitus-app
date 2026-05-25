@@ -542,6 +542,107 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════
+   AA1: WELCOME SCREEN ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════ */
+
+.ob-welcome-logo {
+  animation: obLogoFadeIn 800ms var(--ease) both;
+}
+.ob-welcome-subtitle {
+  animation: obSlideUp 400ms var(--ease) 600ms both;
+}
+.ob-welcome-cta {
+  animation: obScaleIn 300ms var(--ease-spring) 1200ms both;
+}
+.ob-welcome-aurora {
+  animation: obAuroraBreathe 8s ease-in-out infinite;
+}
+
+@keyframes obLogoFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes obSlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes obScaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes obAuroraBreathe {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(1.02); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   AA2: VALUE SCREEN CARD STAGGER
+   ═══════════════════════════════════════════════════════════════════ */
+
+.ob-value-card {
+  animation: obSlideUp 400ms var(--ease) both;
+}
+.ob-value-card:nth-child(1) { animation-delay: 0ms; }
+.ob-value-card:nth-child(2) { animation-delay: 200ms; }
+.ob-value-card:nth-child(3) { animation-delay: 400ms; }
+
+.ob-beta-callout {
+  animation: obPulseGlow 1.5s ease 600ms both;
+}
+@keyframes obPulseGlow {
+  0%   { box-shadow: 0 0 0 0 hsl(38 80% 55% / 0.5); }
+  50%  { box-shadow: 0 0 20px 4px hsl(38 80% 55% / 0.3); }
+  100% { box-shadow: 0 0 0 0 hsl(38 80% 55% / 0); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   AA4: PROFILE REVEAL
+   ═══════════════════════════════════════════════════════════════════ */
+
+.ob-calculating {
+  animation: obLogoFadeIn 300ms ease both;
+}
+.ob-profile-code {
+  animation: obTypewriter 1.2s steps(4) 300ms both;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid hsl(38 80% 55%);
+  width: 4ch;
+}
+@keyframes obTypewriter {
+  from { width: 0; }
+  to   { width: 4ch; }
+}
+.ob-profile-name {
+  animation: obLogoFadeIn 500ms ease 1600ms both;
+}
+.ob-profile-desc {
+  animation: obSlideUp 400ms var(--ease) 2000ms both;
+}
+.ob-profile-cta {
+  animation: obScaleIn 300ms var(--ease-spring) 2400ms both;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   AA5: PAGE TRANSITIONS
+   ═══════════════════════════════════════════════════════════════════ */
+
+.ob-transition-forward {
+  animation: obSlideLeft 250ms ease-out both;
+}
+.ob-transition-back {
+  animation: obSlideRight 250ms ease-out both;
+}
+@keyframes obSlideLeft {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes obSlideRight {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
    REDUCED MOTION (a11y)
    ═══════════════════════════════════════════════════════════════════ */
 

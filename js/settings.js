@@ -261,6 +261,15 @@ window.Settings = (function () {
         '</button>' +
         '<button class="set-action set-action--debug" type="button" data-action="data-debug-mock-quiz">' +
           escapeHtml(t('settings.data.debugMockQuiz', 'Mock quiz: TH_C → Library (debug)')) +
+        '</button>' +
+        '<button class="set-action set-action--debug" type="button" data-action="data-debug-show-analytics">' +
+          'Show raw analytics JSON (debug)' +
+        '</button>' +
+        '<button class="set-action set-action--debug" type="button" data-action="data-debug-clear-analytics">' +
+          'Clear analytics (debug)' +
+        '</button>' +
+        '<button class="set-action set-action--debug" type="button" data-action="data-debug-fake-analytics">' +
+          'Generate fake analytics data (debug)' +
         '</button>';
     }
     return (
@@ -275,6 +284,9 @@ window.Settings = (function () {
           '<button class="set-action" type="button" data-action="data-export">' +
             escapeHtml(t('settings.data.export', 'Изтегли всичко (JSON)')) +
           '</button>' +
+          buildSectionExportButtons() +
+          '<div class="set-data-divider"></div>' +
+          buildGranularDeleteSection() +
           '<button class="set-action set-action--danger" type="button" data-action="data-delete">' +
             escapeHtml(t('settings.data.delete', 'Изтрий всички данни')) +
           '</button>' +
@@ -316,6 +328,140 @@ window.Settings = (function () {
     );
   }
 
+  // ============================================================
+  // BB1: Granular data deletion
+  // ============================================================
+
+  function buildGranularDeleteSection() {
+    var items = [
+      { action: 'del-quiz', label: t('settings.data.deleteOnly', 'Изтрий само') + ': ' + t('settings.data.quizAnswers', 'Quiz отговори') },
+      { action: 'del-diary', label: t('settings.data.deleteOnly', 'Изтрий само') + ': ' + t('settings.data.diary', 'Дневник') },
+      { action: 'del-favorites', label: t('settings.data.deleteOnly', 'Изтрий само') + ': ' + t('settings.data.favorites', 'Любими') },
+      { action: 'del-history', label: t('settings.data.deleteOnly', 'Изтрий само') + ': ' + t('settings.data.history', 'Listening history') }
+    ];
+    return items.map(function (item) {
+      return '<button class="set-action set-action--secondary" type="button" data-action="' +
+        item.action + '">' + escapeHtml(item.label) + '</button>';
+    }).join('');
+  }
+
+  // ============================================================
+  // BB2: Per-section export
+  // ============================================================
+
+  function buildSectionExportButtons() {
+    var items = [
+      { action: 'export-quiz', label: t('settings.data.exportSection', 'Експорт раздел') + ': Quiz' },
+      { action: 'export-diary', label: t('settings.data.exportSection', 'Експорт раздел') + ': ' + t('settings.data.diary', 'Дневник') },
+      { action: 'export-favorites', label: t('settings.data.exportSection', 'Експорт раздел') + ': ' + t('settings.data.favorites', 'Любими') }
+    ];
+    return items.map(function (item) {
+      return '<button class="set-action set-action--secondary" type="button" data-action="' +
+        item.action + '">' + escapeHtml(item.label) + '</button>';
+    }).join('');
+  }
+
+  // ============================================================
+  // BB3: Reminders (UI only — stub for Capacitor push)
+  // ============================================================
+
+  function buildRemindersSection() {
+    var reminders = loadReminders();
+    return (
+      '<section class="set-section">' +
+        '<div class="set-section-head">' +
+          '<span class="set-section-icon" aria-hidden="true">🔔</span>' +
+          '<h3 class="set-section-title">' +
+            escapeHtml(t('settings.reminders.title', 'Напомняния')) +
+          '</h3>' +
+        '</div>' +
+        '<div class="set-reminders">' +
+          '<label class="set-toggle-row">' +
+            '<span class="set-toggle-label">' + escapeHtml(t('settings.reminders.daily', 'Дневно напомняне за дневник')) + '</span>' +
+            '<input type="checkbox" class="set-toggle-input" id="setReminderDaily"' +
+              (reminders.daily ? ' checked' : '') + '>' +
+            '<span class="set-toggle-track"></span>' +
+          '</label>' +
+          '<div class="set-time-row" id="setDailyTimeRow"' + (reminders.daily ? '' : ' style="display:none"') + '>' +
+            '<input type="time" class="set-time-input" id="setDailyTime" value="' +
+              escapeHtml(reminders.dailyTime || '21:00') + '">' +
+          '</div>' +
+          '<label class="set-toggle-row">' +
+            '<span class="set-toggle-label">' + escapeHtml(t('settings.reminders.weekly', 'Седмично резюме (понеделник 09:00)')) + '</span>' +
+            '<input type="checkbox" class="set-toggle-input" id="setReminderWeekly"' +
+              (reminders.weekly ? ' checked' : '') + '>' +
+            '<span class="set-toggle-track"></span>' +
+          '</label>' +
+          '<div class="set-reminder-note">' +
+            escapeHtml(t('settings.reminders.notReady', 'Работи в Capacitor wrap (Phase 2)')) +
+          '</div>' +
+        '</div>' +
+      '</section>'
+    );
+  }
+
+  function loadReminders() {
+    try {
+      var raw = localStorage.getItem('auralis_reminders');
+      if (raw) return JSON.parse(raw);
+    } catch (e) { /* ignore */ }
+    return { daily: false, dailyTime: '21:00', weekly: false };
+  }
+
+  function saveReminders(obj) {
+    try { localStorage.setItem('auralis_reminders', JSON.stringify(obj)); } catch (e) { /* ignore */ }
+  }
+
+  // ============================================================
+  // BB4: Volume profiles
+  // ============================================================
+
+  function buildVolumeProfilesSection() {
+    var profiles = [
+      { id: 'quiet', label: t('settings.volume.quiet', 'Тих режим'), master: 30, l1: 30, l2: 20 },
+      { id: 'normal', label: t('settings.volume.normal', 'Нормален'), master: 50, l1: 50, l2: 30 },
+      { id: 'loud', label: t('settings.volume.loud', 'Силен'), master: 70, l1: 70, l2: 40 }
+    ];
+    var btns = profiles.map(function (p) {
+      return '<button class="set-vol-profile" type="button" data-action="vol-profile"' +
+        ' data-master="' + p.master + '" data-l1="' + p.l1 + '" data-l2="' + p.l2 + '">' +
+        escapeHtml(p.label) + '</button>';
+    }).join('');
+    return (
+      '<section class="set-section">' +
+        '<div class="set-section-head">' +
+          '<span class="set-section-icon" aria-hidden="true">' + svgSpeaker() + '</span>' +
+          '<h3 class="set-section-title">' +
+            escapeHtml(t('settings.volume.profile', 'Профил на сила')) +
+          '</h3>' +
+        '</div>' +
+        '<div class="set-vol-profiles">' + btns + '</div>' +
+      '</section>'
+    );
+  }
+
+  // ============================================================
+  // BB: Analytics stats button
+  // ============================================================
+
+  function buildAnalyticsButton() {
+    return (
+      '<section class="set-section">' +
+        '<div class="set-section-head">' +
+          '<span class="set-section-icon" aria-hidden="true">' + svgChart() + '</span>' +
+          '<h3 class="set-section-title">' +
+            escapeHtml(t('analytics.title', 'Вашата статистика')) +
+          '</h3>' +
+        '</div>' +
+        '<div class="set-data-actions">' +
+          '<button class="set-action" type="button" data-action="open-stats">' +
+            escapeHtml(t('analytics.title', 'Покажи статистика')) +
+          '</button>' +
+        '</div>' +
+      '</section>'
+    );
+  }
+
   function buildMainViewHtml() {
     var closeAria = t('settings.closeAria', 'Затвори настройки');
     var title = t('settings.title', 'Настройки');
@@ -332,6 +478,9 @@ window.Settings = (function () {
           buildLanguageSection() +
           buildThemeSection() +
           buildVolumeSection() +
+          buildVolumeProfilesSection() +
+          buildRemindersSection() +
+          buildAnalyticsButton() +
           buildDataSection() +
           buildAboutSection() +
         '</div>' +
@@ -569,6 +718,30 @@ window.Settings = (function () {
     window.location.reload();
   }
 
+  function debugShowAnalytics() {
+    if (!window.Analytics) return;
+    var data = window.Analytics.exportAll();
+    if (window.BottomSheet) {
+      window.BottomSheet.open({
+        title: 'Raw Analytics',
+        content: '<pre style="font-size:11px;overflow:auto;max-height:60vh;white-space:pre-wrap;color:var(--text);">' +
+          data.replace(/</g, '&lt;') + '</pre>',
+        height: '80vh'
+      });
+    }
+  }
+
+  function debugClearAnalytics() {
+    if (!window.Analytics) return;
+    window.Analytics.clear();
+    if (window.Toast) window.Toast.success('Analytics cleared');
+  }
+
+  function debugFakeAnalytics() {
+    if (!window.Analytics) return;
+    window.Analytics.generateFakeData();
+  }
+
   function debugMockQuiz() {
     // Set onboarding + consent + quiz done с TH_C profile, DI=8 (умерен).
     try {
@@ -586,6 +759,75 @@ window.Settings = (function () {
     if (window.AudioEngine && window.AudioEngine.stop) window.AudioEngine.stop();
     close();
     window.location.reload();
+  }
+
+  // ============================================================
+  // BB1: Granular deletion
+  // ============================================================
+
+  var SECTION_KEYS = {
+    quiz: ['auralis-quiz-answers', 'auralis-quiz-done', 'auralis-quiz-profile', 'auralis-quiz-di', 'auralis-quiz-subphase'],
+    diary: ['auralis_diary_entries'],
+    favorites: ['auralis_favorites'],
+    history: ['auralis_analytics_sessions']
+  };
+
+  function deleteSection(section) {
+    var keys = SECTION_KEYS[section];
+    if (!keys) return;
+    var ok = window.confirm(t('settings.data.deleteConfirmSection',
+      'Изтрий ' + section + '? Действието е необратимо.', { section: section }));
+    if (!ok) return;
+    try { keys.forEach(function (k) { localStorage.removeItem(k); }); } catch (e) { /* ignore */ }
+    if (window.Toast) window.Toast.success(t('settings.data.deletedSection', 'Изтрито: ' + section, { section: section }));
+  }
+
+  // ============================================================
+  // BB2: Per-section export
+  // ============================================================
+
+  function exportSection(section) {
+    var keys = SECTION_KEYS[section];
+    if (!keys) return;
+    var data = {};
+    try {
+      keys.forEach(function (k) {
+        var val = localStorage.getItem(k);
+        if (val !== null) {
+          try { data[k] = JSON.parse(val); } catch (e) { data[k] = val; }
+        }
+      });
+    } catch (e) { /* ignore */ }
+    var payload = { section: section, exportedAt: new Date().toISOString(), data: data };
+    var blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    var url = URL.createObjectURL(blob);
+    var filename = 'auralis-' + section + '-' + todayKey() + '.json';
+    var a = document.createElement('a');
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click();
+    setTimeout(function () { document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+    if (window.Toast) window.Toast.success(t('settings.data.exported', 'Експортирано'));
+  }
+
+  // ============================================================
+  // BB4: Volume profile apply
+  // ============================================================
+
+  function applyVolumeProfile(btn) {
+    var master = parseInt(btn.getAttribute('data-master'), 10);
+    var l1 = parseInt(btn.getAttribute('data-l1'), 10);
+    var l2 = parseInt(btn.getAttribute('data-l2'), 10);
+    if (window.AudioEngine) {
+      if (window.AudioEngine.setMasterVolume) window.AudioEngine.setMasterVolume(master);
+      if (window.AudioEngine.setLayer1Volume) window.AudioEngine.setLayer1Volume(l1);
+      if (window.AudioEngine.setLayer2Volume) window.AudioEngine.setLayer2Volume(l2);
+    }
+    try { localStorage.setItem(STORAGE_VOLUME, String(master)); } catch (e) { /* ignore */ }
+    var label = el('setVolValue');
+    if (label) label.textContent = master + '%';
+    var slider = el('setVolSlider');
+    if (slider) slider.value = master;
+    if (window.Toast) window.Toast.info(btn.textContent.trim());
   }
 
   // ============================================================
@@ -633,6 +875,18 @@ window.Settings = (function () {
       else if (action === 'data-debug-skip-onboarding') debugSkipOnboarding();
       else if (action === 'data-debug-reset-onboarding') debugResetOnboarding();
       else if (action === 'data-debug-mock-quiz') debugMockQuiz();
+      else if (action === 'data-debug-show-analytics') debugShowAnalytics();
+      else if (action === 'data-debug-clear-analytics') debugClearAnalytics();
+      else if (action === 'data-debug-fake-analytics') debugFakeAnalytics();
+      else if (action === 'del-quiz') deleteSection('quiz');
+      else if (action === 'del-diary') deleteSection('diary');
+      else if (action === 'del-favorites') deleteSection('favorites');
+      else if (action === 'del-history') deleteSection('history');
+      else if (action === 'export-quiz') exportSection('quiz');
+      else if (action === 'export-diary') exportSection('diary');
+      else if (action === 'export-favorites') exportSection('favorites');
+      else if (action === 'vol-profile') applyVolumeProfile(actionBtn);
+      else if (action === 'open-stats') { if (window.Analytics) window.Analytics.showStats(); }
       else if (action === 'open-privacy') showPrivacyView();
       else if (action === 'open-terms') showTermsView();
       return;
@@ -695,6 +949,34 @@ window.Settings = (function () {
     if (volSlider) {
       volSlider.addEventListener('input', onVolumeInput);
       volSlider.addEventListener('change', onVolumeInput);
+    }
+
+    // BB3: Reminders toggles
+    var dailyToggle = overlay.querySelector('#setReminderDaily');
+    if (dailyToggle) {
+      dailyToggle.addEventListener('change', function () {
+        var rem = loadReminders();
+        rem.daily = dailyToggle.checked;
+        saveReminders(rem);
+        var row = overlay.querySelector('#setDailyTimeRow');
+        if (row) row.style.display = rem.daily ? '' : 'none';
+      });
+    }
+    var dailyTime = overlay.querySelector('#setDailyTime');
+    if (dailyTime) {
+      dailyTime.addEventListener('change', function () {
+        var rem = loadReminders();
+        rem.dailyTime = dailyTime.value;
+        saveReminders(rem);
+      });
+    }
+    var weeklyToggle = overlay.querySelector('#setReminderWeekly');
+    if (weeklyToggle) {
+      weeklyToggle.addEventListener('change', function () {
+        var rem = loadReminders();
+        rem.weekly = weeklyToggle.checked;
+        saveReminders(rem);
+      });
     }
   }
 

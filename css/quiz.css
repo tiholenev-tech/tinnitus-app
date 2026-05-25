@@ -508,6 +508,66 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════
+   AA3: QUIZ PROGRESS + QUESTION ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Progress bar champagne gradient + pulse */
+.quiz-progress-fill {
+  background: linear-gradient(90deg, hsl(38 60% 40%), hsl(38 80% 55%));
+  transition: width 0.4s var(--ease);
+}
+.quiz-progress-fill.is-advancing {
+  animation: qzProgressPulse 0.4s ease;
+}
+@keyframes qzProgressPulse {
+  0%, 100% { transform: scaleY(1); }
+  50%      { transform: scaleY(1.4); }
+}
+
+/* Question number counter animation */
+.quiz-counter {
+  transition: transform 0.2s var(--ease);
+}
+.quiz-counter.is-changing {
+  animation: qzCountUp 0.3s ease;
+}
+@keyframes qzCountUp {
+  from { transform: translateY(8px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+/* Question text fade transition */
+.quiz-question-text {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.quiz-question-text.is-exiting {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+.quiz-question-text.is-entering {
+  animation: qzQuestionIn 0.2s ease both;
+}
+@keyframes qzQuestionIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Option cards slide-in from right (stagger) */
+.quiz-option {
+  animation: qzOptionSlide 0.3s var(--ease) both;
+}
+.quiz-option:nth-child(1) { animation-delay: 0ms; }
+.quiz-option:nth-child(2) { animation-delay: 50ms; }
+.quiz-option:nth-child(3) { animation-delay: 100ms; }
+.quiz-option:nth-child(4) { animation-delay: 150ms; }
+.quiz-option:nth-child(5) { animation-delay: 200ms; }
+
+@keyframes qzOptionSlide {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
    REDUCED MOTION
    ═══════════════════════════════════════════════════════════════════ */
 

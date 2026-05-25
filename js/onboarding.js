@@ -176,21 +176,21 @@ window.Onboarding = (function () {
 
   function screenWelcome() {
     return (
-      '<article class="ob-screen" data-screen="welcome">' +
+      '<article class="ob-screen ob-transition-forward" data-screen="welcome">' +
         renderTopRow(0, false) +
 
-        '<div class="ob-illustration">' + SVG.wave + '</div>' +
+        '<div class="ob-illustration ob-welcome-aurora">' + SVG.wave + '</div>' +
 
-        '<h1 class="ob-title">' +
+        '<h1 class="ob-title ob-welcome-logo">' +
           t('ui.onboarding.welcome.title',
             'Контролирайте шума.<br>Възстановете покоя.') +
         '</h1>' +
-        '<p class="ob-subtitle">' +
+        '<p class="ob-subtitle ob-welcome-subtitle">' +
           t('ui.onboarding.welcome.subtitle',
             'Звукова релаксация за облекчение при хроничен тинитус.') +
         '</p>' +
 
-        '<div class="ob-actions">' +
+        '<div class="ob-actions ob-welcome-cta">' +
           '<button class="btn-cta" type="button" data-action="next">' +
             t('ui.onboarding.welcome.cta', 'Започнете безплатната оценка') +
           '</button>' +
@@ -220,7 +220,7 @@ window.Onboarding = (function () {
     var betaTitle = t('ui.onboarding.value.beta.title', '');
     var betaText  = t('ui.onboarding.value.beta.text', '');
     var betaHtml = (betaTitle || betaText)
-      ? '<div class="glass ob-beta-card">' +
+      ? '<div class="glass ob-beta-card ob-beta-callout">' +
           SHINES +
           (betaTitle ? '<div class="ob-beta-title">' + betaTitle + '</div>' : '') +
           (betaText  ? '<div class="ob-beta-text">'  + betaText  + '</div>' : '') +

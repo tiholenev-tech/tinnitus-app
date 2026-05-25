@@ -257,7 +257,8 @@
 
     window.addEventListener('popstate', onPopstate);
 
-    // Accessibility init
+    // Analytics + Accessibility init
+    if (window.Analytics && window.Analytics.init) window.Analytics.init();
     if (window.A11y && window.A11y.init) window.A11y.init();
 
     route();
