@@ -74,21 +74,12 @@
 }
 .home-cat-icon svg { width: 26px; height: 26px; }
 
-/* Recommended cards → champagne tint за icon (with strong contrast)
-   Fix: light mode имаше teal-on-teal pale icons за анг/заспиване.
-   Сега bg е по-наситен + color е значително по-тъмен в light. */
-.home-cat-card.is-recommended .home-cat-icon {
-  background: linear-gradient(135deg, hsl(var(--hue3) 60% 60% / 0.32), hsl(var(--hue1) 60% 60% / 0.22));
-  color: hsl(var(--hue3) 75% 26%);
-}
-[data-theme="dark"] .home-cat-card.is-recommended .home-cat-icon {
-  background: linear-gradient(135deg, hsl(var(--hue3) 60% 22% / 0.85), hsl(var(--hue1) 60% 22% / 0.6));
-  color: hsl(var(--hue3) 80% 78%);
-}
+/* Uniform icon container: всички 6 икони (recommended или не) имат един
+   и същ фон + color. Recommendation indication остава САМО на ниво card
+   (ring + ★ badge горе вдясно). */
 
 /* Force stroke width on all home cat icons за consistent визуална тежест.
-   Fix: zzz (falling_asleep) и shield (anxiety) са с тънки stroke shapes —
-   изглеждаха блед в светъл режим. Override на parent + всички SVG деца. */
+   Override на 1.8 inline attribute (parent + всички SVG children). */
 .home-cat-icon svg,
 .home-cat-icon svg path,
 .home-cat-icon svg line,
