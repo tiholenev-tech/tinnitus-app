@@ -165,7 +165,6 @@ window.SoundDetail = (function () {
   function buildHero(sound) {
     var title = getSoundTitle(sound);
     var subtitle = getSoundSubtitle(sound);
-    var duration = fmtDuration(sound.duration_sec);
     return (
       '<section class="sd-hero">' +
         '<div class="sd-art" aria-hidden="true">' +
@@ -173,7 +172,6 @@ window.SoundDetail = (function () {
         '</div>' +
         '<h2 class="sd-title">' + escapeHtml(title) + '</h2>' +
         '<div class="sd-subtitle">' + escapeHtml(subtitle) + '</div>' +
-        (duration ? '<div class="sd-duration">' + escapeHtml(duration) + '</div>' : '') +
       '</section>'
     );
   }

@@ -233,7 +233,6 @@ window.CategoryView = (function () {
   function buildSoundCard(sound) {
     var title = getSoundTitle(sound);
     var subtitle = getSoundSubtitle(sound);
-    var duration = fmtDuration(sound.duration_sec);
     return (
       '<button class="glass cv-sound-card" type="button"' +
         ' data-action="open-sound" data-sound-id="' + escapeHtml(sound.id) + '"' +
@@ -245,7 +244,6 @@ window.CategoryView = (function () {
         '<span class="cv-sound-body">' +
           '<span class="cv-sound-title">' + escapeHtml(title) + '</span>' +
           '<span class="cv-sound-subtitle">' + escapeHtml(subtitle) + '</span>' +
-          '<span class="cv-sound-duration">' + escapeHtml(duration) + '</span>' +
         '</span>' +
         '<span class="cv-sound-play" aria-hidden="true">' + svgPlay() + '</span>' +
       '</button>'

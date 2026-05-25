@@ -198,7 +198,6 @@ window.TopSoundsCarousel = (function () {
 
   function buildCardHtml(sound, index) {
     var title = soundTitle(sound);
-    var duration = fmtDuration(sound.duration_sec);
     var ariaLabel = t('library.card.playAria', 'Пусни ' + title, { title: title });
     return (
       '<button class="tsc-card" type="button"' +
@@ -211,7 +210,6 @@ window.TopSoundsCarousel = (function () {
         '</span>' +
         '<span class="tsc-card-body">' +
           '<span class="tsc-card-title">' + escapeHtml(title) + '</span>' +
-          (duration ? '<span class="tsc-card-duration">' + escapeHtml(duration) + '</span>' : '') +
         '</span>' +
       '</button>'
     );

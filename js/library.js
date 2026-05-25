@@ -303,7 +303,6 @@ window.Library = (function () {
   function buildSoundCardHtml(sound) {
     var title = soundTitle(sound);
     var subtitle = soundSubtitle(sound);
-    var duration = formatDuration(sound.duration_sec);
     var isFav = favorites.indexOf(sound.id) !== -1;
     var isPlaying = (window.AudioEngine && window.AudioEngine.getActivePreset() === sound.id);
     var favAria = isFav
@@ -324,9 +323,6 @@ window.Library = (function () {
         '<div class="lib-card-body">' +
           '<div class="lib-card-title">' + escapeHtml(title) + '</div>' +
           '<div class="lib-card-subtitle">' + escapeHtml(subtitle) + '</div>' +
-          '<div class="lib-card-meta">' +
-            '<span class="lib-card-duration">' + escapeHtml(duration) + '</span>' +
-          '</div>' +
         '</div>' +
         '<button class="lib-card-fav' + (isFav ? ' is-active' : '') + '"' +
           ' type="button" data-action="fav"' +
@@ -357,7 +353,6 @@ window.Library = (function () {
     var title = soundTitle(sound);
     var subtitle = soundSubtitle(sound);
     var author = sound.author_key ? t(sound.author_key, '') : '';
-    var duration = formatDuration(sound.duration_sec);
     var isFav = favorites.indexOf(sound.id) !== -1;
     var playAria = t('library.card.playAria', 'Пусни ' + title, { title: title });
     var favAria = isFav
@@ -372,11 +367,7 @@ window.Library = (function () {
         '<div class="lib-med-body">' +
           '<div class="lib-med-title">' + escapeHtml(title) + '</div>' +
           (author ? '<div class="lib-med-author">' + escapeHtml(author) + '</div>' : '') +
-          '<div class="lib-med-meta">' +
-            '<span class="lib-med-duration">' + escapeHtml(duration) + '</span>' +
-            '<span class="lib-med-sep" aria-hidden="true">·</span>' +
-            '<span class="lib-med-subtitle">' + escapeHtml(subtitle) + '</span>' +
-          '</div>' +
+          '<div class="lib-med-subtitle">' + escapeHtml(subtitle) + '</div>' +
         '</div>' +
         '<button class="lib-med-fav' + (isFav ? ' is-active' : '') + '"' +
           ' type="button" data-action="fav"' +
