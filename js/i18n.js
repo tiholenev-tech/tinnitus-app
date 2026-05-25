@@ -39,9 +39,9 @@ window.i18n = (function () {
       if (saved && SUPPORTED.indexOf(saved) !== -1) return saved;
     } catch (e) { /* ignore */ }
 
-    // 2. navigator.language (e.g. "en-US" → "en")
-    var nav = ((navigator.language || navigator.userLanguage || '') + '').split('-')[0].toLowerCase();
-    if (SUPPORTED.indexOf(nav) !== -1) return nav;
+    // 2. navigator.language — DISABLED during beta (en.json не е готов)
+    // var nav = ((navigator.language || navigator.userLanguage || '') + '').split('-')[0].toLowerCase();
+    // if (SUPPORTED.indexOf(nav) !== -1) return nav;
 
     // 3. Default fallback (during beta: BG)
     return DEFAULT_FALLBACK;
