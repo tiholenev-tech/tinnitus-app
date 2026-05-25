@@ -396,7 +396,10 @@ window.AudioEngine = (function () {
 
   function playSequentialReveal(soundId, noiseId, timing) {
     timing = timing || { layer1FadeSec: 2.5, layer2DelaySec: 2.5, layer2FadeSec: 4.0 };
-    console.log('[seq-reveal] start', { soundId: soundId, noiseId: noiseId, timing: timing });
+    console.log('[seq-reveal] start', {
+      soundId: soundId, noiseId: noiseId, timing: timing,
+      l1Vol: layer1.volume, l2Vol: layer2.volume, masterVol: masterVolume
+    });
 
     // Stop L2 first — не искаме L2 да продължи играе докато L1 започне reveal.
     if (layer2.source) {
@@ -407,6 +410,7 @@ window.AudioEngine = (function () {
 
     // Emit L1 reveal event след като L1 фактически тръгне (post-fetch).
     l1Promise.then(function () {
+      console.log('[seq-reveal] L1 STARTED — gain ramping to', volumeToGain(layer1.volume).toFixed(3));
       try {
         window.dispatchEvent(new CustomEvent('audio:reveal-l1', {
           detail: {
@@ -416,7 +420,7 @@ window.AudioEngine = (function () {
         }));
       } catch (e) {}
     }).catch(function (err) {
-      console.warn('[seq-reveal] L1 failed:', err && err.message);
+      console.warn('[seq-reveal] L1 FAILED:', err && err.message);
     });
 
     // Delayed Layer 2 start.
@@ -527,11 +531,14 @@ window.AudioEngine = (function () {
         try { oldGain.disconnect(); } catch (e) {}
       }, CROSSFADE_SEC * 1000 + 50);
     } else {
-      // SEQ-REVEAL: opts.fadeInSec позволява custom fade-in (по подразбиране 0.1s).
+      // SEQ-REVEAL-BUG fix: exponential ramp от 0.0001 → target за 2.5s
+      // оставяше L1 inaudible за първия ~1.5s (exp curve heavily back-loaded).
+      // → linearRampToValueAtTime е perceptually OK + audible от началото.
       var fadeIn = (typeof opts.fadeInSec === 'number' && opts.fadeInSec > 0)
         ? opts.fadeInSec : 0.1;
-      gainNode.gain.setValueAtTime(0.0001, now);
-      gainNode.gain.exponentialRampToValueAtTime(Math.max(0.001, targetGain), now + fadeIn);
+      console.log('[audio] L1 fade-in: 0 →', targetGain.toFixed(3), 'over', fadeIn, 's');
+      gainNode.gain.setValueAtTime(0, now);
+      gainNode.gain.linearRampToValueAtTime(targetGain, now + fadeIn);
     }
 
     src.onended = function () {
@@ -675,12 +682,13 @@ window.AudioEngine = (function () {
 
     var now = ctx.currentTime;
     var targetGain = volumeToGain(layer2.volume);
-    // SEQ-REVEAL: opts.fadeInSec позволява по-дълъг reveal fade (default L2_FADE_SEC=0.25s).
+    // SEQ-REVEAL-BUG fix: linear (audible от началото) вместо exponential
+    // (back-loaded — inaudible за първия ~60% от fadeIn).
     var fadeIn = (typeof opts.fadeInSec === 'number' && opts.fadeInSec > L2_FADE_SEC)
       ? opts.fadeInSec : L2_FADE_SEC;
-    gainNode.gain.setValueAtTime(0.0001, now);
-    gainNode.gain.exponentialRampToValueAtTime(Math.max(0.001, targetGain),
-      now + fadeIn);
+    console.log('[audio] L2 fade-in: 0 →', targetGain.toFixed(3), 'over', fadeIn, 's');
+    gainNode.gain.setValueAtTime(0, now);
+    gainNode.gain.linearRampToValueAtTime(targetGain, now + fadeIn);
 
     src.start(0);
     layer2.source = src;
