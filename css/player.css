@@ -14,6 +14,7 @@
   align-items: center;
   padding: env(safe-area-inset-top, 12px) 24px env(safe-area-inset-bottom, 24px);
   overflow-y: auto;
+  overscroll-behavior: contain;
   color: hsl(220 15% 95%);
   background:
     radial-gradient(ellipse 800px 600px at 50% 30%, hsl(var(--hue1) 60% 25% / 0.45) 0%, transparent 70%),
@@ -252,6 +253,7 @@
   cursor: pointer;
   margin: 0;
   padding: 0;
+  touch-action: pan-x;
 }
 .pl-slider:focus { outline: none; }
 .pl-slider:focus-visible {
