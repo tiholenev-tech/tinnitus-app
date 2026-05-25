@@ -226,25 +226,20 @@
         var s = window.AppState;
         if (!s) return;
 
-        if (s.isQuizDone()) {
-          // Quiz приключен → HOME (primary per BIBLE v3.1 §N2)
+        if (s.isOnboardingDone() && s.isQuizDone()) {
+          // Onboarding + Quiz приключени → HOME (primary per BIBLE v3.1 §N2)
           s.transition('home');
           history.pushState({ phase: 'home' }, '');
           if (window.Home && window.Home.render) window.Home.render();
           else if (window.Library && window.Library.render) window.Library.render();
           else if (window.Mixer && window.Mixer.render) window.Mixer.render();
           else if (window.Quiz && window.Quiz.render) window.Quiz.render();
-        } else if (s.isOnboardingDone()) {
-          // Onboarding done → quiz q1
-          s.transitionQuizSubphase('q1');
-          s.transition('quiz');
-          history.pushState({ phase: 'quiz', quizSubphase: 'q1' }, '');
-          if (window.Quiz && window.Quiz.render) window.Quiz.render();
         } else {
-          // В onboarding → welcome (изчисти стари quiz отговори за clean restart)
+          // Иначе → onboarding welcome (изчисти стари quiz отговори за clean restart)
           if (typeof s.resetQuiz === 'function') s.resetQuiz();
+          s.transition('onboarding');
           s.transitionSubphase('welcome');
-          history.pushState({ subphase: 'welcome' }, '');
+          history.pushState({ phase: 'onboarding', subphase: 'welcome' }, '');
           if (window.Onboarding && window.Onboarding.render) window.Onboarding.render();
         }
       }
