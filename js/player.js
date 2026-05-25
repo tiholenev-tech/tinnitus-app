@@ -214,6 +214,15 @@ window.Player = (function () {
             ' aria-label="' + escapeHtml(backAria) + '">' + SVG.back +
           '</button>' +
           '<div class="pl-header-spacer"></div>' +
+          '<button class="pl-info-btn" type="button" data-action="info"' +
+            ' aria-label="' + escapeHtml(t('components.player.infoAria', 'Информация за звука')) + '">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"' +
+              ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+              '<circle cx="12" cy="12" r="10"/>' +
+              '<line x1="12" y1="16" x2="12" y2="12"/>' +
+              '<line x1="12" y1="8" x2="12.01" y2="8"/>' +
+            '</svg>' +
+          '</button>' +
         '</header>' +
 
         '<div class="pl-art" aria-hidden="true">' +
@@ -380,6 +389,75 @@ window.Player = (function () {
     else if (action === 'open-noise') openNoisePicker();
     else if (action === 'sleep') openSleep();
     else if (action === 'sos') openSos();
+    else if (action === 'info') openSoundInfo();
+  }
+
+  // SKIP-MIDDLEWARE: bottom sheet с inline инфо за активния звук.
+  // Замества SoundDetail screen (премахнато middleware).
+  function openSoundInfo() {
+    if (!activeSoundId) return;
+    var sound = findSound(activeSoundId);
+    if (!sound) return;
+
+    var profile = (window.AppState && window.AppState.profile) || 'SS_R';
+    var scenario = (window.ProfileConfig && window.ProfileConfig.pickScenarioFromSound)
+      ? window.ProfileConfig.pickScenarioFromSound(sound)
+      : 'relaxation';
+
+    var title = soundTitle(sound);
+    var description = '';
+    if (window.i18n && window.i18n.t) {
+      var descKey = sound.description_key;
+      if (descKey) {
+        var d = window.i18n.t(descKey, null);
+        if (typeof d === 'string' && d !== descKey && d.indexOf('TODO:') !== 0) {
+          description = d;
+        }
+      }
+    }
+    if (!description) {
+      description = 'Звук от категория ' + (sound.category_audio || 'природа') + '.';
+    }
+
+    var recommendedNoise = window.ProfileConfig
+      ? window.ProfileConfig.getRecommendedNoise(profile)
+      : 'brown_lp500';
+    var noiseLabelText = noiseLabel(recommendedNoise);
+
+    var whyKey = 'profile_results.profiles.' + profile + '.reasons.' + scenario;
+    var why = '';
+    if (window.i18n && window.i18n.t) {
+      var w = window.i18n.t(whyKey, null);
+      if (typeof w === 'string' && w !== whyKey && w.indexOf('TODO:') !== 0) why = w;
+    }
+
+    var content =
+      '<div class="pl-info-sheet">' +
+        '<section class="pl-info-section">' +
+          '<h3>За звука</h3>' +
+          '<p>' + escapeHtml(description) + '</p>' +
+        '</section>' +
+        '<section class="pl-info-section">' +
+          '<h3>Препоръчителен фон за вашия профил</h3>' +
+          '<p>' + escapeHtml(noiseLabelText) + '</p>' +
+        '</section>' +
+        (why
+          ? '<section class="pl-info-section">' +
+              '<h3>Защо този звук е добър за вас</h3>' +
+              '<p>' + escapeHtml(why) + '</p>' +
+            '</section>'
+          : '') +
+      '</div>';
+
+    if (window.BottomSheet && window.BottomSheet.open) {
+      window.BottomSheet.open({
+        title: title,
+        content: content,
+        height: 'auto',
+        showGrip: true,
+        closeOnBackdrop: true
+      });
+    }
   }
 
   function togglePlayPause() {

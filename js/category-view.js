@@ -396,12 +396,14 @@ window.CategoryView = (function () {
     }
   }
 
+  // SKIP-MIDDLEWARE: tap на sound card → директно Player, без SoundDetail.
+  // Информацията от SoundDetail е достъпна през (i) бутон в Player header
+  // → bottom sheet с описание / препоръчителен фон / "защо за вас".
   function openSound(soundId) {
-    if (window.SoundDetail && window.SoundDetail.open) {
-      window.SoundDetail.open(soundId);
-    } else if (window.Player && window.Player.open) {
-      // Fallback директно към Player
+    if (window.Player && window.Player.open) {
       window.Player.open(soundId);
+    } else if (window.SoundDetail && window.SoundDetail.open) {
+      window.SoundDetail.open(soundId);
     } else if (window.Library && window.Library.openSound) {
       window.Library.openSound(soundId);
     }

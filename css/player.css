@@ -63,6 +63,51 @@
 .pl-back svg { width: 20px; height: 20px; }
 .pl-header-spacer { flex: 1; }
 
+/* SKIP-MIDDLEWARE: (i) info button — replaces SoundDetail middleware */
+.pl-info-btn {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: var(--radius-icon);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+[data-theme="light"] .pl-info-btn,
+:root:not([data-theme]) .pl-info-btn {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+  color: var(--text);
+}
+[data-theme="dark"] .pl-info-btn {
+  background: hsl(220 25% 8% / 0.7);
+  backdrop-filter: blur(8px);
+  color: hsl(220 15% 80%);
+}
+.pl-info-btn:active { transform: scale(var(--press)); }
+.pl-info-btn svg { width: 20px; height: 20px; }
+
+/* Info bottom sheet content */
+.pl-info-sheet {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 4px 2px 8px;
+}
+.pl-info-section h3 {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+.pl-info-section p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
 /* ═══ ART (animated orb) ═══ */
 .pl-art {
   margin: 16px 0 20px;
