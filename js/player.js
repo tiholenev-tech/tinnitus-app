@@ -306,6 +306,29 @@ window.Player = (function () {
   // Interactions
   // ============================================================
 
+  // SAFETY-4: throttle volume warnings (макс 1 toast на 8s да не спами).
+  var lastVolumeWarnTs = 0;
+  function checkVolumeWarning(level) {
+    var now = Date.now();
+    if (now - lastVolumeWarnTs < 8000) return;
+    var hour = new Date().getHours();
+    var isNight = hour >= 22 || hour < 7;
+    var msg = null;
+    if (isNight && level > 55) {
+      msg = 'Над 55% нощем не се препоръчва — риск за слуха при дълго слушане.';
+    } else if (!isNight && level > 70) {
+      msg = 'Над 70% може да увреди слуха при дълго слушане.';
+    }
+    if (msg && window.Toast) {
+      lastVolumeWarnTs = now;
+      if (window.Toast.warning) {
+        window.Toast.warning(msg);
+      } else if (window.Toast.show) {
+        window.Toast.show(msg, { variant: 'warning', durationMs: 4000 });
+      }
+    }
+  }
+
   function onL1Input(e) {
     var v = parseInt(e.currentTarget.value, 10);
     if (isNaN(v)) return;
@@ -316,6 +339,7 @@ window.Player = (function () {
     if (window.AudioEngine && window.AudioEngine.setLayer1Volume) {
       window.AudioEngine.setLayer1Volume(layer1Vol);
     }
+    checkVolumeWarning(layer1Vol);
   }
   function onL2Input(e) {
     var v = parseInt(e.currentTarget.value, 10);
@@ -327,6 +351,7 @@ window.Player = (function () {
     if (window.AudioEngine && window.AudioEngine.setLayer2Volume) {
       window.AudioEngine.setLayer2Volume(layer2Vol);
     }
+    checkVolumeWarning(layer2Vol);
   }
 
   function onClick(e) {
