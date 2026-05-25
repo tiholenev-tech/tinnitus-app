@@ -52,8 +52,8 @@ window.AudioEngine = (function () {
   // ============================================================
 
   var DEFAULT_VOLUME    = 50;
-  var DEFAULT_L1_VOL    = 100;  // Layer 1 default 100% (master controls overall)
-  var DEFAULT_L2_VOL    = 40;
+  var DEFAULT_L1_VOL    = 100;  // Layer 1 default 100% (gain 1.0)
+  var DEFAULT_L2_VOL    = 50;   // A2.1: gain 0.5 default — фон да не дави главния звук
   var CROSSFADE_SEC     = 2.0;
   var L2_FADE_SEC       = 0.25; // Hard swap но с малък fade за избягване на click
   var PAUSE_FADE_SEC    = 0.2;
@@ -168,7 +168,13 @@ window.AudioEngine = (function () {
   // ============================================================
 
   function volumeToGain(vol) {
-    return Math.max(0, Math.min(1, vol / 100));
+    // A2.1: Perceptual curve (pow 2.5) instead of linear vol/100.
+    // Brown noise (1/f² спектър) има огромна low-freq енергия → линеен 50%
+    // звучи като 80% perceived. Ocean natural sound → линеен 100% звучи
+    // като 70% perceived. Power 2.5 прави slider responsive в долната
+    // половина (по-естествено усещане).
+    var linear = Math.max(0, Math.min(1, vol / 100));
+    return Math.pow(linear, 2.5);
   }
 
   function setMasterVolume(vol) {
@@ -284,7 +290,8 @@ window.AudioEngine = (function () {
       lastOut = data[i];
       sum += data[i];
     }
-    // DC removal + normalize
+    // DC removal + normalize peak to 0.5 (standard). Perceptual curve в
+    // volumeToGain (pow 2.5) handles cross-layer balance.
     var dc = sum / bufferSize;
     var maxVal = 0;
     for (var j = 0; j < bufferSize; j++) {

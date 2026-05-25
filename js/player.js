@@ -63,8 +63,8 @@ window.Player = (function () {
 
   var activeSoundId = null;
   var noiseId = 'none';
-  var layer1Vol = 70;
-  var layer2Vol = 40;
+  var layer1Vol = 100;  // A2.1: L1 default 100% — главен звук доминантен
+  var layer2Vol = 50;   // A2.1: L2 default 50% — фон под L1
   var noiseChangedHandler = null;
   var progressTickId = null;
 
