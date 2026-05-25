@@ -93,6 +93,8 @@
     if (window.Quiz && window.Quiz.render) {
       window.Quiz.render(true);
     }
+    // Update back button visibility
+    if (window.BackButton && window.BackButton.update) window.BackButton.update();
   }
 
   // ============================================================
@@ -278,6 +280,7 @@
     if (window.A11y && window.A11y.init) window.A11y.init();
     if (window.AudioErrorBanner && window.AudioErrorBanner.init) window.AudioErrorBanner.init();
     if (window.NotificationsMock && window.NotificationsMock.init) window.NotificationsMock.init();
+    if (window.BackButton && window.BackButton.init) window.BackButton.init();
 
     route();
 

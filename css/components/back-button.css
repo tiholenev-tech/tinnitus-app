@@ -1,0 +1,30 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · Back Button (header) — Task А
+   ═══════════════════════════════════════════════════════════════════ */
+
+.back-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: var(--radius-icon);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease), background var(--dur) var(--ease);
+}
+[data-theme="light"] .back-btn,
+:root:not([data-theme]) .back-btn {
+  background: transparent;
+  color: var(--text);
+}
+[data-theme="dark"] .back-btn {
+  background: transparent;
+  color: hsl(220 15% 80%);
+}
+.back-btn:hover,
+.back-btn:focus-visible {
+  background: hsl(var(--hue1) 20% 35% / 0.1);
+  outline: none;
+}
+.back-btn:active { transform: scale(0.92); }
+.back-btn svg { width: 20px; height: 20px; }
