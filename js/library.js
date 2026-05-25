@@ -632,7 +632,9 @@ window.Library = (function () {
     var mpOpenBtn = e.target.closest('[data-action="mp-open"]');
     if (mpOpenBtn) {
       e.stopPropagation();
+      e.preventDefault();
       var soundId = mpOpenBtn.getAttribute('data-sound-id');
+      console.log('[library] mp-open tap →', soundId);
       if (soundId && window.Player && window.Player.open) {
         window.Player.open(soundId);
       } else if (soundId && window.SoundDetail && window.SoundDetail.open) {

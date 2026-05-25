@@ -371,6 +371,24 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
+  /* A2.5: explicit button reset + tap-target sizing */
+  background: transparent;
+  border: 0;
+  padding: 6px 4px;
+  margin: 0;
+  font-family: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  min-height: 48px;
+  justify-content: center;
+}
+.lib-mp-body:active { opacity: 0.7; }
+.lib-mp-body:focus { outline: none; }
+.lib-mp-body:focus-visible {
+  outline: 2px solid hsl(var(--hue3) 70% 55%);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 .lib-mp-eyebrow {
   font-family: var(--font-mono);
