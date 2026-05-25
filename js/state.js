@@ -18,7 +18,7 @@
   var KEY_QUIZ_PROFILE  = 'auralis-quiz-profile';
   var KEY_QUIZ_DI       = 'auralis-quiz-di';
 
-  var PHASES = ['onboarding', 'quiz', 'results', 'mixer', 'library', 'sleep', 'diary', 'calm', 'home', 'category', 'sound', 'player'];
+  var PHASES = ['onboarding', 'quiz', 'results', 'profile_results', 'mixer', 'library', 'sleep', 'diary', 'calm', 'home', 'category', 'sound', 'player'];
   var ONBOARDING_SUBPHASES = ['welcome', 'value', 'consent'];
 
   function quizSubphaseList() {
@@ -91,7 +91,7 @@
         // primary екрани.
         var savedPhase = get(KEY_PHASE);
         var LEGACY_TO_HOME = ['library', 'mixer', 'results'];
-        var RESTORE_OK = ['home', 'category', 'sound', 'player', 'sleep', 'diary', 'calm'];
+        var RESTORE_OK = ['home', 'category', 'sound', 'player', 'sleep', 'diary', 'calm', 'profile_results'];
 
         if (savedPhase && LEGACY_TO_HOME.indexOf(savedPhase) !== -1) {
           // Migrate + persist (предотвратява повторен reload в legacy)

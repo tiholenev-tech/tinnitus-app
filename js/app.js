@@ -47,8 +47,12 @@
       }
       return;
     }
-    // Onboarding done → home (primary) / nested views / calm / diary / sleep / library / mixer / quiz
+    // Onboarding done → profile_results (post-quiz) / home (primary) / nested / legacy
     var phase = window.AppState.current;
+    if (phase === 'profile_results' && window.ProfileResults && window.ProfileResults.render) {
+      window.ProfileResults.render();
+      return;
+    }
     if (phase === 'home' && window.Home && window.Home.render) {
       window.Home.render();
       return;
@@ -108,6 +112,15 @@
         return;
       }
 
+      if (s.phase === 'profile_results') {
+        window.AppState.transition('profile_results');
+        if (window.ProfileResults && window.ProfileResults.render) {
+          window.ProfileResults.render();
+        } else if (window.Home && window.Home.render) {
+          window.Home.render();
+        }
+        return;
+      }
       if (s.phase === 'home') {
         window.AppState.transition('home');
         if (window.Home && window.Home.render) window.Home.render();
@@ -232,6 +245,8 @@
     var initialState;
     if (!window.AppState.isOnboardingDone()) {
       initialState = { subphase: window.AppState.subphase };
+    } else if (window.AppState.current === 'profile_results') {
+      initialState = { phase: 'profile_results' };
     } else if (window.AppState.current === 'home') {
       initialState = { phase: 'home' };
     } else if (window.AppState.current === 'category') {

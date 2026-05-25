@@ -548,6 +548,42 @@
     }
   },
 
+  "profile_results": {
+    "title": "TODO: Your assessment",
+    "code": {
+      "label": "TODO: Profile code"
+    },
+    "di": {
+      "label": "TODO: DI score",
+      "low":    "TODO: Low intensity",
+      "medium": "TODO: Moderate intensity",
+      "high":   "TODO: High intensity"
+    },
+    "descriptionTitle": "TODO: What this means",
+    "expectationsTitle": "TODO: What to expect",
+    "recommendedTitle": "TODO: Recommended modes",
+    "recommendedBadge": "TODO: For you",
+    "duration": {
+      "title": "TODO: Recommended duration",
+      "firstTwoWeeks": "TODO: First 2 weeks",
+      "firstTwoWeeksText": "TODO: 2–3 hours per day",
+      "afterTitle": "TODO: After that",
+      "afterText": "TODO: All night (with sleep timer)"
+    },
+    "disclaimer": {
+      "title": "TODO: Important — scientific limits",
+      "text": "TODO: AURALIS is a wellness support tool, not a replacement for medical diagnosis."
+    },
+    "continue": "TODO: Continue to sounds",
+    "profiles": {
+      "TH_C": { "shortName": "TODO: Tonal high",          "fullName": "TODO: Tonal high-frequency", "description": "TODO", "expectations": "TODO", "reasons": { "sleep_deep": "TODO", "relaxation": "TODO" } },
+      "DN_S": { "shortName": "TODO: Noise low-freq",      "fullName": "TODO: Noise low-freq / Sleep", "description": "TODO", "expectations": "TODO", "reasons": { "relaxation": "TODO", "daily": "TODO" } },
+      "SS_R": { "shortName": "TODO: Stress-sensitive",    "fullName": "TODO: Stress-sensitive / Reactive", "description": "TODO", "expectations": "TODO", "reasons": { "anxiety": "TODO", "falling_asleep": "TODO" } },
+      "SM_F": { "shortName": "TODO: Somatic",             "fullName": "TODO: Somatic / Fluctuating", "description": "TODO", "expectations": "TODO", "reasons": { "meditation": "TODO", "relaxation": "TODO" } },
+      "HB_M": { "shortName": "TODO: Adapted / Mild",      "fullName": "TODO: Adapted / Mild", "description": "TODO", "expectations": "TODO", "reasons": { "daily": "TODO", "falling_asleep": "TODO" } }
+    }
+  },
+
   "home": {
     "title": "TODO: Choose a mode",
     "openLibraryAll": "TODO: All sounds",

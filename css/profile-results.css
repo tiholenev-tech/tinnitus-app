@@ -1,0 +1,353 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · ProfileResults (Task O1)
+   ───────────────────────────────────────────────────────────────────
+   Detailed assessment screen между quiz finish и Home.
+   Chat.php 1:1 tokens (glass + shine + neumorphism light / dark).
+   ═══════════════════════════════════════════════════════════════════ */
+
+.pr-screen {
+  padding: 8px 0 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: prFadeIn 0.4s ease;
+}
+
+.pr-title {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 8px 4px 0;
+  padding: 0 4px;
+}
+
+.pr-section {
+  margin: 0 4px;
+}
+
+.pr-section-title {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.005em;
+  color: var(--text);
+  margin: 0 4px 12px;
+  padding: 0 4px;
+}
+
+/* ═══ PROFILE CARD (top hero) ═══ */
+.pr-profile-card {
+  position: relative;
+  margin: 0 4px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  isolation: isolate;
+}
+.pr-profile-card > * { position: relative; z-index: 5; }
+.pr-card-inner {
+  padding: 22px 20px;
+  text-align: center;
+}
+
+.pr-code-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.pr-code-value {
+  font-family: var(--font-mono);
+  font-size: 46px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+[data-theme="dark"] .pr-code-value {
+  color: hsl(var(--hue3) 70% 70%);
+  text-shadow: 0 0 24px hsl(var(--hue3) 70% 50% / 0.4);
+}
+
+.pr-fullname {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.005em;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+.pr-shortname {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  margin-bottom: 18px;
+}
+
+/* ═══ DI scale ═══ */
+.pr-di {
+  padding-top: 6px;
+}
+.pr-di-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+  padding: 0 2px;
+}
+.pr-di-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.pr-di-value {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: 0.04em;
+}
+.pr-di-bar {
+  height: 8px;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+[data-theme="light"] .pr-di-bar,
+:root:not([data-theme]) .pr-di-bar {
+  background: var(--surface-2);
+}
+[data-theme="dark"] .pr-di-bar {
+  background: hsl(220 25% 12%);
+}
+.pr-di-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width 600ms var(--ease-spring);
+}
+.pr-di-fill--low {
+  background: linear-gradient(90deg, hsl(145 60% 55%), hsl(155 55% 50%));
+}
+.pr-di-fill--medium {
+  background: linear-gradient(90deg, hsl(38 80% 55%), hsl(28 75% 50%));
+}
+.pr-di-fill--high {
+  background: linear-gradient(90deg, hsl(355 70% 55%), hsl(345 65% 50%));
+}
+.pr-di-level {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: right;
+  padding-right: 2px;
+}
+.pr-di-level--low    { color: hsl(145 55% 38%); }
+.pr-di-level--medium { color: hsl(38 70% 40%); }
+.pr-di-level--high   { color: hsl(355 60% 45%); }
+[data-theme="dark"] .pr-di-level--low    { color: hsl(145 60% 65%); }
+[data-theme="dark"] .pr-di-level--medium { color: hsl(38 80% 65%); }
+[data-theme="dark"] .pr-di-level--high   { color: hsl(355 70% 70%); }
+
+/* ═══ RECOMMENDED CARDS ═══ */
+.pr-rec-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pr-rec-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 14px;
+  min-height: 76px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  color: var(--text);
+  /* Recommended cards always get champagne ring */
+  box-shadow: var(--shadow-card), 0 0 0 2px hsl(var(--hue3) 70% 55% / 0.55);
+  transition: transform var(--dur-fast) var(--ease);
+}
+[data-theme="dark"] .pr-rec-card {
+  box-shadow: var(--shadow-card), 0 0 16px hsl(var(--hue3) 70% 55% / 0.4);
+}
+.pr-rec-card > * { position: relative; z-index: 5; }
+.pr-rec-card:active { transform: scale(0.99); }
+.pr-rec-card:focus { outline: none; }
+.pr-rec-card:focus-visible {
+  outline: 2px solid hsl(var(--hue1) 70% 55%);
+  outline-offset: 3px;
+}
+
+.pr-rec-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-sm);
+  color: var(--accent);
+}
+[data-theme="light"] .pr-rec-icon,
+:root:not([data-theme]) .pr-rec-icon {
+  background: linear-gradient(135deg, hsl(var(--hue3) 60% 55% / 0.18), hsl(var(--hue1) 60% 55% / 0.12));
+  color: hsl(var(--hue3) 65% 38%);
+}
+[data-theme="dark"] .pr-rec-icon {
+  background: linear-gradient(135deg, hsl(var(--hue3) 60% 22% / 0.7), hsl(var(--hue1) 60% 22% / 0.5));
+  color: hsl(var(--hue3) 80% 75%);
+}
+.pr-rec-icon svg { width: 22px; height: 22px; }
+
+.pr-rec-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.pr-rec-name {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.005em;
+  line-height: 1.2;
+}
+.pr-rec-reason {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+.pr-rec-badge {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, hsl(var(--hue3) 70% 55%), hsl(var(--hue1) 70% 65%));
+  color: white;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.pr-rec-badge-icon {
+  display: grid;
+  place-items: center;
+  width: 12px;
+  height: 12px;
+}
+.pr-rec-badge-icon svg { width: 12px; height: 12px; }
+
+/* ═══ DURATION CARD ═══ */
+.pr-duration-card {
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  isolation: isolate;
+}
+.pr-duration-card > * { position: relative; z-index: 5; }
+.pr-duration-card .pr-card-inner {
+  padding: 16px 18px;
+  text-align: left;
+}
+
+.pr-duration-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 6px 0;
+}
+.pr-duration-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.pr-duration-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  text-align: right;
+}
+
+.pr-duration-divider {
+  height: 1px;
+  background: var(--border-color);
+  margin: 4px 0;
+}
+[data-theme="light"] .pr-duration-divider,
+:root:not([data-theme]) .pr-duration-divider {
+  background: hsl(220 18% 86%);
+}
+[data-theme="dark"] .pr-duration-divider {
+  background: hsl(220 20% 16%);
+}
+
+/* ═══ CONTINUE CTA ═══ */
+.pr-continue-btn {
+  align-self: center;
+  width: calc(100% - 8px);
+  margin: 12px 4px 0;
+  min-height: 56px;
+  padding: 14px 22px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, hsl(var(--hue1) 70% 55%), hsl(var(--hue2) 65% 55%));
+  color: white;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.005em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow:
+    0 8px 22px hsl(var(--hue1) 60% 40% / 0.45),
+    inset 0 1px 0 hsl(0 0% 100% / 0.2);
+  transition: transform var(--dur-fast) var(--ease);
+}
+.pr-continue-btn:active { transform: scale(0.98); }
+.pr-continue-btn:hover { filter: brightness(1.05); }
+.pr-continue-icon {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  transform: rotate(-90deg);
+}
+.pr-continue-icon svg { width: 18px; height: 18px; }
+
+@keyframes prFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pr-screen { animation: none; }
+  .pr-di-fill { transition: none; }
+}
