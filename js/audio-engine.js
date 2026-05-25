@@ -226,6 +226,59 @@ window.AudioEngine = (function () {
     } catch (e) { /* ignore */ }
   }
 
+  // ============================================================
+  // PRELOAD CACHE (AUDIO-PRELOAD)
+  // ============================================================
+  // Top sounds в category се prefetch-ват → fetch+decode завършват докато
+  // user-ът разглежда списъка → tap Play стартира моментално.
+  // LRU cache от 5 most recently preloaded.
+
+  var preloadOrder = []; // [soundId, soundId, ...] oldest → newest
+  var PRELOAD_LIMIT = 5;
+
+  function findSoundInManifest(soundId) {
+    if (!soundId) return null;
+    if (!window.AURALIS_MANIFEST || !window.AURALIS_MANIFEST.sounds) return null;
+    var arr = window.AURALIS_MANIFEST.sounds;
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i].id === soundId) return arr[i];
+    }
+    return null;
+  }
+
+  function preloadSound(soundId) {
+    if (!soundId) return Promise.reject(new Error('no soundId'));
+    init();
+    var sound = findSoundInManifest(soundId);
+    if (!sound || !sound.filename) {
+      return Promise.reject(new Error('sound not in manifest'));
+    }
+    var url = 'library_staging_loop_ready/' + sound.filename;
+    if (bufferCache[url]) {
+      // Already decoded — bump LRU order.
+      var idx = preloadOrder.indexOf(soundId);
+      if (idx !== -1) preloadOrder.splice(idx, 1);
+      preloadOrder.push(soundId);
+      return Promise.resolve(bufferCache[url]);
+    }
+    return fetchAndDecode(url, soundId).then(function (buffer) {
+      preloadOrder.push(soundId);
+      while (preloadOrder.length > PRELOAD_LIMIT) {
+        var oldest = preloadOrder.shift();
+        var oldSnd = findSoundInManifest(oldest);
+        if (oldSnd && oldSnd.filename) {
+          var oldUrl = 'library_staging_loop_ready/' + oldSnd.filename;
+          delete bufferCache[oldUrl];
+        }
+      }
+      console.log('[preload] Cached:', soundId, '(' + buffer.duration.toFixed(1) + 's)');
+      return buffer;
+    }).catch(function (err) {
+      console.log('[preload] Failed:', soundId, err && err.message);
+      throw err;
+    });
+  }
+
   function fetchAndDecode(url, presetId) {
     if (bufferCache[url]) return Promise.resolve(bufferCache[url]);
     console.log('[audio-engine] fetch attempt:', url);
@@ -768,6 +821,9 @@ window.AudioEngine = (function () {
     getLayer2Volume: getLayer2Volume,
     crossfadeLayer1: crossfadeLayer1,
     getActiveLayers: getActiveLayers,
+
+    // Preload + sequential reveal
+    preloadSound: preloadSound,
 
     // Backward compat
     play: playLayer1,

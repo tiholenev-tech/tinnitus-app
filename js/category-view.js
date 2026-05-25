@@ -467,6 +467,15 @@ window.CategoryView = (function () {
       app.innerHTML = buildScreenHtml(cat, sounds);
       bindEvents(app);
       injectInfoPanel(cat);
+      // AUDIO-PRELOAD: prefetch top 5 sounds в background (500ms след render
+      // да не блокираме critical path).
+      setTimeout(function () {
+        if (!window.AudioEngine || !window.AudioEngine.preloadSound) return;
+        var topFive = sounds.slice(0, 5);
+        topFive.forEach(function (s) {
+          window.AudioEngine.preloadSound(s.id).catch(function () {});
+        });
+      }, 500);
       maybeAutoplay(cat, sounds);
     });
   }
