@@ -606,10 +606,13 @@ window.ProfileResults = (function () {
   }
 
   function goToHome() {
+    // BUG2-G: "Към звуците" CTA → Home. Use replaceState (не pushState),
+    // защото profile_results е "consumed" — back-button не трябва да го
+    // връща. Refresh запазва Home (state.load() restore-ва от savedPhase).
     if (window.AppState && window.AppState.transition) {
       window.AppState.transition('home');
     }
-    history.pushState({ phase: 'home' }, '');
+    history.replaceState({ phase: 'home' }, '');
     if (window.Home && window.Home.render) window.Home.render();
   }
 
