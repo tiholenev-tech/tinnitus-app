@@ -397,12 +397,28 @@ window.AudioEngine = (function () {
   //
   // timing = { layer1FadeSec, layer2DelaySec, layer2FadeSec } от ProfileConfig.
 
+  // CRITICAL FIX: pending L2 reveal timer-ите се натрупваха. Всяко
+  // playSequentialReveal call queue-ваше setTimeout без да cancel-ва
+  // предишните → 30-60s по-късно стари timer-и fire-ваха → audio
+  // се сменяше "сам". Сега track-ваме pending timer и го cancel-ваме.
+  var pendingL2RevealTimer = null;
+  // Снимка на active SEQ-REVEAL request (за L1-then-L2 ordering).
+  var activeRevealRequest = 0;
+
   function playSequentialReveal(soundId, noiseId, timing) {
     timing = timing || { layer1FadeSec: 2.5, layer2DelaySec: 2.5, layer2FadeSec: 4.0 };
-    console.log('[seq-reveal] start', {
+    var revealReq = ++activeRevealRequest;
+    console.log('[seq-reveal] start req:', revealReq, {
       soundId: soundId, noiseId: noiseId, timing: timing,
       l1Vol: layer1.volume, l2Vol: layer2.volume, masterVol: masterVolume
     });
+
+    // CRITICAL: cancel pending L2 reveal от предишен SEQ-REVEAL call.
+    if (pendingL2RevealTimer) {
+      clearTimeout(pendingL2RevealTimer);
+      pendingL2RevealTimer = null;
+      console.log('[seq-reveal] cancelled pending L2 timer from prev request');
+    }
 
     // Stop L2 first — не искаме L2 да продължи играе докато L1 започне reveal.
     if (layer2.source) {
@@ -411,39 +427,47 @@ window.AudioEngine = (function () {
 
     var l1Promise = playLayer1(soundId, { fadeInSec: timing.layer1FadeSec });
 
-    // Emit L1 reveal event след като L1 фактически тръгне (post-fetch).
+    // L1 RESOLVED → emit reveal event + schedule L2 (NOT before L1 actually plays).
+    // Преди това L2 setTimeout fire-ваше при 2.5s от заявката, но L1 fetch отнема
+    // 5-15s → L2 audible преди L1. Now we chain L2 to L1 promise.
     l1Promise.then(function () {
-      console.log('[seq-reveal] L1 STARTED — gain ramping to', volumeToGain(layer1.volume).toFixed(3));
+      // Stale check — нов SEQ-REVEAL вече е стартиран.
+      if (revealReq !== activeRevealRequest) {
+        console.log('[seq-reveal] L1 resolved but req', revealReq, 'is stale (current:', activeRevealRequest + ') — skip L2 schedule');
+        return;
+      }
+      console.log('[seq-reveal] req', revealReq, 'L1 STARTED — gain target', volumeToGain(layer1.volume).toFixed(3));
       try {
         window.dispatchEvent(new CustomEvent('audio:reveal-l1', {
-          detail: {
-            targetVol: layer1.volume,
-            duration: timing.layer1FadeSec * 1000
-          }
+          detail: { targetVol: layer1.volume, duration: timing.layer1FadeSec * 1000 }
         }));
       } catch (e) {}
-    }).catch(function (err) {
-      console.warn('[seq-reveal] L1 FAILED:', err && err.message);
-    });
 
-    // Delayed Layer 2 start.
-    if (noiseId && noiseId !== 'none') {
-      var delayMs = (timing.layer2DelaySec || 0) * 1000;
-      setTimeout(function () {
-        playLayer2(noiseId, { fadeInSec: timing.layer2FadeSec }).then(function () {
-          try {
-            window.dispatchEvent(new CustomEvent('audio:reveal-l2', {
-              detail: {
-                targetVol: layer2.volume,
-                duration: timing.layer2FadeSec * 1000
-              }
-            }));
-          } catch (e) {}
-        }).catch(function (err) {
-          console.warn('[seq-reveal] L2 failed:', err && err.message);
-        });
-      }, delayMs);
-    }
+      // Now schedule L2 — chained to L1 actual start (not Player.open call).
+      if (noiseId && noiseId !== 'none') {
+        var delayMs = (timing.layer2DelaySec || 0) * 1000;
+        pendingL2RevealTimer = setTimeout(function () {
+          pendingL2RevealTimer = null;
+          // Stale check inside timer fire — req може да е сменено.
+          if (revealReq !== activeRevealRequest) {
+            console.log('[seq-reveal] L2 timer fire for stale req', revealReq, '(current:', activeRevealRequest + ') — ABORT');
+            return;
+          }
+          playLayer2(noiseId, { fadeInSec: timing.layer2FadeSec }).then(function () {
+            if (revealReq !== activeRevealRequest) return;
+            try {
+              window.dispatchEvent(new CustomEvent('audio:reveal-l2', {
+                detail: { targetVol: layer2.volume, duration: timing.layer2FadeSec * 1000 }
+              }));
+            } catch (e) {}
+          }).catch(function (err) {
+            console.warn('[seq-reveal] L2 failed:', err && err.message);
+          });
+        }, delayMs);
+      }
+    }).catch(function (err) {
+      console.warn('[seq-reveal] L1 FAILED req', revealReq + ':', err && err.message);
+    });
 
     return l1Promise;
   }
@@ -513,9 +537,23 @@ window.AudioEngine = (function () {
     });
   }
 
+  // Belt-and-suspenders: блокирай startLayer1Source за SAME presetId в
+  // рамките на 500ms (защита от случайно double-trigger от late buffer
+  // resolves). Различен presetId винаги преминава.
+  var lastL1Start = { presetId: null, ts: 0 };
+
   function startLayer1Source(presetId, buffer, opts) {
     opts = opts || {};
     var loop = opts.loop !== false;
+
+    // Re-entrancy guard: блокирай ако SAME presetId стартиран преди <500ms.
+    var nowMs = Date.now();
+    if (lastL1Start.presetId === presetId && (nowMs - lastL1Start.ts) < 500) {
+      console.log('[audio] L1 re-entrancy blocked for', presetId, '(', (nowMs - lastL1Start.ts), 'ms ago)');
+      return;
+    }
+    lastL1Start.presetId = presetId;
+    lastL1Start.ts = nowMs;
 
     // Mark old source as manually stopped (avoid onended emit)
     if (layer1.source) layer1.source._manualStop = true;
@@ -589,6 +627,13 @@ window.AudioEngine = (function () {
   }
 
   function stopLayer1() {
+    // CRITICAL: invalidate any pending SEQ-REVEAL request + cancel L2 timer.
+    // Иначе старите setTimeout-и продължават да fire-ват L2 → audio leakage.
+    activeRevealRequest++;
+    if (pendingL2RevealTimer) {
+      clearTimeout(pendingL2RevealTimer);
+      pendingL2RevealTimer = null;
+    }
     if (!layer1.source || !ctx) return;
     var now = ctx.currentTime;
     var src = layer1.source;
@@ -768,6 +813,12 @@ window.AudioEngine = (function () {
   // ============================================================
 
   function pause() {
+    // Cancel pending SEQ-REVEAL L2 timer.
+    activeRevealRequest++;
+    if (pendingL2RevealTimer) {
+      clearTimeout(pendingL2RevealTimer);
+      pendingL2RevealTimer = null;
+    }
     if (!ctx) return;
     var hadL1 = !!layer1.source;
     var hadL2 = !!layer2.source;
@@ -777,6 +828,12 @@ window.AudioEngine = (function () {
   }
 
   function stop() {
+    // Cancel pending SEQ-REVEAL L2 timer.
+    activeRevealRequest++;
+    if (pendingL2RevealTimer) {
+      clearTimeout(pendingL2RevealTimer);
+      pendingL2RevealTimer = null;
+    }
     if (layer1.source) {
       layer1.source._manualStop = true;
       try { layer1.source.stop(); } catch (e) {}
