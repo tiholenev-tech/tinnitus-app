@@ -291,10 +291,12 @@ window.CategoryInfoSheet = (function () {
   function buildContent(catId) {
     var root = document.createElement('div');
     root.className = 'cis-content';
+    // BUG2-E: "Кога НЕ се ползва" (whenNotUsed) се премахва от UI рендеринга
+    // — съдържа medical contraindications ("консултирайте лекар") които не
+    // искаме да витрина-ваме в bottom sheet. Data в i18n остава за Phase 2.
     root.innerHTML =
       buildDefinition(catId) +
       buildWhenUsed(catId) +
-      buildWhenNotUsed(catId) +
       buildRecommendedNoise(catId) +
       buildMixRatio(catId) +
       buildExpectedEffect(catId) +
