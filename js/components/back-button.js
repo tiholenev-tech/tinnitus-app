@@ -45,14 +45,51 @@ window.BackButton = (function () {
     return backBtn;
   }
 
+  // Phase hierarchy for manual fallback when history is unreliable
+  var BACK_MAP = {
+    sound: 'category',
+    player: 'sound',
+    category: 'home',
+    profile_results: 'home',
+    calm: 'home',
+    diary: 'home',
+    sleep: 'home',
+    library: 'home',
+    mixer: 'home',
+    settings: 'home'
+  };
+
   function onBack() {
     if (window.Haptics) window.Haptics.light();
-    // Try history.back first, fallback to Home
-    if (window.history && window.history.length > 1) {
+
+    // Primary: use browser history
+    if (window.history && window.history.length > 2) {
       window.history.back();
-    } else if (window.AppState && window.AppState.transition) {
-      window.AppState.transition('home');
-      if (window.Home && window.Home.render) window.Home.render();
+      return;
+    }
+
+    // Fallback: navigate by phase hierarchy
+    if (window.AppState) {
+      var current = window.AppState.current;
+      var target = BACK_MAP[current] || 'home';
+
+      // Category needs catId context — if we came from a sound, try getting it
+      if (target === 'category' && window.AppState._lastCatId) {
+        window.AppState.transition('category');
+        history.pushState({ phase: 'category', catId: window.AppState._lastCatId }, '');
+        if (window.CategoryView && window.CategoryView.open) {
+          window.CategoryView.open(window.AppState._lastCatId);
+        }
+        return;
+      }
+
+      window.AppState.transition(target);
+      history.pushState({ phase: target }, '');
+      if (target === 'home' && window.Home && window.Home.render) {
+        window.Home.render();
+      } else if (target === 'category' && window.CategoryView && window.CategoryView.render) {
+        window.CategoryView.render();
+      }
     }
   }
 
