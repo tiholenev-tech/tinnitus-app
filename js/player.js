@@ -329,6 +329,20 @@ window.Player = (function () {
     }
   }
 
+  // PROFILE-CONFIG: запис на user override (debounced 800ms — не спами при drag).
+  var overrideSaveTimer = null;
+  function scheduleUserOverrideSave() {
+    if (!activeSoundId || !window.ProfileConfig || !window.ProfileConfig.setUserOverride) return;
+    if (overrideSaveTimer) clearTimeout(overrideSaveTimer);
+    overrideSaveTimer = setTimeout(function () {
+      var master = (window.AudioEngine && window.AudioEngine.getMasterVolume)
+        ? window.AudioEngine.getMasterVolume() : 50;
+      window.ProfileConfig.setUserOverride(activeSoundId, layer1Vol, layer2Vol, master);
+      console.log('[profile-config] user override saved:', activeSoundId,
+        { l1: layer1Vol, l2: layer2Vol, master: master });
+    }, 800);
+  }
+
   function onL1Input(e) {
     var v = parseInt(e.currentTarget.value, 10);
     if (isNaN(v)) return;
@@ -340,6 +354,7 @@ window.Player = (function () {
       window.AudioEngine.setLayer1Volume(layer1Vol);
     }
     checkVolumeWarning(layer1Vol);
+    scheduleUserOverrideSave();
   }
   function onL2Input(e) {
     var v = parseInt(e.currentTarget.value, 10);
@@ -352,6 +367,7 @@ window.Player = (function () {
       window.AudioEngine.setLayer2Volume(layer2Vol);
     }
     checkVolumeWarning(layer2Vol);
+    scheduleUserOverrideSave();
   }
 
   function onClick(e) {
@@ -437,6 +453,33 @@ window.Player = (function () {
   function refreshLayer2() {
     var noiseBtn = document.querySelector('.pl-layer-name--noise .pl-layer-name-text');
     if (noiseBtn) noiseBtn.textContent = noiseLabel(noiseId);
+  }
+
+  // ============================================================
+  // PROFILE-CONFIG application
+  // ============================================================
+  // Resolve mix + master volume + noise per profile × scenario × time.
+  // User override per soundId takes precedence over matrix defaults.
+  function applyProfileConfig(sound) {
+    if (!sound || !window.ProfileConfig || !window.ProfileConfig.resolveFor) return;
+    var cfg = window.ProfileConfig.resolveFor(sound, sound.id);
+    console.log('[profile-config] resolved:', cfg);
+
+    layer1Vol = cfg.layer1Vol;
+    layer2Vol = cfg.layer2Vol;
+    // Auto-pick recommended noise per profile само ако потребителят не е сменял
+    // (не override-ваме existing user choice от NoisePicker)
+    if (!cfg.fromOverride && cfg.noise) {
+      noiseId = cfg.noise;
+      persist(STORAGE_NOISE, noiseId);
+    }
+    persist(STORAGE_L1_VOL, layer1Vol);
+    persist(STORAGE_L2_VOL, layer2Vol);
+
+    // Master volume → AudioEngine.setMasterVolume
+    if (window.AudioEngine && window.AudioEngine.setMasterVolume) {
+      window.AudioEngine.setMasterVolume(cfg.masterVol);
+    }
   }
 
   // ============================================================

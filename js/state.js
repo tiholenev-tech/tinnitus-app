@@ -32,6 +32,9 @@
   var KEY_CALIBRATION_DONE       = 'auralis-calibration-done';
   var KEY_MIXING_POINT_VOLUME    = 'auralis-mixing-point-volume';
 
+  // PROFILE-CONFIG: user overrides per sound
+  var KEY_USER_OVERRIDES         = 'auralis-user-overrides';
+
   var PHASES = [
     'onboarding', 'quiz', 'results', 'profile_results',
     'mixer', 'library', 'sleep', 'diary', 'calm',
@@ -102,6 +105,9 @@
     calibrationDone: false,         // true след първото калибриране
     mixingPointVolume: null,        // 0..75 — потребителска точка на смесване
 
+    // ===== PROFILE-CONFIG user overrides per sound =====
+    userOverrides: {},              // { soundId: { l1, l2, master, ts } }
+
     // ===== Status checks =====
 
     isOnboardingDone: function () {
@@ -143,6 +149,8 @@
       var mpv = get(KEY_MIXING_POINT_VOLUME);
       this.mixingPointVolume = (mpv === null || mpv === '') ? null : parseInt(mpv, 10);
       if (isNaN(this.mixingPointVolume)) this.mixingPointVolume = null;
+      // PROFILE-CONFIG: user overrides
+      this.userOverrides = parseJSON(get(KEY_USER_OVERRIDES), {});
       // Recompute currentProgramDay (capped 1..14)
       if (this.programStartDate) {
         var daysElapsed = Math.floor((Date.now() - this.programStartDate) / 86400000);
@@ -389,6 +397,12 @@
       set(KEY_CALIBRATION_DONE, 'true');
     },
 
+    // PROFILE-CONFIG: user override persistence
+    saveUserOverrides: function () {
+      try { set(KEY_USER_OVERRIDES, JSON.stringify(this.userOverrides || {})); }
+      catch (e) { /* ignore */ }
+    },
+
     saveDiaryEntry: function (dateKey, partial) {
       // partial = { evening?:..., morning?:..., cbtCompleted?:..., cbtReflection?:... }
       if (!this.diaryEntries[dateKey]) this.diaryEntries[dateKey] = {};
@@ -502,6 +516,9 @@
       this.mixingPointVolume = null;
       remove(KEY_CALIBRATION_DONE);
       remove(KEY_MIXING_POINT_VOLUME);
+      // PROFILE-CONFIG: user overrides reset
+      this.userOverrides = {};
+      remove(KEY_USER_OVERRIDES);
     }
   };
 })();
