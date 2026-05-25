@@ -74,14 +74,28 @@
 }
 .home-cat-icon svg { width: 26px; height: 26px; }
 
-/* Recommended cards → champagne tint за icon */
+/* Recommended cards → champagne tint за icon (with strong contrast)
+   Fix: light mode имаше teal-on-teal pale icons за анг/заспиване.
+   Сега bg е по-наситен + color е значително по-тъмен в light. */
 .home-cat-card.is-recommended .home-cat-icon {
-  background: linear-gradient(135deg, hsl(var(--hue3) 60% 55% / 0.18), hsl(var(--hue1) 60% 55% / 0.12));
-  color: hsl(var(--hue3) 65% 50%);
+  background: linear-gradient(135deg, hsl(var(--hue3) 60% 60% / 0.32), hsl(var(--hue1) 60% 60% / 0.22));
+  color: hsl(var(--hue3) 75% 26%);
 }
 [data-theme="dark"] .home-cat-card.is-recommended .home-cat-icon {
-  background: linear-gradient(135deg, hsl(var(--hue3) 60% 22% / 0.7), hsl(var(--hue1) 60% 22% / 0.5));
-  color: hsl(var(--hue3) 80% 75%);
+  background: linear-gradient(135deg, hsl(var(--hue3) 60% 22% / 0.85), hsl(var(--hue1) 60% 22% / 0.6));
+  color: hsl(var(--hue3) 80% 78%);
+}
+
+/* Force stroke width on all home cat icons за consistent визуална тежест.
+   Fix: zzz (falling_asleep) и shield (anxiety) са с тънки stroke shapes —
+   изглеждаха блед в светъл режим. Override на parent + всички SVG деца. */
+.home-cat-icon svg,
+.home-cat-icon svg path,
+.home-cat-icon svg line,
+.home-cat-icon svg polyline,
+.home-cat-icon svg circle,
+.home-cat-icon svg polygon {
+  stroke-width: 2.1;
 }
 
 .home-cat-body {

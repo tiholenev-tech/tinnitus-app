@@ -146,8 +146,9 @@ window.Home = (function () {
     // 6 use category icons — outline style, consistent stroke
     moon:   svg('<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>'),
     zzz:    svg(
-      '<path d="M5 7h6L5 13h6"/>' +
-      '<path d="M13 14h5l-5 5h5"/>'
+      // Cascading Z's — top-right (smaller) + bottom-left (larger)
+      '<path d="M12 5 L19 5 L12 12 L19 12"/>' +
+      '<path d="M4 13 L14 13 L4 21 L14 21"/>'
     ),
     waves:  svg(
       '<path d="M2 9c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>' +
