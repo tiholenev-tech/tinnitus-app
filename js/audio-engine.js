@@ -1,34 +1,47 @@
 /**
- * AURALIS Audio Engine v1.0
- * ============================
- * Web Audio API engine за production (Task 7b).
+ * AURALIS Audio Engine v2.0 — 2-layer playback (Task N1)
+ * ========================================================
+ * Layer 1 = главен звук (природа/мелодия от Library)
+ * Layer 2 = постоянен фонов noise (brown/pink + lowpass variants)
  *
  * Per BIBLE v3 §4 (батерия):
- *   - AudioBufferSourceNode (НЕ AudioWorklet)
- *   - Suspend AudioContext при pause
- *   - iOS lock screen unlock trick
- *   - System sample rate
- *
+ *   AudioBufferSourceNode (НЕ AudioWorklet), suspend on idle,
+ *   iOS unlock trick, system sample rate.
  * Per BIBLE v3 §1 (safety):
- *   - Default master volume 50% (НЕ 70)
- *   - Linear gain (user знае какво получава)
- *
- * Преди тази версия: pink/brown/green генератори (запазени за runtime).
- * Сега добавено: file-based presets + crossfade + sleep timer + iOS unlock.
+ *   Default master volume 50% (НЕ 70). Linear gain.
  *
  * Public API:
- *   AudioEngine.init()            — създава AudioContext (lazy)
- *   AudioEngine.unlock()          — iOS silent buffer (call от user gesture)
- *   AudioEngine.play(presetId)    — start/crossfade към preset
- *   AudioEngine.pause()           — fade out + suspend
- *   AudioEngine.stop()            — hard stop + suspend
- *   AudioEngine.setMasterVolume(0..100)
- *   AudioEngine.getMasterVolume()
- *   AudioEngine.setSleepTimer(minutes)  — 0 = cancel
- *   AudioEngine.cancelSleepTimer()
- *   AudioEngine.getSleepTimerInfo()     — { active, totalMinutes, fadeOutSec }
- *   AudioEngine.isPlaying()
- *   AudioEngine.getActivePreset()
+ *   AudioEngine.init() | unlock()
+ *
+ *   // 2-layer playback
+ *   AudioEngine.playLayer1(soundId)         — main sound (crossfade при смяна)
+ *   AudioEngine.playLayer2(noiseId)         — background noise (HARD swap)
+ *   AudioEngine.stopLayer1()                — fade out + cleanup layer 1
+ *   AudioEngine.stopLayer2()
+ *   AudioEngine.setLayer1Volume(0..100)
+ *   AudioEngine.setLayer2Volume(0..100)
+ *   AudioEngine.getLayer1Volume()
+ *   AudioEngine.getLayer2Volume()
+ *   AudioEngine.crossfadeLayer1(newSoundId) — explicit crossfade
+ *   AudioEngine.getActiveLayers()           — { layer1: {id, gain}, layer2: {id, gain}, master }
+ *
+ *   // Backward compat
+ *   AudioEngine.play(id, opts)        → playLayer1
+ *   AudioEngine.playUrl(id, url, opts) → playLayer1 с custom url
+ *   AudioEngine.pause()               — pause BOTH layers + suspend
+ *   AudioEngine.stop()                — hard stop BOTH + suspend
+ *   AudioEngine.getActivePreset()     → layer1 presetId
+ *   AudioEngine.getPlaybackInfo()     → layer1 progress info
+ *   AudioEngine.isPlaying()           → true ако layer1 OR layer2 свири
+ *
+ *   // Master + sleep timer (single per app)
+ *   AudioEngine.setMasterVolume(0..100) | getMasterVolume()
+ *   AudioEngine.setSleepTimer(min) | cancelSleepTimer() | getSleepTimerInfo()
+ *
+ * Manifest integration (N5): playLayer1/Layer2 lookup PRESET_MAP first
+ * (compat) → ако липсва, опитва manifest.sounds / manifest.noises
+ * (populated lazy от Library/Home loader). Това позволява runtime
+ * registration без code change.
  */
 
 window.AudioEngine = (function () {
@@ -38,20 +51,35 @@ window.AudioEngine = (function () {
   // CONSTANTS
   // ============================================================
 
-  var DEFAULT_VOLUME = 50;           // 0-100 scale (per BIBLE §1)
-  var CROSSFADE_SEC = 2.0;           // smooth preset switch
-  var PAUSE_FADE_SEC = 0.2;          // фаст fade при pause за избягване на click
-  var SLEEP_FADE_SEC = 30;           // последните 30s от total таймер
-  var PINK_BUFFER_SEC = 10;          // generated pink noise loop length
+  var DEFAULT_VOLUME    = 50;
+  var DEFAULT_L1_VOL    = 100;  // Layer 1 default 100% (master controls overall)
+  var DEFAULT_L2_VOL    = 40;
+  var CROSSFADE_SEC     = 2.0;
+  var L2_FADE_SEC       = 0.25; // Hard swap но с малък fade за избягване на click
+  var PAUSE_FADE_SEC    = 0.2;
+  var SLEEP_FADE_SEC    = 30;
+  var PINK_BUFFER_SEC   = 10;
+  var BROWN_BUFFER_SEC  = 10;
+  var VOL_RAMP_SEC      = 0.05;
 
-  // presetId → source mapping
+  // Legacy PRESET_MAP — kept за compat с Library/Mixer/Calm
   var PRESET_MAP = {
     underwater:  { type: 'file', url: 'audio/presets/underwater.wav' },
     deep_calm:   { type: 'file', url: 'audio/presets/deep_sleep.wav' },
     sea_shore:   { type: 'file', url: 'audio/presets/sea_shore.wav' },
     pink_rain:   { type: 'file', url: 'audio/presets/soft_rain.wav' },
     brown_noise: { type: 'generated', gen: 'pink' }
-    // NOTE: brown_noise card title е "Розов шум" → mapping към pink generator (runtime).
+  };
+
+  // NOISE_MAP — Layer 2 specs (runtime generated за beta; manifest filenames Phase 2)
+  var NOISE_MAP = {
+    'none':         null,
+    'brown_pure':   { gen: 'brown', filter: null },
+    'brown_lp1000': { gen: 'brown', filter: 1000 },
+    'brown_lp500':  { gen: 'brown', filter: 500 },
+    'pink_pure':    { gen: 'pink',  filter: null },
+    'pink_lp2000':  { gen: 'pink',  filter: 2000 },
+    'pink_lp4000':  { gen: 'pink',  filter: 4000 }
   };
 
   // ============================================================
@@ -60,25 +88,35 @@ window.AudioEngine = (function () {
 
   var ctx = null;
   var masterGain = null;
-  var masterVolume = DEFAULT_VOLUME;        // 0-100
-  var activePreset = null;                  // current presetId or null
-  var activeSource = null;                  // current BufferSource
-  var activePresetGain = null;              // current preset's GainNode
-  var activeStartCtxTime = 0;               // ctx.currentTime when source started
-  var activeBufferDuration = 0;             // seconds (за loop=false progress)
-  var activeIsLooping = true;
-
-  var bufferCache = {};                     // url → AudioBuffer
-  var generatedPinkBuffer = null;           // cached runtime pink noise
-
-  var sleepTimerId = null;                  // setTimeout for fade-out start
-  var sleepStopTimerId = null;              // setTimeout for stop after fade
-  var sleepTimerTotalMin = 0;               // 0 = no timer
-
+  var masterVolume = DEFAULT_VOLUME;
   var iosUnlocked = false;
 
+  var bufferCache = {};               // url → AudioBuffer
+  var generatedPinkBuffer = null;
+  var generatedBrownBuffer = null;
+
+  // Layer state — duplicated structure за L1/L2
+  function makeLayer() {
+    return {
+      presetId: null,
+      source: null,
+      gainNode: null,           // per-layer (chains към masterGain)
+      filterNode: null,         // optional (за L2 lowpass)
+      startCtxTime: 0,
+      bufferDuration: 0,
+      isLooping: true,
+      volume: DEFAULT_L1_VOL    // overwritten при init
+    };
+  }
+  var layer1 = makeLayer(); layer1.volume = DEFAULT_L1_VOL;
+  var layer2 = makeLayer(); layer2.volume = DEFAULT_L2_VOL;
+
+  var sleepTimerId = null;
+  var sleepStopTimerId = null;
+  var sleepTimerTotalMin = 0;
+
   // ============================================================
-  // CONTEXT MANAGEMENT
+  // CONTEXT
   // ============================================================
 
   function init() {
@@ -97,48 +135,36 @@ window.AudioEngine = (function () {
   }
 
   function unlock() {
-    // iOS Safari изисква user-initiated AudioContext.resume() + първи buffer play.
     if (iosUnlocked) return;
     init();
     if (!ctx) return;
-
     if (ctx.state === 'suspended') {
-      ctx.resume().catch(function (e) {
-        console.warn('[audio] resume failed:', e);
-      });
+      ctx.resume().catch(function (e) { console.warn('[audio] resume:', e); });
     }
-
-    // Silent buffer: 1 sample, 0 amplitude
     try {
       var buf = ctx.createBuffer(1, 1, ctx.sampleRate);
       var src = ctx.createBufferSource();
       src.buffer = buf;
       src.connect(ctx.destination);
       src.start(0);
-    } catch (e) {
-      console.warn('[audio] iOS unlock buffer failed:', e);
-    }
-
+    } catch (e) { console.warn('[audio] iOS unlock buffer:', e); }
     iosUnlocked = true;
     console.log('[audio] iOS unlocked');
   }
 
   function resumeContext() {
-    if (ctx && ctx.state === 'suspended') {
-      return ctx.resume();
-    }
+    if (ctx && ctx.state === 'suspended') return ctx.resume();
     return Promise.resolve();
   }
 
   function suspendContext() {
-    if (ctx && ctx.state === 'running') {
-      // Suspend след малък delay за да fade-ът завърши
+    if (ctx && ctx.state === 'running' && !layer1.source && !layer2.source) {
       ctx.suspend().catch(function () { /* ignore */ });
     }
   }
 
   // ============================================================
-  // VOLUME (linear 0-100 → gain 0.0-1.0)
+  // VOLUME
   // ============================================================
 
   function volumeToGain(vol) {
@@ -148,21 +174,33 @@ window.AudioEngine = (function () {
   function setMasterVolume(vol) {
     masterVolume = Math.max(0, Math.min(100, vol));
     if (masterGain && ctx) {
-      // Smooth ramp за избягване на zipper noise
       masterGain.gain.cancelScheduledValues(ctx.currentTime);
-      masterGain.gain.linearRampToValueAtTime(
-        volumeToGain(masterVolume),
-        ctx.currentTime + 0.05
-      );
+      masterGain.gain.linearRampToValueAtTime(volumeToGain(masterVolume),
+        ctx.currentTime + VOL_RAMP_SEC);
     }
   }
+  function getMasterVolume() { return masterVolume; }
 
-  function getMasterVolume() {
-    return masterVolume;
+  function applyLayerVolume(layer) {
+    if (!layer.gainNode || !ctx) return;
+    layer.gainNode.gain.cancelScheduledValues(ctx.currentTime);
+    layer.gainNode.gain.linearRampToValueAtTime(volumeToGain(layer.volume),
+      ctx.currentTime + VOL_RAMP_SEC);
   }
 
+  function setLayer1Volume(vol) {
+    layer1.volume = Math.max(0, Math.min(100, vol));
+    applyLayerVolume(layer1);
+  }
+  function setLayer2Volume(vol) {
+    layer2.volume = Math.max(0, Math.min(100, vol));
+    applyLayerVolume(layer2);
+  }
+  function getLayer1Volume() { return layer1.volume; }
+  function getLayer2Volume() { return layer2.volume; }
+
   // ============================================================
-  // BUFFER LOADING
+  // BUFFER LOADING / GENERATORS
   // ============================================================
 
   function emitError(presetId, url, kind, status) {
@@ -185,10 +223,7 @@ window.AudioEngine = (function () {
         return res.arrayBuffer();
       })
       .catch(function (err) {
-        // Network error (no res object) → emit network kind
-        if (err && err.name === 'TypeError') {
-          emitError(presetId, url, 'network', null);
-        }
+        if (err && err.name === 'TypeError') emitError(presetId, url, 'network', null);
         throw err;
       })
       .then(function (arr) {
@@ -209,18 +244,13 @@ window.AudioEngine = (function () {
       });
   }
 
-  // ============================================================
-  // PINK NOISE GENERATOR (Paul Kellet -3dB/oct)
-  // ============================================================
-
   function getOrGeneratePinkBuffer() {
     if (generatedPinkBuffer) return generatedPinkBuffer;
-
     var sampleRate = ctx.sampleRate;
     var bufferSize = sampleRate * PINK_BUFFER_SEC;
     var buffer = ctx.createBuffer(1, bufferSize, sampleRate);
     var data = buffer.getChannelData(0);
-
+    // Paul Kellet pink (-3dB/oct)
     var b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
     for (var i = 0; i < bufferSize; i++) {
       var white = Math.random() * 2 - 1;
@@ -232,72 +262,109 @@ window.AudioEngine = (function () {
       b5 = -0.7616 * b5 - white * 0.0168980;
       var pink = b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362;
       b6 = white * 0.115926;
-      data[i] = pink * 0.11; // нормализация ~-12dBFS
+      data[i] = pink * 0.11;
     }
-
     generatedPinkBuffer = buffer;
     console.log('[audio] generated pink buffer:', PINK_BUFFER_SEC + 's');
     return buffer;
   }
 
+  function getOrGenerateBrownBuffer() {
+    if (generatedBrownBuffer) return generatedBrownBuffer;
+    var sampleRate = ctx.sampleRate;
+    var bufferSize = sampleRate * BROWN_BUFFER_SEC;
+    var buffer = ctx.createBuffer(1, bufferSize, sampleRate);
+    var data = buffer.getChannelData(0);
+    var lastOut = 0, sum = 0;
+    for (var i = 0; i < bufferSize; i++) {
+      var white = Math.random() * 2 - 1;
+      data[i] = (lastOut + 0.02 * white) / 1.02;
+      lastOut = data[i];
+      sum += data[i];
+    }
+    // DC removal + normalize
+    var dc = sum / bufferSize;
+    var maxVal = 0;
+    for (var j = 0; j < bufferSize; j++) {
+      data[j] -= dc;
+      var abs = Math.abs(data[j]);
+      if (abs > maxVal) maxVal = abs;
+    }
+    var scale = 0.5 / (maxVal || 1);
+    for (var k = 0; k < bufferSize; k++) data[k] *= scale;
+    generatedBrownBuffer = buffer;
+    console.log('[audio] generated brown buffer:', BROWN_BUFFER_SEC + 's');
+    return buffer;
+  }
+
   // ============================================================
-  // PLAY (with crossfade)
+  // LAYER 1 — main sound (crossfade при смяна)
   // ============================================================
 
-  function play(presetId, opts) {
-    var spec = PRESET_MAP[presetId];
+  function playLayer1(presetId, opts) {
+    var spec = resolveSpec(presetId);
     if (!spec) {
-      console.error('[audio] unknown preset:', presetId);
+      console.error('[audio] L1 unknown preset:', presetId);
       return Promise.reject(new Error('Unknown preset: ' + presetId));
     }
-    return playSpec(presetId, spec, opts);
+    return playLayer1Spec(presetId, spec, opts);
   }
 
-  /**
-   * playUrl(id, url, opts) — ad-hoc playback за Library sounds
-   * Регистрира спецификацията в PRESET_MAP за бъдещи calls.
-   * opts: { loop: bool } — default true.
-   */
   function playUrl(id, url, opts) {
-    if (!id || !url) {
-      return Promise.reject(new Error('playUrl requires id and url'));
-    }
+    if (!id || !url) return Promise.reject(new Error('playUrl requires id+url'));
     var spec = { type: 'file', url: url };
     PRESET_MAP[id] = spec;
-    return playSpec(id, spec, opts);
+    return playLayer1Spec(id, spec, opts);
   }
 
-  function playSpec(presetId, spec, opts) {
+  function resolveSpec(presetId) {
+    if (PRESET_MAP[presetId]) return PRESET_MAP[presetId];
+    // Manifest-based lookup (set by Library/Home loader)
+    if (window.AURALIS_MANIFEST && window.AURALIS_MANIFEST.sounds) {
+      var sounds = window.AURALIS_MANIFEST.sounds;
+      for (var i = 0; i < sounds.length; i++) {
+        if (sounds[i].id === presetId) {
+          var s = { type: 'file', url: 'audio/library/' + sounds[i].filename };
+          PRESET_MAP[presetId] = s;
+          return s;
+        }
+      }
+    }
+    return null;
+  }
+
+  function playLayer1Spec(presetId, spec, opts) {
     init();
     unlock();
     opts = opts || {};
 
-    if (activePreset === presetId && activeSource) {
-      console.log('[audio] already playing:', presetId);
+    if (layer1.presetId === presetId && layer1.source) {
+      console.log('[audio] L1 already playing:', presetId);
       return Promise.resolve();
     }
 
     return resumeContext().then(function () {
       if (spec.type === 'file') {
         return fetchAndDecode(spec.url, presetId).then(function (buffer) {
-          startSource(presetId, buffer, opts);
+          startLayer1Source(presetId, buffer, opts);
         });
-      } else if (spec.type === 'generated' && spec.gen === 'pink') {
-        var buffer = getOrGeneratePinkBuffer();
-        startSource(presetId, buffer, opts);
+      } else if (spec.type === 'generated') {
+        var buffer = (spec.gen === 'brown')
+          ? getOrGenerateBrownBuffer()
+          : getOrGeneratePinkBuffer();
+        startLayer1Source(presetId, buffer, opts);
         return Promise.resolve();
-      } else {
-        return Promise.reject(new Error('Bad spec: ' + JSON.stringify(spec)));
       }
+      return Promise.reject(new Error('Bad spec: ' + JSON.stringify(spec)));
     });
   }
 
-  function startSource(presetId, buffer, opts) {
+  function startLayer1Source(presetId, buffer, opts) {
     opts = opts || {};
-    var loop = opts.loop !== false; // default true
+    var loop = opts.loop !== false;
 
-    // Manually-stopped previous source → mark стария за да не fire-не sound-ended
-    if (activeSource) activeSource._manualStop = true;
+    // Mark old source as manually stopped (avoid onended emit)
+    if (layer1.source) layer1.source._manualStop = true;
 
     var src = ctx.createBufferSource();
     src.buffer = buffer;
@@ -305,199 +372,314 @@ window.AudioEngine = (function () {
     src._presetId = presetId;
     src._manualStop = false;
 
-    var presetGain = ctx.createGain();
-    src.connect(presetGain);
-    presetGain.connect(masterGain);
+    var gainNode = ctx.createGain();
+    src.connect(gainNode);
+    gainNode.connect(masterGain);
 
     var now = ctx.currentTime;
-    var hadActive = !!activeSource;
+    var targetGain = volumeToGain(layer1.volume);
+    var hadActive = !!layer1.source;
 
     if (hadActive) {
-      // Crossfade: new ramps up, old ramps down
-      presetGain.gain.setValueAtTime(0.0001, now);
-      presetGain.gain.exponentialRampToValueAtTime(1.0, now + CROSSFADE_SEC);
-
-      activePresetGain.gain.cancelScheduledValues(now);
-      activePresetGain.gain.setValueAtTime(activePresetGain.gain.value, now);
-      activePresetGain.gain.exponentialRampToValueAtTime(0.0001, now + CROSSFADE_SEC);
-
-      var oldSource = activeSource;
-      var oldGain = activePresetGain;
+      // Crossfade
+      gainNode.gain.setValueAtTime(0.0001, now);
+      gainNode.gain.exponentialRampToValueAtTime(Math.max(0.001, targetGain),
+        now + CROSSFADE_SEC);
+      var oldGain = layer1.gainNode;
+      oldGain.gain.cancelScheduledValues(now);
+      oldGain.gain.setValueAtTime(oldGain.gain.value, now);
+      oldGain.gain.exponentialRampToValueAtTime(0.0001, now + CROSSFADE_SEC);
+      var oldSrc = layer1.source;
       setTimeout(function () {
-        try { oldSource.stop(); } catch (e) { /* ignore */ }
-        try { oldSource.disconnect(); } catch (e) { /* ignore */ }
-        try { oldGain.disconnect(); } catch (e) { /* ignore */ }
+        try { oldSrc.stop(); } catch (e) {}
+        try { oldSrc.disconnect(); } catch (e) {}
+        try { oldGain.disconnect(); } catch (e) {}
       }, CROSSFADE_SEC * 1000 + 50);
     } else {
-      // First play: fade in от 0 към 1 за избягване на click
-      presetGain.gain.setValueAtTime(0.0001, now);
-      presetGain.gain.exponentialRampToValueAtTime(1.0, now + 0.1);
+      gainNode.gain.setValueAtTime(0.0001, now);
+      gainNode.gain.exponentialRampToValueAtTime(Math.max(0.001, targetGain), now + 0.1);
     }
 
-    // onended handles natural completion (за loop=false) — НЕ trigger при manual stop()
     src.onended = function () {
       if (src._manualStop) return;
-      // Natural end: clean state и emit event
-      if (activeSource === src) {
-        activeSource = null;
-        activePresetGain = null;
-        activePreset = null;
-        activeStartCtxTime = 0;
-        activeBufferDuration = 0;
-        activeIsLooping = true;
+      if (layer1.source === src) {
+        clearLayer1State();
       }
-      try { src.disconnect(); } catch (e) { /* ignore */ }
-      try { presetGain.disconnect(); } catch (e) { /* ignore */ }
-      window.dispatchEvent(new CustomEvent('auralis-sound-ended', {
-        detail: { presetId: src._presetId }
-      }));
+      try { src.disconnect(); } catch (e) {}
+      try { gainNode.disconnect(); } catch (e) {}
+      try {
+        window.dispatchEvent(new CustomEvent('auralis-sound-ended', {
+          detail: { presetId: src._presetId, layer: 1 }
+        }));
+      } catch (e) {}
     };
 
     src.start(0);
-    activeSource = src;
-    activePresetGain = presetGain;
-    activePreset = presetId;
-    activeStartCtxTime = now;
-    activeBufferDuration = buffer.duration || 0;
-    activeIsLooping = loop;
-    console.log('[audio] play:', presetId, hadActive ? '(crossfade)' : '', loop ? '(loop)' : '(one-shot)');
+    layer1.source = src;
+    layer1.gainNode = gainNode;
+    layer1.presetId = presetId;
+    layer1.startCtxTime = now;
+    layer1.bufferDuration = buffer.duration || 0;
+    layer1.isLooping = loop;
+    console.log('[audio] L1 play:', presetId, hadActive ? '(crossfade)' : '', loop ? '(loop)' : '(one-shot)');
   }
 
-  // ============================================================
-  // PAUSE / STOP
-  // ============================================================
+  function crossfadeLayer1(newPresetId) {
+    return playLayer1(newPresetId); // crossfade is automatic if L1 active
+  }
 
-  function pause() {
-    if (!activeSource || !ctx) return;
-
+  function stopLayer1() {
+    if (!layer1.source || !ctx) return;
     var now = ctx.currentTime;
-    var src = activeSource;
-    var gain = activePresetGain;
-    src._manualStop = true; // НЕ trigger sound-ended event
-
+    var src = layer1.source;
+    var gain = layer1.gainNode;
+    src._manualStop = true;
     gain.gain.cancelScheduledValues(now);
     gain.gain.setValueAtTime(gain.gain.value, now);
     gain.gain.exponentialRampToValueAtTime(0.0001, now + PAUSE_FADE_SEC);
-
     setTimeout(function () {
-      try { src.stop(); } catch (e) { /* ignore */ }
-      try { src.disconnect(); } catch (e) { /* ignore */ }
-      try { gain.disconnect(); } catch (e) { /* ignore */ }
+      try { src.stop(); } catch (e) {}
+      try { src.disconnect(); } catch (e) {}
+      try { gain.disconnect(); } catch (e) {}
       suspendContext();
     }, PAUSE_FADE_SEC * 1000 + 50);
-
-    activeSource = null;
-    activePresetGain = null;
-    activePreset = null;
-    activeStartCtxTime = 0;
-    activeBufferDuration = 0;
-    activeIsLooping = true;
-    console.log('[audio] pause');
+    clearLayer1State();
+    console.log('[audio] L1 stop');
   }
 
-  function stop() {
-    if (activeSource) {
-      activeSource._manualStop = true;
-      try { activeSource.stop(); } catch (e) { /* ignore */ }
-      try { activeSource.disconnect(); } catch (e) { /* ignore */ }
-    }
-    if (activePresetGain) {
-      try { activePresetGain.disconnect(); } catch (e) { /* ignore */ }
-    }
-    activeSource = null;
-    activePresetGain = null;
-    activePreset = null;
-    activeStartCtxTime = 0;
-    activeBufferDuration = 0;
-    activeIsLooping = true;
-    suspendContext();
-    console.log('[audio] stop');
-  }
-
-  /**
-   * getPlaybackInfo() — used by Calm player для progress bar.
-   * Returns: { presetId, currentTime, duration, isLooping } or null ако не свири.
-   */
-  function getPlaybackInfo() {
-    if (!activeSource || !ctx) return null;
-    var elapsed = ctx.currentTime - activeStartCtxTime;
-    // За loop, currentTime е по modulo на duration
-    var cur = activeIsLooping && activeBufferDuration > 0
-      ? (elapsed % activeBufferDuration)
-      : elapsed;
-    return {
-      presetId: activePreset,
-      currentTime: cur,
-      duration: activeBufferDuration,
-      isLooping: activeIsLooping
-    };
+  function clearLayer1State() {
+    layer1.source = null;
+    layer1.gainNode = null;
+    layer1.presetId = null;
+    layer1.startCtxTime = 0;
+    layer1.bufferDuration = 0;
+    layer1.isLooping = true;
   }
 
   // ============================================================
-  // SLEEP TIMER (fade-out последните 30s от total)
+  // LAYER 2 — background noise (HARD swap, без crossfade)
+  // ============================================================
+
+  function playLayer2(noiseId) {
+    init();
+    unlock();
+
+    // 'none' / null → stop L2
+    if (!noiseId || noiseId === 'none') {
+      stopLayer2();
+      layer2.presetId = 'none';
+      return Promise.resolve();
+    }
+
+    var spec = NOISE_MAP[noiseId];
+    if (!spec) {
+      // Manifest-based noise lookup
+      if (window.AURALIS_MANIFEST && window.AURALIS_MANIFEST.noises) {
+        for (var i = 0; i < window.AURALIS_MANIFEST.noises.length; i++) {
+          var n = window.AURALIS_MANIFEST.noises[i];
+          if (n.id === noiseId && n.filename) {
+            spec = { type: 'file', url: 'audio/library/' + n.filename };
+            break;
+          }
+        }
+      }
+      if (!spec) {
+        console.error('[audio] L2 unknown noise:', noiseId);
+        return Promise.reject(new Error('Unknown noise: ' + noiseId));
+      }
+    }
+
+    if (layer2.presetId === noiseId && layer2.source) {
+      console.log('[audio] L2 already playing:', noiseId);
+      return Promise.resolve();
+    }
+
+    return resumeContext().then(function () {
+      var bufferPromise;
+      if (spec.type === 'file') {
+        bufferPromise = fetchAndDecode(spec.url, noiseId);
+      } else {
+        // Generated
+        var buf = (spec.gen === 'brown')
+          ? getOrGenerateBrownBuffer()
+          : getOrGeneratePinkBuffer();
+        bufferPromise = Promise.resolve(buf);
+      }
+      return bufferPromise.then(function (buffer) {
+        startLayer2Source(noiseId, buffer, spec.filter || null);
+      });
+    });
+  }
+
+  function startLayer2Source(noiseId, buffer, filterFreq) {
+    // Hard swap: stop old immediately (no crossfade — continuous noise context)
+    if (layer2.source) hardStopLayer2();
+
+    var src = ctx.createBufferSource();
+    src.buffer = buffer;
+    src.loop = true;
+    src._noiseId = noiseId;
+    src._manualStop = false;
+
+    var gainNode = ctx.createGain();
+    var lastNode = src;
+
+    var filterNode = null;
+    if (filterFreq && filterFreq > 0) {
+      filterNode = ctx.createBiquadFilter();
+      filterNode.type = 'lowpass';
+      filterNode.frequency.value = filterFreq;
+      filterNode.Q.value = 0.707;
+      src.connect(filterNode);
+      filterNode.connect(gainNode);
+    } else {
+      src.connect(gainNode);
+    }
+    gainNode.connect(masterGain);
+
+    var now = ctx.currentTime;
+    var targetGain = volumeToGain(layer2.volume);
+    // Small fade-in за избягване на click
+    gainNode.gain.setValueAtTime(0.0001, now);
+    gainNode.gain.exponentialRampToValueAtTime(Math.max(0.001, targetGain),
+      now + L2_FADE_SEC);
+
+    src.start(0);
+    layer2.source = src;
+    layer2.gainNode = gainNode;
+    layer2.filterNode = filterNode;
+    layer2.presetId = noiseId;
+    layer2.startCtxTime = now;
+    layer2.bufferDuration = buffer.duration || 0;
+    layer2.isLooping = true;
+    console.log('[audio] L2 play:', noiseId, filterFreq ? '(lp ' + filterFreq + 'Hz)' : '');
+  }
+
+  function hardStopLayer2() {
+    if (!layer2.source) return;
+    var src = layer2.source;
+    var gain = layer2.gainNode;
+    var filter = layer2.filterNode;
+    src._manualStop = true;
+    try { src.stop(); } catch (e) {}
+    try { src.disconnect(); } catch (e) {}
+    if (filter) { try { filter.disconnect(); } catch (e) {} }
+    if (gain) { try { gain.disconnect(); } catch (e) {} }
+    clearLayer2State();
+  }
+
+  function stopLayer2() {
+    if (!layer2.source || !ctx) return;
+    var now = ctx.currentTime;
+    var src = layer2.source;
+    var gain = layer2.gainNode;
+    var filter = layer2.filterNode;
+    src._manualStop = true;
+    gain.gain.cancelScheduledValues(now);
+    gain.gain.setValueAtTime(gain.gain.value, now);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + L2_FADE_SEC);
+    setTimeout(function () {
+      try { src.stop(); } catch (e) {}
+      try { src.disconnect(); } catch (e) {}
+      if (filter) { try { filter.disconnect(); } catch (e) {} }
+      try { gain.disconnect(); } catch (e) {}
+      suspendContext();
+    }, L2_FADE_SEC * 1000 + 50);
+    clearLayer2State();
+    console.log('[audio] L2 stop');
+  }
+
+  function clearLayer2State() {
+    layer2.source = null;
+    layer2.gainNode = null;
+    layer2.filterNode = null;
+    layer2.presetId = null;
+    layer2.startCtxTime = 0;
+    layer2.bufferDuration = 0;
+  }
+
+  // ============================================================
+  // PAUSE / STOP (both layers)
+  // ============================================================
+
+  function pause() {
+    if (!ctx) return;
+    var hadL1 = !!layer1.source;
+    var hadL2 = !!layer2.source;
+    if (hadL1) stopLayer1();
+    if (hadL2) stopLayer2();
+    // suspendContext се извиква от per-layer timeouts
+  }
+
+  function stop() {
+    if (layer1.source) {
+      layer1.source._manualStop = true;
+      try { layer1.source.stop(); } catch (e) {}
+      try { layer1.source.disconnect(); } catch (e) {}
+    }
+    if (layer1.gainNode) { try { layer1.gainNode.disconnect(); } catch (e) {} }
+    clearLayer1State();
+
+    if (layer2.source) {
+      layer2.source._manualStop = true;
+      try { layer2.source.stop(); } catch (e) {}
+      try { layer2.source.disconnect(); } catch (e) {}
+    }
+    if (layer2.filterNode) { try { layer2.filterNode.disconnect(); } catch (e) {} }
+    if (layer2.gainNode) { try { layer2.gainNode.disconnect(); } catch (e) {} }
+    clearLayer2State();
+
+    suspendContext();
+    console.log('[audio] stop (both layers)');
+  }
+
+  // ============================================================
+  // SLEEP TIMER (operates on master gain — fades both layers)
   // ============================================================
 
   function setSleepTimer(minutes) {
     cancelSleepTimer();
-
     if (!minutes || minutes <= 0) {
       sleepTimerTotalMin = 0;
       console.log('[audio] sleep timer cancelled');
       return;
     }
-
     sleepTimerTotalMin = minutes;
     var totalMs = minutes * 60 * 1000;
     var fadeStartMs = Math.max(0, totalMs - SLEEP_FADE_SEC * 1000);
-
     sleepTimerId = setTimeout(startSleepFade, fadeStartMs);
-    console.log('[audio] sleep timer set:', minutes, 'min (fade starts at', (fadeStartMs / 1000).toFixed(0) + 's)');
+    console.log('[audio] sleep timer:', minutes + 'min (fade@' + (fadeStartMs / 1000).toFixed(0) + 's)');
   }
 
   function startSleepFade() {
     sleepTimerId = null;
     if (!ctx || !masterGain) return;
-
     var now = ctx.currentTime;
-    var currentGain = masterGain.gain.value;
-    if (currentGain < 0.001) currentGain = 0.001;
-
+    var cur = masterGain.gain.value;
+    if (cur < 0.001) cur = 0.001;
     masterGain.gain.cancelScheduledValues(now);
-    masterGain.gain.setValueAtTime(currentGain, now);
+    masterGain.gain.setValueAtTime(cur, now);
     masterGain.gain.exponentialRampToValueAtTime(0.0001, now + SLEEP_FADE_SEC);
-
     sleepStopTimerId = setTimeout(function () {
       sleepStopTimerId = null;
       stop();
-      // Restore master gain за следващия play
       if (masterGain) {
         masterGain.gain.cancelScheduledValues(ctx.currentTime);
         masterGain.gain.value = volumeToGain(masterVolume);
       }
       sleepTimerTotalMin = 0;
-      console.log('[audio] sleep timer expired → stopped');
+      console.log('[audio] sleep timer expired → stop');
     }, SLEEP_FADE_SEC * 1000 + 100);
-
-    console.log('[audio] sleep fade-out started (30s)');
   }
 
   function cancelSleepTimer() {
-    if (sleepTimerId) {
-      clearTimeout(sleepTimerId);
-      sleepTimerId = null;
-    }
-    if (sleepStopTimerId) {
-      clearTimeout(sleepStopTimerId);
-      sleepStopTimerId = null;
-    }
+    if (sleepTimerId) { clearTimeout(sleepTimerId); sleepTimerId = null; }
+    if (sleepStopTimerId) { clearTimeout(sleepStopTimerId); sleepStopTimerId = null; }
     sleepTimerTotalMin = 0;
-    // Restore master gain ако сме били в fade
     if (ctx && masterGain) {
       masterGain.gain.cancelScheduledValues(ctx.currentTime);
-      masterGain.gain.linearRampToValueAtTime(
-        volumeToGain(masterVolume),
-        ctx.currentTime + 0.1
-      );
+      masterGain.gain.linearRampToValueAtTime(volumeToGain(masterVolume),
+        ctx.currentTime + 0.1);
     }
   }
 
@@ -510,15 +692,41 @@ window.AudioEngine = (function () {
   }
 
   // ============================================================
-  // QUERIES
+  // QUERIES + Backward compat
   // ============================================================
 
-  function isPlaying() {
-    return !!activeSource;
+  function isPlaying() { return !!(layer1.source || layer2.source); }
+  function getActivePreset() { return layer1.presetId; }
+
+  function getPlaybackInfo() {
+    if (!layer1.source || !ctx) return null;
+    var elapsed = ctx.currentTime - layer1.startCtxTime;
+    var cur = (layer1.isLooping && layer1.bufferDuration > 0)
+      ? (elapsed % layer1.bufferDuration)
+      : elapsed;
+    return {
+      presetId: layer1.presetId,
+      currentTime: cur,
+      duration: layer1.bufferDuration,
+      isLooping: layer1.isLooping
+    };
   }
 
-  function getActivePreset() {
-    return activePreset;
+  function getActiveLayers() {
+    return {
+      layer1: {
+        id: layer1.presetId,
+        volume: layer1.volume,
+        playing: !!layer1.source
+      },
+      layer2: {
+        id: layer2.presetId,
+        volume: layer2.volume,
+        playing: !!layer2.source
+      },
+      master: masterVolume,
+      ctxState: ctx ? ctx.state : 'closed'
+    };
   }
 
   // ============================================================
@@ -528,19 +736,35 @@ window.AudioEngine = (function () {
   return {
     init: init,
     unlock: unlock,
-    play: play,
+
+    // 2-layer playback
+    playLayer1: playLayer1,
+    playLayer2: playLayer2,
+    stopLayer1: stopLayer1,
+    stopLayer2: stopLayer2,
+    setLayer1Volume: setLayer1Volume,
+    setLayer2Volume: setLayer2Volume,
+    getLayer1Volume: getLayer1Volume,
+    getLayer2Volume: getLayer2Volume,
+    crossfadeLayer1: crossfadeLayer1,
+    getActiveLayers: getActiveLayers,
+
+    // Backward compat
+    play: playLayer1,
     playUrl: playUrl,
     pause: pause,
     stop: stop,
+    isPlaying: isPlaying,
+    getActivePreset: getActivePreset,
+    getPlaybackInfo: getPlaybackInfo,
+
+    // Master + sleep
     setMasterVolume: setMasterVolume,
     getMasterVolume: getMasterVolume,
     setSleepTimer: setSleepTimer,
     cancelSleepTimer: cancelSleepTimer,
     getSleepTimerInfo: getSleepTimerInfo,
-    isPlaying: isPlaying,
-    getActivePreset: getActivePreset,
-    getPlaybackInfo: getPlaybackInfo,
-    // Internal exposed за debugging:
+
     _getContext: function () { return ctx; }
   };
 })();
