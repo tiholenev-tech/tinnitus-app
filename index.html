@@ -241,7 +241,8 @@
           history.pushState({ phase: 'quiz', quizSubphase: 'q1' }, '');
           if (window.Quiz && window.Quiz.render) window.Quiz.render();
         } else {
-          // В onboarding → welcome
+          // В onboarding → welcome (изчисти стари quiz отговори за clean restart)
+          if (typeof s.resetQuiz === 'function') s.resetQuiz();
           s.transitionSubphase('welcome');
           history.pushState({ subphase: 'welcome' }, '');
           if (window.Onboarding && window.Onboarding.render) window.Onboarding.render();

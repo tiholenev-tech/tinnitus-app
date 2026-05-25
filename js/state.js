@@ -229,6 +229,21 @@
       return ONBOARDING_SUBPHASES.indexOf(this.subphase);
     },
 
+    // ===== Reset quiz only (preserve onboarding/consent/theme) =====
+    // Викай при връщане в onboarding welcome → новата сесия започва с чисти отговори.
+    resetQuiz: function () {
+      this.quizSubphase = 'q1';
+      this.quizAnswers = {};
+      this.profile = null;
+      this.distressIndex = null;
+
+      remove(KEY_QUIZ_SUBPHASE);
+      remove(KEY_QUIZ_ANSWERS);
+      remove(KEY_QUIZ_DONE);
+      remove(KEY_QUIZ_PROFILE);
+      remove(KEY_QUIZ_DI);
+    },
+
     // ===== Reset (full wipe) =====
 
     reset: function () {
