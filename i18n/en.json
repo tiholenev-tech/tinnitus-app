@@ -243,6 +243,73 @@
       }
     },
 
+    "components": {
+      "infoPanel": {
+        "readMore": "TODO: Read more",
+        "readLess": "TODO: Show less",
+        "citationsLabel": "TODO: Sources",
+        "faqLabel": "TODO: Frequently asked",
+        "expandQuestionAria": "TODO: Show answer to: {question}",
+        "collapseQuestionAria": "TODO: Hide answer to: {question}"
+      },
+      "noisePicker": {
+        "title": "TODO: Pick background noise",
+        "close": "TODO: Close",
+        "infoAria": "TODO: Info about: {name}",
+        "options": {
+          "none": "TODO: None",
+          "brown_pure": "TODO: Brown (pure)",
+          "brown_lp1000": "TODO: Brown · filter 1000 Hz",
+          "brown_lp500": "TODO: Brown · filter 500 Hz",
+          "pink_pure": "TODO: Pink (pure)",
+          "pink_lp2000": "TODO: Pink · filter 2000 Hz",
+          "pink_lp4000": "TODO: Pink · filter 4000 Hz"
+        }
+      },
+      "player": {
+        "backAria": "TODO: Back to library",
+        "layer1Label": "TODO: Main sound",
+        "layer2Label": "TODO: Background noise",
+        "noiseChange": "TODO: Change background",
+        "pauseAria": "TODO: Pause",
+        "playAria": "TODO: Play",
+        "sleepAria": "TODO: Sleep mode",
+        "sosAria": "TODO: SOS breathing",
+        "noLayer2": "TODO: No background"
+      }
+    },
+
+    "noises": {
+      "none": {
+        "title": "TODO: None",
+        "description": "TODO: No second audio layer."
+      },
+      "brown_pure": {
+        "title": "TODO: Brown noise (pure)",
+        "description": "TODO: Soft, deep noise emphasizing low frequencies (1/f²). Good for relaxation and falling asleep. Often used by people with high-tone tinnitus."
+      },
+      "brown_lp1000": {
+        "title": "TODO: Brown lowpass 1000 Hz",
+        "description": "TODO: Brown noise filtered — frequencies above 1000 Hz removed. Softer, more background-like. Good for long focus sessions."
+      },
+      "brown_lp500": {
+        "title": "TODO: Brown lowpass 500 Hz",
+        "description": "TODO: Brown noise filtered to very low frequencies (below 500 Hz). Feels more like deep rumble than noise."
+      },
+      "pink_pure": {
+        "title": "TODO: Pink noise (pure)",
+        "description": "TODO: Natural 'nature' noise (1/f). Similar to light rain or wind. One of the most studied noise types for sleep."
+      },
+      "pink_lp2000": {
+        "title": "TODO: Pink lowpass 2000 Hz",
+        "description": "TODO: Pink noise filtered — without the hiss of high frequencies. Softer, more pleasant for long listening."
+      },
+      "pink_lp4000": {
+        "title": "TODO: Pink lowpass 4000 Hz",
+        "description": "TODO: Pink noise with slightly softened highs. Keeps the rain texture but removes sharpness."
+      }
+    },
+
     "library": {
       "title": "TODO: Sound library",
       "loading": "TODO: Loading...",

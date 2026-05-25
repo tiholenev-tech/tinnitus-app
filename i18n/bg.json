@@ -243,6 +243,73 @@
       }
     },
 
+    "components": {
+      "infoPanel": {
+        "readMore": "Прочети повече",
+        "readLess": "Покажи по-малко",
+        "citationsLabel": "Източници",
+        "faqLabel": "Често задавани въпроси",
+        "expandQuestionAria": "Покажи отговора на: {question}",
+        "collapseQuestionAria": "Скрий отговора на: {question}"
+      },
+      "noisePicker": {
+        "title": "Изберете фонов шум",
+        "close": "Затвори",
+        "infoAria": "Информация за: {name}",
+        "options": {
+          "none": "Без фон",
+          "brown_pure": "Кафяв (чист)",
+          "brown_lp1000": "Кафяв · филтър 1000 Hz",
+          "brown_lp500": "Кафяв · филтър 500 Hz",
+          "pink_pure": "Розов (чист)",
+          "pink_lp2000": "Розов · филтър 2000 Hz",
+          "pink_lp4000": "Розов · филтър 4000 Hz"
+        }
+      },
+      "player": {
+        "backAria": "Назад към библиотеката",
+        "layer1Label": "Основен звук",
+        "layer2Label": "Фонов шум",
+        "noiseChange": "Смени фон",
+        "pauseAria": "Пауза",
+        "playAria": "Пусни",
+        "sleepAria": "Нощен режим",
+        "sosAria": "SOS дишане",
+        "noLayer2": "Без фон"
+      }
+    },
+
+    "noises": {
+      "none": {
+        "title": "Без фон",
+        "description": "Без втори звуков слой."
+      },
+      "brown_pure": {
+        "title": "Brown noise (чист)",
+        "description": "Мек, дълбок шум с акцент върху ниските честоти (1/f²). Подходящ за релаксация и заспиване. Често ползван от хора с висок-тонов тинитус."
+      },
+      "brown_lp1000": {
+        "title": "Brown lowpass 1000 Hz",
+        "description": "Brown noise филтриран — отстранени са честоти над 1000 Hz. По-меко, по-фоново звучене. Добър за дълга концентрация."
+      },
+      "brown_lp500": {
+        "title": "Brown lowpass 500 Hz",
+        "description": "Brown noise филтриран до много ниски честоти (под 500 Hz). Усеща се повече като дълбок „тътен", отколкото като шум."
+      },
+      "pink_pure": {
+        "title": "Pink noise (чист)",
+        "description": "Натурален „природен" шум (1/f). Подобен на лек дъжд или вятър. Един от най-изследваните типове шум за сън."
+      },
+      "pink_lp2000": {
+        "title": "Pink lowpass 2000 Hz",
+        "description": "Pink noise с филтър — без свистенето на високите честоти. По-мек, по-приятен за дълго слушане."
+      },
+      "pink_lp4000": {
+        "title": "Pink lowpass 4000 Hz",
+        "description": "Pink noise с леко смекчени високи честоти. Запазва текстурата на дъжда, но без острота."
+      }
+    },
+
     "library": {
       "title": "Звукова библиотека",
       "loading": "Зареждане...",
