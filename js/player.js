@@ -398,6 +398,12 @@ window.Player = (function () {
   // Render / bind / open / close
   // ============================================================
 
+  // Prevent vertical scroll when dragging sliders on mobile
+  function preventScrollOnSlider(slider) {
+    slider.addEventListener('touchstart', function (e) { e.preventDefault(); }, { passive: false });
+    slider.addEventListener('touchmove', function (e) { e.preventDefault(); }, { passive: false });
+  }
+
   function bindEvents(container) {
     container.addEventListener('click', onClick);
     var l1 = container.querySelector('#plL1');
@@ -405,10 +411,12 @@ window.Player = (function () {
     if (l1) {
       l1.addEventListener('input', onL1Input);
       l1.addEventListener('change', onL1Input);
+      preventScrollOnSlider(l1);
     }
     if (l2) {
       l2.addEventListener('input', onL2Input);
       l2.addEventListener('change', onL2Input);
+      preventScrollOnSlider(l2);
     }
   }
 
