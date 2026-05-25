@@ -431,10 +431,25 @@ window.Player = (function () {
       bindEvents(app);
     }
 
-    // Sync engine volumes
+    // Sync engine volumes + start playback
     if (window.AudioEngine) {
       if (window.AudioEngine.setLayer1Volume) window.AudioEngine.setLayer1Volume(layer1Vol);
       if (window.AudioEngine.setLayer2Volume) window.AudioEngine.setLayer2Volume(layer2Vol);
+
+      // Start Layer 1 (main sound) ако още не свири този preset.
+      // BUG2-C: Player.open преди това не извикваше playLayer1 — чуваше се
+      // само Layer 2 (фоновият шум). Сега L1 winaги се стартира.
+      var activePreset = window.AudioEngine.getActivePreset
+        ? window.AudioEngine.getActivePreset() : null;
+      if (activePreset !== soundId && window.AudioEngine.playLayer1) {
+        console.log('[player] Layer 1 starting:', soundId);
+        window.AudioEngine.playLayer1(soundId)
+          .then(function () { console.log('[player] Layer 1 started:', soundId); })
+          .catch(function (err) {
+            console.warn('[player] Layer 1 failed:', soundId, err && err.message);
+          });
+      }
+
       if (noiseId !== 'none' && window.AudioEngine.playLayer2) {
         window.AudioEngine.playLayer2(noiseId);
       }
