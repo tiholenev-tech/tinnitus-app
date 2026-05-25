@@ -430,14 +430,17 @@ window.Library = (function () {
       ' stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
       '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>';
 
+    var openAria = t('library.player.openAria', 'Отвори плейъра');
     return (
       '<div class="lib-miniplayer" id="libMiniPlayer" role="region" aria-label="' +
         escapeHtml(playingLabel) + '">' +
-        '<div class="lib-mp-body">' +
-          '<div class="lib-mp-eyebrow">' + escapeHtml(playingLabel) + '</div>' +
-          '<div class="lib-mp-title">' + escapeHtml(title) + '</div>' +
-          '<div class="lib-mp-subtitle">' + escapeHtml(subtitle) + '</div>' +
-        '</div>' +
+        '<button class="lib-mp-body" type="button" data-action="mp-open"' +
+          ' data-sound-id="' + escapeHtml(activeId) + '"' +
+          ' aria-label="' + escapeHtml(openAria) + '">' +
+          '<span class="lib-mp-eyebrow">' + escapeHtml(playingLabel) + '</span>' +
+          '<span class="lib-mp-title">' + escapeHtml(title) + '</span>' +
+          '<span class="lib-mp-subtitle">' + escapeHtml(subtitle) + '</span>' +
+        '</button>' +
         '<button class="lib-mp-sleep" type="button" data-action="mp-sleep"' +
           ' aria-label="' + escapeHtml(sleepLabel) + '">' +
           moonSvg +
@@ -622,6 +625,19 @@ window.Library = (function () {
     if (clearBtn) {
       e.stopPropagation();
       clearSearch();
+      return;
+    }
+
+    // Mini player body tap → open Player на текущия sound
+    var mpOpenBtn = e.target.closest('[data-action="mp-open"]');
+    if (mpOpenBtn) {
+      e.stopPropagation();
+      var soundId = mpOpenBtn.getAttribute('data-sound-id');
+      if (soundId && window.Player && window.Player.open) {
+        window.Player.open(soundId);
+      } else if (soundId && window.SoundDetail && window.SoundDetail.open) {
+        window.SoundDetail.open(soundId);
+      }
       return;
     }
 

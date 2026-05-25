@@ -398,10 +398,17 @@ window.Player = (function () {
   // Render / bind / open / close
   // ============================================================
 
-  // Prevent vertical scroll when dragging sliders on mobile
+  // Prevent vertical scroll while ACTUALLY dragging slider — без да
+  // блокираме native slider interaction. Преди това preventDefault на
+  // touchstart spirale-ваше touch events напълно → sliders не реагираха.
   function preventScrollOnSlider(slider) {
-    slider.addEventListener('touchstart', function (e) { e.preventDefault(); }, { passive: false });
-    slider.addEventListener('touchmove', function (e) { e.preventDefault(); }, { passive: false });
+    var dragging = false;
+    slider.addEventListener('touchstart', function () { dragging = true; }, { passive: true });
+    slider.addEventListener('touchend',   function () { dragging = false; }, { passive: true });
+    slider.addEventListener('touchcancel', function () { dragging = false; }, { passive: true });
+    slider.addEventListener('touchmove', function (e) {
+      if (dragging) e.preventDefault();
+    }, { passive: false });
   }
 
   function bindEvents(container) {
@@ -478,13 +485,40 @@ window.Player = (function () {
       window.removeEventListener('noise-changed', noiseChangedHandler);
       noiseChangedHandler = null;
     }
-    // Sound CONTINUES — mini player ще се появи отново в Library.
-    activeSoundId = null;
-    if (window.AppState && window.AppState.transition) {
-      window.AppState.transition('library');
+    // Д4: HARD STOP двата слоя при close — преди това sound продължаваше
+    // да върви като orphan playback (UI на home/diary, sound в background).
+    if (window.AudioEngine) {
+      if (window.AudioEngine.stopLayer1) {
+        try { window.AudioEngine.stopLayer1(); } catch (e) {}
+      }
+      if (window.AudioEngine.stopLayer2) {
+        try { window.AudioEngine.stopLayer2(); } catch (e) {}
+      }
+      // Fallback: pause() ако stopLayer* липсват
+      if (!window.AudioEngine.stopLayer1 && window.AudioEngine.pause) {
+        try { window.AudioEngine.pause(); } catch (e) {}
+      }
     }
-    history.pushState({ phase: 'library' }, '');
-    if (window.Library && window.Library.render) window.Library.render();
+    activeSoundId = null;
+
+    // Back-navigate към категория/home според previous phase, не legacy library.
+    var s = window.AppState;
+    var back = (s && s.previousPhase) || 'home';
+    var BACK_OK = ['home', 'category', 'sound', 'diary_hub'];
+    if (BACK_OK.indexOf(back) === -1) back = 'home';
+    if (s && s.transition) s.transition(back);
+    history.pushState({ phase: back }, '');
+    if (back === 'category' && window.CategoryView && window.CategoryView.render) {
+      window.CategoryView.render();
+    } else if (back === 'sound' && window.SoundDetail && window.SoundDetail.render) {
+      window.SoundDetail.render();
+    } else if (back === 'diary_hub' && window.DiaryHub && window.DiaryHub.render) {
+      window.DiaryHub.render();
+    } else if (window.Home && window.Home.render) {
+      window.Home.render();
+    } else if (window.Library && window.Library.render) {
+      window.Library.render();
+    }
   }
 
   function render() {
