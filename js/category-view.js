@@ -125,35 +125,40 @@ window.CategoryView = (function () {
   // Sound filtering
   // ============================================================
 
-  // MEDITATION-STRICT: по-строг whitelist + блок-list.
-  // Целта: ~20 истински meditation звуци (sing bowls, gongs, chants, инструментал),
-  // не 147 натрапчиво природни звуци.
+  // MEDITATION-FILTER-V2: by CSV category, not by filename keywords.
+  // Истинска медитация: 'meditation' е ПЪРВА категория в Opus CSV
+  // OR category_audio === 'meditation' (08_meditation/ folder) +
+  // не съдържа natural ambience keyword.
+  // Защо: keyword guessing беше неточен — реалните meditation файлове
+  // имат имена като "joseph_beg_genetic_waves" или "calm_piano_009"
+  // които не съдържат "singing_bowl"/"gong"/"mantra".
   function isRealMeditation(sound) {
     if (!sound || !sound.id) return false;
+
+    var cats = sound.categories_use;
+    if (typeof cats === 'string') {
+      cats = cats.split(',').map(function (c) { return c.trim(); });
+    }
+
+    // Hard exclude — sound с очевидно natural file id не е meditation.
     var id = String(sound.id).toLowerCase();
-
-    var strict = [
-      'singing_bowl', 'tibetan', 'gong', 'crystal_bowl',
-      'meditation_music', 'mantra', 'chant', 'om_',
-      'instrumental', 'piano_meditation', 'flute',
-      'koshi', 'kalimba', 'binaural', 'solfeggio',
-      'meditation_joseph', 'genetic_waves'
-    ];
-    var block = [
-      'ambience', 'ocean', 'wind', 'rain', 'water',
-      'waves', 'underwater', 'storm', 'thunder',
-      'forest', 'birds', 'stream', 'river', 'sea',
-      'beach', 'surf'
-    ];
-
-    var hasStrict = false, hasBlock = false;
-    for (var i = 0; i < strict.length; i++) {
-      if (id.indexOf(strict[i]) !== -1) { hasStrict = true; break; }
+    var hardBlock = ['ambience', 'ocean', 'wind', 'rain_', 'water_',
+                     'waves_', 'underwater', 'storm', 'thunder',
+                     'forest', 'birds', 'stream', 'river', 'surf', 'creek',
+                     'beach', 'sea_'];
+    for (var b = 0; b < hardBlock.length; b++) {
+      if (id.indexOf(hardBlock[b]) !== -1) return false;
     }
-    for (var j = 0; j < block.length; j++) {
-      if (id.indexOf(block[j]) !== -1) { hasBlock = true; break; }
+
+    // Pass-1: meditation е първата (primary) категория от Opus CSV.
+    if (Array.isArray(cats) && cats.length > 0 && cats[0] === 'meditation') {
+      return true;
     }
-    return hasStrict && !hasBlock;
+    // Pass-2: файлът идва от curated 08_meditation/ folder.
+    if (sound.category_audio === 'meditation') {
+      return true;
+    }
+    return false;
   }
 
   // CAT-SORT: sort sounds by current profile's score (e.g. HB_M_score),
