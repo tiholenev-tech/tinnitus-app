@@ -72,11 +72,34 @@ VALID_USE_CATEGORIES = {
     'daily', 'anxiety', 'meditation'
 }
 
-# Valid noise ids (за CSV validation)
+# Canonical noise ids (audio-engine.js NOISE_MAP + noise-picker.js NOISE_IDS use тези)
 VALID_NOISES = {
     'none', 'brown_pure', 'brown_lp1000', 'brown_lp500',
     'pink_pure', 'pink_lp2000', 'pink_lp4000'
 }
+
+# CSV може да ползва verbose алиаси (Opus's спецификация) — normalize към canonical.
+# Both written and canonical names are accepted без warning.
+NOISE_ALIASES = {
+    'brown_lowpass_1000': 'brown_lp1000',
+    'brown_lowpass_500':  'brown_lp500',
+    'pink_lowpass_2000':  'pink_lp2000',
+    'pink_lowpass_4000':  'pink_lp4000',
+    'brown_lowpass_4000': 'brown_lp1000',  # няма точно съответствие, най-близко
+    'pink_lowpass_1000':  'pink_lp2000',   # няма точно съответствие, най-близко
+}
+
+# Profile codes (matchват quiz-engine.js TINNITUS_PROFILES) — за scoring columns
+PROFILE_CODES = ['TH_C', 'DN_S', 'SS_R', 'SM_F', 'HB_M']
+
+
+def normalize_noise(noise_id: str) -> str:
+    """Map verbose CSV noise ids към canonical audio-engine ids.
+    Returns canonical id или original string (caller must validate)."""
+    if not noise_id:
+        return ''
+    nid = noise_id.strip().lower()
+    return NOISE_ALIASES.get(nid, nid)
 
 AUDIO_EXTS = {'.wav', '.mp3', '.m4a', '.ogg', '.flac', '.aac'}
 CATEGORY_FOLDER_PATTERN = re.compile(r'^\d{1,2}_(?P<id>[a-z][a-z0-9_]*)$')
@@ -207,19 +230,34 @@ def scan_library(source_dir: Path):
 # CSV categorization (Opus output → P3 wire-up)
 # ============================================================
 
+def _parse_ratio_value(raw: str):
+    """Parse '0.85' → 85, '70' → 70, '70%' → 70. None if invalid."""
+    if not raw:
+        return None
+    s = raw.strip().rstrip('%')
+    try:
+        v = float(s)
+    except ValueError:
+        return None
+    if v <= 1.0:
+        v = v * 100
+    return int(round(v))
+
+
 def load_categorization_csv(csv_path: Path) -> dict:
     """Parse Opus's categorization CSV.
 
-    Expected columns (header row):
-      sound_id, categories_use, recommended_noise, recommended_mix_ratio
+    Expected columns:
+      sound_id, category_audio, categories_use, recommended_noise,
+      mix_ratio_layer1, mix_ratio_layer2,
+      needs_review, source_note,
+      TH_C_score, DN_S_score, SS_R_score, SM_F_score, HB_M_score, profile_score_note
 
-    Returns dict { sound_id: { categories_use:[], recommended_noise, mix_ratio:[l1,l2] } }
-    or {} if file missing / unreadable.
+    Backward-compat: supports единичната колона `recommended_mix_ratio` (e.g. "70/30").
 
-    Tolerant parsing:
-      - categories_use може да е separated с comma OR pipe OR semicolon
-      - mix_ratio може да е "70/30" или "70 30" или "70,30"
-      - Unknown noises / categories → skipped with warning
+    Returns dict { sound_id: { categories_use:[], recommended_noise,
+                               recommended_mix_ratio:[l1,l2], profile_scores:{...},
+                               needs_review, source_note } }
     """
     if not csv_path.exists():
         return {}
@@ -247,37 +285,60 @@ def load_categorization_csv(csv_path: Path) -> dict:
                         else:
                             print(f'[csv] WARN: unknown use_category "{p}" for {sid}')
 
-                # recommended_noise
-                noise = (row.get('recommended_noise') or '').strip()
-                if noise and noise not in VALID_NOISES:
-                    print(f'[csv] WARN: unknown noise "{noise}" for {sid}')
-                    noise = None
-                if noise == '':
-                    noise = None
+                # recommended_noise — normalize verbose → canonical
+                raw_noise = (row.get('recommended_noise') or '').strip()
+                noise = None
+                if raw_noise:
+                    norm = normalize_noise(raw_noise)
+                    if norm in VALID_NOISES:
+                        noise = norm
+                    else:
+                        print(f'[csv] WARN: unknown noise "{raw_noise}" for {sid}')
 
-                # mix ratio
-                raw_ratio = (row.get('recommended_mix_ratio') or '').strip()
+                # mix ratio — new layered columns OR legacy единична колона
                 ratio = None
-                if raw_ratio:
-                    parts = re.split(r'[/\s,]', raw_ratio)
-                    nums = []
-                    for p in parts:
-                        p = p.strip()
-                        if not p:
-                            continue
-                        try:
-                            nums.append(int(p))
-                        except ValueError:
-                            pass
-                    if len(nums) == 2 and 0 <= nums[0] <= 100 and 0 <= nums[1] <= 100:
-                        ratio = nums
-                    elif raw_ratio:
-                        print(f'[csv] WARN: bad mix_ratio "{raw_ratio}" for {sid}')
+                l1_raw = (row.get('mix_ratio_layer1') or '').strip()
+                l2_raw = (row.get('mix_ratio_layer2') or '').strip()
+                if l1_raw or l2_raw:
+                    l1 = _parse_ratio_value(l1_raw)
+                    l2 = _parse_ratio_value(l2_raw)
+                    if l1 is not None and l2 is not None and 0 <= l1 <= 100 and 0 <= l2 <= 100:
+                        ratio = [l1, l2]
+                    elif l1_raw or l2_raw:
+                        print(f'[csv] WARN: bad mix_ratio "{l1_raw}/{l2_raw}" for {sid}')
+                else:
+                    raw_ratio = (row.get('recommended_mix_ratio') or '').strip()
+                    if raw_ratio:
+                        parts = re.split(r'[/\s,]', raw_ratio)
+                        nums = [_parse_ratio_value(p) for p in parts if p.strip()]
+                        nums = [n for n in nums if n is not None]
+                        if len(nums) == 2 and 0 <= nums[0] <= 100 and 0 <= nums[1] <= 100:
+                            ratio = nums
+                        else:
+                            print(f'[csv] WARN: bad mix_ratio "{raw_ratio}" for {sid}')
+
+                # Per-profile scores (TH_C_score / DN_S_score / ...)
+                scores = {}
+                for code in PROFILE_CODES:
+                    raw_s = (row.get(code + '_score') or '').strip()
+                    if not raw_s:
+                        continue
+                    try:
+                        scores[code] = round(float(raw_s), 2)
+                    except ValueError:
+                        pass
+
+                # Review flags
+                needs_review = (row.get('needs_review') or '').strip().lower() in ('true', '1', 'yes')
+                source_note = (row.get('source_note') or '').strip() or None
 
                 parsed[sid] = {
                     'categories_use': cats,
                     'recommended_noise': noise,
-                    'recommended_mix_ratio': ratio
+                    'recommended_mix_ratio': ratio,
+                    'profile_scores': scores,
+                    'needs_review': needs_review,
+                    'source_note': source_note,
                 }
     except Exception as e:
         print(f'[csv] ERROR reading {csv_path.name}: {e}')
@@ -287,8 +348,15 @@ def load_categorization_csv(csv_path: Path) -> dict:
     return parsed
 
 
-def apply_categorization(sounds: list, cat_data: dict) -> int:
-    """Merge CSV data into scanned sounds. Returns count of matched."""
+def apply_categorization(sounds: list, cat_data: dict, verbose_missing: bool = False) -> int:
+    """Merge CSV data into scanned sounds. Returns count of matched.
+
+    Per-profile scores (TH_C_score etc.) и needs_review/source_note се
+    flatten-ват в sound entry — за TopSoundsCarousel Strategy 1 (manifest scoring).
+
+    Sounds в CSV без physical file are silently skipped (CSV не е авторитативен;
+    physical library дава канонична версия).
+    """
     if not cat_data:
         return 0
     matched = 0
@@ -302,12 +370,26 @@ def apply_categorization(sounds: list, cat_data: dict) -> int:
                 s['recommended_noise'] = row['recommended_noise']
             if row.get('recommended_mix_ratio'):
                 s['recommended_mix_ratio'] = row['recommended_mix_ratio']
+            # Per-profile scoring — flatten към <code>_score keys
+            scores = row.get('profile_scores') or {}
+            for code, val in scores.items():
+                s[code + '_score'] = val
+            if row.get('needs_review'):
+                s['needs_review'] = True
+            if row.get('source_note'):
+                s['source_note'] = row['source_note']
             unmatched_csv.discard(s['id'])
             matched += 1
     if unmatched_csv:
-        print(f'[csv] {len(unmatched_csv)} CSV rows did not match any scanned sound (first 5):')
-        for sid in sorted(unmatched_csv)[:5]:
-            print(f'  - {sid}')
+        # CSV може да съдържа sound_id-та които не съществуват physically — silently skip.
+        # Verbose-mode за debug.
+        if verbose_missing:
+            print(f'[csv] {len(unmatched_csv)} CSV rows без matching physical sound (first 5):')
+            for sid in sorted(unmatched_csv)[:5]:
+                print(f'  - {sid}')
+        else:
+            print(f'[csv] skipped {len(unmatched_csv)} CSV rows без physical file '
+                  f'(use --verbose-missing за list)')
     return matched
 
 
@@ -413,6 +495,8 @@ def main() -> int:
                         help='Categorization CSV path (default: tools/auralis_library_categorization.csv)')
     parser.add_argument('--no-csv', action='store_true',
                         help='Skip CSV categorization wire-up')
+    parser.add_argument('--verbose-missing', action='store_true',
+                        help='List CSV rows without matching physical sound')
     args = parser.parse_args()
 
     source_dir = Path(args.source).resolve()
@@ -441,7 +525,7 @@ def main() -> int:
             print(f'[csv] reading {csv_path.relative_to(REPO_ROOT) if csv_path.is_relative_to(REPO_ROOT) else csv_path}')
             cat_data = load_categorization_csv(csv_path)
             if cat_data:
-                matched = apply_categorization(sounds, cat_data)
+                matched = apply_categorization(sounds, cat_data, verbose_missing=args.verbose_missing)
                 print(f'[csv] applied categorization to {matched}/{len(sounds)} sounds '
                       f'({len(cat_data)} rows в CSV)')
             else:
