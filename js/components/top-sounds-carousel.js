@@ -6,6 +6,8 @@
  * Data flow:
  *   manifest.json → window.AURALIS_MANIFEST.sounds
  *   Filter logic:
+ *     0. (Strategy 1 / preferred) sound["<profile>_score"] >= SCORE_THRESHOLD
+ *        sorted descending → top N. Изисква manifest с per-profile scoring.
  *     1. Ако sound.categories_use съдържа recommendedCategories[0|1] → INCLUDE
  *     2. Fallback ако §9 scoring не е готов: първите 10 от audio category
  *        матчиращ recommended (за TH_C → audio cat 'underwater'+'ocean', etc.)
@@ -27,6 +29,11 @@ window.TopSoundsCarousel = (function () {
   'use strict';
 
   var MAX_SOUNDS = 10;
+
+  // Profile scoring threshold (I1.3). Sounds със score >= това → top picks.
+  // 7.0 матчва Opus's spec; ако твърде малко sound-ове минават thresh-а, sec-fallback
+  // взима топ N без threshold (винаги връща нещо за active profile).
+  var SCORE_THRESHOLD = 7.0;
 
   // Fallback audio category mapping per profile (използва се ако
   // categories_use не е popull-нат)
@@ -83,12 +90,42 @@ window.TopSoundsCarousel = (function () {
   // Sound selection logic
   // ============================================================
 
-  function selectSounds(recommendedCategories) {
+  function selectSounds(recommendedCategories, profileCode) {
     var manifest = window.AURALIS_MANIFEST;
     if (!manifest || !Array.isArray(manifest.sounds)) return [];
     var allSounds = manifest.sounds;
     var seen = {};
     var picked = [];
+
+    // Strategy 0 (preferred): per-profile scoring (I1.3).
+    // sound[<code>_score] >= SCORE_THRESHOLD, sorted descending.
+    if (profileCode) {
+      var scoreKey = profileCode + '_score';
+      var hasScores = allSounds.some(function (s) { return typeof s[scoreKey] === 'number'; });
+      if (hasScores) {
+        var scored = allSounds.filter(function (s) {
+          return typeof s[scoreKey] === 'number' && s[scoreKey] >= SCORE_THRESHOLD;
+        });
+        scored.sort(function (a, b) { return b[scoreKey] - a[scoreKey]; });
+        for (var i = 0; i < scored.length && picked.length < MAX_SOUNDS; i++) {
+          if (seen[scored[i].id]) continue;
+          picked.push(scored[i]);
+          seen[scored[i].id] = true;
+        }
+        // Ако под threshold-а нямаме достатъчно — top-N със scoring без threshold.
+        if (picked.length < MAX_SOUNDS) {
+          var anyScored = allSounds
+            .filter(function (s) { return typeof s[scoreKey] === 'number'; })
+            .sort(function (a, b) { return b[scoreKey] - a[scoreKey]; });
+          for (var j = 0; j < anyScored.length && picked.length < MAX_SOUNDS; j++) {
+            if (seen[anyScored[j].id]) continue;
+            picked.push(anyScored[j]);
+            seen[anyScored[j].id] = true;
+          }
+        }
+        if (picked.length >= MAX_SOUNDS) return picked.slice(0, MAX_SOUNDS);
+      }
+    }
 
     // Strategy 1: filter by categories_use (Opus's §9 output)
     var hasCatsUseData = allSounds.some(function (s) {
@@ -231,7 +268,7 @@ window.TopSoundsCarousel = (function () {
 
   function create(opts) {
     opts = opts || {};
-    var sounds = selectSounds(opts.recommendedCategories || []);
+    var sounds = selectSounds(opts.recommendedCategories || [], opts.profileCode);
 
     var root = document.createElement('div');
     root.className = 'tsc-root';
