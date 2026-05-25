@@ -38,6 +38,7 @@
   <link rel="stylesheet" href="css/components/a11y.css">
   <link rel="stylesheet" href="css/noise-picker.css">
   <link rel="stylesheet" href="css/player.css">
+  <link rel="stylesheet" href="css/home.css">
 
   <!-- Theme priming (FOUC fix) -->
   <script>
@@ -130,6 +131,7 @@
   <script src="js/calm.js"></script>
   <script src="js/settings.js"></script>
   <script src="js/a11y.js"></script>
+  <script src="js/home.js"></script>
   <script src="js/app.js"></script>
 
   <!-- ═══ Settings button wire (header) ═══ -->
@@ -184,10 +186,11 @@
         if (!s) return;
 
         if (s.isQuizDone()) {
-          // Quiz приключен → Library (primary per BIBLE v3.1 §11)
-          s.transition('library');
-          history.pushState({ phase: 'library' }, '');
-          if (window.Library && window.Library.render) window.Library.render();
+          // Quiz приключен → HOME (primary per BIBLE v3.1 §N2)
+          s.transition('home');
+          history.pushState({ phase: 'home' }, '');
+          if (window.Home && window.Home.render) window.Home.render();
+          else if (window.Library && window.Library.render) window.Library.render();
           else if (window.Mixer && window.Mixer.render) window.Mixer.render();
           else if (window.Quiz && window.Quiz.render) window.Quiz.render();
         } else if (s.isOnboardingDone()) {

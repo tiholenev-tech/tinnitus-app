@@ -47,8 +47,24 @@
       }
       return;
     }
-    // Onboarding done → calm / diary / sleep / library (primary) / mixer / quiz
+    // Onboarding done → home (primary) / nested views / calm / diary / sleep / library / mixer / quiz
     var phase = window.AppState.current;
+    if (phase === 'home' && window.Home && window.Home.render) {
+      window.Home.render();
+      return;
+    }
+    if (phase === 'category' && window.CategoryView && window.CategoryView.render) {
+      window.CategoryView.render();
+      return;
+    }
+    if (phase === 'sound' && window.SoundDetail && window.SoundDetail.render) {
+      window.SoundDetail.render();
+      return;
+    }
+    if (phase === 'player' && window.Player && window.Player.render) {
+      window.Player.render();
+      return;
+    }
     if (phase === 'calm' && window.Calm && window.Calm.render) {
       window.Calm.render();
       return;
@@ -92,6 +108,29 @@
         return;
       }
 
+      if (s.phase === 'home') {
+        window.AppState.transition('home');
+        if (window.Home && window.Home.render) window.Home.render();
+        return;
+      }
+      if (s.phase === 'category' && s.catId) {
+        window.AppState.transition('category');
+        if (window.CategoryView && window.CategoryView.open) window.CategoryView.open(s.catId);
+        else if (window.Home && window.Home.render) window.Home.render();
+        return;
+      }
+      if (s.phase === 'sound' && s.soundId) {
+        window.AppState.transition('sound');
+        if (window.SoundDetail && window.SoundDetail.open) window.SoundDetail.open(s.soundId);
+        else if (window.Home && window.Home.render) window.Home.render();
+        return;
+      }
+      if (s.phase === 'player' && s.soundId) {
+        window.AppState.transition('player');
+        if (window.Player && window.Player.open) window.Player.open(s.soundId);
+        else if (window.Home && window.Home.render) window.Home.render();
+        return;
+      }
       if (s.phase === 'calm') {
         window.AppState.transition('calm');
         if (window.Calm && window.Calm.render) {
@@ -193,6 +232,14 @@
     var initialState;
     if (!window.AppState.isOnboardingDone()) {
       initialState = { subphase: window.AppState.subphase };
+    } else if (window.AppState.current === 'home') {
+      initialState = { phase: 'home' };
+    } else if (window.AppState.current === 'category') {
+      initialState = { phase: 'category' };
+    } else if (window.AppState.current === 'sound') {
+      initialState = { phase: 'sound' };
+    } else if (window.AppState.current === 'player') {
+      initialState = { phase: 'player' };
     } else if (window.AppState.current === 'calm') {
       initialState = { phase: 'calm' };
     } else if (window.AppState.current === 'diary') {

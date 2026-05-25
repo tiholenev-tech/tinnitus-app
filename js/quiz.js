@@ -393,14 +393,14 @@ window.Quiz = (function () {
   function computeAndShowResults() {
     var result = window.QuizEngine.compute(window.AppState.quizAnswers);
     window.AppState.markQuizDone(result.profile, result.di);
-    // Quiz finish → Library (primary per BIBLE v3.1 §11).
-    // Mixer запазен като legacy entry point ('simple mode').
-    window.AppState.transition('library');
-    history.pushState({ phase: 'library' }, '');
-    if (window.Library && window.Library.render) {
+    // Quiz finish → HOME (primary per BIBLE v3.1 §N2).
+    // Library запазен достъп от Home → "Всички звуци".
+    window.AppState.transition('home');
+    history.pushState({ phase: 'home' }, '');
+    if (window.Home && window.Home.render) {
+      window.Home.render();
+    } else if (window.Library && window.Library.render) {
       window.Library.render();
-    } else if (window.Mixer && window.Mixer.render) {
-      window.Mixer.render();
     } else {
       render();
     }

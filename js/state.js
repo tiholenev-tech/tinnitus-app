@@ -18,7 +18,7 @@
   var KEY_QUIZ_PROFILE  = 'auralis-quiz-profile';
   var KEY_QUIZ_DI       = 'auralis-quiz-di';
 
-  var PHASES = ['onboarding', 'quiz', 'results', 'mixer', 'library', 'sleep', 'diary', 'calm'];
+  var PHASES = ['onboarding', 'quiz', 'results', 'mixer', 'library', 'sleep', 'diary', 'calm', 'home', 'category', 'sound', 'player'];
   var ONBOARDING_SUBPHASES = ['welcome', 'value', 'consent'];
 
   function quizSubphaseList() {
@@ -85,13 +85,14 @@
       this.distressIndex = (diRaw === null || diRaw === '') ? null : parseInt(diRaw, 10);
 
       if (this.isQuizDone()) {
-        // Quiz done → primary destination = Library.
-        // Honor saved phase (mixer/library), fallback на library.
+        // Quiz done → primary destination = Home (per BIBLE v3.1 §N2).
+        // Honor saved phase ако е recognized navigation phase.
         var savedPhase = get(KEY_PHASE);
-        if (savedPhase === 'mixer' || savedPhase === 'library') {
+        var navPhases = ['home', 'library', 'mixer', 'category', 'sound', 'player'];
+        if (savedPhase && navPhases.indexOf(savedPhase) !== -1) {
           this.current = savedPhase;
         } else {
-          this.current = 'library';
+          this.current = 'home';
         }
         return;
       }
