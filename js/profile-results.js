@@ -31,26 +31,34 @@ window.ProfileResults = (function () {
   // Когато Opus output идва — само тук се update-ват ratio/noise/cats.
   // ============================================================
 
+  // Източник: docs/content/AURALIS_PROFILE_ADVICE_v1.md (I1.2.B)
+  // Summary table:
+  //   Профил | носещ noise           | mix     | top use cases
+  //   TH_C   | pink_lp4000           | 70/30   | daily → relaxation → falling_asleep
+  //   DN_S   | brown_lp500           | 50/50   | sleep_deep → falling_asleep → relaxation
+  //   SS_R   | brown_lp500 (green TBD)| 50/50  | anxiety → relaxation → meditation
+  //   SM_F   | brown_lp1000          | 85/15   | relaxation → daily → meditation
+  //   HB_M   | brown_lp500 (или none)| 90/10   | relaxation → falling_asleep → daily
   var PROFILE_ADVICE = {
     TH_C: {
-      strategy: { noise: 'pink_lp2000', mixRatio: [60, 40], duration: '8 часа нощно' },
-      recommendedCategories: ['sleep_deep', 'relaxation']
+      strategy: { noise: 'pink_lp4000', mixRatio: [70, 30], duration: '2+ часа дневно (идеално 4–6 ч.)' },
+      recommendedCategories: ['daily', 'relaxation']
     },
     DN_S: {
-      strategy: { noise: 'brown_lp1000', mixRatio: [70, 30], duration: '8 часа нощно' },
-      recommendedCategories: ['relaxation', 'daily']
+      strategy: { noise: 'brown_lp500', mixRatio: [50, 50], duration: '8 часа нощно, непрекъснато' },
+      recommendedCategories: ['sleep_deep', 'falling_asleep']
     },
     SS_R: {
-      strategy: { noise: 'pink_lp4000', mixRatio: [50, 50], duration: '4–6 часа на ден' },
-      recommendedCategories: ['anxiety', 'falling_asleep']
+      strategy: { noise: 'brown_lp500', mixRatio: [50, 50], duration: '2–4 часа дневно + SOS режим (3–10 мин)' },
+      recommendedCategories: ['anxiety', 'relaxation']
     },
     SM_F: {
-      strategy: { noise: 'brown_pure', mixRatio: [65, 35], duration: '6–8 часа на ден' },
-      recommendedCategories: ['meditation', 'relaxation']
+      strategy: { noise: 'brown_lp1000', mixRatio: [85, 15], duration: '2–4 часа дневно при движение' },
+      recommendedCategories: ['relaxation', 'daily']
     },
     HB_M: {
-      strategy: { noise: 'pink_pure', mixRatio: [40, 60], duration: '2–4 часа на ден' },
-      recommendedCategories: ['daily', 'falling_asleep']
+      strategy: { noise: 'brown_lp500', mixRatio: [90, 10], duration: '30–60 мин в моменти на тишина' },
+      recommendedCategories: ['relaxation', 'falling_asleep']
     }
   };
 
