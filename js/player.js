@@ -492,18 +492,9 @@ window.Player = (function () {
 
     loadPersistedState();
 
-    // SAFETY-1: Apply corrected mix ratio (Jastreboff mixing point).
-    // Ако sound идва от noise-safe категория (sleep_deep/falling_asleep/
-    // anxiety) и CSV-то има грешен L1>L2 — swap-вам volume defaults.
-    if (window.AURALIS_getCorrectedMixRatio) {
-      var corrected = window.AURALIS_getCorrectedMixRatio(sound);
-      if (corrected) {
-        layer1Vol = corrected[0];
-        layer2Vol = corrected[1];
-        persist(STORAGE_L1_VOL, layer1Vol);
-        persist(STORAGE_L2_VOL, layer2Vol);
-      }
-    }
+    // PROFILE-CONFIG: apply mix + master volume per profile × scenario × time.
+    // User overrides per soundId take precedence (state.userOverrides).
+    applyProfileConfig(sound);
 
     if (window.AppState && window.AppState.transition) {
       window.AppState.transition('player');

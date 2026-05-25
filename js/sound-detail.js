@@ -95,57 +95,9 @@ window.SoundDetail = (function () {
     return tOrNull(sound.description_key);
   }
 
-  // ============================================================
-  // SAFETY-1: Mix ratio correction (Jastreboff mixing point)
-  // ============================================================
-  // CSV-то от Опус има обърнати ratios за noise-safe categories. Per
-  // research (sleep_deep, falling_asleep, anxiety): фонът (L2) ТРЯБВА да
-  // доминира главния звук (L1). Ако CSV даде L1>L2 за такава категория →
-  // swap (предотвратява влошаване на тинитус).
-  var NOISE_SAFE_CATEGORIES = ['sleep_deep', 'falling_asleep', 'anxiety'];
-
-  function getCorrectedMixRatio(sound) {
-    if (!sound) return null;
-    var raw = sound.recommended_mix_ratio;
-    if (!raw) return null;
-
-    // Accept array [85,15] OR string "85/15" OR "0.85/0.15"
-    var l1, l2;
-    if (Array.isArray(raw) && raw.length === 2) {
-      l1 = raw[0]; l2 = raw[1];
-    } else if (typeof raw === 'string') {
-      var parts = raw.split(/[\/\s,]+/);
-      if (parts.length !== 2) return null;
-      l1 = parseFloat(parts[0]); l2 = parseFloat(parts[1]);
-      if (isNaN(l1) || isNaN(l2)) return null;
-    } else {
-      return null;
-    }
-
-    // Normalize 0-1 декимали → 0-100 percent
-    if (l1 <= 1 && l2 <= 1 && (l1 + l2) <= 1.5) {
-      l1 = Math.round(l1 * 100);
-      l2 = Math.round(l2 * 100);
-    }
-
-    var categories = sound.categories_use || [];
-    var needsInverse = false;
-    for (var i = 0; i < NOISE_SAFE_CATEGORIES.length; i++) {
-      if (categories.indexOf(NOISE_SAFE_CATEGORIES[i]) !== -1) {
-        needsInverse = true;
-        break;
-      }
-    }
-
-    if (needsInverse && l1 > l2) {
-      console.log('[mix-fix] Inverting ratio for', sound.id, '— was L1:' + l1 + '/L2:' + l2,
-        '→ L1:' + l2 + '/L2:' + l1, '(noise-safe category)');
-      return [l2, l1];
-    }
-    return [l1, l2];
-  }
-  // Expose за други модули (player.js, тестове)
-  window.AURALIS_getCorrectedMixRatio = getCorrectedMixRatio;
+  // REVERT SAFETY-1: category-based mix inverse беше научно ГРЕШНО.
+  // Mix трябва да зависи от ПРОФИЛА, не от категорията.
+  // Виж js/profile-config.js (PROFILE-CONFIG) — 5×6×2 scenario matrix.
 
   function getSoundWhy(sound) {
     if (!sound) return null;
@@ -346,21 +298,11 @@ window.SoundDetail = (function () {
     var sound = findSound(activeSoundId);
     if (!sound) return;
 
-    // Set Player's preferred noise + ratio преди open
-    if (sound.recommended_noise && window.AudioEngine) {
+    // PROFILE-CONFIG: Player.open() ще приложи mix per profile+scenario+time
+    // от ProfileConfig matrix. CSV recommended_noise остава за метаданни,
+    // но mix ratio се определя от профила, не от CSV.
+    if (sound.recommended_noise) {
       try { localStorage.setItem('auralis_player_noise_id', sound.recommended_noise); } catch (e) {}
-    }
-    // SAFETY-1: getCorrectedMixRatio inverse-ва грешни CSV ratios за
-    // noise-safe categories (sleep_deep, falling_asleep, anxiety).
-    // Per Opus research (AURALIS_USE_CASES_S1_S4.md):
-    //   "Layer 1 (главен): 30-40%, Layer 2 (фон): 60-70%.
-    //    Доминирането на L2 е терапевтично активният елемент за тинитус."
-    // Jastreboff mixing point — фонът трябва да е по-силен от главния звук.
-    var ratio = getCorrectedMixRatio(sound);
-    if (ratio) {
-      var l1 = ratio[0], l2 = ratio[1];
-      try { localStorage.setItem('auralis_player_layer1_vol', String(l1)); } catch (e) {}
-      try { localStorage.setItem('auralis_player_layer2_vol', String(l2)); } catch (e) {}
     }
 
     if (window.Player && window.Player.open) {
