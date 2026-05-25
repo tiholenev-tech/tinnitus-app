@@ -67,6 +67,9 @@ window.Player = (function () {
   var layer2Vol = 50;   // A2.1: L2 default 50% — фон под L1
   var noiseChangedHandler = null;
   var progressTickId = null;
+  // A2.6: flight token за single-flight Player.open — предотвратява
+  // паралелни playLayer1 promise-и при бързи tap-ове на 2-3 sound-а.
+  var openFlightToken = 0;
 
   // ============================================================
   // Helpers
@@ -436,7 +439,15 @@ window.Player = (function () {
     if (!soundId) return;
     var sound = findSound(soundId);
     if (!sound) { console.warn('[player] sound not found:', soundId); return; }
-    activeSoundId = soundId;
+
+    // A2.6: single-flight token + sequential pipeline.
+    // Симптом: tap нов звук → 60s забавяне + стар продължава + понякога паралелни.
+    // Причина: множествени Player.open() извиквания пускаха паралелни playLayer1
+    // promise-и; стария Layer 1 source не беше явно спрян преди новия.
+    var myToken = ++openFlightToken;
+    var prevSoundId = activeSoundId;
+    console.log('[player] open:', soundId, 'prev:', prevSoundId, 'token:', myToken);
+
     loadPersistedState();
 
     if (window.AppState && window.AppState.transition) {
@@ -446,36 +457,64 @@ window.Player = (function () {
 
     var app = el('app');
     if (app) {
-      var isPlaying = window.AudioEngine && window.AudioEngine.isPlaying();
-      app.innerHTML = buildPlayerHtml(sound, isPlaying !== false);
+      app.innerHTML = buildPlayerHtml(sound, true);
       bindEvents(app);
     }
 
-    // Sync engine volumes + start playback
+    // Sync volumes ВЕДНАГА (без значение от async pipeline).
     if (window.AudioEngine) {
       if (window.AudioEngine.setLayer1Volume) window.AudioEngine.setLayer1Volume(layer1Vol);
       if (window.AudioEngine.setLayer2Volume) window.AudioEngine.setLayer2Volume(layer2Vol);
-
-      // Start Layer 1 (main sound) ако още не свири този preset.
-      // BUG2-C: Player.open преди това не извикваше playLayer1 — чуваше се
-      // само Layer 2 (фоновият шум). Сега L1 winaги се стартира.
-      var activePreset = window.AudioEngine.getActivePreset
-        ? window.AudioEngine.getActivePreset() : null;
-      if (activePreset !== soundId && window.AudioEngine.playLayer1) {
-        console.log('[player] Layer 1 starting:', soundId);
-        window.AudioEngine.playLayer1(soundId)
-          .then(function () { console.log('[player] Layer 1 started:', soundId); })
-          .catch(function (err) {
-            console.warn('[player] Layer 1 failed:', soundId, err && err.message);
-          });
-      }
-
-      if (noiseId !== 'none' && window.AudioEngine.playLayer2) {
-        window.AudioEngine.playLayer2(noiseId);
-      }
     }
 
-    // Subscribe noise-changed
+    // Layer 2 (noise) async setup — не блокира Layer 1.
+    if (window.AudioEngine && noiseId !== 'none' && window.AudioEngine.playLayer2) {
+      try { window.AudioEngine.playLayer2(noiseId); } catch (e) {}
+    }
+
+    // Layer 1 pipeline — stop old → wait → play new.
+    var engine = window.AudioEngine;
+    if (engine) {
+      var activePreset = engine.getActivePreset ? engine.getActivePreset() : null;
+
+      if (activePreset === soundId) {
+        // Същия sound вече свири — само update state.
+        console.log('[player] Layer 1 already playing same preset, no restart');
+        activeSoundId = soundId;
+      } else {
+        var stopPromise = Promise.resolve();
+        if (prevSoundId && prevSoundId !== soundId && engine.stopLayer1) {
+          console.log('[player] stopping prev Layer 1:', prevSoundId);
+          try { engine.stopLayer1(); } catch (e) {}
+          // stopLayer1 schedules fadeout ~250ms; чакаме малко преди play.
+          stopPromise = new Promise(function (r) { setTimeout(r, 280); });
+        }
+
+        stopPromise.then(function () {
+          // Verify flight token — user-ът може да е tap-нал друг sound вече.
+          if (myToken !== openFlightToken) {
+            console.log('[player] flight cancelled (token mismatch):', soundId);
+            return;
+          }
+          activeSoundId = soundId;
+          if (!engine.playLayer1) return;
+          console.log('[player] Layer 1 starting:', soundId);
+          return engine.playLayer1(soundId);
+        }).then(function () {
+          if (myToken !== openFlightToken) return;
+          console.log('[player] Layer 1 started:', soundId);
+          updatePlayButtonState();
+        }).catch(function (err) {
+          if (myToken !== openFlightToken) return;
+          console.warn('[player] Layer 1 failed:', soundId, err && err.message);
+          setPlayButtonIcon(false);
+        });
+      }
+    } else {
+      activeSoundId = soundId;
+    }
+
+    // Subscribe noise-changed (single mount)
     if (!noiseChangedHandler) {
       noiseChangedHandler = onNoiseChanged;
       window.addEventListener('noise-changed', noiseChangedHandler);
