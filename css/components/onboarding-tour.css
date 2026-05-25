@@ -1,0 +1,93 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · Onboarding Tour overlay (Task OO)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.tour-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(8, 9, 13, 0.7);
+  animation: tourFadeIn 0.25s ease;
+}
+
+.tour-hole {
+  position: absolute;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 0 0 9999px rgba(8, 9, 13, 0.7);
+  background: transparent;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tour-tooltip {
+  position: absolute;
+  z-index: 2;
+  max-width: 260px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  animation: tourSlideIn 0.25s var(--ease-spring);
+}
+[data-theme="light"] .tour-tooltip, :root:not([data-theme]) .tour-tooltip {
+  background: white;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.2);
+}
+[data-theme="dark"] .tour-tooltip {
+  background: hsl(220 25% 10%);
+  border: 1px solid hsl(38 50% 30% / 0.3);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.5);
+}
+
+.tour-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.tour-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.tour-btn {
+  min-height: 36px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.tour-btn--skip {
+  background: transparent;
+  color: var(--text-muted);
+}
+.tour-btn--next {
+  background: linear-gradient(135deg, hsl(38 80% 50%), hsl(38 70% 42%));
+  color: white;
+}
+
+.tour-counter {
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-faint);
+  text-align: center;
+}
+
+@keyframes tourFadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+@keyframes tourSlideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.tour-tooltip--top {
+  transform: translateY(-100%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .tour-overlay, .tour-tooltip { animation: none; }
+}

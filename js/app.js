@@ -272,7 +272,8 @@
 
     window.addEventListener('popstate', onPopstate);
 
-    // Analytics + Accessibility + Error recovery init
+    // Global modules init
+    if (window.ErrorHandler && window.ErrorHandler.init) window.ErrorHandler.init();
     if (window.Analytics && window.Analytics.init) window.Analytics.init();
     if (window.A11y && window.A11y.init) window.A11y.init();
     if (window.AudioErrorBanner && window.AudioErrorBanner.init) window.AudioErrorBanner.init();

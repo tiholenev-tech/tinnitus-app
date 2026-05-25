@@ -1,0 +1,40 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · ErrorHandler network banner (Task QQ)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.eh-network-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 40px;
+  padding: 8px 16px;
+  background: var(--danger);
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  transform: translateY(-100%);
+  transition: transform 0.3s var(--ease-spring);
+}
+.eh-network-banner.is-visible {
+  transform: translateY(0);
+}
+.eh-network-text { flex: 1; }
+.eh-network-dismiss {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: var(--radius-icon);
+  background: hsl(0 0% 100% / 0.2);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
