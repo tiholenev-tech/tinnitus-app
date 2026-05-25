@@ -639,23 +639,30 @@ window.Player = (function () {
     }
     activeSoundId = null;
 
-    // NAV-STACK: popPhase връща последния phase (без re-push). Безсмислени
-    // back targets (player, thi_baseline) се пропускат, продължава с home.
+    // NAV-PLAYER-HOME: попщи stack debug + force home if empty/invalid.
     var s = window.AppState;
     if (!s) return;
-    var BLOCK = ['player', 'thi_baseline'];
+    var stackSnapshot = s.phaseHistory ? s.phaseHistory.slice() : [];
+    console.log('[player] close — stack BEFORE pop:', stackSnapshot);
+
+    var BLOCK = ['player', 'thi_baseline', 'onboarding', 'quiz', 'results'];
     var back = s.popPhase ? s.popPhase() : null;
     while (back && BLOCK.indexOf(back) !== -1) {
-      back = s.popPhase();
+      console.log('[player] skip stale stack entry:', back);
+      back = s.popPhase ? s.popPhase() : null;
     }
+
+    // Empty stack ИЛИ unresolved phase → force Home.
     if (!back) {
       back = 'home';
+      console.log('[player] empty/blocked stack → force home');
+      if (s.clearPhaseHistory) s.clearPhaseHistory();
       if (s.transition) s.transition('home');
     }
-    // popPhase вече сетва s.current = back; не правим повторно transition().
-    console.log('[player] close → back to:', back);
+    console.log('[player] close → back to:', back, 'stack AFTER:',
+      s.phaseHistory ? s.phaseHistory.slice() : []);
+
     // A2.4: replaceState (не pushState) consume-ва player history entry.
-    // Иначе browser back → popstate с {phase:'player'} → loop.
     history.replaceState({ phase: back }, '');
 
     var renderers = {
@@ -669,8 +676,12 @@ window.Player = (function () {
     var r = renderers[back];
     if (r && r.render) {
       r.render();
-    } else if (window.Home && window.Home.render) {
-      window.Home.render();
+    } else {
+      // Defensive: render-ерът липсва → force Home transition + render.
+      console.warn('[player] no renderer for', back, '→ home fallback');
+      if (s.transition) s.transition('home');
+      history.replaceState({ phase: 'home' }, '');
+      if (window.Home && window.Home.render) window.Home.render();
     }
   }
 
