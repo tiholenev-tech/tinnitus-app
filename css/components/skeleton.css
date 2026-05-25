@@ -1,0 +1,117 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · Skeleton loader (Task DD)
+   ───────────────────────────────────────────────────────────────────
+   Shimmer animation (1.5s), champagne tint, 4 types.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.sk {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  position: relative;
+}
+[data-theme="light"] .sk,
+:root:not([data-theme]) .sk {
+  background: hsl(38 20% 88%);
+}
+[data-theme="dark"] .sk {
+  background: hsl(220 20% 10%);
+}
+
+/* Shimmer sweep */
+.sk::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsl(38 60% 80% / 0.15) 40%,
+    hsl(38 60% 80% / 0.25) 50%,
+    hsl(38 60% 80% / 0.15) 60%,
+    transparent 100%
+  );
+  animation: skShimmer 1.5s linear infinite;
+}
+[data-theme="dark"] .sk::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsl(38 50% 40% / 0.08) 40%,
+    hsl(38 50% 40% / 0.14) 50%,
+    hsl(38 50% 40% / 0.08) 60%,
+    transparent 100%
+  );
+}
+
+@keyframes skShimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+/* ═══ CARD TYPE ═══ */
+.sk--card {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ═══ LIST-ITEM TYPE ═══ */
+.sk--list-item {
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sk-circle {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+[data-theme="light"] .sk-circle,
+:root:not([data-theme]) .sk-circle { background: hsl(38 15% 82%); }
+[data-theme="dark"] .sk-circle { background: hsl(220 20% 14%); }
+
+.sk-lines {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ═══ INNER LINES ═══ */
+.sk-line {
+  border-radius: 4px;
+}
+[data-theme="light"] .sk-line,
+:root:not([data-theme]) .sk-line { background: hsl(38 15% 82%); }
+[data-theme="dark"] .sk-line { background: hsl(220 20% 14%); }
+
+.sk-line--title {
+  width: 60%;
+  height: 14px;
+}
+.sk-line--body {
+  width: 90%;
+  height: 10px;
+}
+.sk-line--short {
+  width: 45%;
+}
+
+/* ═══ TEXT TYPE ═══ */
+.sk--text {
+  border-radius: 4px;
+}
+
+/* ═══ IMAGE TYPE ═══ */
+.sk--image {
+  border-radius: var(--radius);
+}
+
+/* ═══ REDUCED MOTION ═══ */
+@media (prefers-reduced-motion: reduce) {
+  .sk::after { animation: none; opacity: 0.3; transform: none; }
+}
