@@ -249,11 +249,40 @@ window.NoisePicker = (function () {
   // Open / close
   // ============================================================
 
+  var bsHandle = null;
+
   function open(currentNoiseId) {
-    if (overlay) return;
+    if (overlay || bsHandle) return;
     if (currentNoiseId && NOISE_IDS.indexOf(currentNoiseId) !== -1) {
       currentSelected = currentNoiseId;
     }
+
+    // Try BottomSheet framework first (Task T integration)
+    if (window.BottomSheet) {
+      var content = document.createElement('div');
+      content.className = 'np-content-wrap';
+      content.innerHTML =
+        '<ul class="np-list" role="radiogroup" aria-label="' +
+          escapeHtml(t('components.noisePicker.title', 'Изберете фонов шум')) + '">' +
+          NOISE_IDS.map(buildOptionRow).join('') +
+        '</ul>' +
+        '<div class="np-info-slot" id="npInfoSlot" hidden></div>';
+
+      bsHandle = window.BottomSheet.open({
+        title: t('components.noisePicker.title', 'Изберете фонов шум'),
+        content: content,
+        height: 'auto',
+        onClose: function () { bsHandle = null; }
+      });
+
+      // Bind list events inside the BottomSheet content
+      var list = content.querySelector('.np-list');
+      if (list) list.addEventListener('click', onClick);
+      overlay = content; // reference for showInfoFor
+      return;
+    }
+
+    // Fallback: original overlay approach
     overlay = document.createElement('div');
     overlay.className = 'np-overlay';
     overlay.innerHTML = buildSheetHtml();
@@ -266,6 +295,12 @@ window.NoisePicker = (function () {
   }
 
   function close() {
+    if (bsHandle) {
+      bsHandle.close();
+      bsHandle = null;
+      overlay = null;
+      return;
+    }
     if (!overlay) return;
     overlay.remove();
     overlay = null;

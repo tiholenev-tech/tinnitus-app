@@ -1,0 +1,94 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · SearchInput component (Task U)
+   ───────────────────────────────────────────────────────────────────
+   Glass background, magnifier left, clear (X) right, champagne focus ring.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.si-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 48px;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  transition: box-shadow var(--dur) var(--ease);
+}
+[data-theme="light"] .si-wrap,
+:root:not([data-theme]) .si-wrap {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+}
+[data-theme="dark"] .si-wrap {
+  background: hsl(220 25% 6% / 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+}
+
+.si-wrap:focus-within {
+  box-shadow: 0 0 0 2px hsl(38 80% 55% / 0.6);
+}
+[data-theme="light"] .si-wrap:focus-within,
+:root:not([data-theme]) .si-wrap:focus-within {
+  box-shadow: 0 0 0 2px hsl(38 70% 50% / 0.5), var(--shadow-card-sm);
+}
+
+/* ═══ ICON LEFT ═══ */
+.si-icon-left {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--text-faint);
+  pointer-events: none;
+}
+.si-icon-left svg { width: 18px; height: 18px; }
+
+/* ═══ INPUT ═══ */
+.si-input {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  padding: 0 4px 0 0;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+}
+.si-input::placeholder {
+  color: var(--text-faint);
+  font-weight: 500;
+}
+/* Remove browser search decorations */
+.si-input::-webkit-search-cancel-button,
+.si-input::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* ═══ CLEAR BUTTON ═══ */
+.si-clear {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  margin-right: 4px;
+  border: none;
+  border-radius: var(--radius-icon);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.si-clear:hover,
+.si-clear:focus-visible {
+  color: var(--text);
+  background: hsl(var(--hue1) 20% 35% / 0.1);
+  outline: none;
+}
+.si-clear svg { width: 16px; height: 16px; }

@@ -210,6 +210,9 @@
 
     window.addEventListener('popstate', onPopstate);
 
+    // Accessibility init
+    if (window.A11y && window.A11y.init) window.A11y.init();
+
     route();
 
     console.log('[auralis] bootstrap · phase:', window.AppState.current,

@@ -1,0 +1,137 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · BreathingOrb component (Task S)
+   ───────────────────────────────────────────────────────────────────
+   CSS-only animations (battery-friendly). 4 modes:
+   idle (3s subtle), playing (4s bigger), 4-7-8 (20s cycle), paused (static).
+   ═══════════════════════════════════════════════════════════════════ */
+
+.bo-orb {
+  position: relative;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.bo-inner {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  transition: opacity 0.5s var(--ease);
+}
+
+.bo-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  pointer-events: none;
+}
+
+.bo-label {
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+  font-weight: 800;
+  color: white;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+  pointer-events: none;
+}
+
+/* ═══ COLORS ═══ */
+
+/* Auto (theme-aware) */
+.bo-color--auto .bo-inner,
+.bo-color--indigo .bo-inner {
+  background: radial-gradient(circle at 35% 30%,
+    hsl(var(--hue3) 70% 70% / 0.85),
+    hsl(var(--hue2) 65% 50% / 0.75) 60%,
+    hsl(var(--hue1) 60% 35% / 0.65) 100%);
+  box-shadow:
+    0 0 80px hsl(var(--hue3) 60% 45% / 0.4),
+    inset 0 0 50px hsl(0 0% 100% / 0.12);
+}
+
+.bo-color--champagne .bo-inner {
+  background: radial-gradient(circle at 35% 30%,
+    hsl(38 80% 70% / 0.9),
+    hsl(32 70% 50% / 0.75) 60%,
+    hsl(28 60% 35% / 0.6) 100%);
+  box-shadow:
+    0 0 80px hsl(38 70% 45% / 0.4),
+    inset 0 0 50px hsl(0 0% 100% / 0.12);
+}
+
+/* ═══ MODE: IDLE — subtle 3s breathe ═══ */
+.bo-mode--idle .bo-inner {
+  animation: boIdle 3s ease-in-out infinite;
+}
+
+@keyframes boIdle {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.05); }
+}
+
+/* ═══ MODE: PLAYING — bigger 4s breathe ═══ */
+.bo-mode--playing .bo-inner {
+  animation: boPlaying 4s ease-in-out infinite;
+}
+
+@keyframes boPlaying {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.1); }
+}
+
+/* ═══ MODE: 4-7-8 — full SOS protocol (20s cycle) ═══ */
+.bo-mode--4-7-8 .bo-inner {
+  animation: bo478 20s ease-in-out infinite;
+}
+.bo-mode--4-7-8 .bo-ring {
+  border-color: hsl(var(--hue3) 70% 60% / 0.4);
+  animation: boRingPulse 20s ease-in-out infinite;
+}
+.bo-mode--4-7-8 .bo-label {
+  opacity: 1;
+}
+
+/* 4-7-8 animation:
+   0-20% (4s) inhale = scale 1.0 → 1.2
+   20-55% (7s) hold = scale 1.2
+   55-95% (8s) exhale = scale 1.2 → 0.9
+   95-100% (1s) pause = scale 0.9 → 1.0 */
+@keyframes bo478 {
+  0%   { transform: scale(1.0); }
+  20%  { transform: scale(1.2); }
+  55%  { transform: scale(1.2); }
+  95%  { transform: scale(0.9); }
+  100% { transform: scale(1.0); }
+}
+
+@keyframes boRingPulse {
+  0%   { transform: scale(1); opacity: 0.3; }
+  20%  { transform: scale(1.15); opacity: 0.8; }
+  55%  { transform: scale(1.15); opacity: 0.6; }
+  95%  { transform: scale(0.95); opacity: 0.2; }
+  100% { transform: scale(1); opacity: 0.3; }
+}
+
+/* ═══ MODE: PAUSED — static, dimmed ═══ */
+.bo-mode--paused .bo-inner {
+  transform: scale(0.95);
+  opacity: 0.7;
+  animation: none;
+}
+
+/* ═══ REDUCED MOTION ═══ */
+@media (prefers-reduced-motion: reduce) {
+  .bo-inner,
+  .bo-ring {
+    animation: none !important;
+    transform: scale(1) !important;
+  }
+  .bo-mode--paused .bo-inner {
+    opacity: 0.7;
+  }
+}

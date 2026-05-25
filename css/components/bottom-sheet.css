@@ -1,0 +1,180 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · BottomSheet framework (Task T)
+   ───────────────────────────────────────────────────────────────────
+   Reusable slide-up bottom sheet: backdrop, grip, title, content,
+   actions footer. Swipe-down close. Focus trap. Stack support.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.bs-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(8, 9, 13, 0.55);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: opacity 0.25s var(--ease);
+  pointer-events: none;
+}
+[data-theme="light"] .bs-overlay,
+:root:not([data-theme]) .bs-overlay {
+  background: rgba(60, 70, 100, 0.35);
+}
+.bs-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.bs-overlay.is-closing {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.bs-sheet {
+  width: 100%;
+  max-width: 480px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  overflow: hidden;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  transform: translateY(100%);
+  transition: transform 0.32s var(--ease-spring);
+}
+.bs-overlay.is-open .bs-sheet {
+  transform: translateY(0);
+}
+.bs-overlay.is-closing .bs-sheet {
+  transform: translateY(100%);
+  transition-duration: 0.2s;
+}
+
+[data-theme="light"] .bs-sheet,
+:root:not([data-theme]) .bs-sheet {
+  background: var(--bg-main);
+  box-shadow: 0 -16px 40px rgba(60, 70, 100, 0.35);
+}
+[data-theme="dark"] .bs-sheet {
+  background: linear-gradient(180deg, hsl(220 25% 7%) 0%, hsl(220 25% 5%) 100%);
+  border-top: 1px solid var(--border-color);
+}
+
+/* ═══ GRIP ═══ */
+.bs-grip {
+  width: 40px;
+  height: 4px;
+  background: var(--text-faint);
+  border-radius: 999px;
+  margin: 10px auto 0;
+  opacity: 0.5;
+  cursor: grab;
+}
+
+/* ═══ HEADER ═══ */
+.bs-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px 8px;
+  flex-shrink: 0;
+}
+.bs-title {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0;
+}
+.bs-close {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: var(--radius-icon);
+  display: grid;
+  place-items: center;
+  color: var(--text-muted);
+  cursor: pointer;
+  background: transparent;
+  transition: background var(--dur) var(--ease);
+}
+[data-theme="light"] .bs-close,
+:root:not([data-theme]) .bs-close {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+}
+[data-theme="dark"] .bs-close {
+  background: hsl(220 25% 8% / 0.7);
+}
+.bs-close:hover,
+.bs-close:focus-visible {
+  color: var(--text);
+  outline: none;
+}
+.bs-close svg { width: 18px; height: 18px; }
+
+/* ═══ CONTENT ═══ */
+.bs-content {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 8px 16px 16px;
+}
+
+/* ═══ FOOTER (actions) ═══ */
+.bs-footer {
+  flex-shrink: 0;
+  padding: 8px 16px 16px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+[data-theme="light"] .bs-footer,
+:root:not([data-theme]) .bs-footer {
+  border-top-color: hsl(220 18% 88%);
+}
+[data-theme="dark"] .bs-footer {
+  border-top-color: hsl(220 20% 14%);
+}
+
+.bs-action {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease);
+}
+.bs-action:active { transform: scale(0.98); }
+
+.bs-action--primary {
+  background: linear-gradient(135deg, hsl(var(--hue1) 70% 55%), hsl(var(--hue2) 65% 55%));
+  color: white;
+  box-shadow: 0 6px 18px hsl(var(--hue1) 60% 45% / 0.4),
+    inset 0 1px 0 hsl(0 0% 100% / 0.2);
+}
+.bs-action--secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-color);
+}
+[data-theme="light"] .bs-action--secondary,
+:root:not([data-theme]) .bs-action--secondary {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+}
+.bs-action--danger {
+  background: linear-gradient(135deg, hsl(355 75% 50%), hsl(345 70% 45%));
+  color: white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bs-overlay { transition: none; }
+  .bs-sheet { transition: none; }
+}
