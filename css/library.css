@@ -184,7 +184,67 @@
   transition: transform var(--dur-fast) var(--ease);
 }
 .lib-card:active { transform: scale(0.98); }
+/* Fix: hover state се залепяше на touch devices след tap.
+   Хover ефект само върху pointer-fine устройства; focus отделен. */
+@media (hover: hover) and (pointer: fine) {
+  .lib-card:hover { box-shadow: var(--shadow-card), 0 0 0 2px hsl(var(--hue1) 60% 55% / 0.4); }
+}
+.lib-card:focus { outline: none; }
+.lib-card:focus-visible {
+  outline: 2px solid hsl(var(--hue1) 70% 55%);
+  outline-offset: 3px;
+}
 .lib-card > * { position: relative; z-index: 5; }
+
+/* Skeleton placeholder за loading / празни sound entries */
+.lib-card-skeleton {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 12px 12px;
+  min-height: 156px;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+[data-theme="light"] .lib-card-skeleton,
+:root:not([data-theme]) .lib-card-skeleton {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+}
+[data-theme="dark"] .lib-card-skeleton {
+  background: hsl(220 25% 8% / 0.6);
+  backdrop-filter: blur(6px);
+}
+.lib-skel-row {
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(90deg,
+    hsl(220 18% 75% / 0.4) 0%,
+    hsl(220 18% 85% / 0.6) 50%,
+    hsl(220 18% 75% / 0.4) 100%);
+  background-size: 200% 100%;
+  animation: libSkeletonShimmer 1.6s ease-in-out infinite;
+}
+[data-theme="dark"] .lib-skel-row {
+  background: linear-gradient(90deg,
+    hsl(220 25% 14% / 0.6) 0%,
+    hsl(220 25% 20% / 0.8) 50%,
+    hsl(220 25% 14% / 0.6) 100%);
+  background-size: 200% 100%;
+}
+.lib-skel-row--icon { width: 36px; height: 36px; border-radius: var(--radius-sm); }
+.lib-skel-row--title { width: 70%; height: 14px; margin-top: 8px; }
+.lib-skel-row--subtitle { width: 50%; height: 10px; }
+.lib-skel-row--duration { width: 30%; height: 10px; margin-top: 4px; }
+
+@keyframes libSkeletonShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lib-skel-row { animation: none; }
+}
 .lib-card.is-playing {
   box-shadow: var(--shadow-card), 0 0 0 2px hsl(var(--hue3) 70% 55%);
 }

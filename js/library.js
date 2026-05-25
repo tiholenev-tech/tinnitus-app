@@ -141,12 +141,45 @@ window.Library = (function () {
       { m: m, s: (s < 10 ? '0' + s : '' + s) });
   }
 
+  // ============================================================
+  // Fallback display за неприetraен i18n
+  // ============================================================
+
+  function prettifyFilename(id) {
+    if (!id) return '';
+    return String(id)
+      .replace(/_/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+  }
+
+  function tOrPrettify(key, prettyFallback) {
+    // Ако i18n.t върне самия key (не намерен) → ползвай prettifyFilename
+    if (!window.i18n || !window.i18n.t) return prettyFallback;
+    var v = window.i18n.t(key, null);
+    if (typeof v !== 'string' || v === key || v == null) return prettyFallback;
+    // Ако започва с "TODO:" (en.json stub) → fallback също
+    if (v.indexOf('TODO:') === 0) return prettyFallback;
+    return v;
+  }
+
+  function categoryFallback(categoryId) {
+    // i18n.t('library.cat_audio.<id>') ако е dostupen, иначе prettify
+    if (!categoryId) return '';
+    return tOrPrettify('library.cat_audio.' + categoryId, prettifyFilename(categoryId));
+  }
+
   function soundTitle(sound) {
-    return t(sound.title_key, sound.id);
+    if (!sound) return '';
+    return tOrPrettify(sound.title_key, prettifyFilename(sound.id));
   }
 
   function soundSubtitle(sound) {
-    return t(sound.subtitle_key, sound.category);
+    if (!sound) return '';
+    // Audio category е по-надежден fallback от raw category string
+    var catKey = sound.category_audio || sound.category || '';
+    return tOrPrettify(sound.subtitle_key, categoryFallback(catKey));
   }
 
   // ============================================================
@@ -277,14 +310,16 @@ window.Library = (function () {
       : t('library.card.favoriteAddAria', 'Добави ' + title + ' в любими', { title: title });
     var playAria = t('library.card.playAria', 'Пусни ' + title, { title: title });
 
+    // Schema v2: category_audio (от 01_ocean/, 02_rain/, etc.); fallback към legacy category
+    var catId = sound.category_audio || sound.category;
+    var iconSvg = SVG.cat[getCatIcon(catId)] || SVG.cat.waves;
+
     return (
       '<div class="glass lib-card' + (isPlaying ? ' is-playing' : '') + '"' +
         ' data-sound-id="' + escapeHtml(sound.id) + '"' +
         ' role="button" tabindex="0" aria-label="' + escapeHtml(playAria) + '">' +
         SHINES +
-        '<div class="lib-card-icon" aria-hidden="true">' +
-          (SVG.cat[getCatIcon(sound.category)] || SVG.cat.waves) +
-        '</div>' +
+        '<div class="lib-card-icon" aria-hidden="true">' + iconSvg + '</div>' +
         '<div class="lib-card-body">' +
           '<div class="lib-card-title">' + escapeHtml(title) + '</div>' +
           '<div class="lib-card-subtitle">' + escapeHtml(subtitle) + '</div>' +
@@ -300,6 +335,21 @@ window.Library = (function () {
         '</button>' +
       '</div>'
     );
+  }
+
+  function buildSkeletonGrid(n) {
+    n = n || 8;
+    var skel = '';
+    for (var i = 0; i < n; i++) {
+      skel +=
+        '<div class="lib-card-skeleton" aria-hidden="true">' +
+          '<div class="lib-skel-row lib-skel-row--icon"></div>' +
+          '<div class="lib-skel-row lib-skel-row--title"></div>' +
+          '<div class="lib-skel-row lib-skel-row--subtitle"></div>' +
+          '<div class="lib-skel-row lib-skel-row--duration"></div>' +
+        '</div>';
+    }
+    return '<div class="lib-grid">' + skel + '</div>';
   }
 
   function buildMeditationCardHtml(sound) {
@@ -641,9 +691,8 @@ window.Library = (function () {
   function render() {
     var app = el('app');
     if (!app) return;
-    // Show loading first
-    app.innerHTML = '<div class="lib-loading">' +
-      escapeHtml(t('library.loading', 'Зареждане...')) + '</div>';
+    // Skeleton placeholder вместо празно докато manifest зарежда
+    app.innerHTML = buildSkeletonGrid(8);
     loadManifest().then(function () {
       refresh();
     });
