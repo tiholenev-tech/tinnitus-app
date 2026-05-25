@@ -1,22 +1,168 @@
-// AURALIS Service Worker v0.1 — skeleton (празни handlers)
-// Бъдеще: offline cache на app shell + audio buffers за нощен mixer
+/**
+ * AURALIS Service Worker v1.0 — offline-first PWA (Task SS)
+ * ============================================================
+ * Cache strategies:
+ *   App shell (HTML/CSS/JS) → cache-first
+ *   i18n files → stale-while-revalidate
+ *   Audio files → cache-first (persist across versions)
+ *   manifest.json → network-first
+ *
+ * Auto-update: VERSION bump → activate clears old caches → notify user.
+ */
 
-const CACHE_VERSION = 'auralis-v0.1';
+var VERSION = '1.0.0';
+var CACHE_SHELL = 'auralis-shell-v' + VERSION;
+var CACHE_I18N = 'auralis-i18n-v' + VERSION;
+var CACHE_AUDIO = 'auralis-audio-v1';
 
-self.addEventListener('install', (event) => {
+var SHELL_FILES = [
+  '/',
+  '/index.html',
+  '/manifest.json',
+  '/css/tokens.css',
+  '/css/base.css',
+  '/css/reset.css',
+  '/css/onboarding.css',
+  '/css/quiz.css',
+  '/css/mixer.css',
+  '/css/library.css',
+  '/css/sleep.css',
+  '/css/sos.css',
+  '/css/diary.css',
+  '/css/calm.css',
+  '/css/settings.css',
+  '/css/toast.css',
+  '/css/noise-picker.css',
+  '/css/player.css',
+  '/js/i18n.js',
+  '/js/state.js',
+  '/js/app.js',
+  '/js/toast.js',
+  '/js/audio-engine.js'
+];
+
+// ============================================================
+// Install — precache shell
+// ============================================================
+
+self.addEventListener('install', function (e) {
+  e.waitUntil(
+    caches.open(CACHE_SHELL).then(function (cache) {
+      return cache.addAll(SHELL_FILES).catch(function (err) {
+        console.warn('[SW] Shell precache partial fail:', err);
+      });
+    })
+  );
   self.skipWaiting();
 });
 
-self.addEventListener('activate', (event) => {
-  event.waitUntil(self.clients.claim());
+// ============================================================
+// Activate — clean old caches + notify clients
+// ============================================================
+
+self.addEventListener('activate', function (e) {
+  e.waitUntil(
+    caches.keys().then(function (keys) {
+      return Promise.all(
+        keys.filter(function (key) {
+          return key !== CACHE_SHELL && key !== CACHE_I18N && key !== CACHE_AUDIO;
+        }).map(function (key) {
+          return caches.delete(key);
+        })
+      );
+    }).then(function () {
+      return self.clients.claim();
+    }).then(function () {
+      return self.clients.matchAll().then(function (clients) {
+        clients.forEach(function (client) {
+          client.postMessage({ type: 'SW_UPDATED', version: VERSION });
+        });
+      });
+    })
+  );
 });
 
-self.addEventListener('fetch', (event) => {
-  // skeleton: passes through to network (no cache yet)
+// ============================================================
+// Fetch — strategy router
+// ============================================================
+
+self.addEventListener('fetch', function (e) {
+  var url = new URL(e.request.url);
+  if (e.request.method !== 'GET') return;
+  if (url.origin !== self.location.origin) return;
+
+  var pathname = url.pathname;
+
+  if (pathname.indexOf('/i18n/') !== -1) {
+    e.respondWith(staleWhileRevalidate(e.request, CACHE_I18N));
+    return;
+  }
+
+  if (pathname.indexOf('/audio/') !== -1 ||
+      pathname.endsWith('.mp3') || pathname.endsWith('.wav') || pathname.endsWith('.ogg')) {
+    e.respondWith(cacheFirst(e.request, CACHE_AUDIO));
+    return;
+  }
+
+  if (pathname.endsWith('manifest.json')) {
+    e.respondWith(networkFirst(e.request, CACHE_SHELL));
+    return;
+  }
+
+  e.respondWith(cacheFirst(e.request, CACHE_SHELL));
 });
 
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
+// ============================================================
+// Message handler
+// ============================================================
+
+self.addEventListener('message', function (e) {
+  if (e.data && e.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
   }
 });
+
+// ============================================================
+// Cache strategies
+// ============================================================
+
+function cacheFirst(request, cacheName) {
+  return caches.open(cacheName).then(function (cache) {
+    return cache.match(request).then(function (cached) {
+      if (cached) return cached;
+      return fetch(request).then(function (response) {
+        if (response.ok) cache.put(request, response.clone());
+        return response;
+      }).catch(function () {
+        return new Response('Offline', { status: 503, statusText: 'Offline' });
+      });
+    });
+  });
+}
+
+function networkFirst(request, cacheName) {
+  return fetch(request).then(function (response) {
+    if (response.ok) {
+      caches.open(cacheName).then(function (cache) {
+        cache.put(request, response.clone());
+      });
+    }
+    return response;
+  }).catch(function () {
+    return caches.open(cacheName).then(function (cache) {
+      return cache.match(request);
+    });
+  });
+}
+
+function staleWhileRevalidate(request, cacheName) {
+  return caches.open(cacheName).then(function (cache) {
+    return cache.match(request).then(function (cached) {
+      var fetchPromise = fetch(request).then(function (response) {
+        if (response.ok) cache.put(request, response.clone());
+        return response;
+      }).catch(function () { return cached; });
+      return cached || fetchPromise;
+    });
+  });
+}

@@ -1,15 +1,15 @@
 {
-  "name": "tinnitus-app",
-  "short_name": "tinnitus-app",
-  "description": "Инструмент за слухова релаксация при тинитус",
+  "name": "AURALIS",
+  "short_name": "AURALIS",
+  "description": "Звукова библиотека за хора с тинитус",
   "lang": "bg",
   "dir": "ltr",
-  "start_url": "./index.html",
+  "start_url": "/",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#080813",
-  "theme_color": "#080813",
+  "background_color": "#0a0a0f",
+  "theme_color": "#F1E6C8",
   "categories": ["health", "lifestyle", "wellness"],
   "icons": [
     {
