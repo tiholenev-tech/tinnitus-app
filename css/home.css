@@ -94,7 +94,7 @@
   background: hsl(var(--hue3) 60% 50%);
   color: white;
 }
-.home-cat-info:active { transform: scale(0.92); }
+.home-cat-info:active { transform: scale(0.96); }
 .home-cat-info:focus { outline: none; }
 .home-cat-info:focus-visible {
   outline: 2px solid hsl(var(--hue3) 70% 55%);
@@ -246,8 +246,8 @@
 .home-bottom-btn:hover { color: var(--accent); }
 
 @keyframes homeFadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
   .home-screen { animation: none; }
