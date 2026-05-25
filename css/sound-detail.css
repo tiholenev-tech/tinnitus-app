@@ -1,0 +1,214 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · SoundDetail (Task N4)
+   ───────────────────────────────────────────────────────────────────
+   Per-sound page: header + hero (orb + title) + play CTA +
+   recommended noise + Description/Why/FAQ InfoPanels.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.sd-screen {
+  padding: 8px 0 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: sdFadeIn 0.3s ease;
+}
+
+.sd-loading {
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* ═══ HEADER (back + sticky title) ═══ */
+.sd-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 4px;
+}
+
+.sd-back {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: var(--radius-icon);
+  display: grid;
+  place-items: center;
+  color: var(--text);
+  cursor: pointer;
+}
+[data-theme="light"] .sd-back,
+:root:not([data-theme]) .sd-back {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+}
+[data-theme="dark"] .sd-back {
+  background: hsl(220 25% 8% / 0.7);
+  backdrop-filter: blur(8px);
+}
+.sd-back:active { transform: scale(0.96); }
+.sd-back svg { width: 20px; height: 20px; }
+
+.sd-header-title {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.005em;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ═══ HERO (orb + title block) ═══ */
+.sd-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  padding: 8px 16px 0;
+}
+
+.sd-art {
+  width: 140px;
+  height: 140px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 4px;
+}
+.sd-art-orb {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%,
+    hsl(var(--hue3) 70% 70% / 0.85),
+    hsl(var(--hue2) 65% 50% / 0.75) 60%,
+    hsl(var(--hue1) 60% 35% / 0.65) 100%);
+  box-shadow:
+    0 0 60px hsl(var(--hue3) 60% 45% / 0.4),
+    inset 0 0 40px hsl(0 0% 100% / 0.12);
+  animation: sdBreathe 7s ease-in-out infinite;
+}
+@keyframes sdBreathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.04); }
+}
+
+.sd-title {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  line-height: 1.2;
+  margin: 0;
+  max-width: 380px;
+}
+
+.sd-subtitle {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.sd-duration {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: hsl(var(--hue1) 20% 35% / 0.12);
+}
+[data-theme="dark"] .sd-duration {
+  background: hsl(var(--hue1) 40% 25% / 0.4);
+}
+
+/* ═══ PLAY CTA ═══ */
+.sd-play-cta {
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, hsl(var(--hue1) 70% 55%), hsl(var(--hue2) 65% 55%));
+  color: white;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow:
+    0 8px 24px hsl(var(--hue1) 60% 40% / 0.5),
+    inset 0 1px 0 hsl(0 0% 100% / 0.2);
+  transition: transform var(--dur-fast) var(--ease);
+}
+.sd-play-cta:active { transform: scale(0.97); }
+.sd-play-cta:hover { filter: brightness(1.05); }
+.sd-play-cta svg { width: 18px; height: 18px; }
+
+/* ═══ RECOMMENDATION CARD ═══ */
+.sd-recommend {
+  margin: 0 4px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid hsl(var(--hue3) 65% 55%);
+}
+[data-theme="light"] .sd-recommend,
+:root:not([data-theme]) .sd-recommend {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+}
+[data-theme="dark"] .sd-recommend {
+  background: hsl(var(--hue3) 30% 12% / 0.4);
+}
+.sd-recommend--empty {
+  border-left-color: var(--text-faint);
+  opacity: 0.7;
+}
+.sd-recommend-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.sd-recommend-value {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.005em;
+}
+.sd-recommend-ratio {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-top: 4px;
+  letter-spacing: 0.02em;
+}
+
+/* ═══ INFO SLOTS (InfoPanel render targets) ═══ */
+.sd-description-slot,
+.sd-why-slot,
+.sd-faq-slot {
+  margin: 0 4px;
+}
+
+@keyframes sdFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sd-screen, .sd-art-orb { animation: none; }
+}
