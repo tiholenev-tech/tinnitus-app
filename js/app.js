@@ -193,9 +193,18 @@
         return;
       }
       if (s.phase === 'player' && s.soundId) {
-        window.AppState.transition('player');
-        if (window.Player && window.Player.open) window.Player.open(s.soundId);
-        else if (window.Home && window.Home.render) window.Home.render();
+        // A2.4: BACK от Player не трябва да re-open-ва Player loop. Когато
+        // popstate доведе обратно до 'player' history entry, ползваме
+        // Player.render (router hook, без re-push на history) вместо
+        // Player.open (което push-ва нов entry → loop).
+        // Ако активният phase вече НЕ е 'player' (close() го изтри) —
+        // skip и fallback към home.
+        if (window.AppState.current === 'player' && window.Player && window.Player.render) {
+          window.Player.render();
+        } else if (window.Home && window.Home.render) {
+          window.AppState.transition('home');
+          window.Home.render();
+        }
         return;
       }
       if (s.phase === 'calm') {

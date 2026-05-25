@@ -526,7 +526,9 @@ window.Player = (function () {
     }
     // popPhase вече сетва s.current = back; не правим повторно transition().
     console.log('[player] close → back to:', back);
-    history.pushState({ phase: back }, '');
+    // A2.4: replaceState (не pushState) consume-ва player history entry.
+    // Иначе browser back → popstate с {phase:'player'} → loop.
+    history.replaceState({ phase: back }, '');
 
     var renderers = {
       'home':            window.Home,
