@@ -134,8 +134,9 @@ window.Library = (function () {
 
   function formatDuration(sec) {
     if (!sec || sec <= 0) return '—';
-    var m = Math.floor(sec / 60);
-    var s = sec % 60;
+    var total = Math.round(sec);
+    var m = Math.floor(total / 60);
+    var s = total % 60;
     return t('library.card.durationFmt',
       m + ':' + (s < 10 ? '0' : '') + s,
       { m: m, s: (s < 10 ? '0' + s : '' + s) });
