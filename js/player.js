@@ -354,7 +354,15 @@ window.Player = (function () {
     }, 800);
   }
 
+  // CRITICAL: flag за programmatic slider value updates (SEQ-REVEAL animation).
+  // На mobile browser-и `slider.value = X` понякога fire-ва 'input' event →
+  // onL1Input/onL2Input → setLayer1Volume(animatedValue) → kill-ваше
+  // SEQ-REVEAL fade (audio gain се override-ваше с anim value).
+  // Сега onL*Input ignore-ва events когато programmaticAnimation === true.
+  var programmaticAnimation = false;
+
   function onL1Input(e) {
+    if (programmaticAnimation) return; // SEQ-REVEAL animation е active
     var v = parseInt(e.currentTarget.value, 10);
     if (isNaN(v)) return;
     layer1Vol = Math.max(0, Math.min(100, v));
@@ -368,6 +376,7 @@ window.Player = (function () {
     scheduleUserOverrideSave();
   }
   function onL2Input(e) {
+    if (programmaticAnimation) return;
     var v = parseInt(e.currentTarget.value, 10);
     if (isNaN(v)) return;
     layer2Vol = Math.max(0, Math.min(100, v));
@@ -817,8 +826,10 @@ window.Player = (function () {
 
     var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduced) {
+      programmaticAnimation = true;
       slider.value = opts.toVal;
       if (lbl) lbl.textContent = Math.round(opts.toVal) + '%';
+      programmaticAnimation = false;
       return;
     }
 
@@ -844,8 +855,11 @@ window.Player = (function () {
       var progress = Math.min(elapsed / durationMs, 1);
       var eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
       var v = fromVal + (toVal - fromVal) * eased;
+      // CRITICAL: set flag за да блокираме onL1/L2Input при този programmatic update.
+      programmaticAnimation = true;
       slider.value = v;
       if (lbl) lbl.textContent = Math.round(v) + '%';
+      programmaticAnimation = false;
       if (progress < 1) {
         var rafId = requestAnimationFrame(step);
         if (opts.animSlot === 'l1') currentL1AnimRAF = rafId;
