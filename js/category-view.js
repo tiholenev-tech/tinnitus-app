@@ -125,31 +125,35 @@ window.CategoryView = (function () {
   // Sound filtering
   // ============================================================
 
-  // CAT-MEDITATION: meditation = САМО мелодии/sing bowls/gongs/chants/music.
-  // Игнорира звуци които всъщност са океан/вятър/дъжд маркирани като meditation.
+  // MEDITATION-STRICT: по-строг whitelist + блок-list.
+  // Целта: ~20 истински meditation звуци (sing bowls, gongs, chants, инструментал),
+  // не 147 натрапчиво природни звуци.
   function isRealMeditation(sound) {
     if (!sound || !sound.id) return false;
     var id = String(sound.id).toLowerCase();
-    var medKeywords = ['meditation', 'bowl', 'gong', 'chant', 'music',
-                       'mantra', 'om_', 'tibet', 'crystal', 'singing',
-                       'piano', 'ambient_pad', 'drone', 'bliss',
-                       'sound_of', 'instrumental'];
-    var naturalKeywords = ['ambience', 'ocean', 'wind', 'water_surf', 'rain',
-                           'waves', 'underwater', 'forest', 'river', 'stream',
-                           'thunder', 'storm', 'campfire', 'creek'];
-    var hasMed = false, hasNatural = false;
-    for (var i = 0; i < medKeywords.length; i++) {
-      if (id.indexOf(medKeywords[i]) !== -1) { hasMed = true; break; }
+
+    var strict = [
+      'singing_bowl', 'tibetan', 'gong', 'crystal_bowl',
+      'meditation_music', 'mantra', 'chant', 'om_',
+      'instrumental', 'piano_meditation', 'flute',
+      'koshi', 'kalimba', 'binaural', 'solfeggio',
+      'meditation_joseph', 'genetic_waves'
+    ];
+    var block = [
+      'ambience', 'ocean', 'wind', 'rain', 'water',
+      'waves', 'underwater', 'storm', 'thunder',
+      'forest', 'birds', 'stream', 'river', 'sea',
+      'beach', 'surf'
+    ];
+
+    var hasStrict = false, hasBlock = false;
+    for (var i = 0; i < strict.length; i++) {
+      if (id.indexOf(strict[i]) !== -1) { hasStrict = true; break; }
     }
-    for (var j = 0; j < naturalKeywords.length; j++) {
-      if (id.indexOf(naturalKeywords[j]) !== -1) { hasNatural = true; break; }
+    for (var j = 0; j < block.length; j++) {
+      if (id.indexOf(block[j]) !== -1) { hasBlock = true; break; }
     }
-    // Истинска медитация: има med keyword И НЯМА natural keyword.
-    // Fallback: ако category_audio = 'meditation' (от 08_meditation/) — pass дори
-    // без keyword (всичко в 08_meditation е curated).
-    if (hasMed && !hasNatural) return true;
-    if (sound.category_audio === 'meditation' && !hasNatural) return true;
-    return false;
+    return hasStrict && !hasBlock;
   }
 
   // CAT-SORT: sort sounds by current profile's score (e.g. HB_M_score),
@@ -177,7 +181,9 @@ window.CategoryView = (function () {
     }
     // CAT-MEDITATION: special filter за meditation category.
     if (catId === 'meditation') {
+      var beforeCount = matches.length;
       matches = matches.filter(isRealMeditation);
+      console.log('[meditation-filter]', beforeCount, '→', matches.length, 'sounds');
     }
     // CAT-SORT: sort by profile score (top recommendations first), limit 30.
     var profile = (window.AppState && window.AppState.profile) || null;
