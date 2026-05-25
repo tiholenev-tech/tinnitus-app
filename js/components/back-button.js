@@ -62,33 +62,52 @@ window.BackButton = (function () {
   function onBack() {
     if (window.Haptics) window.Haptics.light();
 
-    // Primary: use browser history
+    // Strategy 1: Use AppState.previousPhase if available and meaningful
+    if (window.AppState && window.AppState.previousPhase) {
+      var prev = window.AppState.previousPhase;
+      // Navigate to previous phase
+      if (prev === 'category') {
+        window.AppState.transition('category');
+        if (window.CategoryView && window.CategoryView.render) {
+          window.CategoryView.render();
+        } else if (window.Home && window.Home.render) {
+          window.AppState.transition('home');
+          window.Home.render();
+        }
+        return;
+      }
+      if (prev === 'home') {
+        window.AppState.transition('home');
+        if (window.Home && window.Home.render) window.Home.render();
+        return;
+      }
+      if (prev === 'sound') {
+        window.AppState.transition('sound');
+        if (window.SoundDetail && window.SoundDetail.render) window.SoundDetail.render();
+        return;
+      }
+      // Generic previous
+      window.AppState.transition(prev);
+      // Try history.back as renderer
+      if (window.history && window.history.length > 1) {
+        window.history.back();
+        return;
+      }
+    }
+
+    // Strategy 2: browser history
     if (window.history && window.history.length > 2) {
       window.history.back();
       return;
     }
 
-    // Fallback: navigate by phase hierarchy
+    // Strategy 3: phase hierarchy fallback
     if (window.AppState) {
       var current = window.AppState.current;
       var target = BACK_MAP[current] || 'home';
-
-      // Category needs catId context — if we came from a sound, try getting it
-      if (target === 'category' && window.AppState._lastCatId) {
-        window.AppState.transition('category');
-        history.pushState({ phase: 'category', catId: window.AppState._lastCatId }, '');
-        if (window.CategoryView && window.CategoryView.open) {
-          window.CategoryView.open(window.AppState._lastCatId);
-        }
-        return;
-      }
-
       window.AppState.transition(target);
-      history.pushState({ phase: target }, '');
       if (target === 'home' && window.Home && window.Home.render) {
         window.Home.render();
-      } else if (target === 'category' && window.CategoryView && window.CategoryView.render) {
-        window.CategoryView.render();
       }
     }
   }
