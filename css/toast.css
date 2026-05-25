@@ -1,5 +1,8 @@
 /* ═══════════════════════════════════════════════════════════════════
-   AURALIS · Toast notifications (bottom-center, 3s auto-hide)
+   AURALIS · Toast notifications (Task R polish)
+   ───────────────────────────────────────────────────────────────────
+   Queue support (vertical stack), tap-to-dismiss, 3 variants,
+   slide-up enter / fade-out leave, ARIA live, reduced-motion safe.
    ═══════════════════════════════════════════════════════════════════ */
 
 .toast-container {
@@ -27,29 +30,49 @@
   text-align: center;
   letter-spacing: 0.01em;
   line-height: 1.4;
+  color: white;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(24px);
   transition: opacity 0.25s var(--ease), transform 0.3s var(--ease-spring);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+  cursor: default;
+  outline: none;
 }
 .toast.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
+.toast.is-leaving {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+.toast--tappable {
+  cursor: pointer;
+}
+.toast--tappable:hover,
+.toast--tappable:focus-visible {
+  filter: brightness(1.08);
+  outline: none;
+}
 
+/* ═══ VARIANTS ═══ */
 .toast--info {
   background: linear-gradient(135deg, hsl(var(--hue1) 70% 55%), hsl(var(--hue2) 65% 55%));
-  color: white;
+}
+.toast--info-champagne {
+  background: linear-gradient(135deg, hsl(38 75% 55%), hsl(32 70% 48%));
 }
 .toast--error {
   background: linear-gradient(135deg, hsl(355 75% 50%), hsl(345 70% 45%));
-  color: white;
 }
 .toast--success {
   background: linear-gradient(135deg, hsl(145 60% 50%), hsl(155 55% 45%));
-  color: white;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .toast { transition: opacity 0.01s; transform: none; }
+  .toast {
+    transition: opacity 0.01s;
+    transform: none;
+  }
+  .toast.is-leaving { transform: none; }
 }

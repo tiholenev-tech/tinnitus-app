@@ -1,28 +1,43 @@
 /**
- * AURALIS Toast — bottom-center notification helper
- * ===================================================
- * 3 sec auto-hide. Variant: 'info' (default) | 'error' | 'success'.
- * Stacks vertically ако са няколко наведнъж (rare).
+ * AURALIS Toast — bottom-center notification helper (Task R polish)
+ * ===================================================================
+ * Queue + tap-to-dismiss + 3 variants (info/error/success) + ARIA live.
+ * Slide-up animation. prefers-reduced-motion friendly.
  *
  * Public API:
- *   Toast.show(message, opts?)  — opts: { variant, durationMs }
- *   Toast.error(message)         — shorthand
- *   Toast.success(message)
- *   Toast.clear()                — remove all
+ *   Toast.show(message, opts?)  — opts: { variant, durationMs, dismissible }
+ *   Toast.info(message)          — shorthand (default variant = info)
+ *   Toast.error(message)         — variant=error, role=alert, longer duration
+ *   Toast.success(message)       — variant=success
+ *   Toast.clear()                — remove all queued + visible
+ *
+ * Queue behavior:
+ *   - Several toasts stack vertically (newest at bottom)
+ *   - Each has own timer; tap dismisses immediately
+ *   - Container persists; toasts auto-remove after fade-out
  */
 
 window.Toast = (function () {
   'use strict';
 
-  var DEFAULT_DURATION = 3000;
+  var DEFAULTS = {
+    info:    { duration: 3000, role: 'status' },
+    success: { duration: 3000, role: 'status' },
+    error:   { duration: 4500, role: 'alert' }
+  };
+
   var container = null;
 
+  // ============================================================
+  // Helpers
+  // ============================================================
+
   function ensureContainer() {
-    if (container) return container;
+    if (container && document.body.contains(container)) return container;
     container = document.createElement('div');
     container.className = 'toast-container';
     container.setAttribute('aria-live', 'polite');
-    container.setAttribute('aria-atomic', 'true');
+    container.setAttribute('aria-atomic', 'false');
     document.body.appendChild(container);
     return container;
   }
@@ -33,48 +48,85 @@ window.Toast = (function () {
       .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
   }
 
+  function removeToast(toast) {
+    if (!toast || !toast.parentNode) return;
+    toast.classList.remove('is-visible');
+    toast.classList.add('is-leaving');
+    var done = function () {
+      if (toast.parentNode) toast.parentNode.removeChild(toast);
+    };
+    // Поддръжка за prefers-reduced-motion: immediate removal
+    var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (rm) {
+      done();
+    } else {
+      setTimeout(done, 280);
+    }
+  }
+
+  // ============================================================
+  // Public API
+  // ============================================================
+
   function show(message, opts) {
     opts = opts || {};
-    var variant = opts.variant || 'info';
-    var duration = opts.durationMs || DEFAULT_DURATION;
+    var variant = DEFAULTS[opts.variant] ? opts.variant : 'info';
+    var defaults = DEFAULTS[variant];
+    var duration = opts.durationMs || defaults.duration;
+    var dismissible = opts.dismissible !== false;
 
     var root = ensureContainer();
     var toast = document.createElement('div');
-    toast.className = 'toast toast--' + variant;
-    toast.setAttribute('role', variant === 'error' ? 'alert' : 'status');
-    toast.innerHTML = '<span class="toast-msg">' + escapeHtml(message) + '</span>';
+    toast.className = 'toast toast--' + variant + (dismissible ? ' toast--tappable' : '');
+    toast.setAttribute('role', defaults.role);
+    toast.setAttribute('tabindex', dismissible ? '0' : '-1');
+
+    var inner = document.createElement('span');
+    inner.className = 'toast-msg';
+    inner.textContent = String(message); // textContent → авто escape
+    toast.appendChild(inner);
+
+    // Tap-to-dismiss (или Enter/Space at keyboard focus)
+    if (dismissible) {
+      var dismiss = function (e) {
+        if (e && e.type === 'keydown') {
+          if (e.key !== 'Enter' && e.key !== ' ') return;
+          e.preventDefault();
+        }
+        if (timer) clearTimeout(timer);
+        removeToast(toast);
+      };
+      toast.addEventListener('click', dismiss);
+      toast.addEventListener('keydown', dismiss);
+    }
+
     root.appendChild(toast);
 
-    // Trigger enter animation
+    // Trigger enter animation на следващия frame
     requestAnimationFrame(function () {
-      toast.classList.add('is-visible');
+      requestAnimationFrame(function () { toast.classList.add('is-visible'); });
     });
 
-    setTimeout(function () {
-      toast.classList.remove('is-visible');
-      setTimeout(function () {
-        if (toast.parentNode) toast.parentNode.removeChild(toast);
-      }, 300);
-    }, duration);
+    var timer = setTimeout(function () { removeToast(toast); }, duration);
+
+    return toast;
   }
 
-  function error(message) {
-    show(message, { variant: 'error' });
-  }
-
-  function success(message) {
-    show(message, { variant: 'success' });
-  }
+  function info(message)    { return show(message, { variant: 'info' }); }
+  function success(message) { return show(message, { variant: 'success' }); }
+  function error(message)   { return show(message, { variant: 'error' }); }
 
   function clear() {
     if (!container) return;
-    while (container.firstChild) container.removeChild(container.firstChild);
+    var toasts = Array.prototype.slice.call(container.children);
+    toasts.forEach(removeToast);
   }
 
   return {
     show: show,
-    error: error,
+    info: info,
     success: success,
+    error: error,
     clear: clear
   };
 })();
