@@ -131,7 +131,10 @@ function cacheFirst(request, cacheName) {
     return cache.match(request).then(function (cached) {
       if (cached) return cached;
       return fetch(request).then(function (response) {
-        if (response.ok) cache.put(request, response.clone());
+        if (response.ok) {
+          var cloned = response.clone();
+          cache.put(request, cloned);
+        }
         return response;
       }).catch(function () {
         return new Response('Offline', { status: 503, statusText: 'Offline' });
@@ -143,8 +146,9 @@ function cacheFirst(request, cacheName) {
 function networkFirst(request, cacheName) {
   return fetch(request).then(function (response) {
     if (response.ok) {
+      var cloned = response.clone();
       caches.open(cacheName).then(function (cache) {
-        cache.put(request, response.clone());
+        cache.put(request, cloned);
       });
     }
     return response;
@@ -159,7 +163,10 @@ function staleWhileRevalidate(request, cacheName) {
   return caches.open(cacheName).then(function (cache) {
     return cache.match(request).then(function (cached) {
       var fetchPromise = fetch(request).then(function (response) {
-        if (response.ok) cache.put(request, response.clone());
+        if (response.ok) {
+          var cloned = response.clone();
+          cache.put(request, cloned);
+        }
         return response;
       }).catch(function () { return cached; });
       return cached || fetchPromise;
