@@ -1,0 +1,58 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · StreakBadge — ВЪЛНА 3.1 Task В
+   ═══════════════════════════════════════════════════════════════════ */
+
+.sb-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 36px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease);
+}
+.sb-badge:active { transform: scale(0.95); }
+
+[data-theme="light"] .sb-badge, :root:not([data-theme]) .sb-badge {
+  background: hsl(38 60% 92%);
+  box-shadow: var(--shadow-card-sm);
+}
+[data-theme="dark"] .sb-badge {
+  background: hsl(38 40% 15% / 0.5);
+  border: 1px solid hsl(38 50% 30% / 0.3);
+}
+
+.sb-icon {
+  display: grid;
+  place-items: center;
+  color: hsl(38 80% 55%);
+}
+[data-theme="dark"] .sb-icon { color: hsl(38 80% 65%); }
+.sb-icon svg { width: 18px; height: 18px; }
+
+.sb-count {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 800;
+  color: hsl(38 70% 40%);
+}
+[data-theme="dark"] .sb-count { color: hsl(38 80% 70%); }
+
+.sb-unit {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.sb-badge--pulse {
+  animation: sbPulse 2s ease-in-out infinite;
+}
+@keyframes sbPulse {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(38 80% 55% / 0.3); }
+  50%      { box-shadow: 0 0 0 4px hsl(38 80% 55% / 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sb-badge--pulse { animation: none; }
+}
