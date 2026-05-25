@@ -412,10 +412,15 @@ window.Quiz = (function () {
   }
 
   function finishToMixer() {
-    // Backward compat: action='finish' от стария results screen → Library
-    window.AppState.transition('library');
-    history.pushState({ phase: 'library' }, '');
-    if (window.Library && window.Library.render) {
+    // Post-quiz primary route: ProfileResults (per BIBLE v3.1 §O1).
+    // Fallback chain: ProfileResults → Home → Library → Mixer → re-render quiz.
+    window.AppState.transition('profile_results');
+    history.pushState({ phase: 'profile_results' }, '');
+    if (window.ProfileResults && window.ProfileResults.render) {
+      window.ProfileResults.render();
+    } else if (window.Home && window.Home.render) {
+      window.Home.render();
+    } else if (window.Library && window.Library.render) {
       window.Library.render();
     } else if (window.Mixer && window.Mixer.render) {
       window.Mixer.render();
