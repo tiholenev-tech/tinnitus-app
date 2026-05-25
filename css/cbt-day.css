@@ -1,0 +1,71 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · CBT Day View — layout template (ВЪЛНА 3.1 Task Г)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.cbt-screen {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px 16px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cbt-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.cbt-section {
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+[data-theme="light"] .cbt-section, :root:not([data-theme]) .cbt-section {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+}
+[data-theme="dark"] .cbt-section {
+  background: hsl(220 25% 6% / 0.5);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+}
+
+.cbt-section-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0;
+}
+
+.cbt-body {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.cbt-tip {
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  line-height: 1.5;
+  color: hsl(38 70% 35%);
+}
+[data-theme="light"] .cbt-tip, :root:not([data-theme]) .cbt-tip {
+  background: hsl(38 60% 92%);
+}
+[data-theme="dark"] .cbt-tip {
+  background: hsl(38 40% 15% / 0.3);
+  color: hsl(38 80% 70%);
+}
+
+.cbt-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}

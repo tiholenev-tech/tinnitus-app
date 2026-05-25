@@ -1,0 +1,74 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · Diary Hub — layout template (ВЪЛНА 3.1 Task Г)
+   ───────────────────────────────────────────────────────────────────
+   Structure only. Content filled by ВЪЛНА 3.2.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.dh-screen {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px 16px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dh-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.dh-section {
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+[data-theme="light"] .dh-section, :root:not([data-theme]) .dh-section {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+}
+[data-theme="dark"] .dh-section {
+  background: hsl(220 25% 6% / 0.5);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+}
+
+.dh-section-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0;
+}
+
+.dh-body {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.dh-btn {
+  min-height: 48px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.dh-btn--primary {
+  background: linear-gradient(135deg, hsl(var(--hue1) 70% 55%), hsl(var(--hue2) 65% 55%));
+  color: white;
+}
+.dh-btn--glass {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-color);
+}
+[data-theme="light"] .dh-btn--glass, :root:not([data-theme]) .dh-btn--glass {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+}

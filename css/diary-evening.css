@@ -1,0 +1,63 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · Diary Evening Entry — layout template (ВЪЛНА 3.1 Task Г)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.de-screen {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px 16px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.de-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.de-section {
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+[data-theme="light"] .de-section, :root:not([data-theme]) .de-section {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
+}
+[data-theme="dark"] .de-section {
+  background: hsl(220 25% 6% / 0.5);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+}
+
+.de-section-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0;
+}
+
+.de-question {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+.de-note {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.de-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
