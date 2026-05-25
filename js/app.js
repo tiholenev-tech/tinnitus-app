@@ -47,7 +47,20 @@
       }
       return;
     }
-    // Onboarding done → profile_results (post-quiz) / home (primary) / nested / legacy
+
+    var quizDone = window.AppState.isQuizDone();
+
+    // Ако quiz-ът не е приключен — quiz е единствената валидна destination.
+    if (!quizDone) {
+      if (window.Quiz && window.Quiz.render) {
+        window.Quiz.render(true);
+      }
+      if (window.BackButton && window.BackButton.update) window.BackButton.update();
+      return;
+    }
+
+    // Quiz done → primary destination = Home; nested screens рестейтват се само
+    // ако техния required context е наличен (catId / soundId).
     var phase = window.AppState.current;
     if (phase === 'profile_results' && window.ProfileResults && window.ProfileResults.render) {
       window.ProfileResults.render();
@@ -89,11 +102,17 @@
       window.Mixer.render();
       return;
     }
-    // Quiz subphase render (incl. results → ще auto-bounce към library)
-    if (window.Quiz && window.Quiz.render) {
+
+    // Unknown / unsupported phase след quiz → safety net → Home.
+    // (Преди това fallback-ваше към Quiz.render(true), което при quiz-done state
+    // може да render-не legacy results screen или library с празно UI — "само
+    // търсачка".)
+    if (window.Home && window.Home.render) {
+      window.AppState.transition('home');
+      window.Home.render();
+    } else if (window.Quiz && window.Quiz.render) {
       window.Quiz.render(true);
     }
-    // Update back button visibility
     if (window.BackButton && window.BackButton.update) window.BackButton.update();
   }
 
@@ -245,28 +264,18 @@
 
     // Initial history state според текуща фаза
     var initialState;
+    var phase = window.AppState.current;
+    var KNOWN_PHASES = ['profile_results','home','category','sound','player',
+                        'calm','diary','sleep','library','mixer'];
     if (!window.AppState.isOnboardingDone()) {
       initialState = { subphase: window.AppState.subphase };
-    } else if (window.AppState.current === 'profile_results') {
-      initialState = { phase: 'profile_results' };
-    } else if (window.AppState.current === 'home') {
+    } else if (window.AppState.isQuizDone() && KNOWN_PHASES.indexOf(phase) !== -1) {
+      initialState = { phase: phase };
+    } else if (window.AppState.isQuizDone()) {
+      // Quiz done но phase е неизвестен → coerce към home (защита от "само
+      // търсачка" екран — преди това fallback-ваше към quiz subphase).
+      window.AppState.transition('home');
       initialState = { phase: 'home' };
-    } else if (window.AppState.current === 'category') {
-      initialState = { phase: 'category' };
-    } else if (window.AppState.current === 'sound') {
-      initialState = { phase: 'sound' };
-    } else if (window.AppState.current === 'player') {
-      initialState = { phase: 'player' };
-    } else if (window.AppState.current === 'calm') {
-      initialState = { phase: 'calm' };
-    } else if (window.AppState.current === 'diary') {
-      initialState = { phase: 'diary' };
-    } else if (window.AppState.current === 'sleep') {
-      initialState = { phase: 'sleep' };
-    } else if (window.AppState.current === 'library') {
-      initialState = { phase: 'library' };
-    } else if (window.AppState.current === 'mixer') {
-      initialState = { phase: 'mixer' };
     } else {
       initialState = { phase: 'quiz', quizSubphase: window.AppState.quizSubphase };
     }
