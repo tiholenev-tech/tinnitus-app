@@ -125,6 +125,47 @@ window.CategoryView = (function () {
   // Sound filtering
   // ============================================================
 
+  // CAT-MEDITATION: meditation = САМО мелодии/sing bowls/gongs/chants/music.
+  // Игнорира звуци които всъщност са океан/вятър/дъжд маркирани като meditation.
+  function isRealMeditation(sound) {
+    if (!sound || !sound.id) return false;
+    var id = String(sound.id).toLowerCase();
+    var medKeywords = ['meditation', 'bowl', 'gong', 'chant', 'music',
+                       'mantra', 'om_', 'tibet', 'crystal', 'singing',
+                       'piano', 'ambient_pad', 'drone', 'bliss',
+                       'sound_of', 'instrumental'];
+    var naturalKeywords = ['ambience', 'ocean', 'wind', 'water_surf', 'rain',
+                           'waves', 'underwater', 'forest', 'river', 'stream',
+                           'thunder', 'storm', 'campfire', 'creek'];
+    var hasMed = false, hasNatural = false;
+    for (var i = 0; i < medKeywords.length; i++) {
+      if (id.indexOf(medKeywords[i]) !== -1) { hasMed = true; break; }
+    }
+    for (var j = 0; j < naturalKeywords.length; j++) {
+      if (id.indexOf(naturalKeywords[j]) !== -1) { hasNatural = true; break; }
+    }
+    // Истинска медитация: има med keyword И НЯМА natural keyword.
+    // Fallback: ако category_audio = 'meditation' (от 08_meditation/) — pass дори
+    // без keyword (всичко в 08_meditation е curated).
+    if (hasMed && !hasNatural) return true;
+    if (sound.category_audio === 'meditation' && !hasNatural) return true;
+    return false;
+  }
+
+  // CAT-SORT: sort sounds by current profile's score (e.g. HB_M_score),
+  // descending. Falls back към 0 ако score липсва.
+  function sortByProfileScore(sounds, profileCode) {
+    if (!profileCode) return sounds;
+    var scoreKey = profileCode + '_score';
+    return sounds.slice().sort(function (a, b) {
+      var sa = (typeof a[scoreKey] === 'number') ? a[scoreKey] : 0;
+      var sb = (typeof b[scoreKey] === 'number') ? b[scoreKey] : 0;
+      return sb - sa;
+    });
+  }
+
+  var MAX_SOUNDS_PER_CATEGORY = 30;
+
   function getSoundsForCategory(catId) {
     if (!window.AURALIS_MANIFEST) return [];
     var all = window.AURALIS_MANIFEST.sounds || [];
@@ -134,7 +175,16 @@ window.CategoryView = (function () {
       var cats = s.categories_use || [];
       if (cats.indexOf(catId) !== -1) matches.push(s);
     }
-    return matches;
+    // CAT-MEDITATION: special filter за meditation category.
+    if (catId === 'meditation') {
+      matches = matches.filter(isRealMeditation);
+    }
+    // CAT-SORT: sort by profile score (top recommendations first), limit 30.
+    var profile = (window.AppState && window.AppState.profile) || null;
+    if (profile) {
+      matches = sortByProfileScore(matches, profile);
+    }
+    return matches.slice(0, MAX_SOUNDS_PER_CATEGORY);
   }
 
   function getSoundTitle(sound) {
