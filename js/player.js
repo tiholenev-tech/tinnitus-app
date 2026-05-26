@@ -532,9 +532,13 @@ window.Player = (function () {
 
     layer1Vol = cfg.layer1Vol;
     layer2Vol = cfg.layer2Vol;
-    // Auto-pick recommended noise per profile само ако потребителят не е сменял
-    // (не override-ваме existing user choice от NoisePicker)
-    if (!cfg.fromOverride && cfg.noise) {
+    // Phone test fix: ВИНАГИ apply cfg.noise. Преди това fromOverride flag
+    // (volume override) skip-ваше noise auto-pick → ако предишен sound
+    // беше meditation (noise='none' persisted), отварянето на rain sound
+    // с volume override запазваше noise='none'. Override е САМО за volume —
+    // noise selection трябва да следва profile/category за всяка нова сесия.
+    // User може да override-не chosen noise чрез NoisePicker след това.
+    if (cfg.noise) {
       noiseId = cfg.noise;
       persist(STORAGE_NOISE, noiseId);
     }

@@ -108,12 +108,17 @@ window.ProfileConfig = (function () {
     'HB_M': 'brown_lp500'
   };
 
-  // SCENARIO override на profile noise (BUG2 — meditation без фонов шум).
-  // Per spec: meditation = САМО музика, без brown/pink noise (концентрация
-  // върху мантра/sing bowl/binaural beat без масков шум).
-  var NOISE_BY_SCENARIO = {
-    'meditation': 'none'
-  };
+  // SCENARIO override на profile noise.
+  // Phone test fix: преди това NOISE_BY_SCENARIO['meditation']='none' махаше
+  // фоновия шум за ВСЕКИ sound където scenario picker избираше 'meditation'
+  // (например rain sound с categories_use=['meditation','relaxation'] → не
+  // съдържа anxiety/sleep_deep/falling_asleep → priority loop спира на
+  // 'meditation' → noise=none за rain). Грешно.
+  //
+  // Сега единственият arbiter за "no noise" е sound.category_audio === 'meditation'
+  // (виж resolveFor override по-долу). Това е истинският критерий — meditation
+  // music файлове (08_meditation/ folder). Scenario priority вече не влияе.
+  var NOISE_BY_SCENARIO = {};
 
   // ============================================================
   // SEQUENTIAL REVEAL timing — Layer 1 → wait → Layer 2 fade-in
