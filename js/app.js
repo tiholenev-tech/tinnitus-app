@@ -268,15 +268,36 @@
         return;
       }
 
-      if (s.quizSubphase && window.AppState.quizSubphases.indexOf(s.quizSubphase) !== -1) {
+      // BACK-TO-ONBOARDING fix: setup phases (calibration, pitch_test,
+      // profile_results, thi_baseline) са single-pass — popstate landing
+      // върху тях → force home. Преди това fallback беше Quiz.render()
+      // което изглеждаше визуално като onboarding → "ни връща в онбординга"
+      // bug report от phone test.
+      if (s.phase === 'calibration' || s.phase === 'pitch_test' ||
+          s.phase === 'profile_results' || s.phase === 'thi_baseline') {
+        console.log('[popstate] setup phase replay attempted:', s.phase, '→ force home');
+        window.AppState.transition('home');
+        history.replaceState({ phase: 'home' }, '');
+        if (window.Home && window.Home.render) window.Home.render();
+        return;
+      }
+
+      // Quiz subphase replay — само ако quiz реално активен (не done).
+      if (!window.AppState.isQuizDone() && s.quizSubphase &&
+          window.AppState.quizSubphases.indexOf(s.quizSubphase) !== -1) {
         window.AppState.transitionQuizSubphase(s.quizSubphase);
         if (window.AppState.current !== 'quiz') window.AppState.transition('quiz');
         if (window.Quiz) window.Quiz.render();
         return;
       }
 
-      // Fallback
-      if (window.Quiz) window.Quiz.render();
+      // BACK-TO-ONBOARDING fix: Fallback Home.render() (не Quiz.render()).
+      // Quiz screen визуално прилича на onboarding wizard → user reportваше
+      // "пак на онбординга". Home е safe default за post-quiz user.
+      console.log('[popstate] unknown phase fallback → home:', s);
+      window.AppState.transition('home');
+      history.replaceState({ phase: 'home' }, '');
+      if (window.Home && window.Home.render) window.Home.render();
       return;
     }
 

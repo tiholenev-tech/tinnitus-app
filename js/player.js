@@ -726,7 +726,10 @@ window.Player = (function () {
     var stackSnapshot = s.phaseHistory ? s.phaseHistory.slice() : [];
     console.log('[player] close — stack BEFORE pop:', stackSnapshot);
 
-    var BLOCK = ['player', 'thi_baseline', 'onboarding', 'quiz', 'results'];
+    // BACK-TO-ONBOARDING fix: добавени pitch_test + calibration + profile_results
+    // (single-pass setup phases) — не valid back targets от Player.
+    var BLOCK = ['player', 'thi_baseline', 'onboarding', 'quiz', 'results',
+                 'calibration', 'pitch_test', 'profile_results'];
     var back = s.popPhase ? s.popPhase() : null;
     while (back && BLOCK.indexOf(back) !== -1) {
       console.log('[player] skip stale stack entry:', back);
