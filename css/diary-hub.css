@@ -174,3 +174,43 @@
 .dh-progress-slot {
   margin: 4px 0;
 }
+
+/* ═══ Progress sheet (phone test functional fix) ═══ */
+.dh-progress-sheet {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 4px 0;
+}
+.dh-prog-stat {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: hsl(220 25% 12% / 0.5);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+[data-theme="light"] .dh-prog-stat,
+:root:not([data-theme]) .dh-prog-stat {
+  background: hsl(220 30% 96%);
+  border-color: hsl(220 30% 88%);
+}
+.dh-prog-stat-num {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 800;
+  color: hsl(var(--hue1) 55% 65%);
+}
+[data-theme="light"] .dh-prog-stat-num,
+:root:not([data-theme]) .dh-prog-stat-num {
+  color: hsl(var(--hue1) 55% 45%);
+}
+.dh-prog-stat-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: right;
+  flex: 1;
+  margin-left: 16px;
+}

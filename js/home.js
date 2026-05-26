@@ -88,21 +88,27 @@ window.Home = (function () {
   // Compute sound counts per use case
   // ============================================================
 
+  // Phone test fix: преди това използвахме manifest.categories_use[].sound_count
+  // което беше raw count БЕЗ filter — meditation показваше 142, но при
+  // CategoryView филтър остават ~30. Сега броим същото като CategoryView:
+  //   • meditation → САМО category_audio==='meditation' (music sounds)
+  //   • други → exclude meditation music от count
+  // Това гарантира че числото на cards == списъка който user вижда.
   function getCountForCategory(catId) {
     if (!window.AURALIS_MANIFEST) return 0;
-    // Prefer manifest.categories_use[i].sound_count (от build_manifest.py)
-    var catUse = window.AURALIS_MANIFEST.categories_use || [];
-    for (var i = 0; i < catUse.length; i++) {
-      if (catUse[i].id === catId && typeof catUse[i].sound_count === 'number') {
-        return catUse[i].sound_count;
-      }
-    }
-    // Fallback: scan sounds with categories_use array
     var sounds = window.AURALIS_MANIFEST.sounds || [];
     var count = 0;
+    var isMeditationCat = (catId === 'meditation');
     for (var j = 0; j < sounds.length; j++) {
-      var arr = sounds[j].categories_use || [];
-      if (arr.indexOf(catId) !== -1) count++;
+      var s = sounds[j];
+      var arr = s.categories_use || [];
+      if (arr.indexOf(catId) === -1) continue;
+      var isMedSound = (s.category_audio === 'meditation');
+      if (isMeditationCat) {
+        if (isMedSound) count++;
+      } else {
+        if (!isMedSound) count++;
+      }
     }
     return count;
   }

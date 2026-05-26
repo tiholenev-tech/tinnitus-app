@@ -85,8 +85,9 @@ window.ThiBaseline = (function () {
   function buildQuestionHtml() {
     var qNum = currentIndex + 1;
     var selected = scores[currentIndex];
-    // Wave 3.2 ще донесе реалните THI question strings.
-    var questionText = 'ВЪПРОС ' + qNum + ': TODO 3.2';
+    // Phone test cleanup: премахнат "TODO 3.2" placeholder.
+    // Реалните 25 THI questions ще се добавят с content team Wave 3.2.
+    var questionText = 'Въпрос ' + qNum;
     var progressText = 'Въпрос ' + qNum + ' от ' + TOTAL_QUESTIONS;
     var progressPct  = Math.round((qNum / TOTAL_QUESTIONS) * 100);
 

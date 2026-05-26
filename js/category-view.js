@@ -184,11 +184,23 @@ window.CategoryView = (function () {
       var cats = s.categories_use || [];
       if (cats.indexOf(catId) !== -1) matches.push(s);
     }
-    // CAT-MEDITATION: special filter за meditation category.
+    // CAT-MEDITATION: чисто разделение между meditation и природни звуци.
+    // (Phone test: "махнеш всички медитации от другите категории".)
     if (catId === 'meditation') {
       var beforeCount = matches.length;
       matches = matches.filter(isRealMeditation);
-      console.log('[meditation-filter]', beforeCount, '→', matches.length, 'sounds');
+      console.log('[meditation-filter] meditation cat:', beforeCount, '→', matches.length);
+    } else {
+      // Други категории: изключи sounds които са meditation music
+      // (category_audio === 'meditation' OR passes isRealMeditation).
+      var beforeOther = matches.length;
+      matches = matches.filter(function (s) {
+        return s.category_audio !== 'meditation' && !isRealMeditation(s);
+      });
+      if (beforeOther !== matches.length) {
+        console.log('[meditation-filter]', catId, 'cat excluded meditation music:',
+          beforeOther, '→', matches.length);
+      }
     }
     // CAT-SORT: sort by profile score (top recommendations first), limit 30.
     var profile = (window.AppState && window.AppState.profile) || null;

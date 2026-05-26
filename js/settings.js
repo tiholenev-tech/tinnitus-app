@@ -164,14 +164,17 @@ window.Settings = (function () {
 
   function buildLanguageSection() {
     var currentLocale = getCurrentLocale();
-    var options = LOCALES.map(function (code) {
+    // Phone test cleanup: показваме САМО налични езици (BG + EN preview).
+    // Останалите 10 езика са planned Phase 2 — не ги пишем с "(TODO)" badge
+    // за да не объркваме user-а.
+    var activeLocales = LOCALES.filter(function (code) {
+      return COMPLETE_LOCALES.indexOf(code) !== -1 ||
+             PREVIEW_LOCALES.indexOf(code) !== -1;
+    });
+    var options = activeLocales.map(function (code) {
       var name = t('settings.lang.names.' + code, code.toUpperCase());
-      var badge = '';
-      if (COMPLETE_LOCALES.indexOf(code) === -1 && PREVIEW_LOCALES.indexOf(code) === -1) {
-        badge = ' (' + t('settings.lang.todo', 'TODO') + ')';
-      } else if (PREVIEW_LOCALES.indexOf(code) !== -1) {
-        badge = ' (' + t('settings.lang.preview', 'preview') + ')';
-      }
+      var badge = (PREVIEW_LOCALES.indexOf(code) !== -1)
+        ? ' (' + t('settings.lang.preview', 'preview') + ')' : '';
       return '<option value="' + escapeHtml(code) + '"' +
         (code === currentLocale ? ' selected' : '') + '>' +
         escapeHtml(name) + escapeHtml(badge) +
@@ -284,9 +287,6 @@ window.Settings = (function () {
           '<button class="set-action" type="button" data-action="data-export">' +
             escapeHtml(t('settings.data.export', 'Изтегли всичко (JSON)')) +
           '</button>' +
-          buildSectionExportButtons() +
-          '<div class="set-data-divider"></div>' +
-          buildGranularDeleteSection() +
           '<button class="set-action set-action--danger" type="button" data-action="data-delete">' +
             escapeHtml(t('settings.data.delete', 'Изтрий всички данни')) +
           '</button>' +
@@ -392,9 +392,6 @@ window.Settings = (function () {
               (reminders.weekly ? ' checked' : '') + '>' +
             '<span class="set-toggle-track"></span>' +
           '</label>' +
-          '<div class="set-reminder-note">' +
-            escapeHtml(t('settings.reminders.notReady', 'Работи в Capacitor wrap (Phase 2)')) +
-          '</div>' +
         '</div>' +
       '</section>'
     );
@@ -500,18 +497,6 @@ window.Settings = (function () {
             ' min="10" max="60" step="5" value="' + sleepFade + '">' +
         '</div>' +
 
-        // JJ4: Audio output (placeholder)
-        '<div class="set-placeholder-row">' +
-          '<span>' + escapeHtml(t('settings.audio.output', 'Аудио изход')) + '</span>' +
-          '<span class="set-placeholder-badge">' + escapeHtml(t('settings.phase2', 'Phase 2')) + '</span>' +
-        '</div>' +
-
-        // JJ5: Equalizer (placeholder)
-        '<div class="set-placeholder-row">' +
-          '<span>' + escapeHtml(t('settings.audio.eq', 'Еквалайзер')) + '</span>' +
-          '<span class="set-placeholder-badge">' + escapeHtml(t('settings.phase2', 'Phase 2')) + '</span>' +
-        '</div>' +
-
       '</section>'
     );
   }
@@ -557,6 +542,12 @@ window.Settings = (function () {
   function buildMainViewHtml() {
     var closeAria = t('settings.closeAria', 'Затвори настройки');
     var title = t('settings.title', 'Настройки');
+    // Phone test cleanup: преструктурирано за яснота. Премахнати:
+    // - Advanced Audio (експертно, объркваше end-user)
+    // - Phase 2 placeholders (Audio output, Equalizer)
+    // - Per-section export + granular delete (cryptic за normal user)
+    // - "Phase 2" reminder note
+    // Сега ред е по приоритет: theme, lang, volume, reminders, quick links, data, about.
     return (
       '<div class="set-sheet" role="dialog" aria-modal="true"' +
         ' aria-label="' + escapeHtml(title) + '">' +
@@ -567,14 +558,13 @@ window.Settings = (function () {
             ' aria-label="' + escapeHtml(closeAria) + '">' + svgClose() + '</button>' +
         '</div>' +
         '<div class="set-body">' +
-          buildLanguageSection() +
           buildThemeSection() +
+          buildLanguageSection() +
           buildVolumeSection() +
           buildVolumeProfilesSection() +
-          buildAdvancedAudioSection() +
           buildRemindersSection() +
-          buildAnalyticsButton() +
           buildFavoritesButton() +
+          buildAnalyticsButton() +
           buildDataSection() +
           buildAboutSection() +
         '</div>' +

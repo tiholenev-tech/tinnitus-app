@@ -228,6 +228,15 @@ window.ProfileConfig = (function () {
     var noise = getRecommendedNoise(profile, scenario);
     var reveal = getRevealTiming(profile);
 
+    // Phone test: "медитации които са МУЗИКА — да се махне фоновия шум".
+    // category_audio === 'meditation' = singing bowls, gongs, chants, instrumental.
+    // Тези sounds не трябва да имат brown/pink noise overlay — независимо от
+    // scenario priority (sound може да има 'sleep_deep' преди 'meditation' в
+    // categories_use → scenario='sleep_deep' → но е still meditation music).
+    if (sound && sound.category_audio === 'meditation') {
+      noise = 'none';
+    }
+
     var override = getUserOverride(soundId || (sound && sound.id));
     if (override) {
       return {

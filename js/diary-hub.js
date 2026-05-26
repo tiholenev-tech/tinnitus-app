@@ -115,7 +115,7 @@ window.DiaryHub = (function () {
             action: 'cbt',
             icon: SVG.book,
             title: 'Днешна практика',
-            desc: 'Ден ' + currentDay + ': TODO 3.2'
+            desc: 'Ден ' + currentDay + ' от 14'
           }) +
           buildActionCard({
             action: 'progress',
@@ -178,10 +178,69 @@ window.DiaryHub = (function () {
   }
 
   function goToProgress() {
-    // Wave 3.2 ще добави Progress module — засега console.log.
-    console.log('[diary-hub] Progress screen — pending Wave 3.2');
-    if (window.Toast && window.Toast.show) {
-      window.Toast.show('Скоро: Прогрес screen', { variant: 'info', durationMs: 2000 });
+    // Phone test fix: real Progress sheet вместо toast placeholder.
+    // Показва computable от съществуващи данни — текущ ден, completed дни,
+    // streak. Бъдеще Wave 3.2 може да добави графика, но засега тук са
+    // основните метрики.
+    var s = window.AppState || {};
+    var currentDay = s.currentProgramDay || (s.programStartDate ? 1 : 0);
+    var completed = completedDays();
+    var totalEntries = 0;
+    if (s.diaryEntries) {
+      for (var k in s.diaryEntries) {
+        if (Object.prototype.hasOwnProperty.call(s.diaryEntries, k)) totalEntries++;
+      }
+    }
+    var streak = s.streakActiveDays || 0;
+    var freezes = (typeof s.streakFreezesRemaining === 'number')
+      ? s.streakFreezesRemaining : 2;
+
+    var content;
+    if (!s.programStartDate) {
+      content = '<div class="dh-progress-sheet">' +
+        '<p>Все още не сте започнали 14-дневната програма.</p>' +
+        '<p style="margin-top:12px;color:var(--text-muted);font-size:14px;">' +
+          'Когато стартирате, тук ще виждате докъде сте и какво сте записали.' +
+        '</p>' +
+      '</div>';
+    } else {
+      content = '<div class="dh-progress-sheet">' +
+        '<div class="dh-prog-stat">' +
+          '<span class="dh-prog-stat-num">' + currentDay + ' / 14</span>' +
+          '<span class="dh-prog-stat-label">текущ ден от програмата</span>' +
+        '</div>' +
+        '<div class="dh-prog-stat">' +
+          '<span class="dh-prog-stat-num">' + completed.length + '</span>' +
+          '<span class="dh-prog-stat-label">завършени дни</span>' +
+        '</div>' +
+        '<div class="dh-prog-stat">' +
+          '<span class="dh-prog-stat-num">' + totalEntries + '</span>' +
+          '<span class="dh-prog-stat-label">записа в дневника</span>' +
+        '</div>' +
+        '<div class="dh-prog-stat">' +
+          '<span class="dh-prog-stat-num">' + streak + '</span>' +
+          '<span class="dh-prog-stat-label">последователни активни дни</span>' +
+        '</div>' +
+        '<div class="dh-prog-stat">' +
+          '<span class="dh-prog-stat-num">' + freezes + ' / 2</span>' +
+          '<span class="dh-prog-stat-label">останали "пропуски"</span>' +
+        '</div>' +
+        '<p style="margin-top:16px;color:var(--text-muted);font-size:13px;line-height:1.5;">' +
+          'Един "пропуск" Ви позволява да изтървете ден без да губите серията.' +
+        '</p>' +
+      '</div>';
+    }
+
+    if (window.BottomSheet && window.BottomSheet.open) {
+      window.BottomSheet.open({
+        title: 'Прогрес',
+        content: content,
+        height: 'auto',
+        showGrip: true,
+        closeOnBackdrop: true
+      });
+    } else if (window.Toast && window.Toast.show) {
+      window.Toast.show('Завършени дни: ' + completed.length + ' / 14', { durationMs: 3000 });
     }
   }
 

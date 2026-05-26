@@ -40,15 +40,18 @@ window.CbtDay = (function () {
     var existingReflection = (existing && existing.cbtReflection) || '';
     var alreadyDone = !!(existing && existing.cbtCompleted);
 
-    // Wave 3.2 ще донесе реалния content.
-    var dayTitle = 'Ден ' + day + ' — TODO 3.2';
-    var description = 'TODO 3.2: 3-4 изречения описание на дневната тема.';
+    // Phone test cleanup: премахнат "TODO 3.2" user-facing текст.
+    // Реалното дневно съдържание идва в Wave 3.2 (CBT content team).
+    // Засега — кратко информативно съобщение без dev-speak.
+    var dayTitle = 'Ден ' + day + ' от 14';
+    var description = 'Дневните CBT упражнения се подготвят. ' +
+      'Скоро тук ще намерите кратка практика за днешния ден от програмата.';
     var steps = [
-      'TODO 3.2: стъпка 1',
-      'TODO 3.2: стъпка 2',
-      'TODO 3.2: стъпка 3'
+      'Седнете удобно в тиха стая.',
+      'Поемете 3 бавни дълбоки вдишвания.',
+      'Запишете няколко думи как се чувствате (по избор по-долу).'
     ];
-    var reflectionPlaceholder = 'TODO 3.2: рефлексия въпрос';
+    var reflectionPlaceholder = 'Как се чувствате днес? (по избор)';
 
     return (
       '<div class="cbt-screen" data-screen="cbt_day">' +
