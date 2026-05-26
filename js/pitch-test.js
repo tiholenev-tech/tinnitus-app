@@ -90,6 +90,55 @@ window.PitchTest = (function () {
   }
 
   // ============================================================
+  // Tone generation (Web Audio API, sine wave + linear fade)
+  // ============================================================
+  // Hard safety cap (TONE_AMPLITUDE = 0.3 ≈ −10 dBFS) — pitch tones играят
+  // unobserved за volume slider. 50ms fade-in/out избягват click при start/stop.
+
+  function playTone(freqHz, durationMs) {
+    return new Promise(function (resolve) {
+      var c = ensureContext();
+      if (!c) { resolve(); return; }
+      // Resume context ако suspended (iOS lock screen, autoplay policy).
+      if (c.state === 'suspended') {
+        c.resume().catch(function () {});
+      }
+      var osc = c.createOscillator();
+      osc.frequency.value = freqHz;
+      osc.type = 'sine';
+
+      var gain = c.createGain();
+      var fadeSec = FADE_MS / 1000;
+      var totalSec = durationMs / 1000;
+      var nowT = c.currentTime;
+
+      // Linear ramps (audible immediately — same insight като SEQ-REVEAL-BUG fix).
+      gain.gain.setValueAtTime(0, nowT);
+      gain.gain.linearRampToValueAtTime(TONE_AMPLITUDE, nowT + fadeSec);
+      gain.gain.setValueAtTime(TONE_AMPLITUDE, nowT + Math.max(0, totalSec - fadeSec));
+      gain.gain.linearRampToValueAtTime(0, nowT + totalSec);
+
+      osc.connect(gain);
+      gain.connect(masterGain);
+
+      osc.start(nowT);
+      osc.stop(nowT + totalSec);
+
+      osc.onended = function () {
+        try { osc.disconnect(); } catch (e) {}
+        try { gain.disconnect(); } catch (e) {}
+      };
+
+      // Resolve малко след stop (даваме време за natural cleanup)
+      setTimeout(resolve, durationMs + 30);
+    });
+  }
+
+  function silence(durationMs) {
+    return new Promise(function (r) { setTimeout(r, durationMs); });
+  }
+
+  // ============================================================
   // PRE-TEST: tinnitus type screening
   // ============================================================
   // Pitch matching работи САМО за tonal tinnitus. Шумов / pulsing trigger-ат
@@ -152,10 +201,9 @@ window.PitchTest = (function () {
   function onPretestChoice(value) {
     var s = window.AppState;
     if (value === 'tonal') {
-      // Продължи към pitch test (Phase 1B+).
+      // Продължи към pitch test (Phase 1B — 2AFC bayesian narrowing).
       phase = 'test';
-      // Phase 1B/1C/1D не са имплементирани в този commit — placeholder.
-      renderPlaceholderTestStart();
+      startBayesianTest();
       return;
     }
     if (value === 'noise') {
@@ -191,19 +239,167 @@ window.PitchTest = (function () {
     );
   }
 
-  function renderPlaceholderTestStart() {
-    // Phase 1B/1C/1D ще заменят това. За сега — placeholder confirm-екран.
+  // ============================================================
+  // 2AFC bayesian narrowing (PITCH-1B)
+  // ============================================================
+  // Двуалтернативен принудителен избор: на всеки trial представяме 2 тона
+  // в съседни bin-ове на FREQUENCIES; user избира кой е по-близо до своя
+  // тинитус. Binary search свежда диапазона ~log2(N) trials (12 → ~4).
+  // MAX_TRIALS=8 дава safety buffer (повторяемост в гранични случаи).
+
+  function startBayesianTest() {
+    trials = [];
+    currentLow = 0;
+    currentHigh = FREQUENCIES.length - 1;
+    trialIndex = 0;
+    ensureContext();
+    nextTrial();
+  }
+
+  function nextTrial() {
+    // Convergence: остана единичен bin (или 2 съседни — пробваме веднъж още).
+    if (trialIndex >= MAX_TRIALS || currentHigh - currentLow <= 1) {
+      return finalizeTest();
+    }
+    var mid = Math.floor((currentLow + currentHigh) / 2);
+    var freqA = FREQUENCIES[mid];
+    var freqB = FREQUENCIES[mid + 1];
+    presentTrial(trialIndex + 1, freqA, freqB, function (userChoice) {
+      trials.push({
+        trial: trialIndex + 1,
+        freqA: freqA, freqB: freqB,
+        choice: userChoice,
+        rangeBefore: [currentLow, currentHigh]
+      });
+      if (userChoice === 'A') {
+        currentHigh = mid;       // A е по-близо → orient към lower half
+      } else {
+        currentLow = mid + 1;    // B е по-близо → orient към upper half
+      }
+      trialIndex++;
+      nextTrial();
+    });
+  }
+
+  function presentTrial(trialNum, freqA, freqB, choiceCallback) {
+    pendingChoiceCallback = choiceCallback;
     var app = el('app');
     if (!app) return;
     app.innerHTML = (
       '<div class="pt-screen" data-screen="pitch_test">' +
         '<header class="pt-header">' +
-          '<h1 class="pt-title">Тест за честота</h1>' +
-          '<p class="pt-subtitle">Тестът ще бъде наличен в следваща версия.</p>' +
+          '<h1 class="pt-title">Намиране на честотата на тинитуса</h1>' +
+          '<p class="pt-subtitle">Слушайте 2 тона. Изберете кой е по-близо ' +
+            'до Вашия шум.</p>' +
+          '<div class="pt-progress">Тест ' + trialNum + ' от ' + MAX_TRIALS + '</div>' +
         '</header>' +
-        '<section class="pt-skip-body">' +
-          '<p>Благодарим, че идентифицирахте тиналисния си звук като тонален. ' +
-          'Същинският тест с 8 сравнения на тонове е в подготовка.</p>' +
+
+        '<section class="pt-tones">' +
+          '<button class="pt-tone-btn" type="button" data-action="play-tone" data-tone="A">' +
+            '<span class="pt-tone-label">Тон A</span>' +
+            '<span class="pt-tone-hint">Натиснете за прослушване</span>' +
+          '</button>' +
+          '<button class="pt-tone-btn" type="button" data-action="play-tone" data-tone="B">' +
+            '<span class="pt-tone-label">Тон B</span>' +
+            '<span class="pt-tone-hint">Натиснете за прослушване</span>' +
+          '</button>' +
+        '</section>' +
+
+        '<section class="pt-choice">' +
+          '<p class="pt-choice-prompt">Кой тон е по-близо до Вашия тинитус?</p>' +
+          '<div class="pt-choice-actions">' +
+            '<button class="pt-btn pt-btn--primary" type="button" data-action="choose" data-choice="A">' +
+              'A по-близо' +
+            '</button>' +
+            '<button class="pt-btn pt-btn--primary" type="button" data-action="choose" data-choice="B">' +
+              'B по-близо' +
+            '</button>' +
+          '</div>' +
+        '</section>' +
+      '</div>'
+    );
+    // Запази freqA/freqB върху container за достъп от click handler.
+    var screenEl = app.querySelector('.pt-screen');
+    if (screenEl) {
+      screenEl.setAttribute('data-freq-a', String(freqA));
+      screenEl.setAttribute('data-freq-b', String(freqB));
+    }
+    app.addEventListener('click', onClick);
+  }
+
+  function onPlayToneRequest(toneLetter) {
+    if (isPlayingTone) {
+      console.log('[pitch-test] tone already playing — ignore');
+      return;
+    }
+    var screenEl = document.querySelector('.pt-screen');
+    if (!screenEl) return;
+    var freq = (toneLetter === 'A')
+      ? parseInt(screenEl.getAttribute('data-freq-a'), 10)
+      : parseInt(screenEl.getAttribute('data-freq-b'), 10);
+    if (isNaN(freq)) return;
+    isPlayingTone = true;
+    // Visually indicate active tone (CSS .pt-tone-btn--playing).
+    var btn = document.querySelector('[data-tone="' + toneLetter + '"]');
+    if (btn) btn.classList.add('pt-tone-btn--playing');
+    playTone(freq, TONE_DURATION_MS).then(function () {
+      if (btn) btn.classList.remove('pt-tone-btn--playing');
+      // Residual inhibition guard — silence преди следващ tone.
+      return silence(SILENCE_BETWEEN_MS);
+    }).then(function () {
+      isPlayingTone = false;
+    });
+  }
+
+  function onChoice(letter) {
+    if (isPlayingTone) {
+      console.log('[pitch-test] tone playing — wait before choosing');
+      return;
+    }
+    var cb = pendingChoiceCallback;
+    pendingChoiceCallback = null;
+    if (typeof cb === 'function') cb(letter);
+  }
+
+  function finalizeTest() {
+    // Median frequency на финалния range.
+    var finalIdx = Math.floor((currentLow + currentHigh) / 2);
+    var finalFreq = FREQUENCIES[finalIdx];
+    console.log('[pitch-test] converged on freq:', finalFreq, 'Hz (range:', currentLow, '-', currentHigh + ')');
+
+    var s = window.AppState;
+    if (s && s.addPitchTest) {
+      s.addPitchTest({
+        freq: finalFreq,
+        trials: trials
+      });
+    }
+
+    // Phase 1C/1D ще добавят octave verification + post-test safety check.
+    // За сега директно показваме резултат + продължи.
+    renderTestResult(finalFreq);
+  }
+
+  function renderTestResult(freqHz) {
+    var app = el('app');
+    if (!app) return;
+    // Опитваме familiar reference ("около [инструмент/звук]") — но избягваме
+    // strict claims. Просто числото в Hz + кратко обяснение.
+    var freqLabel = freqHz >= 1000
+      ? (freqHz / 1000).toFixed(freqHz >= 10000 ? 1 : 1).replace(/\.0$/, '') + ' kHz'
+      : freqHz + ' Hz';
+
+    app.innerHTML = (
+      '<div class="pt-screen" data-screen="pitch_test">' +
+        '<header class="pt-header">' +
+          '<h1 class="pt-title">Готово</h1>' +
+          '<p class="pt-subtitle">Намерихме приблизителната честота на Вашия ' +
+            'тинитус.</p>' +
+        '</header>' +
+        '<section class="pt-result">' +
+          '<div class="pt-result-freq">' + escapeHtml(freqLabel) + '</div>' +
+          '<p class="pt-result-note">Този резултат е запазен и ще се ползва ' +
+          'за персонализиране на звуковата терапия в бъдещи версии.</p>' +
         '</section>' +
         '<div class="pt-actions">' +
           '<button class="pt-btn pt-btn--primary" type="button" data-action="skip-continue">' +
@@ -212,6 +408,7 @@ window.PitchTest = (function () {
         '</div>' +
       '</div>'
     );
+    app.addEventListener('click', onClick);
   }
 
   function renderSkipMessage(title, body) {
@@ -231,6 +428,12 @@ window.PitchTest = (function () {
     if (action === 'pretest') {
       var value = btn.getAttribute('data-value');
       onPretestChoice(value);
+    } else if (action === 'play-tone') {
+      var tone = btn.getAttribute('data-tone');
+      onPlayToneRequest(tone);
+    } else if (action === 'choose') {
+      var choice = btn.getAttribute('data-choice');
+      onChoice(choice);
     } else if (action === 'skip-continue') {
       goNext();
     }
