@@ -512,7 +512,7 @@ window.Library = (function () {
       });
     } else {
       if (window.AudioEngine.playUrl) {
-        window.AudioEngine.playUrl(soundId, 'library_staging_loop_ready/' + sound.filename).catch(function (e) {
+        window.AudioEngine.playUrl(soundId, 'library_staging_normalized/' + sound.filename).catch(function (e) {
           // Error event е emit-нат от engine; toast се показва от listener.
           // Само за UI rollback тук:
           console.warn('[library] file play failed:', soundId, e && e.message);

@@ -54,7 +54,7 @@ if sys.platform == 'win32':
         pass
 
 REPO_ROOT = Path(__file__).parent.parent.resolve()
-DEFAULT_SOURCE = REPO_ROOT / 'library_staging_loop_ready'
+DEFAULT_SOURCE = REPO_ROOT / 'library_staging_normalized'
 LIBRARY_DIR = REPO_ROOT / 'audio' / 'library'
 MANIFEST_PATH = LIBRARY_DIR / 'manifest.json'
 I18N_BG = REPO_ROOT / 'i18n' / 'bg.json'
