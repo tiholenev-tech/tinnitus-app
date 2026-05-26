@@ -378,7 +378,10 @@ js/profile-results.js: secondary sections коментирани, очакват
 13. **Light theme = neumorphism**, dark theme = blur + glass. НЕ копирай light shadows в dark.
 
 ### Audio files
-14. **Path: `library_staging_loop_ready/<rel>`.** НЕ `audio/library/` (там е само manifest).
+14. **Runtime fetch path: `library_staging_normalized/<rel>`.** НЕ `audio/library/` (там е само manifest). НЕ `library_staging_loop_ready/` (това е build source за `build_manifest.py`, не runtime serve dir). Updated 2026-05-26 от P0.3 — преди това doc-ът беше outdated след DEPLOY normalize step.
+    - `audio-engine.js` (canonical) → `library_staging_normalized/`
+    - ⚠ `js/library.js:515` + `js/calm.js:247` все още имат hard-coded `library_staging_loop_ready/` — flagged за P1 cleanup.
+    - `tools/build_manifest.py` DEFAULT_SOURCE сочи към `library_staging_loop_ready/` (curated master). Двете папки имат идентична file structure (256 .wav), но normalize pipeline може да въведе delta.
 15. **Не decode-вай същия URL paralelно — fetchAndDecode cache-ва.** Multiple concurrent fetchAndDecode (url) → multiple fetches → wasteful (но не buggy).
 
 ### i18n
