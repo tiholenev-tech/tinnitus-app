@@ -285,13 +285,17 @@ window.PitchTest = (function () {
     pendingChoiceCallback = choiceCallback;
     var app = el('app');
     if (!app) return;
+    // trialNum=0 → octave verification (label override-ва се от runOctavePair)
+    var progressLabel = trialNum > 0
+      ? 'Тест ' + trialNum + ' от ' + MAX_TRIALS
+      : 'Проверка';
     app.innerHTML = (
       '<div class="pt-screen" data-screen="pitch_test">' +
         '<header class="pt-header">' +
           '<h1 class="pt-title">Намиране на честотата на тинитуса</h1>' +
           '<p class="pt-subtitle">Слушайте 2 тона. Изберете кой е по-близо ' +
             'до Вашия шум.</p>' +
-          '<div class="pt-progress">Тест ' + trialNum + ' от ' + MAX_TRIALS + '</div>' +
+          '<div class="pt-progress">' + escapeHtml(progressLabel) + '</div>' +
         '</header>' +
 
         '<section class="pt-tones">' +
@@ -365,19 +369,129 @@ window.PitchTest = (function () {
     // Median frequency на финалния range.
     var finalIdx = Math.floor((currentLow + currentHigh) / 2);
     var finalFreq = FREQUENCIES[finalIdx];
-    console.log('[pitch-test] converged on freq:', finalFreq, 'Hz (range:', currentLow, '-', currentHigh + ')');
+    console.log('[pitch-test] main test converged on freq:', finalFreq, 'Hz (range:', currentLow, '-', currentHigh + ')');
 
-    var s = window.AppState;
-    if (s && s.addPitchTest) {
-      s.addPitchTest({
-        freq: finalFreq,
-        trials: trials
-      });
+    // PITCH-1C: octave verification (защита срещу octave confusion).
+    runOctaveVerification(finalFreq, function (verified, octaveChoices) {
+      var s = window.AppState;
+      if (s && s.addPitchTest) {
+        s.addPitchTest({
+          freq: finalFreq,
+          trials: trials,
+          octaveCheck: {
+            verified: verified,
+            choices: octaveChoices
+          }
+        });
+      }
+      if (verified) {
+        renderTestResult(finalFreq);
+      } else {
+        renderOctaveConfusion(finalFreq);
+      }
+    });
+  }
+
+  // ============================================================
+  // PITCH-1C: Octave verification
+  // ============================================================
+  // Tinnitus pitch matching има well-documented "octave confusion" —
+  // ~50% от пациентите бъркат central freq с octave neighbour (×2 / ÷2).
+  // След main test, представяме 3 sanity trials:
+  //   1. F vs 0.5×F (octave надолу)
+  //   2. F vs 2×F   (octave нагоре)
+  //   3. F vs F (sanity tie — ако user избере "различен" → noise level high)
+  //
+  // Очаквано: и в 1, и в 2 user избира F (НЕ octave neighbour). Иначе →
+  // octave confusion → препоръка за retry.
+
+  function runOctaveVerification(finalFreq, doneCallback) {
+    var octaveTrials = [];
+    var step = 0;
+
+    function nextStep() {
+      step++;
+      if (step === 1) {
+        // F vs 0.5F
+        var halfFreq = Math.round(finalFreq / 2);
+        if (halfFreq < FREQUENCIES[0]) {
+          // Под долен предел — skip (не може да тестваме octave надолу).
+          step++;
+          return nextStep();
+        }
+        runOctavePair(finalFreq, halfFreq, 'F_vs_halfF', function (choice) {
+          octaveTrials.push({ pair: 'F_vs_halfF', freqA: finalFreq, freqB: halfFreq, choice: choice });
+          nextStep();
+        });
+      } else if (step === 2) {
+        // F vs 2F
+        var doubleFreq = finalFreq * 2;
+        if (doubleFreq > FREQUENCIES[FREQUENCIES.length - 1]) {
+          // Над горен предел — skip.
+          step++;
+          return nextStep();
+        }
+        runOctavePair(finalFreq, doubleFreq, 'F_vs_2F', function (choice) {
+          octaveTrials.push({ pair: 'F_vs_2F', freqA: finalFreq, freqB: doubleFreq, choice: choice });
+          nextStep();
+        });
+      } else {
+        // Анализ: ако в test 1 (F vs 0.5F) user избра 'B' (= 0.5F) → confusion.
+        //         ако в test 2 (F vs 2F) user избра 'B' (= 2F) → confusion.
+        // Verified ако и двете избори са 'A' (= центъра F).
+        var t1 = octaveTrials.find(function (t) { return t.pair === 'F_vs_halfF'; });
+        var t2 = octaveTrials.find(function (t) { return t.pair === 'F_vs_2F'; });
+        var t1OK = !t1 || t1.choice === 'A';
+        var t2OK = !t2 || t2.choice === 'A';
+        var verified = t1OK && t2OK;
+        console.log('[pitch-test] octave verification:', verified, octaveTrials);
+        doneCallback(verified, octaveTrials);
+      }
     }
+    nextStep();
+  }
 
-    // Phase 1C/1D ще добавят octave verification + post-test safety check.
-    // За сега директно показваме резултат + продължи.
-    renderTestResult(finalFreq);
+  function runOctavePair(freqA, freqB, label, cb) {
+    presentTrial(
+      // Show "Проверка" вместо trial counter — separate from main 8 trials.
+      0, // trialNum=0 → render skips counter (вижда се "Проверка")
+      freqA, freqB,
+      cb
+    );
+    // Замени progress chip с "Проверка на октава" — DOM update след render.
+    setTimeout(function () {
+      var progEl = document.querySelector('.pt-progress');
+      if (progEl) progEl.textContent = 'Проверка на октава';
+    }, 0);
+  }
+
+  function renderOctaveConfusion(finalFreq) {
+    var app = el('app');
+    if (!app) return;
+    // Запазваме резултата (вече addPitchTest е извикан с verified=false),
+    // но обясняваме че трябва retry за по-точен резултат. User-ът може да
+    // продължи (записан result се ползва) или да повтори.
+    app.innerHTML = (
+      '<div class="pt-screen" data-screen="pitch_test">' +
+        '<header class="pt-header">' +
+          '<h1 class="pt-title">Възможна несигурност</h1>' +
+          '<p class="pt-subtitle">Изборът Ви в проверката показва ' +
+          'възможна октавна несигурност — често срещано явление при ' +
+          'тинитус.</p>' +
+        '</header>' +
+        '<section class="pt-skip-body">' +
+          '<p>Записахме приблизителната честота, но препоръчваме повторение ' +
+          'на теста утре за по-точен резултат. Тинитусът понякога звучи на ' +
+          'различни височини в различни моменти.</p>' +
+        '</section>' +
+        '<div class="pt-actions">' +
+          '<button class="pt-btn pt-btn--primary" type="button" data-action="skip-continue">' +
+            'Продължете' +
+          '</button>' +
+        '</div>' +
+      '</div>'
+    );
+    app.addEventListener('click', onClick);
   }
 
   function renderTestResult(freqHz) {
