@@ -42,28 +42,31 @@ window.VolumeCalibration = (function () {
   // ============================================================
 
   function buildHtml() {
-    var explainer =
-      'В тиха стая, пуснете тестовия звук и постепенно увеличете силата докато:\n\n' +
-      '✓ Чувате И тинитуса И звука едновременно\n' +
-      '✗ Звукът НЕ заглушава тинитуса напълно\n\n' +
-      'Това е „точката на смесване" — критично за хабитуация.';
-
+    // Copy от Code 3: volume_calibration_text_bg.md v1.0 (26.05.2026, ~149 думи).
+    // Заглавие / подзаглавие / кратко обяснение / 3 стъпки / какво НЕ / disclaimer.
     var warningHtml = (currentVolume >= WARN_THRESHOLD)
       ? '<div class="vc-warning">Над 70% може да увреди слуха при дълго слушане.</div>'
       : '';
 
-    var playLabel = isPlaying ? 'Спрете тестовия звук' : 'Пуснете тестов звук';
+    var playLabel = isPlaying ? 'Спрете тестовия звук' : 'Пуснете тестовия звук';
     var playAction = isPlaying ? 'stop-test' : 'play-test';
 
     return (
       '<div class="vc-screen" data-screen="calibration">' +
-        '<h1 class="vc-title">Калибриране на силата</h1>' +
+        '<h1 class="vc-title">Настройка на силата</h1>' +
+        '<p class="vc-subtitle">Намерете нивото, което работи за Вас.</p>' +
+
         '<section class="vc-section vc-explain">' +
-          explainer.split('\n').map(function (line) {
-            return line
-              ? '<p class="vc-line">' + escapeHtml(line) + '</p>'
-              : '<div class="vc-spacer"></div>';
-          }).join('') +
+          '<p class="vc-line">Звуковата терапия работи най-добре, когато фоновият звук е малко по-тих от Вашия тинитус — двата звука се смесват частично, а не се заглушават. Това се нарича „точка на смесване" и е принципът, който позволява на мозъка постепенно да привикне.</p>' +
+        '</section>' +
+
+        '<section class="vc-section vc-steps">' +
+          '<h2 class="vc-section-title">Три стъпки</h2>' +
+          '<ol class="vc-steps-list">' +
+            '<li><strong>Седнете в тиха стая.</strong> Уверете се, че няма телевизор, разговор или шум от пътя.</li>' +
+            '<li><strong>Пуснете тестовия звук.</strong> Слушайте на ниско ниво в продължение на 20 секунди.</li>' +
+            '<li><strong>Постепенно увеличавайте силата.</strong> Спрете в момента, в който чувате едновременно и тинитуса, и фоновия звук. Те трябва да съществуват заедно.</li>' +
+          '</ol>' +
         '</section>' +
 
         '<section class="vc-section vc-test">' +
@@ -80,19 +83,27 @@ window.VolumeCalibration = (function () {
           '<input type="range" class="vc-slider" id="vcVolSlider"' +
             ' min="0" max="' + MAX_VOLUME + '" step="1"' +
             ' value="' + currentVolume + '"' +
-            ' aria-label="Сила на звука" />' +
+            ' aria-label="Сила на звука от 0 до ' + MAX_VOLUME + ' процента"' +
+            ' aria-valuetext="' + currentVolume + ' от ' + MAX_VOLUME + '" />' +
           '<div class="vc-slider-hint">Макс ' + MAX_VOLUME + '% — над това = риск за слуха</div>' +
           warningHtml +
         '</section>' +
 
+        '<section class="vc-section vc-warn-block">' +
+          '<h2 class="vc-section-title">Какво да НЕ правите</h2>' +
+          '<p class="vc-line">Не увеличавайте до пълно заглушаване на тинитуса. Това натоварва слуха и тренира мозъка да очаква пълна тишина — обратното на нашата цел.</p>' +
+        '</section>' +
+
         '<div class="vc-actions">' +
           '<button class="vc-btn vc-btn--primary" type="button" data-action="confirm">' +
-            'Това е правилната сила' +
+            'Това е добре' +
           '</button>' +
           '<button class="vc-btn vc-btn--ghost" type="button" data-action="skip">' +
-            'Пропусни (мога да настроя по-късно)' +
+            'По-късно' +
           '</button>' +
         '</div>' +
+
+        '<p class="vc-disclaimer">AURALIS е инструмент за общо благополучие, не медицински продукт.</p>' +
       '</div>'
     );
   }
@@ -130,6 +141,9 @@ window.VolumeCalibration = (function () {
     }
     var lbl = el('vcVolValue');
     if (lbl) lbl.textContent = currentVolume + '%';
+    // Update aria-valuetext за screen reader (TalkBack / VoiceOver)
+    var slider = el('vcVolSlider');
+    if (slider) slider.setAttribute('aria-valuetext', currentVolume + ' от ' + MAX_VOLUME);
     // Toggle warning visibility (cheap re-render на section)
     var section = document.querySelector('.vc-slider-section');
     if (section) {
@@ -195,13 +209,13 @@ window.VolumeCalibration = (function () {
     if (typeof cb === 'function') {
       cb();
     } else {
-      // Default flow: → profile_results (или home при quiz done без profile_results route).
-      if (s && s.transition) s.transition('profile_results');
-      history.replaceState({ phase: 'profile_results' }, '');
-      if (window.ProfileResults && window.ProfileResults.render) {
-        window.ProfileResults.render();
-      } else if (window.Home && window.Home.render) {
-        if (s && s.transition) s.transition('home');
+      // CALIBRATION-ROUTING: profile_results → calibration → HOME (не обратно
+      // към profile_results — то вече беше "consumed"). Phone test ще показва
+      // ясен flow: quiz finish → profile_results (Към звуците) → calibration
+      // (Това е добре) → home.
+      if (s && s.transition) s.transition('home');
+      history.replaceState({ phase: 'home' }, '');
+      if (window.Home && window.Home.render) {
         window.Home.render();
       }
     }

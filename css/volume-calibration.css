@@ -191,3 +191,53 @@
   border: 1px solid var(--border-color);
   font-weight: 600;
 }
+
+/* ═══ Code 3 copy (v1.0): subtitle / steps / warn block / disclaimer ═══ */
+.vc-subtitle {
+  margin: 4px 0 16px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.4;
+}
+.vc-section-title {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.vc-steps-list {
+  margin: 0;
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text);
+}
+.vc-steps-list li::marker {
+  color: hsl(var(--hue1) 55% 55%);
+  font-weight: 800;
+}
+.vc-steps-list strong { font-weight: 700; }
+.vc-warn-block {
+  background: hsl(42 50% 55% / 0.12);
+  border-left: 3px solid hsl(42 50% 55% / 0.6);
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+}
+.vc-warn-block .vc-section-title { color: hsl(42 50% 45%); }
+[data-theme="dark"] .vc-warn-block .vc-section-title { color: hsl(42 55% 75%); }
+.vc-disclaimer {
+  margin: 16px 0 0;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--text-faint);
+  line-height: 1.4;
+}

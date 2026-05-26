@@ -606,12 +606,21 @@ window.ProfileResults = (function () {
   }
 
   function goToHome() {
+    // CALIBRATION-ROUTING: При първо continue от profile_results → calibration.
+    // След calibration → home (handled от VolumeCalibration onComplete).
+    // Skip ако calibrationDone (повторно влизане в profile_results напр.
+    // от Settings → не повтаряме calibration).
+    var s = window.AppState;
+    if (s && !s.calibrationDone && window.VolumeCalibration && window.VolumeCalibration.render) {
+      if (s.transition) s.transition('calibration');
+      history.replaceState({ phase: 'calibration' }, '');
+      window.VolumeCalibration.render();
+      return;
+    }
     // BUG2-G: "Към звуците" CTA → Home. Use replaceState (не pushState),
     // защото profile_results е "consumed" — back-button не трябва да го
     // връща. Refresh запазва Home (state.load() restore-ва от savedPhase).
-    if (window.AppState && window.AppState.transition) {
-      window.AppState.transition('home');
-    }
+    if (s && s.transition) s.transition('home');
     history.replaceState({ phase: 'home' }, '');
     if (window.Home && window.Home.render) window.Home.render();
   }
