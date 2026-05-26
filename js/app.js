@@ -115,6 +115,11 @@
       window.VolumeCalibration.render();
       return;
     }
+    // PITCH-1E: pitch matching test screen
+    if (phase === 'pitch_test' && window.PitchTest && window.PitchTest.render) {
+      window.PitchTest.render();
+      return;
+    }
     // 14-day program phases (Wave 3.1-A)
     if (phase === 'thi_baseline' && window.ThiBaseline && window.ThiBaseline.render) {
       window.ThiBaseline.render();
@@ -336,6 +341,21 @@
       window.AppState.transition('calibration');
     }
 
+    // PITCH-1E: post-calibration pitch test hook. Ако user-ът е завършил
+    // calibration но не е направил pitch test (нито го е skip-нал) → редирект
+    // към pitch_test от home/calibration landing.
+    //
+    // Trigger condition: quiz done + calibration done + pitch test "untouched"
+    // (no pitch tests, no skip flag). Avoid redirect ако user вече е навигирал
+    // другаде (е.g. category, player) — само от home/calibration entry.
+    if (window.AppState.isQuizDone()
+        && window.AppState.calibrationDone
+        && window.AppState.isPitchTestDone && !window.AppState.isPitchTestDone()
+        && (window.AppState.current === 'home' || window.AppState.current === 'calibration')) {
+      console.log('[bootstrap] pitch test pending → redirect to pitch_test');
+      window.AppState.transition('pitch_test');
+    }
+
     // Initial history state според текуща фаза
     var initialState;
     var phase = window.AppState.current;
@@ -343,7 +363,9 @@
                         'calm','diary','sleep','library','mixer',
                         // Wave 3.1-A: 14-day program phases
                         'thi_baseline','diary_hub','diary_evening','diary_morning',
-                        'cbt_day','progress'];
+                        'cbt_day','progress',
+                        // SAFETY-2 + PITCH-1
+                        'calibration','pitch_test'];
     if (!window.AppState.isOnboardingDone()) {
       initialState = { subphase: window.AppState.subphase };
     } else if (window.AppState.isQuizDone() && KNOWN_PHASES.indexOf(phase) !== -1) {

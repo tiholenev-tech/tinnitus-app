@@ -209,14 +209,21 @@ window.VolumeCalibration = (function () {
     if (typeof cb === 'function') {
       cb();
     } else {
-      // CALIBRATION-ROUTING: profile_results → calibration → HOME (не обратно
-      // към profile_results — то вече беше "consumed"). Phone test ще показва
-      // ясен flow: quiz finish → profile_results (Към звуците) → calibration
-      // (Това е добре) → home.
-      if (s && s.transition) s.transition('home');
-      history.replaceState({ phase: 'home' }, '');
-      if (window.Home && window.Home.render) {
-        window.Home.render();
+      // CALIBRATION-ROUTING: profile_results → calibration → ...
+      // PITCH-1E: insert pitch_test step ако не е done (нито completed, нито
+      // skipped). Иначе → home.
+      var needsPitch = s && s.isPitchTestDone && !s.isPitchTestDone()
+                        && window.PitchTest && window.PitchTest.render;
+      if (needsPitch) {
+        if (s.transition) s.transition('pitch_test');
+        history.replaceState({ phase: 'pitch_test' }, '');
+        window.PitchTest.render();
+      } else {
+        if (s && s.transition) s.transition('home');
+        history.replaceState({ phase: 'home' }, '');
+        if (window.Home && window.Home.render) {
+          window.Home.render();
+        }
       }
     }
   }
