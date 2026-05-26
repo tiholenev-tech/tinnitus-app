@@ -486,11 +486,23 @@ window.Onboarding = (function () {
     window.AppState.transition('quiz');
     var startSub = window.AppState.quizSubphase || 'q1';
     history.pushState({ phase: 'quiz', quizSubphase: startSub }, '');
-    if (window.Quiz && window.Quiz.render) {
-      window.Quiz.render();
-    } else {
-      render();
+
+    // ONBOARDING-FREEZE FIX: phone test показа че tap на "Разбрах" замръзваше.
+    // Race condition — Quiz module може да не е loaded когато finishOnboarding
+    // се извика (network/SW delay, или js/quiz.js не е още parsed).
+    // Без retry, фейл-ваше тихо в else branch (render() = re-render onboarding,
+    // което изглежда като "нищо не става"). Сега retry до 500ms.
+    function tryRenderQuiz(retries) {
+      if (window.Quiz && window.Quiz.render) {
+        window.Quiz.render();
+      } else if (retries > 0) {
+        setTimeout(function () { tryRenderQuiz(retries - 1); }, 50);
+      } else {
+        console.error('[onboarding] Quiz module not loaded after 500ms retry — fallback re-render');
+        render();
+      }
     }
+    tryRenderQuiz(10); // 10 × 50ms = 500ms total
   }
 
   // ============================================================
