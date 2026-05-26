@@ -201,9 +201,10 @@ window.PitchTest = (function () {
   function onPretestChoice(value) {
     var s = window.AppState;
     if (value === 'tonal') {
-      // Продължи към pitch test (Phase 1B — 2AFC bayesian narrowing).
-      phase = 'test';
-      startBayesianTest();
+      // PITCH-1D safety gate: преди тест провери audio device. Inear
+      // (тапи) → warning + skip. Други → продължи към bayesian test.
+      phase = 'device_check';
+      renderDeviceCheck();
       return;
     }
     if (value === 'noise') {
@@ -237,6 +238,92 @@ window.PitchTest = (function () {
       'Можете да направите теста по-късно от Настройки, ако решите. AURALIS ' +
       'ще работи със стандартни настройки за Вашия профил.'
     );
+  }
+
+  // ============================================================
+  // PITCH-1D: Device check (safety guard преди тест)
+  // ============================================================
+  // Pitch matching изисква външни говорители / костна проводимост / open-back
+  // слушалки. In-ear (тапи) има occlusion effect + impedance mismatch →
+  // тестовите тонове се изкривяват по височина (perceptual shift) →
+  // неточен резултат + риск за слуха.
+
+  function renderDeviceCheck() {
+    var app = el('app');
+    if (!app) return;
+    app.innerHTML = (
+      '<div class="pt-screen" data-screen="pitch_test">' +
+        '<header class="pt-header">' +
+          '<h1 class="pt-title">Какво слушате в момента?</h1>' +
+          '<p class="pt-subtitle">Тестът работи най-точно с външни ' +
+            'говорители или open-back слушалки. Тапи в ушите дават ' +
+            'изкривен резултат.</p>' +
+        '</header>' +
+
+        '<div class="pt-pretest-options">' +
+          buildDeviceOption('speakers', 'Външни говорители',
+            'Колонки, телефон/таблет говорител, телевизор') +
+          buildDeviceOption('openback', 'Open-back слушалки',
+            'Слушалки с отворен дизайн (не блокират ухото)') +
+          buildDeviceOption('bone', 'Костна проводимост',
+            'Слушалки през костта (Aftershokz / подобни)') +
+          buildDeviceOption('inear', 'Тапи / closed слушалки',
+            'In-ear, AirPods, closed-back слушалки — тест НЕ се препоръчва') +
+        '</div>' +
+      '</div>'
+    );
+    app.addEventListener('click', onClick);
+  }
+
+  function buildDeviceOption(value, label, description) {
+    return (
+      '<button class="pt-option-card" type="button" data-action="device" data-value="' + value + '">' +
+        '<div class="pt-option-label">' + escapeHtml(label) + '</div>' +
+        '<div class="pt-option-desc">' + escapeHtml(description) + '</div>' +
+      '</button>'
+    );
+  }
+
+  function onDeviceChoice(value) {
+    var s = window.AppState;
+    if (s && s.setAudioDevice) s.setAudioDevice(value);
+    if (value === 'inear') {
+      // Не продължаваме с тест — изкривен резултат + occlusion риск.
+      phase = 'done';
+      renderInearWarning();
+      return;
+    }
+    // speakers / openback / bone → start bayesian test
+    phase = 'test';
+    startBayesianTest();
+  }
+
+  function renderInearWarning() {
+    var app = el('app');
+    if (!app) return;
+    app.innerHTML = (
+      '<div class="pt-screen" data-screen="pitch_test">' +
+        '<header class="pt-header">' +
+          '<h1 class="pt-title">Тестът не е подходящ за тапи</h1>' +
+        '</header>' +
+        '<section class="pt-skip-body">' +
+          '<p>In-ear слушалките променят възприемането на честотите ' +
+          '(occlusion effect), което би дало неточен резултат. ' +
+          'Препоръчваме да направите теста по-късно с външни говорители ' +
+          'или open-back слушалки.</p>' +
+          '<p style="margin-top:10px;">Сега AURALIS ще използва стандартните ' +
+          'настройки за Вашия профил, които работят добре без pitch matching.</p>' +
+        '</section>' +
+        '<div class="pt-actions">' +
+          '<button class="pt-btn pt-btn--primary" type="button" data-action="skip-continue">' +
+            'Разбрах, продължете' +
+          '</button>' +
+        '</div>' +
+      '</div>'
+    );
+    var s = window.AppState;
+    if (s && s.setPitchSkip) s.setPitchSkip('inear_device');
+    app.addEventListener('click', onClick);
   }
 
   // ============================================================
@@ -495,14 +582,93 @@ window.PitchTest = (function () {
   }
 
   function renderTestResult(freqHz) {
+    // PITCH-1D: преди да покажем резултата, питаме за post-test exacerbation.
+    // Tinnitus exposure-aware safety — ако тестът временно е усилил шума,
+    // препоръчваме 24h пауза + retry утре (Phase 2 logic за scheduling).
     var app = el('app');
     if (!app) return;
-    // Опитваме familiar reference ("около [инструмент/звук]") — но избягваме
-    // strict claims. Просто числото в Hz + кратко обяснение.
     var freqLabel = freqHz >= 1000
-      ? (freqHz / 1000).toFixed(freqHz >= 10000 ? 1 : 1).replace(/\.0$/, '') + ' kHz'
+      ? (freqHz / 1000).toFixed(1).replace(/\.0$/, '') + ' kHz'
       : freqHz + ' Hz';
+    // Запазваме freqLabel за втория стъпков render.
+    var encodedLabel = freqLabel.replace(/"/g, '&quot;');
 
+    app.innerHTML = (
+      '<div class="pt-screen" data-screen="pitch_test" data-freq-label="' + encodedLabel + '" data-freq-hz="' + freqHz + '">' +
+        '<header class="pt-header">' +
+          '<h1 class="pt-title">Как се чувствате сега?</h1>' +
+          '<p class="pt-subtitle">След тест с тонове, понякога тинитусът ' +
+          'може временно да изглежда по-силен. Това е нормално, но ако ' +
+          'е така, препоръчваме почивка.</p>' +
+        '</header>' +
+
+        '<section class="pt-posttest-question">' +
+          '<p class="pt-choice-prompt">Усещате ли че шумът в ушите Ви е ' +
+          'по-силен в момента?</p>' +
+        '</section>' +
+
+        '<div class="pt-pretest-options">' +
+          '<button class="pt-option-card" type="button" data-action="posttest" data-value="no">' +
+            '<div class="pt-option-label">Не, същият е</div>' +
+            '<div class="pt-option-desc">Шумът е както преди теста</div>' +
+          '</button>' +
+          '<button class="pt-option-card" type="button" data-action="posttest" data-value="slight">' +
+            '<div class="pt-option-label">Малко по-силен</div>' +
+            '<div class="pt-option-desc">Усещам разлика, но е лека</div>' +
+          '</button>' +
+          '<button class="pt-option-card" type="button" data-action="posttest" data-value="strong">' +
+            '<div class="pt-option-label">Значително по-силен</div>' +
+            '<div class="pt-option-desc">Препоръчваме почивка 24 часа</div>' +
+          '</button>' +
+        '</div>' +
+      '</div>'
+    );
+    app.addEventListener('click', onClick);
+  }
+
+  function onPostTestResponse(value) {
+    var screenEl = document.querySelector('.pt-screen');
+    if (!screenEl) return;
+    var freqLabel = screenEl.getAttribute('data-freq-label') || '';
+    var freqHz = parseInt(screenEl.getAttribute('data-freq-hz'), 10) || 0;
+    if (value === 'strong') {
+      // Препоръчваме почивка преди да покажем резултата.
+      renderPostTestRest(freqLabel);
+    } else {
+      // 'no' или 'slight' → покажи финалния резултат.
+      renderFinalResultCard(freqHz, freqLabel);
+    }
+  }
+
+  function renderPostTestRest(freqLabel) {
+    var app = el('app');
+    if (!app) return;
+    app.innerHTML = (
+      '<div class="pt-screen" data-screen="pitch_test">' +
+        '<header class="pt-header">' +
+          '<h1 class="pt-title">Препоръчваме почивка</h1>' +
+        '</header>' +
+        '<section class="pt-skip-body">' +
+          '<p>Резултатът е запазен (' + escapeHtml(freqLabel) + '), но ' +
+          'препоръчваме да не повтаряте теста през следващите 24 часа. ' +
+          'Дайте на слуха си време да се възстанови от експозицията.</p>' +
+          '<p style="margin-top:10px;">Можете да продължите към приложението — ' +
+          'звуковата терапия е с по-ниска интензивност и не е свързана с ' +
+          'тоновете от теста.</p>' +
+        '</section>' +
+        '<div class="pt-actions">' +
+          '<button class="pt-btn pt-btn--primary" type="button" data-action="skip-continue">' +
+            'Разбрах, продължете' +
+          '</button>' +
+        '</div>' +
+      '</div>'
+    );
+    app.addEventListener('click', onClick);
+  }
+
+  function renderFinalResultCard(freqHz, freqLabel) {
+    var app = el('app');
+    if (!app) return;
     app.innerHTML = (
       '<div class="pt-screen" data-screen="pitch_test">' +
         '<header class="pt-header">' +
@@ -542,12 +708,16 @@ window.PitchTest = (function () {
     if (action === 'pretest') {
       var value = btn.getAttribute('data-value');
       onPretestChoice(value);
+    } else if (action === 'device') {
+      onDeviceChoice(btn.getAttribute('data-value'));
     } else if (action === 'play-tone') {
       var tone = btn.getAttribute('data-tone');
       onPlayToneRequest(tone);
     } else if (action === 'choose') {
       var choice = btn.getAttribute('data-choice');
       onChoice(choice);
+    } else if (action === 'posttest') {
+      onPostTestResponse(btn.getAttribute('data-value'));
     } else if (action === 'skip-continue') {
       goNext();
     }
