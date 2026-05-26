@@ -411,6 +411,15 @@ window.CategoryView = (function () {
   // Информацията от SoundDetail е достъпна през (i) бутон в Player header
   // → bottom sheet с описание / препоръчителен фон / "защо за вас".
   function openSound(soundId) {
+    // NAV-CATEGORY-LIST: запази catId + scrollY преди да отидем в Player,
+    // за да може back-button.js да restore scroll position при връщане.
+    var s = window.AppState;
+    if (s && s.saveLastCategoryView && activeCatId) {
+      // Опитваме window.scrollY (default) + fallback на documentElement.scrollTop.
+      var pos = (typeof window.scrollY === 'number') ? window.scrollY
+              : (document.documentElement && document.documentElement.scrollTop) || 0;
+      s.saveLastCategoryView(activeCatId, pos);
+    }
     if (window.Player && window.Player.open) {
       window.Player.open(soundId);
     } else if (window.SoundDetail && window.SoundDetail.open) {
@@ -452,6 +461,13 @@ window.CategoryView = (function () {
   }
 
   function render() {
+    // NAV-CATEGORY-LIST: router landing → ако нямаме activeCatId но имаме
+    // saved lastCategoryView (от Player back) → restore catId.
+    var s = window.AppState;
+    if (!activeCatId && s && s.lastCategoryView && s.lastCategoryView.catId) {
+      activeCatId = s.lastCategoryView.catId;
+      console.log('[category-view] restored activeCatId from lastCategoryView:', activeCatId);
+    }
     if (!activeCatId) {
       // Router landing без context → fallback Home
       if (window.Home && window.Home.render) window.Home.render();
@@ -486,6 +502,23 @@ window.CategoryView = (function () {
         });
       }, 500);
       maybeAutoplay(cat, sounds);
+
+      // NAV-CATEGORY-LIST: restore scroll position само ако back от Player
+      // и catId match. 50ms задържане дава време DOM да layout-не.
+      // Consume → clear lastCategoryView за да не restore-ваме при fresh
+      // re-open на същата категория от Home.
+      var ss = window.AppState;
+      if (ss && ss.lastCategoryView && ss.lastCategoryView.catId === activeCatId
+          && typeof ss.lastCategoryView.scrollPos === 'number'
+          && ss.lastCategoryView.scrollPos > 0) {
+        var savedScroll = ss.lastCategoryView.scrollPos;
+        setTimeout(function () {
+          window.scrollTo(0, savedScroll);
+          console.log('[category-view] scroll restored to', savedScroll);
+        }, 50);
+        ss.lastCategoryView = null;
+        try { localStorage.removeItem('auralis-last-category-view'); } catch (e) {}
+      }
     });
   }
 

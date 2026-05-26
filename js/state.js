@@ -35,6 +35,9 @@
   // PROFILE-CONFIG: user overrides per sound
   var KEY_USER_OVERRIDES         = 'auralis-user-overrides';
 
+  // NAV-CATEGORY-LIST: remember last category + scroll position за back-from-Player
+  var KEY_LAST_CATEGORY_VIEW     = 'auralis-last-category-view';
+
   var PHASES = [
     'onboarding', 'quiz', 'results', 'profile_results',
     'mixer', 'library', 'sleep', 'diary', 'calm',
@@ -108,6 +111,9 @@
     // ===== PROFILE-CONFIG user overrides per sound =====
     userOverrides: {},              // { soundId: { l1, l2, master, ts } }
 
+    // ===== NAV-CATEGORY-LIST (back-from-Player) =====
+    lastCategoryView: null,         // { catId, scrollPos, ts }
+
     // ===== Status checks =====
 
     isOnboardingDone: function () {
@@ -151,6 +157,8 @@
       if (isNaN(this.mixingPointVolume)) this.mixingPointVolume = null;
       // PROFILE-CONFIG: user overrides
       this.userOverrides = parseJSON(get(KEY_USER_OVERRIDES), {});
+      // NAV-CATEGORY-LIST: last category view (back-from-Player)
+      this.lastCategoryView = parseJSON(get(KEY_LAST_CATEGORY_VIEW), null);
       // Recompute currentProgramDay (capped 1..14)
       if (this.programStartDate) {
         var daysElapsed = Math.floor((Date.now() - this.programStartDate) / 86400000);
@@ -403,6 +411,19 @@
       catch (e) { /* ignore */ }
     },
 
+    // NAV-CATEGORY-LIST: запази последно отворена category + scroll position.
+    // Викан от CategoryView.openSound преди да отиде в Player → onBack
+    // restore-ва както категорията, така и позицията.
+    saveLastCategoryView: function (catId, scrollPos) {
+      this.lastCategoryView = {
+        catId: catId,
+        scrollPos: Math.max(0, parseInt(scrollPos, 10) || 0),
+        ts: Date.now()
+      };
+      try { set(KEY_LAST_CATEGORY_VIEW, JSON.stringify(this.lastCategoryView)); }
+      catch (e) { /* ignore */ }
+    },
+
     saveDiaryEntry: function (dateKey, partial) {
       // partial = { evening?:..., morning?:..., cbtCompleted?:..., cbtReflection?:... }
       if (!this.diaryEntries[dateKey]) this.diaryEntries[dateKey] = {};
@@ -519,6 +540,9 @@
       // PROFILE-CONFIG: user overrides reset
       this.userOverrides = {};
       remove(KEY_USER_OVERRIDES);
+      // NAV-CATEGORY-LIST: reset
+      this.lastCategoryView = null;
+      remove(KEY_LAST_CATEGORY_VIEW);
     }
   };
 })();
