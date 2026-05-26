@@ -10,10 +10,19 @@
  * Auto-update: VERSION bump → activate clears old caches → notify user.
  */
 
-var VERSION = '1.0.0';
+// REGRESSION FIX 2026-05-26: bump version за да force-нем cache evict.
+// Phone test показа че стар audio-engine.js (с path 'audio/library/' от
+// преди commit d747b55) се сервира от кеша → всичките P0/P1 fix-ове бяха
+// invisible на устройството. cache-first strategy не може да види
+// промените в js файлове без VERSION bump.
+//
+// CACHE_AUDIO бамп също защото старите URLs (audio/library/* и
+// library_staging_loop_ready/*) са персистнали → нови URLs
+// (library_staging_normalized/*) не са в стария cache + 503 offline.
+var VERSION = '1.0.1';
 var CACHE_SHELL = 'auralis-shell-v' + VERSION;
 var CACHE_I18N = 'auralis-i18n-v' + VERSION;
-var CACHE_AUDIO = 'auralis-audio-v1';
+var CACHE_AUDIO = 'auralis-audio-v2';
 
 var SHELL_FILES = [
   '/',
