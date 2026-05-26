@@ -1,0 +1,1808 @@
+{
+  "codec": "opus",
+  "bitrate": "96k",
+  "sample_rate": 48000,
+  "input_dir": "library_staging_normalized",
+  "output_dir": "library_staging_compact",
+  "totals": {
+    "files_ok": 256,
+    "files_err": 0,
+    "input_bytes": 8220375922,
+    "output_bytes": 531471049,
+    "elapsed_sec": 662.6
+  },
+  "results": [
+    {
+      "file": "ambience_air_inside_bunker_sea_ambience_from_outside_02.wav",
+      "rel": "01_ocean/ambience_air_inside_bunker_sea_ambience_from_outside_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 62119820,
+      "dst_bytes": 3804453
+    },
+    {
+      "file": "ambience_residential_abandoned_building_gentle_wind_distant_boat_engine_distant_traffic_people_pass_by_helicopter_distant_sea_athens_greece.wav",
+      "rel": "01_ocean/ambience_residential_abandoned_building_gentle_wind_distant_boat_engine_distant_traffic_people_pass_by_helicopter_distant_sea_athens_greece.opus",
+      "status": "skip-existing",
+      "src_bytes": 83864068,
+      "dst_bytes": 5103190
+    },
+    {
+      "file": "ambience_seaside_dalian_beach_waves_people_footsteps_distant_boats_china.wav",
+      "rel": "01_ocean/ambience_seaside_dalian_beach_waves_people_footsteps_distant_boats_china.opus",
+      "status": "skip-existing",
+      "src_bytes": 53399468,
+      "dst_bytes": 3207676
+    },
+    {
+      "file": "ambience_underwater_sea_wave_ilo_aquatic_water_burble_waves_back_forth_microphone_blocking_feet.wav",
+      "rel": "01_ocean/ambience_underwater_sea_wave_ilo_aquatic_water_burble_waves_back_forth_microphone_blocking_feet.opus",
+      "status": "skip-existing",
+      "src_bytes": 20314924,
+      "dst_bytes": 954336
+    },
+    {
+      "file": "ambience_underwater_waves_constant_deep_hits.wav",
+      "rel": "01_ocean/ambience_underwater_waves_constant_deep_hits.opus",
+      "status": "skip-existing",
+      "src_bytes": 19933812,
+      "dst_bytes": 1243473
+    },
+    {
+      "file": "ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_01.wav",
+      "rel": "01_ocean/ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 51945260,
+      "dst_bytes": 3128542
+    },
+    {
+      "file": "ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_02.wav",
+      "rel": "01_ocean/ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 59527172,
+      "dst_bytes": 3604707
+    },
+    {
+      "file": "ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_03.wav",
+      "rel": "01_ocean/ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_03.opus",
+      "status": "skip-existing",
+      "src_bytes": 51814336,
+      "dst_bytes": 3159065
+    },
+    {
+      "file": "birds_sea_seagulls_distant_several_gentle_waves_02.wav",
+      "rel": "01_ocean/birds_sea_seagulls_distant_several_gentle_waves_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 21650040,
+      "dst_bytes": 1333816
+    },
+    {
+      "file": "genetic_waves_joseph_beg.wav",
+      "rel": "01_ocean/genetic_waves_joseph_beg.opus",
+      "status": "skip-existing",
+      "src_bytes": 62420260,
+      "dst_bytes": 4580790
+    },
+    {
+      "file": "ocean_meditation_joseph_beg.wav",
+      "rel": "01_ocean/ocean_meditation_joseph_beg.opus",
+      "status": "skip-existing",
+      "src_bytes": 50296332,
+      "dst_bytes": 3308120
+    },
+    {
+      "file": "water_lap_waves_splashing_against_boat_large_hitting_sea_02.wav",
+      "rel": "01_ocean/water_lap_waves_splashing_against_boat_large_hitting_sea_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 23001984,
+      "dst_bytes": 1174168
+    },
+    {
+      "file": "water_lap_waves_water_lapping_seafront_sea_close.wav",
+      "rel": "01_ocean/water_lap_waves_water_lapping_seafront_sea_close.opus",
+      "status": "skip-existing",
+      "src_bytes": 14612972,
+      "dst_bytes": 905281
+    },
+    {
+      "file": "water_lap_waves_water_lapping_seafront_sea_semi_close.wav",
+      "rel": "01_ocean/water_lap_waves_water_lapping_seafront_sea_semi_close.opus",
+      "status": "skip-existing",
+      "src_bytes": 23140256,
+      "dst_bytes": 1419555
+    },
+    {
+      "file": "water_surf_beach_ocean_waves_sand_wind.wav",
+      "rel": "01_ocean/water_surf_beach_ocean_waves_sand_wind.opus",
+      "status": "skip-existing",
+      "src_bytes": 21547984,
+      "dst_bytes": 1234567
+    },
+    {
+      "file": "water_surf_beach_waves_coming_in_occasional_birds_atlantic_ocean_caribbean_sea.wav",
+      "rel": "01_ocean/water_surf_beach_waves_coming_in_occasional_birds_atlantic_ocean_caribbean_sea.opus",
+      "status": "skip-existing",
+      "src_bytes": 37464964,
+      "dst_bytes": 2351172
+    },
+    {
+      "file": "water_surf_distant_calm_sea_waves_few_distant_birds.wav",
+      "rel": "01_ocean/water_surf_distant_calm_sea_waves_few_distant_birds.opus",
+      "status": "skip-existing",
+      "src_bytes": 30699596,
+      "dst_bytes": 1854165
+    },
+    {
+      "file": "water_surf_ocean_sea_big_waves_breaking_against_dyke_breakwater_strong_weather_02_30.wav",
+      "rel": "01_ocean/water_surf_ocean_sea_big_waves_breaking_against_dyke_breakwater_strong_weather_02_30.opus",
+      "status": "skip-existing",
+      "src_bytes": 24653772,
+      "dst_bytes": 1472206
+    },
+    {
+      "file": "water_surf_water_ocean_seashore_waves_roar_distant_llandudno_cape_town_south_africa.wav",
+      "rel": "01_ocean/water_surf_water_ocean_seashore_waves_roar_distant_llandudno_cape_town_south_africa.opus",
+      "status": "skip-existing",
+      "src_bytes": 58715440,
+      "dst_bytes": 3563596
+    },
+    {
+      "file": "water_surf_water_sea_waves_choppy_italy_grado_01.wav",
+      "rel": "01_ocean/water_surf_water_sea_waves_choppy_italy_grado_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 25448676,
+      "dst_bytes": 1543707
+    },
+    {
+      "file": "water_surf_water_sea_waves_choppy_italy_grado_02.wav",
+      "rel": "01_ocean/water_surf_water_sea_waves_choppy_italy_grado_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 19152252,
+      "dst_bytes": 1158384
+    },
+    {
+      "file": "water_surf_water_waves_rough_sea_01.wav",
+      "rel": "01_ocean/water_surf_water_waves_rough_sea_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 30744704,
+      "dst_bytes": 1857680
+    },
+    {
+      "file": "water_surf_water_waves_rough_sea_02.wav",
+      "rel": "01_ocean/water_surf_water_waves_rough_sea_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 30717180,
+      "dst_bytes": 1850993
+    },
+    {
+      "file": "water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta.wav",
+      "rel": "01_ocean/water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta.opus",
+      "status": "skip-existing",
+      "src_bytes": 57650896,
+      "dst_bytes": 3452536
+    },
+    {
+      "file": "water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta_01.wav",
+      "rel": "01_ocean/water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 55441736,
+      "dst_bytes": 3324353
+    },
+    {
+      "file": "water_surf_waves_ocean_distant_on_beach_distant_boat_motor_03.wav",
+      "rel": "01_ocean/water_surf_waves_ocean_distant_on_beach_distant_boat_motor_03.opus",
+      "status": "skip-existing",
+      "src_bytes": 14912204,
+      "dst_bytes": 894902
+    },
+    {
+      "file": "water_underwater_deep_sea_bubbles_muffled_big_02.wav",
+      "rel": "01_ocean/water_underwater_deep_sea_bubbles_muffled_big_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 11731736,
+      "dst_bytes": 785933
+    },
+    {
+      "file": "water_underwater_ocean_bubbles_water_movement_lapping_argentina_02.wav",
+      "rel": "01_ocean/water_underwater_ocean_bubbles_water_movement_lapping_argentina_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 19975432,
+      "dst_bytes": 912015
+    },
+    {
+      "file": "water_wave_ocean_beach_waves_medium_lapping.wav",
+      "rel": "01_ocean/water_wave_ocean_beach_waves_medium_lapping.opus",
+      "status": "skip-existing",
+      "src_bytes": 14563544,
+      "dst_bytes": 893099
+    },
+    {
+      "file": "water_wave_ocean_medium_waves_coming_in_close_03.wav",
+      "rel": "01_ocean/water_wave_ocean_medium_waves_coming_in_close_03.opus",
+      "status": "skip-existing",
+      "src_bytes": 13645060,
+      "dst_bytes": 818258
+    },
+    {
+      "file": "water_wave_ocean_wave_swells.wav",
+      "rel": "01_ocean/water_wave_ocean_wave_swells.opus",
+      "status": "skip-existing",
+      "src_bytes": 10979028,
+      "dst_bytes": 653544
+    },
+    {
+      "file": "water_wave_ocean_waves_medium_on_stone_sea_wall_boats_harbor_in_background.wav",
+      "rel": "01_ocean/water_wave_ocean_waves_medium_on_stone_sea_wall_boats_harbor_in_background.opus",
+      "status": "skip-existing",
+      "src_bytes": 9672992,
+      "dst_bytes": 603251
+    },
+    {
+      "file": "water_wave_ocean_waves_on_shore_beach_medium_distant.wav",
+      "rel": "01_ocean/water_wave_ocean_waves_on_shore_beach_medium_distant.opus",
+      "status": "skip-existing",
+      "src_bytes": 14900960,
+      "dst_bytes": 889287
+    },
+    {
+      "file": "water_wave_sea_beach_cove_100m_away_distance_moderate_waves_distant_plane_birds.wav",
+      "rel": "01_ocean/water_wave_sea_beach_cove_100m_away_distance_moderate_waves_distant_plane_birds.opus",
+      "status": "skip-existing",
+      "src_bytes": 29622200,
+      "dst_bytes": 1783928
+    },
+    {
+      "file": "water_wave_sea_beach_cove_50m_distance_moderate_waves_ms.wav",
+      "rel": "01_ocean/water_wave_sea_beach_cove_50m_distance_moderate_waves_ms.opus",
+      "status": "skip-existing",
+      "src_bytes": 19166348,
+      "dst_bytes": 1134068
+    },
+    {
+      "file": "water_wave_sea_light_wind_waves_intensifies.wav",
+      "rel": "01_ocean/water_wave_sea_light_wind_waves_intensifies.opus",
+      "status": "skip-existing",
+      "src_bytes": 21481468,
+      "dst_bytes": 1290415
+    },
+    {
+      "file": "water_wave_sea_water_very_gentle_waves.wav",
+      "rel": "01_ocean/water_wave_sea_water_very_gentle_waves.opus",
+      "status": "skip-existing",
+      "src_bytes": 34835972,
+      "dst_bytes": 2124258
+    },
+    {
+      "file": "water_wave_waves_sea_beach_punta_allen_sian_ka_an_biosphere_reserve_mexico.wav",
+      "rel": "01_ocean/water_wave_waves_sea_beach_punta_allen_sian_ka_an_biosphere_reserve_mexico.opus",
+      "status": "skip-existing",
+      "src_bytes": 30826188,
+      "dst_bytes": 1881354
+    },
+    {
+      "file": "wind_general_calm_mountain_sea_distant_waves_01.wav",
+      "rel": "01_ocean/wind_general_calm_mountain_sea_distant_waves_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 14021504,
+      "dst_bytes": 855048
+    },
+    {
+      "file": "wind_general_calm_mountain_sea_distant_waves_02.wav",
+      "rel": "01_ocean/wind_general_calm_mountain_sea_distant_waves_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 23130224,
+      "dst_bytes": 1410575
+    },
+    {
+      "file": "wind_general_calm_mountain_sea_distant_waves_03.wav",
+      "rel": "01_ocean/wind_general_calm_mountain_sea_distant_waves_03.opus",
+      "status": "skip-existing",
+      "src_bytes": 14078232,
+      "dst_bytes": 857085
+    },
+    {
+      "file": "ambience_forest_ukraine_morning_birds_nature_trees_calm_breeze_wildlife.wav",
+      "rel": "02_rain/ambience_forest_ukraine_morning_birds_nature_trees_calm_breeze_wildlife.opus",
+      "status": "skip-existing",
+      "src_bytes": 13382320,
+      "dst_bytes": 857644
+    },
+    {
+      "file": "ambience_swamp_wetland_after_rain_water_dripping_humid_distant_fowl.wav",
+      "rel": "02_rain/ambience_swamp_wetland_after_rain_water_dripping_humid_distant_fowl.opus",
+      "status": "skip-existing",
+      "src_bytes": 31779432,
+      "dst_bytes": 1974284
+    },
+    {
+      "file": "ambience_tropical_rain_texture_medium.wav",
+      "rel": "02_rain/ambience_tropical_rain_texture_medium.opus",
+      "status": "skip-existing",
+      "src_bytes": 9601372,
+      "dst_bytes": 606963
+    },
+    {
+      "file": "ambience_underwater_grainy_bubbles_small_deep_fizz.wav",
+      "rel": "02_rain/ambience_underwater_grainy_bubbles_small_deep_fizz.opus",
+      "status": "skip-existing",
+      "src_bytes": 19985616,
+      "dst_bytes": 1541324
+    },
+    {
+      "file": "rain_attic_01.wav",
+      "rel": "02_rain/rain_attic_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 24308452,
+      "dst_bytes": 1517620
+    },
+    {
+      "file": "rain_cloth_raining_umbrella_01.wav",
+      "rel": "02_rain/rain_cloth_raining_umbrella_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 23714748,
+      "dst_bytes": 1870182
+    },
+    {
+      "file": "rain_concrete_city_rain_soft_residential_neighborhood_night_car_pass_by_wet_roads_side_streets_02.wav",
+      "rel": "02_rain/rain_concrete_city_rain_soft_residential_neighborhood_night_car_pass_by_wet_roads_side_streets_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 44215780,
+      "dst_bytes": 2671886
+    },
+    {
+      "file": "rain_general_medium_drip_details_night_wide.wav",
+      "rel": "02_rain/rain_general_medium_drip_details_night_wide.opus",
+      "status": "skip-existing",
+      "src_bytes": 19867688,
+      "dst_bytes": 1315255
+    },
+    {
+      "file": "rain_glass_rain_car_window_perspective_medium_01.wav",
+      "rel": "02_rain/rain_glass_rain_car_window_perspective_medium_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 30806592,
+      "dst_bytes": 2121651
+    },
+    {
+      "file": "rain_glass_window_roof_location_2_medium_room_loft_roof_window.wav",
+      "rel": "02_rain/rain_glass_window_roof_location_2_medium_room_loft_roof_window.opus",
+      "status": "skip-existing",
+      "src_bytes": 20311764,
+      "dst_bytes": 1292078
+    },
+    {
+      "file": "rain_interior_rain_medium_drops_drumming_clunking.wav",
+      "rel": "02_rain/rain_interior_rain_medium_drops_drumming_clunking.opus",
+      "status": "skip-existing",
+      "src_bytes": 30805868,
+      "dst_bytes": 1848494
+    },
+    {
+      "file": "rain_interior_rain_medium_inside_car.wav",
+      "rel": "02_rain/rain_interior_rain_medium_inside_car.opus",
+      "status": "skip-existing",
+      "src_bytes": 12646288,
+      "dst_bytes": 774677
+    },
+    {
+      "file": "rain_interior_rain_on_window_house_apartment_room_tone_light_rain.wav",
+      "rel": "02_rain/rain_interior_rain_on_window_house_apartment_room_tone_light_rain.opus",
+      "status": "skip-existing",
+      "src_bytes": 33197516,
+      "dst_bytes": 2306650
+    },
+    {
+      "file": "rain_plastic_medium_outside_plastic_window.wav",
+      "rel": "02_rain/rain_plastic_medium_outside_plastic_window.opus",
+      "status": "skip-existing",
+      "src_bytes": 20176708,
+      "dst_bytes": 1281942
+    },
+    {
+      "file": "rain_plastic_medium_to_light_outside_plastic_window.wav",
+      "rel": "02_rain/rain_plastic_medium_to_light_outside_plastic_window.opus",
+      "status": "skip-existing",
+      "src_bytes": 27501524,
+      "dst_bytes": 1696108
+    },
+    {
+      "file": "rain_plastic_medium_to_light_under_plastic_roof_01.wav",
+      "rel": "02_rain/rain_plastic_medium_to_light_under_plastic_roof_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 25473828,
+      "dst_bytes": 1557942
+    },
+    {
+      "file": "rain_plastic_medium_to_light_under_plastic_roof_02.wav",
+      "rel": "02_rain/rain_plastic_medium_to_light_under_plastic_roof_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 25472532,
+      "dst_bytes": 1562133
+    },
+    {
+      "file": "rain_plastic_on_plastic_umbrella_medium_intensity_dense_dripping.wav",
+      "rel": "02_rain/rain_plastic_on_plastic_umbrella_medium_intensity_dense_dripping.opus",
+      "status": "skip-existing",
+      "src_bytes": 16637052,
+      "dst_bytes": 1201571
+    },
+    {
+      "file": "rain_plastic_plastic_buckets_multiple_drops_medium_busy_01.wav",
+      "rel": "02_rain/rain_plastic_plastic_buckets_multiple_drops_medium_busy_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 15569476,
+      "dst_bytes": 948205
+    },
+    {
+      "file": "rain_plastic_plastic_buckets_multiple_drops_medium_busy_02.wav",
+      "rel": "02_rain/rain_plastic_plastic_buckets_multiple_drops_medium_busy_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 12205644,
+      "dst_bytes": 824221
+    },
+    {
+      "file": "rain_vegetation_medium_leaves_drop_tropical_jungle.wav",
+      "rel": "02_rain/rain_vegetation_medium_leaves_drop_tropical_jungle.opus",
+      "status": "skip-existing",
+      "src_bytes": 14889348,
+      "dst_bytes": 942453
+    },
+    {
+      "file": "rain_wood_rain_front_porch_rain_on_door_medium.wav",
+      "rel": "02_rain/rain_wood_rain_front_porch_rain_on_door_medium.opus",
+      "status": "skip-existing",
+      "src_bytes": 30796496,
+      "dst_bytes": 1821478
+    },
+    {
+      "file": "wind_general_rain_playa_blanca_village_drops_metal_sheet_roof_movement_04.wav",
+      "rel": "02_rain/wind_general_rain_playa_blanca_village_drops_metal_sheet_roof_movement_04.opus",
+      "status": "skip-existing",
+      "src_bytes": 51231540,
+      "dst_bytes": 3080487
+    },
+    {
+      "file": "ambience_forest_wetlands_river_water_wind_ship.wav",
+      "rel": "03_river/ambience_forest_wetlands_river_water_wind_ship.opus",
+      "status": "skip-existing",
+      "src_bytes": 30729720,
+      "dst_bytes": 1860890
+    },
+    {
+      "file": "ambience_underwater_bubbles_dark_spacious_boiling_flowing.wav",
+      "rel": "03_river/ambience_underwater_bubbles_dark_spacious_boiling_flowing.opus",
+      "status": "skip-existing",
+      "src_bytes": 19957424,
+      "dst_bytes": 2023161
+    },
+    {
+      "file": "ambience_underwater_dark_deep_leak_gurgling_flowing.wav",
+      "rel": "03_river/ambience_underwater_dark_deep_leak_gurgling_flowing.opus",
+      "status": "skip-existing",
+      "src_bytes": 20009380,
+      "dst_bytes": 1207153
+    },
+    {
+      "file": "ambience_underwater_dark_eerie_deep_bubbles_spacious_stream.wav",
+      "rel": "03_river/ambience_underwater_dark_eerie_deep_bubbles_spacious_stream.opus",
+      "status": "skip-existing",
+      "src_bytes": 19999716,
+      "dst_bytes": 1152562
+    },
+    {
+      "file": "ambience_underwater_dark_eerie_spacious_flowing_roaring_01.wav",
+      "rel": "03_river/ambience_underwater_dark_eerie_spacious_flowing_roaring_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 19956028,
+      "dst_bytes": 1386085
+    },
+    {
+      "file": "ambience_underwater_dark_eerie_spacious_flowing_roaring_02.wav",
+      "rel": "03_river/ambience_underwater_dark_eerie_spacious_flowing_roaring_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 19941788,
+      "dst_bytes": 1408325
+    },
+    {
+      "file": "ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_02.wav",
+      "rel": "03_river/ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 31604636,
+      "dst_bytes": 2268544
+    },
+    {
+      "file": "ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_03.wav",
+      "rel": "03_river/ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_03.opus",
+      "status": "skip-existing",
+      "src_bytes": 26979592,
+      "dst_bytes": 1820444
+    },
+    {
+      "file": "ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_05.wav",
+      "rel": "03_river/ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_05.opus",
+      "status": "skip-existing",
+      "src_bytes": 37334872,
+      "dst_bytes": 2542926
+    },
+    {
+      "file": "ambience_underwater_river_flowing_01.wav",
+      "rel": "03_river/ambience_underwater_river_flowing_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 30603732,
+      "dst_bytes": 1765515
+    },
+    {
+      "file": "ambience_underwater_river_flowing_02.wav",
+      "rel": "03_river/ambience_underwater_river_flowing_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 30597524,
+      "dst_bytes": 1733024
+    },
+    {
+      "file": "ambience_underwater_river_flowing_03.wav",
+      "rel": "03_river/ambience_underwater_river_flowing_03.opus",
+      "status": "skip-existing",
+      "src_bytes": 30600168,
+      "dst_bytes": 1809151
+    },
+    {
+      "file": "ambience_underwater_river_flowing_04.wav",
+      "rel": "03_river/ambience_underwater_river_flowing_04.opus",
+      "status": "skip-existing",
+      "src_bytes": 30602292,
+      "dst_bytes": 1833436
+    },
+    {
+      "file": "ambience_underwater_river_flowing_05.wav",
+      "rel": "03_river/ambience_underwater_river_flowing_05.opus",
+      "status": "skip-existing",
+      "src_bytes": 30601456,
+      "dst_bytes": 1742349
+    },
+    {
+      "file": "ambience_underwater_river_flowing_06.wav",
+      "rel": "03_river/ambience_underwater_river_flowing_06.opus",
+      "status": "skip-existing",
+      "src_bytes": 30614272,
+      "dst_bytes": 1748175
+    },
+    {
+      "file": "ambience_underwater_trickle_bright_detailed_stream.wav",
+      "rel": "03_river/ambience_underwater_trickle_bright_detailed_stream.opus",
+      "status": "skip-existing",
+      "src_bytes": 20003544,
+      "dst_bytes": 1314351
+    },
+    {
+      "file": "ambience_underwater_water_flow_01.wav",
+      "rel": "03_river/ambience_underwater_water_flow_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 18811424,
+      "dst_bytes": 1102772
+    },
+    {
+      "file": "ambience_underwater_water_flow_02.wav",
+      "rel": "03_river/ambience_underwater_water_flow_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 18931216,
+      "dst_bytes": 1110338
+    },
+    {
+      "file": "ambience_underwater_water_flow_03.wav",
+      "rel": "03_river/ambience_underwater_water_flow_03.opus",
+      "status": "skip-existing",
+      "src_bytes": 19950696,
+      "dst_bytes": 1133093
+    },
+    {
+      "file": "ambience_underwater_water_flow_04.wav",
+      "rel": "03_river/ambience_underwater_water_flow_04.opus",
+      "status": "skip-existing",
+      "src_bytes": 20696108,
+      "dst_bytes": 1175340
+    },
+    {
+      "file": "rain_metal_rain_gutter_medium_drops_flowing.wav",
+      "rel": "03_river/rain_metal_rain_gutter_medium_drops_flowing.opus",
+      "status": "skip-existing",
+      "src_bytes": 30801736,
+      "dst_bytes": 2130502
+    },
+    {
+      "file": "water_flow_deep_mountain_stream_creek_bubble.wav",
+      "rel": "03_river/water_flow_deep_mountain_stream_creek_bubble.opus",
+      "status": "skip-existing",
+      "src_bytes": 9581156,
+      "dst_bytes": 716574
+    },
+    {
+      "file": "water_flow_river_calm_running_medium_distance_01.wav",
+      "rel": "03_river/water_flow_river_calm_running_medium_distance_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 11195376,
+      "dst_bytes": 682072
+    },
+    {
+      "file": "water_flow_river_close_gentle_01.wav",
+      "rel": "03_river/water_flow_river_close_gentle_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 11292268,
+      "dst_bytes": 865012
+    },
+    {
+      "file": "water_flow_river_close_gentle_02.wav",
+      "rel": "03_river/water_flow_river_close_gentle_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 14850180,
+      "dst_bytes": 1316332
+    },
+    {
+      "file": "water_flow_river_current_fast_distant.wav",
+      "rel": "03_river/water_flow_river_current_fast_distant.opus",
+      "status": "skip-existing",
+      "src_bytes": 20581732,
+      "dst_bytes": 1258710
+    },
+    {
+      "file": "water_flow_river_current_small_fast_flow.wav",
+      "rel": "03_river/water_flow_river_current_small_fast_flow.opus",
+      "status": "skip-existing",
+      "src_bytes": 13311868,
+      "dst_bytes": 1089998
+    },
+    {
+      "file": "water_flow_river_flow_strong_bubbles_nature_forest_telluride.wav",
+      "rel": "03_river/water_flow_river_flow_strong_bubbles_nature_forest_telluride.opus",
+      "status": "skip-existing",
+      "src_bytes": 19955668,
+      "dst_bytes": 1246572
+    },
+    {
+      "file": "water_flow_river_run_flow_valley_bubbles_calm_nature_san_miguel_river_telluride.wav",
+      "rel": "03_river/water_flow_river_run_flow_valley_bubbles_calm_nature_san_miguel_river_telluride.opus",
+      "status": "skip-existing",
+      "src_bytes": 62441276,
+      "dst_bytes": 4088706
+    },
+    {
+      "file": "water_flow_river_small_mountain_stream.wav",
+      "rel": "03_river/water_flow_river_small_mountain_stream.opus",
+      "status": "skip-existing",
+      "src_bytes": 10304404,
+      "dst_bytes": 1109360
+    },
+    {
+      "file": "water_waterfall_strong_flow_people_forest_lower_waterfall_evening_zenny_fall_telluride.wav",
+      "rel": "03_river/water_waterfall_strong_flow_people_forest_lower_waterfall_evening_zenny_fall_telluride.opus",
+      "status": "skip-existing",
+      "src_bytes": 50824752,
+      "dst_bytes": 3120040
+    },
+    {
+      "file": "water_waterfall_waterfall_medium_flow_01.wav",
+      "rel": "03_river/water_waterfall_waterfall_medium_flow_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 31814180,
+      "dst_bytes": 1938236
+    },
+    {
+      "file": "water_waterfall_waterfall_the_trolls_road_20m_from_river.wav",
+      "rel": "03_river/water_waterfall_waterfall_the_trolls_road_20m_from_river.opus",
+      "status": "skip-existing",
+      "src_bytes": 11027436,
+      "dst_bytes": 669489
+    },
+    {
+      "file": "ambience_tropical_water_source_palm_leaves_wind_soothing.wav",
+      "rel": "04_underwater/ambience_tropical_water_source_palm_leaves_wind_soothing.opus",
+      "status": "skip-existing",
+      "src_bytes": 30772320,
+      "dst_bytes": 2122219
+    },
+    {
+      "file": "ambience_underwater_active.wav",
+      "rel": "04_underwater/ambience_underwater_active.opus",
+      "status": "skip-existing",
+      "src_bytes": 30601716,
+      "dst_bytes": 1777705
+    },
+    {
+      "file": "ambience_underwater_complex_01.wav",
+      "rel": "04_underwater/ambience_underwater_complex_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 20123944,
+      "dst_bytes": 1133991
+    },
+    {
+      "file": "ambience_underwater_complex_02.wav",
+      "rel": "04_underwater/ambience_underwater_complex_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 20070416,
+      "dst_bytes": 1094478
+    },
+    {
+      "file": "ambience_underwater_complex_03.wav",
+      "rel": "04_underwater/ambience_underwater_complex_03.opus",
+      "status": "skip-existing",
+      "src_bytes": 20053828,
+      "dst_bytes": 1129517
+    },
+    {
+      "file": "ambience_underwater_complex_04.wav",
+      "rel": "04_underwater/ambience_underwater_complex_04.opus",
+      "status": "skip-existing",
+      "src_bytes": 20026596,
+      "dst_bytes": 1113029
+    },
+    {
+      "file": "ambience_underwater_complex_05.wav",
+      "rel": "04_underwater/ambience_underwater_complex_05.opus",
+      "status": "skip-existing",
+      "src_bytes": 20039392,
+      "dst_bytes": 1138644
+    },
+    {
+      "file": "ambience_underwater_complex_06.wav",
+      "rel": "04_underwater/ambience_underwater_complex_06.opus",
+      "status": "skip-existing",
+      "src_bytes": 20074580,
+      "dst_bytes": 1122935
+    },
+    {
+      "file": "ambience_underwater_complex_07.wav",
+      "rel": "04_underwater/ambience_underwater_complex_07.opus",
+      "status": "skip-existing",
+      "src_bytes": 20075832,
+      "dst_bytes": 1198738
+    },
+    {
+      "file": "ambience_underwater_complex_08.wav",
+      "rel": "04_underwater/ambience_underwater_complex_08.opus",
+      "status": "skip-existing",
+      "src_bytes": 20059244,
+      "dst_bytes": 1176600
+    },
+    {
+      "file": "ambience_underwater_complex_09.wav",
+      "rel": "04_underwater/ambience_underwater_complex_09.opus",
+      "status": "skip-existing",
+      "src_bytes": 20113576,
+      "dst_bytes": 1129285
+    },
+    {
+      "file": "ambience_underwater_complex_10.wav",
+      "rel": "04_underwater/ambience_underwater_complex_10.opus",
+      "status": "skip-existing",
+      "src_bytes": 20094964,
+      "dst_bytes": 1144302
+    },
+    {
+      "file": "ambience_underwater_complex_evolving.wav",
+      "rel": "04_underwater/ambience_underwater_complex_evolving.opus",
+      "status": "skip-existing",
+      "src_bytes": 20076352,
+      "dst_bytes": 1152896
+    },
+    {
+      "file": "ambience_underwater_dark_eerie_roaring.wav",
+      "rel": "04_underwater/ambience_underwater_dark_eerie_roaring.opus",
+      "status": "skip-existing",
+      "src_bytes": 19902076,
+      "dst_bytes": 1240399
+    },
+    {
+      "file": "ambience_underwater_dark_eerie_slow_moving_stutter.wav",
+      "rel": "04_underwater/ambience_underwater_dark_eerie_slow_moving_stutter.opus",
+      "status": "skip-existing",
+      "src_bytes": 20055396,
+      "dst_bytes": 1241952
+    },
+    {
+      "file": "ambience_underwater_deep_01.wav",
+      "rel": "04_underwater/ambience_underwater_deep_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 30588808,
+      "dst_bytes": 1732162
+    },
+    {
+      "file": "ambience_underwater_deep_02.wav",
+      "rel": "04_underwater/ambience_underwater_deep_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 30624628,
+      "dst_bytes": 1750082
+    },
+    {
+      "file": "ambience_underwater_deep_03.wav",
+      "rel": "04_underwater/ambience_underwater_deep_03.opus",
+      "status": "skip-existing",
+      "src_bytes": 30627776,
+      "dst_bytes": 1735924
+    },
+    {
+      "file": "ambience_underwater_deep_04.wav",
+      "rel": "04_underwater/ambience_underwater_deep_04.opus",
+      "status": "skip-existing",
+      "src_bytes": 30578820,
+      "dst_bytes": 1730735
+    },
+    {
+      "file": "ambience_underwater_deep_abstract_01.wav",
+      "rel": "04_underwater/ambience_underwater_deep_abstract_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 30619552,
+      "dst_bytes": 2047014
+    },
+    {
+      "file": "ambience_underwater_deep_abstract_02.wav",
+      "rel": "04_underwater/ambience_underwater_deep_abstract_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 30599188,
+      "dst_bytes": 1752769
+    },
+    {
+      "file": "ambience_underwater_deep_abstract_03.wav",
+      "rel": "04_underwater/ambience_underwater_deep_abstract_03.opus",
+      "status": "skip-existing",
+      "src_bytes": 30595336,
+      "dst_bytes": 1727490
+    },
+    {
+      "file": "ambience_underwater_deep_abstract_04.wav",
+      "rel": "04_underwater/ambience_underwater_deep_abstract_04.opus",
+      "status": "skip-existing",
+      "src_bytes": 30631880,
+      "dst_bytes": 1770654
+    },
+    {
+      "file": "ambience_underwater_deep_bubble_01.wav",
+      "rel": "04_underwater/ambience_underwater_deep_bubble_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 30619044,
+      "dst_bytes": 1722597
+    },
+    {
+      "file": "ambience_underwater_deep_bubble_02.wav",
+      "rel": "04_underwater/ambience_underwater_deep_bubble_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 30596760,
+      "dst_bytes": 1708067
+    },
+    {
+      "file": "ambience_underwater_deep_bubble_active_01.wav",
+      "rel": "04_underwater/ambience_underwater_deep_bubble_active_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 30607204,
+      "dst_bytes": 1694171
+    },
+    {
+      "file": "ambience_underwater_deep_bubble_active_02.wav",
+      "rel": "04_underwater/ambience_underwater_deep_bubble_active_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 30611728,
+      "dst_bytes": 1735002
+    },
+    {
+      "file": "ambience_underwater_deep_bubbles_01.wav",
+      "rel": "04_underwater/ambience_underwater_deep_bubbles_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 25113620,
+      "dst_bytes": 1395532
+    },
+    {
+      "file": "ambience_underwater_deep_bubbles_02.wav",
+      "rel": "04_underwater/ambience_underwater_deep_bubbles_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 21436320,
+      "dst_bytes": 1188140
+    },
+    {
+      "file": "ambience_underwater_deep_bubbles_03.wav",
+      "rel": "04_underwater/ambience_underwater_deep_bubbles_03.opus",
+      "status": "skip-existing",
+      "src_bytes": 32935540,
+      "dst_bytes": 1906006
+    },
+    {
+      "file": "ambience_underwater_deep_low.wav",
+      "rel": "04_underwater/ambience_underwater_deep_low.opus",
+      "status": "skip-existing",
+      "src_bytes": 30620048,
+      "dst_bytes": 1722369
+    },
+    {
+      "file": "ambience_underwater_deep_propeller.wav",
+      "rel": "04_underwater/ambience_underwater_deep_propeller.opus",
+      "status": "skip-existing",
+      "src_bytes": 30771488,
+      "dst_bytes": 1841790
+    },
+    {
+      "file": "ambience_underwater_deep_sub.wav",
+      "rel": "04_underwater/ambience_underwater_deep_sub.opus",
+      "status": "skip-existing",
+      "src_bytes": 30613596,
+      "dst_bytes": 1985871
+    },
+    {
+      "file": "ambience_underwater_designed_subsonic_01.wav",
+      "rel": "04_underwater/ambience_underwater_designed_subsonic_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 30772976,
+      "dst_bytes": 1793412
+    },
+    {
+      "file": "ambience_underwater_designed_water_aquarium_bubbles_18.wav",
+      "rel": "04_underwater/ambience_underwater_designed_water_aquarium_bubbles_18.opus",
+      "status": "skip-existing",
+      "src_bytes": 14145596,
+      "dst_bytes": 1351130
+    },
+    {
+      "file": "ambience_underwater_designed_water_aquarium_bubbles_32.wav",
+      "rel": "04_underwater/ambience_underwater_designed_water_aquarium_bubbles_32.opus",
+      "status": "skip-existing",
+      "src_bytes": 9898780,
+      "dst_bytes": 646351
+    },
+    {
+      "file": "ambience_underwater_distant_low_rumble_01.wav",
+      "rel": "04_underwater/ambience_underwater_distant_low_rumble_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 17358116,
+      "dst_bytes": 1019951
+    },
+    {
+      "file": "ambience_underwater_distant_low_rumble_02.wav",
+      "rel": "04_underwater/ambience_underwater_distant_low_rumble_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 16296404,
+      "dst_bytes": 946454
+    },
+    {
+      "file": "ambience_underwater_distant_mid_resonance_01.wav",
+      "rel": "04_underwater/ambience_underwater_distant_mid_resonance_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 24412492,
+      "dst_bytes": 1500943
+    },
+    {
+      "file": "ambience_underwater_distant_thrill_water_01.wav",
+      "rel": "04_underwater/ambience_underwater_distant_thrill_water_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 24415216,
+      "dst_bytes": 1672720
+    },
+    {
+      "file": "ambience_underwater_distant_thrill_water_02.wav",
+      "rel": "04_underwater/ambience_underwater_distant_thrill_water_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 24791900,
+      "dst_bytes": 1722425
+    },
+    {
+      "file": "ambience_underwater_near_machine_01.wav",
+      "rel": "04_underwater/ambience_underwater_near_machine_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 17354624,
+      "dst_bytes": 1035075
+    },
+    {
+      "file": "ambience_underwater_near_machine_02.wav",
+      "rel": "04_underwater/ambience_underwater_near_machine_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 16678444,
+      "dst_bytes": 969828
+    },
+    {
+      "file": "ambience_underwater_small_bubbles_02.wav",
+      "rel": "04_underwater/ambience_underwater_small_bubbles_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 26461388,
+      "dst_bytes": 1589372
+    },
+    {
+      "file": "ambience_underwater_submarine_underwater.wav",
+      "rel": "04_underwater/ambience_underwater_submarine_underwater.opus",
+      "status": "skip-existing",
+      "src_bytes": 11942228,
+      "dst_bytes": 671222
+    },
+    {
+      "file": "ambience_underwater_tub_underwater_loop.wav",
+      "rel": "04_underwater/ambience_underwater_tub_underwater_loop.opus",
+      "status": "skip-existing",
+      "src_bytes": 17625532,
+      "dst_bytes": 875993
+    },
+    {
+      "file": "ambience_underwater_underwater_current.wav",
+      "rel": "04_underwater/ambience_underwater_underwater_current.opus",
+      "status": "skip-existing",
+      "src_bytes": 30715772,
+      "dst_bytes": 1935247
+    },
+    {
+      "file": "ambience_underwater_underwater_designed_flush_01.wav",
+      "rel": "04_underwater/ambience_underwater_underwater_designed_flush_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 20757796,
+      "dst_bytes": 1375525
+    },
+    {
+      "file": "ambience_underwater_underwater_designed_running_03.wav",
+      "rel": "04_underwater/ambience_underwater_underwater_designed_running_03.opus",
+      "status": "skip-existing",
+      "src_bytes": 48614064,
+      "dst_bytes": 2911970
+    },
+    {
+      "file": "ambience_underwater_underwater_designed_running_04.wav",
+      "rel": "04_underwater/ambience_underwater_underwater_designed_running_04.opus",
+      "status": "skip-existing",
+      "src_bytes": 36880516,
+      "dst_bytes": 2261395
+    },
+    {
+      "file": "ambience_underwater_underwater_drone_hum.wav",
+      "rel": "04_underwater/ambience_underwater_underwater_drone_hum.opus",
+      "status": "skip-existing",
+      "src_bytes": 30726356,
+      "dst_bytes": 1942529
+    },
+    {
+      "file": "ambience_underwater_waterfall.wav",
+      "rel": "04_underwater/ambience_underwater_waterfall.opus",
+      "status": "skip-existing",
+      "src_bytes": 30593068,
+      "dst_bytes": 1949849
+    },
+    {
+      "file": "designed_drone_sub_deep_underwater.wav",
+      "rel": "04_underwater/designed_drone_sub_deep_underwater.opus",
+      "status": "skip-existing",
+      "src_bytes": 28836380,
+      "dst_bytes": 1676197
+    },
+    {
+      "file": "water_bubbles_aqua_massage_bubbling_01.wav",
+      "rel": "04_underwater/water_bubbles_aqua_massage_bubbling_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 9574140,
+      "dst_bytes": 644346
+    },
+    {
+      "file": "water_bubbles_bubbling_witchs_cauldron.wav",
+      "rel": "04_underwater/water_bubbles_bubbling_witchs_cauldron.opus",
+      "status": "skip-existing",
+      "src_bytes": 30748040,
+      "dst_bytes": 1955214
+    },
+    {
+      "file": "water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_40.wav",
+      "rel": "04_underwater/water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_40.opus",
+      "status": "skip-existing",
+      "src_bytes": 32498208,
+      "dst_bytes": 1969927
+    },
+    {
+      "file": "water_waterfall_steady_perspective.wav",
+      "rel": "04_underwater/water_waterfall_steady_perspective.opus",
+      "status": "skip-existing",
+      "src_bytes": 13957088,
+      "dst_bytes": 847044
+    },
+    {
+      "file": "water_waterfall_waterfall_powerful.wav",
+      "rel": "04_underwater/water_waterfall_waterfall_powerful.opus",
+      "status": "skip-existing",
+      "src_bytes": 34561208,
+      "dst_bytes": 2098813
+    },
+    {
+      "file": "ambience_forest_winter_calm_light_wind_oslo_ostmarka_01.wav",
+      "rel": "05_wind/ambience_forest_winter_calm_light_wind_oslo_ostmarka_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 36029472,
+      "dst_bytes": 2186926
+    },
+    {
+      "file": "ambience_forest_winter_calm_light_wind_single_bird_distant_oslo_ostmarka_01.wav",
+      "rel": "05_wind/ambience_forest_winter_calm_light_wind_single_bird_distant_oslo_ostmarka_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 39991252,
+      "dst_bytes": 2430267
+    },
+    {
+      "file": "ambience_urban_oslo_urban_city_hall_strong_winds_rattling_no_people_distant_trams_traffic.wav",
+      "rel": "05_wind/ambience_urban_oslo_urban_city_hall_strong_winds_rattling_no_people_distant_trams_traffic.opus",
+      "status": "skip-existing",
+      "src_bytes": 50161728,
+      "dst_bytes": 3099372
+    },
+    {
+      "file": "wind_general_abandoned_factory_chimney_wind_gusts_light_whistling_mic_upwards_distant_traffic_hum_humberstone_chile.wav",
+      "rel": "05_wind/wind_general_abandoned_factory_chimney_wind_gusts_light_whistling_mic_upwards_distant_traffic_hum_humberstone_chile.opus",
+      "status": "skip-existing",
+      "src_bytes": 51119544,
+      "dst_bytes": 2939855
+    },
+    {
+      "file": "wind_general_desert_bushes_twigs_wind_gusts_light_electric_whistling.wav",
+      "rel": "05_wind/wind_general_desert_bushes_twigs_wind_gusts_light_electric_whistling.opus",
+      "status": "skip-existing",
+      "src_bytes": 48677640,
+      "dst_bytes": 2951132
+    },
+    {
+      "file": "wind_general_desert_close_to_bushes_wind_gusts_twig_branch_close.wav",
+      "rel": "05_wind/wind_general_desert_close_to_bushes_wind_gusts_twig_branch_close.opus",
+      "status": "skip-existing",
+      "src_bytes": 51530516,
+      "dst_bytes": 3039997
+    },
+    {
+      "file": "wind_general_desert_light_whistling_bagdad_highway_wind_gusts_light_wind_bushes.wav",
+      "rel": "05_wind/wind_general_desert_light_whistling_bagdad_highway_wind_gusts_light_wind_bushes.opus",
+      "status": "skip-existing",
+      "src_bytes": 49752788,
+      "dst_bytes": 2983500
+    },
+    {
+      "file": "wind_general_desert_pampa_perdiz_wind_gusts_dark_02.wav",
+      "rel": "05_wind/wind_general_desert_pampa_perdiz_wind_gusts_dark_02.opus",
+      "status": "skip-existing",
+      "src_bytes": 50050780,
+      "dst_bytes": 3033662
+    },
+    {
+      "file": "wind_general_desert_pampa_perdiz_wind_gusts_dark_03.wav",
+      "rel": "05_wind/wind_general_desert_pampa_perdiz_wind_gusts_dark_03.opus",
+      "status": "skip-existing",
+      "src_bytes": 50283452,
+      "dst_bytes": 3034707
+    },
+    {
+      "file": "wind_general_high_cliff_alto_patache_chile_01.wav",
+      "rel": "05_wind/wind_general_high_cliff_alto_patache_chile_01.opus",
+      "status": "skip-existing",
+      "src_bytes": 51646548,
+      "dst_bytes": 3046655
+    },
+    {
+      "file": "wind_general_iron_wire_sculpture_light_metallic_creaking_noise_wind_gusts_light_whistling_alto_patache_chile.wav",
+      "rel": "05_wind/wind_general_iron_wire_sculpture_light_metallic_creaking_noise_wind_gusts_light_whistling_alto_patache_chile.opus",
+      "status": "skip-existing",
+      "src_bytes": 51627392,
+      "dst_bytes": 524288
+    },
+    {
+      "file": "wind_general_large_tree_foliage_01.wav",
+      "rel": "05_wind/wind_general_large_tree_foliage_01.opus",
+      "status": "ok",
+      "src_bytes": 60872428,
+      "dst_bytes": 3604519
+    },
+    {
+      "file": "wind_general_light_whistling_gusts_alto_patache_chile.wav",
+      "rel": "05_wind/wind_general_light_whistling_gusts_alto_patache_chile.opus",
+      "status": "ok",
+      "src_bytes": 50356472,
+      "dst_bytes": 3036617
+    },
+    {
+      "file": "wind_general_light_wind_iron_wire_weather_station_barbed_wire_low_whistling_wind_gusts_alto_patache_chile.wav",
+      "rel": "05_wind/wind_general_light_wind_iron_wire_weather_station_barbed_wire_low_whistling_wind_gusts_alto_patache_chile.opus",
+      "status": "ok",
+      "src_bytes": 51014828,
+      "dst_bytes": 3071527
+    },
+    {
+      "file": "wind_general_plastic_telescope_gusts_salar_atacama.wav",
+      "rel": "05_wind/wind_general_plastic_telescope_gusts_salar_atacama.opus",
+      "status": "ok",
+      "src_bytes": 47464876,
+      "dst_bytes": 2732260
+    },
+    {
+      "file": "wind_general_rusty_antenna_howling_alto_patache_chile.wav",
+      "rel": "05_wind/wind_general_rusty_antenna_howling_alto_patache_chile.opus",
+      "status": "ok",
+      "src_bytes": 51509224,
+      "dst_bytes": 2852911
+    },
+    {
+      "file": "wind_general_steady_wind_light_movement_cold.wav",
+      "rel": "05_wind/wind_general_steady_wind_light_movement_cold.opus",
+      "status": "ok",
+      "src_bytes": 24819144,
+      "dst_bytes": 1506332
+    },
+    {
+      "file": "wind_general_wilderness_medium_movement_cold_01.wav",
+      "rel": "05_wind/wind_general_wilderness_medium_movement_cold_01.opus",
+      "status": "ok",
+      "src_bytes": 28775644,
+      "dst_bytes": 1747420
+    },
+    {
+      "file": "wind_gust_cold_mountain_wind_gusts_varied_intensity_01.wav",
+      "rel": "05_wind/wind_gust_cold_mountain_wind_gusts_varied_intensity_01.opus",
+      "status": "ok",
+      "src_bytes": 26355436,
+      "dst_bytes": 1612902
+    },
+    {
+      "file": "wind_gust_distant_bush_light_whistling_valley.wav",
+      "rel": "05_wind/wind_gust_distant_bush_light_whistling_valley.opus",
+      "status": "ok",
+      "src_bytes": 51742084,
+      "dst_bytes": 2962692
+    },
+    {
+      "file": "wind_gust_salt_desert_salar_atacama_chile.wav",
+      "rel": "05_wind/wind_gust_salt_desert_salar_atacama_chile.opus",
+      "status": "ok",
+      "src_bytes": 51199848,
+      "dst_bytes": 3093836
+    },
+    {
+      "file": "wind_gust_whistling_garden_alto_patache_chile.wav",
+      "rel": "05_wind/wind_gust_whistling_garden_alto_patache_chile.opus",
+      "status": "ok",
+      "src_bytes": 51161972,
+      "dst_bytes": 3100428
+    },
+    {
+      "file": "wind_tonal_light_pole_whistling_wind_gusts_desert_alto_patache.wav",
+      "rel": "05_wind/wind_tonal_light_pole_whistling_wind_gusts_desert_alto_patache.opus",
+      "status": "ok",
+      "src_bytes": 49850644,
+      "dst_bytes": 2998944
+    },
+    {
+      "file": "wind_tonal_wind_howling_barbed_wire_fence_tierra_del_fuego_argentina_01.wav",
+      "rel": "05_wind/wind_tonal_wind_howling_barbed_wire_fence_tierra_del_fuego_argentina_01.opus",
+      "status": "ok",
+      "src_bytes": 52112444,
+      "dst_bytes": 3146761
+    },
+    {
+      "file": "wind_tonal_wind_whistling_distant_fog_collector_alto_patache.wav",
+      "rel": "05_wind/wind_tonal_wind_whistling_distant_fog_collector_alto_patache.opus",
+      "status": "ok",
+      "src_bytes": 51367912,
+      "dst_bytes": 3189867
+    },
+    {
+      "file": "wind_tonal_wind_whistling_iron_fence_movement_wind_gusts_distant_city_hum_desert_outskirts_twentynine_palms.wav",
+      "rel": "05_wind/wind_tonal_wind_whistling_iron_fence_movement_wind_gusts_distant_city_hum_desert_outskirts_twentynine_palms.opus",
+      "status": "ok",
+      "src_bytes": 51672336,
+      "dst_bytes": 3011827
+    },
+    {
+      "file": "wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_01.wav",
+      "rel": "05_wind/wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_01.opus",
+      "status": "ok",
+      "src_bytes": 50658852,
+      "dst_bytes": 2854241
+    },
+    {
+      "file": "wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_02.wav",
+      "rel": "05_wind/wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_02.opus",
+      "status": "ok",
+      "src_bytes": 22782320,
+      "dst_bytes": 1332846
+    },
+    {
+      "file": "wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_03.wav",
+      "rel": "05_wind/wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_03.opus",
+      "status": "ok",
+      "src_bytes": 22781944,
+      "dst_bytes": 1291809
+    },
+    {
+      "file": "wind_vegetation_mixed_forest_mountainside_gentle_wind_through_birches_pines_firs_spruces_distant_birds_40.wav",
+      "rel": "05_wind/wind_vegetation_mixed_forest_mountainside_gentle_wind_through_birches_pines_firs_spruces_distant_birds_40.opus",
+      "status": "ok",
+      "src_bytes": 57631792,
+      "dst_bytes": 3494025
+    },
+    {
+      "file": "wind_vegetation_mixed_forest_mountainside_strong_wind_gusts_through_firs_birches_poplars_creaking_tree_40.wav",
+      "rel": "05_wind/wind_vegetation_mixed_forest_mountainside_strong_wind_gusts_through_firs_birches_poplars_creaking_tree_40.opus",
+      "status": "ok",
+      "src_bytes": 48803972,
+      "dst_bytes": 2955701
+    },
+    {
+      "file": "wind_vegetation_mixed_forest_wind_through_pines_birches_poplars_creaking_tree_trunk_leaves_rustling_bird_flyby_40.wav",
+      "rel": "05_wind/wind_vegetation_mixed_forest_wind_through_pines_birches_poplars_creaking_tree_trunk_leaves_rustling_bird_flyby_40.opus",
+      "status": "ok",
+      "src_bytes": 49371588,
+      "dst_bytes": 3059969
+    },
+    {
+      "file": "ambience_forest_wetlands_forest_birds_birdsong.wav",
+      "rel": "06_forest/ambience_forest_wetlands_forest_birds_birdsong.opus",
+      "status": "ok",
+      "src_bytes": 30678268,
+      "dst_bytes": 1954407
+    },
+    {
+      "file": "ambience_forest_wetlands_snowing_droplets_distant.wav",
+      "rel": "06_forest/ambience_forest_wetlands_snowing_droplets_distant.opus",
+      "status": "ok",
+      "src_bytes": 30729140,
+      "dst_bytes": 1861385
+    },
+    {
+      "file": "ambience_forest_wetlands_winter_wildlife_birds.wav",
+      "rel": "06_forest/ambience_forest_wetlands_winter_wildlife_birds.opus",
+      "status": "ok",
+      "src_bytes": 30700108,
+      "dst_bytes": 1865881
+    },
+    {
+      "file": "ambience_nautical_wetlands_distant_factory_birds_01.wav",
+      "rel": "06_forest/ambience_nautical_wetlands_distant_factory_birds_01.opus",
+      "status": "ok",
+      "src_bytes": 30732584,
+      "dst_bytes": 1799300
+    },
+    {
+      "file": "fire_burning_fireplace_glass_front_wood_burning_medium.wav",
+      "rel": "07_fire/fire_burning_fireplace_glass_front_wood_burning_medium.opus",
+      "status": "ok",
+      "src_bytes": 11376068,
+      "dst_bytes": 560956
+    },
+    {
+      "file": "369_seconds_of_bliss_369.wav",
+      "rel": "08_meditation/369_seconds_of_bliss_369.opus",
+      "status": "ok",
+      "src_bytes": 63740928,
+      "dst_bytes": 4914253
+    },
+    {
+      "file": "8_pm_anna_landstrom.wav",
+      "rel": "08_meditation/8_pm_anna_landstrom.opus",
+      "status": "ok",
+      "src_bytes": 40491736,
+      "dst_bytes": 3077695
+    },
+    {
+      "file": "a_calm_early_morning_rikard_from.wav",
+      "rel": "08_meditation/a_calm_early_morning_rikard_from.opus",
+      "status": "ok",
+      "src_bytes": 31239536,
+      "dst_bytes": 2353829
+    },
+    {
+      "file": "angelica_instrumental_version_david_edward.wav",
+      "rel": "08_meditation/angelica_instrumental_version_david_edward.opus",
+      "status": "ok",
+      "src_bytes": 70506488,
+      "dst_bytes": 4814402
+    },
+    {
+      "file": "archipelago_of_relaxation_mandala_dreams.wav",
+      "rel": "08_meditation/archipelago_of_relaxation_mandala_dreams.opus",
+      "status": "ok",
+      "src_bytes": 25864432,
+      "dst_bytes": 1915077
+    },
+    {
+      "file": "carried_by_current_valante.wav",
+      "rel": "08_meditation/carried_by_current_valante.opus",
+      "status": "ok",
+      "src_bytes": 27436756,
+      "dst_bytes": 1963231
+    },
+    {
+      "file": "celestial_spheres_ave_air.wav",
+      "rel": "08_meditation/celestial_spheres_ave_air.opus",
+      "status": "ok",
+      "src_bytes": 91180916,
+      "dst_bytes": 6424859
+    },
+    {
+      "file": "city_park_ave_air.wav",
+      "rel": "08_meditation/city_park_ave_air.opus",
+      "status": "ok",
+      "src_bytes": 39991412,
+      "dst_bytes": 2838943
+    },
+    {
+      "file": "crowned_with_spirit_valante.wav",
+      "rel": "08_meditation/crowned_with_spirit_valante.opus",
+      "status": "ok",
+      "src_bytes": 31072940,
+      "dst_bytes": 2231157
+    },
+    {
+      "file": "crystal_haze_shuta_yasukochi.wav",
+      "rel": "08_meditation/crystal_haze_shuta_yasukochi.opus",
+      "status": "ok",
+      "src_bytes": 77642520,
+      "dst_bytes": 5567068
+    },
+    {
+      "file": "dharapani_dex_1200.wav",
+      "rel": "08_meditation/dharapani_dex_1200.opus",
+      "status": "ok",
+      "src_bytes": 73735556,
+      "dst_bytes": 5539880
+    },
+    {
+      "file": "dusky_mirage_true_messenger.wav",
+      "rel": "08_meditation/dusky_mirage_true_messenger.opus",
+      "status": "ok",
+      "src_bytes": 18468316,
+      "dst_bytes": 1414186
+    },
+    {
+      "file": "end_of_rain_beyza.wav",
+      "rel": "08_meditation/end_of_rain_beyza.opus",
+      "status": "ok",
+      "src_bytes": 44403300,
+      "dst_bytes": 3572982
+    },
+    {
+      "file": "enlightened_drift_amber_glow.wav",
+      "rel": "08_meditation/enlightened_drift_amber_glow.opus",
+      "status": "ok",
+      "src_bytes": 32854048,
+      "dst_bytes": 2320824
+    },
+    {
+      "file": "epic_mirage_hanna_lindgren.wav",
+      "rel": "08_meditation/epic_mirage_hanna_lindgren.opus",
+      "status": "ok",
+      "src_bytes": 52375924,
+      "dst_bytes": 3429200
+    },
+    {
+      "file": "field_of_horses_joseph_beg.wav",
+      "rel": "08_meditation/field_of_horses_joseph_beg.opus",
+      "status": "ok",
+      "src_bytes": 54526348,
+      "dst_bytes": 3821350
+    },
+    {
+      "file": "floating_sakura_petals_sayuri_hayashi_egnell.wav",
+      "rel": "08_meditation/floating_sakura_petals_sayuri_hayashi_egnell.opus",
+      "status": "ok",
+      "src_bytes": 34431380,
+      "dst_bytes": 2712009
+    },
+    {
+      "file": "forest_breeze_ave_air.wav",
+      "rel": "08_meditation/forest_breeze_ave_air.opus",
+      "status": "ok",
+      "src_bytes": 47621032,
+      "dst_bytes": 3146595
+    },
+    {
+      "file": "gold_and_green_anna_landstrom.wav",
+      "rel": "08_meditation/gold_and_green_anna_landstrom.opus",
+      "status": "ok",
+      "src_bytes": 36030464,
+      "dst_bytes": 2837066
+    },
+    {
+      "file": "grounded_hanna_lindgren.wav",
+      "rel": "08_meditation/grounded_hanna_lindgren.opus",
+      "status": "ok",
+      "src_bytes": 32214996,
+      "dst_bytes": 2325127
+    },
+    {
+      "file": "healing_tides_amber_glow.wav",
+      "rel": "08_meditation/healing_tides_amber_glow.opus",
+      "status": "ok",
+      "src_bytes": 39831544,
+      "dst_bytes": 2744029
+    },
+    {
+      "file": "hush_my_darling_yi_nantiro.wav",
+      "rel": "08_meditation/hush_my_darling_yi_nantiro.opus",
+      "status": "ok",
+      "src_bytes": 31609616,
+      "dst_bytes": 2580024
+    },
+    {
+      "file": "inner_balance_elm_lake.wav",
+      "rel": "08_meditation/inner_balance_elm_lake.opus",
+      "status": "ok",
+      "src_bytes": 30529540,
+      "dst_bytes": 2213354
+    },
+    {
+      "file": "kokoro_valante.wav",
+      "rel": "08_meditation/kokoro_valante.opus",
+      "status": "ok",
+      "src_bytes": 37273472,
+      "dst_bytes": 2511253
+    },
+    {
+      "file": "komorebi_shuta_yasukochi.wav",
+      "rel": "08_meditation/komorebi_shuta_yasukochi.opus",
+      "status": "ok",
+      "src_bytes": 79721292,
+      "dst_bytes": 5860799
+    },
+    {
+      "file": "lullaby_for_kilian_magnus_ludvigsson.wav",
+      "rel": "08_meditation/lullaby_for_kilian_magnus_ludvigsson.opus",
+      "status": "ok",
+      "src_bytes": 31965992,
+      "dst_bytes": 2529320
+    },
+    {
+      "file": "meditation_aquatic_369.wav",
+      "rel": "08_meditation/meditation_aquatic_369.opus",
+      "status": "ok",
+      "src_bytes": 162155216,
+      "dst_bytes": 11789346
+    },
+    {
+      "file": "mindstream_amber_glow.wav",
+      "rel": "08_meditation/mindstream_amber_glow.opus",
+      "status": "ok",
+      "src_bytes": 30033292,
+      "dst_bytes": 2107910
+    },
+    {
+      "file": "mirror_of_the_heart_bladverk_band.wav",
+      "rel": "08_meditation/mirror_of_the_heart_bladverk_band.opus",
+      "status": "ok",
+      "src_bytes": 36195188,
+      "dst_bytes": 2774365
+    },
+    {
+      "file": "murmurations_hanna_lindgren.wav",
+      "rel": "08_meditation/murmurations_hanna_lindgren.opus",
+      "status": "ok",
+      "src_bytes": 29339028,
+      "dst_bytes": 1943733
+    },
+    {
+      "file": "my_friend_the_warlock_bitwraith.wav",
+      "rel": "08_meditation/my_friend_the_warlock_bitwraith.opus",
+      "status": "ok",
+      "src_bytes": 27690308,
+      "dst_bytes": 2126703
+    },
+    {
+      "file": "namucuo_by_lotus.wav",
+      "rel": "08_meditation/namucuo_by_lotus.opus",
+      "status": "ok",
+      "src_bytes": 61802892,
+      "dst_bytes": 4148655
+    },
+    {
+      "file": "on_a_knee_the_golden_peas.wav",
+      "rel": "08_meditation/on_a_knee_the_golden_peas.opus",
+      "status": "ok",
+      "src_bytes": 27600704,
+      "dst_bytes": 1867199
+    },
+    {
+      "file": "parlemor_bomull.wav",
+      "rel": "08_meditation/parlemor_bomull.opus",
+      "status": "ok",
+      "src_bytes": 30349444,
+      "dst_bytes": 2017133
+    },
+    {
+      "file": "pillars_of_resilience_cora_zea.wav",
+      "rel": "08_meditation/pillars_of_resilience_cora_zea.opus",
+      "status": "ok",
+      "src_bytes": 30776144,
+      "dst_bytes": 2202824
+    },
+    {
+      "file": "resonance_luba_hilman.wav",
+      "rel": "08_meditation/resonance_luba_hilman.opus",
+      "status": "ok",
+      "src_bytes": 57032844,
+      "dst_bytes": 4056472
+    },
+    {
+      "file": "silver_woodlands_cora_zea.wav",
+      "rel": "08_meditation/silver_woodlands_cora_zea.opus",
+      "status": "ok",
+      "src_bytes": 42205736,
+      "dst_bytes": 3005840
+    },
+    {
+      "file": "solitude_conscience_mandala_dreams.wav",
+      "rel": "08_meditation/solitude_conscience_mandala_dreams.opus",
+      "status": "ok",
+      "src_bytes": 26407888,
+      "dst_bytes": 1910208
+    },
+    {
+      "file": "stargazing_shuta_yasukochi.wav",
+      "rel": "08_meditation/stargazing_shuta_yasukochi.opus",
+      "status": "ok",
+      "src_bytes": 34711128,
+      "dst_bytes": 2800454
+    },
+    {
+      "file": "state_of_meditation_elm_lake.wav",
+      "rel": "08_meditation/state_of_meditation_elm_lake.opus",
+      "status": "ok",
+      "src_bytes": 31543328,
+      "dst_bytes": 2287771
+    },
+    {
+      "file": "still_love_hanna_lindgren.wav",
+      "rel": "08_meditation/still_love_hanna_lindgren.opus",
+      "status": "ok",
+      "src_bytes": 54336956,
+      "dst_bytes": 3685630
+    },
+    {
+      "file": "the_hidden_realm_ruiqi_zhao.wav",
+      "rel": "08_meditation/the_hidden_realm_ruiqi_zhao.opus",
+      "status": "ok",
+      "src_bytes": 24116464,
+      "dst_bytes": 1731942
+    },
+    {
+      "file": "the_lake_at_3am_mandala_dreams.wav",
+      "rel": "08_meditation/the_lake_at_3am_mandala_dreams.opus",
+      "status": "ok",
+      "src_bytes": 59976344,
+      "dst_bytes": 4423557
+    },
+    {
+      "file": "the_water_remains_rand_aldo.wav",
+      "rel": "08_meditation/the_water_remains_rand_aldo.opus",
+      "status": "ok",
+      "src_bytes": 38148640,
+      "dst_bytes": 3042376
+    },
+    {
+      "file": "third_charm_joseph_beg.wav",
+      "rel": "08_meditation/third_charm_joseph_beg.opus",
+      "status": "ok",
+      "src_bytes": 39062448,
+      "dst_bytes": 2721148
+    },
+    {
+      "file": "to_have_you_near_anna_landstrom.wav",
+      "rel": "08_meditation/to_have_you_near_anna_landstrom.opus",
+      "status": "ok",
+      "src_bytes": 31381032,
+      "dst_bytes": 2537335
+    },
+    {
+      "file": "uninhabited_land_flouw.wav",
+      "rel": "08_meditation/uninhabited_land_flouw.opus",
+      "status": "ok",
+      "src_bytes": 16236244,
+      "dst_bytes": 1327265
+    },
+    {
+      "file": "uphill_climbing_anna_landstrom.wav",
+      "rel": "08_meditation/uphill_climbing_anna_landstrom.opus",
+      "status": "ok",
+      "src_bytes": 34759792,
+      "dst_bytes": 2791059
+    },
+    {
+      "file": "weightless_center_of_attention.wav",
+      "rel": "08_meditation/weightless_center_of_attention.opus",
+      "status": "ok",
+      "src_bytes": 28388100,
+      "dst_bytes": 1911406
+    },
+    {
+      "file": "will_you_ever_know_anna_landstrom.wav",
+      "rel": "08_meditation/will_you_ever_know_anna_landstrom.opus",
+      "status": "ok",
+      "src_bytes": 32725732,
+      "dst_bytes": 2628247
+    },
+    {
+      "file": "brown_lowpass_1000.wav",
+      "rel": "09_noise/brown_lowpass_1000.opus",
+      "status": "ok",
+      "src_bytes": 15385950,
+      "dst_bytes": 1836751
+    },
+    {
+      "file": "brown_lowpass_500.wav",
+      "rel": "09_noise/brown_lowpass_500.opus",
+      "status": "ok",
+      "src_bytes": 15385984,
+      "dst_bytes": 1750063
+    },
+    {
+      "file": "brown_pure.wav",
+      "rel": "09_noise/brown_pure.opus",
+      "status": "ok",
+      "src_bytes": 15385902,
+      "dst_bytes": 1879337
+    },
+    {
+      "file": "pink_lowpass_2000.wav",
+      "rel": "09_noise/pink_lowpass_2000.opus",
+      "status": "ok",
+      "src_bytes": 15384402,
+      "dst_bytes": 1939234
+    },
+    {
+      "file": "pink_lowpass_4000.wav",
+      "rel": "09_noise/pink_lowpass_4000.opus",
+      "status": "ok",
+      "src_bytes": 15384394,
+      "dst_bytes": 1963880
+    },
+    {
+      "file": "pink_pure.wav",
+      "rel": "09_noise/pink_pure.opus",
+      "status": "ok",
+      "src_bytes": 15384386,
+      "dst_bytes": 1925612
+    },
+    {
+      "file": "ambience_scifi_eerie_alien_planet.wav",
+      "rel": "10_ambient/ambience_scifi_eerie_alien_planet.opus",
+      "status": "ok",
+      "src_bytes": 30970448,
+      "dst_bytes": 1416335
+    },
+    {
+      "file": "ambience_underground_cave_dark_bubbles.wav",
+      "rel": "10_ambient/ambience_underground_cave_dark_bubbles.opus",
+      "status": "ok",
+      "src_bytes": 20178348,
+      "dst_bytes": 1239793
+    },
+    {
+      "file": "designed_drone_atmospheric_space_drone_tonal_rumble.wav",
+      "rel": "10_ambient/designed_drone_atmospheric_space_drone_tonal_rumble.opus",
+      "status": "ok",
+      "src_bytes": 13838268,
+      "dst_bytes": 1040601
+    },
+    {
+      "file": "designed_drone_deep_bass.wav",
+      "rel": "10_ambient/designed_drone_deep_bass.opus",
+      "status": "ok",
+      "src_bytes": 30768392,
+      "dst_bytes": 1868037
+    },
+    {
+      "file": "designed_rumble_low_sub_bass_moving_slowly.wav",
+      "rel": "10_ambient/designed_rumble_low_sub_bass_moving_slowly.opus",
+      "status": "ok",
+      "src_bytes": 19298128,
+      "dst_bytes": 1270879
+    },
+    {
+      "file": "designed_rumble_low_sub_slight_air.wav",
+      "rel": "10_ambient/designed_rumble_low_sub_slight_air.opus",
+      "status": "ok",
+      "src_bytes": 9502684,
+      "dst_bytes": 575311
+    },
+    {
+      "file": "lay_down_with_me_hanna_lindgren.wav",
+      "rel": "10_ambient/lay_down_with_me_hanna_lindgren.opus",
+      "status": "ok",
+      "src_bytes": 51835656,
+      "dst_bytes": 3507460
+    },
+    {
+      "file": "opposite_to_destruction_hanna_lindgren.wav",
+      "rel": "10_ambient/opposite_to_destruction_hanna_lindgren.opus",
+      "status": "ok",
+      "src_bytes": 60090464,
+      "dst_bytes": 4002909
+    }
+  ]
+}

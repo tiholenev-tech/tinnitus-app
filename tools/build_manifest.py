@@ -101,7 +101,7 @@ def normalize_noise(noise_id: str) -> str:
     nid = noise_id.strip().lower()
     return NOISE_ALIASES.get(nid, nid)
 
-AUDIO_EXTS = {'.wav', '.mp3', '.m4a', '.ogg', '.flac', '.aac'}
+AUDIO_EXTS = {'.wav', '.mp3', '.m4a', '.ogg', '.flac', '.aac', '.opus'}
 CATEGORY_FOLDER_PATTERN = re.compile(r'^\d{1,2}_(?P<id>[a-z][a-z0-9_]*)$')
 
 # Audio categories — folder name → display metadata

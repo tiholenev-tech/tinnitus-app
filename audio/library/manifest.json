@@ -1,18 +1,18 @@
 {
   "version": "2.0",
-  "generated": "2026-05-25T10:43:25Z",
-  "source": "library_staging_normalized",
+  "generated": "2026-05-26T20:38:16Z",
+  "source": "library_staging_compact",
   "soundCount": 256,
   "sounds": [
     {
       "id": "ambience_air_inside_bunker_sea_ambience_from_outside_02",
-      "filename": "01_ocean/ambience_air_inside_bunker_sea_ambience_from_outside_02.wav",
+      "filename": "01_ocean/ambience_air_inside_bunker_sea_ambience_from_outside_02.opus",
       "category_audio": "ocean",
       "categories_use": [
         "sleep_deep",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 352.2,
       "bg_title": "Подземен Океан",
       "title_key": "library.sounds.ambience_air_inside_bunker_sea_ambience_from_outside_02.title",
       "subtitle_key": "library.sounds.ambience_air_inside_bunker_sea_ambience_from_outside_02.subtitle",
@@ -39,13 +39,13 @@
     },
     {
       "id": "ambience_residential_abandoned_building_gentle_wind_distant_boat_engine_distant_traffic_people_pass_by_helicopter_distant_sea_athens_greece",
-      "filename": "01_ocean/ambience_residential_abandoned_building_gentle_wind_distant_boat_engine_distant_traffic_people_pass_by_helicopter_distant_sea_athens_greece.wav",
+      "filename": "01_ocean/ambience_residential_abandoned_building_gentle_wind_distant_boat_engine_distant_traffic_people_pass_by_helicopter_distant_sea_athens_greece.opus",
       "category_audio": "ocean",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 475.4,
       "bg_title": "Далечен Океан",
       "title_key": "library.sounds.ambience_residential_abandoned_building_gentle_wind_distant_boat_engine_distant_traffic_people_pass_by_helicopter_distant_sea_athens_greece.title",
       "subtitle_key": "library.sounds.ambience_residential_abandoned_building_gentle_wind_distant_boat_engine_distant_traffic_people_pass_by_helicopter_distant_sea_athens_greece.subtitle",
@@ -72,13 +72,13 @@
     },
     {
       "id": "ambience_seaside_dalian_beach_waves_people_footsteps_distant_boats_china",
-      "filename": "01_ocean/ambience_seaside_dalian_beach_waves_people_footsteps_distant_boats_china.wav",
+      "filename": "01_ocean/ambience_seaside_dalian_beach_waves_people_footsteps_distant_boats_china.opus",
       "category_audio": "ocean",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 302.7,
       "bg_title": "Далечен Вълни Бряг",
       "title_key": "library.sounds.ambience_seaside_dalian_beach_waves_people_footsteps_distant_boats_china.title",
       "subtitle_key": "library.sounds.ambience_seaside_dalian_beach_waves_people_footsteps_distant_boats_china.subtitle",
@@ -105,13 +105,13 @@
     },
     {
       "id": "ambience_underwater_sea_wave_ilo_aquatic_water_burble_waves_back_forth_microphone_blocking_feet",
-      "filename": "01_ocean/ambience_underwater_sea_wave_ilo_aquatic_water_burble_waves_back_forth_microphone_blocking_feet.wav",
+      "filename": "01_ocean/ambience_underwater_sea_wave_ilo_aquatic_water_burble_waves_back_forth_microphone_blocking_feet.opus",
       "category_audio": "ocean",
       "categories_use": [
         "sleep_deep",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 115.2,
       "bg_title": "Вълни Под вода",
       "title_key": "library.sounds.ambience_underwater_sea_wave_ilo_aquatic_water_burble_waves_back_forth_microphone_blocking_feet.title",
       "subtitle_key": "library.sounds.ambience_underwater_sea_wave_ilo_aquatic_water_burble_waves_back_forth_microphone_blocking_feet.subtitle",
@@ -138,13 +138,13 @@
     },
     {
       "id": "ambience_underwater_waves_constant_deep_hits",
-      "filename": "01_ocean/ambience_underwater_waves_constant_deep_hits.wav",
+      "filename": "01_ocean/ambience_underwater_waves_constant_deep_hits.opus",
       "category_audio": "ocean",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 113.0,
       "bg_title": "Дълбок Вълни Под вода",
       "title_key": "library.sounds.ambience_underwater_waves_constant_deep_hits.title",
       "subtitle_key": "library.sounds.ambience_underwater_waves_constant_deep_hits.subtitle",
@@ -171,13 +171,13 @@
     },
     {
       "id": "ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_01",
-      "filename": "01_ocean/ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_01.wav",
+      "filename": "01_ocean/ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_01.opus",
       "category_audio": "ocean",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 294.5,
       "bg_title": "Далечен Вълни Океан",
       "title_key": "library.sounds.ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_01.title",
       "subtitle_key": "library.sounds.ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_01.subtitle",
@@ -204,13 +204,13 @@
     },
     {
       "id": "ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_02",
-      "filename": "01_ocean/ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_02.wav",
+      "filename": "01_ocean/ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_02.opus",
       "category_audio": "ocean",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 337.5,
       "bg_title": "Далечен Вълни Океан",
       "title_key": "library.sounds.ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_02.title",
       "subtitle_key": "library.sounds.ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_02.subtitle",
@@ -237,13 +237,13 @@
     },
     {
       "id": "ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_03",
-      "filename": "01_ocean/ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_03.wav",
+      "filename": "01_ocean/ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_03.opus",
       "category_audio": "ocean",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 293.7,
       "bg_title": "Далечен Вълни Океан",
       "title_key": "library.sounds.ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_03.title",
       "subtitle_key": "library.sounds.ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_03.subtitle",
@@ -270,13 +270,13 @@
     },
     {
       "id": "birds_sea_seagulls_distant_several_gentle_waves_02",
-      "filename": "01_ocean/birds_sea_seagulls_distant_several_gentle_waves_02.wav",
+      "filename": "01_ocean/birds_sea_seagulls_distant_several_gentle_waves_02.opus",
       "category_audio": "ocean",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 122.7,
       "bg_title": "Далечен Птици Океан",
       "title_key": "library.sounds.birds_sea_seagulls_distant_several_gentle_waves_02.title",
       "subtitle_key": "library.sounds.birds_sea_seagulls_distant_several_gentle_waves_02.subtitle",
@@ -303,13 +303,13 @@
     },
     {
       "id": "genetic_waves_joseph_beg",
-      "filename": "01_ocean/genetic_waves_joseph_beg.wav",
+      "filename": "01_ocean/genetic_waves_joseph_beg.opus",
       "category_audio": "ocean",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 353.9,
       "bg_title": "Вълни Океан",
       "title_key": "library.sounds.genetic_waves_joseph_beg.title",
       "subtitle_key": "library.sounds.genetic_waves_joseph_beg.subtitle",
@@ -336,14 +336,14 @@
     },
     {
       "id": "ocean_meditation_joseph_beg",
-      "filename": "01_ocean/ocean_meditation_joseph_beg.wav",
+      "filename": "01_ocean/ocean_meditation_joseph_beg.opus",
       "category_audio": "ocean",
       "categories_use": [
         "meditation",
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 285.1,
       "bg_title": "Океан",
       "title_key": "library.sounds.ocean_meditation_joseph_beg.title",
       "subtitle_key": "library.sounds.ocean_meditation_joseph_beg.subtitle",
@@ -370,13 +370,13 @@
     },
     {
       "id": "water_lap_waves_splashing_against_boat_large_hitting_sea_02",
-      "filename": "01_ocean/water_lap_waves_splashing_against_boat_large_hitting_sea_02.wav",
+      "filename": "01_ocean/water_lap_waves_splashing_against_boat_large_hitting_sea_02.opus",
       "category_audio": "ocean",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 130.4,
       "bg_title": "Вълни Океан",
       "title_key": "library.sounds.water_lap_waves_splashing_against_boat_large_hitting_sea_02.title",
       "subtitle_key": "library.sounds.water_lap_waves_splashing_against_boat_large_hitting_sea_02.subtitle",
@@ -403,14 +403,14 @@
     },
     {
       "id": "water_lap_waves_water_lapping_seafront_sea_close",
-      "filename": "01_ocean/water_lap_waves_water_lapping_seafront_sea_close.wav",
+      "filename": "01_ocean/water_lap_waves_water_lapping_seafront_sea_close.opus",
       "category_audio": "ocean",
       "categories_use": [
         "relaxation",
         "falling_asleep",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 82.8,
       "bg_title": "Вълни Океан",
       "title_key": "library.sounds.water_lap_waves_water_lapping_seafront_sea_close.title",
       "subtitle_key": "library.sounds.water_lap_waves_water_lapping_seafront_sea_close.subtitle",
@@ -437,14 +437,14 @@
     },
     {
       "id": "water_lap_waves_water_lapping_seafront_sea_semi_close",
-      "filename": "01_ocean/water_lap_waves_water_lapping_seafront_sea_semi_close.wav",
+      "filename": "01_ocean/water_lap_waves_water_lapping_seafront_sea_semi_close.opus",
       "category_audio": "ocean",
       "categories_use": [
         "falling_asleep",
         "relaxation",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 131.2,
       "bg_title": "Вълни Океан",
       "title_key": "library.sounds.water_lap_waves_water_lapping_seafront_sea_semi_close.title",
       "subtitle_key": "library.sounds.water_lap_waves_water_lapping_seafront_sea_semi_close.subtitle",
@@ -471,13 +471,13 @@
     },
     {
       "id": "water_surf_beach_ocean_waves_sand_wind",
-      "filename": "01_ocean/water_surf_beach_ocean_waves_sand_wind.wav",
+      "filename": "01_ocean/water_surf_beach_ocean_waves_sand_wind.opus",
       "category_audio": "ocean",
       "categories_use": [
         "relaxation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 122.2,
       "bg_title": "Вълни Бряг",
       "title_key": "library.sounds.water_surf_beach_ocean_waves_sand_wind.title",
       "subtitle_key": "library.sounds.water_surf_beach_ocean_waves_sand_wind.subtitle",
@@ -504,13 +504,13 @@
     },
     {
       "id": "water_surf_beach_waves_coming_in_occasional_birds_atlantic_ocean_caribbean_sea",
-      "filename": "01_ocean/water_surf_beach_waves_coming_in_occasional_birds_atlantic_ocean_caribbean_sea.wav",
+      "filename": "01_ocean/water_surf_beach_waves_coming_in_occasional_birds_atlantic_ocean_caribbean_sea.opus",
       "category_audio": "ocean",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 212.4,
       "bg_title": "Птици Бряг",
       "title_key": "library.sounds.water_surf_beach_waves_coming_in_occasional_birds_atlantic_ocean_caribbean_sea.title",
       "subtitle_key": "library.sounds.water_surf_beach_waves_coming_in_occasional_birds_atlantic_ocean_caribbean_sea.subtitle",
@@ -537,14 +537,14 @@
     },
     {
       "id": "water_surf_distant_calm_sea_waves_few_distant_birds",
-      "filename": "01_ocean/water_surf_distant_calm_sea_waves_few_distant_birds.wav",
+      "filename": "01_ocean/water_surf_distant_calm_sea_waves_few_distant_birds.opus",
       "category_audio": "ocean",
       "categories_use": [
         "sleep_deep",
         "falling_asleep",
         "anxiety"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.0,
       "bg_title": "Далечен Птици Океан",
       "title_key": "library.sounds.water_surf_distant_calm_sea_waves_few_distant_birds.title",
       "subtitle_key": "library.sounds.water_surf_distant_calm_sea_waves_few_distant_birds.subtitle",
@@ -571,10 +571,10 @@
     },
     {
       "id": "water_surf_ocean_sea_big_waves_breaking_against_dyke_breakwater_strong_weather_02_30",
-      "filename": "01_ocean/water_surf_ocean_sea_big_waves_breaking_against_dyke_breakwater_strong_weather_02_30.wav",
+      "filename": "01_ocean/water_surf_ocean_sea_big_waves_breaking_against_dyke_breakwater_strong_weather_02_30.opus",
       "category_audio": "ocean",
       "categories_use": [],
-      "duration_sec": 0.0,
+      "duration_sec": 139.8,
       "bg_title": "Силен Вълни Океан",
       "title_key": "library.sounds.water_surf_ocean_sea_big_waves_breaking_against_dyke_breakwater_strong_weather_02_30.title",
       "subtitle_key": "library.sounds.water_surf_ocean_sea_big_waves_breaking_against_dyke_breakwater_strong_weather_02_30.subtitle",
@@ -592,13 +592,13 @@
     },
     {
       "id": "water_surf_water_ocean_seashore_waves_roar_distant_llandudno_cape_town_south_africa",
-      "filename": "01_ocean/water_surf_water_ocean_seashore_waves_roar_distant_llandudno_cape_town_south_africa.wav",
+      "filename": "01_ocean/water_surf_water_ocean_seashore_waves_roar_distant_llandudno_cape_town_south_africa.opus",
       "category_audio": "ocean",
       "categories_use": [
         "relaxation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 332.9,
       "bg_title": "Далечен Вълни Океан",
       "title_key": "library.sounds.water_surf_water_ocean_seashore_waves_roar_distant_llandudno_cape_town_south_africa.title",
       "subtitle_key": "library.sounds.water_surf_water_ocean_seashore_waves_roar_distant_llandudno_cape_town_south_africa.subtitle",
@@ -625,10 +625,10 @@
     },
     {
       "id": "water_surf_water_sea_waves_choppy_italy_grado_01",
-      "filename": "01_ocean/water_surf_water_sea_waves_choppy_italy_grado_01.wav",
+      "filename": "01_ocean/water_surf_water_sea_waves_choppy_italy_grado_01.opus",
       "category_audio": "ocean",
       "categories_use": [],
-      "duration_sec": 0.0,
+      "duration_sec": 144.3,
       "bg_title": "Вълни Океан",
       "title_key": "library.sounds.water_surf_water_sea_waves_choppy_italy_grado_01.title",
       "subtitle_key": "library.sounds.water_surf_water_sea_waves_choppy_italy_grado_01.subtitle",
@@ -646,10 +646,10 @@
     },
     {
       "id": "water_surf_water_sea_waves_choppy_italy_grado_02",
-      "filename": "01_ocean/water_surf_water_sea_waves_choppy_italy_grado_02.wav",
+      "filename": "01_ocean/water_surf_water_sea_waves_choppy_italy_grado_02.opus",
       "category_audio": "ocean",
       "categories_use": [],
-      "duration_sec": 0.0,
+      "duration_sec": 108.6,
       "bg_title": "Вълни Океан",
       "title_key": "library.sounds.water_surf_water_sea_waves_choppy_italy_grado_02.title",
       "subtitle_key": "library.sounds.water_surf_water_sea_waves_choppy_italy_grado_02.subtitle",
@@ -667,10 +667,10 @@
     },
     {
       "id": "water_surf_water_waves_rough_sea_01",
-      "filename": "01_ocean/water_surf_water_waves_rough_sea_01.wav",
+      "filename": "01_ocean/water_surf_water_waves_rough_sea_01.opus",
       "category_audio": "ocean",
       "categories_use": [],
-      "duration_sec": 0.0,
+      "duration_sec": 174.3,
       "bg_title": "Вълни Океан",
       "title_key": "library.sounds.water_surf_water_waves_rough_sea_01.title",
       "subtitle_key": "library.sounds.water_surf_water_waves_rough_sea_01.subtitle",
@@ -688,10 +688,10 @@
     },
     {
       "id": "water_surf_water_waves_rough_sea_02",
-      "filename": "01_ocean/water_surf_water_waves_rough_sea_02.wav",
+      "filename": "01_ocean/water_surf_water_waves_rough_sea_02.opus",
       "category_audio": "ocean",
       "categories_use": [],
-      "duration_sec": 0.0,
+      "duration_sec": 174.1,
       "bg_title": "Вълни Океан",
       "title_key": "library.sounds.water_surf_water_waves_rough_sea_02.title",
       "subtitle_key": "library.sounds.water_surf_water_waves_rough_sea_02.subtitle",
@@ -709,13 +709,13 @@
     },
     {
       "id": "water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta",
-      "filename": "01_ocean/water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta.wav",
+      "filename": "01_ocean/water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta.opus",
       "category_audio": "ocean",
       "categories_use": [
         "falling_asleep",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 326.8,
       "bg_title": "Спокоен Вълни Океан",
       "title_key": "library.sounds.water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta.title",
       "subtitle_key": "library.sounds.water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta.subtitle",
@@ -742,13 +742,13 @@
     },
     {
       "id": "water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta_01",
-      "filename": "01_ocean/water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta_01.wav",
+      "filename": "01_ocean/water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta_01.opus",
       "category_audio": "ocean",
       "categories_use": [
         "falling_asleep",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 314.3,
       "bg_title": "Спокоен Вълни Океан",
       "title_key": "library.sounds.water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta_01.title",
       "subtitle_key": "library.sounds.water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta_01.subtitle",
@@ -775,13 +775,13 @@
     },
     {
       "id": "water_surf_waves_ocean_distant_on_beach_distant_boat_motor_03",
-      "filename": "01_ocean/water_surf_waves_ocean_distant_on_beach_distant_boat_motor_03.wav",
+      "filename": "01_ocean/water_surf_waves_ocean_distant_on_beach_distant_boat_motor_03.opus",
       "category_audio": "ocean",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 84.5,
       "bg_title": "Далечен Вълни Бряг",
       "title_key": "library.sounds.water_surf_waves_ocean_distant_on_beach_distant_boat_motor_03.title",
       "subtitle_key": "library.sounds.water_surf_waves_ocean_distant_on_beach_distant_boat_motor_03.subtitle",
@@ -808,13 +808,13 @@
     },
     {
       "id": "water_underwater_deep_sea_bubbles_muffled_big_02",
-      "filename": "01_ocean/water_underwater_deep_sea_bubbles_muffled_big_02.wav",
+      "filename": "01_ocean/water_underwater_deep_sea_bubbles_muffled_big_02.opus",
       "category_audio": "ocean",
       "categories_use": [
         "sleep_deep",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 66.5,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.water_underwater_deep_sea_bubbles_muffled_big_02.title",
       "subtitle_key": "library.sounds.water_underwater_deep_sea_bubbles_muffled_big_02.subtitle",
@@ -841,14 +841,14 @@
     },
     {
       "id": "water_underwater_ocean_bubbles_water_movement_lapping_argentina_02",
-      "filename": "01_ocean/water_underwater_ocean_bubbles_water_movement_lapping_argentina_02.wav",
+      "filename": "01_ocean/water_underwater_ocean_bubbles_water_movement_lapping_argentina_02.opus",
       "category_audio": "ocean",
       "categories_use": [
         "relaxation",
         "meditation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 113.2,
       "bg_title": "Под вода",
       "title_key": "library.sounds.water_underwater_ocean_bubbles_water_movement_lapping_argentina_02.title",
       "subtitle_key": "library.sounds.water_underwater_ocean_bubbles_water_movement_lapping_argentina_02.subtitle",
@@ -875,13 +875,13 @@
     },
     {
       "id": "water_wave_ocean_beach_waves_medium_lapping",
-      "filename": "01_ocean/water_wave_ocean_beach_waves_medium_lapping.wav",
+      "filename": "01_ocean/water_wave_ocean_beach_waves_medium_lapping.opus",
       "category_audio": "ocean",
       "categories_use": [
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 82.6,
       "bg_title": "Вълни Бряг",
       "title_key": "library.sounds.water_wave_ocean_beach_waves_medium_lapping.title",
       "subtitle_key": "library.sounds.water_wave_ocean_beach_waves_medium_lapping.subtitle",
@@ -908,13 +908,13 @@
     },
     {
       "id": "water_wave_ocean_medium_waves_coming_in_close_03",
-      "filename": "01_ocean/water_wave_ocean_medium_waves_coming_in_close_03.wav",
+      "filename": "01_ocean/water_wave_ocean_medium_waves_coming_in_close_03.opus",
       "category_audio": "ocean",
       "categories_use": [
         "relaxation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 77.4,
       "bg_title": "Вълни Океан",
       "title_key": "library.sounds.water_wave_ocean_medium_waves_coming_in_close_03.title",
       "subtitle_key": "library.sounds.water_wave_ocean_medium_waves_coming_in_close_03.subtitle",
@@ -941,14 +941,14 @@
     },
     {
       "id": "water_wave_ocean_wave_swells",
-      "filename": "01_ocean/water_wave_ocean_wave_swells.wav",
+      "filename": "01_ocean/water_wave_ocean_wave_swells.opus",
       "category_audio": "ocean",
       "categories_use": [
         "meditation",
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 62.2,
       "bg_title": "Вълни Океан",
       "title_key": "library.sounds.water_wave_ocean_wave_swells.title",
       "subtitle_key": "library.sounds.water_wave_ocean_wave_swells.subtitle",
@@ -975,13 +975,13 @@
     },
     {
       "id": "water_wave_ocean_waves_medium_on_stone_sea_wall_boats_harbor_in_background",
-      "filename": "01_ocean/water_wave_ocean_waves_medium_on_stone_sea_wall_boats_harbor_in_background.wav",
+      "filename": "01_ocean/water_wave_ocean_waves_medium_on_stone_sea_wall_boats_harbor_in_background.opus",
       "category_audio": "ocean",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 54.8,
       "bg_title": "Вълни Океан",
       "title_key": "library.sounds.water_wave_ocean_waves_medium_on_stone_sea_wall_boats_harbor_in_background.title",
       "subtitle_key": "library.sounds.water_wave_ocean_waves_medium_on_stone_sea_wall_boats_harbor_in_background.subtitle",
@@ -1008,13 +1008,13 @@
     },
     {
       "id": "water_wave_ocean_waves_on_shore_beach_medium_distant",
-      "filename": "01_ocean/water_wave_ocean_waves_on_shore_beach_medium_distant.wav",
+      "filename": "01_ocean/water_wave_ocean_waves_on_shore_beach_medium_distant.opus",
       "category_audio": "ocean",
       "categories_use": [
         "falling_asleep",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 84.5,
       "bg_title": "Далечен Вълни Бряг",
       "title_key": "library.sounds.water_wave_ocean_waves_on_shore_beach_medium_distant.title",
       "subtitle_key": "library.sounds.water_wave_ocean_waves_on_shore_beach_medium_distant.subtitle",
@@ -1041,13 +1041,13 @@
     },
     {
       "id": "water_wave_sea_beach_cove_100m_away_distance_moderate_waves_distant_plane_birds",
-      "filename": "01_ocean/water_wave_sea_beach_cove_100m_away_distance_moderate_waves_distant_plane_birds.wav",
+      "filename": "01_ocean/water_wave_sea_beach_cove_100m_away_distance_moderate_waves_distant_plane_birds.opus",
       "category_audio": "ocean",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 167.9,
       "bg_title": "Далечен Птици Бряг",
       "title_key": "library.sounds.water_wave_sea_beach_cove_100m_away_distance_moderate_waves_distant_plane_birds.title",
       "subtitle_key": "library.sounds.water_wave_sea_beach_cove_100m_away_distance_moderate_waves_distant_plane_birds.subtitle",
@@ -1074,13 +1074,13 @@
     },
     {
       "id": "water_wave_sea_beach_cove_50m_distance_moderate_waves_ms",
-      "filename": "01_ocean/water_wave_sea_beach_cove_50m_distance_moderate_waves_ms.wav",
+      "filename": "01_ocean/water_wave_sea_beach_cove_50m_distance_moderate_waves_ms.opus",
       "category_audio": "ocean",
       "categories_use": [
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 108.7,
       "bg_title": "Вълни Бряг",
       "title_key": "library.sounds.water_wave_sea_beach_cove_50m_distance_moderate_waves_ms.title",
       "subtitle_key": "library.sounds.water_wave_sea_beach_cove_50m_distance_moderate_waves_ms.subtitle",
@@ -1107,13 +1107,13 @@
     },
     {
       "id": "water_wave_sea_light_wind_waves_intensifies",
-      "filename": "01_ocean/water_wave_sea_light_wind_waves_intensifies.wav",
+      "filename": "01_ocean/water_wave_sea_light_wind_waves_intensifies.opus",
       "category_audio": "ocean",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 121.8,
       "bg_title": "Лек Вълни Океан",
       "title_key": "library.sounds.water_wave_sea_light_wind_waves_intensifies.title",
       "subtitle_key": "library.sounds.water_wave_sea_light_wind_waves_intensifies.subtitle",
@@ -1140,13 +1140,13 @@
     },
     {
       "id": "water_wave_sea_water_very_gentle_waves",
-      "filename": "01_ocean/water_wave_sea_water_very_gentle_waves.wav",
+      "filename": "01_ocean/water_wave_sea_water_very_gentle_waves.opus",
       "category_audio": "ocean",
       "categories_use": [
         "sleep_deep",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 197.5,
       "bg_title": "Лек Вълни Океан",
       "title_key": "library.sounds.water_wave_sea_water_very_gentle_waves.title",
       "subtitle_key": "library.sounds.water_wave_sea_water_very_gentle_waves.subtitle",
@@ -1173,13 +1173,13 @@
     },
     {
       "id": "water_wave_waves_sea_beach_punta_allen_sian_ka_an_biosphere_reserve_mexico",
-      "filename": "01_ocean/water_wave_waves_sea_beach_punta_allen_sian_ka_an_biosphere_reserve_mexico.wav",
+      "filename": "01_ocean/water_wave_waves_sea_beach_punta_allen_sian_ka_an_biosphere_reserve_mexico.opus",
       "category_audio": "ocean",
       "categories_use": [
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.8,
       "bg_title": "Вълни Бряг",
       "title_key": "library.sounds.water_wave_waves_sea_beach_punta_allen_sian_ka_an_biosphere_reserve_mexico.title",
       "subtitle_key": "library.sounds.water_wave_waves_sea_beach_punta_allen_sian_ka_an_biosphere_reserve_mexico.subtitle",
@@ -1206,7 +1206,7 @@
     },
     {
       "id": "wind_general_calm_mountain_sea_distant_waves_01",
-      "filename": "01_ocean/wind_general_calm_mountain_sea_distant_waves_01.wav",
+      "filename": "01_ocean/wind_general_calm_mountain_sea_distant_waves_01.opus",
       "category_audio": "ocean",
       "categories_use": [
         "sleep_deep",
@@ -1214,7 +1214,7 @@
         "meditation",
         "anxiety"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 79.5,
       "bg_title": "Далечен Вълни Океан",
       "title_key": "library.sounds.wind_general_calm_mountain_sea_distant_waves_01.title",
       "subtitle_key": "library.sounds.wind_general_calm_mountain_sea_distant_waves_01.subtitle",
@@ -1241,14 +1241,14 @@
     },
     {
       "id": "wind_general_calm_mountain_sea_distant_waves_02",
-      "filename": "01_ocean/wind_general_calm_mountain_sea_distant_waves_02.wav",
+      "filename": "01_ocean/wind_general_calm_mountain_sea_distant_waves_02.opus",
       "category_audio": "ocean",
       "categories_use": [
         "sleep_deep",
         "falling_asleep",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 131.1,
       "bg_title": "Далечен Вълни Океан",
       "title_key": "library.sounds.wind_general_calm_mountain_sea_distant_waves_02.title",
       "subtitle_key": "library.sounds.wind_general_calm_mountain_sea_distant_waves_02.subtitle",
@@ -1275,14 +1275,14 @@
     },
     {
       "id": "wind_general_calm_mountain_sea_distant_waves_03",
-      "filename": "01_ocean/wind_general_calm_mountain_sea_distant_waves_03.wav",
+      "filename": "01_ocean/wind_general_calm_mountain_sea_distant_waves_03.opus",
       "category_audio": "ocean",
       "categories_use": [
         "sleep_deep",
         "falling_asleep",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 79.8,
       "bg_title": "Далечен Вълни Океан",
       "title_key": "library.sounds.wind_general_calm_mountain_sea_distant_waves_03.title",
       "subtitle_key": "library.sounds.wind_general_calm_mountain_sea_distant_waves_03.subtitle",
@@ -1309,13 +1309,13 @@
     },
     {
       "id": "ambience_forest_ukraine_morning_birds_nature_trees_calm_breeze_wildlife",
-      "filename": "02_rain/ambience_forest_ukraine_morning_birds_nature_trees_calm_breeze_wildlife.wav",
+      "filename": "02_rain/ambience_forest_ukraine_morning_birds_nature_trees_calm_breeze_wildlife.opus",
       "category_audio": "rain",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 75.9,
       "bg_title": "Спокоен Птици Дъжд",
       "title_key": "library.sounds.ambience_forest_ukraine_morning_birds_nature_trees_calm_breeze_wildlife.title",
       "subtitle_key": "library.sounds.ambience_forest_ukraine_morning_birds_nature_trees_calm_breeze_wildlife.subtitle",
@@ -1342,13 +1342,13 @@
     },
     {
       "id": "ambience_swamp_wetland_after_rain_water_dripping_humid_distant_fowl",
-      "filename": "02_rain/ambience_swamp_wetland_after_rain_water_dripping_humid_distant_fowl.wav",
+      "filename": "02_rain/ambience_swamp_wetland_after_rain_water_dripping_humid_distant_fowl.opus",
       "category_audio": "rain",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 180.2,
       "bg_title": "Далечен Дъжд",
       "title_key": "library.sounds.ambience_swamp_wetland_after_rain_water_dripping_humid_distant_fowl.title",
       "subtitle_key": "library.sounds.ambience_swamp_wetland_after_rain_water_dripping_humid_distant_fowl.subtitle",
@@ -1375,13 +1375,13 @@
     },
     {
       "id": "ambience_tropical_rain_texture_medium",
-      "filename": "02_rain/ambience_tropical_rain_texture_medium.wav",
+      "filename": "02_rain/ambience_tropical_rain_texture_medium.opus",
       "category_audio": "rain",
       "categories_use": [
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 54.4,
       "bg_title": "Дъжд",
       "title_key": "library.sounds.ambience_tropical_rain_texture_medium.title",
       "subtitle_key": "library.sounds.ambience_tropical_rain_texture_medium.subtitle",
@@ -1408,14 +1408,14 @@
     },
     {
       "id": "ambience_underwater_grainy_bubbles_small_deep_fizz",
-      "filename": "02_rain/ambience_underwater_grainy_bubbles_small_deep_fizz.wav",
+      "filename": "02_rain/ambience_underwater_grainy_bubbles_small_deep_fizz.opus",
       "category_audio": "rain",
       "categories_use": [
         "meditation",
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 113.3,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.ambience_underwater_grainy_bubbles_small_deep_fizz.title",
       "subtitle_key": "library.sounds.ambience_underwater_grainy_bubbles_small_deep_fizz.subtitle",
@@ -1442,13 +1442,13 @@
     },
     {
       "id": "rain_attic_01",
-      "filename": "02_rain/rain_attic_01.wav",
+      "filename": "02_rain/rain_attic_01.opus",
       "category_audio": "rain",
       "categories_use": [
         "sleep_deep",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 137.8,
       "bg_title": "Дъжд",
       "title_key": "library.sounds.rain_attic_01.title",
       "subtitle_key": "library.sounds.rain_attic_01.subtitle",
@@ -1475,13 +1475,13 @@
     },
     {
       "id": "rain_cloth_raining_umbrella_01",
-      "filename": "02_rain/rain_cloth_raining_umbrella_01.wav",
+      "filename": "02_rain/rain_cloth_raining_umbrella_01.opus",
       "category_audio": "rain",
       "categories_use": [
         "falling_asleep",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 134.4,
       "bg_title": "Дъжд",
       "title_key": "library.sounds.rain_cloth_raining_umbrella_01.title",
       "subtitle_key": "library.sounds.rain_cloth_raining_umbrella_01.subtitle",
@@ -1508,13 +1508,13 @@
     },
     {
       "id": "rain_concrete_city_rain_soft_residential_neighborhood_night_car_pass_by_wet_roads_side_streets_02",
-      "filename": "02_rain/rain_concrete_city_rain_soft_residential_neighborhood_night_car_pass_by_wet_roads_side_streets_02.wav",
+      "filename": "02_rain/rain_concrete_city_rain_soft_residential_neighborhood_night_car_pass_by_wet_roads_side_streets_02.opus",
       "category_audio": "rain",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 250.7,
       "bg_title": "Лек Нощен Дъжд",
       "title_key": "library.sounds.rain_concrete_city_rain_soft_residential_neighborhood_night_car_pass_by_wet_roads_side_streets_02.title",
       "subtitle_key": "library.sounds.rain_concrete_city_rain_soft_residential_neighborhood_night_car_pass_by_wet_roads_side_streets_02.subtitle",
@@ -1541,13 +1541,13 @@
     },
     {
       "id": "rain_general_medium_drip_details_night_wide",
-      "filename": "02_rain/rain_general_medium_drip_details_night_wide.wav",
+      "filename": "02_rain/rain_general_medium_drip_details_night_wide.opus",
       "category_audio": "rain",
       "categories_use": [
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 112.6,
       "bg_title": "Нощен Дъжд",
       "title_key": "library.sounds.rain_general_medium_drip_details_night_wide.title",
       "subtitle_key": "library.sounds.rain_general_medium_drip_details_night_wide.subtitle",
@@ -1574,13 +1574,13 @@
     },
     {
       "id": "rain_glass_rain_car_window_perspective_medium_01",
-      "filename": "02_rain/rain_glass_rain_car_window_perspective_medium_01.wav",
+      "filename": "02_rain/rain_glass_rain_car_window_perspective_medium_01.opus",
       "category_audio": "rain",
       "categories_use": [
         "falling_asleep",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.6,
       "bg_title": "Дъжд",
       "title_key": "library.sounds.rain_glass_rain_car_window_perspective_medium_01.title",
       "subtitle_key": "library.sounds.rain_glass_rain_car_window_perspective_medium_01.subtitle",
@@ -1607,14 +1607,14 @@
     },
     {
       "id": "rain_glass_window_roof_location_2_medium_room_loft_roof_window",
-      "filename": "02_rain/rain_glass_window_roof_location_2_medium_room_loft_roof_window.wav",
+      "filename": "02_rain/rain_glass_window_roof_location_2_medium_room_loft_roof_window.opus",
       "category_audio": "rain",
       "categories_use": [
         "sleep_deep",
         "falling_asleep",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 115.2,
       "bg_title": "Дъжд",
       "title_key": "library.sounds.rain_glass_window_roof_location_2_medium_room_loft_roof_window.title",
       "subtitle_key": "library.sounds.rain_glass_window_roof_location_2_medium_room_loft_roof_window.subtitle",
@@ -1641,13 +1641,13 @@
     },
     {
       "id": "rain_interior_rain_medium_drops_drumming_clunking",
-      "filename": "02_rain/rain_interior_rain_medium_drops_drumming_clunking.wav",
+      "filename": "02_rain/rain_interior_rain_medium_drops_drumming_clunking.opus",
       "category_audio": "rain",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.6,
       "bg_title": "Дъжд",
       "title_key": "library.sounds.rain_interior_rain_medium_drops_drumming_clunking.title",
       "subtitle_key": "library.sounds.rain_interior_rain_medium_drops_drumming_clunking.subtitle",
@@ -1674,14 +1674,14 @@
     },
     {
       "id": "rain_interior_rain_medium_inside_car",
-      "filename": "02_rain/rain_interior_rain_medium_inside_car.wav",
+      "filename": "02_rain/rain_interior_rain_medium_inside_car.opus",
       "category_audio": "rain",
       "categories_use": [
         "sleep_deep",
         "falling_asleep",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 71.7,
       "bg_title": "Дъжд",
       "title_key": "library.sounds.rain_interior_rain_medium_inside_car.title",
       "subtitle_key": "library.sounds.rain_interior_rain_medium_inside_car.subtitle",
@@ -1708,13 +1708,13 @@
     },
     {
       "id": "rain_interior_rain_on_window_house_apartment_room_tone_light_rain",
-      "filename": "02_rain/rain_interior_rain_on_window_house_apartment_room_tone_light_rain.wav",
+      "filename": "02_rain/rain_interior_rain_on_window_house_apartment_room_tone_light_rain.opus",
       "category_audio": "rain",
       "categories_use": [
         "sleep_deep",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 188.2,
       "bg_title": "Лек Дъжд",
       "title_key": "library.sounds.rain_interior_rain_on_window_house_apartment_room_tone_light_rain.title",
       "subtitle_key": "library.sounds.rain_interior_rain_on_window_house_apartment_room_tone_light_rain.subtitle",
@@ -1741,13 +1741,13 @@
     },
     {
       "id": "rain_plastic_medium_outside_plastic_window",
-      "filename": "02_rain/rain_plastic_medium_outside_plastic_window.wav",
+      "filename": "02_rain/rain_plastic_medium_outside_plastic_window.opus",
       "category_audio": "rain",
       "categories_use": [
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 114.4,
       "bg_title": "Дъжд",
       "title_key": "library.sounds.rain_plastic_medium_outside_plastic_window.title",
       "subtitle_key": "library.sounds.rain_plastic_medium_outside_plastic_window.subtitle",
@@ -1774,13 +1774,13 @@
     },
     {
       "id": "rain_plastic_medium_to_light_outside_plastic_window",
-      "filename": "02_rain/rain_plastic_medium_to_light_outside_plastic_window.wav",
+      "filename": "02_rain/rain_plastic_medium_to_light_outside_plastic_window.opus",
       "category_audio": "rain",
       "categories_use": [
         "sleep_deep",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 155.9,
       "bg_title": "Лек Дъжд",
       "title_key": "library.sounds.rain_plastic_medium_to_light_outside_plastic_window.title",
       "subtitle_key": "library.sounds.rain_plastic_medium_to_light_outside_plastic_window.subtitle",
@@ -1807,13 +1807,13 @@
     },
     {
       "id": "rain_plastic_medium_to_light_under_plastic_roof_01",
-      "filename": "02_rain/rain_plastic_medium_to_light_under_plastic_roof_01.wav",
+      "filename": "02_rain/rain_plastic_medium_to_light_under_plastic_roof_01.opus",
       "category_audio": "rain",
       "categories_use": [
         "sleep_deep",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 144.4,
       "bg_title": "Лек Дъжд",
       "title_key": "library.sounds.rain_plastic_medium_to_light_under_plastic_roof_01.title",
       "subtitle_key": "library.sounds.rain_plastic_medium_to_light_under_plastic_roof_01.subtitle",
@@ -1840,13 +1840,13 @@
     },
     {
       "id": "rain_plastic_medium_to_light_under_plastic_roof_02",
-      "filename": "02_rain/rain_plastic_medium_to_light_under_plastic_roof_02.wav",
+      "filename": "02_rain/rain_plastic_medium_to_light_under_plastic_roof_02.opus",
       "category_audio": "rain",
       "categories_use": [
         "sleep_deep",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 144.4,
       "bg_title": "Лек Дъжд",
       "title_key": "library.sounds.rain_plastic_medium_to_light_under_plastic_roof_02.title",
       "subtitle_key": "library.sounds.rain_plastic_medium_to_light_under_plastic_roof_02.subtitle",
@@ -1873,13 +1873,13 @@
     },
     {
       "id": "rain_plastic_on_plastic_umbrella_medium_intensity_dense_dripping",
-      "filename": "02_rain/rain_plastic_on_plastic_umbrella_medium_intensity_dense_dripping.wav",
+      "filename": "02_rain/rain_plastic_on_plastic_umbrella_medium_intensity_dense_dripping.opus",
       "category_audio": "rain",
       "categories_use": [
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 94.3,
       "bg_title": "Дъжд",
       "title_key": "library.sounds.rain_plastic_on_plastic_umbrella_medium_intensity_dense_dripping.title",
       "subtitle_key": "library.sounds.rain_plastic_on_plastic_umbrella_medium_intensity_dense_dripping.subtitle",
@@ -1906,13 +1906,13 @@
     },
     {
       "id": "rain_plastic_plastic_buckets_multiple_drops_medium_busy_01",
-      "filename": "02_rain/rain_plastic_plastic_buckets_multiple_drops_medium_busy_01.wav",
+      "filename": "02_rain/rain_plastic_plastic_buckets_multiple_drops_medium_busy_01.opus",
       "category_audio": "rain",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 88.3,
       "bg_title": "Дъжд",
       "title_key": "library.sounds.rain_plastic_plastic_buckets_multiple_drops_medium_busy_01.title",
       "subtitle_key": "library.sounds.rain_plastic_plastic_buckets_multiple_drops_medium_busy_01.subtitle",
@@ -1939,13 +1939,13 @@
     },
     {
       "id": "rain_plastic_plastic_buckets_multiple_drops_medium_busy_02",
-      "filename": "02_rain/rain_plastic_plastic_buckets_multiple_drops_medium_busy_02.wav",
+      "filename": "02_rain/rain_plastic_plastic_buckets_multiple_drops_medium_busy_02.opus",
       "category_audio": "rain",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 69.2,
       "bg_title": "Дъжд",
       "title_key": "library.sounds.rain_plastic_plastic_buckets_multiple_drops_medium_busy_02.title",
       "subtitle_key": "library.sounds.rain_plastic_plastic_buckets_multiple_drops_medium_busy_02.subtitle",
@@ -1972,13 +1972,13 @@
     },
     {
       "id": "rain_vegetation_medium_leaves_drop_tropical_jungle",
-      "filename": "02_rain/rain_vegetation_medium_leaves_drop_tropical_jungle.wav",
+      "filename": "02_rain/rain_vegetation_medium_leaves_drop_tropical_jungle.opus",
       "category_audio": "rain",
       "categories_use": [
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 84.4,
       "bg_title": "Листа Дъжд",
       "title_key": "library.sounds.rain_vegetation_medium_leaves_drop_tropical_jungle.title",
       "subtitle_key": "library.sounds.rain_vegetation_medium_leaves_drop_tropical_jungle.subtitle",
@@ -2005,13 +2005,13 @@
     },
     {
       "id": "rain_wood_rain_front_porch_rain_on_door_medium",
-      "filename": "02_rain/rain_wood_rain_front_porch_rain_on_door_medium.wav",
+      "filename": "02_rain/rain_wood_rain_front_porch_rain_on_door_medium.opus",
       "category_audio": "rain",
       "categories_use": [
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.6,
       "bg_title": "Дъжд",
       "title_key": "library.sounds.rain_wood_rain_front_porch_rain_on_door_medium.title",
       "subtitle_key": "library.sounds.rain_wood_rain_front_porch_rain_on_door_medium.subtitle",
@@ -2038,13 +2038,13 @@
     },
     {
       "id": "wind_general_rain_playa_blanca_village_drops_metal_sheet_roof_movement_04",
-      "filename": "02_rain/wind_general_rain_playa_blanca_village_drops_metal_sheet_roof_movement_04.wav",
+      "filename": "02_rain/wind_general_rain_playa_blanca_village_drops_metal_sheet_roof_movement_04.opus",
       "category_audio": "rain",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 290.4,
       "bg_title": "Дъжд",
       "title_key": "library.sounds.wind_general_rain_playa_blanca_village_drops_metal_sheet_roof_movement_04.title",
       "subtitle_key": "library.sounds.wind_general_rain_playa_blanca_village_drops_metal_sheet_roof_movement_04.subtitle",
@@ -2071,13 +2071,13 @@
     },
     {
       "id": "ambience_forest_wetlands_river_water_wind_ship",
-      "filename": "03_river/ambience_forest_wetlands_river_water_wind_ship.wav",
+      "filename": "03_river/ambience_forest_wetlands_river_water_wind_ship.opus",
       "category_audio": "river",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.2,
       "bg_title": "Река",
       "title_key": "library.sounds.ambience_forest_wetlands_river_water_wind_ship.title",
       "subtitle_key": "library.sounds.ambience_forest_wetlands_river_water_wind_ship.subtitle",
@@ -2104,13 +2104,13 @@
     },
     {
       "id": "ambience_underwater_bubbles_dark_spacious_boiling_flowing",
-      "filename": "03_river/ambience_underwater_bubbles_dark_spacious_boiling_flowing.wav",
+      "filename": "03_river/ambience_underwater_bubbles_dark_spacious_boiling_flowing.opus",
       "category_audio": "river",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 113.1,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_bubbles_dark_spacious_boiling_flowing.title",
       "subtitle_key": "library.sounds.ambience_underwater_bubbles_dark_spacious_boiling_flowing.subtitle",
@@ -2137,14 +2137,14 @@
     },
     {
       "id": "ambience_underwater_dark_deep_leak_gurgling_flowing",
-      "filename": "03_river/ambience_underwater_dark_deep_leak_gurgling_flowing.wav",
+      "filename": "03_river/ambience_underwater_dark_deep_leak_gurgling_flowing.opus",
       "category_audio": "river",
       "categories_use": [
         "meditation",
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 113.4,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.ambience_underwater_dark_deep_leak_gurgling_flowing.title",
       "subtitle_key": "library.sounds.ambience_underwater_dark_deep_leak_gurgling_flowing.subtitle",
@@ -2171,12 +2171,12 @@
     },
     {
       "id": "ambience_underwater_dark_eerie_deep_bubbles_spacious_stream",
-      "filename": "03_river/ambience_underwater_dark_eerie_deep_bubbles_spacious_stream.wav",
+      "filename": "03_river/ambience_underwater_dark_eerie_deep_bubbles_spacious_stream.opus",
       "category_audio": "river",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 113.4,
       "bg_title": "Дълбок Поток",
       "title_key": "library.sounds.ambience_underwater_dark_eerie_deep_bubbles_spacious_stream.title",
       "subtitle_key": "library.sounds.ambience_underwater_dark_eerie_deep_bubbles_spacious_stream.subtitle",
@@ -2203,12 +2203,12 @@
     },
     {
       "id": "ambience_underwater_dark_eerie_spacious_flowing_roaring_01",
-      "filename": "03_river/ambience_underwater_dark_eerie_spacious_flowing_roaring_01.wav",
+      "filename": "03_river/ambience_underwater_dark_eerie_spacious_flowing_roaring_01.opus",
       "category_audio": "river",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 113.1,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_dark_eerie_spacious_flowing_roaring_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_dark_eerie_spacious_flowing_roaring_01.subtitle",
@@ -2235,12 +2235,12 @@
     },
     {
       "id": "ambience_underwater_dark_eerie_spacious_flowing_roaring_02",
-      "filename": "03_river/ambience_underwater_dark_eerie_spacious_flowing_roaring_02.wav",
+      "filename": "03_river/ambience_underwater_dark_eerie_spacious_flowing_roaring_02.opus",
       "category_audio": "river",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 113.1,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_dark_eerie_spacious_flowing_roaring_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_dark_eerie_spacious_flowing_roaring_02.subtitle",
@@ -2267,14 +2267,14 @@
     },
     {
       "id": "ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_02",
-      "filename": "03_river/ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_02.wav",
+      "filename": "03_river/ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_02.opus",
       "category_audio": "river",
       "categories_use": [
         "relaxation",
         "meditation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 179.2,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_02.subtitle",
@@ -2301,14 +2301,14 @@
     },
     {
       "id": "ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_03",
-      "filename": "03_river/ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_03.wav",
+      "filename": "03_river/ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_03.opus",
       "category_audio": "river",
       "categories_use": [
         "relaxation",
         "meditation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 153.0,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_03.title",
       "subtitle_key": "library.sounds.ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_03.subtitle",
@@ -2335,14 +2335,14 @@
     },
     {
       "id": "ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_05",
-      "filename": "03_river/ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_05.wav",
+      "filename": "03_river/ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_05.opus",
       "category_audio": "river",
       "categories_use": [
         "relaxation",
         "meditation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 211.7,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_05.title",
       "subtitle_key": "library.sounds.ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_05.subtitle",
@@ -2369,14 +2369,14 @@
     },
     {
       "id": "ambience_underwater_river_flowing_01",
-      "filename": "03_river/ambience_underwater_river_flowing_01.wav",
+      "filename": "03_river/ambience_underwater_river_flowing_01.opus",
       "category_audio": "river",
       "categories_use": [
         "sleep_deep",
         "falling_asleep",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.5,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_river_flowing_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_river_flowing_01.subtitle",
@@ -2403,14 +2403,14 @@
     },
     {
       "id": "ambience_underwater_river_flowing_02",
-      "filename": "03_river/ambience_underwater_river_flowing_02.wav",
+      "filename": "03_river/ambience_underwater_river_flowing_02.opus",
       "category_audio": "river",
       "categories_use": [
         "sleep_deep",
         "falling_asleep",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.5,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_river_flowing_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_river_flowing_02.subtitle",
@@ -2437,14 +2437,14 @@
     },
     {
       "id": "ambience_underwater_river_flowing_03",
-      "filename": "03_river/ambience_underwater_river_flowing_03.wav",
+      "filename": "03_river/ambience_underwater_river_flowing_03.opus",
       "category_audio": "river",
       "categories_use": [
         "sleep_deep",
         "falling_asleep",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.5,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_river_flowing_03.title",
       "subtitle_key": "library.sounds.ambience_underwater_river_flowing_03.subtitle",
@@ -2471,14 +2471,14 @@
     },
     {
       "id": "ambience_underwater_river_flowing_04",
-      "filename": "03_river/ambience_underwater_river_flowing_04.wav",
+      "filename": "03_river/ambience_underwater_river_flowing_04.opus",
       "category_audio": "river",
       "categories_use": [
         "sleep_deep",
         "falling_asleep",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.5,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_river_flowing_04.title",
       "subtitle_key": "library.sounds.ambience_underwater_river_flowing_04.subtitle",
@@ -2505,14 +2505,14 @@
     },
     {
       "id": "ambience_underwater_river_flowing_05",
-      "filename": "03_river/ambience_underwater_river_flowing_05.wav",
+      "filename": "03_river/ambience_underwater_river_flowing_05.opus",
       "category_audio": "river",
       "categories_use": [
         "sleep_deep",
         "falling_asleep",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.5,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_river_flowing_05.title",
       "subtitle_key": "library.sounds.ambience_underwater_river_flowing_05.subtitle",
@@ -2539,14 +2539,14 @@
     },
     {
       "id": "ambience_underwater_river_flowing_06",
-      "filename": "03_river/ambience_underwater_river_flowing_06.wav",
+      "filename": "03_river/ambience_underwater_river_flowing_06.opus",
       "category_audio": "river",
       "categories_use": [
         "sleep_deep",
         "falling_asleep",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.6,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_river_flowing_06.title",
       "subtitle_key": "library.sounds.ambience_underwater_river_flowing_06.subtitle",
@@ -2573,13 +2573,13 @@
     },
     {
       "id": "ambience_underwater_trickle_bright_detailed_stream",
-      "filename": "03_river/ambience_underwater_trickle_bright_detailed_stream.wav",
+      "filename": "03_river/ambience_underwater_trickle_bright_detailed_stream.opus",
       "category_audio": "river",
       "categories_use": [
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 113.4,
       "bg_title": "Поток",
       "title_key": "library.sounds.ambience_underwater_trickle_bright_detailed_stream.title",
       "subtitle_key": "library.sounds.ambience_underwater_trickle_bright_detailed_stream.subtitle",
@@ -2606,14 +2606,14 @@
     },
     {
       "id": "ambience_underwater_water_flow_01",
-      "filename": "03_river/ambience_underwater_water_flow_01.wav",
+      "filename": "03_river/ambience_underwater_water_flow_01.opus",
       "category_audio": "river",
       "categories_use": [
         "sleep_deep",
         "falling_asleep",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 106.6,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_water_flow_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_water_flow_01.subtitle",
@@ -2640,14 +2640,14 @@
     },
     {
       "id": "ambience_underwater_water_flow_02",
-      "filename": "03_river/ambience_underwater_water_flow_02.wav",
+      "filename": "03_river/ambience_underwater_water_flow_02.opus",
       "category_audio": "river",
       "categories_use": [
         "sleep_deep",
         "falling_asleep",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 107.3,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_water_flow_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_water_flow_02.subtitle",
@@ -2674,14 +2674,14 @@
     },
     {
       "id": "ambience_underwater_water_flow_03",
-      "filename": "03_river/ambience_underwater_water_flow_03.wav",
+      "filename": "03_river/ambience_underwater_water_flow_03.opus",
       "category_audio": "river",
       "categories_use": [
         "sleep_deep",
         "falling_asleep",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 113.1,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_water_flow_03.title",
       "subtitle_key": "library.sounds.ambience_underwater_water_flow_03.subtitle",
@@ -2708,14 +2708,14 @@
     },
     {
       "id": "ambience_underwater_water_flow_04",
-      "filename": "03_river/ambience_underwater_water_flow_04.wav",
+      "filename": "03_river/ambience_underwater_water_flow_04.opus",
       "category_audio": "river",
       "categories_use": [
         "sleep_deep",
         "falling_asleep",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 117.3,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_water_flow_04.title",
       "subtitle_key": "library.sounds.ambience_underwater_water_flow_04.subtitle",
@@ -2742,13 +2742,13 @@
     },
     {
       "id": "rain_metal_rain_gutter_medium_drops_flowing",
-      "filename": "03_river/rain_metal_rain_gutter_medium_drops_flowing.wav",
+      "filename": "03_river/rain_metal_rain_gutter_medium_drops_flowing.opus",
       "category_audio": "river",
       "categories_use": [
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.6,
       "bg_title": "Река",
       "title_key": "library.sounds.rain_metal_rain_gutter_medium_drops_flowing.title",
       "subtitle_key": "library.sounds.rain_metal_rain_gutter_medium_drops_flowing.subtitle",
@@ -2775,14 +2775,14 @@
     },
     {
       "id": "water_flow_deep_mountain_stream_creek_bubble",
-      "filename": "03_river/water_flow_deep_mountain_stream_creek_bubble.wav",
+      "filename": "03_river/water_flow_deep_mountain_stream_creek_bubble.opus",
       "category_audio": "river",
       "categories_use": [
         "falling_asleep",
         "relaxation",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 54.3,
       "bg_title": "Дълбок Планински Поток",
       "title_key": "library.sounds.water_flow_deep_mountain_stream_creek_bubble.title",
       "subtitle_key": "library.sounds.water_flow_deep_mountain_stream_creek_bubble.subtitle",
@@ -2809,13 +2809,13 @@
     },
     {
       "id": "water_flow_river_calm_running_medium_distance_01",
-      "filename": "03_river/water_flow_river_calm_running_medium_distance_01.wav",
+      "filename": "03_river/water_flow_river_calm_running_medium_distance_01.opus",
       "category_audio": "river",
       "categories_use": [
         "falling_asleep",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 63.5,
       "bg_title": "Спокоен Река",
       "title_key": "library.sounds.water_flow_river_calm_running_medium_distance_01.title",
       "subtitle_key": "library.sounds.water_flow_river_calm_running_medium_distance_01.subtitle",
@@ -2842,13 +2842,13 @@
     },
     {
       "id": "water_flow_river_close_gentle_01",
-      "filename": "03_river/water_flow_river_close_gentle_01.wav",
+      "filename": "03_river/water_flow_river_close_gentle_01.opus",
       "category_audio": "river",
       "categories_use": [
         "falling_asleep",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 64.0,
       "bg_title": "Лек Река",
       "title_key": "library.sounds.water_flow_river_close_gentle_01.title",
       "subtitle_key": "library.sounds.water_flow_river_close_gentle_01.subtitle",
@@ -2875,13 +2875,13 @@
     },
     {
       "id": "water_flow_river_close_gentle_02",
-      "filename": "03_river/water_flow_river_close_gentle_02.wav",
+      "filename": "03_river/water_flow_river_close_gentle_02.opus",
       "category_audio": "river",
       "categories_use": [
         "falling_asleep",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 84.2,
       "bg_title": "Лек Река",
       "title_key": "library.sounds.water_flow_river_close_gentle_02.title",
       "subtitle_key": "library.sounds.water_flow_river_close_gentle_02.subtitle",
@@ -2908,13 +2908,13 @@
     },
     {
       "id": "water_flow_river_current_fast_distant",
-      "filename": "03_river/water_flow_river_current_fast_distant.wav",
+      "filename": "03_river/water_flow_river_current_fast_distant.opus",
       "category_audio": "river",
       "categories_use": [
         "falling_asleep",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 116.7,
       "bg_title": "Далечен Река",
       "title_key": "library.sounds.water_flow_river_current_fast_distant.title",
       "subtitle_key": "library.sounds.water_flow_river_current_fast_distant.subtitle",
@@ -2941,13 +2941,13 @@
     },
     {
       "id": "water_flow_river_current_small_fast_flow",
-      "filename": "03_river/water_flow_river_current_small_fast_flow.wav",
+      "filename": "03_river/water_flow_river_current_small_fast_flow.opus",
       "category_audio": "river",
       "categories_use": [
         "relaxation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 75.5,
       "bg_title": "Река",
       "title_key": "library.sounds.water_flow_river_current_small_fast_flow.title",
       "subtitle_key": "library.sounds.water_flow_river_current_small_fast_flow.subtitle",
@@ -2974,13 +2974,13 @@
     },
     {
       "id": "water_flow_river_flow_strong_bubbles_nature_forest_telluride",
-      "filename": "03_river/water_flow_river_flow_strong_bubbles_nature_forest_telluride.wav",
+      "filename": "03_river/water_flow_river_flow_strong_bubbles_nature_forest_telluride.opus",
       "category_audio": "river",
       "categories_use": [
         "relaxation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 113.1,
       "bg_title": "Силен Река",
       "title_key": "library.sounds.water_flow_river_flow_strong_bubbles_nature_forest_telluride.title",
       "subtitle_key": "library.sounds.water_flow_river_flow_strong_bubbles_nature_forest_telluride.subtitle",
@@ -3008,14 +3008,14 @@
     },
     {
       "id": "water_flow_river_run_flow_valley_bubbles_calm_nature_san_miguel_river_telluride",
-      "filename": "03_river/water_flow_river_run_flow_valley_bubbles_calm_nature_san_miguel_river_telluride.wav",
+      "filename": "03_river/water_flow_river_run_flow_valley_bubbles_calm_nature_san_miguel_river_telluride.opus",
       "category_audio": "river",
       "categories_use": [
         "falling_asleep",
         "relaxation",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 354.0,
       "bg_title": "Спокоен Река",
       "title_key": "library.sounds.water_flow_river_run_flow_valley_bubbles_calm_nature_san_miguel_river_telluride.title",
       "subtitle_key": "library.sounds.water_flow_river_run_flow_valley_bubbles_calm_nature_san_miguel_river_telluride.subtitle",
@@ -3042,14 +3042,14 @@
     },
     {
       "id": "water_flow_river_small_mountain_stream",
-      "filename": "03_river/water_flow_river_small_mountain_stream.wav",
+      "filename": "03_river/water_flow_river_small_mountain_stream.opus",
       "category_audio": "river",
       "categories_use": [
         "falling_asleep",
         "relaxation",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 58.4,
       "bg_title": "Планински Поток",
       "title_key": "library.sounds.water_flow_river_small_mountain_stream.title",
       "subtitle_key": "library.sounds.water_flow_river_small_mountain_stream.subtitle",
@@ -3076,13 +3076,13 @@
     },
     {
       "id": "water_waterfall_strong_flow_people_forest_lower_waterfall_evening_zenny_fall_telluride",
-      "filename": "03_river/water_waterfall_strong_flow_people_forest_lower_waterfall_evening_zenny_fall_telluride.wav",
+      "filename": "03_river/water_waterfall_strong_flow_people_forest_lower_waterfall_evening_zenny_fall_telluride.opus",
       "category_audio": "river",
       "categories_use": [
         "relaxation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 288.1,
       "bg_title": "Силен Вечерен Водопад",
       "title_key": "library.sounds.water_waterfall_strong_flow_people_forest_lower_waterfall_evening_zenny_fall_telluride.title",
       "subtitle_key": "library.sounds.water_waterfall_strong_flow_people_forest_lower_waterfall_evening_zenny_fall_telluride.subtitle",
@@ -3110,13 +3110,13 @@
     },
     {
       "id": "water_waterfall_waterfall_medium_flow_01",
-      "filename": "03_river/water_waterfall_waterfall_medium_flow_01.wav",
+      "filename": "03_river/water_waterfall_waterfall_medium_flow_01.opus",
       "category_audio": "river",
       "categories_use": [
         "relaxation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 180.4,
       "bg_title": "Водопад",
       "title_key": "library.sounds.water_waterfall_waterfall_medium_flow_01.title",
       "subtitle_key": "library.sounds.water_waterfall_waterfall_medium_flow_01.subtitle",
@@ -3143,13 +3143,13 @@
     },
     {
       "id": "water_waterfall_waterfall_the_trolls_road_20m_from_river",
-      "filename": "03_river/water_waterfall_waterfall_the_trolls_road_20m_from_river.wav",
+      "filename": "03_river/water_waterfall_waterfall_the_trolls_road_20m_from_river.opus",
       "category_audio": "river",
       "categories_use": [
         "falling_asleep",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 62.5,
       "bg_title": "Водопад",
       "title_key": "library.sounds.water_waterfall_waterfall_the_trolls_road_20m_from_river.title",
       "subtitle_key": "library.sounds.water_waterfall_waterfall_the_trolls_road_20m_from_river.subtitle",
@@ -3176,13 +3176,13 @@
     },
     {
       "id": "ambience_tropical_water_source_palm_leaves_wind_soothing",
-      "filename": "04_underwater/ambience_tropical_water_source_palm_leaves_wind_soothing.wav",
+      "filename": "04_underwater/ambience_tropical_water_source_palm_leaves_wind_soothing.opus",
       "category_audio": "underwater",
       "categories_use": [
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.5,
       "bg_title": "Листа Под вода",
       "title_key": "library.sounds.ambience_tropical_water_source_palm_leaves_wind_soothing.title",
       "subtitle_key": "library.sounds.ambience_tropical_water_source_palm_leaves_wind_soothing.subtitle",
@@ -3209,13 +3209,13 @@
     },
     {
       "id": "ambience_underwater_active",
-      "filename": "04_underwater/ambience_underwater_active.wav",
+      "filename": "04_underwater/ambience_underwater_active.opus",
       "category_audio": "underwater",
       "categories_use": [
         "relaxation",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.5,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_active.title",
       "subtitle_key": "library.sounds.ambience_underwater_active.subtitle",
@@ -3242,13 +3242,13 @@
     },
     {
       "id": "ambience_underwater_complex_01",
-      "filename": "04_underwater/ambience_underwater_complex_01.wav",
+      "filename": "04_underwater/ambience_underwater_complex_01.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 114.1,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_complex_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_01.subtitle",
@@ -3275,13 +3275,13 @@
     },
     {
       "id": "ambience_underwater_complex_02",
-      "filename": "04_underwater/ambience_underwater_complex_02.wav",
+      "filename": "04_underwater/ambience_underwater_complex_02.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 113.8,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_complex_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_02.subtitle",
@@ -3308,13 +3308,13 @@
     },
     {
       "id": "ambience_underwater_complex_03",
-      "filename": "04_underwater/ambience_underwater_complex_03.wav",
+      "filename": "04_underwater/ambience_underwater_complex_03.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 113.7,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_complex_03.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_03.subtitle",
@@ -3341,13 +3341,13 @@
     },
     {
       "id": "ambience_underwater_complex_04",
-      "filename": "04_underwater/ambience_underwater_complex_04.wav",
+      "filename": "04_underwater/ambience_underwater_complex_04.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 113.5,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_complex_04.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_04.subtitle",
@@ -3374,13 +3374,13 @@
     },
     {
       "id": "ambience_underwater_complex_05",
-      "filename": "04_underwater/ambience_underwater_complex_05.wav",
+      "filename": "04_underwater/ambience_underwater_complex_05.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 113.6,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_complex_05.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_05.subtitle",
@@ -3407,13 +3407,13 @@
     },
     {
       "id": "ambience_underwater_complex_06",
-      "filename": "04_underwater/ambience_underwater_complex_06.wav",
+      "filename": "04_underwater/ambience_underwater_complex_06.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 113.8,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_complex_06.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_06.subtitle",
@@ -3440,13 +3440,13 @@
     },
     {
       "id": "ambience_underwater_complex_07",
-      "filename": "04_underwater/ambience_underwater_complex_07.wav",
+      "filename": "04_underwater/ambience_underwater_complex_07.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 113.8,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_complex_07.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_07.subtitle",
@@ -3473,13 +3473,13 @@
     },
     {
       "id": "ambience_underwater_complex_08",
-      "filename": "04_underwater/ambience_underwater_complex_08.wav",
+      "filename": "04_underwater/ambience_underwater_complex_08.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 113.7,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_complex_08.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_08.subtitle",
@@ -3506,13 +3506,13 @@
     },
     {
       "id": "ambience_underwater_complex_09",
-      "filename": "04_underwater/ambience_underwater_complex_09.wav",
+      "filename": "04_underwater/ambience_underwater_complex_09.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 114.0,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_complex_09.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_09.subtitle",
@@ -3539,13 +3539,13 @@
     },
     {
       "id": "ambience_underwater_complex_10",
-      "filename": "04_underwater/ambience_underwater_complex_10.wav",
+      "filename": "04_underwater/ambience_underwater_complex_10.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 113.9,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_complex_10.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_10.subtitle",
@@ -3572,13 +3572,13 @@
     },
     {
       "id": "ambience_underwater_complex_evolving",
-      "filename": "04_underwater/ambience_underwater_complex_evolving.wav",
+      "filename": "04_underwater/ambience_underwater_complex_evolving.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 113.8,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_complex_evolving.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_evolving.subtitle",
@@ -3605,12 +3605,12 @@
     },
     {
       "id": "ambience_underwater_dark_eerie_roaring",
-      "filename": "04_underwater/ambience_underwater_dark_eerie_roaring.wav",
+      "filename": "04_underwater/ambience_underwater_dark_eerie_roaring.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 112.8,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_dark_eerie_roaring.title",
       "subtitle_key": "library.sounds.ambience_underwater_dark_eerie_roaring.subtitle",
@@ -3637,13 +3637,13 @@
     },
     {
       "id": "ambience_underwater_dark_eerie_slow_moving_stutter",
-      "filename": "04_underwater/ambience_underwater_dark_eerie_slow_moving_stutter.wav",
+      "filename": "04_underwater/ambience_underwater_dark_eerie_slow_moving_stutter.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 113.7,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_dark_eerie_slow_moving_stutter.title",
       "subtitle_key": "library.sounds.ambience_underwater_dark_eerie_slow_moving_stutter.subtitle",
@@ -3670,14 +3670,14 @@
     },
     {
       "id": "ambience_underwater_deep_01",
-      "filename": "04_underwater/ambience_underwater_deep_01.wav",
+      "filename": "04_underwater/ambience_underwater_deep_01.opus",
       "category_audio": "underwater",
       "categories_use": [
         "sleep_deep",
         "meditation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.4,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.ambience_underwater_deep_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_01.subtitle",
@@ -3704,14 +3704,14 @@
     },
     {
       "id": "ambience_underwater_deep_02",
-      "filename": "04_underwater/ambience_underwater_deep_02.wav",
+      "filename": "04_underwater/ambience_underwater_deep_02.opus",
       "category_audio": "underwater",
       "categories_use": [
         "sleep_deep",
         "meditation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.6,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.ambience_underwater_deep_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_02.subtitle",
@@ -3738,14 +3738,14 @@
     },
     {
       "id": "ambience_underwater_deep_03",
-      "filename": "04_underwater/ambience_underwater_deep_03.wav",
+      "filename": "04_underwater/ambience_underwater_deep_03.opus",
       "category_audio": "underwater",
       "categories_use": [
         "sleep_deep",
         "meditation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.6,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.ambience_underwater_deep_03.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_03.subtitle",
@@ -3772,14 +3772,14 @@
     },
     {
       "id": "ambience_underwater_deep_04",
-      "filename": "04_underwater/ambience_underwater_deep_04.wav",
+      "filename": "04_underwater/ambience_underwater_deep_04.opus",
       "category_audio": "underwater",
       "categories_use": [
         "sleep_deep",
         "meditation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.4,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.ambience_underwater_deep_04.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_04.subtitle",
@@ -3806,13 +3806,13 @@
     },
     {
       "id": "ambience_underwater_deep_abstract_01",
-      "filename": "04_underwater/ambience_underwater_deep_abstract_01.wav",
+      "filename": "04_underwater/ambience_underwater_deep_abstract_01.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "sleep_deep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.6,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.ambience_underwater_deep_abstract_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_abstract_01.subtitle",
@@ -3839,13 +3839,13 @@
     },
     {
       "id": "ambience_underwater_deep_abstract_02",
-      "filename": "04_underwater/ambience_underwater_deep_abstract_02.wav",
+      "filename": "04_underwater/ambience_underwater_deep_abstract_02.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "sleep_deep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.5,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.ambience_underwater_deep_abstract_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_abstract_02.subtitle",
@@ -3872,13 +3872,13 @@
     },
     {
       "id": "ambience_underwater_deep_abstract_03",
-      "filename": "04_underwater/ambience_underwater_deep_abstract_03.wav",
+      "filename": "04_underwater/ambience_underwater_deep_abstract_03.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "sleep_deep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.4,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.ambience_underwater_deep_abstract_03.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_abstract_03.subtitle",
@@ -3905,13 +3905,13 @@
     },
     {
       "id": "ambience_underwater_deep_abstract_04",
-      "filename": "04_underwater/ambience_underwater_deep_abstract_04.wav",
+      "filename": "04_underwater/ambience_underwater_deep_abstract_04.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "sleep_deep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.7,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.ambience_underwater_deep_abstract_04.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_abstract_04.subtitle",
@@ -3938,13 +3938,13 @@
     },
     {
       "id": "ambience_underwater_deep_bubble_01",
-      "filename": "04_underwater/ambience_underwater_deep_bubble_01.wav",
+      "filename": "04_underwater/ambience_underwater_deep_bubble_01.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.6,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.ambience_underwater_deep_bubble_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_bubble_01.subtitle",
@@ -3971,13 +3971,13 @@
     },
     {
       "id": "ambience_underwater_deep_bubble_02",
-      "filename": "04_underwater/ambience_underwater_deep_bubble_02.wav",
+      "filename": "04_underwater/ambience_underwater_deep_bubble_02.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.5,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.ambience_underwater_deep_bubble_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_bubble_02.subtitle",
@@ -4004,13 +4004,13 @@
     },
     {
       "id": "ambience_underwater_deep_bubble_active_01",
-      "filename": "04_underwater/ambience_underwater_deep_bubble_active_01.wav",
+      "filename": "04_underwater/ambience_underwater_deep_bubble_active_01.opus",
       "category_audio": "underwater",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.5,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.ambience_underwater_deep_bubble_active_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_bubble_active_01.subtitle",
@@ -4037,13 +4037,13 @@
     },
     {
       "id": "ambience_underwater_deep_bubble_active_02",
-      "filename": "04_underwater/ambience_underwater_deep_bubble_active_02.wav",
+      "filename": "04_underwater/ambience_underwater_deep_bubble_active_02.opus",
       "category_audio": "underwater",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.5,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.ambience_underwater_deep_bubble_active_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_bubble_active_02.subtitle",
@@ -4070,13 +4070,13 @@
     },
     {
       "id": "ambience_underwater_deep_bubbles_01",
-      "filename": "04_underwater/ambience_underwater_deep_bubbles_01.wav",
+      "filename": "04_underwater/ambience_underwater_deep_bubbles_01.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 142.4,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.ambience_underwater_deep_bubbles_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_bubbles_01.subtitle",
@@ -4103,13 +4103,13 @@
     },
     {
       "id": "ambience_underwater_deep_bubbles_02",
-      "filename": "04_underwater/ambience_underwater_deep_bubbles_02.wav",
+      "filename": "04_underwater/ambience_underwater_deep_bubbles_02.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 121.5,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.ambience_underwater_deep_bubbles_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_bubbles_02.subtitle",
@@ -4136,13 +4136,13 @@
     },
     {
       "id": "ambience_underwater_deep_bubbles_03",
-      "filename": "04_underwater/ambience_underwater_deep_bubbles_03.wav",
+      "filename": "04_underwater/ambience_underwater_deep_bubbles_03.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 186.7,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.ambience_underwater_deep_bubbles_03.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_bubbles_03.subtitle",
@@ -4169,13 +4169,13 @@
     },
     {
       "id": "ambience_underwater_deep_low",
-      "filename": "04_underwater/ambience_underwater_deep_low.wav",
+      "filename": "04_underwater/ambience_underwater_deep_low.opus",
       "category_audio": "underwater",
       "categories_use": [
         "sleep_deep",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.6,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.ambience_underwater_deep_low.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_low.subtitle",
@@ -4202,13 +4202,13 @@
     },
     {
       "id": "ambience_underwater_deep_propeller",
-      "filename": "04_underwater/ambience_underwater_deep_propeller.wav",
+      "filename": "04_underwater/ambience_underwater_deep_propeller.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.4,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.ambience_underwater_deep_propeller.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_propeller.subtitle",
@@ -4235,14 +4235,14 @@
     },
     {
       "id": "ambience_underwater_deep_sub",
-      "filename": "04_underwater/ambience_underwater_deep_sub.wav",
+      "filename": "04_underwater/ambience_underwater_deep_sub.opus",
       "category_audio": "underwater",
       "categories_use": [
         "sleep_deep",
         "meditation",
         "anxiety"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.6,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.ambience_underwater_deep_sub.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_sub.subtitle",
@@ -4269,14 +4269,14 @@
     },
     {
       "id": "ambience_underwater_designed_subsonic_01",
-      "filename": "04_underwater/ambience_underwater_designed_subsonic_01.wav",
+      "filename": "04_underwater/ambience_underwater_designed_subsonic_01.opus",
       "category_audio": "underwater",
       "categories_use": [
         "sleep_deep",
         "meditation",
         "anxiety"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.5,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_designed_subsonic_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_designed_subsonic_01.subtitle",
@@ -4303,13 +4303,13 @@
     },
     {
       "id": "ambience_underwater_designed_water_aquarium_bubbles_18",
-      "filename": "04_underwater/ambience_underwater_designed_water_aquarium_bubbles_18.wav",
+      "filename": "04_underwater/ambience_underwater_designed_water_aquarium_bubbles_18.opus",
       "category_audio": "underwater",
       "categories_use": [
         "relaxation",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 80.2,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_designed_water_aquarium_bubbles_18.title",
       "subtitle_key": "library.sounds.ambience_underwater_designed_water_aquarium_bubbles_18.subtitle",
@@ -4336,13 +4336,13 @@
     },
     {
       "id": "ambience_underwater_designed_water_aquarium_bubbles_32",
-      "filename": "04_underwater/ambience_underwater_designed_water_aquarium_bubbles_32.wav",
+      "filename": "04_underwater/ambience_underwater_designed_water_aquarium_bubbles_32.opus",
       "category_audio": "underwater",
       "categories_use": [
         "relaxation",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 56.1,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_designed_water_aquarium_bubbles_32.title",
       "subtitle_key": "library.sounds.ambience_underwater_designed_water_aquarium_bubbles_32.subtitle",
@@ -4369,14 +4369,14 @@
     },
     {
       "id": "ambience_underwater_distant_low_rumble_01",
-      "filename": "04_underwater/ambience_underwater_distant_low_rumble_01.wav",
+      "filename": "04_underwater/ambience_underwater_distant_low_rumble_01.opus",
       "category_audio": "underwater",
       "categories_use": [
         "sleep_deep",
         "meditation",
         "anxiety"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 98.4,
       "bg_title": "Далечен Тътен Под вода",
       "title_key": "library.sounds.ambience_underwater_distant_low_rumble_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_distant_low_rumble_01.subtitle",
@@ -4403,14 +4403,14 @@
     },
     {
       "id": "ambience_underwater_distant_low_rumble_02",
-      "filename": "04_underwater/ambience_underwater_distant_low_rumble_02.wav",
+      "filename": "04_underwater/ambience_underwater_distant_low_rumble_02.opus",
       "category_audio": "underwater",
       "categories_use": [
         "sleep_deep",
         "meditation",
         "anxiety"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 92.4,
       "bg_title": "Далечен Тътен Под вода",
       "title_key": "library.sounds.ambience_underwater_distant_low_rumble_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_distant_low_rumble_02.subtitle",
@@ -4437,13 +4437,13 @@
     },
     {
       "id": "ambience_underwater_distant_mid_resonance_01",
-      "filename": "04_underwater/ambience_underwater_distant_mid_resonance_01.wav",
+      "filename": "04_underwater/ambience_underwater_distant_mid_resonance_01.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 138.4,
       "bg_title": "Далечен Под вода",
       "title_key": "library.sounds.ambience_underwater_distant_mid_resonance_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_distant_mid_resonance_01.subtitle",
@@ -4470,13 +4470,13 @@
     },
     {
       "id": "ambience_underwater_distant_thrill_water_01",
-      "filename": "04_underwater/ambience_underwater_distant_thrill_water_01.wav",
+      "filename": "04_underwater/ambience_underwater_distant_thrill_water_01.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 138.4,
       "bg_title": "Далечен Под вода",
       "title_key": "library.sounds.ambience_underwater_distant_thrill_water_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_distant_thrill_water_01.subtitle",
@@ -4503,13 +4503,13 @@
     },
     {
       "id": "ambience_underwater_distant_thrill_water_02",
-      "filename": "04_underwater/ambience_underwater_distant_thrill_water_02.wav",
+      "filename": "04_underwater/ambience_underwater_distant_thrill_water_02.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 140.5,
       "bg_title": "Далечен Под вода",
       "title_key": "library.sounds.ambience_underwater_distant_thrill_water_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_distant_thrill_water_02.subtitle",
@@ -4536,13 +4536,13 @@
     },
     {
       "id": "ambience_underwater_near_machine_01",
-      "filename": "04_underwater/ambience_underwater_near_machine_01.wav",
+      "filename": "04_underwater/ambience_underwater_near_machine_01.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 98.4,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_near_machine_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_near_machine_01.subtitle",
@@ -4569,13 +4569,13 @@
     },
     {
       "id": "ambience_underwater_near_machine_02",
-      "filename": "04_underwater/ambience_underwater_near_machine_02.wav",
+      "filename": "04_underwater/ambience_underwater_near_machine_02.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 94.6,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_near_machine_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_near_machine_02.subtitle",
@@ -4602,13 +4602,13 @@
     },
     {
       "id": "ambience_underwater_small_bubbles_02",
-      "filename": "04_underwater/ambience_underwater_small_bubbles_02.wav",
+      "filename": "04_underwater/ambience_underwater_small_bubbles_02.opus",
       "category_audio": "underwater",
       "categories_use": [
         "relaxation",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 150.0,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_small_bubbles_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_small_bubbles_02.subtitle",
@@ -4635,14 +4635,14 @@
     },
     {
       "id": "ambience_underwater_submarine_underwater",
-      "filename": "04_underwater/ambience_underwater_submarine_underwater.wav",
+      "filename": "04_underwater/ambience_underwater_submarine_underwater.opus",
       "category_audio": "underwater",
       "categories_use": [
         "sleep_deep",
         "meditation",
         "anxiety"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 67.7,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_submarine_underwater.title",
       "subtitle_key": "library.sounds.ambience_underwater_submarine_underwater.subtitle",
@@ -4669,14 +4669,14 @@
     },
     {
       "id": "ambience_underwater_tub_underwater_loop",
-      "filename": "04_underwater/ambience_underwater_tub_underwater_loop.wav",
+      "filename": "04_underwater/ambience_underwater_tub_underwater_loop.opus",
       "category_audio": "underwater",
       "categories_use": [
         "falling_asleep",
         "relaxation",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 99.9,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_tub_underwater_loop.title",
       "subtitle_key": "library.sounds.ambience_underwater_tub_underwater_loop.subtitle",
@@ -4703,13 +4703,13 @@
     },
     {
       "id": "ambience_underwater_underwater_current",
-      "filename": "04_underwater/ambience_underwater_underwater_current.wav",
+      "filename": "04_underwater/ambience_underwater_underwater_current.opus",
       "category_audio": "underwater",
       "categories_use": [
         "falling_asleep",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.1,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_underwater_current.title",
       "subtitle_key": "library.sounds.ambience_underwater_underwater_current.subtitle",
@@ -4736,13 +4736,13 @@
     },
     {
       "id": "ambience_underwater_underwater_designed_flush_01",
-      "filename": "04_underwater/ambience_underwater_underwater_designed_flush_01.wav",
+      "filename": "04_underwater/ambience_underwater_underwater_designed_flush_01.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 117.7,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_underwater_designed_flush_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_underwater_designed_flush_01.subtitle",
@@ -4769,13 +4769,13 @@
     },
     {
       "id": "ambience_underwater_underwater_designed_running_03",
-      "filename": "04_underwater/ambience_underwater_underwater_designed_running_03.wav",
+      "filename": "04_underwater/ambience_underwater_underwater_designed_running_03.opus",
       "category_audio": "underwater",
       "categories_use": [
         "relaxation",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 275.6,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_underwater_designed_running_03.title",
       "subtitle_key": "library.sounds.ambience_underwater_underwater_designed_running_03.subtitle",
@@ -4802,13 +4802,13 @@
     },
     {
       "id": "ambience_underwater_underwater_designed_running_04",
-      "filename": "04_underwater/ambience_underwater_underwater_designed_running_04.wav",
+      "filename": "04_underwater/ambience_underwater_underwater_designed_running_04.opus",
       "category_audio": "underwater",
       "categories_use": [
         "relaxation",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 209.1,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_underwater_designed_running_04.title",
       "subtitle_key": "library.sounds.ambience_underwater_underwater_designed_running_04.subtitle",
@@ -4835,14 +4835,14 @@
     },
     {
       "id": "ambience_underwater_underwater_drone_hum",
-      "filename": "04_underwater/ambience_underwater_underwater_drone_hum.wav",
+      "filename": "04_underwater/ambience_underwater_underwater_drone_hum.opus",
       "category_audio": "underwater",
       "categories_use": [
         "sleep_deep",
         "meditation",
         "anxiety"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.2,
       "bg_title": "Под вода",
       "title_key": "library.sounds.ambience_underwater_underwater_drone_hum.title",
       "subtitle_key": "library.sounds.ambience_underwater_underwater_drone_hum.subtitle",
@@ -4869,13 +4869,13 @@
     },
     {
       "id": "ambience_underwater_waterfall",
-      "filename": "04_underwater/ambience_underwater_waterfall.wav",
+      "filename": "04_underwater/ambience_underwater_waterfall.opus",
       "category_audio": "underwater",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.4,
       "bg_title": "Водопад",
       "title_key": "library.sounds.ambience_underwater_waterfall.title",
       "subtitle_key": "library.sounds.ambience_underwater_waterfall.subtitle",
@@ -4902,14 +4902,14 @@
     },
     {
       "id": "designed_drone_sub_deep_underwater",
-      "filename": "04_underwater/designed_drone_sub_deep_underwater.wav",
+      "filename": "04_underwater/designed_drone_sub_deep_underwater.opus",
       "category_audio": "underwater",
       "categories_use": [
         "sleep_deep",
         "meditation",
         "anxiety"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 163.5,
       "bg_title": "Дълбок Под вода",
       "title_key": "library.sounds.designed_drone_sub_deep_underwater.title",
       "subtitle_key": "library.sounds.designed_drone_sub_deep_underwater.subtitle",
@@ -4936,13 +4936,13 @@
     },
     {
       "id": "water_bubbles_aqua_massage_bubbling_01",
-      "filename": "04_underwater/water_bubbles_aqua_massage_bubbling_01.wav",
+      "filename": "04_underwater/water_bubbles_aqua_massage_bubbling_01.opus",
       "category_audio": "underwater",
       "categories_use": [
         "relaxation",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 54.3,
       "bg_title": "Под вода",
       "title_key": "library.sounds.water_bubbles_aqua_massage_bubbling_01.title",
       "subtitle_key": "library.sounds.water_bubbles_aqua_massage_bubbling_01.subtitle",
@@ -4969,13 +4969,13 @@
     },
     {
       "id": "water_bubbles_bubbling_witchs_cauldron",
-      "filename": "04_underwater/water_bubbles_bubbling_witchs_cauldron.wav",
+      "filename": "04_underwater/water_bubbles_bubbling_witchs_cauldron.opus",
       "category_audio": "underwater",
       "categories_use": [
         "relaxation",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.3,
       "bg_title": "Под вода",
       "title_key": "library.sounds.water_bubbles_bubbling_witchs_cauldron.title",
       "subtitle_key": "library.sounds.water_bubbles_bubbling_witchs_cauldron.subtitle",
@@ -5002,14 +5002,14 @@
     },
     {
       "id": "water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_40",
-      "filename": "04_underwater/water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_40.wav",
+      "filename": "04_underwater/water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_40.opus",
       "category_audio": "underwater",
       "categories_use": [
         "relaxation",
         "daily",
         "anxiety"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 184.2,
       "bg_title": "Водопад",
       "title_key": "library.sounds.water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_40.title",
       "subtitle_key": "library.sounds.water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_40.subtitle",
@@ -5036,13 +5036,13 @@
     },
     {
       "id": "water_waterfall_steady_perspective",
-      "filename": "04_underwater/water_waterfall_steady_perspective.wav",
+      "filename": "04_underwater/water_waterfall_steady_perspective.opus",
       "category_audio": "underwater",
       "categories_use": [
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 79.1,
       "bg_title": "Водопад",
       "title_key": "library.sounds.water_waterfall_steady_perspective.title",
       "subtitle_key": "library.sounds.water_waterfall_steady_perspective.subtitle",
@@ -5069,13 +5069,13 @@
     },
     {
       "id": "water_waterfall_waterfall_powerful",
-      "filename": "04_underwater/water_waterfall_waterfall_powerful.wav",
+      "filename": "04_underwater/water_waterfall_waterfall_powerful.opus",
       "category_audio": "underwater",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 195.9,
       "bg_title": "Водопад",
       "title_key": "library.sounds.water_waterfall_waterfall_powerful.title",
       "subtitle_key": "library.sounds.water_waterfall_waterfall_powerful.subtitle",
@@ -5103,13 +5103,13 @@
     },
     {
       "id": "ambience_forest_winter_calm_light_wind_oslo_ostmarka_01",
-      "filename": "05_wind/ambience_forest_winter_calm_light_wind_oslo_ostmarka_01.wav",
+      "filename": "05_wind/ambience_forest_winter_calm_light_wind_oslo_ostmarka_01.opus",
       "category_audio": "wind",
       "categories_use": [
         "falling_asleep",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 204.3,
       "bg_title": "Лек Зимен Вятър",
       "title_key": "library.sounds.ambience_forest_winter_calm_light_wind_oslo_ostmarka_01.title",
       "subtitle_key": "library.sounds.ambience_forest_winter_calm_light_wind_oslo_ostmarka_01.subtitle",
@@ -5136,13 +5136,13 @@
     },
     {
       "id": "ambience_forest_winter_calm_light_wind_single_bird_distant_oslo_ostmarka_01",
-      "filename": "05_wind/ambience_forest_winter_calm_light_wind_single_bird_distant_oslo_ostmarka_01.wav",
+      "filename": "05_wind/ambience_forest_winter_calm_light_wind_single_bird_distant_oslo_ostmarka_01.opus",
       "category_audio": "wind",
       "categories_use": [
         "falling_asleep",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 226.7,
       "bg_title": "Далечен Зимен Вятър",
       "title_key": "library.sounds.ambience_forest_winter_calm_light_wind_single_bird_distant_oslo_ostmarka_01.title",
       "subtitle_key": "library.sounds.ambience_forest_winter_calm_light_wind_single_bird_distant_oslo_ostmarka_01.subtitle",
@@ -5169,10 +5169,10 @@
     },
     {
       "id": "ambience_urban_oslo_urban_city_hall_strong_winds_rattling_no_people_distant_trams_traffic",
-      "filename": "05_wind/ambience_urban_oslo_urban_city_hall_strong_winds_rattling_no_people_distant_trams_traffic.wav",
+      "filename": "05_wind/ambience_urban_oslo_urban_city_hall_strong_winds_rattling_no_people_distant_trams_traffic.opus",
       "category_audio": "wind",
       "categories_use": [],
-      "duration_sec": 0.0,
+      "duration_sec": 284.4,
       "bg_title": "Далечен Вятър",
       "title_key": "library.sounds.ambience_urban_oslo_urban_city_hall_strong_winds_rattling_no_people_distant_trams_traffic.title",
       "subtitle_key": "library.sounds.ambience_urban_oslo_urban_city_hall_strong_winds_rattling_no_people_distant_trams_traffic.subtitle",
@@ -5190,13 +5190,13 @@
     },
     {
       "id": "wind_general_abandoned_factory_chimney_wind_gusts_light_whistling_mic_upwards_distant_traffic_hum_humberstone_chile",
-      "filename": "05_wind/wind_general_abandoned_factory_chimney_wind_gusts_light_whistling_mic_upwards_distant_traffic_hum_humberstone_chile.wav",
+      "filename": "05_wind/wind_general_abandoned_factory_chimney_wind_gusts_light_whistling_mic_upwards_distant_traffic_hum_humberstone_chile.opus",
       "category_audio": "wind",
       "categories_use": [
         "relaxation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 289.8,
       "bg_title": "Далечен Вятър",
       "title_key": "library.sounds.wind_general_abandoned_factory_chimney_wind_gusts_light_whistling_mic_upwards_distant_traffic_hum_humberstone_chile.title",
       "subtitle_key": "library.sounds.wind_general_abandoned_factory_chimney_wind_gusts_light_whistling_mic_upwards_distant_traffic_hum_humberstone_chile.subtitle",
@@ -5223,13 +5223,13 @@
     },
     {
       "id": "wind_general_desert_bushes_twigs_wind_gusts_light_electric_whistling",
-      "filename": "05_wind/wind_general_desert_bushes_twigs_wind_gusts_light_electric_whistling.wav",
+      "filename": "05_wind/wind_general_desert_bushes_twigs_wind_gusts_light_electric_whistling.opus",
       "category_audio": "wind",
       "categories_use": [
         "relaxation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 276.0,
       "bg_title": "Лек Вятър",
       "title_key": "library.sounds.wind_general_desert_bushes_twigs_wind_gusts_light_electric_whistling.title",
       "subtitle_key": "library.sounds.wind_general_desert_bushes_twigs_wind_gusts_light_electric_whistling.subtitle",
@@ -5256,13 +5256,13 @@
     },
     {
       "id": "wind_general_desert_close_to_bushes_wind_gusts_twig_branch_close",
-      "filename": "05_wind/wind_general_desert_close_to_bushes_wind_gusts_twig_branch_close.wav",
+      "filename": "05_wind/wind_general_desert_close_to_bushes_wind_gusts_twig_branch_close.opus",
       "category_audio": "wind",
       "categories_use": [
         "relaxation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 292.1,
       "bg_title": "Вятър",
       "title_key": "library.sounds.wind_general_desert_close_to_bushes_wind_gusts_twig_branch_close.title",
       "subtitle_key": "library.sounds.wind_general_desert_close_to_bushes_wind_gusts_twig_branch_close.subtitle",
@@ -5289,13 +5289,13 @@
     },
     {
       "id": "wind_general_desert_light_whistling_bagdad_highway_wind_gusts_light_wind_bushes",
-      "filename": "05_wind/wind_general_desert_light_whistling_bagdad_highway_wind_gusts_light_wind_bushes.wav",
+      "filename": "05_wind/wind_general_desert_light_whistling_bagdad_highway_wind_gusts_light_wind_bushes.opus",
       "category_audio": "wind",
       "categories_use": [
         "relaxation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 282.1,
       "bg_title": "Лек Вятър",
       "title_key": "library.sounds.wind_general_desert_light_whistling_bagdad_highway_wind_gusts_light_wind_bushes.title",
       "subtitle_key": "library.sounds.wind_general_desert_light_whistling_bagdad_highway_wind_gusts_light_wind_bushes.subtitle",
@@ -5322,13 +5322,13 @@
     },
     {
       "id": "wind_general_desert_pampa_perdiz_wind_gusts_dark_02",
-      "filename": "05_wind/wind_general_desert_pampa_perdiz_wind_gusts_dark_02.wav",
+      "filename": "05_wind/wind_general_desert_pampa_perdiz_wind_gusts_dark_02.opus",
       "category_audio": "wind",
       "categories_use": [
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 283.7,
       "bg_title": "Вятър",
       "title_key": "library.sounds.wind_general_desert_pampa_perdiz_wind_gusts_dark_02.title",
       "subtitle_key": "library.sounds.wind_general_desert_pampa_perdiz_wind_gusts_dark_02.subtitle",
@@ -5355,13 +5355,13 @@
     },
     {
       "id": "wind_general_desert_pampa_perdiz_wind_gusts_dark_03",
-      "filename": "05_wind/wind_general_desert_pampa_perdiz_wind_gusts_dark_03.wav",
+      "filename": "05_wind/wind_general_desert_pampa_perdiz_wind_gusts_dark_03.opus",
       "category_audio": "wind",
       "categories_use": [
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 285.1,
       "bg_title": "Вятър",
       "title_key": "library.sounds.wind_general_desert_pampa_perdiz_wind_gusts_dark_03.title",
       "subtitle_key": "library.sounds.wind_general_desert_pampa_perdiz_wind_gusts_dark_03.subtitle",
@@ -5388,13 +5388,13 @@
     },
     {
       "id": "wind_general_high_cliff_alto_patache_chile_01",
-      "filename": "05_wind/wind_general_high_cliff_alto_patache_chile_01.wav",
+      "filename": "05_wind/wind_general_high_cliff_alto_patache_chile_01.opus",
       "category_audio": "wind",
       "categories_use": [
         "relaxation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 292.8,
       "bg_title": "Вятър",
       "title_key": "library.sounds.wind_general_high_cliff_alto_patache_chile_01.title",
       "subtitle_key": "library.sounds.wind_general_high_cliff_alto_patache_chile_01.subtitle",
@@ -5421,13 +5421,13 @@
     },
     {
       "id": "wind_general_iron_wire_sculpture_light_metallic_creaking_noise_wind_gusts_light_whistling_alto_patache_chile",
-      "filename": "05_wind/wind_general_iron_wire_sculpture_light_metallic_creaking_noise_wind_gusts_light_whistling_alto_patache_chile.wav",
+      "filename": "05_wind/wind_general_iron_wire_sculpture_light_metallic_creaking_noise_wind_gusts_light_whistling_alto_patache_chile.opus",
       "category_audio": "wind",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 48.0,
       "bg_title": "Лек Вятър",
       "title_key": "library.sounds.wind_general_iron_wire_sculpture_light_metallic_creaking_noise_wind_gusts_light_whistling_alto_patache_chile.title",
       "subtitle_key": "library.sounds.wind_general_iron_wire_sculpture_light_metallic_creaking_noise_wind_gusts_light_whistling_alto_patache_chile.subtitle",
@@ -5454,13 +5454,13 @@
     },
     {
       "id": "wind_general_large_tree_foliage_01",
-      "filename": "05_wind/wind_general_large_tree_foliage_01.wav",
+      "filename": "05_wind/wind_general_large_tree_foliage_01.opus",
       "category_audio": "wind",
       "categories_use": [
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 345.1,
       "bg_title": "Вятър",
       "title_key": "library.sounds.wind_general_large_tree_foliage_01.title",
       "subtitle_key": "library.sounds.wind_general_large_tree_foliage_01.subtitle",
@@ -5487,13 +5487,13 @@
     },
     {
       "id": "wind_general_light_whistling_gusts_alto_patache_chile",
-      "filename": "05_wind/wind_general_light_whistling_gusts_alto_patache_chile.wav",
+      "filename": "05_wind/wind_general_light_whistling_gusts_alto_patache_chile.opus",
       "category_audio": "wind",
       "categories_use": [
         "relaxation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 285.5,
       "bg_title": "Лек Вятър",
       "title_key": "library.sounds.wind_general_light_whistling_gusts_alto_patache_chile.title",
       "subtitle_key": "library.sounds.wind_general_light_whistling_gusts_alto_patache_chile.subtitle",
@@ -5520,13 +5520,13 @@
     },
     {
       "id": "wind_general_light_wind_iron_wire_weather_station_barbed_wire_low_whistling_wind_gusts_alto_patache_chile",
-      "filename": "05_wind/wind_general_light_wind_iron_wire_weather_station_barbed_wire_low_whistling_wind_gusts_alto_patache_chile.wav",
+      "filename": "05_wind/wind_general_light_wind_iron_wire_weather_station_barbed_wire_low_whistling_wind_gusts_alto_patache_chile.opus",
       "category_audio": "wind",
       "categories_use": [
         "relaxation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 289.2,
       "bg_title": "Лек Вятър",
       "title_key": "library.sounds.wind_general_light_wind_iron_wire_weather_station_barbed_wire_low_whistling_wind_gusts_alto_patache_chile.title",
       "subtitle_key": "library.sounds.wind_general_light_wind_iron_wire_weather_station_barbed_wire_low_whistling_wind_gusts_alto_patache_chile.subtitle",
@@ -5553,13 +5553,13 @@
     },
     {
       "id": "wind_general_plastic_telescope_gusts_salar_atacama",
-      "filename": "05_wind/wind_general_plastic_telescope_gusts_salar_atacama.wav",
+      "filename": "05_wind/wind_general_plastic_telescope_gusts_salar_atacama.opus",
       "category_audio": "wind",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 269.1,
       "bg_title": "Вятър",
       "title_key": "library.sounds.wind_general_plastic_telescope_gusts_salar_atacama.title",
       "subtitle_key": "library.sounds.wind_general_plastic_telescope_gusts_salar_atacama.subtitle",
@@ -5586,13 +5586,13 @@
     },
     {
       "id": "wind_general_rusty_antenna_howling_alto_patache_chile",
-      "filename": "05_wind/wind_general_rusty_antenna_howling_alto_patache_chile.wav",
+      "filename": "05_wind/wind_general_rusty_antenna_howling_alto_patache_chile.opus",
       "category_audio": "wind",
       "categories_use": [
         "relaxation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 292.0,
       "bg_title": "Вятър",
       "title_key": "library.sounds.wind_general_rusty_antenna_howling_alto_patache_chile.title",
       "subtitle_key": "library.sounds.wind_general_rusty_antenna_howling_alto_patache_chile.subtitle",
@@ -5619,13 +5619,13 @@
     },
     {
       "id": "wind_general_steady_wind_light_movement_cold",
-      "filename": "05_wind/wind_general_steady_wind_light_movement_cold.wav",
+      "filename": "05_wind/wind_general_steady_wind_light_movement_cold.opus",
       "category_audio": "wind",
       "categories_use": [
         "sleep_deep",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 140.7,
       "bg_title": "Лек Вятър",
       "title_key": "library.sounds.wind_general_steady_wind_light_movement_cold.title",
       "subtitle_key": "library.sounds.wind_general_steady_wind_light_movement_cold.subtitle",
@@ -5652,13 +5652,13 @@
     },
     {
       "id": "wind_general_wilderness_medium_movement_cold_01",
-      "filename": "05_wind/wind_general_wilderness_medium_movement_cold_01.wav",
+      "filename": "05_wind/wind_general_wilderness_medium_movement_cold_01.opus",
       "category_audio": "wind",
       "categories_use": [
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 163.1,
       "bg_title": "Вятър",
       "title_key": "library.sounds.wind_general_wilderness_medium_movement_cold_01.title",
       "subtitle_key": "library.sounds.wind_general_wilderness_medium_movement_cold_01.subtitle",
@@ -5685,13 +5685,13 @@
     },
     {
       "id": "wind_gust_cold_mountain_wind_gusts_varied_intensity_01",
-      "filename": "05_wind/wind_gust_cold_mountain_wind_gusts_varied_intensity_01.wav",
+      "filename": "05_wind/wind_gust_cold_mountain_wind_gusts_varied_intensity_01.opus",
       "category_audio": "wind",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 149.4,
       "bg_title": "Планински Вятър",
       "title_key": "library.sounds.wind_gust_cold_mountain_wind_gusts_varied_intensity_01.title",
       "subtitle_key": "library.sounds.wind_gust_cold_mountain_wind_gusts_varied_intensity_01.subtitle",
@@ -5718,13 +5718,13 @@
     },
     {
       "id": "wind_gust_distant_bush_light_whistling_valley",
-      "filename": "05_wind/wind_gust_distant_bush_light_whistling_valley.wav",
+      "filename": "05_wind/wind_gust_distant_bush_light_whistling_valley.opus",
       "category_audio": "wind",
       "categories_use": [
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 293.3,
       "bg_title": "Далечен Вятър",
       "title_key": "library.sounds.wind_gust_distant_bush_light_whistling_valley.title",
       "subtitle_key": "library.sounds.wind_gust_distant_bush_light_whistling_valley.subtitle",
@@ -5751,13 +5751,13 @@
     },
     {
       "id": "wind_gust_salt_desert_salar_atacama_chile",
-      "filename": "05_wind/wind_gust_salt_desert_salar_atacama_chile.wav",
+      "filename": "05_wind/wind_gust_salt_desert_salar_atacama_chile.opus",
       "category_audio": "wind",
       "categories_use": [
         "relaxation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 290.3,
       "bg_title": "Вятър",
       "title_key": "library.sounds.wind_gust_salt_desert_salar_atacama_chile.title",
       "subtitle_key": "library.sounds.wind_gust_salt_desert_salar_atacama_chile.subtitle",
@@ -5784,13 +5784,13 @@
     },
     {
       "id": "wind_gust_whistling_garden_alto_patache_chile",
-      "filename": "05_wind/wind_gust_whistling_garden_alto_patache_chile.wav",
+      "filename": "05_wind/wind_gust_whistling_garden_alto_patache_chile.opus",
       "category_audio": "wind",
       "categories_use": [
         "relaxation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 290.0,
       "bg_title": "Вятър",
       "title_key": "library.sounds.wind_gust_whistling_garden_alto_patache_chile.title",
       "subtitle_key": "library.sounds.wind_gust_whistling_garden_alto_patache_chile.subtitle",
@@ -5817,12 +5817,12 @@
     },
     {
       "id": "wind_tonal_light_pole_whistling_wind_gusts_desert_alto_patache",
-      "filename": "05_wind/wind_tonal_light_pole_whistling_wind_gusts_desert_alto_patache.wav",
+      "filename": "05_wind/wind_tonal_light_pole_whistling_wind_gusts_desert_alto_patache.opus",
       "category_audio": "wind",
       "categories_use": [
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 282.6,
       "bg_title": "Лек Вятър",
       "title_key": "library.sounds.wind_tonal_light_pole_whistling_wind_gusts_desert_alto_patache.title",
       "subtitle_key": "library.sounds.wind_tonal_light_pole_whistling_wind_gusts_desert_alto_patache.subtitle",
@@ -5849,12 +5849,12 @@
     },
     {
       "id": "wind_tonal_wind_howling_barbed_wire_fence_tierra_del_fuego_argentina_01",
-      "filename": "05_wind/wind_tonal_wind_howling_barbed_wire_fence_tierra_del_fuego_argentina_01.wav",
+      "filename": "05_wind/wind_tonal_wind_howling_barbed_wire_fence_tierra_del_fuego_argentina_01.opus",
       "category_audio": "wind",
       "categories_use": [
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 295.4,
       "bg_title": "Вятър",
       "title_key": "library.sounds.wind_tonal_wind_howling_barbed_wire_fence_tierra_del_fuego_argentina_01.title",
       "subtitle_key": "library.sounds.wind_tonal_wind_howling_barbed_wire_fence_tierra_del_fuego_argentina_01.subtitle",
@@ -5881,12 +5881,12 @@
     },
     {
       "id": "wind_tonal_wind_whistling_distant_fog_collector_alto_patache",
-      "filename": "05_wind/wind_tonal_wind_whistling_distant_fog_collector_alto_patache.wav",
+      "filename": "05_wind/wind_tonal_wind_whistling_distant_fog_collector_alto_patache.opus",
       "category_audio": "wind",
       "categories_use": [
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 291.2,
       "bg_title": "Далечен Вятър",
       "title_key": "library.sounds.wind_tonal_wind_whistling_distant_fog_collector_alto_patache.title",
       "subtitle_key": "library.sounds.wind_tonal_wind_whistling_distant_fog_collector_alto_patache.subtitle",
@@ -5913,12 +5913,12 @@
     },
     {
       "id": "wind_tonal_wind_whistling_iron_fence_movement_wind_gusts_distant_city_hum_desert_outskirts_twentynine_palms",
-      "filename": "05_wind/wind_tonal_wind_whistling_iron_fence_movement_wind_gusts_distant_city_hum_desert_outskirts_twentynine_palms.wav",
+      "filename": "05_wind/wind_tonal_wind_whistling_iron_fence_movement_wind_gusts_distant_city_hum_desert_outskirts_twentynine_palms.opus",
       "category_audio": "wind",
       "categories_use": [
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 292.9,
       "bg_title": "Далечен Вятър",
       "title_key": "library.sounds.wind_tonal_wind_whistling_iron_fence_movement_wind_gusts_distant_city_hum_desert_outskirts_twentynine_palms.title",
       "subtitle_key": "library.sounds.wind_tonal_wind_whistling_iron_fence_movement_wind_gusts_distant_city_hum_desert_outskirts_twentynine_palms.subtitle",
@@ -5945,13 +5945,13 @@
     },
     {
       "id": "wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_01",
-      "filename": "05_wind/wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_01.wav",
+      "filename": "05_wind/wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_01.opus",
       "category_audio": "wind",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 287.2,
       "bg_title": "Далечен Вятър",
       "title_key": "library.sounds.wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_01.title",
       "subtitle_key": "library.sounds.wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_01.subtitle",
@@ -5978,13 +5978,13 @@
     },
     {
       "id": "wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_02",
-      "filename": "05_wind/wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_02.wav",
+      "filename": "05_wind/wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_02.opus",
       "category_audio": "wind",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 129.2,
       "bg_title": "Далечен Вятър",
       "title_key": "library.sounds.wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_02.title",
       "subtitle_key": "library.sounds.wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_02.subtitle",
@@ -6011,13 +6011,13 @@
     },
     {
       "id": "wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_03",
-      "filename": "05_wind/wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_03.wav",
+      "filename": "05_wind/wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_03.opus",
       "category_audio": "wind",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 129.2,
       "bg_title": "Далечен Вятър",
       "title_key": "library.sounds.wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_03.title",
       "subtitle_key": "library.sounds.wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_03.subtitle",
@@ -6044,13 +6044,13 @@
     },
     {
       "id": "wind_vegetation_mixed_forest_mountainside_gentle_wind_through_birches_pines_firs_spruces_distant_birds_40",
-      "filename": "05_wind/wind_vegetation_mixed_forest_mountainside_gentle_wind_through_birches_pines_firs_spruces_distant_birds_40.wav",
+      "filename": "05_wind/wind_vegetation_mixed_forest_mountainside_gentle_wind_through_birches_pines_firs_spruces_distant_birds_40.opus",
       "category_audio": "wind",
       "categories_use": [
         "falling_asleep",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 326.7,
       "bg_title": "Далечен Птици Вятър",
       "title_key": "library.sounds.wind_vegetation_mixed_forest_mountainside_gentle_wind_through_birches_pines_firs_spruces_distant_birds_40.title",
       "subtitle_key": "library.sounds.wind_vegetation_mixed_forest_mountainside_gentle_wind_through_birches_pines_firs_spruces_distant_birds_40.subtitle",
@@ -6077,13 +6077,13 @@
     },
     {
       "id": "wind_vegetation_mixed_forest_mountainside_strong_wind_gusts_through_firs_birches_poplars_creaking_tree_40",
-      "filename": "05_wind/wind_vegetation_mixed_forest_mountainside_strong_wind_gusts_through_firs_birches_poplars_creaking_tree_40.wav",
+      "filename": "05_wind/wind_vegetation_mixed_forest_mountainside_strong_wind_gusts_through_firs_birches_poplars_creaking_tree_40.opus",
       "category_audio": "wind",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 276.7,
       "bg_title": "Силен Вятър",
       "title_key": "library.sounds.wind_vegetation_mixed_forest_mountainside_strong_wind_gusts_through_firs_birches_poplars_creaking_tree_40.title",
       "subtitle_key": "library.sounds.wind_vegetation_mixed_forest_mountainside_strong_wind_gusts_through_firs_birches_poplars_creaking_tree_40.subtitle",
@@ -6111,13 +6111,13 @@
     },
     {
       "id": "wind_vegetation_mixed_forest_wind_through_pines_birches_poplars_creaking_tree_trunk_leaves_rustling_bird_flyby_40",
-      "filename": "05_wind/wind_vegetation_mixed_forest_wind_through_pines_birches_poplars_creaking_tree_trunk_leaves_rustling_bird_flyby_40.wav",
+      "filename": "05_wind/wind_vegetation_mixed_forest_wind_through_pines_birches_poplars_creaking_tree_trunk_leaves_rustling_bird_flyby_40.opus",
       "category_audio": "wind",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 279.9,
       "bg_title": "Листа Вятър",
       "title_key": "library.sounds.wind_vegetation_mixed_forest_wind_through_pines_birches_poplars_creaking_tree_trunk_leaves_rustling_bird_flyby_40.title",
       "subtitle_key": "library.sounds.wind_vegetation_mixed_forest_wind_through_pines_birches_poplars_creaking_tree_trunk_leaves_rustling_bird_flyby_40.subtitle",
@@ -6144,12 +6144,12 @@
     },
     {
       "id": "ambience_forest_wetlands_forest_birds_birdsong",
-      "filename": "06_forest/ambience_forest_wetlands_forest_birds_birdsong.wav",
+      "filename": "06_forest/ambience_forest_wetlands_forest_birds_birdsong.opus",
       "category_audio": "forest",
       "categories_use": [
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.9,
       "bg_title": "Птици Гора",
       "title_key": "library.sounds.ambience_forest_wetlands_forest_birds_birdsong.title",
       "subtitle_key": "library.sounds.ambience_forest_wetlands_forest_birds_birdsong.subtitle",
@@ -6176,13 +6176,13 @@
     },
     {
       "id": "ambience_forest_wetlands_snowing_droplets_distant",
-      "filename": "06_forest/ambience_forest_wetlands_snowing_droplets_distant.wav",
+      "filename": "06_forest/ambience_forest_wetlands_snowing_droplets_distant.opus",
       "category_audio": "forest",
       "categories_use": [
         "falling_asleep",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.2,
       "bg_title": "Далечен Гора",
       "title_key": "library.sounds.ambience_forest_wetlands_snowing_droplets_distant.title",
       "subtitle_key": "library.sounds.ambience_forest_wetlands_snowing_droplets_distant.subtitle",
@@ -6209,13 +6209,13 @@
     },
     {
       "id": "ambience_forest_wetlands_winter_wildlife_birds",
-      "filename": "06_forest/ambience_forest_wetlands_winter_wildlife_birds.wav",
+      "filename": "06_forest/ambience_forest_wetlands_winter_wildlife_birds.opus",
       "category_audio": "forest",
       "categories_use": [
         "daily",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.0,
       "bg_title": "Птици Гора",
       "title_key": "library.sounds.ambience_forest_wetlands_winter_wildlife_birds.title",
       "subtitle_key": "library.sounds.ambience_forest_wetlands_winter_wildlife_birds.subtitle",
@@ -6242,12 +6242,12 @@
     },
     {
       "id": "ambience_nautical_wetlands_distant_factory_birds_01",
-      "filename": "06_forest/ambience_nautical_wetlands_distant_factory_birds_01.wav",
+      "filename": "06_forest/ambience_nautical_wetlands_distant_factory_birds_01.opus",
       "category_audio": "forest",
       "categories_use": [
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.2,
       "bg_title": "Далечен Птици Гора",
       "title_key": "library.sounds.ambience_nautical_wetlands_distant_factory_birds_01.title",
       "subtitle_key": "library.sounds.ambience_nautical_wetlands_distant_factory_birds_01.subtitle",
@@ -6274,13 +6274,13 @@
     },
     {
       "id": "fire_burning_fireplace_glass_front_wood_burning_medium",
-      "filename": "07_fire/fire_burning_fireplace_glass_front_wood_burning_medium.wav",
+      "filename": "07_fire/fire_burning_fireplace_glass_front_wood_burning_medium.opus",
       "category_audio": "fire",
       "categories_use": [
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 64.5,
       "bg_title": "Камина",
       "title_key": "library.sounds.fire_burning_fireplace_glass_front_wood_burning_medium.title",
       "subtitle_key": "library.sounds.fire_burning_fireplace_glass_front_wood_burning_medium.subtitle",
@@ -6308,13 +6308,13 @@
     },
     {
       "id": "369_seconds_of_bliss_369",
-      "filename": "08_meditation/369_seconds_of_bliss_369.wav",
+      "filename": "08_meditation/369_seconds_of_bliss_369.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 361.3,
       "bg_title": "Медитация",
       "title_key": "library.sounds.369_seconds_of_bliss_369.title",
       "subtitle_key": "library.sounds.369_seconds_of_bliss_369.subtitle",
@@ -6342,14 +6342,14 @@
     },
     {
       "id": "8_pm_anna_landstrom",
-      "filename": "08_meditation/8_pm_anna_landstrom.wav",
+      "filename": "08_meditation/8_pm_anna_landstrom.opus",
       "category_audio": "meditation",
       "categories_use": [
         "falling_asleep",
         "relaxation",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 229.6,
       "bg_title": "Медитация",
       "title_key": "library.sounds.8_pm_anna_landstrom.title",
       "subtitle_key": "library.sounds.8_pm_anna_landstrom.subtitle",
@@ -6377,14 +6377,14 @@
     },
     {
       "id": "a_calm_early_morning_rikard_from",
-      "filename": "08_meditation/a_calm_early_morning_rikard_from.wav",
+      "filename": "08_meditation/a_calm_early_morning_rikard_from.opus",
       "category_audio": "meditation",
       "categories_use": [
         "relaxation",
         "meditation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 177.1,
       "bg_title": "Спокоен Утринен Медитация",
       "title_key": "library.sounds.a_calm_early_morning_rikard_from.title",
       "subtitle_key": "library.sounds.a_calm_early_morning_rikard_from.subtitle",
@@ -6412,13 +6412,13 @@
     },
     {
       "id": "angelica_instrumental_version_david_edward",
-      "filename": "08_meditation/angelica_instrumental_version_david_edward.wav",
+      "filename": "08_meditation/angelica_instrumental_version_david_edward.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 399.7,
       "bg_title": "Медитация",
       "title_key": "library.sounds.angelica_instrumental_version_david_edward.title",
       "subtitle_key": "library.sounds.angelica_instrumental_version_david_edward.subtitle",
@@ -6446,14 +6446,14 @@
     },
     {
       "id": "archipelago_of_relaxation_mandala_dreams",
-      "filename": "08_meditation/archipelago_of_relaxation_mandala_dreams.wav",
+      "filename": "08_meditation/archipelago_of_relaxation_mandala_dreams.opus",
       "category_audio": "meditation",
       "categories_use": [
         "relaxation",
         "meditation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 146.6,
       "bg_title": "Медитация",
       "title_key": "library.sounds.archipelago_of_relaxation_mandala_dreams.title",
       "subtitle_key": "library.sounds.archipelago_of_relaxation_mandala_dreams.subtitle",
@@ -6481,13 +6481,13 @@
     },
     {
       "id": "carried_by_current_valante",
-      "filename": "08_meditation/carried_by_current_valante.wav",
+      "filename": "08_meditation/carried_by_current_valante.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 155.5,
       "bg_title": "Медитация",
       "title_key": "library.sounds.carried_by_current_valante.title",
       "subtitle_key": "library.sounds.carried_by_current_valante.subtitle",
@@ -6515,12 +6515,12 @@
     },
     {
       "id": "celestial_spheres_ave_air",
-      "filename": "08_meditation/celestial_spheres_ave_air.wav",
+      "filename": "08_meditation/celestial_spheres_ave_air.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 516.9,
       "bg_title": "Медитация",
       "title_key": "library.sounds.celestial_spheres_ave_air.title",
       "subtitle_key": "library.sounds.celestial_spheres_ave_air.subtitle",
@@ -6548,14 +6548,14 @@
     },
     {
       "id": "city_park_ave_air",
-      "filename": "08_meditation/city_park_ave_air.wav",
+      "filename": "08_meditation/city_park_ave_air.opus",
       "category_audio": "meditation",
       "categories_use": [
         "relaxation",
         "daily",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 226.7,
       "bg_title": "Медитация",
       "title_key": "library.sounds.city_park_ave_air.title",
       "subtitle_key": "library.sounds.city_park_ave_air.subtitle",
@@ -6583,12 +6583,12 @@
     },
     {
       "id": "crowned_with_spirit_valante",
-      "filename": "08_meditation/crowned_with_spirit_valante.wav",
+      "filename": "08_meditation/crowned_with_spirit_valante.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 176.2,
       "bg_title": "Медитация",
       "title_key": "library.sounds.crowned_with_spirit_valante.title",
       "subtitle_key": "library.sounds.crowned_with_spirit_valante.subtitle",
@@ -6616,13 +6616,13 @@
     },
     {
       "id": "crystal_haze_shuta_yasukochi",
-      "filename": "08_meditation/crystal_haze_shuta_yasukochi.wav",
+      "filename": "08_meditation/crystal_haze_shuta_yasukochi.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 440.2,
       "bg_title": "Медитация",
       "title_key": "library.sounds.crystal_haze_shuta_yasukochi.title",
       "subtitle_key": "library.sounds.crystal_haze_shuta_yasukochi.subtitle",
@@ -6650,12 +6650,12 @@
     },
     {
       "id": "dharapani_dex_1200",
-      "filename": "08_meditation/dharapani_dex_1200.wav",
+      "filename": "08_meditation/dharapani_dex_1200.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 418.0,
       "bg_title": "Медитация",
       "title_key": "library.sounds.dharapani_dex_1200.title",
       "subtitle_key": "library.sounds.dharapani_dex_1200.subtitle",
@@ -6683,13 +6683,13 @@
     },
     {
       "id": "dusky_mirage_true_messenger",
-      "filename": "08_meditation/dusky_mirage_true_messenger.wav",
+      "filename": "08_meditation/dusky_mirage_true_messenger.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 104.7,
       "bg_title": "Медитация",
       "title_key": "library.sounds.dusky_mirage_true_messenger.title",
       "subtitle_key": "library.sounds.dusky_mirage_true_messenger.subtitle",
@@ -6717,14 +6717,14 @@
     },
     {
       "id": "end_of_rain_beyza",
-      "filename": "08_meditation/end_of_rain_beyza.wav",
+      "filename": "08_meditation/end_of_rain_beyza.opus",
       "category_audio": "meditation",
       "categories_use": [
         "relaxation",
         "meditation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 251.7,
       "bg_title": "Медитация",
       "title_key": "library.sounds.end_of_rain_beyza.title",
       "subtitle_key": "library.sounds.end_of_rain_beyza.subtitle",
@@ -6752,14 +6752,14 @@
     },
     {
       "id": "enlightened_drift_amber_glow",
-      "filename": "08_meditation/enlightened_drift_amber_glow.wav",
+      "filename": "08_meditation/enlightened_drift_amber_glow.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 186.3,
       "bg_title": "Медитация",
       "title_key": "library.sounds.enlightened_drift_amber_glow.title",
       "subtitle_key": "library.sounds.enlightened_drift_amber_glow.subtitle",
@@ -6787,12 +6787,12 @@
     },
     {
       "id": "epic_mirage_hanna_lindgren",
-      "filename": "08_meditation/epic_mirage_hanna_lindgren.wav",
+      "filename": "08_meditation/epic_mirage_hanna_lindgren.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 296.9,
       "bg_title": "Медитация",
       "title_key": "library.sounds.epic_mirage_hanna_lindgren.title",
       "subtitle_key": "library.sounds.epic_mirage_hanna_lindgren.subtitle",
@@ -6820,13 +6820,13 @@
     },
     {
       "id": "field_of_horses_joseph_beg",
-      "filename": "08_meditation/field_of_horses_joseph_beg.wav",
+      "filename": "08_meditation/field_of_horses_joseph_beg.opus",
       "category_audio": "meditation",
       "categories_use": [
         "relaxation",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 309.1,
       "bg_title": "Медитация",
       "title_key": "library.sounds.field_of_horses_joseph_beg.title",
       "subtitle_key": "library.sounds.field_of_horses_joseph_beg.subtitle",
@@ -6854,14 +6854,14 @@
     },
     {
       "id": "floating_sakura_petals_sayuri_hayashi_egnell",
-      "filename": "08_meditation/floating_sakura_petals_sayuri_hayashi_egnell.wav",
+      "filename": "08_meditation/floating_sakura_petals_sayuri_hayashi_egnell.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "falling_asleep",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 195.2,
       "bg_title": "Медитация",
       "title_key": "library.sounds.floating_sakura_petals_sayuri_hayashi_egnell.title",
       "subtitle_key": "library.sounds.floating_sakura_petals_sayuri_hayashi_egnell.subtitle",
@@ -6889,13 +6889,13 @@
     },
     {
       "id": "forest_breeze_ave_air",
-      "filename": "08_meditation/forest_breeze_ave_air.wav",
+      "filename": "08_meditation/forest_breeze_ave_air.opus",
       "category_audio": "meditation",
       "categories_use": [
         "relaxation",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 270.0,
       "bg_title": "Медитация",
       "title_key": "library.sounds.forest_breeze_ave_air.title",
       "subtitle_key": "library.sounds.forest_breeze_ave_air.subtitle",
@@ -6923,13 +6923,13 @@
     },
     {
       "id": "gold_and_green_anna_landstrom",
-      "filename": "08_meditation/gold_and_green_anna_landstrom.wav",
+      "filename": "08_meditation/gold_and_green_anna_landstrom.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 204.3,
       "bg_title": "Медитация",
       "title_key": "library.sounds.gold_and_green_anna_landstrom.title",
       "subtitle_key": "library.sounds.gold_and_green_anna_landstrom.subtitle",
@@ -6957,14 +6957,14 @@
     },
     {
       "id": "grounded_hanna_lindgren",
-      "filename": "08_meditation/grounded_hanna_lindgren.wav",
+      "filename": "08_meditation/grounded_hanna_lindgren.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "anxiety",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 182.6,
       "bg_title": "Медитация",
       "title_key": "library.sounds.grounded_hanna_lindgren.title",
       "subtitle_key": "library.sounds.grounded_hanna_lindgren.subtitle",
@@ -6992,13 +6992,13 @@
     },
     {
       "id": "healing_tides_amber_glow",
-      "filename": "08_meditation/healing_tides_amber_glow.wav",
+      "filename": "08_meditation/healing_tides_amber_glow.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 225.8,
       "bg_title": "Медитация",
       "title_key": "library.sounds.healing_tides_amber_glow.title",
       "subtitle_key": "library.sounds.healing_tides_amber_glow.subtitle",
@@ -7026,14 +7026,14 @@
     },
     {
       "id": "hush_my_darling_yi_nantiro",
-      "filename": "08_meditation/hush_my_darling_yi_nantiro.wav",
+      "filename": "08_meditation/hush_my_darling_yi_nantiro.opus",
       "category_audio": "meditation",
       "categories_use": [
         "falling_asleep",
         "sleep_deep",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 179.2,
       "bg_title": "Медитация",
       "title_key": "library.sounds.hush_my_darling_yi_nantiro.title",
       "subtitle_key": "library.sounds.hush_my_darling_yi_nantiro.subtitle",
@@ -7061,14 +7061,14 @@
     },
     {
       "id": "inner_balance_elm_lake",
-      "filename": "08_meditation/inner_balance_elm_lake.wav",
+      "filename": "08_meditation/inner_balance_elm_lake.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "anxiety",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 173.1,
       "bg_title": "Медитация",
       "title_key": "library.sounds.inner_balance_elm_lake.title",
       "subtitle_key": "library.sounds.inner_balance_elm_lake.subtitle",
@@ -7096,12 +7096,12 @@
     },
     {
       "id": "kokoro_valante",
-      "filename": "08_meditation/kokoro_valante.wav",
+      "filename": "08_meditation/kokoro_valante.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 211.3,
       "bg_title": "Медитация",
       "title_key": "library.sounds.kokoro_valante.title",
       "subtitle_key": "library.sounds.kokoro_valante.subtitle",
@@ -7129,13 +7129,13 @@
     },
     {
       "id": "komorebi_shuta_yasukochi",
-      "filename": "08_meditation/komorebi_shuta_yasukochi.wav",
+      "filename": "08_meditation/komorebi_shuta_yasukochi.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 451.9,
       "bg_title": "Медитация",
       "title_key": "library.sounds.komorebi_shuta_yasukochi.title",
       "subtitle_key": "library.sounds.komorebi_shuta_yasukochi.subtitle",
@@ -7163,14 +7163,14 @@
     },
     {
       "id": "lullaby_for_kilian_magnus_ludvigsson",
-      "filename": "08_meditation/lullaby_for_kilian_magnus_ludvigsson.wav",
+      "filename": "08_meditation/lullaby_for_kilian_magnus_ludvigsson.opus",
       "category_audio": "meditation",
       "categories_use": [
         "falling_asleep",
         "sleep_deep",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 181.2,
       "bg_title": "Медитация",
       "title_key": "library.sounds.lullaby_for_kilian_magnus_ludvigsson.title",
       "subtitle_key": "library.sounds.lullaby_for_kilian_magnus_ludvigsson.subtitle",
@@ -7198,13 +7198,13 @@
     },
     {
       "id": "meditation_aquatic_369",
-      "filename": "08_meditation/meditation_aquatic_369.wav",
+      "filename": "08_meditation/meditation_aquatic_369.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 919.3,
       "bg_title": "Медитация",
       "title_key": "library.sounds.meditation_aquatic_369.title",
       "subtitle_key": "library.sounds.meditation_aquatic_369.subtitle",
@@ -7232,12 +7232,12 @@
     },
     {
       "id": "mindstream_amber_glow",
-      "filename": "08_meditation/mindstream_amber_glow.wav",
+      "filename": "08_meditation/mindstream_amber_glow.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 170.3,
       "bg_title": "Медитация",
       "title_key": "library.sounds.mindstream_amber_glow.title",
       "subtitle_key": "library.sounds.mindstream_amber_glow.subtitle",
@@ -7265,12 +7265,12 @@
     },
     {
       "id": "mirror_of_the_heart_bladverk_band",
-      "filename": "08_meditation/mirror_of_the_heart_bladverk_band.wav",
+      "filename": "08_meditation/mirror_of_the_heart_bladverk_band.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 205.2,
       "bg_title": "Медитация",
       "title_key": "library.sounds.mirror_of_the_heart_bladverk_band.title",
       "subtitle_key": "library.sounds.mirror_of_the_heart_bladverk_band.subtitle",
@@ -7298,13 +7298,13 @@
     },
     {
       "id": "murmurations_hanna_lindgren",
-      "filename": "08_meditation/murmurations_hanna_lindgren.wav",
+      "filename": "08_meditation/murmurations_hanna_lindgren.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 166.3,
       "bg_title": "Медитация",
       "title_key": "library.sounds.murmurations_hanna_lindgren.title",
       "subtitle_key": "library.sounds.murmurations_hanna_lindgren.subtitle",
@@ -7332,12 +7332,12 @@
     },
     {
       "id": "my_friend_the_warlock_bitwraith",
-      "filename": "08_meditation/my_friend_the_warlock_bitwraith.wav",
+      "filename": "08_meditation/my_friend_the_warlock_bitwraith.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 157.0,
       "bg_title": "Медитация",
       "title_key": "library.sounds.my_friend_the_warlock_bitwraith.title",
       "subtitle_key": "library.sounds.my_friend_the_warlock_bitwraith.subtitle",
@@ -7365,12 +7365,12 @@
     },
     {
       "id": "namucuo_by_lotus",
-      "filename": "08_meditation/namucuo_by_lotus.wav",
+      "filename": "08_meditation/namucuo_by_lotus.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 350.4,
       "bg_title": "Медитация",
       "title_key": "library.sounds.namucuo_by_lotus.title",
       "subtitle_key": "library.sounds.namucuo_by_lotus.subtitle",
@@ -7398,13 +7398,13 @@
     },
     {
       "id": "on_a_knee_the_golden_peas",
-      "filename": "08_meditation/on_a_knee_the_golden_peas.wav",
+      "filename": "08_meditation/on_a_knee_the_golden_peas.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 156.5,
       "bg_title": "Медитация",
       "title_key": "library.sounds.on_a_knee_the_golden_peas.title",
       "subtitle_key": "library.sounds.on_a_knee_the_golden_peas.subtitle",
@@ -7432,13 +7432,13 @@
     },
     {
       "id": "parlemor_bomull",
-      "filename": "08_meditation/parlemor_bomull.wav",
+      "filename": "08_meditation/parlemor_bomull.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 172.1,
       "bg_title": "Медитация",
       "title_key": "library.sounds.parlemor_bomull.title",
       "subtitle_key": "library.sounds.parlemor_bomull.subtitle",
@@ -7466,12 +7466,12 @@
     },
     {
       "id": "pillars_of_resilience_cora_zea",
-      "filename": "08_meditation/pillars_of_resilience_cora_zea.wav",
+      "filename": "08_meditation/pillars_of_resilience_cora_zea.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.5,
       "bg_title": "Медитация",
       "title_key": "library.sounds.pillars_of_resilience_cora_zea.title",
       "subtitle_key": "library.sounds.pillars_of_resilience_cora_zea.subtitle",
@@ -7499,12 +7499,12 @@
     },
     {
       "id": "resonance_luba_hilman",
-      "filename": "08_meditation/resonance_luba_hilman.wav",
+      "filename": "08_meditation/resonance_luba_hilman.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 323.3,
       "bg_title": "Медитация",
       "title_key": "library.sounds.resonance_luba_hilman.title",
       "subtitle_key": "library.sounds.resonance_luba_hilman.subtitle",
@@ -7532,13 +7532,13 @@
     },
     {
       "id": "silver_woodlands_cora_zea",
-      "filename": "08_meditation/silver_woodlands_cora_zea.wav",
+      "filename": "08_meditation/silver_woodlands_cora_zea.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 239.3,
       "bg_title": "Медитация",
       "title_key": "library.sounds.silver_woodlands_cora_zea.title",
       "subtitle_key": "library.sounds.silver_woodlands_cora_zea.subtitle",
@@ -7566,14 +7566,14 @@
     },
     {
       "id": "solitude_conscience_mandala_dreams",
-      "filename": "08_meditation/solitude_conscience_mandala_dreams.wav",
+      "filename": "08_meditation/solitude_conscience_mandala_dreams.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "relaxation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 149.7,
       "bg_title": "Медитация",
       "title_key": "library.sounds.solitude_conscience_mandala_dreams.title",
       "subtitle_key": "library.sounds.solitude_conscience_mandala_dreams.subtitle",
@@ -7601,13 +7601,13 @@
     },
     {
       "id": "stargazing_shuta_yasukochi",
-      "filename": "08_meditation/stargazing_shuta_yasukochi.wav",
+      "filename": "08_meditation/stargazing_shuta_yasukochi.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 196.8,
       "bg_title": "Медитация",
       "title_key": "library.sounds.stargazing_shuta_yasukochi.title",
       "subtitle_key": "library.sounds.stargazing_shuta_yasukochi.subtitle",
@@ -7635,12 +7635,12 @@
     },
     {
       "id": "state_of_meditation_elm_lake",
-      "filename": "08_meditation/state_of_meditation_elm_lake.wav",
+      "filename": "08_meditation/state_of_meditation_elm_lake.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 178.8,
       "bg_title": "Медитация",
       "title_key": "library.sounds.state_of_meditation_elm_lake.title",
       "subtitle_key": "library.sounds.state_of_meditation_elm_lake.subtitle",
@@ -7668,13 +7668,13 @@
     },
     {
       "id": "still_love_hanna_lindgren",
-      "filename": "08_meditation/still_love_hanna_lindgren.wav",
+      "filename": "08_meditation/still_love_hanna_lindgren.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 308.0,
       "bg_title": "Медитация",
       "title_key": "library.sounds.still_love_hanna_lindgren.title",
       "subtitle_key": "library.sounds.still_love_hanna_lindgren.subtitle",
@@ -7702,12 +7702,12 @@
     },
     {
       "id": "the_hidden_realm_ruiqi_zhao",
-      "filename": "08_meditation/the_hidden_realm_ruiqi_zhao.wav",
+      "filename": "08_meditation/the_hidden_realm_ruiqi_zhao.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 136.7,
       "bg_title": "Медитация",
       "title_key": "library.sounds.the_hidden_realm_ruiqi_zhao.title",
       "subtitle_key": "library.sounds.the_hidden_realm_ruiqi_zhao.subtitle",
@@ -7735,14 +7735,14 @@
     },
     {
       "id": "the_lake_at_3am_mandala_dreams",
-      "filename": "08_meditation/the_lake_at_3am_mandala_dreams.wav",
+      "filename": "08_meditation/the_lake_at_3am_mandala_dreams.opus",
       "category_audio": "meditation",
       "categories_use": [
         "sleep_deep",
         "falling_asleep",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 340.0,
       "bg_title": "Медитация",
       "title_key": "library.sounds.the_lake_at_3am_mandala_dreams.title",
       "subtitle_key": "library.sounds.the_lake_at_3am_mandala_dreams.subtitle",
@@ -7770,13 +7770,13 @@
     },
     {
       "id": "the_water_remains_rand_aldo",
-      "filename": "08_meditation/the_water_remains_rand_aldo.wav",
+      "filename": "08_meditation/the_water_remains_rand_aldo.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 216.3,
       "bg_title": "Медитация",
       "title_key": "library.sounds.the_water_remains_rand_aldo.title",
       "subtitle_key": "library.sounds.the_water_remains_rand_aldo.subtitle",
@@ -7804,12 +7804,12 @@
     },
     {
       "id": "third_charm_joseph_beg",
-      "filename": "08_meditation/third_charm_joseph_beg.wav",
+      "filename": "08_meditation/third_charm_joseph_beg.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 221.4,
       "bg_title": "Медитация",
       "title_key": "library.sounds.third_charm_joseph_beg.title",
       "subtitle_key": "library.sounds.third_charm_joseph_beg.subtitle",
@@ -7837,13 +7837,13 @@
     },
     {
       "id": "to_have_you_near_anna_landstrom",
-      "filename": "08_meditation/to_have_you_near_anna_landstrom.wav",
+      "filename": "08_meditation/to_have_you_near_anna_landstrom.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 177.9,
       "bg_title": "Медитация",
       "title_key": "library.sounds.to_have_you_near_anna_landstrom.title",
       "subtitle_key": "library.sounds.to_have_you_near_anna_landstrom.subtitle",
@@ -7871,12 +7871,12 @@
     },
     {
       "id": "uninhabited_land_flouw",
-      "filename": "08_meditation/uninhabited_land_flouw.wav",
+      "filename": "08_meditation/uninhabited_land_flouw.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 92.0,
       "bg_title": "Медитация",
       "title_key": "library.sounds.uninhabited_land_flouw.title",
       "subtitle_key": "library.sounds.uninhabited_land_flouw.subtitle",
@@ -7904,13 +7904,13 @@
     },
     {
       "id": "uphill_climbing_anna_landstrom",
-      "filename": "08_meditation/uphill_climbing_anna_landstrom.wav",
+      "filename": "08_meditation/uphill_climbing_anna_landstrom.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 197.1,
       "bg_title": "Медитация",
       "title_key": "library.sounds.uphill_climbing_anna_landstrom.title",
       "subtitle_key": "library.sounds.uphill_climbing_anna_landstrom.subtitle",
@@ -7938,13 +7938,13 @@
     },
     {
       "id": "weightless_center_of_attention",
-      "filename": "08_meditation/weightless_center_of_attention.wav",
+      "filename": "08_meditation/weightless_center_of_attention.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 160.9,
       "bg_title": "Медитация",
       "title_key": "library.sounds.weightless_center_of_attention.title",
       "subtitle_key": "library.sounds.weightless_center_of_attention.subtitle",
@@ -7972,13 +7972,13 @@
     },
     {
       "id": "will_you_ever_know_anna_landstrom",
-      "filename": "08_meditation/will_you_ever_know_anna_landstrom.wav",
+      "filename": "08_meditation/will_you_ever_know_anna_landstrom.opus",
       "category_audio": "meditation",
       "categories_use": [
         "meditation",
         "relaxation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 185.5,
       "bg_title": "Медитация",
       "title_key": "library.sounds.will_you_ever_know_anna_landstrom.title",
       "subtitle_key": "library.sounds.will_you_ever_know_anna_landstrom.subtitle",
@@ -8006,14 +8006,14 @@
     },
     {
       "id": "brown_lowpass_1000",
-      "filename": "09_noise/brown_lowpass_1000.wav",
+      "filename": "09_noise/brown_lowpass_1000.opus",
       "category_audio": "noise",
       "categories_use": [
         "falling_asleep",
         "relaxation",
         "anxiety"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.4,
       "bg_title": "Фонов шум",
       "title_key": "library.sounds.brown_lowpass_1000.title",
       "subtitle_key": "library.sounds.brown_lowpass_1000.subtitle",
@@ -8040,14 +8040,14 @@
     },
     {
       "id": "brown_lowpass_500",
-      "filename": "09_noise/brown_lowpass_500.wav",
+      "filename": "09_noise/brown_lowpass_500.opus",
       "category_audio": "noise",
       "categories_use": [
         "sleep_deep",
         "falling_asleep",
         "anxiety"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.5,
       "bg_title": "Фонов шум",
       "title_key": "library.sounds.brown_lowpass_500.title",
       "subtitle_key": "library.sounds.brown_lowpass_500.subtitle",
@@ -8074,13 +8074,13 @@
     },
     {
       "id": "brown_pure",
-      "filename": "09_noise/brown_pure.wav",
+      "filename": "09_noise/brown_pure.opus",
       "category_audio": "noise",
       "categories_use": [
         "sleep_deep",
         "anxiety"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.4,
       "bg_title": "Фонов шум",
       "title_key": "library.sounds.brown_pure.title",
       "subtitle_key": "library.sounds.brown_pure.subtitle",
@@ -8107,14 +8107,14 @@
     },
     {
       "id": "pink_lowpass_2000",
-      "filename": "09_noise/pink_lowpass_2000.wav",
+      "filename": "09_noise/pink_lowpass_2000.opus",
       "category_audio": "noise",
       "categories_use": [
         "relaxation",
         "daily",
         "falling_asleep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.4,
       "bg_title": "Фонов шум",
       "title_key": "library.sounds.pink_lowpass_2000.title",
       "subtitle_key": "library.sounds.pink_lowpass_2000.subtitle",
@@ -8141,14 +8141,14 @@
     },
     {
       "id": "pink_lowpass_4000",
-      "filename": "09_noise/pink_lowpass_4000.wav",
+      "filename": "09_noise/pink_lowpass_4000.opus",
       "category_audio": "noise",
       "categories_use": [
         "daily",
         "relaxation",
         "anxiety"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.4,
       "bg_title": "Фонов шум",
       "title_key": "library.sounds.pink_lowpass_4000.title",
       "subtitle_key": "library.sounds.pink_lowpass_4000.subtitle",
@@ -8175,14 +8175,14 @@
     },
     {
       "id": "pink_pure",
-      "filename": "09_noise/pink_pure.wav",
+      "filename": "09_noise/pink_pure.opus",
       "category_audio": "noise",
       "categories_use": [
         "relaxation",
         "falling_asleep",
         "daily"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.4,
       "bg_title": "Фонов шум",
       "title_key": "library.sounds.pink_pure.title",
       "subtitle_key": "library.sounds.pink_pure.subtitle",
@@ -8209,12 +8209,12 @@
     },
     {
       "id": "ambience_scifi_eerie_alien_planet",
-      "filename": "10_ambient/ambience_scifi_eerie_alien_planet.wav",
+      "filename": "10_ambient/ambience_scifi_eerie_alien_planet.opus",
       "category_audio": "ambient",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 175.6,
       "bg_title": "Атмосфера",
       "title_key": "library.sounds.ambience_scifi_eerie_alien_planet.title",
       "subtitle_key": "library.sounds.ambience_scifi_eerie_alien_planet.subtitle",
@@ -8241,13 +8241,13 @@
     },
     {
       "id": "ambience_underground_cave_dark_bubbles",
-      "filename": "10_ambient/ambience_underground_cave_dark_bubbles.wav",
+      "filename": "10_ambient/ambience_underground_cave_dark_bubbles.opus",
       "category_audio": "ambient",
       "categories_use": [
         "meditation",
         "sleep_deep"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 114.4,
       "bg_title": "Пещера",
       "title_key": "library.sounds.ambience_underground_cave_dark_bubbles.title",
       "subtitle_key": "library.sounds.ambience_underground_cave_dark_bubbles.subtitle",
@@ -8274,12 +8274,12 @@
     },
     {
       "id": "designed_drone_atmospheric_space_drone_tonal_rumble",
-      "filename": "10_ambient/designed_drone_atmospheric_space_drone_tonal_rumble.wav",
+      "filename": "10_ambient/designed_drone_atmospheric_space_drone_tonal_rumble.opus",
       "category_audio": "ambient",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 78.5,
       "bg_title": "Тътен Атмосфера",
       "title_key": "library.sounds.designed_drone_atmospheric_space_drone_tonal_rumble.title",
       "subtitle_key": "library.sounds.designed_drone_atmospheric_space_drone_tonal_rumble.subtitle",
@@ -8306,14 +8306,14 @@
     },
     {
       "id": "designed_drone_deep_bass",
-      "filename": "10_ambient/designed_drone_deep_bass.wav",
+      "filename": "10_ambient/designed_drone_deep_bass.opus",
       "category_audio": "ambient",
       "categories_use": [
         "sleep_deep",
         "meditation",
         "anxiety"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 174.4,
       "bg_title": "Дълбок Атмосфера",
       "title_key": "library.sounds.designed_drone_deep_bass.title",
       "subtitle_key": "library.sounds.designed_drone_deep_bass.subtitle",
@@ -8340,14 +8340,14 @@
     },
     {
       "id": "designed_rumble_low_sub_bass_moving_slowly",
-      "filename": "10_ambient/designed_rumble_low_sub_bass_moving_slowly.wav",
+      "filename": "10_ambient/designed_rumble_low_sub_bass_moving_slowly.opus",
       "category_audio": "ambient",
       "categories_use": [
         "sleep_deep",
         "meditation",
         "anxiety"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 109.4,
       "bg_title": "Тътен Атмосфера",
       "title_key": "library.sounds.designed_rumble_low_sub_bass_moving_slowly.title",
       "subtitle_key": "library.sounds.designed_rumble_low_sub_bass_moving_slowly.subtitle",
@@ -8374,14 +8374,14 @@
     },
     {
       "id": "designed_rumble_low_sub_slight_air",
-      "filename": "10_ambient/designed_rumble_low_sub_slight_air.wav",
+      "filename": "10_ambient/designed_rumble_low_sub_slight_air.opus",
       "category_audio": "ambient",
       "categories_use": [
         "sleep_deep",
         "meditation",
         "anxiety"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 53.9,
       "bg_title": "Тътен Атмосфера",
       "title_key": "library.sounds.designed_rumble_low_sub_slight_air.title",
       "subtitle_key": "library.sounds.designed_rumble_low_sub_slight_air.subtitle",
@@ -8408,14 +8408,14 @@
     },
     {
       "id": "lay_down_with_me_hanna_lindgren",
-      "filename": "10_ambient/lay_down_with_me_hanna_lindgren.wav",
+      "filename": "10_ambient/lay_down_with_me_hanna_lindgren.opus",
       "category_audio": "ambient",
       "categories_use": [
         "falling_asleep",
         "sleep_deep",
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 293.9,
       "bg_title": "Атмосфера",
       "title_key": "library.sounds.lay_down_with_me_hanna_lindgren.title",
       "subtitle_key": "library.sounds.lay_down_with_me_hanna_lindgren.subtitle",
@@ -8442,12 +8442,12 @@
     },
     {
       "id": "opposite_to_destruction_hanna_lindgren",
-      "filename": "10_ambient/opposite_to_destruction_hanna_lindgren.wav",
+      "filename": "10_ambient/opposite_to_destruction_hanna_lindgren.opus",
       "category_audio": "ambient",
       "categories_use": [
         "meditation"
       ],
-      "duration_sec": 0.0,
+      "duration_sec": 340.7,
       "bg_title": "Атмосфера",
       "title_key": "library.sounds.opposite_to_destruction_hanna_lindgren.title",
       "subtitle_key": "library.sounds.opposite_to_destruction_hanna_lindgren.subtitle",
