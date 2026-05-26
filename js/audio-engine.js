@@ -374,6 +374,14 @@ window.AudioEngine = (function () {
   // Exposed за SEQ-REVEAL animation cancel.
   function getCurrentFlightToken() { return currentFlightToken; }
 
+  // P0.1: L2 flight token — mirror на L1 protection срещу fetch race.
+  // Scenario: user spam-ва NoisePicker → playLayer2(A) → playLayer2(B).
+  // Без token B може да resolve преди A → A фетч-ът завършва по-късно →
+  // startLayer2Source(A) overwrites B. Wrong noise plays.
+  // Used и в SEQ-REVEAL setTimeout — ако user смени noise през NoisePicker
+  // между L1 reveal и L2 delay window → captured token mismatches → ABORT.
+  var currentL2FlightToken = 0;
+
   function playLayer1(presetId, opts) {
     var myToken = ++currentFlightToken;
     console.log('[audio-engine] playLayer1 token:', myToken, 'presetId:', presetId, opts || '');
@@ -445,12 +453,22 @@ window.AudioEngine = (function () {
 
       // Now schedule L2 — chained to L1 actual start (not Player.open call).
       if (noiseId && noiseId !== 'none') {
+        // P0.1: capture L2 flight token at schedule time. Ако user смени
+        // noise през NoisePicker (директен playLayer2 call от Player) преди
+        // timer да fire-не → currentL2FlightToken ще е incremented → ABORT
+        // scheduled L2 (защото user already picked друг звук).
+        var l2TokenAtSchedule = currentL2FlightToken;
         var delayMs = (timing.layer2DelaySec || 0) * 1000;
         pendingL2RevealTimer = setTimeout(function () {
           pendingL2RevealTimer = null;
           // Stale check inside timer fire — req може да е сменено.
           if (revealReq !== activeRevealRequest) {
             console.log('[seq-reveal] L2 timer fire for stale req', revealReq, '(current:', activeRevealRequest + ') — ABORT');
+            return;
+          }
+          // P0.1: L2 flight token check — user changed noise during delay window.
+          if (currentL2FlightToken !== l2TokenAtSchedule) {
+            console.log('[seq-reveal] L2 flight token changed (', l2TokenAtSchedule, '→', currentL2FlightToken, ') — user noise change — ABORT scheduled L2');
             return;
           }
           playLayer2(noiseId, { fadeInSec: timing.layer2FadeSec }).then(function () {
@@ -666,6 +684,9 @@ window.AudioEngine = (function () {
   // ============================================================
 
   function playLayer2(noiseId, opts) {
+    // P0.1: ++ на ВСЯКО влизане — включително за 'none' (stop е валидна заявка
+    // която трябва да invalidate-не in-flight fetches с по-стар token).
+    var myToken = ++currentL2FlightToken;
     init();
     unlock();
     opts = opts || {};
@@ -701,6 +722,11 @@ window.AudioEngine = (function () {
     }
 
     return resumeContext().then(function () {
+      // P0.1: pre-fetch token check (cached buffer scenario / quick spam).
+      if (myToken !== currentL2FlightToken) {
+        console.log('[playLayer2] STALE token', myToken, 'current:', currentL2FlightToken, '— ABORT pre-fetch');
+        return;
+      }
       var bufferPromise;
       if (spec.type === 'file') {
         bufferPromise = fetchAndDecode(spec.url, noiseId);
@@ -712,6 +738,12 @@ window.AudioEngine = (function () {
         bufferPromise = Promise.resolve(buf);
       }
       return bufferPromise.then(function (buffer) {
+        // P0.1: post-decode token check (по-нов playLayer2 може да е startнал
+        // докато fetch+decode се изпълнява).
+        if (myToken !== currentL2FlightToken) {
+          console.log('[playLayer2] STALE token', myToken, 'current:', currentL2FlightToken, '— ABORT post-decode');
+          return;
+        }
         startLayer2Source(noiseId, buffer, spec.filter || null, { fadeInSec: opts.fadeInSec });
       });
     });
