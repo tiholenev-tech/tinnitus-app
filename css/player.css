@@ -162,41 +162,7 @@
 :root:not([data-theme]) .pl-subtitle { color: var(--text-muted); }
 [data-theme="dark"] .pl-subtitle { color: hsl(220 15% 70%); }
 
-/* ═══ PROGRESS ═══ */
-.pl-progress {
-  width: 100%;
-  max-width: 380px;
-  margin-bottom: 20px;
-}
-.pl-progress-bar {
-  height: 5px;
-  border-radius: var(--radius-pill);
-  overflow: hidden;
-  position: relative;
-  margin-bottom: 6px;
-}
-[data-theme="light"] .pl-progress-bar,
-:root:not([data-theme]) .pl-progress-bar { background: var(--surface-2); }
-[data-theme="dark"] .pl-progress-bar { background: hsl(220 25% 12%); }
-
-.pl-progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, hsl(var(--hue3) 70% 55%), hsl(var(--hue1) 70% 65%));
-  border-radius: var(--radius-pill);
-  transition: width 300ms linear;
-  box-shadow: 0 0 10px hsl(var(--hue3) 70% 50% / 0.45);
-}
-.pl-progress-times {
-  display: flex;
-  justify-content: space-between;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-}
-[data-theme="light"] .pl-progress-times,
-:root:not([data-theme]) .pl-progress-times { color: var(--text-muted); }
-[data-theme="dark"] .pl-progress-times { color: hsl(220 15% 60%); }
+/* ═══ PROGRESS removed (NO-TIMER) — infinite loop, не показваме duration. ═══ */
 
 /* ═══ LAYERS (2 sliders) ═══ */
 .pl-layers {

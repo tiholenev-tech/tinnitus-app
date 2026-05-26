@@ -66,7 +66,7 @@ window.Player = (function () {
   var layer1Vol = 100;  // A2.1: L1 default 100% — главен звук доминантен
   var layer2Vol = 50;   // A2.1: L2 default 50% — фон под L1
   var noiseChangedHandler = null;
-  var progressTickId = null;
+  // NO-TIMER: progressTickId премахнат — няма progress bar/timer logic.
   // A2.6: flight token за single-flight Player.open — предотвратява
   // паралелни playLayer1 promise-и при бързи tap-ове на 2-3 sound-а.
   var openFlightToken = 0;
@@ -103,13 +103,7 @@ window.Player = (function () {
     try { localStorage.setItem(key, String(value)); } catch (e) { /* ignore */ }
   }
 
-  function fmtTime(sec) {
-    if (!sec || sec < 0 || !isFinite(sec)) return '0:00';
-    sec = Math.floor(sec);
-    var m = Math.floor(sec / 60);
-    var s = sec % 60;
-    return m + ':' + (s < 10 ? '0' : '') + s;
-  }
+  // NO-TIMER: fmtTime() премахнат — не показваме duration.
 
   function findSound(soundId) {
     if (!soundId) return null;
@@ -194,7 +188,9 @@ window.Player = (function () {
   function buildPlayerHtml(sound, isPlaying) {
     var title = soundTitle(sound);
     var subtitle = soundSubtitle(sound);
-    var duration = (sound && sound.duration_sec) ? sound.duration_sec : 0;
+    // NO-TIMER: премахнат progress bar — всички звуци са infinite loop,
+    // duration няма смисъл за UI. Запазен duration_sec в manifest за
+    // future analytics, но не се показва.
     var backAria = t('components.player.backAria', 'Назад към библиотеката');
     var l1Label = t('components.player.layer1Label', 'Основен звук');
     var l2Label = t('components.player.layer2Label', 'Фонов шум');
@@ -234,16 +230,7 @@ window.Player = (function () {
           '<div class="pl-subtitle">' + escapeHtml(subtitle) + '</div>' +
         '</div>' +
 
-        '<div class="pl-progress">' +
-          '<div class="pl-progress-bar" role="progressbar"' +
-            ' aria-valuemin="0" aria-valuemax="' + duration + '" aria-valuenow="0">' +
-            '<div class="pl-progress-fill" id="plProgressFill" style="width: 0%"></div>' +
-          '</div>' +
-          '<div class="pl-progress-times">' +
-            '<span id="plCurTime">0:00</span>' +
-            '<span id="plTotalTime">' + (duration > 0 ? fmtTime(duration) : '∞') + '</span>' +
-          '</div>' +
-        '</div>' +
+        // NO-TIMER: progress bar премахнат — всички звуци са infinite loop.
 
         '<div class="pl-layers">' +
           '<div class="pl-layer">' +
@@ -287,31 +274,12 @@ window.Player = (function () {
     );
   }
 
-  // ============================================================
-  // Progress tick
-  // ============================================================
-
-  function startProgressTick() {
-    stopProgressTick();
-    progressTickId = setInterval(updateProgress, 300);
-  }
-  function stopProgressTick() {
-    if (progressTickId) { clearInterval(progressTickId); progressTickId = null; }
-  }
-  function updateProgress() {
-    if (!window.AudioEngine || !window.AudioEngine.getPlaybackInfo) return;
-    var info = window.AudioEngine.getPlaybackInfo();
-    if (!info) { stopProgressTick(); return; }
-    var fill = el('plProgressFill');
-    var curEl = el('plCurTime');
-    if (info.duration > 0) {
-      var pct = info.isLooping
-        ? ((info.currentTime % info.duration) / info.duration) * 100
-        : Math.min(100, (info.currentTime / info.duration) * 100);
-      if (fill) fill.style.width = pct.toFixed(1) + '%';
-    }
-    if (curEl) curEl.textContent = fmtTime(info.currentTime);
-  }
+  // NO-TIMER: progress tick logic премахнат — infinite loop, нямаме
+  // currentTime/duration display. startProgressTick/stopProgressTick са
+  // запазени като no-op за backward compat (call sites в openCore/render/
+  // close/togglePlayPause не трябва да се пипат до по-голям рефактор).
+  function startProgressTick() { /* no-op (NO-TIMER) */ }
+  function stopProgressTick()  { /* no-op (NO-TIMER) */ }
 
   // ============================================================
   // Interactions
