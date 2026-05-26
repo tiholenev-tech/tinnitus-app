@@ -226,7 +226,7 @@ window.AudioEngine = (function () {
   // LRU cache от 5 most recently preloaded.
 
   var preloadOrder = []; // [soundId, soundId, ...] oldest → newest
-  var PRELOAD_LIMIT = 5;
+  var PRELOAD_LIMIT = 20;
 
   function findSoundInManifest(soundId) {
     if (!soundId) return null;

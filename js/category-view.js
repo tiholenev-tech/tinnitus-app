@@ -472,13 +472,17 @@ window.CategoryView = (function () {
       app.innerHTML = buildScreenHtml(cat, sounds);
       bindEvents(app);
       injectInfoPanel(cat);
-      // AUDIO-PRELOAD: prefetch top 5 sounds в background (500ms след render
-      // да не блокираме critical path).
+      // AUDIO-PRELOAD: prefetch top 15 sounds в background, staggered с
+      // 300ms gap между fetch-овете (избягва network burst).
+      // Преди беше top 5 → 30s delay при tap на не-cached sound. Сега
+      // покрива по-широк range на категорията.
       setTimeout(function () {
         if (!window.AudioEngine || !window.AudioEngine.preloadSound) return;
-        var topFive = sounds.slice(0, 5);
-        topFive.forEach(function (s) {
-          window.AudioEngine.preloadSound(s.id).catch(function () {});
+        var topN = sounds.slice(0, 15);
+        topN.forEach(function (s, idx) {
+          setTimeout(function () {
+            window.AudioEngine.preloadSound(s.id).catch(function () {});
+          }, idx * 300);
         });
       }, 500);
       maybeAutoplay(cat, sounds);

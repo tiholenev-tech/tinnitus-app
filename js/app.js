@@ -310,24 +310,22 @@
 
     window.AppState.load();
 
-    // ===== Wave 3.1-F: 14-day program bootstrap =====
-    // Auto-start program при first open СЛЕД quiz done. Trigger thi_baseline.
-    if (window.AppState.isQuizDone() && window.AppState.programStartDate == null) {
-      window.AppState.startProgram();
-      window.AppState.transition('thi_baseline');
-      console.log('[bootstrap] program auto-started (Day 1 baseline pending)');
-    } else if (window.AppState.programStartDate != null) {
-      // Recompute текущия program day (date math)
+    // ===== Wave 3.1-F: DISABLED bootstrap auto-start =====
+    // Auto-trigger на thi_baseline СКРИВАШЕ ProfileResults screen след quiz.
+    // Потребителят expects flow: onboarding → quiz → ProfileResults → home.
+    // 14-day program ще се enroll-ва ръчно (бутон в Settings или ProfileResults).
+    //
+    // if (window.AppState.isQuizDone() && window.AppState.programStartDate == null) {
+    //   window.AppState.startProgram();
+    //   window.AppState.transition('thi_baseline');
+    // }
+    if (window.AppState.programStartDate != null) {
       window.AppState.recomputeCurrentDay();
     }
-
-    // Ако program е активен (между Day 1 и Day 14), primary destination = diary_hub.
-    // Когато phase е 'home' след quiz done — coerce към 'diary_hub' (CBT/diary focus).
-    // Nested screens (sound/player/category/etc.) се запазват — потребителят може
-    // да слуша + practice едновременно.
-    if (window.AppState.isProgramActive() && window.AppState.current === 'home') {
-      window.AppState.transition('diary_hub');
-    }
+    // Home → diary_hub redirect DISABLED — Home е primary destination.
+    // if (window.AppState.isProgramActive() && window.AppState.current === 'home') {
+    //   window.AppState.transition('diary_hub');
+    // }
 
     // SAFETY-2: при ПЪРВО profile_results landing → calibration screen първо.
     // Calibration done flag persistent → не пита пак.
