@@ -38,6 +38,12 @@
   // NAV-CATEGORY-LIST: remember last category + scroll position за back-from-Player
   var KEY_LAST_CATEGORY_VIEW     = 'auralis-last-category-view';
 
+  // PITCH-1: pitch matching test persistence
+  var KEY_PITCH_TESTS            = 'auralis-pitch-tests';
+  var KEY_PITCH_SKIP_REASON      = 'auralis-pitch-skip-reason';
+  var KEY_PITCH_SKIPPED          = 'auralis-pitch-skipped';
+  var KEY_AUDIO_DEVICE           = 'auralis-audio-device';
+
   var PHASES = [
     'onboarding', 'quiz', 'results', 'profile_results',
     'mixer', 'library', 'sleep', 'diary', 'calm',
@@ -46,7 +52,9 @@
     'thi_baseline', 'diary_hub', 'diary_evening', 'diary_morning',
     'cbt_day', 'progress',
     // SAFETY-2: volume calibration screen
-    'calibration'
+    'calibration',
+    // PITCH-1: pitch matching test (Phase 1 — first test only)
+    'pitch_test'
   ];
   var ONBOARDING_SUBPHASES = ['welcome', 'value', 'consent'];
 
@@ -114,6 +122,12 @@
     // ===== NAV-CATEGORY-LIST (back-from-Player) =====
     lastCategoryView: null,         // { catId, scrollPos, ts }
 
+    // ===== PITCH-1: pitch matching test state =====
+    pitchTests: [],                 // [{ day, freq, timestamp, trials, octaveCheck? }]
+    pitchSkipReason: null,          // 'noise_type' | 'pulsing' | 'other' | null
+    pitchSkipped: false,            // true ако user избра skip в pre-test
+    audioDevice: 'unknown',         // 'speakers' | 'bone' | 'openback' | 'inear' | 'unknown'
+
     // ===== Status checks =====
 
     isOnboardingDone: function () {
@@ -159,6 +173,11 @@
       this.userOverrides = parseJSON(get(KEY_USER_OVERRIDES), {});
       // NAV-CATEGORY-LIST: last category view (back-from-Player)
       this.lastCategoryView = parseJSON(get(KEY_LAST_CATEGORY_VIEW), null);
+      // PITCH-1: pitch test state
+      this.pitchTests = parseJSON(get(KEY_PITCH_TESTS), []);
+      this.pitchSkipReason = get(KEY_PITCH_SKIP_REASON) || null;
+      this.pitchSkipped = get(KEY_PITCH_SKIPPED) === 'true';
+      this.audioDevice = get(KEY_AUDIO_DEVICE) || 'unknown';
       // Recompute currentProgramDay (capped 1..14)
       if (this.programStartDate) {
         var daysElapsed = Math.floor((Date.now() - this.programStartDate) / 86400000);
@@ -180,7 +199,9 @@
           'thi_baseline', 'diary_hub', 'diary_evening', 'diary_morning',
           'cbt_day', 'progress',
           // SAFETY-2
-          'calibration'
+          'calibration',
+          // PITCH-1
+          'pitch_test'
         ];
 
         if (savedPhase && LEGACY_TO_HOME.indexOf(savedPhase) !== -1) {
@@ -424,6 +445,37 @@
       catch (e) { /* ignore */ }
     },
 
+    // PITCH-1: pitch test result persistence + skip handling.
+    addPitchTest: function (test) {
+      // test = { freq, trials, octaveCheck? }
+      if (!this.pitchTests) this.pitchTests = [];
+      var entry = {
+        day: this.currentProgramDay || null,
+        freq: parseInt(test.freq, 10) || null,
+        timestamp: Date.now(),
+        trials: test.trials || [],
+        octaveCheck: test.octaveCheck || null
+      };
+      this.pitchTests.push(entry);
+      try { set(KEY_PITCH_TESTS, JSON.stringify(this.pitchTests)); } catch (e) {}
+      return entry;
+    },
+    setPitchSkip: function (reason) {
+      this.pitchSkipped = true;
+      this.pitchSkipReason = reason || 'other';
+      set(KEY_PITCH_SKIPPED, 'true');
+      set(KEY_PITCH_SKIP_REASON, this.pitchSkipReason);
+    },
+    setAudioDevice: function (device) {
+      var ALLOWED = ['speakers', 'bone', 'openback', 'inear', 'unknown'];
+      if (ALLOWED.indexOf(device) === -1) device = 'unknown';
+      this.audioDevice = device;
+      set(KEY_AUDIO_DEVICE, device);
+    },
+    isPitchTestDone: function () {
+      return !!(this.pitchSkipped || (this.pitchTests && this.pitchTests.length > 0));
+    },
+
     saveDiaryEntry: function (dateKey, partial) {
       // partial = { evening?:..., morning?:..., cbtCompleted?:..., cbtReflection?:... }
       if (!this.diaryEntries[dateKey]) this.diaryEntries[dateKey] = {};
@@ -543,6 +595,15 @@
       // NAV-CATEGORY-LIST: reset
       this.lastCategoryView = null;
       remove(KEY_LAST_CATEGORY_VIEW);
+      // PITCH-1: reset
+      this.pitchTests = [];
+      this.pitchSkipReason = null;
+      this.pitchSkipped = false;
+      this.audioDevice = 'unknown';
+      remove(KEY_PITCH_TESTS);
+      remove(KEY_PITCH_SKIP_REASON);
+      remove(KEY_PITCH_SKIPPED);
+      remove(KEY_AUDIO_DEVICE);
     }
   };
 })();

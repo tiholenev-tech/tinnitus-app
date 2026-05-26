@@ -1,0 +1,119 @@
+/* AURALIS PitchTest — pitch matching screen (Phase 1)
+   Design Canon v1: hue1=255, hue2=222, champagne accents, glass cards. */
+
+.pt-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 8px 0 32px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.pt-header { text-align: center; padding: 0 8px; }
+.pt-title {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--text);
+}
+.pt-subtitle {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+/* ═══ Pre-test cards ═══ */
+.pt-pretest-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.pt-option-card {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 16px 18px;
+  border-radius: var(--radius, 22px);
+  border: 1px solid var(--border-color);
+  font-family: inherit;
+  cursor: pointer;
+  min-height: 64px;
+  transition: transform 150ms var(--ease, ease), background 150ms ease;
+}
+[data-theme="light"] .pt-option-card,
+:root:not([data-theme]) .pt-option-card {
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm, 0 2px 8px rgba(0,0,0,0.05));
+}
+[data-theme="dark"] .pt-option-card {
+  background: hsl(220 25% 6% / 0.55);
+  backdrop-filter: blur(8px);
+}
+.pt-option-card:hover {
+  background: hsl(var(--hue1) 50% 50% / 0.08);
+}
+.pt-option-card:active { transform: scale(0.98); }
+.pt-option-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.pt-option-desc {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ═══ Skip / continue message ═══ */
+.pt-skip-body {
+  padding: 16px 18px;
+  border-radius: var(--radius-sm, 14px);
+  border: 1px solid var(--border-color);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text);
+}
+[data-theme="light"] .pt-skip-body,
+:root:not([data-theme]) .pt-skip-body { background: var(--surface); }
+[data-theme="dark"] .pt-skip-body {
+  background: hsl(220 25% 6% / 0.5);
+  backdrop-filter: blur(8px);
+}
+.pt-skip-body p { margin: 0; }
+
+/* ═══ Actions ═══ */
+.pt-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+.pt-btn {
+  min-height: 52px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: var(--radius-pill, 999px);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 150ms var(--ease, ease);
+}
+.pt-btn:active { transform: scale(0.98); }
+.pt-btn--primary {
+  background: linear-gradient(135deg, hsl(var(--hue1) 65% 55%), hsl(var(--hue2) 65% 55%));
+  color: white;
+  box-shadow: 0 6px 18px hsl(var(--hue1) 60% 50% / 0.35);
+}
+.pt-btn--ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  font-weight: 600;
+}
