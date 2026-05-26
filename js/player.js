@@ -430,10 +430,15 @@ window.Player = (function () {
       description = 'Звук от категория ' + (sound.category_audio || 'природа') + '.';
     }
 
+    // P0.2: pass scenario — meditation scenario връща 'none' (per BUG2 spec —
+    // 044733a). Без scenario, sheet показваше brown noise за meditation →
+    // противоречи на "медитация = само чист звук" promise.
     var recommendedNoise = window.ProfileConfig
-      ? window.ProfileConfig.getRecommendedNoise(profile)
+      ? window.ProfileConfig.getRecommendedNoise(profile, scenario)
       : 'brown_lp500';
-    var noiseLabelText = noiseLabel(recommendedNoise);
+    var noiseLabelText = recommendedNoise === 'none'
+      ? 'Без фонов шум (само чист звук)'
+      : noiseLabel(recommendedNoise);
 
     var whyKey = 'profile_results.profiles.' + profile + '.reasons.' + scenario;
     var why = '';
