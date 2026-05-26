@@ -593,21 +593,36 @@ window.Player = (function () {
   }
 
   function open(soundId) {
-    if (!soundId) return;
+    console.log('[player.open] called with soundId:', soundId);
+    if (!soundId) {
+      console.warn('[player.open] no soundId given — abort');
+      return;
+    }
     var sound = findSound(soundId);
-    if (!sound) { console.warn('[player] sound not found:', soundId); return; }
+    console.log('[player.open] findSound returned:', sound ? sound.id : 'NULL');
+    if (!sound) {
+      console.warn('[player] sound not found:', soundId, '— manifest loaded?',
+        !!(window.AURALIS_MANIFEST && window.AURALIS_MANIFEST.sounds),
+        'count:', (window.AURALIS_MANIFEST && window.AURALIS_MANIFEST.sounds || []).length);
+      return;
+    }
 
     // SAFETY-3: показваме HeadphonesWarning при първото отваряне.
-    // Bottom sheet с educational съдържание (in-ear contraindication,
-    // mixing point, night exposure limit). След dismiss → продължава.
     if (window.HeadphonesWarning && window.HeadphonesWarning.showIfFirstTime
         && !window.HeadphonesWarning.hasBeenSeen()) {
+      console.log('[player.open] HeadphonesWarning first-time → showing sheet');
       window.HeadphonesWarning.showIfFirstTime(function () {
+        console.log('[player.open] HeadphonesWarning dismissed → openCore');
         openCore(soundId);
       });
       return;
     }
-    openCore(soundId);
+    console.log('[player.open] direct → openCore');
+    try {
+      openCore(soundId);
+    } catch (e) {
+      console.error('[player.open] openCore THREW:', e && e.message, e && e.stack);
+    }
   }
 
   function openCore(soundId) {
