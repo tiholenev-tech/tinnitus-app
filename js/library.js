@@ -491,38 +491,30 @@ window.Library = (function () {
       return;
     }
 
-    if (!window.AudioEngine) {
-      console.error('[library] AudioEngine not loaded');
-      return;
-    }
-
-    // Toggle pause при tap на active card
-    if (window.AudioEngine.getActivePreset() === soundId) {
-      window.AudioEngine.pause();
-      refresh();
-      return;
-    }
-
     ensureErrorListener();
 
-    // Регистрирай файла в AudioEngine ако е runtime pink
+    // P0 FIX: route ВСИЧКИ sound taps през Player.open (както CategoryView).
+    // Преди това Library.openSound викаше AudioEngine.playUrl директно →
+    // bypass-ваше Player screen, SEQ-REVEAL feedback, HeadphonesWarning,
+    // profile config, flight token. Резултат: 30-40s тих delay, звук
+    // тръгваше "от въздух" без контроли. (Phone test bug report.)
+    // Runtime pink noise остава като fallback ако някой запазва такива
+    // synthetic sounds в favorites — не валиден за production.
     if (sound.filename === '__runtime_pink__') {
-      window.AudioEngine.play('brown_noise').catch(function (e) {
-        console.error('[library] pink play failed:', e);
-      });
-    } else {
-      if (window.AudioEngine.playUrl) {
-        window.AudioEngine.playUrl(soundId, 'library_staging_normalized/' + sound.filename).catch(function (e) {
-          // Error event е emit-нат от engine; toast се показва от listener.
-          // Само за UI rollback тук:
-          console.warn('[library] file play failed:', soundId, e && e.message);
+      if (window.AudioEngine && window.AudioEngine.play) {
+        window.AudioEngine.play('brown_noise').catch(function (e) {
+          console.error('[library] pink play failed:', e);
         });
-      } else {
-        console.warn('[library] AudioEngine.playUrl missing — wire не е завършен');
+        setTimeout(refresh, 50);
       }
+      return;
     }
 
-    setTimeout(refresh, 50);
+    if (window.Player && window.Player.open) {
+      window.Player.open(soundId);
+    } else {
+      console.error('[library] Player module missing — cannot open sound');
+    }
   }
 
   var errorListenerBound = false;
