@@ -221,9 +221,12 @@ window.Player = (function () {
           '</button>' +
         '</header>' +
 
-        '<div class="pl-art" aria-hidden="true">' +
-          '<div class="pl-art-orb"></div>' +
-        '</div>' +
+        // PLAYER-ART: category-specific анимация вместо generic orb.
+        // PlayerArt.build връща full <div class="pl-art pa-<variant>">...</div>.
+        // Fallback на orb ако модулът липсва.
+        ((window.PlayerArt && window.PlayerArt.build)
+          ? window.PlayerArt.build(sound)
+          : '<div class="pl-art" aria-hidden="true"><div class="pl-art-orb"></div></div>') +
 
         '<div class="pl-info">' +
           '<h1 class="pl-title">' + escapeHtml(title) + '</h1>' +

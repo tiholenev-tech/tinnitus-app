@@ -1,0 +1,367 @@
+/* AURALIS PlayerArt — category-specific animated artwork
+   Design philosophy:
+     • Smooth, slow (4–12s cycles) — calming за tinnitus app target
+     • Никога bright flashes / saturated reds (Bible §1, §9)
+     • Pure CSS + SVG (no canvas, battery-friendly)
+     • prefers-reduced-motion → all animations paused
+
+   Variant container: .pl-art.pa-<variant>
+   All variants use same 180×180 container (виж css/player.css .pl-art). */
+
+.pl-art {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%,
+    hsl(220 30% 18% / 0.45),
+    hsl(220 35% 8% / 0.85) 75%);
+}
+[data-theme="light"] .pl-art,
+:root:not([data-theme]) .pl-art {
+  background: radial-gradient(circle at 35% 30%,
+    hsl(220 60% 96%),
+    hsl(220 40% 90%) 75%);
+  box-shadow: inset 0 2px 8px hsl(220 30% 70% / 0.3);
+}
+
+.pa-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
+/* ──────────────────────────────────────────────────────────
+   OCEAN — expanding ripples
+   ────────────────────────────────────────────────────────── */
+.pa-ocean-ring {
+  fill: none;
+  stroke: hsl(195 70% 70%);
+  stroke-width: 1.2;
+  opacity: 0;
+  transform-origin: 100px 100px;
+  animation: paOceanRipple 5s ease-out infinite;
+}
+.pa-ocean-ring--1 { animation-delay: 0s; }
+.pa-ocean-ring--2 { animation-delay: -1.25s; }
+.pa-ocean-ring--3 { animation-delay: -2.5s; }
+.pa-ocean-ring--4 { animation-delay: -3.75s; }
+@keyframes paOceanRipple {
+  0%   { transform: scale(0.3); opacity: 0.0; stroke-width: 2.5; }
+  15%  { opacity: 0.9; }
+  100% { transform: scale(2.7); opacity: 0; stroke-width: 0.4; }
+}
+
+/* ──────────────────────────────────────────────────────────
+   RAIN — falling drops + cloud silhouette
+   ────────────────────────────────────────────────────────── */
+.pa-rain-cloud {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 26%;
+  background:
+    radial-gradient(ellipse 50% 70% at 30% 70%, hsl(220 25% 80% / 0.55), transparent 70%),
+    radial-gradient(ellipse 60% 80% at 70% 65%, hsl(220 25% 75% / 0.55), transparent 70%),
+    radial-gradient(ellipse 50% 65% at 50% 50%, hsl(220 30% 85% / 0.5), transparent 70%);
+  filter: blur(4px);
+}
+[data-theme="light"] .pa-rain-cloud,
+:root:not([data-theme]) .pa-rain-cloud {
+  background:
+    radial-gradient(ellipse 50% 70% at 30% 70%, hsl(220 20% 60% / 0.55), transparent 70%),
+    radial-gradient(ellipse 60% 80% at 70% 65%, hsl(220 20% 55% / 0.55), transparent 70%),
+    radial-gradient(ellipse 50% 65% at 50% 50%, hsl(220 25% 65% / 0.5), transparent 70%);
+}
+.pa-rain-drops {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.pa-rain-drop {
+  position: absolute;
+  top: -10%;
+  width: 1.5px;
+  height: 14px;
+  background: linear-gradient(to bottom,
+    transparent,
+    hsl(200 60% 80% / 0.85));
+  border-radius: 0 0 2px 2px;
+  animation: paRainFall 2s linear infinite;
+}
+[data-theme="light"] .pa-rain-drop,
+:root:not([data-theme]) .pa-rain-drop {
+  background: linear-gradient(to bottom,
+    transparent,
+    hsl(210 60% 50% / 0.7));
+}
+@keyframes paRainFall {
+  0%   { transform: translateY(0); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(220px); opacity: 0; }
+}
+
+/* ──────────────────────────────────────────────────────────
+   RIVER — horizontal flowing waves (parallax)
+   ────────────────────────────────────────────────────────── */
+.pa-river-wave {
+  fill: hsl(200 60% 55%);
+  opacity: 0.35;
+  animation: paRiverFlow linear infinite;
+}
+.pa-river-wave--1 { opacity: 0.30; animation-duration: 6s; }
+.pa-river-wave--2 { opacity: 0.45; animation-duration: 8s; fill: hsl(195 65% 60%); }
+.pa-river-wave--3 { opacity: 0.55; animation-duration: 10s; fill: hsl(210 60% 50%); }
+.pa-river-wave--4 { opacity: 0.70; animation-duration: 12s; fill: hsl(215 65% 42%); }
+@keyframes paRiverFlow {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100px); }
+}
+
+/* ──────────────────────────────────────────────────────────
+   UNDERWATER — rising bubbles + caustic shimmer
+   ────────────────────────────────────────────────────────── */
+.pa-uw-caustic {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 20% 30%, hsl(190 70% 65% / 0.3), transparent 40%),
+    radial-gradient(circle at 70% 60%, hsl(195 60% 55% / 0.25), transparent 40%),
+    radial-gradient(circle at 50% 80%, hsl(210 65% 50% / 0.25), transparent 40%),
+    linear-gradient(135deg, hsl(215 60% 25%), hsl(205 55% 18%));
+  animation: paUwCaustic 18s linear infinite;
+}
+@keyframes paUwCaustic {
+  0%   { transform: rotate(0deg) scale(1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+.pa-uw-bubbles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.pa-uw-bubble {
+  position: absolute;
+  bottom: -10%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%,
+    hsl(0 0% 100% / 0.85),
+    hsl(200 50% 80% / 0.4) 70%,
+    transparent);
+  box-shadow: inset 0 0 2px hsl(0 0% 100% / 0.4);
+  animation: paUwBubble linear infinite;
+}
+@keyframes paUwBubble {
+  0%   { transform: translateY(0) translateX(0); opacity: 0; }
+  10%  { opacity: 0.9; }
+  30%  { transform: translateY(-50px) translateX(4px); }
+  60%  { transform: translateY(-110px) translateX(-3px); }
+  90%  { opacity: 0.6; }
+  100% { transform: translateY(-200px) translateX(2px); opacity: 0; }
+}
+
+/* ──────────────────────────────────────────────────────────
+   WIND — drifting curved streamlines
+   ────────────────────────────────────────────────────────── */
+.pa-wind-line {
+  fill: none;
+  stroke: hsl(210 35% 80%);
+  stroke-width: 0.8;
+  stroke-linecap: round;
+  opacity: 0.55;
+  animation: paWindDrift linear infinite;
+}
+[data-theme="light"] .pa-wind-line,
+:root:not([data-theme]) .pa-wind-line {
+  stroke: hsl(210 30% 50%);
+}
+.pa-wind-line--1 { animation-duration: 7s;  opacity: 0.35; }
+.pa-wind-line--2 { animation-duration: 9s;  opacity: 0.55; stroke-width: 1; }
+.pa-wind-line--3 { animation-duration: 11s; opacity: 0.75; stroke-width: 1.2; }
+.pa-wind-line--4 { animation-duration: 8s;  opacity: 0.5;  stroke-width: 0.9; }
+.pa-wind-line--5 { animation-duration: 10s; opacity: 0.4; }
+@keyframes paWindDrift {
+  0%   { transform: translateX(-30px); }
+  100% { transform: translateX(50px); }
+}
+
+/* ──────────────────────────────────────────────────────────
+   FOREST — sway + falling leaves
+   ────────────────────────────────────────────────────────── */
+.pa-tree-group {
+  transform-origin: 100px 170px;
+  animation: paForestSway 7s ease-in-out infinite;
+}
+@keyframes paForestSway {
+  0%, 100% { transform: rotate(-1.5deg); }
+  50%      { transform: rotate(1.5deg); }
+}
+.pa-leaves {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.pa-leaf {
+  position: absolute;
+  top: -10%;
+  border-radius: 40% 60% 50% 50%;
+  background: linear-gradient(135deg, hsl(125 55% 45%), hsl(45 70% 55%));
+  opacity: 0.85;
+  animation: paLeafFall linear infinite;
+}
+@keyframes paLeafFall {
+  0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.85; }
+  50%  { transform: translateY(110px) translateX(20px) rotate(180deg); }
+  90%  { opacity: 0.8; }
+  100% { transform: translateY(220px) translateX(-15px) rotate(360deg); opacity: 0; }
+}
+
+/* ──────────────────────────────────────────────────────────
+   FIRE — flickering flame (champagne/amber per Bible §1)
+   ────────────────────────────────────────────────────────── */
+.pa-flame {
+  transform-origin: 100px 170px;
+  filter: drop-shadow(0 0 8px hsl(40 90% 55% / 0.55));
+}
+.pa-flame--1 { animation: paFlameMain 2.3s ease-in-out infinite; }
+.pa-flame--2 { animation: paFlameMid 1.7s ease-in-out infinite; animation-delay: -0.3s; }
+.pa-flame--3 { animation: paFlameCore 1.1s ease-in-out infinite; animation-delay: -0.5s; }
+@keyframes paFlameMain {
+  0%, 100% { transform: scaleY(1)    scaleX(1)    skewX(-1deg); }
+  25%      { transform: scaleY(1.08) scaleX(0.94) skewX(2deg); }
+  50%      { transform: scaleY(0.95) scaleX(1.05) skewX(-2deg); }
+  75%      { transform: scaleY(1.05) scaleX(0.98) skewX(1deg); }
+}
+@keyframes paFlameMid {
+  0%, 100% { transform: scaleY(1)    scaleX(1)    skewX(1deg); }
+  33%      { transform: scaleY(1.12) scaleX(0.9)  skewX(-2deg); }
+  66%      { transform: scaleY(0.92) scaleX(1.08) skewX(2deg); }
+}
+@keyframes paFlameCore {
+  0%, 100% { transform: scaleY(1)    skewX(0deg); opacity: 0.7; }
+  50%      { transform: scaleY(1.18) skewX(-1deg); opacity: 0.95; }
+}
+
+/* ──────────────────────────────────────────────────────────
+   MEDITATION — breathing mandala
+   ────────────────────────────────────────────────────────── */
+.pa-medit-breath {
+  transform-origin: 100px 100px;
+  animation: paMeditBreath 8s ease-in-out infinite;
+}
+@keyframes paMeditBreath {
+  0%, 100% { transform: scale(0.92); }
+  50%      { transform: scale(1.06); }
+}
+.pa-medit-rotate {
+  transform-origin: 100px 100px;
+  animation: paMeditRotate 60s linear infinite;
+}
+@keyframes paMeditRotate {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ──────────────────────────────────────────────────────────
+   NOISE — twinkling particle field
+   ────────────────────────────────────────────────────────── */
+.pa-noise-field {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%,
+    hsl(220 25% 25%),
+    hsl(220 30% 15%) 80%);
+}
+[data-theme="light"] .pa-noise-field,
+:root:not([data-theme]) .pa-noise-field {
+  background: radial-gradient(circle at 50% 50%,
+    hsl(220 30% 88%),
+    hsl(220 25% 75%) 80%);
+}
+.pa-noise-dot {
+  position: absolute;
+  border-radius: 50%;
+  background: hsl(200 50% 85%);
+  animation: paNoiseTwinkle ease-in-out infinite;
+}
+[data-theme="light"] .pa-noise-dot,
+:root:not([data-theme]) .pa-noise-dot { background: hsl(220 30% 35%); }
+@keyframes paNoiseTwinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.8); }
+  50%      { opacity: 0.95; transform: scale(1.2); }
+}
+
+/* ──────────────────────────────────────────────────────────
+   AMBIENT — gradient mesh drift
+   ────────────────────────────────────────────────────────── */
+.pa-ambient-mesh {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    hsl(var(--hue1, 255) 35% 25%),
+    hsl(var(--hue2, 222) 30% 20%));
+  overflow: hidden;
+}
+[data-theme="light"] .pa-ambient-mesh,
+:root:not([data-theme]) .pa-ambient-mesh {
+  background: linear-gradient(135deg,
+    hsl(var(--hue1, 255) 65% 92%),
+    hsl(var(--hue2, 222) 60% 90%));
+}
+.pa-ambient-blob {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  filter: blur(28px);
+  opacity: 0.65;
+}
+.pa-ambient-blob--1 {
+  top: -10%; left: -10%;
+  background: hsl(var(--hue1, 255) 60% 55%);
+  animation: paAmbDrift1 22s ease-in-out infinite;
+}
+.pa-ambient-blob--2 {
+  bottom: -10%; right: -10%;
+  background: hsl(var(--hue2, 222) 60% 55%);
+  animation: paAmbDrift2 26s ease-in-out infinite;
+}
+.pa-ambient-blob--3 {
+  top: 30%; left: 30%;
+  background: hsl(180 55% 55%);
+  opacity: 0.4;
+  animation: paAmbDrift3 30s ease-in-out infinite;
+}
+@keyframes paAmbDrift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(40px, 30px) scale(1.15); }
+}
+@keyframes paAmbDrift2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-30px, -40px) scale(1.1); }
+}
+@keyframes paAmbDrift3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(-20px, 25px) scale(0.85); }
+  66%      { transform: translate(25px, -15px) scale(1.2); }
+}
+
+/* ──────────────────────────────────────────────────────────
+   REDUCED MOTION — disable all animations
+   ────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .pl-art *,
+  .pl-art {
+    animation: none !important;
+    transition: none !important;
+  }
+}
