@@ -438,10 +438,18 @@ window.AudioEngine = (function () {
     // L1 RESOLVED → emit reveal event + schedule L2 (NOT before L1 actually plays).
     // Преди това L2 setTimeout fire-ваше при 2.5s от заявката, но L1 fetch отнема
     // 5-15s → L2 audible преди L1. Now we chain L2 to L1 promise.
-    l1Promise.then(function () {
+    l1Promise.then(function (l1Started) {
       // Stale check — нов SEQ-REVEAL вече е стартиран.
       if (revealReq !== activeRevealRequest) {
         console.log('[seq-reveal] L1 resolved but req', revealReq, 'is stale (current:', activeRevealRequest + ') — skip L2 schedule');
+        return;
+      }
+      // P1.3: L1 abort check — startLayer1Source може да върне false от
+      // re-entrancy guard (same presetId restart <500ms) или token check
+      // може да върне false. Преди това L2 setTimeout все пак schedule-ваше
+      // → L2 свири без L1 (audio leak).
+      if (l1Started === false) {
+        console.log('[seq-reveal] L1 NOT started (aborted by guard/token) — skip L2 schedule');
         return;
       }
       console.log('[seq-reveal] req', revealReq, 'L1 STARTED — gain target', volumeToGain(layer1.volume).toFixed(3));
@@ -469,6 +477,13 @@ window.AudioEngine = (function () {
           // P0.1: L2 flight token check — user changed noise during delay window.
           if (currentL2FlightToken !== l2TokenAtSchedule) {
             console.log('[seq-reveal] L2 flight token changed (', l2TokenAtSchedule, '→', currentL2FlightToken, ') — user noise change — ABORT scheduled L2');
+            return;
+          }
+          // P1.3: secondary L1 health check — между schedule и fire,
+          // L1 source може да е спрял (stopLayer1, source ended, нов
+          // sound switch). Не schedule L2 ако L1 не свири the requested sound.
+          if (layer1.presetId !== soundId || !layer1.source) {
+            console.log('[seq-reveal] L1 не active during L2 delay (presetId:', layer1.presetId, 'requested:', soundId, 'source:', !!layer1.source, ') — ABORT L2');
             return;
           }
           playLayer2(noiseId, { fadeInSec: timing.layer2FadeSec }).then(function () {
@@ -514,6 +529,10 @@ window.AudioEngine = (function () {
     return null;
   }
 
+  // P1.3: playLayer1Spec resolves to boolean — true ако L1 source actually
+  // started (or already playing same preset), false ако aborted (stale token
+  // or re-entrancy guard). SEQ-REVEAL чете тази стойност за да реши дали да
+  // schedule-не L2.
   function playLayer1Spec(presetId, spec, opts, myToken) {
     init();
     unlock();
@@ -521,14 +540,14 @@ window.AudioEngine = (function () {
 
     if (layer1.presetId === presetId && layer1.source) {
       console.log('[audio] L1 already playing:', presetId);
-      return Promise.resolve();
+      return Promise.resolve(true); // P1.3: L1 IS playing the requested sound
     }
 
     return resumeContext().then(function () {
       // FLIGHT-TOKEN: check before starting heavy work (буфер може да дойде от cache).
       if (typeof myToken === 'number' && myToken !== currentFlightToken) {
         console.log('[playLayer1] STALE token', myToken, 'current:', currentFlightToken, '— ABORT pre-decode');
-        return;
+        return false;
       }
       if (spec.type === 'file') {
         return fetchAndDecode(spec.url, presetId).then(function (buffer) {
@@ -536,9 +555,9 @@ window.AudioEngine = (function () {
           // докато по-нов user tap е incremented token-а).
           if (typeof myToken === 'number' && myToken !== currentFlightToken) {
             console.log('[playLayer1] STALE token', myToken, 'current:', currentFlightToken, '— ABORT post-decode');
-            return;
+            return false;
           }
-          startLayer1Source(presetId, buffer, opts);
+          return startLayer1Source(presetId, buffer, opts);
         });
       } else if (spec.type === 'generated') {
         var buffer = (spec.gen === 'brown')
@@ -546,10 +565,9 @@ window.AudioEngine = (function () {
           : getOrGeneratePinkBuffer();
         if (typeof myToken === 'number' && myToken !== currentFlightToken) {
           console.log('[playLayer1] STALE token', myToken, 'current:', currentFlightToken, '— ABORT generated');
-          return;
+          return false;
         }
-        startLayer1Source(presetId, buffer, opts);
-        return Promise.resolve();
+        return startLayer1Source(presetId, buffer, opts);
       }
       return Promise.reject(new Error('Bad spec: ' + JSON.stringify(spec)));
     });
@@ -560,6 +578,10 @@ window.AudioEngine = (function () {
   // resolves). Различен presetId винаги преминава.
   var lastL1Start = { presetId: null, ts: 0 };
 
+  // P1.3: return true ако source actually started, false ако early-return от
+  // re-entrancy guard. playLayer1Spec пропагира това към promise resolution
+  // value → SEQ-REVEAL може да проверява дали L1 наистина свири преди да
+  // schedule-не L2.
   function startLayer1Source(presetId, buffer, opts) {
     opts = opts || {};
     var loop = opts.loop !== false;
@@ -568,7 +590,7 @@ window.AudioEngine = (function () {
     var nowMs = Date.now();
     if (lastL1Start.presetId === presetId && (nowMs - lastL1Start.ts) < 500) {
       console.log('[audio] L1 re-entrancy blocked for', presetId, '(', (nowMs - lastL1Start.ts), 'ms ago)');
-      return;
+      return false; // P1.3: explicit abort signal
     }
     lastL1Start.presetId = presetId;
     lastL1Start.ts = nowMs;
@@ -638,6 +660,7 @@ window.AudioEngine = (function () {
     layer1.bufferDuration = buffer.duration || 0;
     layer1.isLooping = loop;
     console.log('[audio] L1 play:', presetId, hadActive ? '(crossfade)' : '', loop ? '(loop)' : '(one-shot)');
+    return true; // P1.3: source actually started
   }
 
   function crossfadeLayer1(newPresetId) {
