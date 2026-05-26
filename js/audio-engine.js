@@ -245,7 +245,7 @@ window.AudioEngine = (function () {
     if (!sound || !sound.filename) {
       return Promise.reject(new Error('sound not in manifest'));
     }
-    var url = 'library_staging_normalized/' + sound.filename;
+    var url = 'library_staging_compact/' + sound.filename;
     if (bufferCache[url]) {
       // Already decoded — bump LRU order.
       var idx = preloadOrder.indexOf(soundId);
@@ -259,7 +259,7 @@ window.AudioEngine = (function () {
         var oldest = preloadOrder.shift();
         var oldSnd = findSoundInManifest(oldest);
         if (oldSnd && oldSnd.filename) {
-          var oldUrl = 'library_staging_normalized/' + oldSnd.filename;
+          var oldUrl = 'library_staging_compact/' + oldSnd.filename;
           delete bufferCache[oldUrl];
         }
       }
@@ -520,7 +520,7 @@ window.AudioEngine = (function () {
       var sounds = window.AURALIS_MANIFEST.sounds;
       for (var i = 0; i < sounds.length; i++) {
         if (sounds[i].id === presetId) {
-          var s = { type: 'file', url: 'library_staging_normalized/' + sounds[i].filename };
+          var s = { type: 'file', url: 'library_staging_compact/' + sounds[i].filename };
           PRESET_MAP[presetId] = s;
           return s;
         }
@@ -728,7 +728,7 @@ window.AudioEngine = (function () {
         for (var i = 0; i < window.AURALIS_MANIFEST.noises.length; i++) {
           var n = window.AURALIS_MANIFEST.noises[i];
           if (n.id === noiseId && n.filename) {
-            spec = { type: 'file', url: 'library_staging_normalized/' + n.filename };
+            spec = { type: 'file', url: 'library_staging_compact/' + n.filename };
             break;
           }
         }
