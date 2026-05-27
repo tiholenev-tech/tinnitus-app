@@ -266,21 +266,71 @@
   100% { transform: scale(1.12); opacity: 0; }
 }
 
-/* Subtle scale-pulse on whole button while playing */
+/* Entry burst — clear "start" cue при transition в --playing.
+   200ms overshoot scale + soft outward glow ring, после преминава в
+   continuous pulse. Решава проблем от phone test: бащата не "хваща"
+   момента на старт когато fill gradient е суптилен. */
 .pt-tone-btn--playing {
-  animation: ptTonePulse 2.2s ease-in-out infinite;
+  animation:
+    ptToneEntry 200ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    ptTonePulse 2.2s 200ms ease-in-out infinite;
+}
+@keyframes ptToneEntry {
+  0%   {
+    transform: scale(0.97);
+    box-shadow: 0 0 0 0 hsl(var(--hue1) 65% 55% / 0),
+                inset 0 1px 0 hsl(0 0% 100% / 0.25);
+  }
+  60%  {
+    transform: scale(1.06);
+    box-shadow: 0 0 0 8px hsl(var(--hue1) 65% 55% / 0.35),
+                inset 0 1px 0 hsl(0 0% 100% / 0.25);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 10px 32px hsl(var(--hue1) 60% 55% / 0.55),
+                inset 0 1px 0 hsl(0 0% 100% / 0.25);
+  }
 }
 @keyframes ptTonePulse {
   0%, 100% { transform: scale(1); }
   50%      { transform: scale(1.015); }
 }
 
-/* Reduced motion respect */
+/* Reduced motion respect: spirат само decorative анимации
+   (ring/pulse/wave). Entry burst също спира — replacement е instant
+   visible style change без mid-action confusion. */
 @media (prefers-reduced-motion: reduce) {
   .pt-tone-btn--playing,
   .pt-tone-btn--playing::before {
     animation: none;
   }
+}
+
+/* Countdown progress bar — STATUS indicator (не decorative),
+   показва оставащо време от 2.5s tone. Pattern matching video
+   player progress: остава активен дори при prefers-reduced-motion
+   (video controls не се спират от OS preference). */
+.pt-tone-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: hsl(0 0% 100% / 0.85);
+  transform-origin: left center;
+  transform: scaleX(0);
+  border-radius: 0 0 var(--radius, 22px) var(--radius, 22px);
+  pointer-events: none;
+  opacity: 0;
+}
+.pt-tone-btn--playing .pt-tone-progress {
+  opacity: 1;
+  transform: scaleX(1);
+  /* 2.5s == TONE_DURATION_MS константа в pitch-test.js. Trigger при
+     добавяне на --playing class → линейна fill до full width.
+     При премахване class → snap back към scaleX(0) без transition. */
+  transition: transform 2500ms linear, opacity 100ms ease;
 }
 
 .pt-tone-label {

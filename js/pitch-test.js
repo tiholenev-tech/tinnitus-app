@@ -434,11 +434,13 @@ window.PitchTest = (function () {
             '<span class="pt-tone-label">Тон A</span>' +
             '<span class="pt-tone-hint" data-tone-hint="A">Натиснете за прослушване</span>' +
             '<span class="pt-tone-wave" aria-hidden="true"><span></span><span></span><span></span></span>' +
+            '<span class="pt-tone-progress" aria-hidden="true"></span>' +
           '</button>' +
           '<button class="pt-tone-btn" type="button" data-action="play-tone" data-tone="B">' +
             '<span class="pt-tone-label">Тон B</span>' +
             '<span class="pt-tone-hint" data-tone-hint="B">Натиснете за прослушване</span>' +
             '<span class="pt-tone-wave" aria-hidden="true"><span></span><span></span><span></span></span>' +
+            '<span class="pt-tone-progress" aria-hidden="true"></span>' +
           '</button>' +
         '</section>' +
 
@@ -515,7 +517,7 @@ window.PitchTest = (function () {
     if (btn) btn.classList.add('pt-tone-btn--playing');
     // Bug 2: hint text update — clear toggle affordance
     var hint = document.querySelector('[data-tone-hint="' + toneLetter + '"]');
-    if (hint) hint.textContent = 'Натиснете за спиране';
+    if (hint) hint.textContent = 'Свири… (натиснете за спиране)';
 
     var handle = playTone(freq, TONE_DURATION_MS);
     currentToneHandle = handle;
