@@ -287,6 +287,12 @@ window.Settings = (function () {
           '<button class="set-action" type="button" data-action="data-export">' +
             escapeHtml(t('settings.data.export', 'Изтегли всичко (JSON)')) +
           '</button>' +
+          '<button class="set-action" type="button" data-action="diary-import-trigger">' +
+            escapeHtml(t('ui.diary.import.button', 'Импорт на дневник (JSON)')) +
+          '</button>' +
+          '<input type="file" id="setDiaryImportInput" accept="application/json,.json"' +
+            ' style="display:none"' +
+            ' aria-label="' + escapeHtml(t('ui.diary.import.fileAria', 'Изберете JSON файл за импорт')) + '">' +
           '<button class="set-action set-action--danger" type="button" data-action="data-delete">' +
             escapeHtml(t('settings.data.delete', 'Изтрий всички данни')) +
           '</button>' +
@@ -994,6 +1000,10 @@ window.Settings = (function () {
         close();
         if (window.FAQ && window.FAQ.open) window.FAQ.open();
       }
+      else if (action === 'diary-import-trigger') {
+        var input = el('setDiaryImportInput');
+        if (input) input.click();
+      }
       else if (action === 'open-privacy') showPrivacyView();
       else if (action === 'open-terms') showTermsView();
       return;
@@ -1002,6 +1012,56 @@ window.Settings = (function () {
     if (themeBtn) {
       onThemeClick(themeBtn.getAttribute('data-theme-id'));
     }
+  }
+
+  function onDiaryImportFile(e) {
+    var input = e.target;
+    var file = input && input.files && input.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function () {
+      var text = (reader.result || '') + '';
+      if (!text) {
+        if (window.Toast && window.Toast.warning) {
+          window.Toast.warning(t('ui.diary.import.errorEmpty', 'Файлът е празен или невалиден.'));
+        }
+        input.value = '';
+        return;
+      }
+      if (!window.Diary || !window.Diary.importFromJson) {
+        if (window.Toast && window.Toast.warning) {
+          window.Toast.warning(t('ui.diary.import.errorFormat',
+            'Файлът не съдържа очаквания формат на дневник.'));
+        }
+        input.value = '';
+        return;
+      }
+      var result = window.Diary.importFromJson(text);
+      if (result.error === 'parse') {
+        if (window.Toast && window.Toast.warning) {
+          window.Toast.warning(t('ui.diary.import.errorParse',
+            'Файлът не е валиден JSON. Проверете формата и опитайте отново.'));
+        }
+      } else if (result.error === 'format' || result.error === 'empty') {
+        if (window.Toast && window.Toast.warning) {
+          window.Toast.warning(t('ui.diary.import.errorFormat',
+            'Файлът не съдържа очаквания формат на дневник.'));
+        }
+      } else {
+        var msg = t('ui.diary.import.successFmt',
+          'Импортирани {imported} записа ({skipped} пропуснати).',
+          { imported: result.imported, skipped: result.skipped });
+        if (window.Toast && window.Toast.success) window.Toast.success(msg);
+      }
+      input.value = '';
+    };
+    reader.onerror = function () {
+      if (window.Toast && window.Toast.warning) {
+        window.Toast.warning(t('ui.diary.import.errorEmpty', 'Файлът е празен или невалиден.'));
+      }
+      input.value = '';
+    };
+    reader.readAsText(file);
   }
 
   function onOverlayClick(e) {
@@ -1084,6 +1144,12 @@ window.Settings = (function () {
         rem.weekly = weeklyToggle.checked;
         saveReminders(rem);
       });
+    }
+
+    // Diary import (edge case #7)
+    var diaryImport = overlay.querySelector('#setDiaryImportInput');
+    if (diaryImport) {
+      diaryImport.addEventListener('change', onDiaryImportFile);
     }
 
     // JJ: Advanced Audio sliders

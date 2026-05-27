@@ -96,6 +96,82 @@ window.Diary = (function () {
     saveEntries(entries);
   }
 
+  // ============================================================
+  // Import (edge case #7) — restore от експортиран JSON файл
+  // ============================================================
+  //
+  // Очакван формат (същия като exportToFile generates):
+  //   Array of { date: 'YYYY-MM-DD', sleep_hours?: 0-12,
+  //              tinnitus?: 0-10, stress?: 0-10, timestamp?: ms }
+  //
+  // Merge policy: ако записът за date вече съществува, кеп-ваме този
+  // с по-голям timestamp. Иначе append. Не изтриваме съществуващи дати,
+  // които не са във файла.
+  //
+  // Връща { imported: N, skipped: M, error: null|string }.
+
+  function importFromJson(jsonString) {
+    var result = { imported: 0, skipped: 0, error: null };
+    if (!jsonString || typeof jsonString !== 'string') {
+      result.error = 'empty';
+      return result;
+    }
+    var parsed;
+    try { parsed = JSON.parse(jsonString); }
+    catch (e) { result.error = 'parse'; return result; }
+    if (!Array.isArray(parsed)) {
+      result.error = 'format';
+      return result;
+    }
+
+    var existing = loadEntries();
+    var indexByDate = {};
+    for (var i = 0; i < existing.length; i++) {
+      if (existing[i] && existing[i].date) indexByDate[existing[i].date] = i;
+    }
+
+    var DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+    for (var j = 0; j < parsed.length; j++) {
+      var raw = parsed[j];
+      if (!raw || typeof raw !== 'object' || !raw.date || !DATE_RE.test(raw.date)) {
+        result.skipped++;
+        continue;
+      }
+      var clean = {
+        date: raw.date,
+        timestamp: typeof raw.timestamp === 'number' ? raw.timestamp : Date.now()
+      };
+      if (typeof raw.sleep_hours === 'number') clean.sleep_hours = raw.sleep_hours;
+      if (typeof raw.tinnitus === 'number')    clean.tinnitus    = raw.tinnitus;
+      if (typeof raw.stress === 'number')      clean.stress      = raw.stress;
+      // Skip ако няма никакво съдържание (само date).
+      if (clean.sleep_hours == null && clean.tinnitus == null && clean.stress == null) {
+        result.skipped++;
+        continue;
+      }
+
+      var existingIdx = indexByDate[clean.date];
+      if (existingIdx == null) {
+        existing.push(clean);
+        indexByDate[clean.date] = existing.length - 1;
+        result.imported++;
+      } else {
+        var prev = existing[existingIdx];
+        var prevTs = typeof prev.timestamp === 'number' ? prev.timestamp : 0;
+        if (clean.timestamp >= prevTs) {
+          existing[existingIdx] = clean;
+          result.imported++;
+        } else {
+          result.skipped++;
+        }
+      }
+    }
+
+    existing.sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; });
+    saveEntries(existing);
+    return result;
+  }
+
   function getEntriesForRange(days) {
     var all = loadEntries();
     if (!days || all.length === 0) return all;
@@ -572,6 +648,7 @@ window.Diary = (function () {
     render: render,
     getEntries: loadEntries,
     upsert: upsert,
-    export: exportToFile
+    export: exportToFile,
+    importFromJson: importFromJson
   };
 })();
