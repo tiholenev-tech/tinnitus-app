@@ -257,6 +257,155 @@ window.Home = (function () {
     );
   }
 
+  // PACK C T1 — Constants
+  var THI_GOAL = 40;
+  var THI_RETEST_DAY_MIN = 13;
+
+  function buildThiBanner() {
+    var s = window.AppState || {};
+    var day = s.currentProgramDay || 0;
+    var baseline = (typeof s.thiBaseline === 'number') ? s.thiBaseline : null;
+    var day14 = (typeof s.thiDay14 === 'number') ? s.thiDay14 : null;
+    if (baseline === null || day14 !== null || day < THI_RETEST_DAY_MIN) return '';
+    var title = t('thi.homeBanner.retest_title', 'Време е за вторично THI измерване');
+    var body  = t('thi.homeBanner.retest_body', 'Изпълнихте 13 дни от програмата. Направете втория тест за сравнение.');
+    var cta   = t('thi.homeBanner.retest_cta', 'Направи тест');
+    return (
+      '<button class="home-thi-banner" type="button" data-action="thi-retest"' +
+        ' aria-label="' + escapeHtml(title) + '">' +
+        '<span class="home-thi-banner-content">' +
+          '<span class="home-thi-banner-title">' + escapeHtml(title) + '</span>' +
+          '<span class="home-thi-banner-body">' + escapeHtml(body) + '</span>' +
+        '</span>' +
+        '<span class="home-thi-banner-cta">' + escapeHtml(cta) + ' ›</span>' +
+      '</button>'
+    );
+  }
+
+  function buildThiBadge() {
+    var s = window.AppState || {};
+    if (typeof s.thiBaseline !== 'number') return '';
+    var current = (typeof s.thiDay14 === 'number') ? s.thiDay14 : s.thiBaseline;
+    var label = t('thi.badge.label', 'THI');
+    var goalText = t('thi.badge.goal', 'цел < {goal}', { goal: THI_GOAL });
+    var fillPct = Math.max(0, Math.min(100, current));
+    var goalPct = Math.max(0, Math.min(100, THI_GOAL));
+    var hint = t('thi.badge.tapHint', 'Натиснете за подробности');
+    return (
+      '<button class="home-thi-badge glass" type="button" data-action="open-thi-detail"' +
+        ' aria-label="' + escapeHtml(label + ': ' + current + '. ' + hint) + '">' +
+        '<span class="shine" aria-hidden="true"></span>' +
+        '<span class="shine shine-bottom" aria-hidden="true"></span>' +
+        '<span class="home-thi-head">' +
+          '<span class="home-thi-label">' + escapeHtml(label) + '</span>' +
+          '<span class="home-thi-score">' + current + '</span>' +
+        '</span>' +
+        '<span class="home-thi-goal">' + escapeHtml(goalText) + '</span>' +
+        '<span class="home-thi-progress" aria-hidden="true">' +
+          '<span class="home-thi-progress-fill" style="width:' + fillPct + '%"></span>' +
+          '<span class="home-thi-progress-goal" style="left:' + goalPct + '%"></span>' +
+        '</span>' +
+      '</button>'
+    );
+  }
+
+  function openThiRetest() {
+    if (window.ThiBaseline && window.ThiBaseline.open) window.ThiBaseline.open();
+  }
+
+  function buildThiSubscoresHtml(breakdown) {
+    if (!breakdown) return '';
+    var M = (window.ThiInterpret && window.ThiInterpret._MAX) || { F:44, E:36, C:20 };
+    var rows = [
+      { lbl: t('thi.detail.functional','Функционален'),   val: breakdown.F||0, max: M.F },
+      { lbl: t('thi.detail.emotional','Емоционален'),     val: breakdown.E||0, max: M.E },
+      { lbl: t('thi.detail.catastrophic','Катастрофичен'),val: breakdown.C||0, max: M.C }
+    ];
+    var rowsHtml = rows.map(function (r) {
+      var pct = r.max > 0 ? Math.round((r.val / r.max) * 100) : 0;
+      return '<div class="thi-sub-row">' +
+        '<span class="thi-sub-lbl">' + escapeHtml(r.lbl) + '</span>' +
+        '<span class="thi-sub-bar" aria-hidden="true"><span class="thi-sub-bar-fill" style="width:' + pct + '%"></span></span>' +
+        '<span class="thi-sub-val">' + r.val + ' / ' + r.max + '</span>' +
+      '</div>';
+    }).join('');
+    return '<section class="thi-section"><h3 class="thi-section-title">' +
+      escapeHtml(t('thi.detail.subscoresTitle','По категории')) + '</h3>' +
+      '<div class="thi-subscores">' + rowsHtml + '</div></section>';
+  }
+
+  function buildThiInsightHtml(breakdown) {
+    if (!breakdown || !window.ThiInterpret || !window.ThiInterpret.fromBreakdown) return '';
+    var ins = window.ThiInterpret.fromBreakdown(breakdown);
+    if (!ins) return '';
+    return '<section class="thi-section thi-insight thi-insight--' + (ins.tone||'neutral') + '">' +
+      '<h3 class="thi-section-title">' + escapeHtml(ins.title) + '</h3>' +
+      '<p class="thi-insight-body">' + escapeHtml(ins.body) + '</p></section>';
+  }
+
+  function buildThiCompareHtml() {
+    var s = window.AppState || {};
+    if (typeof s.thiBaseline !== 'number' || typeof s.thiDay14 !== 'number') return '';
+    var cmp = (window.ThiInterpret && window.ThiInterpret.compareScores)
+      ? window.ThiInterpret.compareScores(s.thiBaseline, s.thiDay14) : null;
+    if (!cmp) return '';
+    var deltaSign = cmp.delta > 0 ? '+' : '';
+    var deltaText = deltaSign + cmp.delta + ' (' + (cmp.pctChange > 0 ? '+' : '') + cmp.pctChange + '%)';
+    var deltaCls = cmp.delta < 0 ? ' thi-delta--good' : (cmp.delta > 0 ? ' thi-delta--bad' : '');
+    return '<section class="thi-section thi-compare">' +
+      '<h3 class="thi-section-title">' + escapeHtml(t('thi.detail.compareTitle','Сравнение Ден 1 → Ден 14')) + '</h3>' +
+      '<div class="thi-compare-grid">' +
+        '<div class="thi-compare-col"><span class="thi-compare-lbl">' + escapeHtml(t('thi.detail.compareDay1','Ден 1')) + '</span><span class="thi-compare-val">' + s.thiBaseline + '</span></div>' +
+        '<div class="thi-compare-col"><span class="thi-compare-lbl">' + escapeHtml(t('thi.detail.compareDay14','Ден 14')) + '</span><span class="thi-compare-val">' + s.thiDay14 + '</span></div>' +
+        '<div class="thi-compare-col"><span class="thi-compare-lbl">' + escapeHtml(t('thi.detail.compareChange','Промяна')) + '</span><span class="thi-compare-val thi-compare-delta' + deltaCls + '">' + deltaText + '</span></div>' +
+      '</div><p class="thi-compare-msg">' + escapeHtml(cmp.message) + '</p></section>';
+  }
+
+  function buildThiRetestSectionHtml() {
+    var s = window.AppState || {};
+    if (typeof s.thiBaseline !== 'number') return '';
+    if (typeof s.thiDay14 === 'number') return '';
+    var day = s.currentProgramDay || 0;
+    if (day >= THI_RETEST_DAY_MIN) {
+      return '<section class="thi-section thi-retest-section">' +
+        '<button class="thi-retest-btn" type="button" data-action="thi-retest">' +
+          escapeHtml(t('thi.detail.retest_button','Направи тест отново')) +
+        '</button></section>';
+    }
+    var daysLeft = Math.max(1, THI_RETEST_DAY_MIN - day);
+    var msg = t('thi.detail.retest_countdown','Тест отново след {days} дни', { days: daysLeft });
+    return '<section class="thi-section thi-retest-section thi-retest-section--countdown">' +
+      '<span class="thi-retest-countdown">' + escapeHtml(msg) + '</span></section>';
+  }
+
+  function openThiDetailSheet() {
+    var s = window.AppState || {};
+    var breakdown = s.thiDay14Breakdown || s.thiBaselineBreakdown || null;
+    var title = t('thi.detail.title', 'Резултат от THI теста');
+    var content = '<div class="thi-detail">' +
+      buildThiCompareHtml() +
+      buildThiSubscoresHtml(breakdown) +
+      buildThiInsightHtml(breakdown) +
+      buildThiRetestSectionHtml() +
+    '</div>';
+    if (window.BottomSheet && window.BottomSheet.open) {
+      window.BottomSheet.open({
+        title: title, content: content, height: 'auto',
+        showGrip: true, closeOnBackdrop: true
+      });
+      setTimeout(function () {
+        var sheet = document.querySelector('.thi-detail');
+        if (!sheet) return;
+        sheet.addEventListener('click', function (e) {
+          var btn = e.target.closest('[data-action="thi-retest"]');
+          if (!btn) return;
+          if (window.BottomSheet && window.BottomSheet.close) window.BottomSheet.close();
+          openThiRetest();
+        });
+      }, 50);
+    }
+  }
+
   function buildHomeHtml() {
     var recommended = getRecommendedCategoryIds();
     var cardsHtml = USE_CATEGORIES.map(function (c) {
@@ -273,6 +422,9 @@ window.Home = (function () {
         '<h1 class="home-title">' +
           escapeHtml(t('home.title', 'Изберете режим')) +
         '</h1>' +
+
+        buildThiBanner() +
+        buildThiBadge() +
 
         '<div class="home-cat-list">' + cardsHtml + '</div>' +
 
@@ -316,6 +468,10 @@ window.Home = (function () {
       openDiary();
     } else if (action === 'open-library-all') {
       openLibraryAll();
+    } else if (action === 'open-thi-detail') {
+      openThiDetailSheet();
+    } else if (action === 'thi-retest') {
+      openThiRetest();
     }
   }
 

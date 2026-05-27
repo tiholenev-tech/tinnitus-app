@@ -23,6 +23,8 @@
   var KEY_PROGRAM_CURRENT_DAY    = 'auralis-program-current-day';
   var KEY_THI_BASELINE           = 'auralis-thi-baseline';
   var KEY_THI_DAY14              = 'auralis-thi-day14';
+  var KEY_THI_BASELINE_BREAKDOWN = 'auralis-thi-baseline-breakdown';
+  var KEY_THI_DAY14_BREAKDOWN    = 'auralis-thi-day14-breakdown';
   var KEY_DIARY_ENTRIES          = 'auralis-diary-entries';
   var KEY_STREAK_ACTIVE_DAYS     = 'auralis-streak-active-days';
   var KEY_STREAK_FREEZES         = 'auralis-streak-freezes-remaining';
@@ -107,6 +109,8 @@
     currentProgramDay: null,        // 1..14 — derived от today - programStartDate
     thiBaseline: null,              // 0..100; baseline THI score (Day 1)
     thiDay14: null,                 // 0..100; финален THI score (Day 14)
+    thiBaselineBreakdown: null,     // { total, F, E, C } | null (PACK C T1)
+    thiDay14Breakdown: null,        // { total, F, E, C } | null
     diaryEntries: {},               // { 'YYYY-MM-DD': { evening, morning, cbtCompleted, cbtReflection } }
     streakActiveDays: 0,            // последователни активни дни
     streakFreezesRemaining: 2,      // максимум 2 freeze-а в програмата
@@ -158,6 +162,8 @@
       var thiD = get(KEY_THI_DAY14);
       this.thiDay14 = (thiD === null || thiD === '') ? null : parseInt(thiD, 10);
       if (isNaN(this.thiDay14)) this.thiDay14 = null;
+      this.thiBaselineBreakdown = parseJSON(get(KEY_THI_BASELINE_BREAKDOWN), null);
+      this.thiDay14Breakdown    = parseJSON(get(KEY_THI_DAY14_BREAKDOWN), null);
       this.diaryEntries = parseJSON(get(KEY_DIARY_ENTRIES), {});
       var sad = get(KEY_STREAK_ACTIVE_DAYS);
       this.streakActiveDays = (sad === null || sad === '') ? 0 : (parseInt(sad, 10) || 0);
@@ -413,9 +419,27 @@
       set(KEY_THI_BASELINE, String(score));
     },
 
+    setThiBaselineBreakdown: function (breakdown) {
+      this.thiBaselineBreakdown = breakdown || null;
+      if (breakdown) {
+        try { set(KEY_THI_BASELINE_BREAKDOWN, JSON.stringify(breakdown)); } catch (e) {}
+      } else {
+        remove(KEY_THI_BASELINE_BREAKDOWN);
+      }
+    },
+
     setThiDay14: function (score) {
       this.thiDay14 = score;
       set(KEY_THI_DAY14, String(score));
+    },
+
+    setThiDay14Breakdown: function (breakdown) {
+      this.thiDay14Breakdown = breakdown || null;
+      if (breakdown) {
+        try { set(KEY_THI_DAY14_BREAKDOWN, JSON.stringify(breakdown)); } catch (e) {}
+      } else {
+        remove(KEY_THI_DAY14_BREAKDOWN);
+      }
     },
 
     // SAFETY-2: volume calibration helpers

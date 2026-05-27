@@ -246,22 +246,25 @@ window.ThiBaseline = (function () {
 
   function finalize() {
     var score = totalScore();
+    var breakdown = scoreBreakdown();
     var s = window.AppState;
     if (!s) return;
-    var day = s.currentProgramDay || 1;
-    if (day === 14) {
+    // PACK C T1: retest detection — ако baseline вече попълнен, това е retest.
+    // Покрива и flexible Day-13 UX choice (не строгото currentProgramDay === 14).
+    var isRetest = (typeof s.thiBaseline === 'number');
+    if (isRetest) {
       s.setThiDay14(score);
+      if (s.setThiDay14Breakdown) s.setThiDay14Breakdown(breakdown);
       clearActive();
-      // Toast: program complete
       if (window.Toast && window.Toast.success) {
-        window.Toast.success(t('thi.result.completed', 'Програмата приключи'));
+        window.Toast.success(t('thi.result.completed', 'Записахме новия резултат'));
       }
       s.transition('home');
       history.replaceState({ phase: 'home' }, '');
       if (window.Home && window.Home.render) window.Home.render();
     } else {
-      // Day 1 (или anywhere преди 14) → baseline
       s.setThiBaseline(score);
+      if (s.setThiBaselineBreakdown) s.setThiBaselineBreakdown(breakdown);
       clearActive();
       s.transition('diary_hub');
       history.replaceState({ phase: 'diary_hub' }, '');
