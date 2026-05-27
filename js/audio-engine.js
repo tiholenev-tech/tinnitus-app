@@ -474,7 +474,14 @@ window.AudioEngine = (function () {
   // Безопасност: ако state липсва (early loading) → no-op (no notch).
   // Failure mode: ако createBiquadFilter throw → fallback на direct connect.
 
-  var NOTCH_Q = 2.871; // 1/2 octave bandwidth
+  // Phone test (бащата): Q=2.871 (1/2 octave) → narrow notch → audible
+  // ringing на every L1 transient (water drips, gurgles, bubble bursts в
+  // .opus files). Notch filter резонира at notch freq → tonal "pop" overlay.
+  // Lower Q=1.0 (octave bandwidth) → wider notch, less precise но less ringing.
+  // Therapeutic value preserved — broader notch still removes tinnitus
+  // frequency, just не толкова razor-sharp. Trade-off приемлив за tinnitus
+  // app users (hyperacusis → no audio artifacts > precision).
+  var NOTCH_Q = 1.0; // octave bandwidth (was 2.871 = 1/2 octave)
 
   function createNotchFilter(audioCtx, freqHz) {
     try {
