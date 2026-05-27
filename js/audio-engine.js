@@ -416,11 +416,11 @@ window.AudioEngine = (function () {
       b6 = white * 0.115926;
       data[i] = pink * 0.11;
     }
-    // ROLLBACK: applyLoopCrossfade премахнато — detrend+crossfade introduced
-    // "накъсан" sound (audible amplitude modulation на loop boundary).
-    // Phone test: pink/brown с fix-а звучаха worse от стария generator.
-    // Връщаме се към raw generation; loop click е по-малко audible от
-    // amplitude modulation per user judgment.
+    // P0 v4: detrend + SHORT (20ms) crossfade. v3 used 500ms → audible amplitude
+    // modulation = "накъсан" звук (random noise blending в дълъг overlap window).
+    // 20ms (~1000 samples @ 48kHz) е под perceptual threshold за noise blending,
+    // но достатъчно за derivative smoothness след detrend (value continuity).
+    applyLoopCrossfade(buffer, 0.02);
     generatedPinkBuffer = buffer;
     console.log('[audio] generated pink buffer:', PINK_BUFFER_SEC + 's');
     return buffer;
@@ -450,7 +450,8 @@ window.AudioEngine = (function () {
     }
     var scale = 0.5 / (maxVal || 1);
     for (var k = 0; k < bufferSize; k++) data[k] *= scale;
-    // ROLLBACK: applyLoopCrossfade премахнато (виж pink generator).
+    // P0 v4: detrend + 20ms crossfade (виж pink generator).
+    applyLoopCrossfade(buffer, 0.02);
     generatedBrownBuffer = buffer;
     console.log('[audio] generated brown buffer:', BROWN_BUFFER_SEC + 's');
     return buffer;
