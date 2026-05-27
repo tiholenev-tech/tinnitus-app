@@ -363,12 +363,183 @@
 }
 .pl-ctrl--secondary svg { width: 22px; height: 22px; }
 
-/* SOS button — slight red accent on hover/focus */
-.pl-ctrl--secondary[data-action="sos"] {
-  color: hsl(355 60% 60%);
+/* PACK A change 1: heart favorite states */
+.pl-ctrl--fav {
+  color: var(--text-muted);
 }
-[data-theme="dark"] .pl-ctrl--secondary[data-action="sos"] {
-  color: hsl(355 65% 70%);
+.pl-ctrl--fav.is-fav {
+  color: hsl(345 75% 60%);
+}
+[data-theme="dark"] .pl-ctrl--fav.is-fav {
+  color: hsl(345 75% 70%);
+}
+.pl-ctrl--fav.is-fav svg {
+  filter: drop-shadow(0 2px 6px hsl(345 70% 50% / 0.4));
+}
+
+/* PACK A change 5: hide slider value (% number) — visually,
+   but запазваме DOM node за SEQ-REVEAL animation hook + ARIA */
+.pl-slider-value-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+/* PACK A change 2: SOS row 2 — champagne button с БГ текст */
+.pl-sos-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+  padding: 0 8px;
+}
+.pl-sos-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 280px;
+  padding: 12px 18px;
+  border: 1px solid var(--champagne, hsl(42 50% 78%));
+  border-radius: var(--radius-pill);
+  background: hsl(42 45% 78% / 0.18);
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+  transition: transform var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+}
+[data-theme="dark"] .pl-sos-btn {
+  background: hsl(42 40% 30% / 0.25);
+  border-color: hsl(42 50% 55% / 0.55);
+  color: hsl(42 30% 92%);
+}
+.pl-sos-btn:active { transform: scale(0.98); }
+.pl-sos-btn:hover {
+  background: hsl(42 50% 70% / 0.28);
+}
+[data-theme="dark"] .pl-sos-btn:hover {
+  background: hsl(42 45% 35% / 0.35);
+}
+.pl-sos-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 32px;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: hsl(42 60% 60% / 0.25);
+  color: hsl(38 75% 45%);
+}
+[data-theme="dark"] .pl-sos-icon {
+  color: hsl(42 75% 75%);
+  background: hsl(42 60% 50% / 0.3);
+}
+.pl-sos-icon svg { width: 18px; height: 18px; }
+.pl-sos-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+.pl-sos-title {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.pl-sos-sub {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* PACK A change 3: Sleep timer bottom sheet */
+.pl-sleep-sheet {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 4px 0;
+}
+.pl-sleep-opt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease);
+  min-height: 44px;
+}
+.pl-sleep-opt:hover {
+  background: hsl(var(--hue1) 30% 50% / 0.08);
+}
+.pl-sleep-opt input[type="radio"] {
+  width: 20px; height: 20px;
+  accent-color: hsl(var(--hue1) 60% 55%);
+  flex-shrink: 0;
+}
+.pl-sleep-opt-label {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+}
+.pl-sleep-divider {
+  height: 1px;
+  background: var(--border-color);
+  margin: 8px 14px;
+}
+.pl-sleep-opt--manual { flex-wrap: wrap; }
+.pl-sleep-manual-input {
+  width: 80px;
+  padding: 8px 10px;
+  font-size: 15px;
+  font-family: var(--font-mono, monospace);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  -moz-appearance: textfield;
+}
+.pl-sleep-manual-input::-webkit-outer-spin-button,
+.pl-sleep-manual-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.pl-sleep-manual-input.is-invalid {
+  border-color: hsl(355 60% 55%);
+}
+.pl-sleep-opt-unit {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.pl-sleep-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 0 4px;
+}
+.pl-sleep-btn {
+  flex: 1;
+  min-height: 48px;
+  padding: 12px 16px;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease);
+}
+.pl-sleep-btn:active { transform: scale(0.98); }
+.pl-sleep-btn--primary {
+  background: linear-gradient(135deg, hsl(var(--hue1) 65% 55%), hsl(var(--hue2) 65% 55%));
+  color: white;
+  border: none;
+  box-shadow: 0 6px 16px hsl(var(--hue1) 60% 50% / 0.3);
+}
+.pl-sleep-btn--ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
 }
 
 @keyframes plFadeIn {

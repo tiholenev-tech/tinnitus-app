@@ -133,9 +133,25 @@ window.Player = (function () {
     return sound ? t(sound.subtitle_key, sound.category || '') : '';
   }
 
+  // PACK A change 4: човешки БГ имена за noise IDs (вместо raw 'pink_lp4000').
+  var NOISE_LABEL_BG = {
+    'none':         'Без фон',
+    'pink_pure':    'Розов шум (чист)',
+    'pink_lp2000':  'Мек розов шум',
+    'pink_lp4000':  'Розов шум',
+    'brown_pure':   'Кафяв шум',
+    'brown_lp500':  'Дълбок кафяв шум',
+    'brown_lp1000': 'Мек кафяв шум',
+    'green_noise':  'Зелен шум'
+  };
   function noiseLabel(id) {
-    if (id === 'none') return t('components.player.noLayer2', 'Без фон');
-    return t('noises.' + id + '.title', t('components.noisePicker.options.' + id, id));
+    if (NOISE_LABEL_BG[id]) return NOISE_LABEL_BG[id];
+    // Fallback: i18n key или generic "Фонов шум"
+    if (window.i18n && window.i18n.t) {
+      var v = window.i18n.t('noises.' + id + '.title', null);
+      if (typeof v === 'string' && v.indexOf('noises.') !== 0 && v.indexOf('TODO') !== 0) return v;
+    }
+    return 'Фонов шум';
   }
 
   // ============================================================
@@ -154,9 +170,19 @@ window.Player = (function () {
     moon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"' +
       ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
       '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>',
-    sos: '<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5"' +
+    // PACK A change 1: heart outline (unfavorited) + heart filled (favorited).
+    heartOutline: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"' +
       ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
       '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
+    heartFilled: '<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5"' +
+      ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
+    // PACK A change 2: alert icon за нов SOS бутон с текст (вместо heart).
+    alert: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"' +
+      ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>' +
+      '<line x1="12" y1="9" x2="12" y2="13"/>' +
+      '<line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
     speaker: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"' +
       ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
       '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none"/>' +
@@ -172,15 +198,20 @@ window.Player = (function () {
   // ============================================================
 
   function buildSlider(id, label, value, ariaLabel) {
+    // PACK A change 5: премахнат visible "65%" текст. ARIA aria-valuenow
+    // запазва accessibility за screen readers. Анимациите от SEQ-REVEAL
+    // продължават да update-ват slider.value без visible label.
+    // Hidden span остава за internal animation hook (не показва UI текст).
     return (
       '<div class="pl-slider-row">' +
         '<div class="pl-slider-head">' +
           '<span class="pl-slider-label">' + escapeHtml(label) + '</span>' +
-          '<span class="pl-slider-value" id="' + id + 'Value">' + value + '%</span>' +
         '</div>' +
         '<input type="range" class="pl-slider" id="' + id + '"' +
           ' min="0" max="100" step="1" value="' + value + '"' +
-          ' aria-label="' + escapeHtml(ariaLabel) + '">' +
+          ' aria-label="' + escapeHtml(ariaLabel) + '"' +
+          ' aria-valuenow="' + value + '">' +
+        '<span class="pl-slider-value-hidden" id="' + id + 'Value" aria-hidden="true" hidden>' + value + '%</span>' +
       '</div>'
     );
   }
@@ -200,6 +231,10 @@ window.Player = (function () {
       : t('components.player.playAria', 'Пусни');
     var sleepAria = t('components.player.sleepAria', 'Нощен режим');
     var sosAria = t('components.player.sosAria', 'SOS дишане');
+    // PACK A change 1: favorite state определя heart icon variant + aria.
+    var isFav = !!(window.Favorites && window.Favorites.has &&
+      sound && window.Favorites.has(sound.id));
+    var favAria = isFav ? 'Премахни от любими' : 'Добави в любими';
 
     return (
       '<div class="pl-screen" data-screen="player"' +
@@ -259,10 +294,14 @@ window.Player = (function () {
           '</div>') +
         '</div>' +
 
+        // PACK A: row 1 — favorite (heart) + play/pause + sleep timer (moon).
+        // Heart icon вече toggle-ва favorite (не стартира SOS).
         '<div class="pl-controls">' +
-          '<button class="pl-ctrl pl-ctrl--secondary" type="button" data-action="sos"' +
-            ' aria-label="' + escapeHtml(sosAria) + '">' +
-            SVG.sos +
+          '<button class="pl-ctrl pl-ctrl--secondary pl-ctrl--fav' +
+            (isFav ? ' is-fav' : '') + '" type="button" data-action="favorite"' +
+            ' aria-label="' + escapeHtml(favAria) + '"' +
+            ' aria-pressed="' + (isFav ? 'true' : 'false') + '">' +
+            (isFav ? SVG.heartFilled : SVG.heartOutline) +
           '</button>' +
           '<button class="pl-ctrl pl-ctrl--play" type="button" data-action="toggle"' +
             ' aria-label="' + escapeHtml(playAria) + '">' +
@@ -271,6 +310,18 @@ window.Player = (function () {
           '<button class="pl-ctrl pl-ctrl--secondary" type="button" data-action="sleep"' +
             ' aria-label="' + escapeHtml(sleepAria) + '">' +
             SVG.moon +
+          '</button>' +
+        '</div>' +
+
+        // PACK A row 2 — SOS бутон с БГ текст (champagne, не червено).
+        '<div class="pl-sos-row">' +
+          '<button class="pl-sos-btn" type="button" data-action="sos"' +
+            ' aria-label="' + escapeHtml(sosAria) + '">' +
+            '<span class="pl-sos-icon" aria-hidden="true">' + SVG.alert + '</span>' +
+            '<span class="pl-sos-text">' +
+              '<span class="pl-sos-title">При паник атака · SOS</span>' +
+              '<span class="pl-sos-sub">Дихателно упражнение, 60 сек</span>' +
+            '</span>' +
           '</button>' +
         '</div>' +
       '</div>'
@@ -369,9 +420,173 @@ window.Player = (function () {
     if (action === 'back') close();
     else if (action === 'toggle') togglePlayPause();
     else if (action === 'open-noise') openNoisePicker();
-    else if (action === 'sleep') openSleep();
+    else if (action === 'sleep') openSleepTimerSheet();
     else if (action === 'sos') openSos();
     else if (action === 'info') openSoundInfo();
+    else if (action === 'favorite') toggleFavorite();
+  }
+
+  // PACK A change 1: heart icon → toggle favorite за активния звук.
+  function toggleFavorite() {
+    if (!activeSoundId || !window.Favorites || !window.Favorites.toggle) return;
+    var sound = findSound(activeSoundId);
+    var metadata = sound ? {
+      category: sound.category_audio,
+      title: sound.bg_title || sound.id
+    } : {};
+    var nowFav = window.Favorites.toggle(activeSoundId, metadata);
+    // Update bottom button visual state без full re-render.
+    var btn = document.querySelector('.pl-ctrl--fav');
+    if (btn) {
+      btn.classList.toggle('is-fav', nowFav);
+      btn.setAttribute('aria-pressed', nowFav ? 'true' : 'false');
+      btn.setAttribute('aria-label', nowFav ? 'Премахни от любими' : 'Добави в любими');
+      btn.innerHTML = nowFav ? SVG.heartFilled : SVG.heartOutline;
+    }
+    if (window.Toast) {
+      var msg = nowFav ? 'Добавен в любими' : 'Премахнат от любими';
+      if (window.Toast.success) window.Toast.success(msg);
+      else if (window.Toast.show) window.Toast.show(msg, { durationMs: 1800 });
+    }
+    if (window.Haptics && window.Haptics.light) window.Haptics.light();
+  }
+
+  // PACK A change 3: sleep timer bottom sheet с 4 preset + ръчна опция.
+  function openSleepTimerSheet() {
+    var current = (window.AudioEngine && window.AudioEngine.getSleepTimerInfo)
+      ? window.AudioEngine.getSleepTimerInfo() : { active: false, totalMinutes: 0 };
+    var activeMin = current.active ? current.totalMinutes : 0;
+
+    var presets = [
+      { mins: 15,  label: '15 минути' },
+      { mins: 30,  label: '30 минути' },
+      { mins: 60,  label: '1 час' },
+      { mins: 480, label: '8 часа (цяла нощ)' }
+    ];
+
+    var presetHtml = presets.map(function (p) {
+      var checked = (activeMin === p.mins) ? ' checked' : '';
+      return (
+        '<label class="pl-sleep-opt">' +
+          '<input type="radio" name="pl-sleep" value="' + p.mins + '"' + checked + '>' +
+          '<span class="pl-sleep-opt-label">' + escapeHtml(p.label) + '</span>' +
+        '</label>'
+      );
+    }).join('');
+
+    // Detect ако активното време е custom (не съвпада с preset).
+    var presetMins = presets.map(function (p) { return p.mins; });
+    var isCustomActive = activeMin > 0 && presetMins.indexOf(activeMin) === -1;
+    var customVal = isCustomActive ? activeMin : '';
+    var customChecked = isCustomActive ? ' checked' : '';
+
+    var content =
+      '<div class="pl-sleep-sheet">' +
+        presetHtml +
+        '<div class="pl-sleep-divider" aria-hidden="true"></div>' +
+        '<label class="pl-sleep-opt pl-sleep-opt--manual">' +
+          '<input type="radio" name="pl-sleep" value="manual"' + customChecked + ' id="plSleepManualRadio">' +
+          '<span class="pl-sleep-opt-label">Ръчно:</span>' +
+          '<input type="number" id="plSleepManualInput" class="pl-sleep-manual-input"' +
+            ' min="1" max="480" step="1" placeholder="мин."' +
+            ' value="' + customVal + '"' +
+            ' aria-label="Ръчна продължителност в минути (1 до 480)">' +
+          '<span class="pl-sleep-opt-unit">мин.</span>' +
+        '</label>' +
+        '<div class="pl-sleep-actions">' +
+          (activeMin > 0
+            ? '<button class="pl-sleep-btn pl-sleep-btn--ghost" type="button" data-sleep-action="cancel">Отмени таймер</button>'
+            : '') +
+          '<button class="pl-sleep-btn pl-sleep-btn--primary" type="button" data-sleep-action="apply">Запази</button>' +
+        '</div>' +
+      '</div>';
+
+    if (window.BottomSheet && window.BottomSheet.open) {
+      window.BottomSheet.open({
+        title: 'Таймер за сън',
+        content: content,
+        height: 'auto',
+        showGrip: true,
+        closeOnBackdrop: true
+      });
+      // Bind sheet-specific interactions след next tick (sheet DOM mounted).
+      setTimeout(bindSleepTimerSheet, 50);
+    } else if (window.Sleep && window.Sleep.open) {
+      window.Sleep.open();
+    }
+  }
+
+  function bindSleepTimerSheet() {
+    var sheet = document.querySelector('.pl-sleep-sheet');
+    if (!sheet) return;
+
+    // Manual input focus → auto-select радио бутона.
+    var manualInput = document.getElementById('plSleepManualInput');
+    var manualRadio = document.getElementById('plSleepManualRadio');
+    if (manualInput && manualRadio) {
+      manualInput.addEventListener('focus', function () {
+        manualRadio.checked = true;
+      });
+      manualInput.addEventListener('input', function () {
+        manualRadio.checked = true;
+        // Soft validation visual
+        var v = parseInt(manualInput.value, 10);
+        if (!isNaN(v) && (v < 1 || v > 480)) {
+          manualInput.classList.add('is-invalid');
+        } else {
+          manualInput.classList.remove('is-invalid');
+        }
+      });
+    }
+
+    // Apply / cancel buttons.
+    sheet.addEventListener('click', function (e) {
+      var actBtn = e.target.closest('[data-sleep-action]');
+      if (!actBtn) return;
+      var act = actBtn.getAttribute('data-sleep-action');
+      if (act === 'cancel') {
+        if (window.AudioEngine && window.AudioEngine.cancelSleepTimer) {
+          window.AudioEngine.cancelSleepTimer();
+        }
+        if (window.Toast && window.Toast.show) {
+          window.Toast.show('Таймерът е отменен', { durationMs: 1800 });
+        }
+        if (window.BottomSheet && window.BottomSheet.close) window.BottomSheet.close();
+        return;
+      }
+      if (act === 'apply') {
+        var selected = sheet.querySelector('input[name="pl-sleep"]:checked');
+        if (!selected) {
+          if (window.Toast && window.Toast.show) {
+            window.Toast.show('Изберете време', { durationMs: 1500 });
+          }
+          return;
+        }
+        var minutes = 0;
+        if (selected.value === 'manual') {
+          var raw = manualInput ? parseInt(manualInput.value, 10) : NaN;
+          if (isNaN(raw) || raw < 1 || raw > 480) {
+            if (window.Toast && window.Toast.show) {
+              window.Toast.show('Въведете число между 1 и 480', { durationMs: 2200 });
+            }
+            if (manualInput) manualInput.classList.add('is-invalid');
+            return;
+          }
+          minutes = raw;
+        } else {
+          minutes = parseInt(selected.value, 10);
+        }
+        if (window.AudioEngine && window.AudioEngine.setSleepTimer) {
+          window.AudioEngine.setSleepTimer(minutes);
+        }
+        if (window.Toast && window.Toast.success) {
+          window.Toast.success('Таймер: ' + minutes + ' мин.');
+        } else if (window.Toast && window.Toast.show) {
+          window.Toast.show('Таймер: ' + minutes + ' мин.', { durationMs: 1800 });
+        }
+        if (window.BottomSheet && window.BottomSheet.close) window.BottomSheet.close();
+      }
+    });
   }
 
   // SKIP-MIDDLEWARE: bottom sheet с inline инфо за активния звук.
@@ -493,10 +708,6 @@ window.Player = (function () {
     if (window.NoisePicker && window.NoisePicker.open) {
       window.NoisePicker.open(noiseId);
     }
-  }
-
-  function openSleep() {
-    if (window.Sleep && window.Sleep.open) window.Sleep.open();
   }
 
   function openSos() {
