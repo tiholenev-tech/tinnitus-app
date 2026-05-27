@@ -58,12 +58,8 @@ window.AudioEngine = (function () {
   var L2_FADE_SEC       = 0.25; // Hard swap но с малък fade за избягване на click
   var PAUSE_FADE_SEC    = 0.2;
   var SLEEP_FADE_SEC    = 30;
-  // P0 AUDIO-CLICK: bump 10s → 30s. Combined с loop crossfade (виж
-  // applyLoopCrossfade), всеки click е inaudible random step, и happens
-  // 3x по-рядко (every 30s вместо 10s). Memory cost: ~6MB extra @ 48kHz —
-  // приемливо за единичен runtime-generated buffer per type.
-  var PINK_BUFFER_SEC   = 30;
-  var BROWN_BUFFER_SEC  = 30;
+  var PINK_BUFFER_SEC   = 10;
+  var BROWN_BUFFER_SEC  = 10;
   var VOL_RAMP_SEC      = 0.05;
 
   // Legacy PRESET_MAP — kept за compat с Library/Mixer/Calm
@@ -420,7 +416,11 @@ window.AudioEngine = (function () {
       b6 = white * 0.115926;
       data[i] = pink * 0.11;
     }
-    applyLoopCrossfade(buffer, 0.5); // P0 fix: seamless loop
+    // ROLLBACK: applyLoopCrossfade премахнато — detrend+crossfade introduced
+    // "накъсан" sound (audible amplitude modulation на loop boundary).
+    // Phone test: pink/brown с fix-а звучаха worse от стария generator.
+    // Връщаме се към raw generation; loop click е по-малко audible от
+    // amplitude modulation per user judgment.
     generatedPinkBuffer = buffer;
     console.log('[audio] generated pink buffer:', PINK_BUFFER_SEC + 's');
     return buffer;
@@ -450,7 +450,7 @@ window.AudioEngine = (function () {
     }
     var scale = 0.5 / (maxVal || 1);
     for (var k = 0; k < bufferSize; k++) data[k] *= scale;
-    applyLoopCrossfade(buffer, 0.5); // P0 fix: seamless loop (CRITICAL за brown — DC drift → big step)
+    // ROLLBACK: applyLoopCrossfade премахнато (виж pink generator).
     generatedBrownBuffer = buffer;
     console.log('[audio] generated brown buffer:', BROWN_BUFFER_SEC + 's');
     return buffer;
