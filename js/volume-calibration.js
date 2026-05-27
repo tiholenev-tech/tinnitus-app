@@ -41,6 +41,46 @@ window.VolumeCalibration = (function () {
   // HTML
   // ============================================================
 
+  // FIX VC-BUTTON-FEEDBACK: SVG icons (Bible §1 #3 — не emoji). Inline
+  // SVG за самостоятелна consistency без external sprite. Wave indicator
+  // (3 bars) показва active playback подобно на pitch-test.
+  var SVG_PLAY = '<svg class="vc-test-icon" viewBox="0 0 24 24" aria-hidden="true">' +
+    '<polygon points="6,4 20,12 6,20" fill="currentColor"/></svg>';
+  var SVG_STOP = '<svg class="vc-test-icon" viewBox="0 0 24 24" aria-hidden="true">' +
+    '<rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor"/></svg>';
+  var WAVE_BARS = '<span class="vc-test-wave" aria-hidden="true">' +
+    '<span></span><span></span><span></span></span>';
+
+  function buildTestBtnInner() {
+    if (isPlaying) {
+      return SVG_STOP +
+        '<span class="vc-test-label">Спри</span>' +
+        WAVE_BARS;
+    }
+    return SVG_PLAY +
+      '<span class="vc-test-label">Пуснете тестовия звук</span>';
+  }
+
+  // Partial update — само бутонът се променя (data-action + class + inner +
+  // aria). Без full refresh() → vcEntry animation не se replay-ва → no flash.
+  function updateTestButton() {
+    var btn = document.querySelector('.vc-test-btn');
+    if (!btn) return;
+    btn.classList.toggle('is-playing', isPlaying);
+    btn.setAttribute('data-action', isPlaying ? 'stop-test' : 'play-test');
+    btn.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
+    btn.setAttribute('aria-label', isPlaying ? 'Спри тестовия звук' : 'Пусни тестовия звук');
+    btn.innerHTML = buildTestBtnInner();
+  }
+
+  // Haptic feedback (Vibration API) — supported на Android Chrome.
+  // Кратко 20ms tap confirmation. iOS ignore-ва (no error).
+  function hapticTap() {
+    try {
+      if (navigator.vibrate) navigator.vibrate(20);
+    } catch (e) { /* ignore */ }
+  }
+
   function buildHtml() {
     // Copy от Code 3: volume_calibration_text_bg.md v1.0 (26.05.2026, ~149 думи).
     // Заглавие / подзаглавие / кратко обяснение / 3 стъпки / какво НЕ / disclaimer.
@@ -48,8 +88,13 @@ window.VolumeCalibration = (function () {
       ? '<div class="vc-warning">Над 70% може да увреди слуха при дълго слушане.</div>'
       : '';
 
-    var playLabel = isPlaying ? 'Спрете тестовия звук' : 'Пуснете тестовия звук';
-    var playAction = isPlaying ? 'stop-test' : 'play-test';
+    // FIX VC-BUTTON-FEEDBACK: button content builder (extracted за reuse в
+    // updateTestButton partial render — избягва full screen re-render →
+    // няма vcEntry animation flash на всеки tap).
+    var btnInner = buildTestBtnInner();
+    var btnClass = 'vc-test-btn' + (isPlaying ? ' is-playing' : '');
+    var btnAction = isPlaying ? 'stop-test' : 'play-test';
+    var btnAria = isPlaying ? 'Спри тестовия звук' : 'Пусни тестовия звук';
 
     return (
       '<div class="vc-screen" data-screen="calibration">' +
@@ -70,8 +115,10 @@ window.VolumeCalibration = (function () {
         '</section>' +
 
         '<section class="vc-section vc-test">' +
-          '<button class="vc-test-btn" type="button" data-action="' + playAction + '">' +
-            escapeHtml(playLabel) +
+          '<button class="' + btnClass + '" type="button" data-action="' + btnAction + '"' +
+            ' aria-label="' + escapeHtml(btnAria) + '"' +
+            ' aria-pressed="' + (isPlaying ? 'true' : 'false') + '">' +
+            btnInner +
           '</button>' +
         '</section>' +
 
@@ -178,11 +225,15 @@ window.VolumeCalibration = (function () {
     if (!btn) return;
     var action = btn.getAttribute('data-action');
     if (action === 'play-test') {
+      // FIX VC-BUTTON-FEEDBACK: partial update вместо refresh() — иначе
+      // целият screen re-renders → vcEntry animation replay → flash.
       startTest();
-      refresh();
+      updateTestButton();
+      hapticTap();
     } else if (action === 'stop-test') {
       stopTest();
-      refresh();
+      updateTestButton();
+      hapticTap();
     } else if (action === 'confirm') {
       finishCalibration(currentVolume);
     } else if (action === 'skip') {
