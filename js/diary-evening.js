@@ -61,6 +61,7 @@ window.DiaryEvening = (function () {
   var note = '';
   var sliders = {};
   var saveDraftTimer = null;
+  var lateEntryForDate = null;  // ако != null → save отива в този dateKey + lateCompletedAt
 
   function el(id) { return document.getElementById(id); }
 
@@ -307,16 +308,22 @@ window.DiaryEvening = (function () {
     if (!allAnswered) return;
 
     var today = s.todayKey();
+    var targetDate = lateEntryForDate || today;
+    var isLate = !!lateEntryForDate && lateEntryForDate !== today;
+
     var evening = {};
     QUESTIONS.forEach(function (q) { evening[q.key] = answers[q.key]; });
     if (note && note.trim()) evening.note = note.trim().slice(0, NOTE_MAX);
+    if (isLate) evening.lateCompletedAt = new Date().toISOString();
 
-    s.saveDiaryEntry(today, { evening: evening });
-    s.updateStreakOnEntry();
-    clearDraft(today);
+    s.saveDiaryEntry(targetDate, { evening: evening });
+    if (!isLate) s.updateStreakOnEntry();  // late entry не променя streak
+    clearDraft(targetDate);
 
     if (window.Toast && window.Toast.success) {
-      window.Toast.success(t('ui.diary.evening.savedToast', 'Записано'));
+      var savedKey = isLate ? 'ui.diary.hub.lateEntrySavedToast' : 'ui.diary.evening.savedToast';
+      var savedFb  = isLate ? 'Записан със закъснение' : 'Записано';
+      window.Toast.success(t(savedKey, savedFb));
     }
 
     // Edge #19: висок дистрес 3 поредни дни → последващ информативен toast.
@@ -336,6 +343,7 @@ window.DiaryEvening = (function () {
     answers = {};
     note = '';
     sliders = {};
+    lateEntryForDate = null;
     s.transition('diary_hub');
     history.replaceState({ phase: 'diary_hub' }, '');
     if (window.DiaryHub && window.DiaryHub.render) window.DiaryHub.render();
@@ -358,6 +366,7 @@ window.DiaryEvening = (function () {
     answers = {};
     note = '';
     sliders = {};
+    lateEntryForDate = null;
     if (saveDraftTimer) { clearTimeout(saveDraftTimer); saveDraftTimer = null; }
     var s = window.AppState;
     if (s && s.transition) s.transition('diary_hub');
@@ -395,7 +404,7 @@ window.DiaryEvening = (function () {
     sliders = {};
     var s = window.AppState;
     if (!s) return;
-    var today = s.todayKey();
+    var today = lateEntryForDate || s.todayKey();
 
     // Priority 1: saved evening entry (already submitted) — pre-fill за edit.
     if (s.diaryEntries) {
@@ -431,6 +440,17 @@ window.DiaryEvening = (function () {
   }
 
   function open() {
+    lateEntryForDate = null;
+    populateFromExistingOrDraft();
+    var s = window.AppState;
+    if (s && s.transition) s.transition('diary_evening');
+    history.pushState({ phase: 'diary_evening' }, '');
+    refresh();
+  }
+
+  function openForDate(dateKey) {
+    if (!dateKey) return open();
+    lateEntryForDate = dateKey;
     populateFromExistingOrDraft();
     var s = window.AppState;
     if (s && s.transition) s.transition('diary_evening');
@@ -446,6 +466,7 @@ window.DiaryEvening = (function () {
 
   return {
     open: open,
+    openForDate: openForDate,
     render: render
   };
 })();

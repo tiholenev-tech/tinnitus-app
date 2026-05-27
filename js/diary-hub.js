@@ -19,12 +19,32 @@
 window.DiaryHub = (function () {
   'use strict';
 
+  // Local-only storage за soft check-in отговора (#3). Не отива в state.
+  var SOFT_CHECK_KEY = 'auralis-diary-soft-check';
+
   function el(id) { return document.getElementById(id); }
 
   function escapeHtml(s) {
     return String(s)
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  function t(key, fallback, params) {
+    if (window.i18n && window.i18n.t) return window.i18n.t(key, fallback, params);
+    if (fallback != null && params) {
+      return String(fallback).replace(/\{(\w+)\}/g, function (m, n) {
+        return (params[n] !== undefined) ? String(params[n]) : m;
+      });
+    }
+    return (fallback != null ? fallback : key);
+  }
+
+  function dateKeyFromTs(ts) {
+    var d = new Date(ts);
+    return d.getFullYear() + '-' +
+      ('0' + (d.getMonth() + 1)).slice(-2) + '-' +
+      ('0' + d.getDate()).slice(-2);
   }
 
   // ============================================================
@@ -35,19 +55,56 @@ window.DiaryHub = (function () {
     var s = window.AppState;
     if (!s || !s.diaryEntries || !s.programStartDate) return [];
     var done = [];
-    // Day N е "completed" ако diaryEntries[date(N)] има evening OR cbtCompleted.
     for (var n = 1; n <= 14; n++) {
       var ts = s.programStartDate + (n - 1) * 86400000;
-      var d = new Date(ts);
-      var dateKey = d.getFullYear() + '-' +
-        ('0' + (d.getMonth() + 1)).slice(-2) + '-' +
-        ('0' + d.getDate()).slice(-2);
-      var entry = s.diaryEntries[dateKey];
+      var entry = s.diaryEntries[dateKeyFromTs(ts)];
       if (entry && (entry.evening || entry.cbtCompleted)) {
         done.push(n);
       }
     }
     return done;
+  }
+
+  // Missed days = past program days (< currentProgramDay) без entry.
+  // Връща { count, lastMissedDay, lastMissedDateKey }
+  function missedDaysInfo() {
+    var s = window.AppState;
+    if (!s || !s.programStartDate) return { count: 0, lastMissedDay: 0, lastMissedDateKey: null };
+    var current = s.currentProgramDay || 1;
+    var lastN = 0;
+    var lastKey = null;
+    var count = 0;
+    for (var n = 1; n < current; n++) {
+      var ts = s.programStartDate + (n - 1) * 86400000;
+      var key = dateKeyFromTs(ts);
+      var entry = (s.diaryEntries || {})[key];
+      if (!entry || (!entry.evening && !entry.cbtCompleted)) {
+        count++;
+        lastN = n;
+        lastKey = key;
+      }
+    }
+    return { count: count, lastMissedDay: lastN, lastMissedDateKey: lastKey };
+  }
+
+  function softCheckSeen() {
+    try {
+      var raw = localStorage.getItem(SOFT_CHECK_KEY);
+      if (!raw) return false;
+      var d = JSON.parse(raw);
+      // Скрий за 7 дни след отговор/skip.
+      if (d && d.ts && (Date.now() - d.ts) < 7 * 86400000) return true;
+      return false;
+    } catch (e) { return false; }
+  }
+
+  function markSoftCheck(answer) {
+    try {
+      localStorage.setItem(SOFT_CHECK_KEY, JSON.stringify({
+        answer: answer || null,
+        ts: Date.now()
+      }));
+    } catch (e) { /* ignore */ }
   }
 
   // ============================================================
@@ -74,6 +131,100 @@ window.DiaryHub = (function () {
   // ============================================================
   // HTML builders
   // ============================================================
+
+  // ============================================================
+  // Adaptive banners (edge cases #1, #2, #3)
+  // ============================================================
+
+  function buildLateEntryBanner(info) {
+    var n = info.lastMissedDay;
+    var body = t('ui.diary.hub.missedYesterday',
+      'Вчера не успяхте да попълните дневника. Това е напълно нормално. Ден {n} Ви чака — можете да го направите днес или просто да продължите.',
+      { n: n });
+    var cta = t('ui.diary.hub.missedYesterdayCta', 'Попълни Ден {n} със закъснение', { n: n });
+    var skip = t('ui.diary.hub.missedYesterdaySkip', 'Прескочи към днешния ден');
+    return (
+      '<section class="dh-banner dh-banner--late" role="note">' +
+        '<p class="dh-banner-body">' + escapeHtml(body) + '</p>' +
+        '<div class="dh-banner-actions">' +
+          '<button class="dh-banner-btn dh-banner-btn--primary" type="button"' +
+            ' data-action="late-entry" data-late-key="' + escapeHtml(info.lastMissedDateKey) + '">' +
+            escapeHtml(cta) +
+          '</button>' +
+          '<button class="dh-banner-btn dh-banner-btn--ghost" type="button"' +
+            ' data-action="dismiss-late">' +
+            escapeHtml(skip) +
+          '</button>' +
+        '</div>' +
+      '</section>'
+    );
+  }
+
+  function buildMicroDoseBanner() {
+    var title = t('ui.diary.hub.microDoseTitle', 'Ние сме тук.');
+    var body  = t('ui.diary.hub.microDoseBody',
+      'Започнете отново — с 2 минути. Просто 3 спокойни вдишвания или един ред в дневника.');
+    var cta   = t('ui.diary.hub.microDoseCta', 'Започни 2-минутна доза');
+    return (
+      '<section class="dh-banner dh-banner--micro" role="note">' +
+        '<h2 class="dh-banner-title">' + escapeHtml(title) + '</h2>' +
+        '<p class="dh-banner-body">' + escapeHtml(body) + '</p>' +
+        '<div class="dh-banner-actions">' +
+          '<button class="dh-banner-btn dh-banner-btn--primary" type="button"' +
+            ' data-action="micro-dose">' +
+            escapeHtml(cta) +
+          '</button>' +
+        '</div>' +
+      '</section>'
+    );
+  }
+
+  function buildSoftCheckBanner() {
+    var title = t('ui.diary.hub.softCheckTitle', 'Какво се случи?');
+    var body  = t('ui.diary.hub.softCheckBody',
+      'Виждаме, че Ви няма от няколко дни. Не сте задължен да отговорите, но ще ни помогне да Ви бъдем полезни.');
+    var opts = [
+      { code: 'busy',  label: t('ui.diary.hub.softCheckOpt1', 'Бях зает') },
+      { code: 'worse', label: t('ui.diary.hub.softCheckOpt2', 'Чувствах се по-зле') },
+      { code: 'tech',  label: t('ui.diary.hub.softCheckOpt3', 'Технически проблем') },
+      { code: 'notme', label: t('ui.diary.hub.softCheckOpt4', 'Не беше за мен') }
+    ];
+    var skipLbl = t('ui.diary.hub.softCheckSkip', 'Прескочи');
+    var optsHtml = opts.map(function (o) {
+      return '<button class="dh-soft-opt" type="button"' +
+        ' data-action="soft-check" data-answer="' + escapeHtml(o.code) + '">' +
+        escapeHtml(o.label) +
+        '</button>';
+    }).join('');
+    return (
+      '<section class="dh-banner dh-banner--soft" role="region">' +
+        '<h2 class="dh-banner-title">' + escapeHtml(title) + '</h2>' +
+        '<p class="dh-banner-body">' + escapeHtml(body) + '</p>' +
+        '<div class="dh-soft-opts">' + optsHtml + '</div>' +
+        '<div class="dh-banner-actions">' +
+          '<button class="dh-banner-btn dh-banner-btn--ghost" type="button"' +
+            ' data-action="soft-check-skip">' +
+            escapeHtml(skipLbl) +
+          '</button>' +
+        '</div>' +
+      '</section>'
+    );
+  }
+
+  function buildBannersHtml() {
+    var info = missedDaysInfo();
+    if (info.count === 0) return '';
+    // #3 (4+ missed) — soft check-in, но само ако не е скрит за 7 дни
+    if (info.count >= 4 && !softCheckSeen()) {
+      return buildSoftCheckBanner();
+    }
+    // #2 (2-3 missed) — micro-dose hint
+    if (info.count >= 2) {
+      return buildMicroDoseBanner();
+    }
+    // #1 (1 missed) — late entry tile
+    return buildLateEntryBanner(info);
+  }
 
   function buildActionCard(opts) {
     return (
@@ -103,6 +254,8 @@ window.DiaryHub = (function () {
         '</div>' +
 
         '<div class="dh-progress-slot" data-progress-slot></div>' +
+
+        buildBannersHtml() +
 
         '<div class="dh-actions">' +
           buildActionCard({
@@ -165,6 +318,58 @@ window.DiaryHub = (function () {
     if (action === 'evening')      goTo('diary_evening', 'DiaryEvening');
     else if (action === 'cbt')     goTo('cbt_day',       'CbtDay');
     else if (action === 'progress') goToProgress();
+    else if (action === 'late-entry') {
+      var lateKey = btn.getAttribute('data-late-key');
+      openLateEntry(lateKey);
+    }
+    else if (action === 'dismiss-late') {
+      // Просто скриваме баннера за тази сесия без да маркираме нищо.
+      var banner = btn.closest('.dh-banner');
+      if (banner && banner.parentNode) banner.parentNode.removeChild(banner);
+    }
+    else if (action === 'micro-dose') {
+      // 2-минутна доза = open evening diary (минималния път до запис).
+      goTo('diary_evening', 'DiaryEvening');
+    }
+    else if (action === 'soft-check') {
+      var answer = btn.getAttribute('data-answer');
+      handleSoftCheck(answer);
+    }
+    else if (action === 'soft-check-skip') {
+      markSoftCheck(null);
+      refresh();
+    }
+  }
+
+  function openLateEntry(dateKey) {
+    if (!dateKey) return;
+    if (window.DiaryEvening && window.DiaryEvening.openForDate) {
+      window.DiaryEvening.openForDate(dateKey);
+    } else if (window.DiaryEvening && window.DiaryEvening.open) {
+      // Fallback ако openForDate не е достъпен — обикновен open.
+      window.DiaryEvening.open();
+    }
+  }
+
+  function handleSoftCheck(answer) {
+    markSoftCheck(answer);
+    var msg = t('ui.diary.hub.softCheckSavedToast',
+      'Благодарим за отговора. AURALIS остава с Вас.');
+    if (window.Toast && window.Toast.success) {
+      window.Toast.success(msg);
+    }
+    if (answer === 'worse') {
+      setTimeout(function () {
+        var advice = t('ui.diary.hub.softCheckWorseAdvice',
+          'Чувствата Ви са важни. Може да е добра идея да говорите с лекар или специалист.');
+        if (window.Toast && window.Toast.info) {
+          window.Toast.info(advice, { duration: 8000 });
+        } else if (window.Toast && window.Toast.success) {
+          window.Toast.success(advice);
+        }
+      }, 900);
+    }
+    refresh();
   }
 
   function goTo(phase, moduleName) {

@@ -81,6 +81,105 @@
   gap: 12px;
 }
 
+/* ═══ Adaptive banners (#1, #2, #3) ═══ */
+.dh-banner {
+  padding: 16px 18px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid var(--border-color, rgba(0,0,0,0.08));
+}
+
+.dh-banner--late {
+  background: hsl(38 60% 92%);
+  color: hsl(38 50% 22%);
+}
+[data-theme="dark"] .dh-banner--late {
+  background: hsl(38 40% 14% / 0.5);
+  color: hsl(38 70% 78%);
+}
+
+.dh-banner--micro {
+  background: hsl(160 40% 92%);
+  color: hsl(160 35% 22%);
+}
+[data-theme="dark"] .dh-banner--micro {
+  background: hsl(160 30% 14% / 0.5);
+  color: hsl(160 50% 78%);
+}
+
+.dh-banner--soft {
+  background: hsl(210 50% 92%);
+  color: hsl(210 40% 22%);
+}
+[data-theme="dark"] .dh-banner--soft {
+  background: hsl(210 30% 14% / 0.5);
+  color: hsl(210 50% 80%);
+}
+
+.dh-banner-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.005em;
+}
+.dh-banner-body {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.dh-banner-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.dh-banner-btn {
+  min-height: 44px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+}
+.dh-banner-btn--primary {
+  background: linear-gradient(135deg,
+    hsl(var(--hue1, 200) 70% 55%),
+    hsl(var(--hue2, 210) 65% 55%));
+  color: white;
+}
+.dh-banner-btn--ghost {
+  background: transparent;
+  color: currentColor;
+  border: 1px solid currentColor;
+  opacity: 0.85;
+}
+.dh-banner-btn:active { transform: scale(0.98); }
+
+.dh-soft-opts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.dh-soft-opt {
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: currentColor;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  opacity: 0.92;
+}
+.dh-soft-opt:active { transform: scale(0.98); }
+
 /* ═══ Action cards (3 large tiles) ═══ */
 .dh-actions {
   display: flex;
