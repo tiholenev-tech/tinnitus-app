@@ -118,10 +118,16 @@
   font-weight: 600;
 }
 
-/* ═══ Progress chip ═══ */
+/* ═══ Progress chip + bar (Bug 3 PACK C 8-TESTS FLOW) ═══ */
+.pt-progress-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
 .pt-progress {
   display: inline-block;
-  margin-top: 8px;
+  align-self: flex-start;
   padding: 4px 12px;
   font-size: 12px;
   font-weight: 700;
@@ -133,6 +139,37 @@
 [data-theme="dark"] .pt-progress {
   background: hsl(var(--hue1) 50% 45% / 0.22);
   color: hsl(var(--hue1) 65% 75%);
+}
+/* Bug 3: linear progress bar (8 trials → visible progression) */
+.pt-progress-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: hsl(220 25% 18% / 0.45);
+  overflow: hidden;
+}
+[data-theme="light"] .pt-progress-bar,
+:root:not([data-theme]) .pt-progress-bar {
+  background: hsl(220 25% 88%);
+}
+.pt-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg,
+    hsl(var(--hue1) 60% 55%),
+    hsl(var(--hue2) 60% 55%));
+  transition: width 400ms cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+/* Bug 3: всеки нов trial влиза с fadeIn — user вижда смяна */
+.pt-screen--trial {
+  animation: ptTrialFadeIn 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes ptTrialFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pt-screen--trial { animation: none; }
 }
 
 /* ═══ Tone buttons (2AFC) ═══ */

@@ -404,13 +404,29 @@ window.PitchTest = (function () {
     var progressLabel = trialNum > 0
       ? 'Тест ' + trialNum + ' от ' + MAX_TRIALS
       : 'Проверка';
+    // Bug 3 (PACK C 8-TESTS FLOW): visible progress bar showing трайала / 8.
+    // За octave проверката (trialNum=0) показваме статичен 100% (отделна стъпка).
+    var pctProgress = trialNum > 0
+      ? Math.round((trialNum / MAX_TRIALS) * 100)
+      : 100;
+    var ariaProgress = trialNum > 0
+      ? 'Тест ' + trialNum + ' от ' + MAX_TRIALS
+      : 'Финална проверка';
     app.innerHTML = (
-      '<div class="pt-screen" data-screen="pitch_test">' +
+      '<div class="pt-screen pt-screen--trial" data-screen="pitch_test" data-trial-num="' + trialNum + '">' +
         '<header class="pt-header">' +
           '<h1 class="pt-title">Намиране на честотата на тинитуса</h1>' +
           '<p class="pt-subtitle">Слушайте 2 тона. Изберете кой е по-близо ' +
             'до Вашия шум.</p>' +
-          '<div class="pt-progress">' + escapeHtml(progressLabel) + '</div>' +
+          '<div class="pt-progress-row">' +
+            '<div class="pt-progress">' + escapeHtml(progressLabel) + '</div>' +
+            '<div class="pt-progress-bar" role="progressbar"' +
+              ' aria-valuemin="0" aria-valuemax="' + MAX_TRIALS + '"' +
+              ' aria-valuenow="' + (trialNum > 0 ? trialNum : MAX_TRIALS) + '"' +
+              ' aria-label="' + escapeHtml(ariaProgress) + '">' +
+              '<div class="pt-progress-fill" style="width:' + pctProgress + '%"></div>' +
+            '</div>' +
+          '</div>' +
         '</header>' +
 
         '<section class="pt-tones">' +
