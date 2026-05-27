@@ -518,6 +518,22 @@ window.Settings = (function () {
   }
 
   // ============================================================
+  // FAQ button (Wave 3.2)
+  // ============================================================
+
+  function buildFaqButton() {
+    return (
+      '<section class="set-section">' +
+        '<div class="set-data-actions">' +
+          '<button class="set-action" type="button" data-action="open-faq">' +
+            escapeHtml(t('faq.openLabel', 'Често задавани въпроси')) +
+          '</button>' +
+        '</div>' +
+      '</section>'
+    );
+  }
+
+  // ============================================================
   // BB: Analytics stats button
   // ============================================================
 
@@ -565,6 +581,7 @@ window.Settings = (function () {
           buildRemindersSection() +
           buildFavoritesButton() +
           buildAnalyticsButton() +
+          buildFaqButton() +
           buildDataSection() +
           buildAboutSection() +
         '</div>' +
@@ -972,6 +989,11 @@ window.Settings = (function () {
       else if (action === 'vol-profile') applyVolumeProfile(actionBtn);
       else if (action === 'open-stats') { if (window.Analytics) window.Analytics.showStats(); }
       else if (action === 'open-favorites') { if (window.Favorites) window.Favorites.showSheet(); }
+      else if (action === 'open-faq') {
+        // Close Settings first, then open FAQ overlay.
+        close();
+        if (window.FAQ && window.FAQ.open) window.FAQ.open();
+      }
       else if (action === 'open-privacy') showPrivacyView();
       else if (action === 'open-terms') showTermsView();
       return;
