@@ -266,12 +266,25 @@ window.ThiBaseline = (function () {
       s.setThiBaseline(score);
       if (s.setThiBaselineBreakdown) s.setThiBaselineBreakdown(breakdown);
       clearActive();
-      s.transition('diary_hub');
-      history.replaceState({ phase: 'diary_hub' }, '');
-      if (window.DiaryHub && window.DiaryHub.render) {
-        window.DiaryHub.render();
-      } else if (window.Home && window.Home.render) {
-        window.Home.render();
+      // FIX THI-FINALIZE-PITCH-ROUTING: insert pitch_test ако не е минат.
+      // Mirror на calibration routing (volume-calibration.js finishCalibration).
+      // Преди това baseline branch прескачаше pitch_test → user никога не
+      // правеше pitch matching → state.pitchTests винаги празно → T3 notch
+      // filter не може да се active-ва.
+      var needsPitch = s && s.isPitchTestDone && !s.isPitchTestDone()
+                        && window.PitchTest && window.PitchTest.render;
+      if (needsPitch) {
+        s.transition('pitch_test');
+        history.replaceState({ phase: 'pitch_test' }, '');
+        window.PitchTest.render();
+      } else {
+        s.transition('diary_hub');
+        history.replaceState({ phase: 'diary_hub' }, '');
+        if (window.DiaryHub && window.DiaryHub.render) {
+          window.DiaryHub.render();
+        } else if (window.Home && window.Home.render) {
+          window.Home.render();
+        }
       }
     }
   }
