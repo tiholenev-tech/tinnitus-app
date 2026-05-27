@@ -1042,26 +1042,25 @@ window.Settings = (function () {
     refresh();
   }
 
-  // P0 SLIDER-POP v2: rAF throttle за master slider (виж player.js за context).
-  var pendingMasterFrame = null;
-  var pendingMasterVal = 0;
+  // P0 SLIDER-CLICK v2: isFinal pattern + localStorage debounce.
+  // Виж player.js за context. 'input' = direct gain.value; 'change' = ramp.
+  var masterPersistTimer = null;
 
   function onVolumeInput(e) {
     var val = parseInt(e.currentTarget.value, 10);
     if (isNaN(val)) return;
     val = Math.max(0, Math.min(100, val));
-    pendingMasterVal = val;
-    try { localStorage.setItem(STORAGE_VOLUME, String(val)); } catch (e2) {}
     var label = el('setVolValue');
     if (label) label.textContent = val + '%';
-    if (pendingMasterFrame === null) {
-      pendingMasterFrame = requestAnimationFrame(function () {
-        pendingMasterFrame = null;
-        if (window.AudioEngine && window.AudioEngine.setMasterVolume) {
-          window.AudioEngine.setMasterVolume(pendingMasterVal);
-        }
-      });
+    if (window.AudioEngine && window.AudioEngine.setMasterVolume) {
+      window.AudioEngine.setMasterVolume(val, e.type === 'change');
     }
+    // Debounce localStorage save.
+    if (masterPersistTimer) clearTimeout(masterPersistTimer);
+    masterPersistTimer = setTimeout(function () {
+      masterPersistTimer = null;
+      try { localStorage.setItem(STORAGE_VOLUME, String(val)); } catch (e2) {}
+    }, 300);
     return;
   }
 

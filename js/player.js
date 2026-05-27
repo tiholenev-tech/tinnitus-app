@@ -421,36 +421,37 @@ window.Player = (function () {
   // Сега onL*Input ignore-ва events когато programmaticAnimation === true.
   var programmaticAnimation = false;
 
-  // P0 SLIDER-POP v2: rAF throttle. Audit показа: всички volume changes
-  // минават през setLayer*Volume (anchored). Bug не е bypass — а rapid
-  // input event spam. Phone slider drag fires input event на всеки ~16ms
-  // (60fps). С 50ms ramp → ramps постоянно interrupt преди да complete
-  // → multiple AudioParam ops per audio quantum (128 samples = 2.7ms) →
-  // race condition irrespective of anchor.
+  // P0 SLIDER-CLICK v2: isFinal pattern (replaces rAF throttle).
   //
-  // Fix: rAF batch. Max 1 audio engine call per frame. UI label обновява
-  // immediately (synchronous за visual feedback); audio engine получава
-  // throttled updates.
-  var pendingL1Frame = null;
-  var pendingL2Frame = null;
+  // 'input' event (drag в process) → setLayer*Volume(v, false) → direct
+  // gain.value = X (no ramp, no overlap, no race condition).
+  // 'change' event (slider release) → setLayer*Volume(v, true) → anchored
+  // 50ms ramp за smooth final value.
+  //
+  // PLUS: localStorage.setItem дебоунсван (300ms) — fragmentation на main
+  // thread при всеки input event causes audio underruns → clicks.
+  var l1PersistTimer = null;
+  var l2PersistTimer = null;
 
   function onL1Input(e) {
     if (programmaticAnimation) return; // SEQ-REVEAL animation е active
     var v = parseInt(e.currentTarget.value, 10);
     if (isNaN(v)) return;
     layer1Vol = Math.max(0, Math.min(100, v));
-    persist(STORAGE_L1_VOL, layer1Vol);
     var lbl = el('plL1Value');
     if (lbl) lbl.textContent = layer1Vol + '%';
-    if (pendingL1Frame === null) {
-      pendingL1Frame = requestAnimationFrame(function () {
-        pendingL1Frame = null;
-        if (window.AudioEngine && window.AudioEngine.setLayer1Volume) {
-          window.AudioEngine.setLayer1Volume(layer1Vol);
-        }
-        checkVolumeWarning(layer1Vol);
-        scheduleUserOverrideSave();
-      });
+    if (window.AudioEngine && window.AudioEngine.setLayer1Volume) {
+      window.AudioEngine.setLayer1Volume(layer1Vol, e.type === 'change');
+    }
+    // Debounce localStorage save — НЕ блокирай main thread на всеки input.
+    if (l1PersistTimer) clearTimeout(l1PersistTimer);
+    l1PersistTimer = setTimeout(function () {
+      l1PersistTimer = null;
+      persist(STORAGE_L1_VOL, layer1Vol);
+    }, 300);
+    if (e.type === 'change') {
+      checkVolumeWarning(layer1Vol);
+      scheduleUserOverrideSave();
     }
   }
   function onL2Input(e) {
@@ -458,18 +459,19 @@ window.Player = (function () {
     var v = parseInt(e.currentTarget.value, 10);
     if (isNaN(v)) return;
     layer2Vol = Math.max(0, Math.min(100, v));
-    persist(STORAGE_L2_VOL, layer2Vol);
     var lbl = el('plL2Value');
     if (lbl) lbl.textContent = layer2Vol + '%';
-    if (pendingL2Frame === null) {
-      pendingL2Frame = requestAnimationFrame(function () {
-        pendingL2Frame = null;
-        if (window.AudioEngine && window.AudioEngine.setLayer2Volume) {
-          window.AudioEngine.setLayer2Volume(layer2Vol);
-        }
-        checkVolumeWarning(layer2Vol);
-        scheduleUserOverrideSave();
-      });
+    if (window.AudioEngine && window.AudioEngine.setLayer2Volume) {
+      window.AudioEngine.setLayer2Volume(layer2Vol, e.type === 'change');
+    }
+    if (l2PersistTimer) clearTimeout(l2PersistTimer);
+    l2PersistTimer = setTimeout(function () {
+      l2PersistTimer = null;
+      persist(STORAGE_L2_VOL, layer2Vol);
+    }, 300);
+    if (e.type === 'change') {
+      checkVolumeWarning(layer2Vol);
+      scheduleUserOverrideSave();
     }
   }
 

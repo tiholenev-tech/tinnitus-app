@@ -177,46 +177,61 @@ window.AudioEngine = (function () {
     return Math.pow(linear, 2.5);
   }
 
-  // P0 AUDIO-SLIDER-POP FIX: classic Web Audio anti-pattern.
-  // Без setValueAtTime anchor, cancelScheduledValues + linearRampToValueAtTime
-  // може да създаде step jump → POP при slider drag. Web Audio behavior след
-  // cancel БЕЗ explicit anchor е implementation-defined — Chrome може да
-  // interpolate от stale schedule point, Safari друго → не-deterministic
-  // discontinuity → audible pop.
+  // P0 SLIDER-CLICK v2: anchor fix alone недостатъчен — rapid input events
+  // (~60fps) създават overlapping ramps → multiple AudioParam ops per audio
+  // quantum → race conditions въпреки anchor.
   //
-  // Fix: ВИНАГИ setValueAtTime(current.value, now) ПРЕДИ ramp. Това
-  // изрично казва на Web Audio "starting от тази стойност, ramp към новата".
-  function setMasterVolume(vol) {
+  // NEW APPROACH (two-mode):
+  //   - isFinal=false ('input' event, drag в process): direct gain.value = X
+  //     (browser internally cancel-ва scheduled values + applies атомично; no
+  //     overlapping ramps; OK за rapid updates защото всяка стъпка е tiny)
+  //   - isFinal=true ('change' event, slider release): full anchor + ramp за
+  //     smooth final transition (50ms tail)
+  //
+  // Direct .value assignment е безопасно за **small** incremental changes
+  // (1-2 unit slider step) защото discontinuity е sub-perceptual. Анchor +
+  // ramp на release дава финален polished feel.
+  function setMasterVolume(vol, isFinal) {
     masterVolume = Math.max(0, Math.min(100, vol));
     if (masterGain && ctx) {
-      var now = ctx.currentTime;
-      var current = masterGain.gain.value;
-      masterGain.gain.cancelScheduledValues(now);
-      masterGain.gain.setValueAtTime(current, now); // P0 anchor
-      masterGain.gain.linearRampToValueAtTime(volumeToGain(masterVolume),
-        now + VOL_RAMP_SEC);
+      var target = volumeToGain(masterVolume);
+      if (isFinal === true) {
+        var now = ctx.currentTime;
+        var current = masterGain.gain.value;
+        masterGain.gain.cancelScheduledValues(now);
+        masterGain.gain.setValueAtTime(current, now);
+        masterGain.gain.linearRampToValueAtTime(target, now + VOL_RAMP_SEC);
+      } else {
+        masterGain.gain.value = target; // direct, no ramp
+      }
     }
   }
   function getMasterVolume() { return masterVolume; }
 
-  function applyLayerVolume(layer) {
+  function applyLayerVolume(layer, isFinal) {
     if (!layer.gainNode || !ctx) return;
-    var now = ctx.currentTime;
-    var current = layer.gainNode.gain.value;
-    layer.gainNode.gain.cancelScheduledValues(now);
-    layer.gainNode.gain.setValueAtTime(current, now); // P0 anchor
-    layer.gainNode.gain.linearRampToValueAtTime(volumeToGain(layer.volume),
-      now + VOL_RAMP_SEC);
+    var target = volumeToGain(layer.volume);
+    if (isFinal === true) {
+      var now = ctx.currentTime;
+      var current = layer.gainNode.gain.value;
+      layer.gainNode.gain.cancelScheduledValues(now);
+      layer.gainNode.gain.setValueAtTime(current, now);
+      layer.gainNode.gain.linearRampToValueAtTime(target, now + VOL_RAMP_SEC);
+    } else {
+      layer.gainNode.gain.value = target; // direct, no ramp
+    }
   }
 
-  function setLayer1Volume(vol) {
+  // P0 SLIDER-CLICK v2: isFinal param (default false = direct value during drag).
+  // Caller passes true на 'change' event (slider release) за smooth ramp tail.
+  function setLayer1Volume(vol, isFinal) {
     layer1.volume = Math.max(0, Math.min(100, vol));
-    applyLayerVolume(layer1);
+    applyLayerVolume(layer1, isFinal === true);
   }
   // Noise pack normalized to -26 LUFS (audio_normalize.py done) — cap removed.
-  function setLayer2Volume(vol) {
+  function setLayer2Volume(vol, isFinal) {
     layer2.volume = Math.max(0, Math.min(100, vol));
-    applyLayerVolume(layer2);
+    applyLayerVolume(layer2, isFinal === true);
   }
   function getLayer1Volume() { return layer1.volume; }
   function getLayer2Volume() { return layer2.volume; }
