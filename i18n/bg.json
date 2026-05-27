@@ -2124,5 +2124,22 @@
         "green_noise": "Зелен шум"
       }
     }
+  },
+  "progress": {
+    "title": "Вашата 14-дневна програма",
+    "day_of": "Ден {n} от 14",
+    "day_n": "Ден {n}",
+    "completed": "Завършен ден",
+    "partial": "Частичен ден",
+    "empty": "Празен ден",
+    "frozen": "Замразен ден",
+    "today": "Днес",
+    "freeze_use": "Използвайте freeze",
+    "freeze_remaining": "{count} оставащи freeze-а",
+    "legend": {
+      "completed": "завършени",
+      "partial": "частични",
+      "frozen": "замразени"
+    }
   }
 }

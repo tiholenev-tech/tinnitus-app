@@ -306,11 +306,14 @@ window.DiaryHub = (function () {
 
   function injectProgress() {
     var slot = document.querySelector('[data-progress-slot]');
-    if (!slot || !window.ProgressDay) return;
+    if (!slot) return;
     var s = window.AppState || {};
-    var pd = window.ProgressDay.render({
-      currentDay: s.currentProgramDay || 1,
-      completedDays: completedDays()
+    // Предпочитаме ProgressChart (status цветове + freeze + tooltip);
+    // fallback към legacy ProgressDay wrapper за back-compat.
+    var renderer = window.ProgressChart || window.ProgressDay;
+    if (!renderer) return;
+    var pd = renderer.render({
+      currentDay: s.currentProgramDay || 1
     });
     slot.appendChild(pd);
   }

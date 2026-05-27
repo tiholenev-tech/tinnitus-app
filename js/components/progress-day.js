@@ -1,61 +1,31 @@
 /**
- * AURALIS ProgressDay — 14-day CBT progress (ВЪЛНА 3.1 Task Б)
+ * AURALIS ProgressDay — back-compat wrapper around ProgressChart
  * ================================================================
- * 14 dots in a row: completed=champagne, current=pulsing, future=empty.
+ * Бил е първоначалният 14-day dots component (Вълна 3.1 Task Б).
+ * Изместен е от ProgressChart (по-богат: status цветове, freeze, tooltip).
  *
- * API:
- *   ProgressDay.render({ currentDay, completedDays })  → HTMLElement
+ * Този файл остава САМО за back-compat: всеки external caller на
+ * ProgressDay.render(...) продължава да работи, но получава новата
+ * визуализация. Phase 2 cleanup → consolidate callers → delete.
+ *
+ * Legacy API (запазен):
+ *   ProgressDay.render({ currentDay, completedDays }) → HTMLElement
  */
 
-window.ProgressDay = (function () {
-  'use strict';
-
-  function render(opts) {
+window.ProgressDay = window.ProgressDay || {
+  render: function (opts) {
     opts = opts || {};
-    var currentDay = opts.currentDay || 1;
-    var completed = opts.completedDays || [];
-
-    var el = document.createElement('div');
-    el.className = 'pd-card';
-
-    // Title
-    var title = document.createElement('div');
-    title.className = 'pd-title';
-    title.textContent = 'Ден ' + currentDay;
-    el.appendChild(title);
-
-    // Dots row
-    var dots = document.createElement('div');
-    dots.className = 'pd-dots';
-    for (var i = 1; i <= 14; i++) {
-      var dot = document.createElement('button');
-      dot.type = 'button';
-      var isCompleted = completed.indexOf(i) !== -1;
-      var isCurrent = i === currentDay;
-      dot.className = 'pd-dot' +
-        (isCompleted ? ' pd-dot--done' : '') +
-        (isCurrent ? ' pd-dot--current' : '') +
-        (!isCompleted && !isCurrent ? ' pd-dot--future' : '');
-      dot.setAttribute('aria-label', 'Ден ' + i);
-      dot.setAttribute('data-day', i);
-
-      if (isCompleted) {
-        dot.addEventListener('click', (function (day) {
-          return function () { console.log('Day ' + day + ' tapped'); };
-        })(i));
-      }
-      dots.appendChild(dot);
+    if (window.ProgressChart && typeof window.ProgressChart.render === 'function') {
+      // ProgressChart чете AppState директно за richer status (partial/frozen).
+      // Подаваме currentDay ако е expicitly зададен (override).
+      return window.ProgressChart.render({
+        currentDay: opts.currentDay
+      });
     }
-    el.appendChild(dots);
-
-    // Counter
-    var counter = document.createElement('div');
-    counter.className = 'pd-counter';
-    counter.textContent = 'Завършени: ' + completed.length + '/14';
-    el.appendChild(counter);
-
-    return el;
+    // Defensive fallback ако progress-chart.js не е заредил.
+    var div = document.createElement('div');
+    div.className = 'pc-card pc-card--fallback';
+    div.textContent = 'Ден ' + (opts.currentDay || 1) + ' от 14';
+    return div;
   }
-
-  return { render: render };
-})();
+};

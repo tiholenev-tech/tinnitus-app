@@ -1,0 +1,207 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · ProgressChart (14-day program)
+   ───────────────────────────────────────────────────────────────────
+   Depends on: tokens.css + base.css (.glass utility class).
+   ═══════════════════════════════════════════════════════════════════ */
+
+.pc-card {
+  position: relative;
+  padding: 16px;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ----- Header ----- */
+.pc-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.pc-headbox { min-width: 0; }
+.pc-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+}
+.pc-subtitle {
+  margin: 2px 0 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+/* ----- Freeze badge (top-right) ----- */
+.pc-freeze-badge {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px 4px 6px;
+  border-radius: var(--radius-pill);
+  background: hsl(200 70% 90%);
+  color: hsl(210 65% 35%);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+[data-theme="dark"] .pc-freeze-badge {
+  background: hsl(210 50% 18%);
+  color: hsl(200 80% 75%);
+}
+.pc-freeze-badge svg { width: 14px; height: 14px; }
+.pc-freeze-num { line-height: 1; }
+
+/* ----- 14 Squares ----- */
+.pc-squares {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 4px;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+.pc-square-li { flex: 0 0 auto; display: flex; }
+.pc-square {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  border: 1.5px solid var(--border-color);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  position: relative;
+  color: var(--text-muted);
+  transition: transform var(--dur-fast) var(--ease),
+              box-shadow var(--dur) var(--ease),
+              background var(--dur) var(--ease);
+}
+.pc-square:active { transform: scale(0.9); }
+.pc-square:focus { outline: none; }
+.pc-square:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.pc-day-num {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+.pc-square-icon { display: grid; place-items: center; line-height: 0; }
+.pc-square-icon svg { width: 12px; height: 12px; }
+
+/* --- Status variants --- */
+.pc-square--completed {
+  background: linear-gradient(135deg, hsl(38 80% 55%), hsl(38 70% 42%));
+  border-color: hsl(38 80% 55%);
+  color: white;
+}
+.pc-square--partial {
+  background: hsl(38 80% 55% / 0.28);
+  border-color: hsl(38 80% 55% / 0.55);
+  color: hsl(38 60% 35%);
+}
+[data-theme="dark"] .pc-square--partial {
+  color: hsl(38 80% 75%);
+  background: hsl(38 60% 35% / 0.4);
+}
+.pc-square--frozen {
+  background: linear-gradient(135deg, hsl(200 70% 75%), hsl(210 65% 60%));
+  border-color: hsl(200 70% 65%);
+  color: white;
+}
+.pc-square--empty {
+  /* default outline already set */
+}
+[data-theme="dark"] .pc-square--empty {
+  border-color: hsl(220 20% 22%);
+}
+.pc-square--today {
+  box-shadow:
+    0 0 0 2px var(--accent),
+    0 0 0 4px hsl(38 80% 55% / 0.22);
+}
+
+/* Narrow viewports (< 340px): shrink squares a touch */
+@media (max-width: 340px) {
+  .pc-square { width: 18px; height: 18px; border-radius: 4px; }
+  .pc-square-icon svg { width: 10px; height: 10px; }
+  .pc-day-num { font-size: 8px; }
+}
+
+/* ----- Legend ----- */
+.pc-legend {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  align-items: center;
+}
+.pc-leg-item--completed { color: hsl(38 70% 42%); }
+.pc-leg-item--partial   { color: hsl(38 60% 50%); }
+.pc-leg-item--frozen    { color: hsl(210 65% 50%); }
+.pc-leg-item--freeze    { color: var(--text-muted); }
+[data-theme="dark"] .pc-leg-item--completed { color: hsl(38 80% 65%); }
+[data-theme="dark"] .pc-leg-item--partial   { color: hsl(38 70% 60%); }
+[data-theme="dark"] .pc-leg-item--frozen    { color: hsl(200 70% 70%); }
+.pc-leg-sep { opacity: 0.5; }
+
+/* ----- Tooltip ----- */
+.pc-tooltip[hidden] { display: none; }
+.pc-tooltip {
+  position: absolute;
+  z-index: 20;
+  pointer-events: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: hsl(220 25% 12% / 0.96);
+  color: white;
+  font-size: 11px;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  box-shadow: 0 6px 16px hsl(220 25% 5% / 0.35);
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  animation: pcTtFade 140ms var(--ease);
+}
+.pc-tt-date {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  opacity: 0.85;
+}
+.pc-tt-status {
+  font-weight: 700;
+}
+.pc-tt-today {
+  opacity: 0.75;
+  font-weight: 600;
+}
+@keyframes pcTtFade {
+  from { opacity: 0; transform: translateY(2px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pc-tooltip { animation: none; }
+  .pc-square { transition: none; }
+}
