@@ -9,6 +9,17 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  /* Bug 4 (PACK C): entry fadeIn animation. Без анимация screen-ът
+     се появяваше абруптно след scroll-to-top → user не разбираше
+     че екранът се е сменил. */
+  animation: vcEntry 380ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes vcEntry {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vc-screen { animation: none; }
 }
 
 .vc-title {

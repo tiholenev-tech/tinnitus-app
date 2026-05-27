@@ -255,6 +255,23 @@ window.VolumeCalibration = (function () {
     }
   }
 
+  // Bug 4 (PACK C): scroll-to-top при entry — preди това refresh() оставяше
+  // window scroll position от предишен screen → user не виждаше title-а.
+  function scrollToTop() {
+    try {
+      var supportsSmooth = 'scrollBehavior' in document.documentElement.style;
+      var reduced = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (supportsSmooth && !reduced) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        window.scrollTo(0, 0);
+      }
+    } catch (e) {
+      window.scrollTo(0, 0);
+    }
+  }
+
   function open(onDone) {
     doneCallback = typeof onDone === 'function' ? onDone : null;
     currentVolume = INITIAL_VOLUME;
@@ -263,9 +280,13 @@ window.VolumeCalibration = (function () {
     if (s && s.transition) s.transition('calibration');
     history.pushState({ phase: 'calibration' }, '');
     refresh();
+    scrollToTop();
   }
 
-  function render() { refresh(); }
+  function render() {
+    refresh();
+    scrollToTop();
+  }
 
   return {
     open: open,
