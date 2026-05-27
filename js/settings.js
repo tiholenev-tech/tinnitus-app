@@ -539,6 +539,19 @@ window.Settings = (function () {
     );
   }
 
+  // Science Info entry point — fullscreen научен прозорец (7 секции).
+  function buildScienceInfoButton() {
+    return (
+      '<section class="set-section">' +
+        '<div class="set-data-actions">' +
+          '<button class="set-action" type="button" data-action="open-science">' +
+            escapeHtml(t('science.openLabel', 'Научна основа')) +
+          '</button>' +
+        '</div>' +
+      '</section>'
+    );
+  }
+
   // ============================================================
   // Voice dictation privacy reset (Wave 3.2+)
   // ============================================================
@@ -657,6 +670,7 @@ window.Settings = (function () {
           buildRemindersSection() +
           buildFavoritesButton() +
           buildAnalyticsButton() +
+          buildScienceInfoButton() +
           buildFaqButton() +
           buildVoicePrivacyButton() +
           buildDataSection() +
@@ -1070,6 +1084,11 @@ window.Settings = (function () {
         // Close Settings first, then open FAQ overlay.
         close();
         if (window.FAQ && window.FAQ.open) window.FAQ.open();
+      }
+      else if (action === 'open-science') {
+        // Close Settings first, then open ScienceInfo overlay.
+        close();
+        if (window.ScienceInfo && window.ScienceInfo.open) window.ScienceInfo.open();
       }
       else if (action === 'diary-import-trigger') {
         var input = el('setDiaryImportInput');

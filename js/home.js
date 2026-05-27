@@ -292,6 +292,23 @@ window.Home = (function () {
     if (window.ThiBaseline && window.ThiBaseline.open) window.ThiBaseline.open();
   }
 
+  // Science Info quick-access "?" бутон близо до THI badge.
+  // Видим винаги (entry point към fullscreen научен прозорец).
+  function buildScienceQuickButton() {
+    var label = t('science.openLabel', 'Научна основа');
+    return (
+      '<button class="home-science-btn" type="button" data-action="open-science"' +
+        ' aria-label="' + escapeHtml(label) + '">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"' +
+          ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+          '<circle cx="12" cy="12" r="10"/>' +
+          '<path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/>' +
+          '<line x1="12" y1="17" x2="12.01" y2="17"/>' +
+        '</svg>' +
+      '</button>'
+    );
+  }
+
   function buildThiBanner() {
     var s = window.AppState || {};
     var day = s.currentProgramDay || 0;
@@ -454,6 +471,7 @@ window.Home = (function () {
           escapeHtml(t('home.title', 'Изберете режим')) +
         '</h1>' +
 
+        buildScienceQuickButton() +
         buildThiCta() +
         buildThiBanner() +
         buildThiBadge() +
@@ -506,6 +524,8 @@ window.Home = (function () {
       openThiRetest();
     } else if (action === 'thi-start') {
       openThiStart();
+    } else if (action === 'open-science') {
+      if (window.ScienceInfo && window.ScienceInfo.open) window.ScienceInfo.open();
     }
   }
 

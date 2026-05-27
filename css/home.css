@@ -8,7 +8,32 @@
 .home-screen {
   padding: 12px 0 40px;
   animation: homeFadeIn 0.35s ease;
+  position: relative;
 }
+
+/* Science Info quick "?" button — top-right floating */
+.home-science-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color, rgba(0,0,0,0.1));
+  background: var(--surface, rgba(255,255,255,0.04));
+  color: var(--text-soft, var(--text));
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition: background 150ms ease, transform 120ms ease;
+}
+.home-science-btn svg { width: 18px; height: 18px; }
+.home-science-btn:active { transform: scale(0.94); }
+.home-science-btn:hover { background: var(--surface-strong, rgba(0,0,0,0.04)); }
+[data-theme="dark"] .home-science-btn { background: rgba(255,255,255,0.04); }
+[data-theme="dark"] .home-science-btn:hover { background: rgba(255,255,255,0.08); }
 
 .home-title {
   font-size: 18px;
