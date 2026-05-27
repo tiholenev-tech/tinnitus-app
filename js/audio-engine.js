@@ -444,11 +444,30 @@ window.AudioEngine = (function () {
     var myToken = ++currentFlightToken;
     console.log('[audio-engine] playLayer1 token:', myToken, 'presetId:', presetId, opts || '');
     var spec = resolveSpec(presetId);
-    if (!spec) {
-      console.error('[audio-engine] L1 unknown preset (resolveSpec → null):', presetId);
-      return Promise.reject(new Error('Unknown preset: ' + presetId));
-    }
-    return playLayer1Spec(presetId, spec, opts, myToken);
+    if (spec) return playLayer1Spec(presetId, spec, opts, myToken);
+
+    // REGRESS FIX: resolveSpec → null. Manifest вероятно не е loaded още
+    // (race condition с SW v1.0.38 cache evict + slow phone fetch). Опит
+    // за async manifest load + retry once преди да fail-нем.
+    console.warn('[audio-engine] L1 spec missing — attempting manifest load + retry:', presetId);
+    return ensureManifestLoaded().then(function (loaded) {
+      if (!loaded) {
+        console.error('[audio-engine] manifest load failed; cannot resolve:', presetId);
+        return Promise.reject(new Error('Manifest unavailable'));
+      }
+      var retrySpec = resolveSpec(presetId);
+      if (!retrySpec) {
+        console.error('[audio-engine] L1 unknown preset (post-retry resolveSpec → null):', presetId);
+        return Promise.reject(new Error('Unknown preset: ' + presetId));
+      }
+      // Re-check flight token — user may have tapped друг звук meanwhile.
+      if (myToken !== currentFlightToken) {
+        console.log('[audio-engine] playLayer1 STALE after retry — skip:', presetId);
+        return false;
+      }
+      console.log('[audio-engine] L1 resolved after manifest retry:', presetId);
+      return playLayer1Spec(presetId, retrySpec, opts, myToken);
+    });
   }
 
   // ============================================================
@@ -584,7 +603,47 @@ window.AudioEngine = (function () {
         }
       }
     }
+    // REGRESS FIX: Library има own manifest cache — fallback ако
+    // window.AURALIS_MANIFEST не е populated още (race с SW v1.0.38
+    // cache evict + slow phone fetch). Library.getSoundById връща
+    // sound object с .filename.
+    if (window.Library && window.Library.getSoundById) {
+      try {
+        var libSnd = window.Library.getSoundById(presetId);
+        if (libSnd && libSnd.filename) {
+          var libSpec = { type: 'file', url: 'library_staging_compact/' + libSnd.filename };
+          PRESET_MAP[presetId] = libSpec;
+          return libSpec;
+        }
+      } catch (e) { /* ignore — fall through to null */ }
+    }
     return null;
+  }
+
+  // REGRESS FIX: helper за async manifest load + cache. Викан when
+  // resolveSpec → null AND user reasonably expects sound to exist.
+  // Resolves to true ако manifest is loaded успешно (или вече loaded).
+  function ensureManifestLoaded() {
+    if (window.AURALIS_MANIFEST && window.AURALIS_MANIFEST.sounds) {
+      return Promise.resolve(true);
+    }
+    // Reuse Home.loadManifest ако exists (има own promise dedup)
+    if (window.Home && typeof window.Home.loadManifest === 'function') {
+      try {
+        var p = window.Home.loadManifest();
+        if (p && typeof p.then === 'function') {
+          return p.then(function () { return !!window.AURALIS_MANIFEST; });
+        }
+      } catch (e) {}
+    }
+    // Direct fetch fallback
+    return fetch('audio/library/manifest.json', { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (data) {
+        if (data) window.AURALIS_MANIFEST = data;
+        return !!data;
+      })
+      .catch(function () { return false; });
   }
 
   // P1.3: playLayer1Spec resolves to boolean — true ако L1 source actually
