@@ -400,13 +400,32 @@ window.Home = (function () {
     var deltaSign = cmp.delta > 0 ? '+' : '';
     var deltaText = deltaSign + cmp.delta + ' (' + (cmp.pctChange > 0 ? '+' : '') + cmp.pctChange + '%)';
     var deltaCls = cmp.delta < 0 ? ' thi-delta--good' : (cmp.delta > 0 ? ' thi-delta--bad' : '');
+
+    // SCIENCE Day-14 MCID block — appended след cmp.message.
+    // improvement = baseline - day14 (positive = THI намалял = подобрение).
+    var mcidHtml = '';
+    if (window.ScienceInfo && window.ScienceInfo.getDay14ReminderText) {
+      var improvement = s.thiBaseline - s.thiDay14;
+      var mcid = window.ScienceInfo.getDay14ReminderText(improvement);
+      if (mcid) {
+        var interpCls = improvement >= 7 ? ' thi-mcid--good' : ' thi-mcid--partial';
+        mcidHtml = '<div class="thi-mcid' + interpCls + '">' +
+          '<div class="thi-mcid-line thi-mcid-mcid">' + escapeHtml(mcid.mcid) + '</div>' +
+          '<div class="thi-mcid-line thi-mcid-delta">' + escapeHtml(mcid.delta) + '</div>' +
+          '<div class="thi-mcid-line thi-mcid-interp">' + escapeHtml(mcid.interp) + '</div>' +
+        '</div>';
+      }
+    }
+
     return '<section class="thi-section thi-compare">' +
       '<h3 class="thi-section-title">' + escapeHtml(t('thi.detail.compareTitle','Сравнение Ден 1 → Ден 14')) + '</h3>' +
       '<div class="thi-compare-grid">' +
         '<div class="thi-compare-col"><span class="thi-compare-lbl">' + escapeHtml(t('thi.detail.compareDay1','Ден 1')) + '</span><span class="thi-compare-val">' + s.thiBaseline + '</span></div>' +
         '<div class="thi-compare-col"><span class="thi-compare-lbl">' + escapeHtml(t('thi.detail.compareDay14','Ден 14')) + '</span><span class="thi-compare-val">' + s.thiDay14 + '</span></div>' +
         '<div class="thi-compare-col"><span class="thi-compare-lbl">' + escapeHtml(t('thi.detail.compareChange','Промяна')) + '</span><span class="thi-compare-val thi-compare-delta' + deltaCls + '">' + deltaText + '</span></div>' +
-      '</div><p class="thi-compare-msg">' + escapeHtml(cmp.message) + '</p></section>';
+      '</div><p class="thi-compare-msg">' + escapeHtml(cmp.message) + '</p>' +
+      mcidHtml +
+      '</section>';
   }
 
   function buildThiRetestSectionHtml() {
