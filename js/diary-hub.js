@@ -24,6 +24,9 @@ window.DiaryHub = (function () {
   // Timezone tracking (#17).
   var TZ_KEY = 'auralis-tz-last';
   var TZ_DISMISS_KEY = 'auralis-tz-banner-dismissed-at';
+  // Listen nudge (#20) — dismiss за 7 дни между показвания.
+  var LISTEN_NUDGE_DISMISS_KEY = 'auralis-listen-nudge-dismissed-at';
+  var LISTEN_THRESHOLD_SEC = 60;
 
   function el(id) { return document.getElementById(id); }
 
@@ -259,6 +262,7 @@ window.DiaryHub = (function () {
         '<div class="dh-progress-slot" data-progress-slot></div>' +
 
         buildTimezoneBanner() +
+        buildListenNudgeBanner() +
         buildBannersHtml() +
 
         '<div class="dh-actions">' +
@@ -314,6 +318,66 @@ window.DiaryHub = (function () {
   // ============================================================
   // Interactions
   // ============================================================
+
+  // ============================================================
+  // Listen nudge (#20) — Day >= 6 AND not listened >= 60 sec
+  // ============================================================
+
+  function userHasListened() {
+    // Read-only consumer на Analytics.getSessionHistory().
+    // Не пипаме player.js или analytics.js.
+    if (!window.Analytics || !window.Analytics.getSessionHistory) return false;
+    var sessions = window.Analytics.getSessionHistory() || [];
+    var totalSec = 0;
+    for (var i = 0; i < sessions.length; i++) {
+      totalSec += (sessions[i] && sessions[i].durationSec) || 0;
+      if (totalSec >= LISTEN_THRESHOLD_SEC) return true;
+    }
+    return false;
+  }
+
+  function listenNudgeShouldShow() {
+    var s = window.AppState;
+    if (!s || !s.programStartDate) return false;
+    var day = s.currentProgramDay || 1;
+    if (day < 6) return false;
+    if (userHasListened()) return false;
+    try {
+      var dismissedAt = parseInt(localStorage.getItem(LISTEN_NUDGE_DISMISS_KEY), 10);
+      if (!isNaN(dismissedAt) && (Date.now() - dismissedAt) < 7 * 86400000) return false;
+    } catch (e) { /* ignore */ }
+    return true;
+  }
+
+  function dismissListenNudge() {
+    try { localStorage.setItem(LISTEN_NUDGE_DISMISS_KEY, String(Date.now())); }
+    catch (e) { /* ignore */ }
+  }
+
+  function buildListenNudgeBanner() {
+    if (!listenNudgeShouldShow()) return '';
+    var title = t('ui.diary.hub.listenNudgeTitle', 'Не сте слушали звуци още');
+    var body  = t('ui.diary.hub.listenNudgeBody',
+      'Звуковото обогатяване е една от опорите на 14-дневния модул. Можете да опитате кратка сесия сега — само 5 минути.');
+    var cta   = t('ui.diary.hub.listenNudgeCta', 'Опитай 5 минути');
+    var skip  = t('ui.diary.hub.listenNudgeSkip', 'По-късно');
+    return (
+      '<section class="dh-banner dh-banner--listen" role="note">' +
+        '<h2 class="dh-banner-title">' + escapeHtml(title) + '</h2>' +
+        '<p class="dh-banner-body">' + escapeHtml(body) + '</p>' +
+        '<div class="dh-banner-actions">' +
+          '<button class="dh-banner-btn dh-banner-btn--primary" type="button"' +
+            ' data-action="listen-now">' +
+            escapeHtml(cta) +
+          '</button>' +
+          '<button class="dh-banner-btn dh-banner-btn--ghost" type="button"' +
+            ' data-action="listen-skip">' +
+            escapeHtml(skip) +
+          '</button>' +
+        '</div>' +
+      '</section>'
+    );
+  }
 
   // ============================================================
   // Timezone change detection (#17)
@@ -447,8 +511,21 @@ window.DiaryHub = (function () {
     }
     else if (action === 'tz-dismiss') {
       dismissTimezoneBanner();
-      var banner = btn.closest('.dh-tz-banner');
-      if (banner && banner.parentNode) banner.parentNode.removeChild(banner);
+      var tzBanner = btn.closest('.dh-tz-banner');
+      if (tzBanner && tzBanner.parentNode) tzBanner.parentNode.removeChild(tzBanner);
+    }
+    else if (action === 'listen-now') {
+      // Навигация към Home — там user вижда препоръчителни звуци за профила.
+      dismissListenNudge();
+      var s = window.AppState;
+      if (s && s.transition) s.transition('home');
+      history.replaceState({ phase: 'home' }, '');
+      if (window.Home && window.Home.render) window.Home.render();
+    }
+    else if (action === 'listen-skip') {
+      dismissListenNudge();
+      var lnBanner = btn.closest('.dh-banner--listen');
+      if (lnBanner && lnBanner.parentNode) lnBanner.parentNode.removeChild(lnBanner);
     }
   }
 

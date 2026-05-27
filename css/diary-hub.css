@@ -153,6 +153,15 @@
   color: hsl(210 50% 80%);
 }
 
+.dh-banner--listen {
+  background: hsl(280 40% 92%);
+  color: hsl(280 35% 22%);
+}
+[data-theme="dark"] .dh-banner--listen {
+  background: hsl(280 30% 14% / 0.5);
+  color: hsl(280 50% 80%);
+}
+
 .dh-banner-title {
   margin: 0;
   font-size: 16px;
