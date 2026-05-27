@@ -1042,16 +1042,27 @@ window.Settings = (function () {
     refresh();
   }
 
+  // P0 SLIDER-POP v2: rAF throttle за master slider (виж player.js за context).
+  var pendingMasterFrame = null;
+  var pendingMasterVal = 0;
+
   function onVolumeInput(e) {
     var val = parseInt(e.currentTarget.value, 10);
     if (isNaN(val)) return;
     val = Math.max(0, Math.min(100, val));
-    if (window.AudioEngine && window.AudioEngine.setMasterVolume) {
-      window.AudioEngine.setMasterVolume(val);
-    }
+    pendingMasterVal = val;
     try { localStorage.setItem(STORAGE_VOLUME, String(val)); } catch (e2) {}
     var label = el('setVolValue');
     if (label) label.textContent = val + '%';
+    if (pendingMasterFrame === null) {
+      pendingMasterFrame = requestAnimationFrame(function () {
+        pendingMasterFrame = null;
+        if (window.AudioEngine && window.AudioEngine.setMasterVolume) {
+          window.AudioEngine.setMasterVolume(pendingMasterVal);
+        }
+      });
+    }
+    return;
   }
 
   function onClick(e) {
