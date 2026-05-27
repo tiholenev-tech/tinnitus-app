@@ -303,3 +303,11 @@
 .thi-retest-btn { display:inline-block; padding:12px 24px; border-radius:var(--radius-pill); border:none; background:linear-gradient(135deg, hsl(var(--hue1) 65% 55%), hsl(var(--hue2) 65% 55%)); color:white; font-family:inherit; font-size:14px; font-weight:700; cursor:pointer; box-shadow:0 6px 16px hsl(var(--hue1) 60% 50% / 0.3); transition:transform var(--dur-fast) var(--ease); }
 .thi-retest-btn:active { transform:scale(0.98); }
 .thi-retest-countdown { font-size:13px; font-weight:500; color:var(--text-muted); }
+
+/* ═══ Bug 5: THI-ENTRY CTA — call-to-action above badge ═══ */
+.home-thi-cta { display:flex; align-items:center; gap:12px; width:100%; margin:4px 0 14px; padding:14px 16px; border:none; border-radius:var(--radius); cursor:pointer; text-align:left; position:relative; isolation:isolate; overflow:visible; transition:transform var(--dur-fast) var(--ease); }
+.home-thi-cta:active { transform:scale(0.99); }
+.home-thi-cta-content { display:flex; flex-direction:column; flex:1; min-width:0; gap:2px; }
+.home-thi-cta-title { font-size:15px; font-weight:800; line-height:1.25; color:var(--text); }
+.home-thi-cta-body { font-size:12.5px; font-weight:500; line-height:1.4; color:var(--text-muted); }
+.home-thi-cta-btn { flex-shrink:0; padding:8px 14px; border-radius:var(--radius-pill); background:linear-gradient(135deg, hsl(var(--hue1) 65% 55%), hsl(var(--hue2) 65% 55%)); color:white; font-family:var(--font-mono); font-size:12px; font-weight:700; box-shadow:0 4px 12px hsl(var(--hue1) 60% 50% / 0.3); }

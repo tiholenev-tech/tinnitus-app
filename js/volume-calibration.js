@@ -210,11 +210,22 @@ window.VolumeCalibration = (function () {
       cb();
     } else {
       // CALIBRATION-ROUTING: profile_results → calibration → ...
-      // PITCH-1E: insert pitch_test step ако не е done (нито completed, нито
-      // skipped). Иначе → home.
+      // Bug 5 fix (PACK C T1.5): THI-ENTRY insert. Преди това calibration
+      // route скачаше директно на pitch_test или home → THI quiz никога
+      // не беше достъпен → state.thiBaseline винаги null → THI badge на
+      // Home не се показваше.
+      //
+      // Нов ред: thi_baseline (ако още не done) → pitch_test (ако не done)
+      // → home. Това гарантира че всеки нов user попълва THI baseline
+      // като част от onboarding.
+      var needsThi = s && (typeof s.thiBaseline !== 'number')
+                       && window.ThiBaseline && window.ThiBaseline.open;
       var needsPitch = s && s.isPitchTestDone && !s.isPitchTestDone()
                         && window.PitchTest && window.PitchTest.render;
-      if (needsPitch) {
+      if (needsThi) {
+        // ThiBaseline.open() сам прави transition + history push + render.
+        window.ThiBaseline.open();
+      } else if (needsPitch) {
         if (s.transition) s.transition('pitch_test');
         history.replaceState({ phase: 'pitch_test' }, '');
         window.PitchTest.render();

@@ -261,6 +261,37 @@ window.Home = (function () {
   var THI_GOAL = 40;
   var THI_RETEST_DAY_MIN = 13;
 
+  // Bug 5 (T1.5): THI-ENTRY CTA — показва се ако calibration done но
+  // baseline още не. Подсказва user-а да направи THI оценка преди да
+  // се появи бадж. Над всички останали Home cards (highest priority).
+  function buildThiCta() {
+    var s = window.AppState || {};
+    var baseline = (typeof s.thiBaseline === 'number') ? s.thiBaseline : null;
+    if (baseline !== null) return '';
+    // Show само ако calibration вече е завършен (т.е. user е past onboarding
+    // флоу). Иначе изглежда objfusing на fresh-quiz user.
+    if (!s.calibrationDone) return '';
+    var title = t('home.thiCta.title', 'Завършете научната оценка');
+    var body  = t('home.thiCta.body',  'Попълнете THI тест (5 минути) за персонализиран план');
+    var btn   = t('home.thiCta.button', 'Започнете теста');
+    return (
+      '<button class="home-thi-cta glass" type="button" data-action="thi-start"' +
+        ' aria-label="' + escapeHtml(title) + '">' +
+        '<span class="shine" aria-hidden="true"></span>' +
+        '<span class="shine shine-bottom" aria-hidden="true"></span>' +
+        '<span class="home-thi-cta-content">' +
+          '<span class="home-thi-cta-title">' + escapeHtml(title) + '</span>' +
+          '<span class="home-thi-cta-body">' + escapeHtml(body) + '</span>' +
+        '</span>' +
+        '<span class="home-thi-cta-btn">' + escapeHtml(btn) + ' ›</span>' +
+      '</button>'
+    );
+  }
+
+  function openThiStart() {
+    if (window.ThiBaseline && window.ThiBaseline.open) window.ThiBaseline.open();
+  }
+
   function buildThiBanner() {
     var s = window.AppState || {};
     var day = s.currentProgramDay || 0;
@@ -423,6 +454,7 @@ window.Home = (function () {
           escapeHtml(t('home.title', 'Изберете режим')) +
         '</h1>' +
 
+        buildThiCta() +
         buildThiBanner() +
         buildThiBadge() +
 
@@ -472,6 +504,8 @@ window.Home = (function () {
       openThiDetailSheet();
     } else if (action === 'thi-retest') {
       openThiRetest();
+    } else if (action === 'thi-start') {
+      openThiStart();
     }
   }
 
