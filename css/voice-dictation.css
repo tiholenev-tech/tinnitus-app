@@ -1,6 +1,10 @@
 /* ═══════════════════════════════════════════════════════════════════
-   AURALIS · VoiceDictation — микрофонен бутон + privacy sheet
+   AURALIS · VoiceDictation — mic бутон + bottom-sheet overlay
+   ───────────────────────────────────────────────────────────────────
+   Refactor v2: overlay pattern (адаптиран от RunMyStore proven UX).
    ═══════════════════════════════════════════════════════════════════ */
+
+/* ─── Inline mic button (trigger) ─── */
 
 .voice-dict-btn {
   position: relative;
@@ -23,13 +27,9 @@
 .voice-dict-btn svg {
   width: 20px;
   height: 20px;
-  position: relative;
-  z-index: 2;
 }
 
-.voice-dict-btn:active {
-  transform: scale(0.94);
-}
+.voice-dict-btn:active { transform: scale(0.94); }
 
 .voice-dict-btn:hover {
   background: var(--surface-strong, rgba(0,0,0,0.04));
@@ -39,31 +39,16 @@
   background: rgba(255,255,255,0.08);
 }
 
-/* Listening state — red dot pulse + tinted background */
-.voice-dict-btn.is-listening {
-  background: hsl(0 70% 56%);
-  border-color: hsl(0 70% 56%);
-  color: white;
+.voice-dict-slot {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-.voice-dict-pulse {
-  position: absolute;
-  inset: -3px;
-  border-radius: 50%;
-  border: 2px solid hsl(0 70% 56%);
-  opacity: 0;
-  pointer-events: none;
-}
-.voice-dict-btn.is-listening .voice-dict-pulse {
-  animation: voiceDictPulse 1.4s ease-out infinite;
-}
+/* ═══════════════════════════════════════════════════════════════════
+   Privacy BottomSheet content (UNCHANGED от v1)
+   ═══════════════════════════════════════════════════════════════════ */
 
-@keyframes voiceDictPulse {
-  0%   { transform: scale(1);   opacity: 0.6; }
-  100% { transform: scale(1.6); opacity: 0; }
-}
-
-/* ═══ Privacy BottomSheet content ═══ */
 .voice-privacy-body {
   display: flex;
   flex-direction: column;
@@ -82,9 +67,258 @@
   font-weight: 500;
 }
 
-/* ═══ Inline slot in textarea-adjacent rows ═══ */
-.voice-dict-slot {
+/* ═══════════════════════════════════════════════════════════════════
+   Overlay (.vd-ov) — fullscreen backdrop + bottom-sheet box
+   Pattern: RunMyStore aibrain-ov
+   ═══════════════════════════════════════════════════════════════════ */
+
+.vd-ov {
+  position: fixed;
+  inset: 0;
+  z-index: 340;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 16px calc(24px + env(safe-area-inset-bottom, 0px));
+  background: rgba(3, 7, 18, 0.55);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.vd-ov.open {
+  display: flex;
+  opacity: 1;
+}
+
+.vd-box {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  padding: 18px;
+  border-radius: 22px;
+  background: linear-gradient(180deg,
+    hsl(220 25% 12% / 0.95),
+    hsl(220 28% 8% / 0.95));
+  border: 1px solid hsl(210 40% 35% / 0.45);
+  box-shadow:
+    0 -12px 50px hsl(210 60% 45% / 0.25),
+    0 0 40px rgba(0, 0, 0, 0.5);
+  animation: vdSlideUp 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  color: #f1f5f9;
+}
+
+[data-theme="light"] .vd-box {
+  background: linear-gradient(180deg,
+    hsl(220 30% 96% / 0.97),
+    hsl(220 30% 92% / 0.97));
+  border-color: hsl(210 40% 70% / 0.55);
+  color: hsl(220 30% 15%);
+  box-shadow:
+    0 -12px 50px hsl(210 40% 30% / 0.18),
+    0 0 30px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes vdSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Close button (top-right) ─── */
+
+.vd-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  border-radius: 50%;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+}
+.vd-close svg { width: 18px; height: 18px; }
+.vd-close:active { background: rgba(255, 255, 255, 0.06); }
+
+[data-theme="light"] .vd-close { color: hsl(220 20% 40%); }
+[data-theme="light"] .vd-close:active { background: rgba(0, 0, 0, 0.06); }
+
+/* ─── Status header (dot + label) ─── */
+
+.vd-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding-right: 36px; /* clear close button */
+}
+
+.vd-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
   flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.2);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vd-dot.is-recording {
+  background: hsl(0 70% 56%);
+  box-shadow: 0 0 12px hsl(0 70% 56%),
+              0 0 24px hsl(0 70% 56% / 0.4);
+  animation: vdPulseRecording 1s ease infinite;
+}
+
+.vd-dot.is-ready {
+  background: hsl(140 60% 50%);
+  box-shadow: 0 0 12px hsl(140 60% 50%),
+              0 0 24px hsl(140 60% 50% / 0.4);
+}
+
+@keyframes vdPulseRecording {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 8px hsl(0 70% 56%),
+                0 0 16px hsl(0 70% 56% / 0.3);
+  }
+  50% {
+    opacity: 0.5;
+    box-shadow: 0 0 20px hsl(0 70% 56%),
+                0 0 40px hsl(0 70% 56% / 0.6);
+  }
+}
+
+.vd-label {
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: rgba(255, 255, 255, 0.55);
+}
+.vd-label.is-recording { color: hsl(0 70% 60%); }
+.vd-label.is-ready     { color: hsl(140 60% 55%); }
+
+[data-theme="light"] .vd-label { color: hsl(220 20% 40%); }
+[data-theme="light"] .vd-label.is-recording { color: hsl(0 65% 45%); }
+[data-theme="light"] .vd-label.is-ready     { color: hsl(140 55% 35%); }
+
+/* ─── Transcript textarea (live preview, readonly) ─── */
+
+.vd-transcript {
+  width: 100%;
+  min-height: 64px;
+  max-height: 160px;
+  resize: none;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  background: rgba(99, 102, 241, 0.06);
+  border: 1px solid hsl(210 40% 35% / 0.45);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #f1f5f9;
+  word-wrap: break-word;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.vd-transcript:focus {
+  border-color: hsl(210 60% 55% / 0.65);
+}
+
+.vd-transcript.empty {
+  color: rgba(255, 255, 255, 0.55);
+  font-style: italic;
+}
+
+[data-theme="light"] .vd-transcript {
+  background: rgba(99, 102, 241, 0.04);
+  border-color: hsl(210 40% 70% / 0.55);
+  color: hsl(220 30% 15%);
+}
+[data-theme="light"] .vd-transcript.empty {
+  color: hsl(220 15% 50%);
+}
+
+/* ─── Hint text ─── */
+
+.vd-hint {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 14px;
+  text-align: center;
+  line-height: 1.4;
+  font-weight: 600;
+  min-height: 1.4em; /* prevent layout jump when text changes */
+}
+
+[data-theme="light"] .vd-hint {
+  color: hsl(220 15% 45%);
+}
+
+/* ─── Actions row ─── */
+
+.vd-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.vd-btn {
+  height: 46px;
+  border-radius: 100px;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.vd-btn:active { transform: scale(0.97); }
+.vd-btn:disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.vd-btn-cancel {
+  flex: 1;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+}
+.vd-btn-cancel:active {
+  background: rgba(99, 102, 241, 0.12);
+}
+
+[data-theme="light"] .vd-btn-cancel {
+  border-color: hsl(220 20% 80%);
+  background: hsl(220 25% 96%);
+  color: hsl(220 25% 30%);
+}
+[data-theme="light"] .vd-btn-cancel:active {
+  background: hsl(220 25% 92%);
+}
+
+.vd-btn-save {
+  flex: 2;
+  background: linear-gradient(135deg,
+    hsl(var(--hue1, 200) 70% 50%),
+    hsl(var(--hue2, 210) 65% 45%));
+  border: 1px solid hsl(var(--hue1, 200) 70% 55% / 0.55);
+  color: #fff;
+  font-size: 14px;
+  box-shadow:
+    0 4px 14px hsl(var(--hue1, 200) 70% 45% / 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
