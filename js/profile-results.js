@@ -154,6 +154,21 @@ window.ProfileResults = (function () {
   }
 
   // ============================================================
+  // Welcome flag — first-time show per profile (localStorage)
+  // ============================================================
+  var WELCOME_SEEN_KEY = 'auralis-profile-welcome-seen';
+
+  function welcomeAlreadySeen(code) {
+    try {
+      return localStorage.getItem(WELCOME_SEEN_KEY) === code;
+    } catch (e) { return false; }
+  }
+
+  function markWelcomeSeen(code) {
+    try { localStorage.setItem(WELCOME_SEEN_KEY, code); } catch (e) { /* ignore */ }
+  }
+
+  // ============================================================
   // Data accessors
   // ============================================================
 
@@ -236,6 +251,28 @@ window.ProfileResults = (function () {
   function getRecommendedReason(profile, catId) {
     return tOrNull('profile_results.profiles.' + profile + '.reasons.' + catId) ||
            getCatSubtitle(catId);
+  }
+
+  // ============================================================
+  // Welcome message (shown only on first visit per profile)
+  // ============================================================
+
+  function buildWelcomeSection(code) {
+    if (welcomeAlreadySeen(code)) return '';
+    var msg = t('profile_results.welcomes.' + code, '');
+    if (!msg || typeof msg !== 'string' || msg.length < 10) return '';
+    var aria = t('profile_results.welcomeAria', 'Персонално приветствие за профил {code}', { code: code });
+    return (
+      '<section class="pr-welcome glass" aria-label="' + escapeHtml(aria) + '">' +
+        '<span class="shine"></span>' +
+        '<span class="shine shine-bottom"></span>' +
+        '<span class="glow"></span>' +
+        '<span class="glow glow-bottom"></span>' +
+        '<div class="pr-card-inner pr-welcome-inner">' +
+          '<p class="pr-welcome-text">' + escapeHtml(msg) + '</p>' +
+        '</div>' +
+      '</section>'
+    );
   }
 
   // ============================================================
@@ -553,6 +590,7 @@ window.ProfileResults = (function () {
     return (
       '<div class="pr-screen" data-screen="profile_results">' +
         '<h1 class="pr-title">' + escapeHtml(title) + '</h1>' +
+        buildWelcomeSection(code) +
         buildHero(code, di, level) +
 
         // §1 Какво означава
@@ -642,11 +680,15 @@ window.ProfileResults = (function () {
     var app = el('app');
     if (!app) return;
     var code = getProfileCode();
+    var wasFirstView = !welcomeAlreadySeen(code);
     app.innerHTML = buildScreenHtml();
     bindEvents(app);
     injectInfoPanels(code);
     // BUG2-F: TopSoundsCarousel инжекцията е skipped — секцията не се render-ва.
     // injectTopSoundsCarousel(code);
+    // Mark welcome as seen for this profile (so it doesn't reappear).
+    // Re-render after profile change ще го покаже отново.
+    if (wasFirstView) markWelcomeSeen(code);
   }
 
   function open() {

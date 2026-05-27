@@ -35,6 +35,27 @@
   padding: 0 4px;
 }
 
+/* ═══ WELCOME CARD (first-time only, per profile) ═══ */
+.pr-welcome {
+  position: relative;
+  margin: 0 4px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  isolation: isolate;
+  animation: prFadeIn 0.5s ease;
+}
+.pr-welcome > * { position: relative; z-index: 5; }
+.pr-welcome-inner {
+  padding: 20px 20px;
+  text-align: left;
+}
+.pr-welcome-text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text);
+}
+
 /* ═══ PROFILE CARD (top hero) ═══ */
 .pr-profile-card {
   position: relative;
