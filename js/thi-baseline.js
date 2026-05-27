@@ -1,17 +1,22 @@
 /**
- * AURALIS ThiBaseline — 25-question THI assessment (Wave 3.1-B)
+ * AURALIS ThiBaseline — 25-question THI assessment (Wave 3.2)
  * ===========================================================================
  * Single-question-per-screen flow. Used for:
  *   - Day 1: baseline (state.thiBaseline)
  *   - Day 14: final (state.thiDay14)
  *
- * 3 options: Никога=0pt, Понякога=2pt, Винаги=4pt. Sum 0..100.
+ * Newman C.W., Jacobson G.P., Spitzer J.B. (1996) THI scale:
+ *   Да = 4 / Понякога = 2 / Не = 0. Sum 0..100.
+ *
+ * Категорийни subscores:
+ *   F (Functional, 11 q): 1, 2, 4, 7, 9, 12, 13, 15, 18, 20, 24  → max 44
+ *   E (Emotional, 9 q):   3, 6, 10, 14, 16, 17, 21, 22, 25       → max 36
+ *   C (Catastrophic, 5 q): 5, 8, 11, 19, 23                       → max 20
  *
  * Public API:
  *   ThiBaseline.open()    — start fresh assessment
  *   ThiBaseline.render()  — router hook (resume on reload)
- *
- * Wave 3.2 ще замени placeholder texts с реални THI question strings.
+ *   ThiBaseline.scoreBreakdown() — { total, F, E, C } за consumers
  */
 
 window.ThiBaseline = (function () {
@@ -22,10 +27,29 @@ window.ThiBaseline = (function () {
 
   var TOTAL_QUESTIONS = 25;
   var OPTIONS = [
-    { key: 'never',     label: 'Никога',    points: 0 },
-    { key: 'sometimes', label: 'Понякога',  points: 2 },
-    { key: 'always',    label: 'Винаги',    points: 4 }
+    { key: 'yes',       labelKey: 'thi.options.yes',       fallback: 'Да',       points: 4 },
+    { key: 'sometimes', labelKey: 'thi.options.sometimes', fallback: 'Понякога', points: 2 },
+    { key: 'no',        labelKey: 'thi.options.no',        fallback: 'Не',       points: 0 }
   ];
+
+  // Newman 1996 category map (1-indexed → cat F/E/C)
+  var QUESTIONS_META = [
+    { cat: 'F' }, { cat: 'F' }, { cat: 'E' }, { cat: 'F' }, { cat: 'C' },
+    { cat: 'E' }, { cat: 'F' }, { cat: 'C' }, { cat: 'F' }, { cat: 'E' },
+    { cat: 'C' }, { cat: 'F' }, { cat: 'F' }, { cat: 'E' }, { cat: 'F' },
+    { cat: 'E' }, { cat: 'E' }, { cat: 'F' }, { cat: 'C' }, { cat: 'F' },
+    { cat: 'E' }, { cat: 'E' }, { cat: 'C' }, { cat: 'F' }, { cat: 'E' }
+  ];
+
+  function t(key, fallback, params) {
+    if (window.i18n && window.i18n.t) return window.i18n.t(key, fallback, params);
+    if (fallback != null && params) {
+      return String(fallback).replace(/\{(\w+)\}/g, function (m, n) {
+        return (params[n] !== undefined) ? String(params[n]) : m;
+      });
+    }
+    return (fallback != null ? fallback : key);
+  }
 
   var currentIndex = 0;   // 0..24
   var scores = [];        // array of points per question
@@ -78,6 +102,19 @@ window.ThiBaseline = (function () {
     return sum;
   }
 
+  function scoreBreakdown() {
+    var breakdown = { total: 0, F: 0, E: 0, C: 0 };
+    for (var i = 0; i < scores.length; i++) {
+      var pts = scores[i] || 0;
+      breakdown.total += pts;
+      var meta = QUESTIONS_META[i];
+      if (meta && breakdown.hasOwnProperty(meta.cat)) {
+        breakdown[meta.cat] += pts;
+      }
+    }
+    return breakdown;
+  }
+
   // ============================================================
   // HTML
   // ============================================================
@@ -85,27 +122,28 @@ window.ThiBaseline = (function () {
   function buildQuestionHtml() {
     var qNum = currentIndex + 1;
     var selected = scores[currentIndex];
-    // Phone test cleanup: премахнат "TODO 3.2" placeholder.
-    // Реалните 25 THI questions ще се добавят с content team Wave 3.2.
-    var questionText = 'Въпрос ' + qNum;
-    var progressText = 'Въпрос ' + qNum + ' от ' + TOTAL_QUESTIONS;
+    var questionText = t('thi.q' + qNum, 'Въпрос ' + qNum);
+    var progressText = t('thi.progressFmt', 'Въпрос {n} от {total}', { n: qNum, total: TOTAL_QUESTIONS });
     var progressPct  = Math.round((qNum / TOTAL_QUESTIONS) * 100);
+    var titleText    = t('thi.title', 'THI оценка');
+    var prevLabel    = t('thi.actions.prev', 'Назад');
 
-    var optionsHtml = OPTIONS.map(function (opt, idx) {
+    var optionsHtml = OPTIONS.map(function (opt) {
       var isActive = (typeof selected === 'number' && selected === opt.points);
+      var label = t(opt.labelKey, opt.fallback);
       return (
         '<button class="thi-option' + (isActive ? ' is-active' : '') + '" type="button"' +
           ' data-action="select" data-points="' + opt.points + '"' +
           ' aria-pressed="' + (isActive ? 'true' : 'false') + '">' +
           '<span class="thi-option-circle" aria-hidden="true"></span>' +
-          '<span class="thi-option-label">' + escapeHtml(opt.label) + '</span>' +
+          '<span class="thi-option-label">' + escapeHtml(label) + '</span>' +
         '</button>'
       );
     }).join('');
 
     var hasAnswer = (typeof selected === 'number');
     var isLast = (currentIndex === TOTAL_QUESTIONS - 1);
-    var nextLabel = isLast ? 'Завърши' : 'Следващ';
+    var nextLabel = isLast ? t('thi.actions.finish', 'Завърши') : t('thi.actions.next', 'Следващ');
 
     return (
       '<div class="thi-screen" data-screen="thi_baseline">' +
@@ -113,7 +151,7 @@ window.ThiBaseline = (function () {
           '<div class="thi-progress-bar"><div class="thi-progress-fill" style="width:' + progressPct + '%"></div></div>' +
           '<div class="thi-progress-text">' + escapeHtml(progressText) + '</div>' +
         '</div>' +
-        '<h1 class="thi-title">THI оценка</h1>' +
+        '<h1 class="thi-title">' + escapeHtml(titleText) + '</h1>' +
         '<section class="thi-section">' +
           '<div class="thi-question-num">' + qNum + ' / ' + TOTAL_QUESTIONS + '</div>' +
           '<div class="thi-question">' + escapeHtml(questionText) + '</div>' +
@@ -121,7 +159,7 @@ window.ThiBaseline = (function () {
         '</section>' +
         '<div class="thi-actions">' +
           (currentIndex > 0
-            ? '<button class="thi-btn thi-btn--ghost" type="button" data-action="prev">Назад</button>'
+            ? '<button class="thi-btn thi-btn--ghost" type="button" data-action="prev">' + escapeHtml(prevLabel) + '</button>'
             : '') +
           '<button class="thi-btn thi-btn--primary" type="button"' +
             ' data-action="next"' + (hasAnswer ? '' : ' disabled') + '>' +
@@ -134,18 +172,21 @@ window.ThiBaseline = (function () {
 
   function buildResultHtml() {
     var score = totalScore();
-    var label = (window.AppState && window.AppState.currentProgramDay === 14)
-      ? 'Финален THI score (Ден 14)'
-      : 'Baseline THI score';
+    var isDay14 = !!(window.AppState && window.AppState.currentProgramDay === 14);
+    var label = isDay14
+      ? t('thi.result.day14', 'Финален THI score (Ден 14)')
+      : t('thi.result.baseline', 'Baseline THI score');
+    var doneTitle = t('thi.result.done', 'Готово');
+    var continueLabel = t('thi.actions.continue', 'Продължи');
     return (
       '<div class="thi-screen" data-screen="thi_baseline_result">' +
-        '<h1 class="thi-title">Готово</h1>' +
+        '<h1 class="thi-title">' + escapeHtml(doneTitle) + '</h1>' +
         '<section class="thi-section thi-result">' +
           '<div class="thi-score">' + score + '</div>' +
           '<div class="thi-score-label">' + escapeHtml(label) + '</div>' +
         '</section>' +
         '<div class="thi-actions">' +
-          '<button class="thi-btn thi-btn--primary" type="button" data-action="finish">Продължи</button>' +
+          '<button class="thi-btn thi-btn--primary" type="button" data-action="finish">' + escapeHtml(continueLabel) + '</button>' +
         '</div>' +
       '</div>'
     );
@@ -213,7 +254,7 @@ window.ThiBaseline = (function () {
       clearActive();
       // Toast: program complete
       if (window.Toast && window.Toast.success) {
-        window.Toast.success('Програмата приключи');
+        window.Toast.success(t('thi.result.completed', 'Програмата приключи'));
       }
       s.transition('home');
       history.replaceState({ phase: 'home' }, '');
@@ -252,6 +293,7 @@ window.ThiBaseline = (function () {
 
   return {
     open: open,
-    render: render
+    render: render,
+    scoreBreakdown: scoreBreakdown
   };
 })();
