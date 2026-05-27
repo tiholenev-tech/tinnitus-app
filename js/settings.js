@@ -540,6 +540,29 @@ window.Settings = (function () {
   }
 
   // ============================================================
+  // Voice dictation privacy reset (Wave 3.2+)
+  // ============================================================
+
+  function buildVoicePrivacyButton() {
+    // Скрий бутона напълно ако Web Speech API не се поддържа на устройството.
+    if (!window.VoiceDictation || !window.VoiceDictation.isSupported()) return '';
+    return (
+      '<section class="set-section">' +
+        '<div class="set-section-head">' +
+          '<h3 class="set-section-title">' +
+            escapeHtml(t('voice.settings.section', 'Поверителност')) +
+          '</h3>' +
+        '</div>' +
+        '<div class="set-data-actions">' +
+          '<button class="set-action" type="button" data-action="voice-reset-privacy">' +
+            escapeHtml(t('voice.settings.resetPrivacy', 'Покажи отново инфото за диктовка')) +
+          '</button>' +
+        '</div>' +
+      '</section>'
+    );
+  }
+
+  // ============================================================
   // BB: Analytics stats button
   // ============================================================
 
@@ -588,6 +611,7 @@ window.Settings = (function () {
           buildFavoritesButton() +
           buildAnalyticsButton() +
           buildFaqButton() +
+          buildVoicePrivacyButton() +
           buildDataSection() +
           buildAboutSection() +
         '</div>' +
@@ -1003,6 +1027,15 @@ window.Settings = (function () {
       else if (action === 'diary-import-trigger') {
         var input = el('setDiaryImportInput');
         if (input) input.click();
+      }
+      else if (action === 'voice-reset-privacy') {
+        if (window.VoiceDictation && window.VoiceDictation.resetPrivacyFlag) {
+          window.VoiceDictation.resetPrivacyFlag();
+          if (window.Toast && window.Toast.success) {
+            window.Toast.success(t('voice.settings.resetDoneToast',
+              'Готово. При следваща употреба ще видите инфото отново.'));
+          }
+        }
       }
       else if (action === 'open-privacy') showPrivacyView();
       else if (action === 'open-terms') showTermsView();

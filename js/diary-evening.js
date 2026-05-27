@@ -205,9 +205,12 @@ window.DiaryEvening = (function () {
     var noteHtml =
       '<section class="de-section de-section--note">' +
         '<label class="de-section-title" for="deNote">' + escapeHtml(lblNote) + '</label>' +
-        '<textarea id="deNote" class="de-note" maxlength="' + NOTE_MAX + '"' +
-          ' placeholder="' + escapeHtml(lblNoteP) + '"' +
-          ' rows="2">' + escapeHtml(note) + '</textarea>' +
+        '<div class="de-note-row">' +
+          '<textarea id="deNote" class="de-note" maxlength="' + NOTE_MAX + '"' +
+            ' placeholder="' + escapeHtml(lblNoteP) + '"' +
+            ' rows="2">' + escapeHtml(note) + '</textarea>' +
+          '<div class="voice-dict-slot" data-voice-slot="deNote"></div>' +
+        '</div>' +
         '<div class="de-char-counter">' +
           '<span data-char-count>' + note.length + '</span> / ' + NOTE_MAX +
         '</div>' +
@@ -437,6 +440,20 @@ window.DiaryEvening = (function () {
     app.addEventListener('click', onClick);
     app.addEventListener('input', onInput);
     injectSliders();
+    injectVoiceDictation();
+  }
+
+  function injectVoiceDictation() {
+    if (!window.VoiceDictation || !window.VoiceDictation.isSupported()) return;
+    var slot = document.querySelector('[data-voice-slot="deNote"]');
+    var target = el('deNote');
+    if (!slot || !target) return;
+    window.VoiceDictation.mountButton({
+      target: target,
+      container: slot,
+      lang: 'bg-BG',
+      maxLength: NOTE_MAX
+    });
   }
 
   function open() {

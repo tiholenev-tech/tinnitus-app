@@ -96,6 +96,15 @@
   color: var(--text);
 }
 
+.cbt-reflection-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.cbt-reflection-row .cbt-reflection {
+  flex: 1;
+}
+
 .cbt-reflection {
   width: 100%;
   min-height: 120px;

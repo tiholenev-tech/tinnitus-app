@@ -81,6 +81,15 @@
   gap: 8px;
 }
 
+.de-note-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.de-note-row .de-note {
+  flex: 1;
+}
+
 .de-save-hint {
   font-size: 13px;
   line-height: 1.45;

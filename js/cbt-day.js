@@ -144,11 +144,14 @@ window.CbtDay = (function () {
 
         '<section class="cbt-section">' +
           '<label class="cbt-section-title" for="cbtReflection">' + escapeHtml(lblReflection) + '</label>' +
-          '<textarea id="cbtReflection" class="cbt-reflection"' +
-            ' maxlength="' + MAX_REFLECTION_LEN + '"' +
-            ' placeholder="' + escapeHtml(reflectionPh) + '">' +
-            escapeHtml(existingReflection) +
-          '</textarea>' +
+          '<div class="cbt-reflection-row">' +
+            '<textarea id="cbtReflection" class="cbt-reflection"' +
+              ' maxlength="' + MAX_REFLECTION_LEN + '"' +
+              ' placeholder="' + escapeHtml(reflectionPh) + '">' +
+              escapeHtml(existingReflection) +
+            '</textarea>' +
+            '<div class="voice-dict-slot" data-voice-slot="cbtReflection"></div>' +
+          '</div>' +
           '<div class="cbt-char-counter">' +
             '<span data-char-count>' + existingReflection.length + '</span> / ' +
             MAX_REFLECTION_LEN +
@@ -226,6 +229,20 @@ window.CbtDay = (function () {
     app.innerHTML = buildHtml();
     app.addEventListener('click', onClick);
     app.addEventListener('input', onInput);
+    injectVoiceDictation();
+  }
+
+  function injectVoiceDictation() {
+    if (!window.VoiceDictation || !window.VoiceDictation.isSupported()) return;
+    var slot = document.querySelector('[data-voice-slot="cbtReflection"]');
+    var target = el('cbtReflection');
+    if (!slot || !target) return;
+    window.VoiceDictation.mountButton({
+      target: target,
+      container: slot,
+      lang: 'bg-BG',
+      maxLength: MAX_REFLECTION_LEN
+    });
   }
 
   function open() {

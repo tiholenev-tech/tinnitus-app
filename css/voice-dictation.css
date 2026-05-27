@@ -1,0 +1,90 @@
+/* ═══════════════════════════════════════════════════════════════════
+   AURALIS · VoiceDictation — микрофонен бутон + privacy sheet
+   ═══════════════════════════════════════════════════════════════════ */
+
+.voice-dict-btn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border: 1px solid var(--border-color, rgba(0,0,0,0.1));
+  border-radius: 50%;
+  background: var(--surface, rgba(255,255,255,0.04));
+  color: var(--text-soft, var(--text));
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--dur, 200ms) var(--ease, ease),
+              color var(--dur, 200ms) var(--ease, ease),
+              transform var(--dur-fast, 120ms) var(--ease, ease);
+}
+
+.voice-dict-btn svg {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.voice-dict-btn:active {
+  transform: scale(0.94);
+}
+
+.voice-dict-btn:hover {
+  background: var(--surface-strong, rgba(0,0,0,0.04));
+}
+
+[data-theme="dark"] .voice-dict-btn:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* Listening state — red dot pulse + tinted background */
+.voice-dict-btn.is-listening {
+  background: hsl(0 70% 56%);
+  border-color: hsl(0 70% 56%);
+  color: white;
+}
+
+.voice-dict-pulse {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid hsl(0 70% 56%);
+  opacity: 0;
+  pointer-events: none;
+}
+.voice-dict-btn.is-listening .voice-dict-pulse {
+  animation: voiceDictPulse 1.4s ease-out infinite;
+}
+
+@keyframes voiceDictPulse {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* ═══ Privacy BottomSheet content ═══ */
+.voice-privacy-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 4px 0 8px;
+}
+
+.voice-privacy-para {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.voice-privacy-para:first-child {
+  font-weight: 500;
+}
+
+/* ═══ Inline slot in textarea-adjacent rows ═══ */
+.voice-dict-slot {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
