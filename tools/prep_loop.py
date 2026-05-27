@@ -250,7 +250,8 @@ def main():
 
         trim_duration = get_duration(trimmed)
         if trim_duration is None or trim_duration < MIN_USEFUL_DURATION:
-            print(f'         ⚠ След trim {trim_duration:.1f}s — твърде кратко, пропускаме')
+            dur_str = f'{trim_duration:.1f}s' if trim_duration is not None else 'N/A'
+            print(f'         ⚠ След trim {dur_str} — твърде кратко, пропускаме')
             trimmed.unlink(missing_ok=True)
             skipped_short += 1
             continue
