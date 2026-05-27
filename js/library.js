@@ -25,6 +25,7 @@ window.Library = (function () {
   var STORAGE_FAVORITES = 'auralis_library_favorites';
   var MANIFEST_URL = 'audio/library/manifest.json';
   var MANIFEST_FALLBACK = 'audio/library/manifest_template.json';
+  var SEARCH_DEBOUNCE_MS = 200;
 
   // ============================================================
   // STATE
@@ -34,6 +35,7 @@ window.Library = (function () {
   var manifestLoadPromise = null;
   var activeFilter = 'all';      // category filter (or 'favorites')
   var searchQuery = '';
+  var searchDebounceId = null;
   var favorites = loadFavorites();
 
   // ============================================================
@@ -245,10 +247,10 @@ window.Library = (function () {
   // ============================================================
 
   function buildSearchBarHtml() {
-    var placeholder = t('library.search.placeholder', 'Търсете звук...');
+    var placeholder = t('library.search.placeholder', 'Потърсете звук...');
     var clearAria = t('library.search.clearAria', 'Изчисти търсенето');
     var diaryAria = t('diary.openAria', 'Отвори дневника');
-    var hasQuery = !!searchQuery;
+    var hiddenClass = searchQuery ? '' : ' is-hidden';
     var diaryIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"' +
       ' stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
       '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>' +
@@ -261,11 +263,11 @@ window.Library = (function () {
           '<input type="search" id="libSearchInput" class="lib-search-input"' +
             ' placeholder="' + escapeHtml(placeholder) + '"' +
             ' value="' + escapeHtml(searchQuery) + '"' +
-            ' autocomplete="off" spellcheck="false">' +
-          (hasQuery
-            ? '<button class="lib-search-clear" type="button" data-action="clear-search"' +
-                ' aria-label="' + escapeHtml(clearAria) + '">' + SVG.clear + '</button>'
-            : '') +
+            ' autocomplete="off" autocorrect="off" spellcheck="false"' +
+            ' enterkeyhint="search">' +
+          '<button id="libSearchClear" class="lib-search-clear' + hiddenClass + '"' +
+            ' type="button" data-action="clear-search"' +
+            ' aria-label="' + escapeHtml(clearAria) + '">' + SVG.clear + '</button>' +
         '</div>' +
         '<button class="lib-diary-btn" type="button" data-action="open-diary"' +
           ' aria-label="' + escapeHtml(diaryAria) + '">' +
@@ -540,8 +542,18 @@ window.Library = (function () {
   }
 
   function search(query) {
+    // Public API — пълен refresh (safe fallback за external callers).
     searchQuery = (query || '').trim();
     refresh();
+  }
+
+  function applySearch(query) {
+    // Internal — само grid update; search bar/tabs/miniplayer не пипаме,
+    // за да не губим focus и да избегнем flicker.
+    var trimmed = (query || '').trim();
+    if (trimmed === searchQuery) return;
+    searchQuery = trimmed;
+    updateGridOnly();
   }
 
   function setCategory(catId) {
@@ -550,8 +562,43 @@ window.Library = (function () {
   }
 
   function clearSearch() {
+    if (searchDebounceId) { clearTimeout(searchDebounceId); searchDebounceId = null; }
     searchQuery = '';
-    refresh();
+    var input = el('libSearchInput');
+    if (input) input.value = '';
+    toggleClearBtnVisibility(false);
+    updateGridOnly();
+    if (input) input.focus();
+  }
+
+  function toggleClearBtnVisibility(visible) {
+    var btn = el('libSearchClear');
+    if (!btn) return;
+    btn.classList.toggle('is-hidden', !visible);
+  }
+
+  // Surgical DOM update: replaces only the grid/empty/med-list node.
+  // Search input, category tabs и mini player остават непокътнати →
+  // focus/caret/IME composition се запазват + без flicker по време на debounce.
+  function updateGridOnly() {
+    var app = el('app');
+    if (!app) return;
+    var screen = app.querySelector('.lib-screen');
+    if (!manifest || !screen) { refresh(); return; }
+
+    var existing = screen.querySelector('.lib-grid, .lib-empty, .lib-med-list');
+    var temp = document.createElement('div');
+    temp.innerHTML = buildGridHtml(getFilteredSounds());
+    var fresh = temp.firstChild;
+    if (!fresh) return;
+
+    if (existing && existing.parentNode) {
+      existing.parentNode.replaceChild(fresh, existing);
+    } else {
+      var mp = screen.querySelector('.lib-miniplayer');
+      if (mp) screen.insertBefore(fresh, mp);
+      else screen.appendChild(fresh);
+    }
   }
 
   // ============================================================
@@ -576,6 +623,7 @@ window.Library = (function () {
     var searchInput = container.querySelector('#libSearchInput');
     if (searchInput) {
       searchInput.addEventListener('input', onSearchInput);
+      searchInput.addEventListener('keydown', onSearchKeyDown);
     }
 
     // Delegated click handler
@@ -590,16 +638,25 @@ window.Library = (function () {
   }
 
   function onSearchInput(e) {
-    search(e.currentTarget.value);
-    // Focus restoration след refresh
-    setTimeout(function () {
-      var newInput = el('libSearchInput');
-      if (newInput) {
-        newInput.focus();
-        var v = newInput.value;
-        newInput.setSelectionRange(v.length, v.length);
-      }
-    }, 0);
+    var val = e.currentTarget.value;
+    // Clear (×) — instant toggle, без да чакаме debounce.
+    toggleClearBtnVisibility(val.length > 0);
+    if (searchDebounceId) clearTimeout(searchDebounceId);
+    searchDebounceId = setTimeout(function () {
+      searchDebounceId = null;
+      applySearch(val);
+    }, SEARCH_DEBOUNCE_MS);
+  }
+
+  function onSearchKeyDown(e) {
+    if (e.key !== 'Escape') return;
+    e.preventDefault();
+    var input = e.currentTarget;
+    if (input.value) {
+      clearSearch();
+    } else {
+      input.blur();
+    }
   }
 
   function onClick(e) {
