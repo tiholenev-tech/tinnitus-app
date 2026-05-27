@@ -50,6 +50,9 @@ a { text-decoration: none; }
   opacity: 0.08;
   mix-blend-mode: var(--aurora-blend);
   animation: auroraDrift 16s ease-in-out infinite;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .aurora-blob:nth-child(1) { width: 280px; height: 280px; background: hsl(var(--hue1), 80%, 60%); top: -60px; left: -80px; }
@@ -112,6 +115,7 @@ a { text-decoration: none; }
     hsl(var(--hue1) 80% 60%));
   background-size: 200% auto;
   animation: rmsBrandShimmer 4s linear infinite;
+  will-change: background-position;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

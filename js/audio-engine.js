@@ -61,6 +61,7 @@ window.AudioEngine = (function () {
   var PINK_BUFFER_SEC   = 10;
   var BROWN_BUFFER_SEC  = 10;
   var VOL_RAMP_SEC      = 0.05;
+  var VOL_RAMP_DRAG_SEC = 0.015;
 
   // Legacy PRESET_MAP — kept за compat с Library/Mixer/Calm
   var PRESET_MAP = {
@@ -126,7 +127,7 @@ window.AudioEngine = (function () {
       console.error('[audio] Web Audio API not supported');
       return null;
     }
-    ctx = new Ctx();
+    ctx = new Ctx({ latencyHint: 'playback' });
     masterGain = ctx.createGain();
     masterGain.gain.value = volumeToGain(masterVolume);
     masterGain.connect(ctx.destination);
@@ -195,15 +196,12 @@ window.AudioEngine = (function () {
     masterVolume = Math.max(0, Math.min(100, vol));
     if (masterGain && ctx) {
       var target = volumeToGain(masterVolume);
-      if (isFinal === true) {
-        var now = ctx.currentTime;
-        var current = masterGain.gain.value;
-        masterGain.gain.cancelScheduledValues(now);
-        masterGain.gain.setValueAtTime(current, now);
-        masterGain.gain.linearRampToValueAtTime(target, now + VOL_RAMP_SEC);
-      } else {
-        masterGain.gain.value = target; // direct, no ramp
-      }
+      var now = ctx.currentTime;
+      var current = masterGain.gain.value;
+      var rampSec = (isFinal === true) ? VOL_RAMP_SEC : VOL_RAMP_DRAG_SEC;
+      masterGain.gain.cancelScheduledValues(now);
+      masterGain.gain.setValueAtTime(current, now);
+      masterGain.gain.linearRampToValueAtTime(target, now + rampSec);
     }
   }
   function getMasterVolume() { return masterVolume; }
@@ -211,15 +209,12 @@ window.AudioEngine = (function () {
   function applyLayerVolume(layer, isFinal) {
     if (!layer.gainNode || !ctx) return;
     var target = volumeToGain(layer.volume);
-    if (isFinal === true) {
-      var now = ctx.currentTime;
-      var current = layer.gainNode.gain.value;
-      layer.gainNode.gain.cancelScheduledValues(now);
-      layer.gainNode.gain.setValueAtTime(current, now);
-      layer.gainNode.gain.linearRampToValueAtTime(target, now + VOL_RAMP_SEC);
-    } else {
-      layer.gainNode.gain.value = target; // direct, no ramp
-    }
+    var now = ctx.currentTime;
+    var current = layer.gainNode.gain.value;
+    var rampSec = (isFinal === true) ? VOL_RAMP_SEC : VOL_RAMP_DRAG_SEC;
+    layer.gainNode.gain.cancelScheduledValues(now);
+    layer.gainNode.gain.setValueAtTime(current, now);
+    layer.gainNode.gain.linearRampToValueAtTime(target, now + rampSec);
   }
 
   // P0 SLIDER-CLICK v2: isFinal param (default false = direct value during drag).
