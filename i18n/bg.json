@@ -2191,6 +2191,12 @@
     "today": "Днес",
     "freeze_use": "Използвайте freeze",
     "freeze_remaining": "{count} оставащи freeze-а",
+    "freeze": {
+      "banner_title": "Замразете ден {n}",
+      "banner_body": "Streak-ът Ви се запазва. Имате {count} оставащ(и) freeze.",
+      "success_toast": "Ден {n} е замразен",
+      "failed": "Замразяването не успя"
+    },
     "legend": {
       "completed": "завършени",
       "partial": "частични",

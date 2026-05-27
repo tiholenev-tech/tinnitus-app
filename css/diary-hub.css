@@ -162,6 +162,16 @@
   color: hsl(280 50% 80%);
 }
 
+/* STREAK-FREEZE — ice blue (съответства на pc-square--frozen) */
+.dh-banner--freeze {
+  background: hsl(200 60% 92%);
+  color: hsl(210 50% 22%);
+}
+[data-theme="dark"] .dh-banner--freeze {
+  background: hsl(210 45% 14% / 0.55);
+  color: hsl(200 70% 80%);
+}
+
 .dh-banner-title {
   margin: 0;
   font-size: 16px;

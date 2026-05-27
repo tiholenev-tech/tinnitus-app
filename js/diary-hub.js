@@ -262,6 +262,7 @@ window.DiaryHub = (function () {
         '<div class="dh-progress-slot" data-progress-slot></div>' +
 
         buildTimezoneBanner() +
+        buildFreezeBanner() +
         buildListenNudgeBanner() +
         buildBannersHtml() +
 
@@ -355,6 +356,44 @@ window.DiaryHub = (function () {
   function dismissListenNudge() {
     try { localStorage.setItem(LISTEN_NUDGE_DISMISS_KEY, String(Date.now())); }
     catch (e) { /* ignore */ }
+  }
+
+  // ============================================================
+  // STREAK-FREEZE banner — показва се при missed day + наличен freeze.
+  // ============================================================
+
+  function buildFreezeBanner() {
+    var s = window.AppState;
+    if (!s || !s.programStartDate) return '';
+    if (!s.streakFreezesRemaining || s.streakFreezesRemaining <= 0) return '';
+    var info = missedDaysInfo();
+    if (info.count === 0 || !info.lastMissedDateKey) return '';
+    // Idempotent: ако last missed вече е frozen → не показваме (друг missed
+    // ще се появи на следващ refresh ако има).
+    var frozen = s.streakFrozenDates || [];
+    if (frozen.indexOf(info.lastMissedDateKey) !== -1) return '';
+
+    var title = t('progress.freeze.banner_title',
+      'Замразете ден {n}', { n: info.lastMissedDay });
+    var body  = t('progress.freeze.banner_body',
+      'Streak-ът Ви се запазва. Имате {count} оставащ(и) freeze.',
+      { count: s.streakFreezesRemaining });
+    var cta   = t('progress.freeze_use', 'Използвайте freeze');
+
+    return (
+      '<section class="dh-banner dh-banner--freeze" role="note">' +
+        '<h2 class="dh-banner-title">' + escapeHtml(title) + '</h2>' +
+        '<p class="dh-banner-body">' + escapeHtml(body) + '</p>' +
+        '<div class="dh-banner-actions">' +
+          '<button class="dh-banner-btn dh-banner-btn--primary" type="button"' +
+            ' data-action="use-freeze"' +
+            ' data-freeze-key="' + escapeHtml(info.lastMissedDateKey) + '"' +
+            ' data-freeze-day="' + escapeHtml(String(info.lastMissedDay)) + '">' +
+            escapeHtml(cta) +
+          '</button>' +
+        '</div>' +
+      '</section>'
+    );
   }
 
   function buildListenNudgeBanner() {
@@ -529,6 +568,29 @@ window.DiaryHub = (function () {
       dismissListenNudge();
       var lnBanner = btn.closest('.dh-banner--listen');
       if (lnBanner && lnBanner.parentNode) lnBanner.parentNode.removeChild(lnBanner);
+    }
+    else if (action === 'use-freeze') {
+      handleUseFreeze(btn);
+    }
+  }
+
+  function handleUseFreeze(btn) {
+    var s = window.AppState;
+    if (!s || typeof s.useFreeze !== 'function') return;
+    var dateKey = btn.getAttribute('data-freeze-key');
+    var dayNum  = btn.getAttribute('data-freeze-day');
+    var ok = s.useFreeze(dateKey);
+    if (ok) {
+      var successMsg = t('progress.freeze.success_toast',
+        'Ден {n} е замразен', { n: dayNum });
+      if (window.Toast && window.Toast.success) window.Toast.success(successMsg);
+      else if (window.Toast && window.Toast.show) window.Toast.show(successMsg);
+      if (window.Haptics && window.Haptics.success) window.Haptics.success();
+      refresh(); // re-render → banner изчезва, chart показва ice blue square
+    } else {
+      var failMsg = t('progress.freeze.failed', 'Замразяването не успя');
+      if (window.Toast && window.Toast.error) window.Toast.error(failMsg);
+      else if (window.Toast && window.Toast.show) window.Toast.show(failMsg);
     }
   }
 

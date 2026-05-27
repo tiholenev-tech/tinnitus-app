@@ -29,6 +29,10 @@
   var KEY_STREAK_ACTIVE_DAYS     = 'auralis-streak-active-days';
   var KEY_STREAK_FREEZES         = 'auralis-streak-freezes-remaining';
   var KEY_STREAK_LAST_ENTRY_DATE = 'auralis-streak-last-entry-date';
+  // STREAK-FREEZE: масив с дати ('YYYY-MM-DD') за които user е consumed
+  // (manually OR auto via updateStreakOnEntry) freeze. ProgressChart consume-ва
+  // за визуализация на frozen squares (ice blue + snowflake).
+  var KEY_STREAK_FROZEN_DATES    = 'auralis-streak-frozen-dates';
 
   // SAFETY-2: Volume calibration state keys
   var KEY_CALIBRATION_DONE       = 'auralis-calibration-done';
@@ -117,6 +121,7 @@
     streakActiveDays: 0,            // последователни активни дни
     streakFreezesRemaining: 2,      // максимум 2 freeze-а в програмата
     streakLastEntryDate: null,      // 'YYYY-MM-DD' на последния запис
+    streakFrozenDates: [],          // STREAK-FREEZE: ['YYYY-MM-DD', ...] consumed дни
 
     // ===== Volume calibration (SAFETY-2) =====
     calibrationDone: false,         // true след първото калибриране
@@ -173,6 +178,9 @@
       var sfr = get(KEY_STREAK_FREEZES);
       this.streakFreezesRemaining = (sfr === null || sfr === '') ? 2 : (parseInt(sfr, 10) || 0);
       this.streakLastEntryDate = get(KEY_STREAK_LAST_ENTRY_DATE) || null;
+      // STREAK-FREEZE: defensive array load
+      this.streakFrozenDates = parseJSON(get(KEY_STREAK_FROZEN_DATES), []);
+      if (!Array.isArray(this.streakFrozenDates)) this.streakFrozenDates = [];
       // SAFETY-2: calibration restore
       this.calibrationDone = get(KEY_CALIBRATION_DONE) === 'true';
       var mpv = get(KEY_MIXING_POINT_VOLUME);
@@ -407,6 +415,7 @@
       this.streakActiveDays = 0;
       this.streakFreezesRemaining = 2;
       this.streakLastEntryDate = null;
+      this.streakFrozenDates = [];
       set(KEY_PROGRAM_START_DATE, String(this.programStartDate));
       set(KEY_PROGRAM_CURRENT_DAY, '1');
       remove(KEY_THI_BASELINE);
@@ -415,6 +424,7 @@
       set(KEY_STREAK_ACTIVE_DAYS, '0');
       set(KEY_STREAK_FREEZES, '2');
       remove(KEY_STREAK_LAST_ENTRY_DATE);
+      remove(KEY_STREAK_FROZEN_DATES);
       console.log('[state] program started at', new Date(this.programStartDate).toISOString());
     },
 
@@ -540,9 +550,20 @@
       set(KEY_DIARY_ENTRIES, JSON.stringify(this.diaryEntries));
     },
 
+    // Helper: 'YYYY-MM-DD' от Date обект (local time).
+    _dateKey: function (d) {
+      return d.getFullYear() + '-' +
+        ('0' + (d.getMonth() + 1)).slice(-2) + '-' +
+        ('0' + d.getDate()).slice(-2);
+    },
+
     // Streak logic — invoked после нов diary запис.
-    // Ако last entry е "вчера" → +1.
-    // Ако last entry е >1 ден назад → consume freeze; ако freeze няма → reset до 1.
+    // - Ако last entry е "вчера" → +1.
+    // - Ако last entry е >1 ден назад → за всеки gap day провери дали е
+    //   вече в streakFrozenDates (manually frozen от user). Останалите
+    //   "unhandled" gap days auto-consume-ват freezes (up to limit) и се
+    //   add-ват в streakFrozenDates → ProgressChart ги показва ice blue.
+    //   Ако unhandled остатъци не могат да се покрият → streak reset до 1.
     updateStreakOnEntry: function () {
       var today = this.todayKey();
       if (this.streakLastEntryDate === today) {
@@ -557,24 +578,63 @@
         var diffDays = Math.round((now - last) / 86400000);
         if (diffDays === 1) {
           this.streakActiveDays += 1;
-        } else if (diffDays > 1 && this.streakFreezesRemaining > 0) {
-          // Consume freezes за missed days, до limit.
-          var missed = diffDays - 1;
-          var consume = Math.min(missed, this.streakFreezesRemaining);
-          this.streakFreezesRemaining -= consume;
-          if (missed > consume) {
-            this.streakActiveDays = 1;
-          } else {
-            this.streakActiveDays += 1;
-          }
         } else if (diffDays > 1) {
-          this.streakActiveDays = 1;
+          // Collect unhandled gap days (тези които НЕ са вече frozen manually).
+          var unhandled = [];
+          for (var i = 1; i < diffDays; i++) {
+            var gd = new Date(last);
+            gd.setDate(gd.getDate() + i);
+            var gk = this._dateKey(gd);
+            if (this.streakFrozenDates.indexOf(gk) === -1) unhandled.push(gk);
+          }
+          // Auto-consume freezes за unhandled, до лимит. Append-ваме към
+          // frozenDates за да синхронизираме с chart визуализация.
+          var consume = Math.min(unhandled.length, this.streakFreezesRemaining);
+          for (var j = 0; j < consume; j++) this.streakFrozenDates.push(unhandled[j]);
+          this.streakFreezesRemaining -= consume;
+          if (unhandled.length <= consume) {
+            // Всички gap days покрити (manual + auto) → streak се запазва.
+            this.streakActiveDays += 1;
+          } else {
+            // Останаха unhandled gap days → reset.
+            this.streakActiveDays = 1;
+          }
+          set(KEY_STREAK_FROZEN_DATES, JSON.stringify(this.streakFrozenDates));
         }
       }
       this.streakLastEntryDate = today;
       set(KEY_STREAK_ACTIVE_DAYS, String(this.streakActiveDays));
       set(KEY_STREAK_FREEZES, String(this.streakFreezesRemaining));
       set(KEY_STREAK_LAST_ENTRY_DATE, this.streakLastEntryDate);
+    },
+
+    // STREAK-FREEZE: manual user action — замразяване на конкретен минал ден.
+    // Guards:
+    //   - има оставащ freeze
+    //   - dateKey валиден string
+    //   - не е вече frozen (idempotent)
+    //   - програмата е стартирана
+    //   - dateKey < today (само минали дни)
+    //   - dateKey >= programStartDate
+    // Връща true при успех, false при guard fail.
+    useFreeze: function (dateKey) {
+      if (this.streakFreezesRemaining <= 0) return false;
+      if (!dateKey || typeof dateKey !== 'string') return false;
+      if (this.streakFrozenDates.indexOf(dateKey) !== -1) return false;
+      if (!this.programStartDate) return false;
+      if (dateKey >= this.todayKey()) return false;
+      var startKey = this._dateKey(new Date(this.programStartDate));
+      if (dateKey < startKey) return false;
+
+      this.streakFrozenDates.push(dateKey);
+      this.streakFreezesRemaining -= 1;
+      try { set(KEY_STREAK_FROZEN_DATES, JSON.stringify(this.streakFrozenDates)); } catch (e) {}
+      set(KEY_STREAK_FREEZES, String(this.streakFreezesRemaining));
+      return true;
+    },
+
+    isFrozen: function (dateKey) {
+      return this.streakFrozenDates.indexOf(dateKey) !== -1;
     },
 
     setQuizAnswer: function (qId, optionKey) {
