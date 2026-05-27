@@ -170,3 +170,87 @@
   font-weight: 500;
   letter-spacing: 0.01em;
 }
+
+/* ═══ URGENT FIX (PACK C): .thi-btn action buttons ═══ */
+/* Без тези правила user виждаше "Назад" / "Следващ" като плосък текст. */
+/* Override-ва default vertical-column .thi-actions (line 76) с horizontal layout. */
+.thi-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-top: 24px;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Един бутон сам (q1 без "Назад") → align в дясно */
+.thi-actions:has(> .thi-btn--primary:only-child) {
+  justify-content: flex-end;
+}
+
+.thi-btn {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 999px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 200ms ease;
+  min-height: 48px;
+  min-width: 100px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.thi-btn:active {
+  transform: scale(0.97);
+}
+
+.thi-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Primary — champagne filled (Bible §1 #4) */
+.thi-btn--primary {
+  background: linear-gradient(135deg,
+    hsl(42 70% 78%) 0%,
+    hsl(42 60% 70%) 100%);
+  color: hsl(220 25% 12%);
+  box-shadow:
+    0 4px 14px hsl(42 60% 50% / 0.25),
+    inset 0 1px 0 hsl(0 0% 100% / 0.3);
+}
+[data-theme="dark"] .thi-btn--primary {
+  background: linear-gradient(135deg,
+    hsl(42 75% 78%) 0%,
+    hsl(42 65% 68%) 100%);
+  color: hsl(220 30% 10%);
+}
+
+.thi-btn--primary:hover:not(:disabled) {
+  box-shadow:
+    0 6px 20px hsl(42 60% 50% / 0.35),
+    inset 0 1px 0 hsl(0 0% 100% / 0.4);
+  transform: translateY(-1px);
+}
+
+/* Ghost — outline за "Назад" */
+.thi-btn--ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-color, hsl(220 30% 75%));
+}
+[data-theme="light"] .thi-btn--ghost,
+:root:not([data-theme]) .thi-btn--ghost {
+  color: hsl(220 28% 18%);
+}
+[data-theme="dark"] .thi-btn--ghost {
+  color: hsl(220 15% 88%);
+  border-color: hsl(220 20% 35% / 0.6);
+}
+
+.thi-btn--ghost:hover:not(:disabled) {
+  background: hsl(var(--hue1, 255) 50% 60% / 0.08);
+  border-color: hsl(var(--hue1, 255) 55% 60%);
+}
