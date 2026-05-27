@@ -272,7 +272,7 @@ window.NoisePicker = (function () {
         title: t('components.noisePicker.title', 'Изберете фонов шум'),
         content: content,
         height: 'auto',
-        onClose: function () { bsHandle = null; }
+        onClose: function () { bsHandle = null; overlay = null; }
       });
 
       // Bind list events inside the BottomSheet content
