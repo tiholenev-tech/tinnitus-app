@@ -133,15 +133,27 @@ window.Player = (function () {
     return sound ? t(sound.subtitle_key, sound.category || '') : '';
   }
 
-  // PACK A change 4: човешки БГ имена за noise IDs (вместо raw 'pink_lp4000').
+  // PACK A change 4 (refined): описателни БГ имена базирани на character на звука,
+  // не на технически параметри. Source: docs/content/code3/sound_recommendations_bg.md
+  // + docs/content/AURALIS_PROFILE_ADVICE_v1.md.
+  //
+  // Pink noise (1/f spectrum) — равен спектър, прилича на постоянен дъжд.
+  //   pure   = най-широк, най-ясен
+  //   lp4000 = леко приглушен (оптимален за тинитус — научно потвърдено)
+  //   lp2000 = по-силно приглушен, фокусиран нискочестотно
+  //
+  // Brown noise (1/f² spectrum) — bass-heavy, прилича на океан rumble.
+  //   pure   = плътен, без филтър
+  //   lp1000 = топъл, леко филтриран (за релакс)
+  //   lp500  = най-дълбок (за сън + SOS)
   var NOISE_LABEL_BG = {
     'none':         'Без фон',
-    'pink_pure':    'Розов шум (чист)',
-    'pink_lp2000':  'Мек розов шум',
-    'pink_lp4000':  'Розов шум',
-    'brown_pure':   'Кафяв шум',
+    'pink_pure':    'Ясен розов шум',
+    'pink_lp2000':  'Приглушен розов шум',
+    'pink_lp4000':  'Мек розов шум',
+    'brown_pure':   'Плътен кафяв шум',
+    'brown_lp1000': 'Топъл кафяв шум',
     'brown_lp500':  'Дълбок кафяв шум',
-    'brown_lp1000': 'Мек кафяв шум',
     'green_noise':  'Зелен шум'
   };
   function noiseLabel(id) {
