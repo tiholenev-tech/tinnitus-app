@@ -232,6 +232,44 @@ window.DiaryHub = (function () {
     return buildLateEntryBanner(info);
   }
 
+  // SCIENCE Day-7 reminder banner (показва се ВЕДНЪЖ на Ден 7).
+  // Champagne tile с CTA отварящ ScienceInfo §4 (Notched Therapy).
+  function buildDay7ScienceBanner() {
+    if (!window.ScienceInfo || !window.ScienceInfo.maybeShowDay7Reminder) return '';
+    var data = window.ScienceInfo.maybeShowDay7Reminder();
+    if (!data) return '';
+    // Stash callback за onClick handler (eval-free).
+    pendingDay7Cta = data.onCta || null;
+    return (
+      '<section class="dh-banner dh-banner--science" role="note">' +
+        '<h2 class="dh-banner-title">' + escapeHtml(data.title) + '</h2>' +
+        '<p class="dh-banner-body">' + escapeHtml(data.body) + '</p>' +
+        '<div class="dh-banner-actions">' +
+          '<button class="dh-banner-btn dh-banner-btn--primary" type="button"' +
+            ' data-action="science-day7-cta">' +
+            escapeHtml(data.cta) +
+          '</button>' +
+        '</div>' +
+      '</section>'
+    );
+  }
+  var pendingDay7Cta = null;
+
+  // SCIENCE pitch reminder — toast след първи pitch test (Ден 1+).
+  // Извиква ScienceInfo.maybeShowPitchReminder(freq); flag запазен там.
+  function triggerPitchReminderIfDue() {
+    if (!window.ScienceInfo || !window.ScienceInfo.maybeShowPitchReminder) return;
+    var s = window.AppState;
+    if (!s || !s.pitchTests || !s.pitchTests.length) return;
+    var last = s.pitchTests[s.pitchTests.length - 1];
+    var freq = (last && typeof last.freq === 'number') ? last.freq : 0;
+    if (!freq) return;
+    // Defer слабо за да не overlap-ва с initial Home transition toast-ове.
+    setTimeout(function () {
+      window.ScienceInfo.maybeShowPitchReminder(freq);
+    }, 400);
+  }
+
   function buildActionCard(opts) {
     return (
       '<button class="dh-action-card glass" type="button"' +
@@ -264,6 +302,7 @@ window.DiaryHub = (function () {
         buildTimezoneBanner() +
         buildFreezeBanner() +
         buildListenNudgeBanner() +
+        buildDay7ScienceBanner() +
         buildBannersHtml() +
 
         '<div class="dh-actions">' +
@@ -569,6 +608,13 @@ window.DiaryHub = (function () {
       var lnBanner = btn.closest('.dh-banner--listen');
       if (lnBanner && lnBanner.parentNode) lnBanner.parentNode.removeChild(lnBanner);
     }
+    else if (action === 'science-day7-cta') {
+      if (typeof pendingDay7Cta === 'function') {
+        try { pendingDay7Cta(); } catch (e) { /* ignore */ }
+      } else if (window.ScienceInfo && window.ScienceInfo.open) {
+        window.ScienceInfo.open('s4');
+      }
+    }
     else if (action === 'use-freeze') {
       handleUseFreeze(btn);
     }
@@ -713,6 +759,7 @@ window.DiaryHub = (function () {
     app.addEventListener('click', onClick);
     injectStreak();
     injectProgress();
+    triggerPitchReminderIfDue();
   }
 
   function open() {
