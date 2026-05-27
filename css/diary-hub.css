@@ -81,6 +81,41 @@
   gap: 12px;
 }
 
+/* ═══ Timezone banner (#17) ═══ */
+.dh-tz-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: hsl(45 70% 92%);
+  color: hsl(45 40% 22%);
+  font-size: 13px;
+  line-height: 1.45;
+  border: 1px solid hsl(45 50% 82%);
+}
+[data-theme="dark"] .dh-tz-banner {
+  background: hsl(45 30% 14% / 0.5);
+  color: hsl(45 60% 80%);
+  border-color: hsl(45 30% 22%);
+}
+.dh-tz-banner-text { flex: 1; }
+.dh-tz-banner-close {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  color: currentColor;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+.dh-tz-banner-close:active { opacity: 1; transform: scale(0.95); }
+
 /* ═══ Adaptive banners (#1, #2, #3) ═══ */
 .dh-banner {
   padding: 16px 18px;

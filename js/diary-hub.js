@@ -21,6 +21,9 @@ window.DiaryHub = (function () {
 
   // Local-only storage за soft check-in отговора (#3). Не отива в state.
   var SOFT_CHECK_KEY = 'auralis-diary-soft-check';
+  // Timezone tracking (#17).
+  var TZ_KEY = 'auralis-tz-last';
+  var TZ_DISMISS_KEY = 'auralis-tz-banner-dismissed-at';
 
   function el(id) { return document.getElementById(id); }
 
@@ -255,6 +258,7 @@ window.DiaryHub = (function () {
 
         '<div class="dh-progress-slot" data-progress-slot></div>' +
 
+        buildTimezoneBanner() +
         buildBannersHtml() +
 
         '<div class="dh-actions">' +
@@ -311,12 +315,114 @@ window.DiaryHub = (function () {
   // Interactions
   // ============================================================
 
+  // ============================================================
+  // Timezone change detection (#17)
+  // ============================================================
+
+  function currentTimezone() {
+    try {
+      return Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    } catch (e) { return ''; }
+  }
+
+  function tzBannerShouldShow() {
+    var current = currentTimezone();
+    if (!current) return null;
+    var last = null;
+    try { last = localStorage.getItem(TZ_KEY); } catch (e) { /* ignore */ }
+
+    if (!last) {
+      // Първо посещение → запиши и не показвай нищо.
+      try { localStorage.setItem(TZ_KEY, current); } catch (e) { /* ignore */ }
+      return null;
+    }
+    if (last === current) return null;
+
+    // Проверка дали banner-ът е dismiss-нат в последните 30 дни.
+    try {
+      var dismissAt = parseInt(localStorage.getItem(TZ_DISMISS_KEY), 10);
+      if (!isNaN(dismissAt) && (Date.now() - dismissAt) < 30 * 86400000) {
+        return null;
+      }
+    } catch (e) { /* ignore */ }
+
+    return { from: last, to: current };
+  }
+
+  function buildTimezoneBanner() {
+    var info = tzBannerShouldShow();
+    if (!info) return '';
+    var msg = t('ui.diary.hub.timezoneChangedBanner',
+      'Часовата зона се промени на {tz}. Следващите записи ще използват новата зона.',
+      { tz: info.to });
+    var aria = t('ui.diary.hub.timezoneDismissAria', 'Затвори съобщението за часова зона');
+    return (
+      '<section class="dh-tz-banner" role="note">' +
+        '<span class="dh-tz-banner-text">' + escapeHtml(msg) + '</span>' +
+        '<button class="dh-tz-banner-close" type="button"' +
+          ' data-action="tz-dismiss"' +
+          ' aria-label="' + escapeHtml(aria) + '">×</button>' +
+      '</section>'
+    );
+  }
+
+  function dismissTimezoneBanner() {
+    try {
+      localStorage.setItem(TZ_KEY, currentTimezone());
+      localStorage.setItem(TZ_DISMISS_KEY, String(Date.now()));
+    } catch (e) { /* ignore */ }
+  }
+
+  // ============================================================
+  // 24h CBT soft barrier (#14) — Дни 1-4 (CBT линейно ядро)
+  // ============================================================
+
+  function cbtBarrierActiveFor(day) {
+    // Активен само за Дни 2-4 (Ден 1 винаги отворен; Дни 5+ — без барjер
+    // защото релаксационни упражнения могат да се повтарят свободно).
+    if (day < 2 || day > 4) return null;
+    var s = window.AppState;
+    if (!s || !s.programStartDate || !s.diaryEntries) return null;
+
+    // Изисквания: предишният ден трябва да е попълнен (cbtCompleted)
+    // И трябва да са изминали >= 24 часа от попълването му.
+    var prevDay = day - 1;
+    var prevTs = s.programStartDate + (prevDay - 1) * 86400000;
+    var prevKey = dateKeyFromTs(prevTs);
+    var prevEntry = s.diaryEntries[prevKey];
+    if (!prevEntry || !prevEntry.cbtCompleted) return null;  // нищо за блокиране
+
+    // Локално запазен timestamp на cbt completion (опциално — ако state не
+    // го пази). Използваме fallback: prevDay начало = prevTs; искаме now
+    // да е >= prevTs + 24h. Това е по-меко от "от момент на попълване".
+    var requiredMs = prevTs + 24 * 60 * 60 * 1000;
+    var remaining = requiredMs - Date.now();
+    if (remaining <= 0) return null;
+    return { day: day, msRemaining: remaining };
+  }
+
   function onClick(e) {
     var btn = e.target.closest('[data-action]');
     if (!btn) return;
     var action = btn.getAttribute('data-action');
     if (action === 'evening')      goTo('diary_evening', 'DiaryEvening');
-    else if (action === 'cbt')     goTo('cbt_day',       'CbtDay');
+    else if (action === 'cbt') {
+      var s = window.AppState || {};
+      var day = s.currentProgramDay || 1;
+      var barrier = cbtBarrierActiveFor(day);
+      if (barrier) {
+        var msg = t('ui.diary.hub.cbtLocked24hToast',
+          'Ден {n} ще е достъпен утре. Този материал работи най-добре, когато оставите време между дните.',
+          { n: day });
+        if (window.Toast && window.Toast.info) {
+          window.Toast.info(msg, { duration: 6000 });
+        } else if (window.Toast && window.Toast.show) {
+          window.Toast.show(msg, { durationMs: 6000 });
+        }
+        return;
+      }
+      goTo('cbt_day', 'CbtDay');
+    }
     else if (action === 'progress') goToProgress();
     else if (action === 'late-entry') {
       var lateKey = btn.getAttribute('data-late-key');
@@ -338,6 +444,11 @@ window.DiaryHub = (function () {
     else if (action === 'soft-check-skip') {
       markSoftCheck(null);
       refresh();
+    }
+    else if (action === 'tz-dismiss') {
+      dismissTimezoneBanner();
+      var banner = btn.closest('.dh-tz-banner');
+      if (banner && banner.parentNode) banner.parentNode.removeChild(banner);
     }
   }
 
