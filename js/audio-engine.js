@@ -58,8 +58,12 @@ window.AudioEngine = (function () {
   var L2_FADE_SEC       = 0.25; // Hard swap но с малък fade за избягване на click
   var PAUSE_FADE_SEC    = 0.2;
   var SLEEP_FADE_SEC    = 30;
-  var PINK_BUFFER_SEC   = 10;
-  var BROWN_BUFFER_SEC  = 10;
+  // P0 AUDIO-CLICK: bump 10s → 30s. Combined с loop crossfade (виж
+  // applyLoopCrossfade), всеки click е inaudible random step, и happens
+  // 3x по-рядко (every 30s вместо 10s). Memory cost: ~6MB extra @ 48kHz —
+  // приемливо за единичен runtime-generated buffer per type.
+  var PINK_BUFFER_SEC   = 30;
+  var BROWN_BUFFER_SEC  = 30;
   var VOL_RAMP_SEC      = 0.05;
 
   // Legacy PRESET_MAP — kept за compat с Library/Mixer/Calm
@@ -306,6 +310,48 @@ window.AudioEngine = (function () {
       });
   }
 
+  // ============================================================
+  // P0 AUDIO-CLICK FIX: seamless loop boundary crossfade
+  // ============================================================
+  // Random-noise buffers (pink/brown) генерирани с Math.random() имат
+  // discontinuity на loop boundary: sample[N-1] ≠ sample[0] → step jump
+  // → audible CLICK на всеки 10s loop. Критично за tinnitus users с
+  // hyperacusis (deal-breaker без fix).
+  //
+  // Брунова noise генерация с DC accumulator drift-ва допълнително →
+  // последният sample може да е близо до peak (±0.5), а първият е 0
+  // (lastOut init). Step magnitude ~0.5 → силен click.
+  //
+  // FIX (equal-power crossfade):
+  //   - Зази оригиналните първи M sample-и в head[]
+  //   - Последните M sample-и: overwrite = tail * cos²(πt/2) + head * sin²(πt/2)
+  //   - sample[N-1] става == original head[M-1] = original[M-1]
+  //   - При loop wrap: data[N-1] (= original[M-1]) → data[0] (= original[0])
+  //     - "Rewind" от sample M-1 до 0 е random walk → noise — ineмудим
+  //   - Без crossfade: data[N-1] (= drifted_high) → data[0] (= 0) → CLICK
+  //
+  // Apply once при първа генерация (буферите са cached).
+  function applyLoopCrossfade(buffer, fadeSec) {
+    if (!buffer || !buffer.getChannelData) return;
+    var sr = buffer.sampleRate;
+    var data = buffer.getChannelData(0);
+    var N = data.length;
+    var M = Math.min(Math.floor(sr * fadeSec), Math.floor(N / 4));
+    if (M < 64) return; // твърде малък buffer — skip
+    // Save оригинални първи M sample-и (за blend в tail).
+    var head = new Float32Array(M);
+    for (var i = 0; i < M; i++) head[i] = data[i];
+    // Equal-power crossfade в последните M sample-и.
+    for (var j = 0; j < M; j++) {
+      var t = j / M;
+      var cosVal = Math.cos(Math.PI / 2 * t);
+      var sinVal = Math.sin(Math.PI / 2 * t);
+      data[N - M + j] = data[N - M + j] * (cosVal * cosVal)
+                      + head[j] * (sinVal * sinVal);
+    }
+    console.log('[audio] loop-crossfade applied:', fadeSec + 's fade на', (N / sr).toFixed(1) + 's buffer');
+  }
+
   function getOrGeneratePinkBuffer() {
     if (generatedPinkBuffer) return generatedPinkBuffer;
     var sampleRate = ctx.sampleRate;
@@ -326,6 +372,7 @@ window.AudioEngine = (function () {
       b6 = white * 0.115926;
       data[i] = pink * 0.11;
     }
+    applyLoopCrossfade(buffer, 0.5); // P0 fix: seamless loop
     generatedPinkBuffer = buffer;
     console.log('[audio] generated pink buffer:', PINK_BUFFER_SEC + 's');
     return buffer;
@@ -355,6 +402,7 @@ window.AudioEngine = (function () {
     }
     var scale = 0.5 / (maxVal || 1);
     for (var k = 0; k < bufferSize; k++) data[k] *= scale;
+    applyLoopCrossfade(buffer, 0.5); // P0 fix: seamless loop (CRITICAL за brown — DC drift → big step)
     generatedBrownBuffer = buffer;
     console.log('[audio] generated brown buffer:', BROWN_BUFFER_SEC + 's');
     return buffer;
