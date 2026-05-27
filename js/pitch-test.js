@@ -95,43 +95,71 @@ window.PitchTest = (function () {
   // Hard safety cap (TONE_AMPLITUDE = 0.3 ≈ −10 dBFS) — pitch tones играят
   // unobserved за volume slider. 50ms fade-in/out избягват click при start/stop.
 
+  // Bug 1 (PACK C TONE-TOGGLE): playTone връща handle { stop, promise }
+  // вместо само Promise. Така onPlayToneRequest може да стопира в среда
+  // на playback при tap-on-playing button. Старите callers (sleep/test)
+  // могат да чакат handle.promise.
   function playTone(freqHz, durationMs) {
-    return new Promise(function (resolve) {
-      var c = ensureContext();
-      if (!c) { resolve(); return; }
-      // Resume context ако suspended (iOS lock screen, autoplay policy).
-      if (c.state === 'suspended') {
-        c.resume().catch(function () {});
-      }
-      var osc = c.createOscillator();
-      osc.frequency.value = freqHz;
-      osc.type = 'sine';
+    var c = ensureContext();
+    if (!c) {
+      return { stop: function () {}, promise: Promise.resolve() };
+    }
+    if (c.state === 'suspended') {
+      c.resume().catch(function () {});
+    }
+    var osc = c.createOscillator();
+    osc.frequency.value = freqHz;
+    osc.type = 'sine';
 
-      var gain = c.createGain();
-      var fadeSec = FADE_MS / 1000;
-      var totalSec = durationMs / 1000;
-      var nowT = c.currentTime;
+    var gain = c.createGain();
+    var fadeSec = FADE_MS / 1000;
+    var totalSec = durationMs / 1000;
+    var nowT = c.currentTime;
 
-      // Linear ramps (audible immediately — same insight като SEQ-REVEAL-BUG fix).
-      gain.gain.setValueAtTime(0, nowT);
-      gain.gain.linearRampToValueAtTime(TONE_AMPLITUDE, nowT + fadeSec);
-      gain.gain.setValueAtTime(TONE_AMPLITUDE, nowT + Math.max(0, totalSec - fadeSec));
-      gain.gain.linearRampToValueAtTime(0, nowT + totalSec);
+    gain.gain.setValueAtTime(0, nowT);
+    gain.gain.linearRampToValueAtTime(TONE_AMPLITUDE, nowT + fadeSec);
+    gain.gain.setValueAtTime(TONE_AMPLITUDE, nowT + Math.max(0, totalSec - fadeSec));
+    gain.gain.linearRampToValueAtTime(0, nowT + totalSec);
 
-      osc.connect(gain);
-      gain.connect(masterGain);
+    osc.connect(gain);
+    gain.connect(masterGain);
 
-      osc.start(nowT);
-      osc.stop(nowT + totalSec);
+    osc.start(nowT);
+    osc.stop(nowT + totalSec);
 
-      osc.onended = function () {
-        try { osc.disconnect(); } catch (e) {}
-        try { gain.disconnect(); } catch (e) {}
-      };
+    var settled = false;
+    var resolveFn = null;
+    var promise = new Promise(function (res) { resolveFn = res; });
 
-      // Resolve малко след stop (даваме време за natural cleanup)
-      setTimeout(resolve, durationMs + 30);
-    });
+    function cleanup() {
+      if (settled) return;
+      settled = true;
+      try { osc.disconnect(); } catch (e) {}
+      try { gain.disconnect(); } catch (e) {}
+      if (resolveFn) resolveFn();
+    }
+
+    osc.onended = cleanup;
+    setTimeout(cleanup, durationMs + 60); // safety net
+
+    return {
+      stop: function () {
+        if (settled) return;
+        // Quick fade-out (~30ms) → cleanup. Избягва щракане.
+        try {
+          var nowStop = c.currentTime;
+          gain.gain.cancelScheduledValues(nowStop);
+          gain.gain.setValueAtTime(gain.gain.value, nowStop);
+          gain.gain.linearRampToValueAtTime(0, nowStop + 0.03);
+          osc.stop(nowStop + 0.04);
+        } catch (e) {
+          try { osc.stop(); } catch (e2) {}
+        }
+        // onended ще извика cleanup; форсираме fallback ако не fire-не.
+        setTimeout(cleanup, 80);
+      },
+      promise: promise
+    };
   }
 
   function silence(durationMs) {
@@ -418,26 +446,66 @@ window.PitchTest = (function () {
     app.addEventListener('click', onClick);
   }
 
+  // Bug 1 (PACK C TONE-TOGGLE): tap on tone button while playing → STOP.
+  // tap on different tone while playing → stop current, start new.
+  // Преди това второ tap-ване беше silent ignore — user не разбираше
+  // че трябва да чака 2.5s + 1s residual.
+  var currentToneHandle = null;
+  var currentToneLetter = null;
+
+  function clearToneVisual(letter) {
+    if (!letter) return;
+    var btn = document.querySelector('[data-tone="' + letter + '"]');
+    if (btn) btn.classList.remove('pt-tone-btn--playing');
+  }
+
+  function stopCurrentTone() {
+    if (currentToneHandle && currentToneHandle.stop) {
+      try { currentToneHandle.stop(); } catch (e) {}
+    }
+    clearToneVisual(currentToneLetter);
+    currentToneHandle = null;
+    currentToneLetter = null;
+    isPlayingTone = false;
+  }
+
   function onPlayToneRequest(toneLetter) {
-    if (isPlayingTone) {
-      console.log('[pitch-test] tone already playing — ignore');
+    // Toggle behaviour: ако ВЕЧЕ свири този тон → stop.
+    if (isPlayingTone && currentToneLetter === toneLetter) {
+      console.log('[pitch-test] toggle stop tone', toneLetter);
+      stopCurrentTone();
       return;
     }
+    // Different tone tap while one is playing → stop current first.
+    if (isPlayingTone) {
+      stopCurrentTone();
+    }
+
     var screenEl = document.querySelector('.pt-screen');
     if (!screenEl) return;
     var freq = (toneLetter === 'A')
       ? parseInt(screenEl.getAttribute('data-freq-a'), 10)
       : parseInt(screenEl.getAttribute('data-freq-b'), 10);
     if (isNaN(freq)) return;
+
     isPlayingTone = true;
-    // Visually indicate active tone (CSS .pt-tone-btn--playing).
+    currentToneLetter = toneLetter;
     var btn = document.querySelector('[data-tone="' + toneLetter + '"]');
     if (btn) btn.classList.add('pt-tone-btn--playing');
-    playTone(freq, TONE_DURATION_MS).then(function () {
-      if (btn) btn.classList.remove('pt-tone-btn--playing');
+
+    var handle = playTone(freq, TONE_DURATION_MS);
+    currentToneHandle = handle;
+    var myLetter = toneLetter;
+    handle.promise.then(function () {
+      // Само ако още е активният tone (не stopped+replaced).
+      if (currentToneLetter !== myLetter) return;
+      clearToneVisual(myLetter);
+      currentToneHandle = null;
+      currentToneLetter = null;
       // Residual inhibition guard — silence преди следващ tone.
       return silence(SILENCE_BETWEEN_MS);
     }).then(function () {
+      if (currentToneLetter !== null) return; // user е стартирал нов tone
       isPlayingTone = false;
     });
   }
