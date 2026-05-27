@@ -181,21 +181,36 @@ window.AudioEngine = (function () {
     return Math.pow(linear, 2.5);
   }
 
+  // P0 AUDIO-SLIDER-POP FIX: classic Web Audio anti-pattern.
+  // Без setValueAtTime anchor, cancelScheduledValues + linearRampToValueAtTime
+  // може да създаде step jump → POP при slider drag. Web Audio behavior след
+  // cancel БЕЗ explicit anchor е implementation-defined — Chrome може да
+  // interpolate от stale schedule point, Safari друго → не-deterministic
+  // discontinuity → audible pop.
+  //
+  // Fix: ВИНАГИ setValueAtTime(current.value, now) ПРЕДИ ramp. Това
+  // изрично казва на Web Audio "starting от тази стойност, ramp към новата".
   function setMasterVolume(vol) {
     masterVolume = Math.max(0, Math.min(100, vol));
     if (masterGain && ctx) {
-      masterGain.gain.cancelScheduledValues(ctx.currentTime);
+      var now = ctx.currentTime;
+      var current = masterGain.gain.value;
+      masterGain.gain.cancelScheduledValues(now);
+      masterGain.gain.setValueAtTime(current, now); // P0 anchor
       masterGain.gain.linearRampToValueAtTime(volumeToGain(masterVolume),
-        ctx.currentTime + VOL_RAMP_SEC);
+        now + VOL_RAMP_SEC);
     }
   }
   function getMasterVolume() { return masterVolume; }
 
   function applyLayerVolume(layer) {
     if (!layer.gainNode || !ctx) return;
-    layer.gainNode.gain.cancelScheduledValues(ctx.currentTime);
+    var now = ctx.currentTime;
+    var current = layer.gainNode.gain.value;
+    layer.gainNode.gain.cancelScheduledValues(now);
+    layer.gainNode.gain.setValueAtTime(current, now); // P0 anchor
     layer.gainNode.gain.linearRampToValueAtTime(volumeToGain(layer.volume),
-      ctx.currentTime + VOL_RAMP_SEC);
+      now + VOL_RAMP_SEC);
   }
 
   function setLayer1Volume(vol) {
@@ -1186,9 +1201,12 @@ window.AudioEngine = (function () {
     if (sleepStopTimerId) { clearTimeout(sleepStopTimerId); sleepStopTimerId = null; }
     sleepTimerTotalMin = 0;
     if (ctx && masterGain) {
-      masterGain.gain.cancelScheduledValues(ctx.currentTime);
+      var now = ctx.currentTime;
+      var current = masterGain.gain.value;
+      masterGain.gain.cancelScheduledValues(now);
+      masterGain.gain.setValueAtTime(current, now); // P0 SLIDER-POP anchor
       masterGain.gain.linearRampToValueAtTime(volumeToGain(masterVolume),
-        ctx.currentTime + 0.1);
+        now + 0.1);
     }
   }
 
