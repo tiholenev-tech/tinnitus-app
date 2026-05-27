@@ -13,7 +13,7 @@
         "falling_asleep"
       ],
       "duration_sec": 352.2,
-      "bg_title": "Подземен Океан",
+      "bg_title": "Шепотът на дълбините",
       "title_key": "library.sounds.ambience_air_inside_bunker_sea_ambience_from_outside_02.title",
       "subtitle_key": "library.sounds.ambience_air_inside_bunker_sea_ambience_from_outside_02.subtitle",
       "description_key": "library.sounds.ambience_air_inside_bunker_sea_ambience_from_outside_02.description",
@@ -46,7 +46,7 @@
         "relaxation"
       ],
       "duration_sec": 475.4,
-      "bg_title": "Далечен Океан",
+      "bg_title": "Тих квартал в Атина",
       "title_key": "library.sounds.ambience_residential_abandoned_building_gentle_wind_distant_boat_engine_distant_traffic_people_pass_by_helicopter_distant_sea_athens_greece.title",
       "subtitle_key": "library.sounds.ambience_residential_abandoned_building_gentle_wind_distant_boat_engine_distant_traffic_people_pass_by_helicopter_distant_sea_athens_greece.subtitle",
       "description_key": "library.sounds.ambience_residential_abandoned_building_gentle_wind_distant_boat_engine_distant_traffic_people_pass_by_helicopter_distant_sea_athens_greece.description",
@@ -79,7 +79,7 @@
         "relaxation"
       ],
       "duration_sec": 302.7,
-      "bg_title": "Далечен Вълни Бряг",
+      "bg_title": "Утро на брега",
       "title_key": "library.sounds.ambience_seaside_dalian_beach_waves_people_footsteps_distant_boats_china.title",
       "subtitle_key": "library.sounds.ambience_seaside_dalian_beach_waves_people_footsteps_distant_boats_china.subtitle",
       "description_key": "library.sounds.ambience_seaside_dalian_beach_waves_people_footsteps_distant_boats_china.description",
@@ -112,7 +112,7 @@
         "meditation"
       ],
       "duration_sec": 115.2,
-      "bg_title": "Вълни Под вода",
+      "bg_title": "Прегръдка на вълните",
       "title_key": "library.sounds.ambience_underwater_sea_wave_ilo_aquatic_water_burble_waves_back_forth_microphone_blocking_feet.title",
       "subtitle_key": "library.sounds.ambience_underwater_sea_wave_ilo_aquatic_water_burble_waves_back_forth_microphone_blocking_feet.subtitle",
       "description_key": "library.sounds.ambience_underwater_sea_wave_ilo_aquatic_water_burble_waves_back_forth_microphone_blocking_feet.description",
@@ -145,7 +145,7 @@
         "relaxation"
       ],
       "duration_sec": 113.0,
-      "bg_title": "Дълбок Вълни Под вода",
+      "bg_title": "Сърцето на океана",
       "title_key": "library.sounds.ambience_underwater_waves_constant_deep_hits.title",
       "subtitle_key": "library.sounds.ambience_underwater_waves_constant_deep_hits.subtitle",
       "description_key": "library.sounds.ambience_underwater_waves_constant_deep_hits.description",
@@ -178,7 +178,7 @@
         "relaxation"
       ],
       "duration_sec": 294.5,
-      "bg_title": "Далечен Вълни Океан",
+      "bg_title": "Черноморски изгрев",
       "title_key": "library.sounds.ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_01.title",
       "subtitle_key": "library.sounds.ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_01.subtitle",
       "description_key": "library.sounds.ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_01.description",
@@ -211,7 +211,7 @@
         "relaxation"
       ],
       "duration_sec": 337.5,
-      "bg_title": "Далечен Вълни Океан",
+      "bg_title": "Черноморска вечер",
       "title_key": "library.sounds.ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_02.title",
       "subtitle_key": "library.sounds.ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_02.subtitle",
       "description_key": "library.sounds.ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_02.description",
@@ -244,7 +244,7 @@
         "relaxation"
       ],
       "duration_sec": 293.7,
-      "bg_title": "Далечен Вълни Океан",
+      "bg_title": "Тихият бряг на Батуми",
       "title_key": "library.sounds.ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_03.title",
       "subtitle_key": "library.sounds.ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_03.subtitle",
       "description_key": "library.sounds.ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_03.description",
@@ -277,7 +277,7 @@
         "relaxation"
       ],
       "duration_sec": 122.7,
-      "bg_title": "Далечен Птици Океан",
+      "bg_title": "Чайки над брега",
       "title_key": "library.sounds.birds_sea_seagulls_distant_several_gentle_waves_02.title",
       "subtitle_key": "library.sounds.birds_sea_seagulls_distant_several_gentle_waves_02.subtitle",
       "description_key": "library.sounds.birds_sea_seagulls_distant_several_gentle_waves_02.description",
@@ -310,7 +310,7 @@
         "relaxation"
       ],
       "duration_sec": 353.9,
-      "bg_title": "Вълни Океан",
+      "bg_title": "Безкрайните вълни",
       "title_key": "library.sounds.genetic_waves_joseph_beg.title",
       "subtitle_key": "library.sounds.genetic_waves_joseph_beg.subtitle",
       "description_key": "library.sounds.genetic_waves_joseph_beg.description",
@@ -344,7 +344,7 @@
         "falling_asleep"
       ],
       "duration_sec": 285.1,
-      "bg_title": "Океан",
+      "bg_title": "Океан в дълбочина",
       "title_key": "library.sounds.ocean_meditation_joseph_beg.title",
       "subtitle_key": "library.sounds.ocean_meditation_joseph_beg.subtitle",
       "description_key": "library.sounds.ocean_meditation_joseph_beg.description",
@@ -377,7 +377,7 @@
         "relaxation"
       ],
       "duration_sec": 130.4,
-      "bg_title": "Вълни Океан",
+      "bg_title": "Вълни при лодката",
       "title_key": "library.sounds.water_lap_waves_splashing_against_boat_large_hitting_sea_02.title",
       "subtitle_key": "library.sounds.water_lap_waves_splashing_against_boat_large_hitting_sea_02.subtitle",
       "description_key": "library.sounds.water_lap_waves_splashing_against_boat_large_hitting_sea_02.description",
@@ -411,7 +411,7 @@
         "meditation"
       ],
       "duration_sec": 82.8,
-      "bg_title": "Вълни Океан",
+      "bg_title": "Близкият морски бряг",
       "title_key": "library.sounds.water_lap_waves_water_lapping_seafront_sea_close.title",
       "subtitle_key": "library.sounds.water_lap_waves_water_lapping_seafront_sea_close.subtitle",
       "description_key": "library.sounds.water_lap_waves_water_lapping_seafront_sea_close.description",
@@ -445,7 +445,7 @@
         "meditation"
       ],
       "duration_sec": 131.2,
-      "bg_title": "Вълни Океан",
+      "bg_title": "Далечен прибой",
       "title_key": "library.sounds.water_lap_waves_water_lapping_seafront_sea_semi_close.title",
       "subtitle_key": "library.sounds.water_lap_waves_water_lapping_seafront_sea_semi_close.subtitle",
       "description_key": "library.sounds.water_lap_waves_water_lapping_seafront_sea_semi_close.description",
@@ -478,7 +478,7 @@
         "daily"
       ],
       "duration_sec": 122.2,
-      "bg_title": "Вълни Бряг",
+      "bg_title": "Песъчлив бряг",
       "title_key": "library.sounds.water_surf_beach_ocean_waves_sand_wind.title",
       "subtitle_key": "library.sounds.water_surf_beach_ocean_waves_sand_wind.subtitle",
       "description_key": "library.sounds.water_surf_beach_ocean_waves_sand_wind.description",
@@ -511,7 +511,7 @@
         "relaxation"
       ],
       "duration_sec": 212.4,
-      "bg_title": "Птици Бряг",
+      "bg_title": "Карибски ритъм",
       "title_key": "library.sounds.water_surf_beach_waves_coming_in_occasional_birds_atlantic_ocean_caribbean_sea.title",
       "subtitle_key": "library.sounds.water_surf_beach_waves_coming_in_occasional_birds_atlantic_ocean_caribbean_sea.subtitle",
       "description_key": "library.sounds.water_surf_beach_waves_coming_in_occasional_birds_atlantic_ocean_caribbean_sea.description",
@@ -545,7 +545,7 @@
         "anxiety"
       ],
       "duration_sec": 174.0,
-      "bg_title": "Далечен Птици Океан",
+      "bg_title": "Спокойни далечини",
       "title_key": "library.sounds.water_surf_distant_calm_sea_waves_few_distant_birds.title",
       "subtitle_key": "library.sounds.water_surf_distant_calm_sea_waves_few_distant_birds.subtitle",
       "description_key": "library.sounds.water_surf_distant_calm_sea_waves_few_distant_birds.description",
@@ -575,7 +575,7 @@
       "category_audio": "ocean",
       "categories_use": [],
       "duration_sec": 139.8,
-      "bg_title": "Силен Вълни Океан",
+      "bg_title": "Бурно море",
       "title_key": "library.sounds.water_surf_ocean_sea_big_waves_breaking_against_dyke_breakwater_strong_weather_02_30.title",
       "subtitle_key": "library.sounds.water_surf_ocean_sea_big_waves_breaking_against_dyke_breakwater_strong_weather_02_30.subtitle",
       "description_key": "library.sounds.water_surf_ocean_sea_big_waves_breaking_against_dyke_breakwater_strong_weather_02_30.description",
@@ -599,7 +599,7 @@
         "daily"
       ],
       "duration_sec": 332.9,
-      "bg_title": "Далечен Вълни Океан",
+      "bg_title": "Африкански океан",
       "title_key": "library.sounds.water_surf_water_ocean_seashore_waves_roar_distant_llandudno_cape_town_south_africa.title",
       "subtitle_key": "library.sounds.water_surf_water_ocean_seashore_waves_roar_distant_llandudno_cape_town_south_africa.subtitle",
       "description_key": "library.sounds.water_surf_water_ocean_seashore_waves_roar_distant_llandudno_cape_town_south_africa.description",
@@ -629,7 +629,7 @@
       "category_audio": "ocean",
       "categories_use": [],
       "duration_sec": 144.3,
-      "bg_title": "Вълни Океан",
+      "bg_title": "Италиански бряг",
       "title_key": "library.sounds.water_surf_water_sea_waves_choppy_italy_grado_01.title",
       "subtitle_key": "library.sounds.water_surf_water_sea_waves_choppy_italy_grado_01.subtitle",
       "description_key": "library.sounds.water_surf_water_sea_waves_choppy_italy_grado_01.description",
@@ -650,7 +650,7 @@
       "category_audio": "ocean",
       "categories_use": [],
       "duration_sec": 108.6,
-      "bg_title": "Вълни Океан",
+      "bg_title": "Адриатически вълни",
       "title_key": "library.sounds.water_surf_water_sea_waves_choppy_italy_grado_02.title",
       "subtitle_key": "library.sounds.water_surf_water_sea_waves_choppy_italy_grado_02.subtitle",
       "description_key": "library.sounds.water_surf_water_sea_waves_choppy_italy_grado_02.description",
@@ -671,7 +671,7 @@
       "category_audio": "ocean",
       "categories_use": [],
       "duration_sec": 174.3,
-      "bg_title": "Вълни Океан",
+      "bg_title": "Бурни вълни",
       "title_key": "library.sounds.water_surf_water_waves_rough_sea_01.title",
       "subtitle_key": "library.sounds.water_surf_water_waves_rough_sea_01.subtitle",
       "description_key": "library.sounds.water_surf_water_waves_rough_sea_01.description",
@@ -692,7 +692,7 @@
       "category_audio": "ocean",
       "categories_use": [],
       "duration_sec": 174.1,
-      "bg_title": "Вълни Океан",
+      "bg_title": "Развълнувано море",
       "title_key": "library.sounds.water_surf_water_waves_rough_sea_02.title",
       "subtitle_key": "library.sounds.water_surf_water_waves_rough_sea_02.subtitle",
       "description_key": "library.sounds.water_surf_water_waves_rough_sea_02.description",
@@ -716,7 +716,7 @@
         "relaxation"
       ],
       "duration_sec": 326.8,
-      "bg_title": "Спокоен Вълни Океан",
+      "bg_title": "Малтийски залив",
       "title_key": "library.sounds.water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta.title",
       "subtitle_key": "library.sounds.water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta.subtitle",
       "description_key": "library.sounds.water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta.description",
@@ -749,7 +749,7 @@
         "relaxation"
       ],
       "duration_sec": 314.3,
-      "bg_title": "Спокоен Вълни Океан",
+      "bg_title": "Вечер в Селмун",
       "title_key": "library.sounds.water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta_01.title",
       "subtitle_key": "library.sounds.water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta_01.subtitle",
       "description_key": "library.sounds.water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta_01.description",
@@ -782,7 +782,7 @@
         "relaxation"
       ],
       "duration_sec": 84.5,
-      "bg_title": "Далечен Вълни Бряг",
+      "bg_title": "Лодка в далечината",
       "title_key": "library.sounds.water_surf_waves_ocean_distant_on_beach_distant_boat_motor_03.title",
       "subtitle_key": "library.sounds.water_surf_waves_ocean_distant_on_beach_distant_boat_motor_03.subtitle",
       "description_key": "library.sounds.water_surf_waves_ocean_distant_on_beach_distant_boat_motor_03.description",
@@ -815,7 +815,7 @@
         "meditation"
       ],
       "duration_sec": 66.5,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Подводни мехури",
       "title_key": "library.sounds.water_underwater_deep_sea_bubbles_muffled_big_02.title",
       "subtitle_key": "library.sounds.water_underwater_deep_sea_bubbles_muffled_big_02.subtitle",
       "description_key": "library.sounds.water_underwater_deep_sea_bubbles_muffled_big_02.description",
@@ -849,7 +849,7 @@
         "falling_asleep"
       ],
       "duration_sec": 113.2,
-      "bg_title": "Под вода",
+      "bg_title": "Подводна Аржентина",
       "title_key": "library.sounds.water_underwater_ocean_bubbles_water_movement_lapping_argentina_02.title",
       "subtitle_key": "library.sounds.water_underwater_ocean_bubbles_water_movement_lapping_argentina_02.subtitle",
       "description_key": "library.sounds.water_underwater_ocean_bubbles_water_movement_lapping_argentina_02.description",
@@ -882,7 +882,7 @@
         "falling_asleep"
       ],
       "duration_sec": 82.6,
-      "bg_title": "Вълни Бряг",
+      "bg_title": "Спокоен прилив",
       "title_key": "library.sounds.water_wave_ocean_beach_waves_medium_lapping.title",
       "subtitle_key": "library.sounds.water_wave_ocean_beach_waves_medium_lapping.subtitle",
       "description_key": "library.sounds.water_wave_ocean_beach_waves_medium_lapping.description",
@@ -915,7 +915,7 @@
         "daily"
       ],
       "duration_sec": 77.4,
-      "bg_title": "Вълни Океан",
+      "bg_title": "Близки вълни",
       "title_key": "library.sounds.water_wave_ocean_medium_waves_coming_in_close_03.title",
       "subtitle_key": "library.sounds.water_wave_ocean_medium_waves_coming_in_close_03.subtitle",
       "description_key": "library.sounds.water_wave_ocean_medium_waves_coming_in_close_03.description",
@@ -949,7 +949,7 @@
         "falling_asleep"
       ],
       "duration_sec": 62.2,
-      "bg_title": "Вълни Океан",
+      "bg_title": "Дишащият океан",
       "title_key": "library.sounds.water_wave_ocean_wave_swells.title",
       "subtitle_key": "library.sounds.water_wave_ocean_wave_swells.subtitle",
       "description_key": "library.sounds.water_wave_ocean_wave_swells.description",
@@ -982,7 +982,7 @@
         "relaxation"
       ],
       "duration_sec": 54.8,
-      "bg_title": "Вълни Океан",
+      "bg_title": "Пристанищна вечер",
       "title_key": "library.sounds.water_wave_ocean_waves_medium_on_stone_sea_wall_boats_harbor_in_background.title",
       "subtitle_key": "library.sounds.water_wave_ocean_waves_medium_on_stone_sea_wall_boats_harbor_in_background.subtitle",
       "description_key": "library.sounds.water_wave_ocean_waves_medium_on_stone_sea_wall_boats_harbor_in_background.description",
@@ -1015,7 +1015,7 @@
         "relaxation"
       ],
       "duration_sec": 84.5,
-      "bg_title": "Далечен Вълни Бряг",
+      "bg_title": "Шум от брега",
       "title_key": "library.sounds.water_wave_ocean_waves_on_shore_beach_medium_distant.title",
       "subtitle_key": "library.sounds.water_wave_ocean_waves_on_shore_beach_medium_distant.subtitle",
       "description_key": "library.sounds.water_wave_ocean_waves_on_shore_beach_medium_distant.description",
@@ -1048,7 +1048,7 @@
         "relaxation"
       ],
       "duration_sec": 167.9,
-      "bg_title": "Далечен Птици Бряг",
+      "bg_title": "Усамотен залив",
       "title_key": "library.sounds.water_wave_sea_beach_cove_100m_away_distance_moderate_waves_distant_plane_birds.title",
       "subtitle_key": "library.sounds.water_wave_sea_beach_cove_100m_away_distance_moderate_waves_distant_plane_birds.subtitle",
       "description_key": "library.sounds.water_wave_sea_beach_cove_100m_away_distance_moderate_waves_distant_plane_birds.description",
@@ -1081,7 +1081,7 @@
         "falling_asleep"
       ],
       "duration_sec": 108.7,
-      "bg_title": "Вълни Бряг",
+      "bg_title": "Тиха кота на брега",
       "title_key": "library.sounds.water_wave_sea_beach_cove_50m_distance_moderate_waves_ms.title",
       "subtitle_key": "library.sounds.water_wave_sea_beach_cove_50m_distance_moderate_waves_ms.subtitle",
       "description_key": "library.sounds.water_wave_sea_beach_cove_50m_distance_moderate_waves_ms.description",
@@ -1114,7 +1114,7 @@
         "relaxation"
       ],
       "duration_sec": 121.8,
-      "bg_title": "Лек Вълни Океан",
+      "bg_title": "Засилващи се вълни",
       "title_key": "library.sounds.water_wave_sea_light_wind_waves_intensifies.title",
       "subtitle_key": "library.sounds.water_wave_sea_light_wind_waves_intensifies.subtitle",
       "description_key": "library.sounds.water_wave_sea_light_wind_waves_intensifies.description",
@@ -1147,7 +1147,7 @@
         "falling_asleep"
       ],
       "duration_sec": 197.5,
-      "bg_title": "Лек Вълни Океан",
+      "bg_title": "Нежно море",
       "title_key": "library.sounds.water_wave_sea_water_very_gentle_waves.title",
       "subtitle_key": "library.sounds.water_wave_sea_water_very_gentle_waves.subtitle",
       "description_key": "library.sounds.water_wave_sea_water_very_gentle_waves.description",
@@ -1180,7 +1180,7 @@
         "falling_asleep"
       ],
       "duration_sec": 174.8,
-      "bg_title": "Вълни Бряг",
+      "bg_title": "Мексикански бряг",
       "title_key": "library.sounds.water_wave_waves_sea_beach_punta_allen_sian_ka_an_biosphere_reserve_mexico.title",
       "subtitle_key": "library.sounds.water_wave_waves_sea_beach_punta_allen_sian_ka_an_biosphere_reserve_mexico.subtitle",
       "description_key": "library.sounds.water_wave_waves_sea_beach_punta_allen_sian_ka_an_biosphere_reserve_mexico.description",
@@ -1215,7 +1215,7 @@
         "anxiety"
       ],
       "duration_sec": 79.5,
-      "bg_title": "Далечен Вълни Океан",
+      "bg_title": "Планина и море",
       "title_key": "library.sounds.wind_general_calm_mountain_sea_distant_waves_01.title",
       "subtitle_key": "library.sounds.wind_general_calm_mountain_sea_distant_waves_01.subtitle",
       "description_key": "library.sounds.wind_general_calm_mountain_sea_distant_waves_01.description",
@@ -1249,7 +1249,7 @@
         "meditation"
       ],
       "duration_sec": 131.1,
-      "bg_title": "Далечен Вълни Океан",
+      "bg_title": "Морски бриз отвисоко",
       "title_key": "library.sounds.wind_general_calm_mountain_sea_distant_waves_02.title",
       "subtitle_key": "library.sounds.wind_general_calm_mountain_sea_distant_waves_02.subtitle",
       "description_key": "library.sounds.wind_general_calm_mountain_sea_distant_waves_02.description",
@@ -1283,7 +1283,7 @@
         "meditation"
       ],
       "duration_sec": 79.8,
-      "bg_title": "Далечен Вълни Океан",
+      "bg_title": "Тих планински залив",
       "title_key": "library.sounds.wind_general_calm_mountain_sea_distant_waves_03.title",
       "subtitle_key": "library.sounds.wind_general_calm_mountain_sea_distant_waves_03.subtitle",
       "description_key": "library.sounds.wind_general_calm_mountain_sea_distant_waves_03.description",
@@ -1316,7 +1316,7 @@
         "relaxation"
       ],
       "duration_sec": 75.9,
-      "bg_title": "Спокоен Птици Дъжд",
+      "bg_title": "Утрина в Карпатите",
       "title_key": "library.sounds.ambience_forest_ukraine_morning_birds_nature_trees_calm_breeze_wildlife.title",
       "subtitle_key": "library.sounds.ambience_forest_ukraine_morning_birds_nature_trees_calm_breeze_wildlife.subtitle",
       "description_key": "library.sounds.ambience_forest_ukraine_morning_birds_nature_trees_calm_breeze_wildlife.description",
@@ -1349,7 +1349,7 @@
         "relaxation"
       ],
       "duration_sec": 180.2,
-      "bg_title": "Далечен Дъжд",
+      "bg_title": "След дъжда в блатата",
       "title_key": "library.sounds.ambience_swamp_wetland_after_rain_water_dripping_humid_distant_fowl.title",
       "subtitle_key": "library.sounds.ambience_swamp_wetland_after_rain_water_dripping_humid_distant_fowl.subtitle",
       "description_key": "library.sounds.ambience_swamp_wetland_after_rain_water_dripping_humid_distant_fowl.description",
@@ -1382,7 +1382,7 @@
         "falling_asleep"
       ],
       "duration_sec": 54.4,
-      "bg_title": "Дъжд",
+      "bg_title": "Тропическа песен",
       "title_key": "library.sounds.ambience_tropical_rain_texture_medium.title",
       "subtitle_key": "library.sounds.ambience_tropical_rain_texture_medium.subtitle",
       "description_key": "library.sounds.ambience_tropical_rain_texture_medium.description",
@@ -1416,7 +1416,7 @@
         "falling_asleep"
       ],
       "duration_sec": 113.3,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Шум на дълбините",
       "title_key": "library.sounds.ambience_underwater_grainy_bubbles_small_deep_fizz.title",
       "subtitle_key": "library.sounds.ambience_underwater_grainy_bubbles_small_deep_fizz.subtitle",
       "description_key": "library.sounds.ambience_underwater_grainy_bubbles_small_deep_fizz.description",
@@ -1449,7 +1449,7 @@
         "falling_asleep"
       ],
       "duration_sec": 137.8,
-      "bg_title": "Дъжд",
+      "bg_title": "Дъжд по покрива",
       "title_key": "library.sounds.rain_attic_01.title",
       "subtitle_key": "library.sounds.rain_attic_01.subtitle",
       "description_key": "library.sounds.rain_attic_01.description",
@@ -1482,7 +1482,7 @@
         "relaxation"
       ],
       "duration_sec": 134.4,
-      "bg_title": "Дъжд",
+      "bg_title": "Капки по чадъра",
       "title_key": "library.sounds.rain_cloth_raining_umbrella_01.title",
       "subtitle_key": "library.sounds.rain_cloth_raining_umbrella_01.subtitle",
       "description_key": "library.sounds.rain_cloth_raining_umbrella_01.description",
@@ -1515,7 +1515,7 @@
         "relaxation"
       ],
       "duration_sec": 250.7,
-      "bg_title": "Лек Нощен Дъжд",
+      "bg_title": "Тиха градска вечер",
       "title_key": "library.sounds.rain_concrete_city_rain_soft_residential_neighborhood_night_car_pass_by_wet_roads_side_streets_02.title",
       "subtitle_key": "library.sounds.rain_concrete_city_rain_soft_residential_neighborhood_night_car_pass_by_wet_roads_side_streets_02.subtitle",
       "description_key": "library.sounds.rain_concrete_city_rain_soft_residential_neighborhood_night_car_pass_by_wet_roads_side_streets_02.description",
@@ -1548,7 +1548,7 @@
         "falling_asleep"
       ],
       "duration_sec": 112.6,
-      "bg_title": "Нощен Дъжд",
+      "bg_title": "Нощни капки",
       "title_key": "library.sounds.rain_general_medium_drip_details_night_wide.title",
       "subtitle_key": "library.sounds.rain_general_medium_drip_details_night_wide.subtitle",
       "description_key": "library.sounds.rain_general_medium_drip_details_night_wide.description",
@@ -1581,7 +1581,7 @@
         "relaxation"
       ],
       "duration_sec": 174.6,
-      "bg_title": "Дъжд",
+      "bg_title": "Дъжд по прозореца на колата",
       "title_key": "library.sounds.rain_glass_rain_car_window_perspective_medium_01.title",
       "subtitle_key": "library.sounds.rain_glass_rain_car_window_perspective_medium_01.subtitle",
       "description_key": "library.sounds.rain_glass_rain_car_window_perspective_medium_01.description",
@@ -1615,7 +1615,7 @@
         "relaxation"
       ],
       "duration_sec": 115.2,
-      "bg_title": "Дъжд",
+      "bg_title": "Капки над таванския прозорец",
       "title_key": "library.sounds.rain_glass_window_roof_location_2_medium_room_loft_roof_window.title",
       "subtitle_key": "library.sounds.rain_glass_window_roof_location_2_medium_room_loft_roof_window.subtitle",
       "description_key": "library.sounds.rain_glass_window_roof_location_2_medium_room_loft_roof_window.description",
@@ -1648,7 +1648,7 @@
         "relaxation"
       ],
       "duration_sec": 174.6,
-      "bg_title": "Дъжд",
+      "bg_title": "Барабаненето на дъжда",
       "title_key": "library.sounds.rain_interior_rain_medium_drops_drumming_clunking.title",
       "subtitle_key": "library.sounds.rain_interior_rain_medium_drops_drumming_clunking.subtitle",
       "description_key": "library.sounds.rain_interior_rain_medium_drops_drumming_clunking.description",
@@ -1682,7 +1682,7 @@
         "relaxation"
       ],
       "duration_sec": 71.7,
-      "bg_title": "Дъжд",
+      "bg_title": "Дъждовна вечер в колата",
       "title_key": "library.sounds.rain_interior_rain_medium_inside_car.title",
       "subtitle_key": "library.sounds.rain_interior_rain_medium_inside_car.subtitle",
       "description_key": "library.sounds.rain_interior_rain_medium_inside_car.description",
@@ -1715,7 +1715,7 @@
         "falling_asleep"
       ],
       "duration_sec": 188.2,
-      "bg_title": "Лек Дъжд",
+      "bg_title": "Дъжд в апартамента",
       "title_key": "library.sounds.rain_interior_rain_on_window_house_apartment_room_tone_light_rain.title",
       "subtitle_key": "library.sounds.rain_interior_rain_on_window_house_apartment_room_tone_light_rain.subtitle",
       "description_key": "library.sounds.rain_interior_rain_on_window_house_apartment_room_tone_light_rain.description",
@@ -1748,7 +1748,7 @@
         "falling_asleep"
       ],
       "duration_sec": 114.4,
-      "bg_title": "Дъжд",
+      "bg_title": "Дъжд по пластмасата",
       "title_key": "library.sounds.rain_plastic_medium_outside_plastic_window.title",
       "subtitle_key": "library.sounds.rain_plastic_medium_outside_plastic_window.subtitle",
       "description_key": "library.sounds.rain_plastic_medium_outside_plastic_window.description",
@@ -1781,7 +1781,7 @@
         "falling_asleep"
       ],
       "duration_sec": 155.9,
-      "bg_title": "Лек Дъжд",
+      "bg_title": "Тих дъжд по прозореца",
       "title_key": "library.sounds.rain_plastic_medium_to_light_outside_plastic_window.title",
       "subtitle_key": "library.sounds.rain_plastic_medium_to_light_outside_plastic_window.subtitle",
       "description_key": "library.sounds.rain_plastic_medium_to_light_outside_plastic_window.description",
@@ -1814,7 +1814,7 @@
         "falling_asleep"
       ],
       "duration_sec": 144.4,
-      "bg_title": "Лек Дъжд",
+      "bg_title": "Скривалище под покрива",
       "title_key": "library.sounds.rain_plastic_medium_to_light_under_plastic_roof_01.title",
       "subtitle_key": "library.sounds.rain_plastic_medium_to_light_under_plastic_roof_01.subtitle",
       "description_key": "library.sounds.rain_plastic_medium_to_light_under_plastic_roof_01.description",
@@ -1847,7 +1847,7 @@
         "falling_asleep"
       ],
       "duration_sec": 144.4,
-      "bg_title": "Лек Дъжд",
+      "bg_title": "Сухо място в бурята",
       "title_key": "library.sounds.rain_plastic_medium_to_light_under_plastic_roof_02.title",
       "subtitle_key": "library.sounds.rain_plastic_medium_to_light_under_plastic_roof_02.subtitle",
       "description_key": "library.sounds.rain_plastic_medium_to_light_under_plastic_roof_02.description",
@@ -1880,7 +1880,7 @@
         "falling_asleep"
       ],
       "duration_sec": 94.3,
-      "bg_title": "Дъжд",
+      "bg_title": "Гъст дъжд по чадъра",
       "title_key": "library.sounds.rain_plastic_on_plastic_umbrella_medium_intensity_dense_dripping.title",
       "subtitle_key": "library.sounds.rain_plastic_on_plastic_umbrella_medium_intensity_dense_dripping.subtitle",
       "description_key": "library.sounds.rain_plastic_on_plastic_umbrella_medium_intensity_dense_dripping.description",
@@ -1913,7 +1913,7 @@
         "relaxation"
       ],
       "duration_sec": 88.3,
-      "bg_title": "Дъжд",
+      "bg_title": "Капки в кофите",
       "title_key": "library.sounds.rain_plastic_plastic_buckets_multiple_drops_medium_busy_01.title",
       "subtitle_key": "library.sounds.rain_plastic_plastic_buckets_multiple_drops_medium_busy_01.subtitle",
       "description_key": "library.sounds.rain_plastic_plastic_buckets_multiple_drops_medium_busy_01.description",
@@ -1946,7 +1946,7 @@
         "relaxation"
       ],
       "duration_sec": 69.2,
-      "bg_title": "Дъжд",
+      "bg_title": "Многобройни капки",
       "title_key": "library.sounds.rain_plastic_plastic_buckets_multiple_drops_medium_busy_02.title",
       "subtitle_key": "library.sounds.rain_plastic_plastic_buckets_multiple_drops_medium_busy_02.subtitle",
       "description_key": "library.sounds.rain_plastic_plastic_buckets_multiple_drops_medium_busy_02.description",
@@ -1979,7 +1979,7 @@
         "falling_asleep"
       ],
       "duration_sec": 84.4,
-      "bg_title": "Листа Дъжд",
+      "bg_title": "Дъжд в джунглата",
       "title_key": "library.sounds.rain_vegetation_medium_leaves_drop_tropical_jungle.title",
       "subtitle_key": "library.sounds.rain_vegetation_medium_leaves_drop_tropical_jungle.subtitle",
       "description_key": "library.sounds.rain_vegetation_medium_leaves_drop_tropical_jungle.description",
@@ -2012,7 +2012,7 @@
         "falling_asleep"
       ],
       "duration_sec": 174.6,
-      "bg_title": "Дъжд",
+      "bg_title": "Дъжд пред вратата",
       "title_key": "library.sounds.rain_wood_rain_front_porch_rain_on_door_medium.title",
       "subtitle_key": "library.sounds.rain_wood_rain_front_porch_rain_on_door_medium.subtitle",
       "description_key": "library.sounds.rain_wood_rain_front_porch_rain_on_door_medium.description",
@@ -2045,7 +2045,7 @@
         "relaxation"
       ],
       "duration_sec": 290.4,
-      "bg_title": "Дъжд",
+      "bg_title": "Дъжд по тенекия",
       "title_key": "library.sounds.wind_general_rain_playa_blanca_village_drops_metal_sheet_roof_movement_04.title",
       "subtitle_key": "library.sounds.wind_general_rain_playa_blanca_village_drops_metal_sheet_roof_movement_04.subtitle",
       "description_key": "library.sounds.wind_general_rain_playa_blanca_village_drops_metal_sheet_roof_movement_04.description",
@@ -2078,7 +2078,7 @@
         "relaxation"
       ],
       "duration_sec": 174.2,
-      "bg_title": "Река",
+      "bg_title": "Река през гората",
       "title_key": "library.sounds.ambience_forest_wetlands_river_water_wind_ship.title",
       "subtitle_key": "library.sounds.ambience_forest_wetlands_river_water_wind_ship.subtitle",
       "description_key": "library.sounds.ambience_forest_wetlands_river_water_wind_ship.description",
@@ -2111,7 +2111,7 @@
         "relaxation"
       ],
       "duration_sec": 113.1,
-      "bg_title": "Под вода",
+      "bg_title": "Кипяща дълбочина",
       "title_key": "library.sounds.ambience_underwater_bubbles_dark_spacious_boiling_flowing.title",
       "subtitle_key": "library.sounds.ambience_underwater_bubbles_dark_spacious_boiling_flowing.subtitle",
       "description_key": "library.sounds.ambience_underwater_bubbles_dark_spacious_boiling_flowing.description",
@@ -2145,7 +2145,7 @@
         "falling_asleep"
       ],
       "duration_sec": 113.4,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Дълбоко гърголене",
       "title_key": "library.sounds.ambience_underwater_dark_deep_leak_gurgling_flowing.title",
       "subtitle_key": "library.sounds.ambience_underwater_dark_deep_leak_gurgling_flowing.subtitle",
       "description_key": "library.sounds.ambience_underwater_dark_deep_leak_gurgling_flowing.description",
@@ -2177,7 +2177,7 @@
         "meditation"
       ],
       "duration_sec": 113.4,
-      "bg_title": "Дълбок Поток",
+      "bg_title": "Мистична подводна река",
       "title_key": "library.sounds.ambience_underwater_dark_eerie_deep_bubbles_spacious_stream.title",
       "subtitle_key": "library.sounds.ambience_underwater_dark_eerie_deep_bubbles_spacious_stream.subtitle",
       "description_key": "library.sounds.ambience_underwater_dark_eerie_deep_bubbles_spacious_stream.description",
@@ -2209,7 +2209,7 @@
         "meditation"
       ],
       "duration_sec": 113.1,
-      "bg_title": "Под вода",
+      "bg_title": "Подводен ритъм",
       "title_key": "library.sounds.ambience_underwater_dark_eerie_spacious_flowing_roaring_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_dark_eerie_spacious_flowing_roaring_01.subtitle",
       "description_key": "library.sounds.ambience_underwater_dark_eerie_spacious_flowing_roaring_01.description",
@@ -2241,7 +2241,7 @@
         "meditation"
       ],
       "duration_sec": 113.1,
-      "bg_title": "Под вода",
+      "bg_title": "Тъмен поток",
       "title_key": "library.sounds.ambience_underwater_dark_eerie_spacious_flowing_roaring_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_dark_eerie_spacious_flowing_roaring_02.subtitle",
       "description_key": "library.sounds.ambience_underwater_dark_eerie_spacious_flowing_roaring_02.description",
@@ -2275,7 +2275,7 @@
         "falling_asleep"
       ],
       "duration_sec": 179.2,
-      "bg_title": "Под вода",
+      "bg_title": "Кристална планинска вода",
       "title_key": "library.sounds.ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_02.subtitle",
       "description_key": "library.sounds.ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_02.description",
@@ -2309,7 +2309,7 @@
         "falling_asleep"
       ],
       "duration_sec": 153.0,
-      "bg_title": "Под вода",
+      "bg_title": "Бистра ледникова река",
       "title_key": "library.sounds.ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_03.title",
       "subtitle_key": "library.sounds.ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_03.subtitle",
       "description_key": "library.sounds.ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_03.description",
@@ -2343,7 +2343,7 @@
         "falling_asleep"
       ],
       "duration_sec": 211.7,
-      "bg_title": "Под вода",
+      "bg_title": "Аметистова река",
       "title_key": "library.sounds.ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_05.title",
       "subtitle_key": "library.sounds.ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_05.subtitle",
       "description_key": "library.sounds.ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_05.description",
@@ -2377,7 +2377,7 @@
         "meditation"
       ],
       "duration_sec": 173.5,
-      "bg_title": "Под вода",
+      "bg_title": "Тиха река",
       "title_key": "library.sounds.ambience_underwater_river_flowing_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_river_flowing_01.subtitle",
       "description_key": "library.sounds.ambience_underwater_river_flowing_01.description",
@@ -2411,7 +2411,7 @@
         "meditation"
       ],
       "duration_sec": 173.5,
-      "bg_title": "Под вода",
+      "bg_title": "Бистра река",
       "title_key": "library.sounds.ambience_underwater_river_flowing_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_river_flowing_02.subtitle",
       "description_key": "library.sounds.ambience_underwater_river_flowing_02.description",
@@ -2445,7 +2445,7 @@
         "meditation"
       ],
       "duration_sec": 173.5,
-      "bg_title": "Под вода",
+      "bg_title": "Спокойно течение",
       "title_key": "library.sounds.ambience_underwater_river_flowing_03.title",
       "subtitle_key": "library.sounds.ambience_underwater_river_flowing_03.subtitle",
       "description_key": "library.sounds.ambience_underwater_river_flowing_03.description",
@@ -2479,7 +2479,7 @@
         "meditation"
       ],
       "duration_sec": 173.5,
-      "bg_title": "Под вода",
+      "bg_title": "Кристален поток",
       "title_key": "library.sounds.ambience_underwater_river_flowing_04.title",
       "subtitle_key": "library.sounds.ambience_underwater_river_flowing_04.subtitle",
       "description_key": "library.sounds.ambience_underwater_river_flowing_04.description",
@@ -2513,7 +2513,7 @@
         "meditation"
       ],
       "duration_sec": 173.5,
-      "bg_title": "Под вода",
+      "bg_title": "Сребриста река",
       "title_key": "library.sounds.ambience_underwater_river_flowing_05.title",
       "subtitle_key": "library.sounds.ambience_underwater_river_flowing_05.subtitle",
       "description_key": "library.sounds.ambience_underwater_river_flowing_05.description",
@@ -2547,7 +2547,7 @@
         "meditation"
       ],
       "duration_sec": 173.6,
-      "bg_title": "Под вода",
+      "bg_title": "Прохладен поток",
       "title_key": "library.sounds.ambience_underwater_river_flowing_06.title",
       "subtitle_key": "library.sounds.ambience_underwater_river_flowing_06.subtitle",
       "description_key": "library.sounds.ambience_underwater_river_flowing_06.description",
@@ -2580,7 +2580,7 @@
         "falling_asleep"
       ],
       "duration_sec": 113.4,
-      "bg_title": "Поток",
+      "bg_title": "Светлинен поток",
       "title_key": "library.sounds.ambience_underwater_trickle_bright_detailed_stream.title",
       "subtitle_key": "library.sounds.ambience_underwater_trickle_bright_detailed_stream.subtitle",
       "description_key": "library.sounds.ambience_underwater_trickle_bright_detailed_stream.description",
@@ -2614,7 +2614,7 @@
         "meditation"
       ],
       "duration_sec": 106.6,
-      "bg_title": "Под вода",
+      "bg_title": "Подводен танц",
       "title_key": "library.sounds.ambience_underwater_water_flow_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_water_flow_01.subtitle",
       "description_key": "library.sounds.ambience_underwater_water_flow_01.description",
@@ -2648,7 +2648,7 @@
         "meditation"
       ],
       "duration_sec": 107.3,
-      "bg_title": "Под вода",
+      "bg_title": "Дълбок ритъм",
       "title_key": "library.sounds.ambience_underwater_water_flow_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_water_flow_02.subtitle",
       "description_key": "library.sounds.ambience_underwater_water_flow_02.description",
@@ -2682,7 +2682,7 @@
         "meditation"
       ],
       "duration_sec": 113.1,
-      "bg_title": "Под вода",
+      "bg_title": "Безмълвен поток",
       "title_key": "library.sounds.ambience_underwater_water_flow_03.title",
       "subtitle_key": "library.sounds.ambience_underwater_water_flow_03.subtitle",
       "description_key": "library.sounds.ambience_underwater_water_flow_03.description",
@@ -2716,7 +2716,7 @@
         "meditation"
       ],
       "duration_sec": 117.3,
-      "bg_title": "Под вода",
+      "bg_title": "Тих воден ход",
       "title_key": "library.sounds.ambience_underwater_water_flow_04.title",
       "subtitle_key": "library.sounds.ambience_underwater_water_flow_04.subtitle",
       "description_key": "library.sounds.ambience_underwater_water_flow_04.description",
@@ -2749,7 +2749,7 @@
         "falling_asleep"
       ],
       "duration_sec": 174.6,
-      "bg_title": "Река",
+      "bg_title": "Песен на улука",
       "title_key": "library.sounds.rain_metal_rain_gutter_medium_drops_flowing.title",
       "subtitle_key": "library.sounds.rain_metal_rain_gutter_medium_drops_flowing.subtitle",
       "description_key": "library.sounds.rain_metal_rain_gutter_medium_drops_flowing.description",
@@ -2783,7 +2783,7 @@
         "meditation"
       ],
       "duration_sec": 54.3,
-      "bg_title": "Дълбок Планински Поток",
+      "bg_title": "Дълбока планинска река",
       "title_key": "library.sounds.water_flow_deep_mountain_stream_creek_bubble.title",
       "subtitle_key": "library.sounds.water_flow_deep_mountain_stream_creek_bubble.subtitle",
       "description_key": "library.sounds.water_flow_deep_mountain_stream_creek_bubble.description",
@@ -2816,7 +2816,7 @@
         "relaxation"
       ],
       "duration_sec": 63.5,
-      "bg_title": "Спокоен Река",
+      "bg_title": "Спокойна река",
       "title_key": "library.sounds.water_flow_river_calm_running_medium_distance_01.title",
       "subtitle_key": "library.sounds.water_flow_river_calm_running_medium_distance_01.subtitle",
       "description_key": "library.sounds.water_flow_river_calm_running_medium_distance_01.description",
@@ -2849,7 +2849,7 @@
         "relaxation"
       ],
       "duration_sec": 64.0,
-      "bg_title": "Лек Река",
+      "bg_title": "Нежно близко течение",
       "title_key": "library.sounds.water_flow_river_close_gentle_01.title",
       "subtitle_key": "library.sounds.water_flow_river_close_gentle_01.subtitle",
       "description_key": "library.sounds.water_flow_river_close_gentle_01.description",
@@ -2882,7 +2882,7 @@
         "relaxation"
       ],
       "duration_sec": 84.2,
-      "bg_title": "Лек Река",
+      "bg_title": "Кристалното шепнене",
       "title_key": "library.sounds.water_flow_river_close_gentle_02.title",
       "subtitle_key": "library.sounds.water_flow_river_close_gentle_02.subtitle",
       "description_key": "library.sounds.water_flow_river_close_gentle_02.description",
@@ -2915,7 +2915,7 @@
         "relaxation"
       ],
       "duration_sec": 116.7,
-      "bg_title": "Далечен Река",
+      "bg_title": "Бързо далечно течение",
       "title_key": "library.sounds.water_flow_river_current_fast_distant.title",
       "subtitle_key": "library.sounds.water_flow_river_current_fast_distant.subtitle",
       "description_key": "library.sounds.water_flow_river_current_fast_distant.description",
@@ -2948,7 +2948,7 @@
         "daily"
       ],
       "duration_sec": 75.5,
-      "bg_title": "Река",
+      "bg_title": "Бистра бързина",
       "title_key": "library.sounds.water_flow_river_current_small_fast_flow.title",
       "subtitle_key": "library.sounds.water_flow_river_current_small_fast_flow.subtitle",
       "description_key": "library.sounds.water_flow_river_current_small_fast_flow.description",
@@ -2981,7 +2981,7 @@
         "daily"
       ],
       "duration_sec": 113.1,
-      "bg_title": "Силен Река",
+      "bg_title": "Силна горска река",
       "title_key": "library.sounds.water_flow_river_flow_strong_bubbles_nature_forest_telluride.title",
       "subtitle_key": "library.sounds.water_flow_river_flow_strong_bubbles_nature_forest_telluride.subtitle",
       "description_key": "library.sounds.water_flow_river_flow_strong_bubbles_nature_forest_telluride.description",
@@ -3016,7 +3016,7 @@
         "meditation"
       ],
       "duration_sec": 354.0,
-      "bg_title": "Спокоен Река",
+      "bg_title": "Долината Сан Мигел",
       "title_key": "library.sounds.water_flow_river_run_flow_valley_bubbles_calm_nature_san_miguel_river_telluride.title",
       "subtitle_key": "library.sounds.water_flow_river_run_flow_valley_bubbles_calm_nature_san_miguel_river_telluride.subtitle",
       "description_key": "library.sounds.water_flow_river_run_flow_valley_bubbles_calm_nature_san_miguel_river_telluride.description",
@@ -3050,7 +3050,7 @@
         "meditation"
       ],
       "duration_sec": 58.4,
-      "bg_title": "Планински Поток",
+      "bg_title": "Малка планинска река",
       "title_key": "library.sounds.water_flow_river_small_mountain_stream.title",
       "subtitle_key": "library.sounds.water_flow_river_small_mountain_stream.subtitle",
       "description_key": "library.sounds.water_flow_river_small_mountain_stream.description",
@@ -3083,7 +3083,7 @@
         "daily"
       ],
       "duration_sec": 288.1,
-      "bg_title": "Силен Вечерен Водопад",
+      "bg_title": "Водопад привечер",
       "title_key": "library.sounds.water_waterfall_strong_flow_people_forest_lower_waterfall_evening_zenny_fall_telluride.title",
       "subtitle_key": "library.sounds.water_waterfall_strong_flow_people_forest_lower_waterfall_evening_zenny_fall_telluride.subtitle",
       "description_key": "library.sounds.water_waterfall_strong_flow_people_forest_lower_waterfall_evening_zenny_fall_telluride.description",
@@ -3117,7 +3117,7 @@
         "daily"
       ],
       "duration_sec": 180.4,
-      "bg_title": "Водопад",
+      "bg_title": "Тих водопад",
       "title_key": "library.sounds.water_waterfall_waterfall_medium_flow_01.title",
       "subtitle_key": "library.sounds.water_waterfall_waterfall_medium_flow_01.subtitle",
       "description_key": "library.sounds.water_waterfall_waterfall_medium_flow_01.description",
@@ -3150,7 +3150,7 @@
         "relaxation"
       ],
       "duration_sec": 62.5,
-      "bg_title": "Водопад",
+      "bg_title": "Тролският път",
       "title_key": "library.sounds.water_waterfall_waterfall_the_trolls_road_20m_from_river.title",
       "subtitle_key": "library.sounds.water_waterfall_waterfall_the_trolls_road_20m_from_river.subtitle",
       "description_key": "library.sounds.water_waterfall_waterfall_the_trolls_road_20m_from_river.description",
@@ -3183,7 +3183,7 @@
         "falling_asleep"
       ],
       "duration_sec": 174.5,
-      "bg_title": "Листа Под вода",
+      "bg_title": "Тропически извор",
       "title_key": "library.sounds.ambience_tropical_water_source_palm_leaves_wind_soothing.title",
       "subtitle_key": "library.sounds.ambience_tropical_water_source_palm_leaves_wind_soothing.subtitle",
       "description_key": "library.sounds.ambience_tropical_water_source_palm_leaves_wind_soothing.description",
@@ -3216,7 +3216,7 @@
         "meditation"
       ],
       "duration_sec": 173.5,
-      "bg_title": "Под вода",
+      "bg_title": "Подводен пулс",
       "title_key": "library.sounds.ambience_underwater_active.title",
       "subtitle_key": "library.sounds.ambience_underwater_active.subtitle",
       "description_key": "library.sounds.ambience_underwater_active.description",
@@ -3249,7 +3249,7 @@
         "relaxation"
       ],
       "duration_sec": 114.1,
-      "bg_title": "Под вода",
+      "bg_title": "Подводна симфония",
       "title_key": "library.sounds.ambience_underwater_complex_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_01.subtitle",
       "description_key": "library.sounds.ambience_underwater_complex_01.description",
@@ -3282,7 +3282,7 @@
         "relaxation"
       ],
       "duration_sec": 113.8,
-      "bg_title": "Под вода",
+      "bg_title": "Тих подводен танц",
       "title_key": "library.sounds.ambience_underwater_complex_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_02.subtitle",
       "description_key": "library.sounds.ambience_underwater_complex_02.description",
@@ -3315,7 +3315,7 @@
         "relaxation"
       ],
       "duration_sec": 113.7,
-      "bg_title": "Под вода",
+      "bg_title": "Подводна загадка",
       "title_key": "library.sounds.ambience_underwater_complex_03.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_03.subtitle",
       "description_key": "library.sounds.ambience_underwater_complex_03.description",
@@ -3348,7 +3348,7 @@
         "relaxation"
       ],
       "duration_sec": 113.5,
-      "bg_title": "Под вода",
+      "bg_title": "Дълбоководна песен",
       "title_key": "library.sounds.ambience_underwater_complex_04.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_04.subtitle",
       "description_key": "library.sounds.ambience_underwater_complex_04.description",
@@ -3381,7 +3381,7 @@
         "relaxation"
       ],
       "duration_sec": 113.6,
-      "bg_title": "Под вода",
+      "bg_title": "Подводен сън",
       "title_key": "library.sounds.ambience_underwater_complex_05.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_05.subtitle",
       "description_key": "library.sounds.ambience_underwater_complex_05.description",
@@ -3414,7 +3414,7 @@
         "relaxation"
       ],
       "duration_sec": 113.8,
-      "bg_title": "Под вода",
+      "bg_title": "Тайно подводно място",
       "title_key": "library.sounds.ambience_underwater_complex_06.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_06.subtitle",
       "description_key": "library.sounds.ambience_underwater_complex_06.description",
@@ -3447,7 +3447,7 @@
         "relaxation"
       ],
       "duration_sec": 113.8,
-      "bg_title": "Под вода",
+      "bg_title": "Подводна нежност",
       "title_key": "library.sounds.ambience_underwater_complex_07.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_07.subtitle",
       "description_key": "library.sounds.ambience_underwater_complex_07.description",
@@ -3480,7 +3480,7 @@
         "relaxation"
       ],
       "duration_sec": 113.7,
-      "bg_title": "Под вода",
+      "bg_title": "Подводна тишина",
       "title_key": "library.sounds.ambience_underwater_complex_08.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_08.subtitle",
       "description_key": "library.sounds.ambience_underwater_complex_08.description",
@@ -3513,7 +3513,7 @@
         "relaxation"
       ],
       "duration_sec": 114.0,
-      "bg_title": "Под вода",
+      "bg_title": "Безкрайни дълбини",
       "title_key": "library.sounds.ambience_underwater_complex_09.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_09.subtitle",
       "description_key": "library.sounds.ambience_underwater_complex_09.description",
@@ -3546,7 +3546,7 @@
         "relaxation"
       ],
       "duration_sec": 113.9,
-      "bg_title": "Под вода",
+      "bg_title": "Подводен мир",
       "title_key": "library.sounds.ambience_underwater_complex_10.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_10.subtitle",
       "description_key": "library.sounds.ambience_underwater_complex_10.description",
@@ -3579,7 +3579,7 @@
         "relaxation"
       ],
       "duration_sec": 113.8,
-      "bg_title": "Под вода",
+      "bg_title": "Развиващи се дълбини",
       "title_key": "library.sounds.ambience_underwater_complex_evolving.title",
       "subtitle_key": "library.sounds.ambience_underwater_complex_evolving.subtitle",
       "description_key": "library.sounds.ambience_underwater_complex_evolving.description",
@@ -3611,7 +3611,7 @@
         "meditation"
       ],
       "duration_sec": 112.8,
-      "bg_title": "Под вода",
+      "bg_title": "Тъмно подводно ехо",
       "title_key": "library.sounds.ambience_underwater_dark_eerie_roaring.title",
       "subtitle_key": "library.sounds.ambience_underwater_dark_eerie_roaring.subtitle",
       "description_key": "library.sounds.ambience_underwater_dark_eerie_roaring.description",
@@ -3644,7 +3644,7 @@
         "relaxation"
       ],
       "duration_sec": 113.7,
-      "bg_title": "Под вода",
+      "bg_title": "Бавно потъващи звуци",
       "title_key": "library.sounds.ambience_underwater_dark_eerie_slow_moving_stutter.title",
       "subtitle_key": "library.sounds.ambience_underwater_dark_eerie_slow_moving_stutter.subtitle",
       "description_key": "library.sounds.ambience_underwater_dark_eerie_slow_moving_stutter.description",
@@ -3678,7 +3678,7 @@
         "falling_asleep"
       ],
       "duration_sec": 173.4,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Великата дълбочина",
       "title_key": "library.sounds.ambience_underwater_deep_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_01.subtitle",
       "description_key": "library.sounds.ambience_underwater_deep_01.description",
@@ -3712,7 +3712,7 @@
         "falling_asleep"
       ],
       "duration_sec": 173.6,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Тиха дълбочина",
       "title_key": "library.sounds.ambience_underwater_deep_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_02.subtitle",
       "description_key": "library.sounds.ambience_underwater_deep_02.description",
@@ -3746,7 +3746,7 @@
         "falling_asleep"
       ],
       "duration_sec": 173.6,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Сребриста дълбочина",
       "title_key": "library.sounds.ambience_underwater_deep_03.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_03.subtitle",
       "description_key": "library.sounds.ambience_underwater_deep_03.description",
@@ -3780,7 +3780,7 @@
         "falling_asleep"
       ],
       "duration_sec": 173.4,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Студена дълбочина",
       "title_key": "library.sounds.ambience_underwater_deep_04.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_04.subtitle",
       "description_key": "library.sounds.ambience_underwater_deep_04.description",
@@ -3813,7 +3813,7 @@
         "sleep_deep"
       ],
       "duration_sec": 173.6,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Абстрактна дълбочина",
       "title_key": "library.sounds.ambience_underwater_deep_abstract_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_abstract_01.subtitle",
       "description_key": "library.sounds.ambience_underwater_deep_abstract_01.description",
@@ -3846,7 +3846,7 @@
         "sleep_deep"
       ],
       "duration_sec": 173.5,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Сюрреалистична вода",
       "title_key": "library.sounds.ambience_underwater_deep_abstract_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_abstract_02.subtitle",
       "description_key": "library.sounds.ambience_underwater_deep_abstract_02.description",
@@ -3879,7 +3879,7 @@
         "sleep_deep"
       ],
       "duration_sec": 173.4,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Подводна абстракция",
       "title_key": "library.sounds.ambience_underwater_deep_abstract_03.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_abstract_03.subtitle",
       "description_key": "library.sounds.ambience_underwater_deep_abstract_03.description",
@@ -3912,7 +3912,7 @@
         "sleep_deep"
       ],
       "duration_sec": 173.7,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Тайнствено течение",
       "title_key": "library.sounds.ambience_underwater_deep_abstract_04.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_abstract_04.subtitle",
       "description_key": "library.sounds.ambience_underwater_deep_abstract_04.description",
@@ -3945,7 +3945,7 @@
         "relaxation"
       ],
       "duration_sec": 173.6,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Дълбоки мехурчета",
       "title_key": "library.sounds.ambience_underwater_deep_bubble_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_bubble_01.subtitle",
       "description_key": "library.sounds.ambience_underwater_deep_bubble_01.description",
@@ -3978,7 +3978,7 @@
         "relaxation"
       ],
       "duration_sec": 173.5,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Спокойни мехури",
       "title_key": "library.sounds.ambience_underwater_deep_bubble_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_bubble_02.subtitle",
       "description_key": "library.sounds.ambience_underwater_deep_bubble_02.description",
@@ -4011,7 +4011,7 @@
         "relaxation"
       ],
       "duration_sec": 173.5,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Активни подводни мехури",
       "title_key": "library.sounds.ambience_underwater_deep_bubble_active_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_bubble_active_01.subtitle",
       "description_key": "library.sounds.ambience_underwater_deep_bubble_active_01.description",
@@ -4044,7 +4044,7 @@
         "relaxation"
       ],
       "duration_sec": 173.5,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Танцуващи мехурчета",
       "title_key": "library.sounds.ambience_underwater_deep_bubble_active_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_bubble_active_02.subtitle",
       "description_key": "library.sounds.ambience_underwater_deep_bubble_active_02.description",
@@ -4077,7 +4077,7 @@
         "relaxation"
       ],
       "duration_sec": 142.4,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Мехурче по мехурче",
       "title_key": "library.sounds.ambience_underwater_deep_bubbles_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_bubbles_01.subtitle",
       "description_key": "library.sounds.ambience_underwater_deep_bubbles_01.description",
@@ -4110,7 +4110,7 @@
         "relaxation"
       ],
       "duration_sec": 121.5,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Поток от мехурчета",
       "title_key": "library.sounds.ambience_underwater_deep_bubbles_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_bubbles_02.subtitle",
       "description_key": "library.sounds.ambience_underwater_deep_bubbles_02.description",
@@ -4143,7 +4143,7 @@
         "relaxation"
       ],
       "duration_sec": 186.7,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Многобройни мехурчета",
       "title_key": "library.sounds.ambience_underwater_deep_bubbles_03.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_bubbles_03.subtitle",
       "description_key": "library.sounds.ambience_underwater_deep_bubbles_03.description",
@@ -4176,7 +4176,7 @@
         "meditation"
       ],
       "duration_sec": 173.6,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Ниски дълбини",
       "title_key": "library.sounds.ambience_underwater_deep_low.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_low.subtitle",
       "description_key": "library.sounds.ambience_underwater_deep_low.description",
@@ -4209,7 +4209,7 @@
         "daily"
       ],
       "duration_sec": 174.4,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Подводно моторче",
       "title_key": "library.sounds.ambience_underwater_deep_propeller.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_propeller.subtitle",
       "description_key": "library.sounds.ambience_underwater_deep_propeller.description",
@@ -4243,7 +4243,7 @@
         "anxiety"
       ],
       "duration_sec": 173.6,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Субмаринна тишина",
       "title_key": "library.sounds.ambience_underwater_deep_sub.title",
       "subtitle_key": "library.sounds.ambience_underwater_deep_sub.subtitle",
       "description_key": "library.sounds.ambience_underwater_deep_sub.description",
@@ -4277,7 +4277,7 @@
         "anxiety"
       ],
       "duration_sec": 174.5,
-      "bg_title": "Под вода",
+      "bg_title": "Невидим бас",
       "title_key": "library.sounds.ambience_underwater_designed_subsonic_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_designed_subsonic_01.subtitle",
       "description_key": "library.sounds.ambience_underwater_designed_subsonic_01.description",
@@ -4310,7 +4310,7 @@
         "meditation"
       ],
       "duration_sec": 80.2,
-      "bg_title": "Под вода",
+      "bg_title": "Аквариумен ритъм",
       "title_key": "library.sounds.ambience_underwater_designed_water_aquarium_bubbles_18.title",
       "subtitle_key": "library.sounds.ambience_underwater_designed_water_aquarium_bubbles_18.subtitle",
       "description_key": "library.sounds.ambience_underwater_designed_water_aquarium_bubbles_18.description",
@@ -4343,7 +4343,7 @@
         "meditation"
       ],
       "duration_sec": 56.1,
-      "bg_title": "Под вода",
+      "bg_title": "Аквариумно мехурче",
       "title_key": "library.sounds.ambience_underwater_designed_water_aquarium_bubbles_32.title",
       "subtitle_key": "library.sounds.ambience_underwater_designed_water_aquarium_bubbles_32.subtitle",
       "description_key": "library.sounds.ambience_underwater_designed_water_aquarium_bubbles_32.description",
@@ -4377,7 +4377,7 @@
         "anxiety"
       ],
       "duration_sec": 98.4,
-      "bg_title": "Далечен Тътен Под вода",
+      "bg_title": "Далечно подводно тътнене",
       "title_key": "library.sounds.ambience_underwater_distant_low_rumble_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_distant_low_rumble_01.subtitle",
       "description_key": "library.sounds.ambience_underwater_distant_low_rumble_01.description",
@@ -4411,7 +4411,7 @@
         "anxiety"
       ],
       "duration_sec": 92.4,
-      "bg_title": "Далечен Тътен Под вода",
+      "bg_title": "Дълбоко далечно ехо",
       "title_key": "library.sounds.ambience_underwater_distant_low_rumble_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_distant_low_rumble_02.subtitle",
       "description_key": "library.sounds.ambience_underwater_distant_low_rumble_02.description",
@@ -4444,7 +4444,7 @@
         "relaxation"
       ],
       "duration_sec": 138.4,
-      "bg_title": "Далечен Под вода",
+      "bg_title": "Резонансно ехо",
       "title_key": "library.sounds.ambience_underwater_distant_mid_resonance_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_distant_mid_resonance_01.subtitle",
       "description_key": "library.sounds.ambience_underwater_distant_mid_resonance_01.description",
@@ -4477,7 +4477,7 @@
         "relaxation"
       ],
       "duration_sec": 138.4,
-      "bg_title": "Далечен Под вода",
+      "bg_title": "Подводна тръпка",
       "title_key": "library.sounds.ambience_underwater_distant_thrill_water_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_distant_thrill_water_01.subtitle",
       "description_key": "library.sounds.ambience_underwater_distant_thrill_water_01.description",
@@ -4510,7 +4510,7 @@
         "relaxation"
       ],
       "duration_sec": 140.5,
-      "bg_title": "Далечен Под вода",
+      "bg_title": "Далечно водно вълнение",
       "title_key": "library.sounds.ambience_underwater_distant_thrill_water_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_distant_thrill_water_02.subtitle",
       "description_key": "library.sounds.ambience_underwater_distant_thrill_water_02.description",
@@ -4543,7 +4543,7 @@
         "daily"
       ],
       "duration_sec": 98.4,
-      "bg_title": "Под вода",
+      "bg_title": "Близка подводна машина",
       "title_key": "library.sounds.ambience_underwater_near_machine_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_near_machine_01.subtitle",
       "description_key": "library.sounds.ambience_underwater_near_machine_01.description",
@@ -4576,7 +4576,7 @@
         "daily"
       ],
       "duration_sec": 94.6,
-      "bg_title": "Под вода",
+      "bg_title": "Подводен механизъм",
       "title_key": "library.sounds.ambience_underwater_near_machine_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_near_machine_02.subtitle",
       "description_key": "library.sounds.ambience_underwater_near_machine_02.description",
@@ -4609,7 +4609,7 @@
         "meditation"
       ],
       "duration_sec": 150.0,
-      "bg_title": "Под вода",
+      "bg_title": "Малки мехурчета",
       "title_key": "library.sounds.ambience_underwater_small_bubbles_02.title",
       "subtitle_key": "library.sounds.ambience_underwater_small_bubbles_02.subtitle",
       "description_key": "library.sounds.ambience_underwater_small_bubbles_02.description",
@@ -4643,7 +4643,7 @@
         "anxiety"
       ],
       "duration_sec": 67.7,
-      "bg_title": "Под вода",
+      "bg_title": "Под подводницата",
       "title_key": "library.sounds.ambience_underwater_submarine_underwater.title",
       "subtitle_key": "library.sounds.ambience_underwater_submarine_underwater.subtitle",
       "description_key": "library.sounds.ambience_underwater_submarine_underwater.description",
@@ -4677,7 +4677,7 @@
         "meditation"
       ],
       "duration_sec": 99.9,
-      "bg_title": "Под вода",
+      "bg_title": "Под повърхността",
       "title_key": "library.sounds.ambience_underwater_tub_underwater_loop.title",
       "subtitle_key": "library.sounds.ambience_underwater_tub_underwater_loop.subtitle",
       "description_key": "library.sounds.ambience_underwater_tub_underwater_loop.description",
@@ -4710,7 +4710,7 @@
         "meditation"
       ],
       "duration_sec": 174.1,
-      "bg_title": "Под вода",
+      "bg_title": "Подводно течение",
       "title_key": "library.sounds.ambience_underwater_underwater_current.title",
       "subtitle_key": "library.sounds.ambience_underwater_underwater_current.subtitle",
       "description_key": "library.sounds.ambience_underwater_underwater_current.description",
@@ -4743,7 +4743,7 @@
         "daily"
       ],
       "duration_sec": 117.7,
-      "bg_title": "Под вода",
+      "bg_title": "Подводна вълна",
       "title_key": "library.sounds.ambience_underwater_underwater_designed_flush_01.title",
       "subtitle_key": "library.sounds.ambience_underwater_underwater_designed_flush_01.subtitle",
       "description_key": "library.sounds.ambience_underwater_underwater_designed_flush_01.description",
@@ -4776,7 +4776,7 @@
         "meditation"
       ],
       "duration_sec": 275.6,
-      "bg_title": "Под вода",
+      "bg_title": "Подводен поток",
       "title_key": "library.sounds.ambience_underwater_underwater_designed_running_03.title",
       "subtitle_key": "library.sounds.ambience_underwater_underwater_designed_running_03.subtitle",
       "description_key": "library.sounds.ambience_underwater_underwater_designed_running_03.description",
@@ -4809,7 +4809,7 @@
         "meditation"
       ],
       "duration_sec": 209.1,
-      "bg_title": "Под вода",
+      "bg_title": "Тиха подводна песен",
       "title_key": "library.sounds.ambience_underwater_underwater_designed_running_04.title",
       "subtitle_key": "library.sounds.ambience_underwater_underwater_designed_running_04.subtitle",
       "description_key": "library.sounds.ambience_underwater_underwater_designed_running_04.description",
@@ -4843,7 +4843,7 @@
         "anxiety"
       ],
       "duration_sec": 174.2,
-      "bg_title": "Под вода",
+      "bg_title": "Подводен дрон",
       "title_key": "library.sounds.ambience_underwater_underwater_drone_hum.title",
       "subtitle_key": "library.sounds.ambience_underwater_underwater_drone_hum.subtitle",
       "description_key": "library.sounds.ambience_underwater_underwater_drone_hum.description",
@@ -4876,7 +4876,7 @@
         "relaxation"
       ],
       "duration_sec": 173.4,
-      "bg_title": "Водопад",
+      "bg_title": "Подводен водопад",
       "title_key": "library.sounds.ambience_underwater_waterfall.title",
       "subtitle_key": "library.sounds.ambience_underwater_waterfall.subtitle",
       "description_key": "library.sounds.ambience_underwater_waterfall.description",
@@ -4910,7 +4910,7 @@
         "anxiety"
       ],
       "duration_sec": 163.5,
-      "bg_title": "Дълбок Под вода",
+      "bg_title": "Подсъзнателно течение",
       "title_key": "library.sounds.designed_drone_sub_deep_underwater.title",
       "subtitle_key": "library.sounds.designed_drone_sub_deep_underwater.subtitle",
       "description_key": "library.sounds.designed_drone_sub_deep_underwater.description",
@@ -4943,7 +4943,7 @@
         "meditation"
       ],
       "duration_sec": 54.3,
-      "bg_title": "Под вода",
+      "bg_title": "Воден масаж",
       "title_key": "library.sounds.water_bubbles_aqua_massage_bubbling_01.title",
       "subtitle_key": "library.sounds.water_bubbles_aqua_massage_bubbling_01.subtitle",
       "description_key": "library.sounds.water_bubbles_aqua_massage_bubbling_01.description",
@@ -4976,7 +4976,7 @@
         "meditation"
       ],
       "duration_sec": 174.3,
-      "bg_title": "Под вода",
+      "bg_title": "Котелът на вещицата",
       "title_key": "library.sounds.water_bubbles_bubbling_witchs_cauldron.title",
       "subtitle_key": "library.sounds.water_bubbles_bubbling_witchs_cauldron.subtitle",
       "description_key": "library.sounds.water_bubbles_bubbling_witchs_cauldron.description",
@@ -5010,7 +5010,7 @@
         "anxiety"
       ],
       "duration_sec": 184.2,
-      "bg_title": "Водопад",
+      "bg_title": "Великият водопад",
       "title_key": "library.sounds.water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_40.title",
       "subtitle_key": "library.sounds.water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_40.subtitle",
       "description_key": "library.sounds.water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_40.description",
@@ -5043,7 +5043,7 @@
         "falling_asleep"
       ],
       "duration_sec": 79.1,
-      "bg_title": "Водопад",
+      "bg_title": "Постоянен водопад",
       "title_key": "library.sounds.water_waterfall_steady_perspective.title",
       "subtitle_key": "library.sounds.water_waterfall_steady_perspective.subtitle",
       "description_key": "library.sounds.water_waterfall_steady_perspective.description",
@@ -5076,7 +5076,7 @@
         "relaxation"
       ],
       "duration_sec": 195.9,
-      "bg_title": "Водопад",
+      "bg_title": "Мощен водопад",
       "title_key": "library.sounds.water_waterfall_waterfall_powerful.title",
       "subtitle_key": "library.sounds.water_waterfall_waterfall_powerful.subtitle",
       "description_key": "library.sounds.water_waterfall_waterfall_powerful.description",
@@ -5110,7 +5110,7 @@
         "relaxation"
       ],
       "duration_sec": 204.3,
-      "bg_title": "Лек Зимен Вятър",
+      "bg_title": "Зимна осло-vska тишина",
       "title_key": "library.sounds.ambience_forest_winter_calm_light_wind_oslo_ostmarka_01.title",
       "subtitle_key": "library.sounds.ambience_forest_winter_calm_light_wind_oslo_ostmarka_01.subtitle",
       "description_key": "library.sounds.ambience_forest_winter_calm_light_wind_oslo_ostmarka_01.description",
@@ -5143,7 +5143,7 @@
         "relaxation"
       ],
       "duration_sec": 226.7,
-      "bg_title": "Далечен Зимен Вятър",
+      "bg_title": "Самотна птица в зимата",
       "title_key": "library.sounds.ambience_forest_winter_calm_light_wind_single_bird_distant_oslo_ostmarka_01.title",
       "subtitle_key": "library.sounds.ambience_forest_winter_calm_light_wind_single_bird_distant_oslo_ostmarka_01.subtitle",
       "description_key": "library.sounds.ambience_forest_winter_calm_light_wind_single_bird_distant_oslo_ostmarka_01.description",
@@ -5173,7 +5173,7 @@
       "category_audio": "wind",
       "categories_use": [],
       "duration_sec": 284.4,
-      "bg_title": "Далечен Вятър",
+      "bg_title": "Осло на разсъмване",
       "title_key": "library.sounds.ambience_urban_oslo_urban_city_hall_strong_winds_rattling_no_people_distant_trams_traffic.title",
       "subtitle_key": "library.sounds.ambience_urban_oslo_urban_city_hall_strong_winds_rattling_no_people_distant_trams_traffic.subtitle",
       "description_key": "library.sounds.ambience_urban_oslo_urban_city_hall_strong_winds_rattling_no_people_distant_trams_traffic.description",
@@ -5197,7 +5197,7 @@
         "daily"
       ],
       "duration_sec": 289.8,
-      "bg_title": "Далечен Вятър",
+      "bg_title": "Изоставена фабрика",
       "title_key": "library.sounds.wind_general_abandoned_factory_chimney_wind_gusts_light_whistling_mic_upwards_distant_traffic_hum_humberstone_chile.title",
       "subtitle_key": "library.sounds.wind_general_abandoned_factory_chimney_wind_gusts_light_whistling_mic_upwards_distant_traffic_hum_humberstone_chile.subtitle",
       "description_key": "library.sounds.wind_general_abandoned_factory_chimney_wind_gusts_light_whistling_mic_upwards_distant_traffic_hum_humberstone_chile.description",
@@ -5230,7 +5230,7 @@
         "daily"
       ],
       "duration_sec": 276.0,
-      "bg_title": "Лек Вятър",
+      "bg_title": "Пустинни храсти",
       "title_key": "library.sounds.wind_general_desert_bushes_twigs_wind_gusts_light_electric_whistling.title",
       "subtitle_key": "library.sounds.wind_general_desert_bushes_twigs_wind_gusts_light_electric_whistling.subtitle",
       "description_key": "library.sounds.wind_general_desert_bushes_twigs_wind_gusts_light_electric_whistling.description",
@@ -5263,7 +5263,7 @@
         "daily"
       ],
       "duration_sec": 292.1,
-      "bg_title": "Вятър",
+      "bg_title": "Близки храсти в бриз",
       "title_key": "library.sounds.wind_general_desert_close_to_bushes_wind_gusts_twig_branch_close.title",
       "subtitle_key": "library.sounds.wind_general_desert_close_to_bushes_wind_gusts_twig_branch_close.subtitle",
       "description_key": "library.sounds.wind_general_desert_close_to_bushes_wind_gusts_twig_branch_close.description",
@@ -5296,7 +5296,7 @@
         "daily"
       ],
       "duration_sec": 282.1,
-      "bg_title": "Лек Вятър",
+      "bg_title": "Багдад на хоризонта",
       "title_key": "library.sounds.wind_general_desert_light_whistling_bagdad_highway_wind_gusts_light_wind_bushes.title",
       "subtitle_key": "library.sounds.wind_general_desert_light_whistling_bagdad_highway_wind_gusts_light_wind_bushes.subtitle",
       "description_key": "library.sounds.wind_general_desert_light_whistling_bagdad_highway_wind_gusts_light_wind_bushes.description",
@@ -5329,7 +5329,7 @@
         "falling_asleep"
       ],
       "duration_sec": 283.7,
-      "bg_title": "Вятър",
+      "bg_title": "Тъмната пампа",
       "title_key": "library.sounds.wind_general_desert_pampa_perdiz_wind_gusts_dark_02.title",
       "subtitle_key": "library.sounds.wind_general_desert_pampa_perdiz_wind_gusts_dark_02.subtitle",
       "description_key": "library.sounds.wind_general_desert_pampa_perdiz_wind_gusts_dark_02.description",
@@ -5362,7 +5362,7 @@
         "falling_asleep"
       ],
       "duration_sec": 285.1,
-      "bg_title": "Вятър",
+      "bg_title": "Патагонски бриз",
       "title_key": "library.sounds.wind_general_desert_pampa_perdiz_wind_gusts_dark_03.title",
       "subtitle_key": "library.sounds.wind_general_desert_pampa_perdiz_wind_gusts_dark_03.subtitle",
       "description_key": "library.sounds.wind_general_desert_pampa_perdiz_wind_gusts_dark_03.description",
@@ -5395,7 +5395,7 @@
         "daily"
       ],
       "duration_sec": 292.8,
-      "bg_title": "Вятър",
+      "bg_title": "Високите скали на Чили",
       "title_key": "library.sounds.wind_general_high_cliff_alto_patache_chile_01.title",
       "subtitle_key": "library.sounds.wind_general_high_cliff_alto_patache_chile_01.subtitle",
       "description_key": "library.sounds.wind_general_high_cliff_alto_patache_chile_01.description",
@@ -5428,7 +5428,7 @@
         "relaxation"
       ],
       "duration_sec": 48.0,
-      "bg_title": "Лек Вятър",
+      "bg_title": "Желязна скулптура",
       "title_key": "library.sounds.wind_general_iron_wire_sculpture_light_metallic_creaking_noise_wind_gusts_light_whistling_alto_patache_chile.title",
       "subtitle_key": "library.sounds.wind_general_iron_wire_sculpture_light_metallic_creaking_noise_wind_gusts_light_whistling_alto_patache_chile.subtitle",
       "description_key": "library.sounds.wind_general_iron_wire_sculpture_light_metallic_creaking_noise_wind_gusts_light_whistling_alto_patache_chile.description",
@@ -5461,7 +5461,7 @@
         "falling_asleep"
       ],
       "duration_sec": 345.1,
-      "bg_title": "Вятър",
+      "bg_title": "Голямо дърво в листака",
       "title_key": "library.sounds.wind_general_large_tree_foliage_01.title",
       "subtitle_key": "library.sounds.wind_general_large_tree_foliage_01.subtitle",
       "description_key": "library.sounds.wind_general_large_tree_foliage_01.description",
@@ -5494,7 +5494,7 @@
         "daily"
       ],
       "duration_sec": 285.5,
-      "bg_title": "Лек Вятър",
+      "bg_title": "Тихо свирене в пустинята",
       "title_key": "library.sounds.wind_general_light_whistling_gusts_alto_patache_chile.title",
       "subtitle_key": "library.sounds.wind_general_light_whistling_gusts_alto_patache_chile.subtitle",
       "description_key": "library.sounds.wind_general_light_whistling_gusts_alto_patache_chile.description",
@@ -5527,7 +5527,7 @@
         "daily"
       ],
       "duration_sec": 289.2,
-      "bg_title": "Лек Вятър",
+      "bg_title": "Метеорологична станция",
       "title_key": "library.sounds.wind_general_light_wind_iron_wire_weather_station_barbed_wire_low_whistling_wind_gusts_alto_patache_chile.title",
       "subtitle_key": "library.sounds.wind_general_light_wind_iron_wire_weather_station_barbed_wire_low_whistling_wind_gusts_alto_patache_chile.subtitle",
       "description_key": "library.sounds.wind_general_light_wind_iron_wire_weather_station_barbed_wire_low_whistling_wind_gusts_alto_patache_chile.description",
@@ -5560,7 +5560,7 @@
         "relaxation"
       ],
       "duration_sec": 269.1,
-      "bg_title": "Вятър",
+      "bg_title": "Телескопът в Атакама",
       "title_key": "library.sounds.wind_general_plastic_telescope_gusts_salar_atacama.title",
       "subtitle_key": "library.sounds.wind_general_plastic_telescope_gusts_salar_atacama.subtitle",
       "description_key": "library.sounds.wind_general_plastic_telescope_gusts_salar_atacama.description",
@@ -5593,7 +5593,7 @@
         "daily"
       ],
       "duration_sec": 292.0,
-      "bg_title": "Вятър",
+      "bg_title": "Ръждива антена",
       "title_key": "library.sounds.wind_general_rusty_antenna_howling_alto_patache_chile.title",
       "subtitle_key": "library.sounds.wind_general_rusty_antenna_howling_alto_patache_chile.subtitle",
       "description_key": "library.sounds.wind_general_rusty_antenna_howling_alto_patache_chile.description",
@@ -5626,7 +5626,7 @@
         "falling_asleep"
       ],
       "duration_sec": 140.7,
-      "bg_title": "Лек Вятър",
+      "bg_title": "Студен постоянен вятър",
       "title_key": "library.sounds.wind_general_steady_wind_light_movement_cold.title",
       "subtitle_key": "library.sounds.wind_general_steady_wind_light_movement_cold.subtitle",
       "description_key": "library.sounds.wind_general_steady_wind_light_movement_cold.description",
@@ -5659,7 +5659,7 @@
         "falling_asleep"
       ],
       "duration_sec": 163.1,
-      "bg_title": "Вятър",
+      "bg_title": "Дива студенина",
       "title_key": "library.sounds.wind_general_wilderness_medium_movement_cold_01.title",
       "subtitle_key": "library.sounds.wind_general_wilderness_medium_movement_cold_01.subtitle",
       "description_key": "library.sounds.wind_general_wilderness_medium_movement_cold_01.description",
@@ -5692,7 +5692,7 @@
         "relaxation"
       ],
       "duration_sec": 149.4,
-      "bg_title": "Планински Вятър",
+      "bg_title": "Планински повеи",
       "title_key": "library.sounds.wind_gust_cold_mountain_wind_gusts_varied_intensity_01.title",
       "subtitle_key": "library.sounds.wind_gust_cold_mountain_wind_gusts_varied_intensity_01.subtitle",
       "description_key": "library.sounds.wind_gust_cold_mountain_wind_gusts_varied_intensity_01.description",
@@ -5725,7 +5725,7 @@
         "falling_asleep"
       ],
       "duration_sec": 293.3,
-      "bg_title": "Далечен Вятър",
+      "bg_title": "Далечната долина",
       "title_key": "library.sounds.wind_gust_distant_bush_light_whistling_valley.title",
       "subtitle_key": "library.sounds.wind_gust_distant_bush_light_whistling_valley.subtitle",
       "description_key": "library.sounds.wind_gust_distant_bush_light_whistling_valley.description",
@@ -5758,7 +5758,7 @@
         "daily"
       ],
       "duration_sec": 290.3,
-      "bg_title": "Вятър",
+      "bg_title": "Солена пустиня",
       "title_key": "library.sounds.wind_gust_salt_desert_salar_atacama_chile.title",
       "subtitle_key": "library.sounds.wind_gust_salt_desert_salar_atacama_chile.subtitle",
       "description_key": "library.sounds.wind_gust_salt_desert_salar_atacama_chile.description",
@@ -5791,7 +5791,7 @@
         "daily"
       ],
       "duration_sec": 290.0,
-      "bg_title": "Вятър",
+      "bg_title": "Свирещата градина",
       "title_key": "library.sounds.wind_gust_whistling_garden_alto_patache_chile.title",
       "subtitle_key": "library.sounds.wind_gust_whistling_garden_alto_patache_chile.subtitle",
       "description_key": "library.sounds.wind_gust_whistling_garden_alto_patache_chile.description",
@@ -5823,7 +5823,7 @@
         "daily"
       ],
       "duration_sec": 282.6,
-      "bg_title": "Лек Вятър",
+      "bg_title": "Светлинен стълб в пустинята",
       "title_key": "library.sounds.wind_tonal_light_pole_whistling_wind_gusts_desert_alto_patache.title",
       "subtitle_key": "library.sounds.wind_tonal_light_pole_whistling_wind_gusts_desert_alto_patache.subtitle",
       "description_key": "library.sounds.wind_tonal_light_pole_whistling_wind_gusts_desert_alto_patache.description",
@@ -5855,7 +5855,7 @@
         "daily"
       ],
       "duration_sec": 295.4,
-      "bg_title": "Вятър",
+      "bg_title": "Огнената земя",
       "title_key": "library.sounds.wind_tonal_wind_howling_barbed_wire_fence_tierra_del_fuego_argentina_01.title",
       "subtitle_key": "library.sounds.wind_tonal_wind_howling_barbed_wire_fence_tierra_del_fuego_argentina_01.subtitle",
       "description_key": "library.sounds.wind_tonal_wind_howling_barbed_wire_fence_tierra_del_fuego_argentina_01.description",
@@ -5887,7 +5887,7 @@
         "daily"
       ],
       "duration_sec": 291.2,
-      "bg_title": "Далечен Вятър",
+      "bg_title": "Мъглата на Алто Патаче",
       "title_key": "library.sounds.wind_tonal_wind_whistling_distant_fog_collector_alto_patache.title",
       "subtitle_key": "library.sounds.wind_tonal_wind_whistling_distant_fog_collector_alto_patache.subtitle",
       "description_key": "library.sounds.wind_tonal_wind_whistling_distant_fog_collector_alto_patache.description",
@@ -5919,7 +5919,7 @@
         "daily"
       ],
       "duration_sec": 292.9,
-      "bg_title": "Далечен Вятър",
+      "bg_title": "Желязна ограда в нощта",
       "title_key": "library.sounds.wind_tonal_wind_whistling_iron_fence_movement_wind_gusts_distant_city_hum_desert_outskirts_twentynine_palms.title",
       "subtitle_key": "library.sounds.wind_tonal_wind_whistling_iron_fence_movement_wind_gusts_distant_city_hum_desert_outskirts_twentynine_palms.subtitle",
       "description_key": "library.sounds.wind_tonal_wind_whistling_iron_fence_movement_wind_gusts_distant_city_hum_desert_outskirts_twentynine_palms.description",
@@ -5952,7 +5952,7 @@
         "relaxation"
       ],
       "duration_sec": 287.2,
-      "bg_title": "Далечен Вятър",
+      "bg_title": "Тревичка в пустинния вятър",
       "title_key": "library.sounds.wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_01.title",
       "subtitle_key": "library.sounds.wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_01.subtitle",
       "description_key": "library.sounds.wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_01.description",
@@ -5985,7 +5985,7 @@
         "relaxation"
       ],
       "duration_sec": 129.2,
-      "bg_title": "Далечен Вятър",
+      "bg_title": "Свободна пустинна трева",
       "title_key": "library.sounds.wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_02.title",
       "subtitle_key": "library.sounds.wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_02.subtitle",
       "description_key": "library.sounds.wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_02.description",
@@ -6018,7 +6018,7 @@
         "relaxation"
       ],
       "duration_sec": 129.2,
-      "bg_title": "Далечен Вятър",
+      "bg_title": "Пустиня с далечно ехо",
       "title_key": "library.sounds.wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_03.title",
       "subtitle_key": "library.sounds.wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_03.subtitle",
       "description_key": "library.sounds.wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_03.description",
@@ -6051,7 +6051,7 @@
         "relaxation"
       ],
       "duration_sec": 326.7,
-      "bg_title": "Далечен Птици Вятър",
+      "bg_title": "Бреза и бор в нежен вятър",
       "title_key": "library.sounds.wind_vegetation_mixed_forest_mountainside_gentle_wind_through_birches_pines_firs_spruces_distant_birds_40.title",
       "subtitle_key": "library.sounds.wind_vegetation_mixed_forest_mountainside_gentle_wind_through_birches_pines_firs_spruces_distant_birds_40.subtitle",
       "description_key": "library.sounds.wind_vegetation_mixed_forest_mountainside_gentle_wind_through_birches_pines_firs_spruces_distant_birds_40.description",
@@ -6084,7 +6084,7 @@
         "relaxation"
       ],
       "duration_sec": 276.7,
-      "bg_title": "Силен Вятър",
+      "bg_title": "Скърцащи борове",
       "title_key": "library.sounds.wind_vegetation_mixed_forest_mountainside_strong_wind_gusts_through_firs_birches_poplars_creaking_tree_40.title",
       "subtitle_key": "library.sounds.wind_vegetation_mixed_forest_mountainside_strong_wind_gusts_through_firs_birches_poplars_creaking_tree_40.subtitle",
       "description_key": "library.sounds.wind_vegetation_mixed_forest_mountainside_strong_wind_gusts_through_firs_birches_poplars_creaking_tree_40.description",
@@ -6118,7 +6118,7 @@
         "relaxation"
       ],
       "duration_sec": 279.9,
-      "bg_title": "Листа Вятър",
+      "bg_title": "Птичи преход през гората",
       "title_key": "library.sounds.wind_vegetation_mixed_forest_wind_through_pines_birches_poplars_creaking_tree_trunk_leaves_rustling_bird_flyby_40.title",
       "subtitle_key": "library.sounds.wind_vegetation_mixed_forest_wind_through_pines_birches_poplars_creaking_tree_trunk_leaves_rustling_bird_flyby_40.subtitle",
       "description_key": "library.sounds.wind_vegetation_mixed_forest_wind_through_pines_birches_poplars_creaking_tree_trunk_leaves_rustling_bird_flyby_40.description",
@@ -6150,7 +6150,7 @@
         "daily"
       ],
       "duration_sec": 173.9,
-      "bg_title": "Птици Гора",
+      "bg_title": "Песни на горските птици",
       "title_key": "library.sounds.ambience_forest_wetlands_forest_birds_birdsong.title",
       "subtitle_key": "library.sounds.ambience_forest_wetlands_forest_birds_birdsong.subtitle",
       "description_key": "library.sounds.ambience_forest_wetlands_forest_birds_birdsong.description",
@@ -6183,7 +6183,7 @@
         "relaxation"
       ],
       "duration_sec": 174.2,
-      "bg_title": "Далечен Гора",
+      "bg_title": "Сняг и далечни капки",
       "title_key": "library.sounds.ambience_forest_wetlands_snowing_droplets_distant.title",
       "subtitle_key": "library.sounds.ambience_forest_wetlands_snowing_droplets_distant.subtitle",
       "description_key": "library.sounds.ambience_forest_wetlands_snowing_droplets_distant.description",
@@ -6216,7 +6216,7 @@
         "relaxation"
       ],
       "duration_sec": 174.0,
-      "bg_title": "Птици Гора",
+      "bg_title": "Зимна гора",
       "title_key": "library.sounds.ambience_forest_wetlands_winter_wildlife_birds.title",
       "subtitle_key": "library.sounds.ambience_forest_wetlands_winter_wildlife_birds.subtitle",
       "description_key": "library.sounds.ambience_forest_wetlands_winter_wildlife_birds.description",
@@ -6248,7 +6248,7 @@
         "daily"
       ],
       "duration_sec": 174.2,
-      "bg_title": "Далечен Птици Гора",
+      "bg_title": "Далечни птици край водата",
       "title_key": "library.sounds.ambience_nautical_wetlands_distant_factory_birds_01.title",
       "subtitle_key": "library.sounds.ambience_nautical_wetlands_distant_factory_birds_01.subtitle",
       "description_key": "library.sounds.ambience_nautical_wetlands_distant_factory_birds_01.description",
@@ -6281,7 +6281,7 @@
         "falling_asleep"
       ],
       "duration_sec": 64.5,
-      "bg_title": "Камина",
+      "bg_title": "Огнището у дома",
       "title_key": "library.sounds.fire_burning_fireplace_glass_front_wood_burning_medium.title",
       "subtitle_key": "library.sounds.fire_burning_fireplace_glass_front_wood_burning_medium.subtitle",
       "description_key": "library.sounds.fire_burning_fireplace_glass_front_wood_burning_medium.description",
@@ -6315,7 +6315,7 @@
         "relaxation"
       ],
       "duration_sec": 361.3,
-      "bg_title": "Медитация",
+      "bg_title": "Шест минути блаженство",
       "title_key": "library.sounds.369_seconds_of_bliss_369.title",
       "subtitle_key": "library.sounds.369_seconds_of_bliss_369.subtitle",
       "description_key": "library.sounds.369_seconds_of_bliss_369.description",
@@ -6350,7 +6350,7 @@
         "meditation"
       ],
       "duration_sec": 229.6,
-      "bg_title": "Медитация",
+      "bg_title": "Осем часа вечерта",
       "title_key": "library.sounds.8_pm_anna_landstrom.title",
       "subtitle_key": "library.sounds.8_pm_anna_landstrom.subtitle",
       "description_key": "library.sounds.8_pm_anna_landstrom.description",
@@ -6385,7 +6385,7 @@
         "daily"
       ],
       "duration_sec": 177.1,
-      "bg_title": "Спокоен Утринен Медитация",
+      "bg_title": "Спокойна сутрин",
       "title_key": "library.sounds.a_calm_early_morning_rikard_from.title",
       "subtitle_key": "library.sounds.a_calm_early_morning_rikard_from.subtitle",
       "description_key": "library.sounds.a_calm_early_morning_rikard_from.description",
@@ -6419,7 +6419,7 @@
         "relaxation"
       ],
       "duration_sec": 399.7,
-      "bg_title": "Медитация",
+      "bg_title": "Ангелска мелодия",
       "title_key": "library.sounds.angelica_instrumental_version_david_edward.title",
       "subtitle_key": "library.sounds.angelica_instrumental_version_david_edward.subtitle",
       "description_key": "library.sounds.angelica_instrumental_version_david_edward.description",
@@ -6454,7 +6454,7 @@
         "falling_asleep"
       ],
       "duration_sec": 146.6,
-      "bg_title": "Медитация",
+      "bg_title": "Архипелаг на спокойствието",
       "title_key": "library.sounds.archipelago_of_relaxation_mandala_dreams.title",
       "subtitle_key": "library.sounds.archipelago_of_relaxation_mandala_dreams.subtitle",
       "description_key": "library.sounds.archipelago_of_relaxation_mandala_dreams.description",
@@ -6488,7 +6488,7 @@
         "relaxation"
       ],
       "duration_sec": 155.5,
-      "bg_title": "Медитация",
+      "bg_title": "Носен от течението",
       "title_key": "library.sounds.carried_by_current_valante.title",
       "subtitle_key": "library.sounds.carried_by_current_valante.subtitle",
       "description_key": "library.sounds.carried_by_current_valante.description",
@@ -6521,7 +6521,7 @@
         "meditation"
       ],
       "duration_sec": 516.9,
-      "bg_title": "Медитация",
+      "bg_title": "Небесни сфери",
       "title_key": "library.sounds.celestial_spheres_ave_air.title",
       "subtitle_key": "library.sounds.celestial_spheres_ave_air.subtitle",
       "description_key": "library.sounds.celestial_spheres_ave_air.description",
@@ -6556,7 +6556,7 @@
         "meditation"
       ],
       "duration_sec": 226.7,
-      "bg_title": "Медитация",
+      "bg_title": "Градският парк",
       "title_key": "library.sounds.city_park_ave_air.title",
       "subtitle_key": "library.sounds.city_park_ave_air.subtitle",
       "description_key": "library.sounds.city_park_ave_air.description",
@@ -6589,7 +6589,7 @@
         "meditation"
       ],
       "duration_sec": 176.2,
-      "bg_title": "Медитация",
+      "bg_title": "Коронован с дух",
       "title_key": "library.sounds.crowned_with_spirit_valante.title",
       "subtitle_key": "library.sounds.crowned_with_spirit_valante.subtitle",
       "description_key": "library.sounds.crowned_with_spirit_valante.description",
@@ -6623,7 +6623,7 @@
         "relaxation"
       ],
       "duration_sec": 440.2,
-      "bg_title": "Медитация",
+      "bg_title": "Кристална мъгла",
       "title_key": "library.sounds.crystal_haze_shuta_yasukochi.title",
       "subtitle_key": "library.sounds.crystal_haze_shuta_yasukochi.subtitle",
       "description_key": "library.sounds.crystal_haze_shuta_yasukochi.description",
@@ -6656,7 +6656,7 @@
         "meditation"
       ],
       "duration_sec": 418.0,
-      "bg_title": "Медитация",
+      "bg_title": "Дхарапани",
       "title_key": "library.sounds.dharapani_dex_1200.title",
       "subtitle_key": "library.sounds.dharapani_dex_1200.subtitle",
       "description_key": "library.sounds.dharapani_dex_1200.description",
@@ -6690,7 +6690,7 @@
         "relaxation"
       ],
       "duration_sec": 104.7,
-      "bg_title": "Медитация",
+      "bg_title": "Здрачен мираж",
       "title_key": "library.sounds.dusky_mirage_true_messenger.title",
       "subtitle_key": "library.sounds.dusky_mirage_true_messenger.subtitle",
       "description_key": "library.sounds.dusky_mirage_true_messenger.description",
@@ -6725,7 +6725,7 @@
         "falling_asleep"
       ],
       "duration_sec": 251.7,
-      "bg_title": "Медитация",
+      "bg_title": "Краят на дъжда",
       "title_key": "library.sounds.end_of_rain_beyza.title",
       "subtitle_key": "library.sounds.end_of_rain_beyza.subtitle",
       "description_key": "library.sounds.end_of_rain_beyza.description",
@@ -6760,7 +6760,7 @@
         "falling_asleep"
       ],
       "duration_sec": 186.3,
-      "bg_title": "Медитация",
+      "bg_title": "Просветлен дрейф",
       "title_key": "library.sounds.enlightened_drift_amber_glow.title",
       "subtitle_key": "library.sounds.enlightened_drift_amber_glow.subtitle",
       "description_key": "library.sounds.enlightened_drift_amber_glow.description",
@@ -6793,7 +6793,7 @@
         "meditation"
       ],
       "duration_sec": 296.9,
-      "bg_title": "Медитация",
+      "bg_title": "Епичен мираж",
       "title_key": "library.sounds.epic_mirage_hanna_lindgren.title",
       "subtitle_key": "library.sounds.epic_mirage_hanna_lindgren.subtitle",
       "description_key": "library.sounds.epic_mirage_hanna_lindgren.description",
@@ -6827,7 +6827,7 @@
         "meditation"
       ],
       "duration_sec": 309.1,
-      "bg_title": "Медитация",
+      "bg_title": "Полето на конете",
       "title_key": "library.sounds.field_of_horses_joseph_beg.title",
       "subtitle_key": "library.sounds.field_of_horses_joseph_beg.subtitle",
       "description_key": "library.sounds.field_of_horses_joseph_beg.description",
@@ -6862,7 +6862,7 @@
         "relaxation"
       ],
       "duration_sec": 195.2,
-      "bg_title": "Медитация",
+      "bg_title": "Падащи сакура венчелистчета",
       "title_key": "library.sounds.floating_sakura_petals_sayuri_hayashi_egnell.title",
       "subtitle_key": "library.sounds.floating_sakura_petals_sayuri_hayashi_egnell.subtitle",
       "description_key": "library.sounds.floating_sakura_petals_sayuri_hayashi_egnell.description",
@@ -6896,7 +6896,7 @@
         "meditation"
       ],
       "duration_sec": 270.0,
-      "bg_title": "Медитация",
+      "bg_title": "Горски бриз",
       "title_key": "library.sounds.forest_breeze_ave_air.title",
       "subtitle_key": "library.sounds.forest_breeze_ave_air.subtitle",
       "description_key": "library.sounds.forest_breeze_ave_air.description",
@@ -6930,7 +6930,7 @@
         "relaxation"
       ],
       "duration_sec": 204.3,
-      "bg_title": "Медитация",
+      "bg_title": "Злато и зелено",
       "title_key": "library.sounds.gold_and_green_anna_landstrom.title",
       "subtitle_key": "library.sounds.gold_and_green_anna_landstrom.subtitle",
       "description_key": "library.sounds.gold_and_green_anna_landstrom.description",
@@ -6965,7 +6965,7 @@
         "relaxation"
       ],
       "duration_sec": 182.6,
-      "bg_title": "Медитация",
+      "bg_title": "Заземяване",
       "title_key": "library.sounds.grounded_hanna_lindgren.title",
       "subtitle_key": "library.sounds.grounded_hanna_lindgren.subtitle",
       "description_key": "library.sounds.grounded_hanna_lindgren.description",
@@ -6999,7 +6999,7 @@
         "relaxation"
       ],
       "duration_sec": 225.8,
-      "bg_title": "Медитация",
+      "bg_title": "Лечебни приливи",
       "title_key": "library.sounds.healing_tides_amber_glow.title",
       "subtitle_key": "library.sounds.healing_tides_amber_glow.subtitle",
       "description_key": "library.sounds.healing_tides_amber_glow.description",
@@ -7034,7 +7034,7 @@
         "relaxation"
       ],
       "duration_sec": 179.2,
-      "bg_title": "Медитация",
+      "bg_title": "Тих сън, любими",
       "title_key": "library.sounds.hush_my_darling_yi_nantiro.title",
       "subtitle_key": "library.sounds.hush_my_darling_yi_nantiro.subtitle",
       "description_key": "library.sounds.hush_my_darling_yi_nantiro.description",
@@ -7069,7 +7069,7 @@
         "relaxation"
       ],
       "duration_sec": 173.1,
-      "bg_title": "Медитация",
+      "bg_title": "Вътрешен баланс",
       "title_key": "library.sounds.inner_balance_elm_lake.title",
       "subtitle_key": "library.sounds.inner_balance_elm_lake.subtitle",
       "description_key": "library.sounds.inner_balance_elm_lake.description",
@@ -7102,7 +7102,7 @@
         "meditation"
       ],
       "duration_sec": 211.3,
-      "bg_title": "Медитация",
+      "bg_title": "Сърцето",
       "title_key": "library.sounds.kokoro_valante.title",
       "subtitle_key": "library.sounds.kokoro_valante.subtitle",
       "description_key": "library.sounds.kokoro_valante.description",
@@ -7136,7 +7136,7 @@
         "relaxation"
       ],
       "duration_sec": 451.9,
-      "bg_title": "Медитация",
+      "bg_title": "Светлина през листата",
       "title_key": "library.sounds.komorebi_shuta_yasukochi.title",
       "subtitle_key": "library.sounds.komorebi_shuta_yasukochi.subtitle",
       "description_key": "library.sounds.komorebi_shuta_yasukochi.description",
@@ -7171,7 +7171,7 @@
         "relaxation"
       ],
       "duration_sec": 181.2,
-      "bg_title": "Медитация",
+      "bg_title": "Приспивна за Килиан",
       "title_key": "library.sounds.lullaby_for_kilian_magnus_ludvigsson.title",
       "subtitle_key": "library.sounds.lullaby_for_kilian_magnus_ludvigsson.subtitle",
       "description_key": "library.sounds.lullaby_for_kilian_magnus_ludvigsson.description",
@@ -7205,7 +7205,7 @@
         "relaxation"
       ],
       "duration_sec": 919.3,
-      "bg_title": "Медитация",
+      "bg_title": "Водна медитация",
       "title_key": "library.sounds.meditation_aquatic_369.title",
       "subtitle_key": "library.sounds.meditation_aquatic_369.subtitle",
       "description_key": "library.sounds.meditation_aquatic_369.description",
@@ -7238,7 +7238,7 @@
         "meditation"
       ],
       "duration_sec": 170.3,
-      "bg_title": "Медитация",
+      "bg_title": "Поток на мисълта",
       "title_key": "library.sounds.mindstream_amber_glow.title",
       "subtitle_key": "library.sounds.mindstream_amber_glow.subtitle",
       "description_key": "library.sounds.mindstream_amber_glow.description",
@@ -7271,7 +7271,7 @@
         "meditation"
       ],
       "duration_sec": 205.2,
-      "bg_title": "Медитация",
+      "bg_title": "Огледалото на сърцето",
       "title_key": "library.sounds.mirror_of_the_heart_bladverk_band.title",
       "subtitle_key": "library.sounds.mirror_of_the_heart_bladverk_band.subtitle",
       "description_key": "library.sounds.mirror_of_the_heart_bladverk_band.description",
@@ -7305,7 +7305,7 @@
         "relaxation"
       ],
       "duration_sec": 166.3,
-      "bg_title": "Медитация",
+      "bg_title": "Шепнене на стадото",
       "title_key": "library.sounds.murmurations_hanna_lindgren.title",
       "subtitle_key": "library.sounds.murmurations_hanna_lindgren.subtitle",
       "description_key": "library.sounds.murmurations_hanna_lindgren.description",
@@ -7338,7 +7338,7 @@
         "meditation"
       ],
       "duration_sec": 157.0,
-      "bg_title": "Медитация",
+      "bg_title": "Моят приятел магьосникът",
       "title_key": "library.sounds.my_friend_the_warlock_bitwraith.title",
       "subtitle_key": "library.sounds.my_friend_the_warlock_bitwraith.subtitle",
       "description_key": "library.sounds.my_friend_the_warlock_bitwraith.description",
@@ -7371,7 +7371,7 @@
         "meditation"
       ],
       "duration_sec": 350.4,
-      "bg_title": "Медитация",
+      "bg_title": "Намуцуо",
       "title_key": "library.sounds.namucuo_by_lotus.title",
       "subtitle_key": "library.sounds.namucuo_by_lotus.subtitle",
       "description_key": "library.sounds.namucuo_by_lotus.description",
@@ -7405,7 +7405,7 @@
         "relaxation"
       ],
       "duration_sec": 156.5,
-      "bg_title": "Медитация",
+      "bg_title": "На едно коляно",
       "title_key": "library.sounds.on_a_knee_the_golden_peas.title",
       "subtitle_key": "library.sounds.on_a_knee_the_golden_peas.subtitle",
       "description_key": "library.sounds.on_a_knee_the_golden_peas.description",
@@ -7439,7 +7439,7 @@
         "relaxation"
       ],
       "duration_sec": 172.1,
-      "bg_title": "Медитация",
+      "bg_title": "Перленомайчин блясък",
       "title_key": "library.sounds.parlemor_bomull.title",
       "subtitle_key": "library.sounds.parlemor_bomull.subtitle",
       "description_key": "library.sounds.parlemor_bomull.description",
@@ -7472,7 +7472,7 @@
         "meditation"
       ],
       "duration_sec": 174.5,
-      "bg_title": "Медитация",
+      "bg_title": "Стълбове на устойчивостта",
       "title_key": "library.sounds.pillars_of_resilience_cora_zea.title",
       "subtitle_key": "library.sounds.pillars_of_resilience_cora_zea.subtitle",
       "description_key": "library.sounds.pillars_of_resilience_cora_zea.description",
@@ -7505,7 +7505,7 @@
         "meditation"
       ],
       "duration_sec": 323.3,
-      "bg_title": "Медитация",
+      "bg_title": "Резонанс на душата",
       "title_key": "library.sounds.resonance_luba_hilman.title",
       "subtitle_key": "library.sounds.resonance_luba_hilman.subtitle",
       "description_key": "library.sounds.resonance_luba_hilman.description",
@@ -7539,7 +7539,7 @@
         "relaxation"
       ],
       "duration_sec": 239.3,
-      "bg_title": "Медитация",
+      "bg_title": "Сребърни гори",
       "title_key": "library.sounds.silver_woodlands_cora_zea.title",
       "subtitle_key": "library.sounds.silver_woodlands_cora_zea.subtitle",
       "description_key": "library.sounds.silver_woodlands_cora_zea.description",
@@ -7574,7 +7574,7 @@
         "falling_asleep"
       ],
       "duration_sec": 149.7,
-      "bg_title": "Медитация",
+      "bg_title": "Самотата на съвестта",
       "title_key": "library.sounds.solitude_conscience_mandala_dreams.title",
       "subtitle_key": "library.sounds.solitude_conscience_mandala_dreams.subtitle",
       "description_key": "library.sounds.solitude_conscience_mandala_dreams.description",
@@ -7608,7 +7608,7 @@
         "falling_asleep"
       ],
       "duration_sec": 196.8,
-      "bg_title": "Медитация",
+      "bg_title": "Звездно небе",
       "title_key": "library.sounds.stargazing_shuta_yasukochi.title",
       "subtitle_key": "library.sounds.stargazing_shuta_yasukochi.subtitle",
       "description_key": "library.sounds.stargazing_shuta_yasukochi.description",
@@ -7641,7 +7641,7 @@
         "meditation"
       ],
       "duration_sec": 178.8,
-      "bg_title": "Медитация",
+      "bg_title": "Състояние на медитация",
       "title_key": "library.sounds.state_of_meditation_elm_lake.title",
       "subtitle_key": "library.sounds.state_of_meditation_elm_lake.subtitle",
       "description_key": "library.sounds.state_of_meditation_elm_lake.description",
@@ -7675,7 +7675,7 @@
         "relaxation"
       ],
       "duration_sec": 308.0,
-      "bg_title": "Медитация",
+      "bg_title": "Тиха любов",
       "title_key": "library.sounds.still_love_hanna_lindgren.title",
       "subtitle_key": "library.sounds.still_love_hanna_lindgren.subtitle",
       "description_key": "library.sounds.still_love_hanna_lindgren.description",
@@ -7708,7 +7708,7 @@
         "meditation"
       ],
       "duration_sec": 136.7,
-      "bg_title": "Медитация",
+      "bg_title": "Скритото царство",
       "title_key": "library.sounds.the_hidden_realm_ruiqi_zhao.title",
       "subtitle_key": "library.sounds.the_hidden_realm_ruiqi_zhao.subtitle",
       "description_key": "library.sounds.the_hidden_realm_ruiqi_zhao.description",
@@ -7743,7 +7743,7 @@
         "meditation"
       ],
       "duration_sec": 340.0,
-      "bg_title": "Медитация",
+      "bg_title": "Езерото в три сутринта",
       "title_key": "library.sounds.the_lake_at_3am_mandala_dreams.title",
       "subtitle_key": "library.sounds.the_lake_at_3am_mandala_dreams.subtitle",
       "description_key": "library.sounds.the_lake_at_3am_mandala_dreams.description",
@@ -7777,7 +7777,7 @@
         "relaxation"
       ],
       "duration_sec": 216.3,
-      "bg_title": "Медитация",
+      "bg_title": "Водата остава",
       "title_key": "library.sounds.the_water_remains_rand_aldo.title",
       "subtitle_key": "library.sounds.the_water_remains_rand_aldo.subtitle",
       "description_key": "library.sounds.the_water_remains_rand_aldo.description",
@@ -7810,7 +7810,7 @@
         "meditation"
       ],
       "duration_sec": 221.4,
-      "bg_title": "Медитация",
+      "bg_title": "Третото обаяние",
       "title_key": "library.sounds.third_charm_joseph_beg.title",
       "subtitle_key": "library.sounds.third_charm_joseph_beg.subtitle",
       "description_key": "library.sounds.third_charm_joseph_beg.description",
@@ -7844,7 +7844,7 @@
         "relaxation"
       ],
       "duration_sec": 177.9,
-      "bg_title": "Медитация",
+      "bg_title": "Да те имам близо",
       "title_key": "library.sounds.to_have_you_near_anna_landstrom.title",
       "subtitle_key": "library.sounds.to_have_you_near_anna_landstrom.subtitle",
       "description_key": "library.sounds.to_have_you_near_anna_landstrom.description",
@@ -7877,7 +7877,7 @@
         "meditation"
       ],
       "duration_sec": 92.0,
-      "bg_title": "Медитация",
+      "bg_title": "Необитаема земя",
       "title_key": "library.sounds.uninhabited_land_flouw.title",
       "subtitle_key": "library.sounds.uninhabited_land_flouw.subtitle",
       "description_key": "library.sounds.uninhabited_land_flouw.description",
@@ -7911,7 +7911,7 @@
         "daily"
       ],
       "duration_sec": 197.1,
-      "bg_title": "Медитация",
+      "bg_title": "Изкачване нагоре",
       "title_key": "library.sounds.uphill_climbing_anna_landstrom.title",
       "subtitle_key": "library.sounds.uphill_climbing_anna_landstrom.subtitle",
       "description_key": "library.sounds.uphill_climbing_anna_landstrom.description",
@@ -7945,7 +7945,7 @@
         "relaxation"
       ],
       "duration_sec": 160.9,
-      "bg_title": "Медитация",
+      "bg_title": "Безтегловност",
       "title_key": "library.sounds.weightless_center_of_attention.title",
       "subtitle_key": "library.sounds.weightless_center_of_attention.subtitle",
       "description_key": "library.sounds.weightless_center_of_attention.description",
@@ -7979,7 +7979,7 @@
         "relaxation"
       ],
       "duration_sec": 185.5,
-      "bg_title": "Медитация",
+      "bg_title": "Дали ще разбереш",
       "title_key": "library.sounds.will_you_ever_know_anna_landstrom.title",
       "subtitle_key": "library.sounds.will_you_ever_know_anna_landstrom.subtitle",
       "description_key": "library.sounds.will_you_ever_know_anna_landstrom.description",
@@ -8014,7 +8014,7 @@
         "anxiety"
       ],
       "duration_sec": 174.4,
-      "bg_title": "Фонов шум",
+      "bg_title": "Мек кафяв шум",
       "title_key": "library.sounds.brown_lowpass_1000.title",
       "subtitle_key": "library.sounds.brown_lowpass_1000.subtitle",
       "description_key": "library.sounds.brown_lowpass_1000.description",
@@ -8048,7 +8048,7 @@
         "anxiety"
       ],
       "duration_sec": 174.5,
-      "bg_title": "Фонов шум",
+      "bg_title": "Дълбок кафяв шум",
       "title_key": "library.sounds.brown_lowpass_500.title",
       "subtitle_key": "library.sounds.brown_lowpass_500.subtitle",
       "description_key": "library.sounds.brown_lowpass_500.description",
@@ -8081,7 +8081,7 @@
         "anxiety"
       ],
       "duration_sec": 174.4,
-      "bg_title": "Фонов шум",
+      "bg_title": "Кафяв шум",
       "title_key": "library.sounds.brown_pure.title",
       "subtitle_key": "library.sounds.brown_pure.subtitle",
       "description_key": "library.sounds.brown_pure.description",
@@ -8115,7 +8115,7 @@
         "falling_asleep"
       ],
       "duration_sec": 174.4,
-      "bg_title": "Фонов шум",
+      "bg_title": "Мек розов шум",
       "title_key": "library.sounds.pink_lowpass_2000.title",
       "subtitle_key": "library.sounds.pink_lowpass_2000.subtitle",
       "description_key": "library.sounds.pink_lowpass_2000.description",
@@ -8149,7 +8149,7 @@
         "anxiety"
       ],
       "duration_sec": 174.4,
-      "bg_title": "Фонов шум",
+      "bg_title": "Розов шум",
       "title_key": "library.sounds.pink_lowpass_4000.title",
       "subtitle_key": "library.sounds.pink_lowpass_4000.subtitle",
       "description_key": "library.sounds.pink_lowpass_4000.description",
@@ -8183,7 +8183,7 @@
         "daily"
       ],
       "duration_sec": 174.4,
-      "bg_title": "Фонов шум",
+      "bg_title": "Чист розов шум",
       "title_key": "library.sounds.pink_pure.title",
       "subtitle_key": "library.sounds.pink_pure.subtitle",
       "description_key": "library.sounds.pink_pure.description",
@@ -8215,7 +8215,7 @@
         "meditation"
       ],
       "duration_sec": 175.6,
-      "bg_title": "Атмосфера",
+      "bg_title": "Извънземна планета",
       "title_key": "library.sounds.ambience_scifi_eerie_alien_planet.title",
       "subtitle_key": "library.sounds.ambience_scifi_eerie_alien_planet.subtitle",
       "description_key": "library.sounds.ambience_scifi_eerie_alien_planet.description",
@@ -8248,7 +8248,7 @@
         "sleep_deep"
       ],
       "duration_sec": 114.4,
-      "bg_title": "Пещера",
+      "bg_title": "Тъмна пещера",
       "title_key": "library.sounds.ambience_underground_cave_dark_bubbles.title",
       "subtitle_key": "library.sounds.ambience_underground_cave_dark_bubbles.subtitle",
       "description_key": "library.sounds.ambience_underground_cave_dark_bubbles.description",
@@ -8280,7 +8280,7 @@
         "meditation"
       ],
       "duration_sec": 78.5,
-      "bg_title": "Тътен Атмосфера",
+      "bg_title": "Космически дрон",
       "title_key": "library.sounds.designed_drone_atmospheric_space_drone_tonal_rumble.title",
       "subtitle_key": "library.sounds.designed_drone_atmospheric_space_drone_tonal_rumble.subtitle",
       "description_key": "library.sounds.designed_drone_atmospheric_space_drone_tonal_rumble.description",
@@ -8314,7 +8314,7 @@
         "anxiety"
       ],
       "duration_sec": 174.4,
-      "bg_title": "Дълбок Атмосфера",
+      "bg_title": "Дълбок бас",
       "title_key": "library.sounds.designed_drone_deep_bass.title",
       "subtitle_key": "library.sounds.designed_drone_deep_bass.subtitle",
       "description_key": "library.sounds.designed_drone_deep_bass.description",
@@ -8348,7 +8348,7 @@
         "anxiety"
       ],
       "duration_sec": 109.4,
-      "bg_title": "Тътен Атмосфера",
+      "bg_title": "Бавно движение",
       "title_key": "library.sounds.designed_rumble_low_sub_bass_moving_slowly.title",
       "subtitle_key": "library.sounds.designed_rumble_low_sub_bass_moving_slowly.subtitle",
       "description_key": "library.sounds.designed_rumble_low_sub_bass_moving_slowly.description",
@@ -8382,7 +8382,7 @@
         "anxiety"
       ],
       "duration_sec": 53.9,
-      "bg_title": "Тътен Атмосфера",
+      "bg_title": "Лек ветрец под нивото",
       "title_key": "library.sounds.designed_rumble_low_sub_slight_air.title",
       "subtitle_key": "library.sounds.designed_rumble_low_sub_slight_air.subtitle",
       "description_key": "library.sounds.designed_rumble_low_sub_slight_air.description",
@@ -8416,7 +8416,7 @@
         "meditation"
       ],
       "duration_sec": 293.9,
-      "bg_title": "Атмосфера",
+      "bg_title": "Легни до мен",
       "title_key": "library.sounds.lay_down_with_me_hanna_lindgren.title",
       "subtitle_key": "library.sounds.lay_down_with_me_hanna_lindgren.subtitle",
       "description_key": "library.sounds.lay_down_with_me_hanna_lindgren.description",
@@ -8448,7 +8448,7 @@
         "meditation"
       ],
       "duration_sec": 340.7,
-      "bg_title": "Атмосфера",
+      "bg_title": "Противоположност на разрухата",
       "title_key": "library.sounds.opposite_to_destruction_hanna_lindgren.title",
       "subtitle_key": "library.sounds.opposite_to_destruction_hanna_lindgren.subtitle",
       "description_key": "library.sounds.opposite_to_destruction_hanna_lindgren.description",
