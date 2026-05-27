@@ -296,6 +296,10 @@ window.AudioEngine = (function () {
         return new Promise(function (resolve, reject) {
           ctx.decodeAudioData(arr,
             function (buffer) {
+              // NOTE: L1 .opus буфери НЕ получават loop-crossfade — те са
+              // content recordings (prep_loop.py отговорност), не runtime
+              // noise generators. Click reports от user = L2 noise (brown/
+              // pink) loop boundary, fixed чрез detrend в applyLoopCrossfade.
               bufferCache[url] = buffer;
               console.log('[audio] decoded:', url, '(' + buffer.duration.toFixed(1) + 's)');
               resolve(buffer);
@@ -349,11 +353,15 @@ window.AudioEngine = (function () {
     // не променя perceived noise spectrum (random walk остава random walk).
     var startVal = data[0];
     var endVal = data[N - 1];
+    var maxDcDrift = Math.max(Math.abs(startVal), Math.abs(endVal));
     var slope = (endVal - startVal) / (N - 1);
     for (var k = 0; k < N; k++) {
       data[k] -= startVal + slope * k;
     }
     // Now data[0] = 0, data[N-1] = 0 → wrap value-continuous.
+    // Diagnostic log: max DC drift преди detrend (за future tuning + debug).
+    console.log('[noise-loop] detrend: max DC drift before fix =',
+      maxDcDrift.toFixed(4), '(start=' + startVal.toFixed(4) + ', end=' + endVal.toFixed(4) + ')');
 
     // Crossfade остава за DERIVATIVE smoothness (slope continuity на wrap).
     // Без него: data[N-1]=0 → data[0]=0 е value-continuous, но slope преди
@@ -374,7 +382,7 @@ window.AudioEngine = (function () {
       data[N - M + j] = data[N - M + j] * (cosVal * cosVal)
                       + head[j] * (sinVal * sinVal);
     }
-    console.log('[audio] detrend + crossfade applied:', fadeSec + 's fade на', (N / sr).toFixed(1) + 's buffer');
+    console.log('[noise-loop] detrended + crossfaded:', fadeSec + 's fade на', (N / sr).toFixed(1) + 's buffer');
   }
 
   function getOrGeneratePinkBuffer() {
