@@ -584,6 +584,52 @@ window.Settings = (function () {
     );
   }
 
+  // ============================================================
+  // PACK C T3: Личната честотна терапия (notch filter toggle)
+  // ============================================================
+  function buildNotchSection() {
+    var s = window.AppState;
+    if (!s) return '';
+    // Renders САМО ако има pitch data (иначе toggle-ът няма смисъл).
+    var tests = Array.isArray(s.pitchTests) ? s.pitchTests : [];
+    if (tests.length === 0) return '';
+    var last = tests[tests.length - 1];
+    if (!last || typeof last.freq !== 'number' || last.freq <= 0) return '';
+
+    var freq = last.freq;
+    var freqLabel = freq >= 1000
+      ? (freq / 1000).toFixed(1).replace(/\.0$/, '') + ' kHz'
+      : freq + ' Hz';
+    var enabled = !s.notchDisabled;
+
+    var title = t('settings.notch.title', 'Лична честотна терапия');
+    var desc = enabled
+      ? t('settings.notch.descActive',
+          'Премахваме Вашата тинитус честота ({freq}) от всички звуци за подобрена терапия.',
+          { freq: freqLabel })
+      : t('settings.notch.descInactive',
+          'Терапията е спряна. Звуците се възпроизвеждат без личен филтър.');
+    var stateLabel = enabled
+      ? t('settings.notch.on', 'Активна')
+      : t('settings.notch.off', 'Спряна');
+
+    return (
+      '<section class="set-section">' +
+        '<div class="set-section-head">' +
+          '<span class="set-section-icon" aria-hidden="true">' + svgChart() + '</span>' +
+          '<h3 class="set-section-title">' + escapeHtml(title) + '</h3>' +
+        '</div>' +
+        '<label class="set-toggle-row">' +
+          '<span class="set-toggle-label">' + escapeHtml(stateLabel) + '</span>' +
+          '<input type="checkbox" class="set-toggle-input" id="setNotchToggle"' +
+            (enabled ? ' checked' : '') + '>' +
+          '<span class="set-toggle-track"></span>' +
+        '</label>' +
+        '<p class="set-notch-desc">' + escapeHtml(desc) + '</p>' +
+      '</section>'
+    );
+  }
+
   function buildMainViewHtml() {
     var closeAria = t('settings.closeAria', 'Затвори настройки');
     var title = t('settings.title', 'Настройки');
@@ -607,6 +653,7 @@ window.Settings = (function () {
           buildLanguageSection() +
           buildVolumeSection() +
           buildVolumeProfilesSection() +
+          buildNotchSection() +
           buildRemindersSection() +
           buildFavoritesButton() +
           buildAnalyticsButton() +
@@ -1176,6 +1223,27 @@ window.Settings = (function () {
         var rem = loadReminders();
         rem.weekly = weeklyToggle.checked;
         saveReminders(rem);
+      });
+    }
+
+    // PACK C T3: notch filter toggle (Лична честотна терапия)
+    var notchToggle = overlay.querySelector('#setNotchToggle');
+    if (notchToggle) {
+      notchToggle.addEventListener('change', function () {
+        var s = window.AppState;
+        if (!s || !s.setNotchDisabled) return;
+        // checked = ON = NOT disabled
+        var enabled = !!notchToggle.checked;
+        s.setNotchDisabled(!enabled);
+        if (window.Toast) {
+          var msg = enabled
+            ? t('settings.notch.toastOn', 'Личната терапия е активирана')
+            : t('settings.notch.toastOff', 'Личната терапия е спряна. Звуците ще се възпроизвеждат без notch филтър.');
+          if (window.Toast.show) window.Toast.show(msg, { durationMs: 2400 });
+        }
+        // Soft refresh само на тази секция — re-render целия sheet
+        // за да обновим description и stateLabel.
+        refresh();
       });
     }
 

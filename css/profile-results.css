@@ -673,3 +673,21 @@
   color: var(--text-muted);
   line-height: 1.5;
 }
+
+/* ═══ PACK C T3: notch active confirmation line в Pitch section ═══ */
+.pr-pitch-notch-active {
+  margin-top: 4px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm, 14px);
+  background: hsl(42 60% 60% / 0.18);
+  border: 1px solid hsl(42 60% 60% / 0.35);
+  font-size: 13px;
+  font-weight: 700;
+  color: hsl(38 70% 40%);
+  letter-spacing: 0.01em;
+}
+[data-theme="dark"] .pr-pitch-notch-active {
+  background: hsl(42 50% 30% / 0.28);
+  border-color: hsl(42 60% 50% / 0.5);
+  color: hsl(42 75% 78%);
+}

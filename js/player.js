@@ -209,6 +209,29 @@ window.Player = (function () {
   // HTML builders
   // ============================================================
 
+  // PACK C T3: notch indicator pill (показва се в Layer 1 заглавието).
+  // Кратък champagne badge с честотата + tooltip за accessibility.
+  function buildNotchIndicator() {
+    var info = (window.AudioEngine && window.AudioEngine.getNotchInfo)
+      ? window.AudioEngine.getNotchInfo() : null;
+    if (!info || !info.active || !info.freq) return '';
+    var freqLabel = info.freq >= 1000
+      ? (info.freq / 1000).toFixed(1).replace(/\.0$/, '') + ' kHz'
+      : info.freq + ' Hz';
+    var aria = t('player.notch.aria',
+      'Лична честотна терапия активна — {freq} премахната',
+      { freq: freqLabel });
+    return (
+      '<span class="pl-notch-pill" title="' + escapeHtml(aria) + '"' +
+        ' aria-label="' + escapeHtml(aria) + '">' +
+        '<svg class="pl-notch-icon" viewBox="0 0 24 24" aria-hidden="true">' +
+          '<path d="M4 12h4l3-8 3 16 3-8h3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>' +
+        '</svg>' +
+        '<span class="pl-notch-freq">' + escapeHtml(freqLabel) + '</span>' +
+      '</span>'
+    );
+  }
+
   function buildSlider(id, label, value, ariaLabel) {
     // PACK A change 5: премахнат visible "65%" текст. ARIA aria-valuenow
     // запазва accessibility за screen readers. Анимациите от SEQ-REVEAL
@@ -287,6 +310,9 @@ window.Player = (function () {
             '<div class="pl-layer-name pl-layer-name--main">' +
               '<span class="pl-layer-icon" aria-hidden="true">' + SVG.speaker + '</span>' +
               '<span class="pl-layer-name-text">' + escapeHtml(l1Label) + '</span>' +
+              // PACK C T3: notch indicator (champagne pill) — показва се само
+              // когато notch активен (има pitch data + не disabled).
+              buildNotchIndicator() +
             '</div>' +
             buildSlider('plL1', escapeHtml(title), layer1Vol,
               l1Label + ' 0-100') +

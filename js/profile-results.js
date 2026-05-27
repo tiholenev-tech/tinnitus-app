@@ -591,6 +591,17 @@ window.ProfileResults = (function () {
     var freqIntro = t('profile_results.pitch.intro',
       'Вашата честота: {freq}', { freq: freqLabel });
 
+    // PACK C T3: notch terapy confirmation line — само ако filter активен.
+    var notchInfo = (window.AudioEngine && window.AudioEngine.getNotchInfo)
+      ? window.AudioEngine.getNotchInfo() : null;
+    var notchHtml = '';
+    if (notchInfo && notchInfo.active && notchInfo.freq) {
+      var notchFreqLabel = formatFreqLabel(notchInfo.freq);
+      var notchMsg = t('profile_results.pitch.notchActive',
+        '✓ Активна лична терапия на {freq}', { freq: notchFreqLabel });
+      notchHtml = '<div class="pr-pitch-notch-active">' + escapeHtml(notchMsg) + '</div>';
+    }
+
     return (
       '<section class="pr-section pr-section--pitch">' +
         '<div class="pr-section-head">' +
@@ -602,6 +613,7 @@ window.ProfileResults = (function () {
         '</div>' +
         buildPitchSpectrum(freq) +
         '<p class="pr-pitch-recommendation">' + escapeHtml(cat.recommendation) + '</p>' +
+        notchHtml +
       '</section>'
     );
   }

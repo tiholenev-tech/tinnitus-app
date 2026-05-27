@@ -361,6 +361,64 @@ window.AudioEngine = (function () {
   }
 
   // ============================================================
+  // PACK C T3 — NOTCH FILTER (personalized tinnitus therapy)
+  // ============================================================
+  // Q = 2.871 = 1/2 octave bandwidth (clinical standard за tinnitus notch
+  // therapy). Type 'notch' премахва тясна лента около центральната
+  // честота на тинитуса — мозъкът прави re-mapping на отслабения spectrum
+  // → постепенно намалява perceived loudness на phantom tone.
+  //
+  // Reference: Pantev et al. 2012, Stein et al. 2015 (notched music therapy).
+  //
+  // Notch е активен САМО ако всичките са истина:
+  //   1. state.pitchTests има поне 1 запис с valid freq
+  //   2. !state.pitchSkipped
+  //   3. !state.notchDisabled (user toggle от Settings)
+  //
+  // Безопасност: ако state липсва (early loading) → no-op (no notch).
+  // Failure mode: ако createBiquadFilter throw → fallback на direct connect.
+
+  var NOTCH_Q = 2.871; // 1/2 octave bandwidth
+
+  function createNotchFilter(audioCtx, freqHz) {
+    try {
+      var notch = audioCtx.createBiquadFilter();
+      notch.type = 'notch';
+      notch.frequency.value = freqHz;
+      notch.Q.value = NOTCH_Q;
+      return notch;
+    } catch (e) {
+      console.warn('[notch] createBiquadFilter failed:', e && e.message);
+      return null;
+    }
+  }
+
+  // Връща { active: bool, freq: number|null }.
+  // Read-only inspection на AppState — не throw-ва ако state липсва.
+  function getNotchConfig() {
+    var s = window.AppState;
+    if (!s) return { active: false, freq: null };
+    // Prefer state helper ако exists (consolidated logic в state.js).
+    if (typeof s.isNotchActive === 'function' && typeof s.getNotchFreq === 'function') {
+      var active = s.isNotchActive();
+      return { active: active, freq: active ? s.getNotchFreq() : null };
+    }
+    // Fallback (older state без helpers) — inline check.
+    if (s.notchDisabled) return { active: false, freq: null };
+    if (s.pitchSkipped) return { active: false, freq: null };
+    var tests = s.pitchTests;
+    if (!Array.isArray(tests) || tests.length === 0) return { active: false, freq: null };
+    var last = tests[tests.length - 1];
+    if (!last || typeof last.freq !== 'number' || last.freq <= 0) {
+      return { active: false, freq: null };
+    }
+    return { active: true, freq: last.freq };
+  }
+
+  // Public read-only API (използва се от Player/Profile Results indicator).
+  function getNotchInfo() { return getNotchConfig(); }
+
+  // ============================================================
   // LAYER 1 — main sound (crossfade при смяна)
   // ============================================================
 
@@ -605,7 +663,34 @@ window.AudioEngine = (function () {
     src._manualStop = false;
 
     var gainNode = ctx.createGain();
-    src.connect(gainNode);
+
+    // PACK C T3: insert notch filter ПРЕДИ gain ако активен.
+    // Chain: source → [notch] → gain → masterGain
+    // No-op (direct connect) ако no pitch data / skipped / user disabled.
+    var notchCfg = getNotchConfig();
+    var notchNode = null;
+    if (notchCfg.active && notchCfg.freq) {
+      notchNode = createNotchFilter(ctx, notchCfg.freq);
+    }
+    if (notchNode) {
+      try {
+        src.connect(notchNode);
+        notchNode.connect(gainNode);
+        console.log('[notch] Active at', notchCfg.freq, 'Hz, Q=' + NOTCH_Q);
+      } catch (e) {
+        // Failure fallback — direct connect, no notch.
+        console.warn('[notch] connect failed, fallback no-notch:', e && e.message);
+        try { notchNode.disconnect(); } catch (e2) {}
+        notchNode = null;
+        src.connect(gainNode);
+      }
+    } else {
+      src.connect(gainNode);
+      if (notchCfg.active === false) {
+        console.log('[notch] Inactive (no pitch data, skipped, or user disabled)');
+      }
+    }
+
     gainNode.connect(masterGain);
 
     var now = ctx.currentTime;
@@ -622,9 +707,11 @@ window.AudioEngine = (function () {
       oldGain.gain.setValueAtTime(oldGain.gain.value, now);
       oldGain.gain.exponentialRampToValueAtTime(0.0001, now + CROSSFADE_SEC);
       var oldSrc = layer1.source;
+      var oldNotch = layer1.filterNode; // PACK C T3
       setTimeout(function () {
         try { oldSrc.stop(); } catch (e) {}
         try { oldSrc.disconnect(); } catch (e) {}
+        if (oldNotch) { try { oldNotch.disconnect(); } catch (e) {} }
         try { oldGain.disconnect(); } catch (e) {}
       }, CROSSFADE_SEC * 1000 + 50);
     } else {
@@ -655,6 +742,7 @@ window.AudioEngine = (function () {
     src.start(0);
     layer1.source = src;
     layer1.gainNode = gainNode;
+    layer1.filterNode = notchNode; // PACK C T3: track notch за cleanup
     layer1.presetId = presetId;
     layer1.startCtxTime = now;
     layer1.bufferDuration = buffer.duration || 0;
@@ -679,6 +767,7 @@ window.AudioEngine = (function () {
     var now = ctx.currentTime;
     var src = layer1.source;
     var gain = layer1.gainNode;
+    var notch = layer1.filterNode; // PACK C T3
     src._manualStop = true;
     gain.gain.cancelScheduledValues(now);
     gain.gain.setValueAtTime(gain.gain.value, now);
@@ -686,6 +775,7 @@ window.AudioEngine = (function () {
     setTimeout(function () {
       try { src.stop(); } catch (e) {}
       try { src.disconnect(); } catch (e) {}
+      if (notch) { try { notch.disconnect(); } catch (e) {} }
       try { gain.disconnect(); } catch (e) {}
       suspendContext();
     }, PAUSE_FADE_SEC * 1000 + 50);
@@ -696,6 +786,7 @@ window.AudioEngine = (function () {
   function clearLayer1State() {
     layer1.source = null;
     layer1.gainNode = null;
+    layer1.filterNode = null; // PACK C T3
     layer1.presetId = null;
     layer1.startCtxTime = 0;
     layer1.bufferDuration = 0;
@@ -894,6 +985,7 @@ window.AudioEngine = (function () {
       try { layer1.source.stop(); } catch (e) {}
       try { layer1.source.disconnect(); } catch (e) {}
     }
+    if (layer1.filterNode) { try { layer1.filterNode.disconnect(); } catch (e) {} } // PACK C T3
     if (layer1.gainNode) { try { layer1.gainNode.disconnect(); } catch (e) {} }
     clearLayer1State();
 
@@ -1030,6 +1122,9 @@ window.AudioEngine = (function () {
     preloadSound: preloadSound,
     playSequentialReveal: playSequentialReveal,
     getCurrentFlightToken: getCurrentFlightToken,
+
+    // PACK C T3: notch filter introspection (за Player/Profile Results indicator)
+    getNotchInfo: getNotchInfo,
 
     // Backward compat
     play: playLayer1,

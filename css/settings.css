@@ -449,3 +449,13 @@
   .set-overlay,
   .set-sheet { animation: none; }
 }
+
+/* ═══ PACK C T3: notch toggle description ═══ */
+.set-notch-desc {
+  margin: 8px 0 0;
+  padding: 0 4px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--text-muted);
+}

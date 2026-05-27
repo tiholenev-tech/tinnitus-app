@@ -45,6 +45,8 @@
   var KEY_PITCH_SKIP_REASON      = 'auralis-pitch-skip-reason';
   var KEY_PITCH_SKIPPED          = 'auralis-pitch-skipped';
   var KEY_AUDIO_DEVICE           = 'auralis-audio-device';
+  // PACK C T3: notch filter user toggle (default OFF = filter active when pitch data exists)
+  var KEY_NOTCH_DISABLED         = 'auralis-notch-disabled';
 
   var PHASES = [
     'onboarding', 'quiz', 'results', 'profile_results',
@@ -131,6 +133,7 @@
     pitchSkipReason: null,          // 'noise_type' | 'pulsing' | 'other' | null
     pitchSkipped: false,            // true ако user избра skip в pre-test
     audioDevice: 'unknown',         // 'speakers' | 'bone' | 'openback' | 'inear' | 'unknown'
+    notchDisabled: false,           // PACK C T3: user toggle от Settings ("Лична честотна терапия" OFF)
 
     // ===== Status checks =====
 
@@ -184,6 +187,7 @@
       this.pitchSkipReason = get(KEY_PITCH_SKIP_REASON) || null;
       this.pitchSkipped = get(KEY_PITCH_SKIPPED) === 'true';
       this.audioDevice = get(KEY_AUDIO_DEVICE) || 'unknown';
+      this.notchDisabled = get(KEY_NOTCH_DISABLED) === 'true';
       // Recompute currentProgramDay (capped 1..14)
       if (this.programStartDate) {
         var daysElapsed = Math.floor((Date.now() - this.programStartDate) / 86400000);
@@ -500,6 +504,33 @@
       return !!(this.pitchSkipped || (this.pitchTests && this.pitchTests.length > 0));
     },
 
+    // PACK C T3: notch filter user toggle.
+    setNotchDisabled: function (disabled) {
+      this.notchDisabled = !!disabled;
+      if (this.notchDisabled) {
+        set(KEY_NOTCH_DISABLED, 'true');
+      } else {
+        remove(KEY_NOTCH_DISABLED);
+      }
+    },
+
+    // PACK C T3: helper за audio-engine + UI — single arbiter дали notch активен.
+    // True ако: pitch data exists AND not skipped AND user НЕ disabled.
+    isNotchActive: function () {
+      if (this.notchDisabled) return false;
+      if (this.pitchSkipped) return false;
+      if (!this.pitchTests || this.pitchTests.length === 0) return false;
+      var last = this.pitchTests[this.pitchTests.length - 1];
+      return !!(last && typeof last.freq === 'number' && last.freq > 0);
+    },
+
+    // Връща активната notch честота (или null ако notch не е активен).
+    getNotchFreq: function () {
+      if (!this.isNotchActive()) return null;
+      var last = this.pitchTests[this.pitchTests.length - 1];
+      return last.freq;
+    },
+
     saveDiaryEntry: function (dateKey, partial) {
       // partial = { evening?:..., morning?:..., cbtCompleted?:..., cbtReflection?:... }
       if (!this.diaryEntries[dateKey]) this.diaryEntries[dateKey] = {};
@@ -624,10 +655,12 @@
       this.pitchSkipReason = null;
       this.pitchSkipped = false;
       this.audioDevice = 'unknown';
+      this.notchDisabled = false;
       remove(KEY_PITCH_TESTS);
       remove(KEY_PITCH_SKIP_REASON);
       remove(KEY_PITCH_SKIPPED);
       remove(KEY_AUDIO_DEVICE);
+      remove(KEY_NOTCH_DISABLED);
     }
   };
 })();
