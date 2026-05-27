@@ -416,11 +416,13 @@ window.PitchTest = (function () {
         '<section class="pt-tones">' +
           '<button class="pt-tone-btn" type="button" data-action="play-tone" data-tone="A">' +
             '<span class="pt-tone-label">Тон A</span>' +
-            '<span class="pt-tone-hint">Натиснете за прослушване</span>' +
+            '<span class="pt-tone-hint" data-tone-hint="A">Натиснете за прослушване</span>' +
+            '<span class="pt-tone-wave" aria-hidden="true"><span></span><span></span><span></span></span>' +
           '</button>' +
           '<button class="pt-tone-btn" type="button" data-action="play-tone" data-tone="B">' +
             '<span class="pt-tone-label">Тон B</span>' +
-            '<span class="pt-tone-hint">Натиснете за прослушване</span>' +
+            '<span class="pt-tone-hint" data-tone-hint="B">Натиснете за прослушване</span>' +
+            '<span class="pt-tone-wave" aria-hidden="true"><span></span><span></span><span></span></span>' +
           '</button>' +
         '</section>' +
 
@@ -457,6 +459,9 @@ window.PitchTest = (function () {
     if (!letter) return;
     var btn = document.querySelector('[data-tone="' + letter + '"]');
     if (btn) btn.classList.remove('pt-tone-btn--playing');
+    // Bug 2: restore hint текст
+    var hint = document.querySelector('[data-tone-hint="' + letter + '"]');
+    if (hint) hint.textContent = 'Натиснете за прослушване';
   }
 
   function stopCurrentTone() {
@@ -492,6 +497,9 @@ window.PitchTest = (function () {
     currentToneLetter = toneLetter;
     var btn = document.querySelector('[data-tone="' + toneLetter + '"]');
     if (btn) btn.classList.add('pt-tone-btn--playing');
+    // Bug 2: hint text update — clear toggle affordance
+    var hint = document.querySelector('[data-tone-hint="' + toneLetter + '"]');
+    if (hint) hint.textContent = 'Натиснете за спиране';
 
     var handle = playTone(freq, TONE_DURATION_MS);
     currentToneHandle = handle;
