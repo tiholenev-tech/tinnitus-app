@@ -36,6 +36,7 @@ build/
 *.crt
 **/secrets/
 **/credentials/
+gemini_key.txt
 
 # Audio assets (per BIBLE v3 §6 — offline-first, Capacitor-bundled)
 # Ignore WAV/AIFF anywhere в audio/ (твърде големи за git), но **позволи** JSON
