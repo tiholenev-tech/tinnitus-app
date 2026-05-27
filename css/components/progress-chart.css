@@ -60,21 +60,27 @@
 .pc-freeze-badge svg { width: 14px; height: 14px; }
 .pc-freeze-num { line-height: 1; }
 
-/* ----- 14 Squares ----- */
+/* ----- 14 Squares (7×2 grid за no-overflow на narrow viewports) ----- */
 .pc-squares {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  gap: 4px;
-  justify-content: space-between;
-  flex-wrap: nowrap;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden; /* hard защита срещу overflow */
 }
-.pc-square-li { flex: 0 0 auto; display: flex; }
+.pc-square-li {
+  display: flex;
+  min-width: 0; /* критично за grid children — позволява shrink */
+}
 .pc-square {
-  width: 22px;
-  height: 22px;
-  border-radius: 5px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  min-width: 0;
+  border-radius: 8px;
   border: 1.5px solid var(--border-color);
   background: transparent;
   cursor: pointer;
@@ -95,13 +101,13 @@
 }
 .pc-day-num {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 800;
   line-height: 1;
   letter-spacing: 0.02em;
 }
 .pc-square-icon { display: grid; place-items: center; line-height: 0; }
-.pc-square-icon svg { width: 12px; height: 12px; }
+.pc-square-icon svg { width: 50%; height: 50%; }
 
 /* --- Status variants --- */
 .pc-square--completed {
@@ -135,11 +141,10 @@
     0 0 0 4px hsl(38 80% 55% / 0.22);
 }
 
-/* Narrow viewports (< 340px): shrink squares a touch */
-@media (max-width: 340px) {
-  .pc-square { width: 18px; height: 18px; border-radius: 4px; }
-  .pc-square-icon svg { width: 10px; height: 10px; }
-  .pc-day-num { font-size: 8px; }
+/* Narrow viewports (≤ 360px): tighten gap, aspect-ratio запазва квадратите */
+@media (max-width: 360px) {
+  .pc-squares { gap: 4px; }
+  .pc-day-num { font-size: 11px; }
 }
 
 /* ----- Legend ----- */
