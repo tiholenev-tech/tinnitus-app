@@ -50,9 +50,72 @@
 }
 
 .de-note {
+  width: 100%;
+  min-height: 56px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.45;
+  resize: vertical;
+  box-sizing: border-box;
+}
+.de-note:focus {
+  outline: 2px solid hsl(var(--hue3) 70% 55%);
+  outline-offset: 2px;
+}
+
+.de-char-counter {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-faint, var(--text));
+  text-align: right;
+}
+
+.de-section--note {
+  gap: 8px;
+}
+
+.de-save-hint {
   font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.4;
+  line-height: 1.45;
+  color: var(--text-faint, var(--text));
+  text-align: center;
+  padding: 0 8px;
+}
+
+.de-night-hint,
+.de-multi-hint {
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.de-night-hint {
+  background: hsl(220 60% 90% / 0.5);
+  color: hsl(220 40% 25%);
+}
+[data-theme="dark"] .de-night-hint {
+  background: hsl(220 40% 18% / 0.5);
+  color: hsl(220 50% 80%);
+}
+.de-night-hint-title {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+.de-multi-hint {
+  background: hsl(38 60% 92%);
+  color: hsl(38 50% 25%);
+}
+[data-theme="dark"] .de-multi-hint {
+  background: hsl(38 40% 16% / 0.4);
+  color: hsl(38 70% 75%);
 }
 
 .de-actions {
