@@ -336,8 +336,33 @@ window.AudioEngine = (function () {
     var sr = buffer.sampleRate;
     var data = buffer.getChannelData(0);
     var N = data.length;
+    if (N < 2) return;
+
+    // P0 AUDIO-CLICK FIX v2: DETREND първо — force sample[0] = sample[N-1] = 0.
+    // Phone test (бащата): clicks на ВСИЧКИ deep-tone sounds (brown_lp500 L2
+    // common denominator). Causa: brown noise DC drift + normalize → endpoint
+    // value далеч от 0 → wrap създава LOW-FREQ pop, който lowpass 500Hz пас-ва
+    // без atenuation → audible "thud".
+    //
+    // Detrend подходът: subtract linear ramp (startVal + slope*i) so endpoints
+    // anchor at 0. Премахва САМО single linear component (DC + 0Hz ramp) —
+    // не променя perceived noise spectrum (random walk остава random walk).
+    var startVal = data[0];
+    var endVal = data[N - 1];
+    var slope = (endVal - startVal) / (N - 1);
+    for (var k = 0; k < N; k++) {
+      data[k] -= startVal + slope * k;
+    }
+    // Now data[0] = 0, data[N-1] = 0 → wrap value-continuous.
+
+    // Crossfade остава за DERIVATIVE smoothness (slope continuity на wrap).
+    // Без него: data[N-1]=0 → data[0]=0 е value-continuous, но slope преди
+    // и след wrap може да е different → small higher-freq click.
     var M = Math.min(Math.floor(sr * fadeSec), Math.floor(N / 4));
-    if (M < 64) return; // твърде малък buffer — skip
+    if (M < 64) {
+      console.log('[audio] detrend applied (no crossfade — buffer too small)');
+      return;
+    }
     // Save оригинални първи M sample-и (за blend в tail).
     var head = new Float32Array(M);
     for (var i = 0; i < M; i++) head[i] = data[i];
@@ -349,7 +374,7 @@ window.AudioEngine = (function () {
       data[N - M + j] = data[N - M + j] * (cosVal * cosVal)
                       + head[j] * (sinVal * sinVal);
     }
-    console.log('[audio] loop-crossfade applied:', fadeSec + 's fade на', (N / sr).toFixed(1) + 's buffer');
+    console.log('[audio] detrend + crossfade applied:', fadeSec + 's fade на', (N / sr).toFixed(1) + 's buffer');
   }
 
   function getOrGeneratePinkBuffer() {
