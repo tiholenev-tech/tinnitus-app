@@ -474,6 +474,138 @@ window.ProfileResults = (function () {
   // §6: Timeline (table)
   // ============================================================
 
+  // ============================================================
+  // PACK C T2 — Pitch Reveal section
+  // ============================================================
+
+  // Категоризация per spec (5 диапазона на честотния спектър).
+  function categorizePitchFreq(freq) {
+    if (freq < 1000) {
+      return {
+        key: 'low',
+        label: t('profile_results.pitch.cat.low', 'Нискочестотен тинитус'),
+        recommendation: t('profile_results.pitch.rec.low',
+          'Препоръчителни звуци с богат среден и висок спектър за маскиране — препоръчваме категория „Гора“ и „Дъжд“.')
+      };
+    }
+    if (freq < 3000) {
+      return {
+        key: 'mid',
+        label: t('profile_results.pitch.cat.mid', 'Среднен честотен тинитус'),
+        recommendation: t('profile_results.pitch.rec.mid',
+          'Препоръчителни звуци с балансиран спектър — препоръчваме „Океан“ и „Река“.')
+      };
+    }
+    if (freq < 6000) {
+      return {
+        key: 'high',
+        label: t('profile_results.pitch.cat.high', 'Високочестотен тинитус'),
+        recommendation: t('profile_results.pitch.rec.high',
+          'Препоръчителни звуци с акцент върху ниски и средни честоти — препоръчваме „Подводен“ и „Кафяв шум“.')
+      };
+    }
+    if (freq < 12000) {
+      return {
+        key: 'veryHigh',
+        label: t('profile_results.pitch.cat.veryHigh', 'Много висок честотен тинитус'),
+        recommendation: t('profile_results.pitch.rec.veryHigh',
+          'Препоръчителни наситено basov звук за оптимална маска — препоръчваме „Дълбок кафяв шум“ или „Подводна тишина“.')
+      };
+    }
+    return {
+      key: 'extreme',
+      label: t('profile_results.pitch.cat.extreme', 'Изключително висок тинитус'),
+      recommendation: t('profile_results.pitch.rec.extreme',
+        'Препоръчителни наситено basov звук за оптимална маска — препоръчваме „Дълбок кафяв шум“ или „Подводна тишина“.')
+    };
+  }
+
+  function formatFreqLabel(freq) {
+    if (freq >= 1000) {
+      var k = freq / 1000;
+      var rounded = (k % 1 === 0) ? k.toFixed(0) : k.toFixed(1).replace(/\.0$/, '');
+      return rounded + ' kHz';
+    }
+    return freq + ' Hz';
+  }
+
+  // SVG spectrum 250 Hz → 16 kHz log scale.
+  // Marker pozicija = (log(freq/250) / log(16000/250)) * 100%.
+  function buildPitchSpectrum(freq) {
+    var minHz = 250, maxHz = 16000;
+    var logMin = Math.log(minHz);
+    var logMax = Math.log(maxHz);
+    var clamped = Math.max(minHz, Math.min(maxHz, freq));
+    var pct = ((Math.log(clamped) - logMin) / (logMax - logMin)) * 100;
+    pct = Math.max(2, Math.min(98, pct)); // visible padding на границите
+    var ticks = [250, 1000, 3000, 8000, 16000];
+    var ticksHtml = ticks.map(function (hz) {
+      var tickPct = ((Math.log(hz) - logMin) / (logMax - logMin)) * 100;
+      var label = hz >= 1000 ? (hz / 1000) + 'k' : String(hz);
+      return '<div class="pr-pitch-tick" style="left:' + tickPct + '%">' +
+        '<span class="pr-pitch-tick-line"></span>' +
+        '<span class="pr-pitch-tick-label">' + label + '</span>' +
+      '</div>';
+    }).join('');
+    return (
+      '<div class="pr-pitch-spectrum" role="img"' +
+        ' aria-label="Спектър на честотите от 250 Hz до 16 kHz, маркер на ' +
+        formatFreqLabel(freq) + '">' +
+        '<div class="pr-pitch-spectrum-bar"></div>' +
+        '<div class="pr-pitch-marker" style="left:' + pct.toFixed(2) + '%">' +
+          '<span class="pr-pitch-marker-line"></span>' +
+          '<span class="pr-pitch-marker-label">' + escapeHtml(formatFreqLabel(freq)) + '</span>' +
+        '</div>' +
+        '<div class="pr-pitch-ticks">' + ticksHtml + '</div>' +
+      '</div>'
+    );
+  }
+
+  function buildPitchSection() {
+    var s = window.AppState || {};
+    var tests = Array.isArray(s.pitchTests) ? s.pitchTests : [];
+    var skipped = !!s.pitchSkipped;
+    if (tests.length === 0 && !skipped) return '';
+
+    var title = t('profile_results.pitch.title', 'Вашата тинитус честота');
+
+    if (tests.length === 0 && skipped) {
+      var skipMsg = t('profile_results.pitch.skipped',
+        'Не сте завършили теста за честота. Можете да го направите по-късно от Настройки.');
+      return (
+        '<section class="pr-section pr-section--pitch pr-section--pitch-skip">' +
+          '<div class="pr-section-head">' +
+            '<h2 class="pr-section-title">' + escapeHtml(title) + '</h2>' +
+          '</div>' +
+          '<p class="pr-pitch-skip-msg">' + escapeHtml(skipMsg) + '</p>' +
+        '</section>'
+      );
+    }
+
+    var lastTest = tests[tests.length - 1];
+    var freq = lastTest && typeof lastTest.freq === 'number' ? lastTest.freq : 0;
+    if (freq <= 0) return '';
+
+    var freqLabel = formatFreqLabel(freq);
+    var cat = categorizePitchFreq(freq);
+    var freqIntro = t('profile_results.pitch.intro',
+      'Вашата честота: {freq}', { freq: freqLabel });
+
+    return (
+      '<section class="pr-section pr-section--pitch">' +
+        '<div class="pr-section-head">' +
+          '<h2 class="pr-section-title">' + escapeHtml(title) + '</h2>' +
+        '</div>' +
+        '<div class="pr-pitch-freq-line">' +
+          '<span class="pr-pitch-freq-label">' + escapeHtml(freqIntro) + '</span>' +
+          '<span class="pr-pitch-cat-pill">' + escapeHtml(cat.label) + '</span>' +
+        '</div>' +
+        buildPitchSpectrum(freq) +
+        '<p class="pr-pitch-recommendation">' + escapeHtml(cat.recommendation) + '</p>' +
+      '</section>'
+    );
+  }
+
   function buildTimelineSection(code) {
     var title = t('profile_results.sections.timeline', 'Очаквания във времето');
     var rows = tObjOrNull('profile_results.profiles.' + code + '.timeline');
@@ -592,6 +724,9 @@ window.ProfileResults = (function () {
         '<h1 class="pr-title">' + escapeHtml(title) + '</h1>' +
         buildWelcomeSection(code) +
         buildHero(code, di, level) +
+
+        // PACK C T2: Pitch frequency reveal (renders ако pitchTests или pitchSkipped).
+        buildPitchSection() +
 
         // §1 Какво означава
         buildInfoSection('meaning', 'meaning', 'Какво означава за вас') +
