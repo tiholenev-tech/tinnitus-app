@@ -70,7 +70,8 @@
   gap: 6px;
   width: 100%;
   max-width: 100%;
-  overflow: hidden; /* hard защита срещу overflow */
+  /* overflow protection идва от aspect-ratio + min-width:0 на .pc-square-li/.pc-square;
+     overflow:hidden премахнат (clip-ваше focus rings + today marker — WCAG fail) */
 }
 .pc-square-li {
   display: flex;
