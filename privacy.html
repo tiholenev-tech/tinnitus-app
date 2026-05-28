@@ -157,10 +157,54 @@
     footer.page-foot a { color: var(--text-muted); }
     a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
     a:hover { text-decoration-thickness: 2px; }
+
+    /* Back button — sticky top, clear hit target за mobile */
+    .back-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      margin: -24px -16px 16px;
+      padding: 10px 16px calc(10px + env(safe-area-inset-top, 0));
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 40px;
+      padding: 8px 14px 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 150ms ease, transform 100ms ease;
+    }
+    .back-btn:hover, .back-btn:focus-visible {
+      background: var(--quote-bg);
+      outline: none;
+    }
+    .back-btn:active { transform: scale(0.97); }
+    .back-btn svg { width: 16px; height: 16px; }
   </style>
 </head>
 <body>
 <main>
+
+  <div class="back-bar">
+    <button id="backBtn" class="back-btn" type="button" aria-label="Назад към приложението">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+      <span>Назад / Back</span>
+    </button>
+  </div>
 
   <header class="page-head">
     <span class="brand"><span class="brand-1">tinnitus</span><span class="brand-2">-app</span></span>
@@ -340,5 +384,36 @@
   </footer>
 
 </main>
+
+<script>
+  // Robust back navigation:
+  //   1. Ако page е отворена като нов tab via window.open() (settings.js
+  //      action 'open-privacy') → window.opener съществува → window.close()
+  //   2. Ако single-tab navigation с history → history.back()
+  //   3. Last resort → navigate към app root index.html
+  // Това гарантира че phone back бутонът не "излиза" от приложението
+  // когато privacy е единственият entry point в browser session-а.
+  (function () {
+    var btn = document.getElementById('backBtn');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var openedByApp = false;
+      try { openedByApp = !!(window.opener && !window.opener.closed); }
+      catch (e) { /* cross-origin opener access може да хвърли */ }
+      if (openedByApp) {
+        window.close();
+        // Ако close() не сработи (browser policy) → fallback след tick
+        setTimeout(function () { window.location.href = 'index.html'; }, 100);
+        return;
+      }
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = 'index.html';
+      }
+    });
+  })();
+</script>
+
 </body>
 </html>

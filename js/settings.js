@@ -28,10 +28,16 @@ window.Settings = (function () {
   var STORAGE_VOLUME = 'auralis-master-volume';
   var DEBUG_FLAG = 'debug_mode';
 
-  // Supported locales mirror i18n.SUPPORTED
-  var LOCALES = ['bg', 'en', 'zh', 'hi', 'es', 'ar', 'pt', 'ru', 'fr', 'de', 'ja', 'ko'];
+  // P0-FIX 2026-05-28 (LAUNCH BLOCKER): тези списъци overrode-ваха
+  // i18n.SUPPORTED + LanguagePicker.LANGUAGES — Settings езиков toggle
+  // имаше СОБСТВЕН enumerator, който показваше EN като "preview". Това
+  // беше истинският източник на EN-stub leak за launch (не i18n.js, не
+  // language-picker.js). Mirror към i18n.SUPPORTED=['bg'].
+  // Когато EN е production-ready → разшири ВСИЧКИ ТРИ места едновременно:
+  // i18n.js SUPPORTED + language-picker.js LANGUAGES + settings.js LOCALES.
+  var LOCALES = ['bg'];
   var COMPLETE_LOCALES = ['bg'];
-  var PREVIEW_LOCALES = ['en']; // EN е stub mirror, useable за structural test
+  var PREVIEW_LOCALES = []; // EN stub скрит за launch (Google audit risk)
 
   // ============================================================
   // STATE
@@ -326,9 +332,13 @@ window.Settings = (function () {
           '<button class="set-link" type="button" data-action="open-privacy">' +
             escapeHtml(t('settings.about.privacyLink', 'Политика за поверителност')) +
           '</button>' +
-          '<button class="set-link" type="button" data-action="open-terms">' +
-            escapeHtml(t('settings.about.termsLink', 'Условия за ползване')) +
-          '</button>' +
+          /* P0 LAUNCH 2026-05-28: terms бутон скрит — content съществува в
+             bg.json под ui.terms.* но buildTermsViewHtml търси по path
+             terms.* → render-ваше празен прозорец. Re-enable след Шеф
+             review на съдържанието + path correction в buildTermsViewHtml:
+             '<button class="set-link" type="button" data-action="open-terms">' +
+               escapeHtml(t('ui.terms.title', 'Условия за ползване')) +
+             '</button>' + */
         '</div>' +
       '</section>'
     );
