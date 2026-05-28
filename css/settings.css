@@ -15,6 +15,7 @@
   background: rgba(8, 9, 13, 0.55);
   backdrop-filter: blur(2px);
   animation: setFadeIn 0.25s ease;
+  will-change: opacity;
 }
 
 [data-theme="light"] .set-overlay,
@@ -32,6 +33,8 @@
   border-top-left-radius: var(--radius);
   border-top-right-radius: var(--radius);
   animation: setSlideUp 0.32s var(--ease-spring);
+  will-change: transform;
+  backface-visibility: hidden;
   overflow: hidden;
   padding-bottom: env(safe-area-inset-bottom, 0);
 }
