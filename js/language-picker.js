@@ -11,13 +11,13 @@
 window.LanguagePicker = (function () {
   'use strict';
 
-  // P0-FIX (2026-05-28): редуциран до реално налични locales — съответства
-  // на i18n.SUPPORTED. Преди това picker-ът показваше 12 езика, но 10 от тях
-  // нямаха JSON файл → tap → silent failure. Добави нов entry ТУК + добави
-  // съответния i18n/<code>.json + extend SUPPORTED в i18n.js едновременно.
+  // P0-FIX (2026-05-28): single-lang launch — само BG в UI.
+  // EN кодовата инфраструктура остава за бъдеще (en.json не се изтрива),
+  // но не е достъпна от picker за да не stigne incomplete EN до Google
+  // Play submission. Когато EN е production-ready → добави entry ТУК +
+  // extend SUPPORTED в i18n.js едновременно.
   var LANGUAGES = [
-    { code: 'bg', name: 'Български', native: 'Български', flag: '🇧🇬' },
-    { code: 'en', name: 'English',   native: 'English',   flag: '🇺🇸' }
+    { code: 'bg', name: 'Български', native: 'Български', flag: '🇧🇬' }
   ];
 
   function t(key, fallback) {
