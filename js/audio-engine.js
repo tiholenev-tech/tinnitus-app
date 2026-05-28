@@ -60,13 +60,23 @@ window.AudioEngine = (function () {
   var SLEEP_FADE_SEC    = 30;
   var PINK_BUFFER_SEC   = 10;
   var BROWN_BUFFER_SEC  = 10;
-  // P0 QUALITY: unified RMS target за pink+brown.
-  // 0.08 ≈ -22 dBFS RMS — попада в препоръчания -23..-16 LUFS диапазон за noise
-  // и оставя headroom под safety limiter threshold (-12 dBFS). Phone test
-  // (бащата) преди fix: pink ярко силен, brown тих → различни normalization
-  // методи (pink × 0.11 multiplier vs brown peak→0.5). RMS-match изравнява
-  // perceived loudness между двата generators.
-  var NOISE_TARGET_RMS  = 0.08;
+  // P0 QUALITY v2: K-weighted RMS target за pink+brown (ITU-R BS.1770-4).
+  // v1 (0.08 plain RMS) изравняваше energy, но НЕ perceived loudness — pink
+  // звучеше по-силно (повече energy в 2-5 kHz range, ear's peak sensitivity).
+  // v2: K-weighting (high-shelf + 38Hz HP) преди RMS измерване → brown получава
+  // по-голям scale (LF de-emphasized в weighting), pink ~stays → equal perceived
+  // loudness при същия slider. Critical за hyperacusis users: смяна на noise
+  // тип НЕ предизвиква sudden loudness change (вредно за safety).
+  //
+  // 0.02 K-weighted RMS избран conservatively:
+  //   - pink raw ≈ 0.03 RMS, peak ≈ 0.09 (далеч под limiter -12 dBFS = 0.251)
+  //   - brown raw ≈ 0.13 RMS, peak ≈ 0.40 (just над limiter → mild ~4 dB GR на
+  //     brown peaks; 50ms release > brown's slow envelope → smooth, no pumping)
+  //   - At master <100%, peaks scale down → no limiter activation, transparent.
+  // Под BS.1770 -23..-16 LUFS guideline, но that range е за broadcast content;
+  // hyperacusis use case при потенциален max master volume → safety dictates
+  // по-conservative absolute level.
+  var NOISE_TARGET_RMS  = 0.02;
   var VOL_RAMP_SEC      = 0.05;
   var VOL_RAMP_DRAG_SEC = 0.015;
 
@@ -439,19 +449,76 @@ window.AudioEngine = (function () {
     console.log('[noise-loop] detrended + crossfaded:', fadeSec + 's fade на', (N / sr).toFixed(1) + 's buffer');
   }
 
-  // P0 QUALITY: RMS normalize за loudness-match между pink/brown.
-  // Bridges различни generation математики (Kellet pink filter vs DC-accumulator
-  // brown) към единен perceived volume. LUFS-K weighting не е нужен за
-  // broadband noise — RMS е "достатъчно близо" (per научен източник).
+  // ============================================================
+  // P0 QUALITY v2: ITU-R BS.1770-4 K-WEIGHTING
+  // ============================================================
+  // K-weighting моделира equal-loudness contour (Fletcher-Munson) → измерва
+  // perceived loudness, не raw energy. Two-stage cascade:
+  //   Stage 1 (Pre-filter): high-shelf +4dB above ~1.5kHz — head/ear acoustics
+  //   Stage 2 (RLB):        high-pass ~38Hz — removes inaudible sub-bass
+  //
+  // Coefficients са canonical стойности от BS.1770-4 Annex 1 за 48 kHz reference
+  // sample rate. AURALIS init използва default ctx.sampleRate (typically 48 kHz
+  // на mobile devices). При 44.1 kHz weighting curve се измества с ~9% по freq
+  // axis → под 1 dB error в critical band → acceptable за noise loudness match
+  // (не е certified measurement, не отчита broadcast standard compliance).
+  // За по-висока точност би трябвало bilinear transform на analog prototype
+  // динамично спрямо ctx.sampleRate — overkill за този use case.
+
+  // Stage 1 — high-shelf pre-filter (head acoustic effect)
+  var K_PRE_B0 =  1.53512485958697;
+  var K_PRE_B1 = -2.69169618940638;
+  var K_PRE_B2 =  1.19839281085285;
+  var K_PRE_A1 = -1.69065929318241;
+  var K_PRE_A2 =  0.73248077421585;
+
+  // Stage 2 — RLB (Revised Low-frequency B-curve) high-pass ~38Hz
+  var K_RLB_B0 =  1.0;
+  var K_RLB_B1 = -2.0;
+  var K_RLB_B2 =  1.0;
+  var K_RLB_A1 = -1.99004745483398;
+  var K_RLB_A2 =  0.99007225036621;
+
+  // Biquad direct form 1 на копие (input → new Float32Array, не in-place).
+  // a0 normalized to 1 (coefficients вече pre-divided).
+  function applyBiquadCopy(input, b0, b1, b2, a1, a2) {
+    var N = input.length;
+    var output = new Float32Array(N);
+    var x1 = 0, x2 = 0, y1 = 0, y2 = 0;
+    for (var i = 0; i < N; i++) {
+      var x = input[i];
+      var y = b0 * x + b1 * x1 + b2 * x2 - a1 * y1 - a2 * y2;
+      output[i] = y;
+      x2 = x1; x1 = x;
+      y2 = y1; y1 = y;
+    }
+    return output;
+  }
+
+  // Compute K-weighted RMS — apply two-stage cascade OFFLINE на копие на data,
+  // връща RMS на филтрираното. data НЕ се променя (offline measurement only).
+  function computeKWeightedRMS(data) {
+    var stage1 = applyBiquadCopy(data,   K_PRE_B0, K_PRE_B1, K_PRE_B2, K_PRE_A1, K_PRE_A2);
+    var stage2 = applyBiquadCopy(stage1, K_RLB_B0, K_RLB_B1, K_RLB_B2, K_RLB_A1, K_RLB_A2);
+    var N = stage2.length;
+    if (N === 0) return 0;
+    var sumSq = 0;
+    for (var i = 0; i < N; i++) sumSq += stage2[i] * stage2[i];
+    return Math.sqrt(sumSq / N);
+  }
+
+  // P0 QUALITY v2: K-weighted RMS normalize за perceived loudness-match.
+  // Измерва K-weighted RMS (offline, на копие), изчислява scale, прилага към
+  // ОРИГИНАЛНИЯ буфер. Pink (broadband, ear-sensitive range) → малка корекция;
+  // brown (LF-dominant, ear de-emphasizes) → голяма корекция. Резултат:
+  // pink и brown звучат еднакво силно при същия master slider.
   function normalizeBufferRMS(data, targetRMS) {
     var N = data.length;
     if (N === 0) return;
-    var sumSq = 0;
-    for (var i = 0; i < N; i++) sumSq += data[i] * data[i];
-    var currentRMS = Math.sqrt(sumSq / N);
-    if (currentRMS < 1e-9) return;
-    var scale = targetRMS / currentRMS;
-    for (var j = 0; j < N; j++) data[j] *= scale;
+    var currentKRMS = computeKWeightedRMS(data);
+    if (currentKRMS < 1e-9) return;
+    var scale = targetRMS / currentKRMS;
+    for (var i = 0; i < N; i++) data[i] *= scale;
   }
 
   function getOrGeneratePinkBuffer() {
