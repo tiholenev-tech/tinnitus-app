@@ -173,6 +173,16 @@
       this.thiBaselineBreakdown = parseJSON(get(KEY_THI_BASELINE_BREAKDOWN), null);
       this.thiDay14Breakdown    = parseJSON(get(KEY_THI_DAY14_BREAKDOWN), null);
       this.diaryEntries = parseJSON(get(KEY_DIARY_ENTRIES), {});
+      // P1-29 MIGRATION GUARD: стари версии (преди dateKey-based map) запазваха
+      // diaryEntries като array. Object.keys(array) дава ['0','1',...] →
+      // downstream обхождане crash-ва (entry[dateKey] е undefined). Convert
+      // към празен object при detected array или non-object payload.
+      if (this.diaryEntries === null ||
+          typeof this.diaryEntries !== 'object' ||
+          Array.isArray(this.diaryEntries)) {
+        console.warn('[state] diaryEntries legacy shape detected → migrating към {}');
+        this.diaryEntries = {};
+      }
       var sad = get(KEY_STREAK_ACTIVE_DAYS);
       this.streakActiveDays = (sad === null || sad === '') ? 0 : (parseInt(sad, 10) || 0);
       var sfr = get(KEY_STREAK_FREEZES);

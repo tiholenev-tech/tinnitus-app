@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#08090d">
+  <title>Поверителност и Декларация — AURALIS</title>
+  <meta name="description" content="Политика за поверителност и регулаторна декларация на AURALIS — wellness инструмент за слухова релаксация при тинитус.">
+  <link rel="icon" type="image/png" sizes="192x192" href="app-icons/icon-192.png">
+  <link rel="apple-touch-icon" href="app-icons/icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap">
+  <style>
+    :root {
+      --bg: #0a0b10;
+      --surface: rgba(255,255,255,0.04);
+      --text: #e8eaee;
+      --text-muted: #9ba2ad;
+      --text-faint: #6b727d;
+      --accent: hsl(38 80% 60%);
+      --border: rgba(255,255,255,0.08);
+      --quote-bg: hsl(220 25% 8%);
+      --quote-border: hsl(38 80% 60% / 0.35);
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f6f7f9;
+        --surface: #ffffff;
+        --text: #16181d;
+        --text-muted: #525862;
+        --text-faint: #8b9099;
+        --border: rgba(0,0,0,0.08);
+        --quote-bg: hsl(38 60% 96%);
+        --quote-border: hsl(38 80% 50% / 0.4);
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+    body {
+      font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      letter-spacing: 0.005em;
+      padding: 24px 16px calc(40px + env(safe-area-inset-bottom, 0));
+    }
+    main { max-width: 720px; margin: 0 auto; }
+    header.page-head {
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 2px;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    .brand-1 { color: var(--text); }
+    .brand-2 { color: var(--accent); }
+    .page-title {
+      margin: 12px 0 4px;
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+    .page-subtitle {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    nav.lang-toc {
+      margin: 20px 0 0;
+      display: flex;
+      gap: 12px;
+      font-size: 13px;
+    }
+    nav.lang-toc a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: background 150ms ease;
+    }
+    nav.lang-toc a:hover, nav.lang-toc a:focus-visible {
+      background: var(--surface);
+      outline: none;
+    }
+    section.lang-section { margin-bottom: 56px; }
+    h2 {
+      margin: 0 0 16px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.005em;
+    }
+    h3 {
+      margin: 32px 0 10px;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: 0.005em;
+    }
+    p {
+      margin: 0 0 14px;
+      color: var(--text);
+    }
+    p.muted { color: var(--text-muted); font-size: 14px; }
+    ul { padding-left: 22px; margin: 0 0 14px; }
+    li { margin-bottom: 6px; }
+    blockquote.regulatory {
+      margin: 18px 0;
+      padding: 16px 18px;
+      background: var(--quote-bg);
+      border-left: 3px solid var(--quote-border);
+      border-radius: 6px;
+      font-size: 15px;
+      color: var(--text);
+      font-style: normal;
+    }
+    blockquote.regulatory .source {
+      display: block;
+      margin-top: 8px;
+      font-size: 11px;
+      color: var(--text-faint);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .effective-date {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--text-faint);
+      letter-spacing: 0.03em;
+    }
+    hr.section-sep {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0;
+    }
+    footer.page-foot {
+      padding-top: 24px;
+      margin-top: 32px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-faint);
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+    footer.page-foot a { color: var(--text-muted); }
+    a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    a:hover { text-decoration-thickness: 2px; }
+  </style>
+</head>
+<body>
+<main>
+
+  <header class="page-head">
+    <span class="brand"><span class="brand-1">tinnitus</span><span class="brand-2">-app</span></span>
+    <h1 class="page-title">Поверителност и Декларация</h1>
+    <p class="page-subtitle">Privacy &amp; Disclaimer</p>
+    <nav class="lang-toc" aria-label="Език / Language">
+      <a href="#bg">Български</a>
+      <a href="#en">English</a>
+    </nav>
+    <p class="effective-date">Версия / Version: 2026-05-28</p>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       БЪЛГАРСКИ
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section id="bg" class="lang-section" lang="bg">
+    <h2>Поверителност на данните</h2>
+
+    <p>
+      AURALIS е приложение, което работи изцяло на Вашето устройство. Не разполагаме със сървър,
+      на който да изпращаме или съхраняваме информация за Вас.
+    </p>
+
+    <h3>Какви данни се запазват</h3>
+    <p>
+      Приложението използва локалното хранилище на браузъра (<em>localStorage</em>) за да помни:
+    </p>
+    <ul>
+      <li>Вашите отговори от въпросника и съответния звуков профил</li>
+      <li>Записи в дневника (вечерни рефлексии, CBT отговори) — само на устройството</li>
+      <li>Резултати от слуховите тестове (честота на тинитус, ако сте го измервали)</li>
+      <li>Настройки за звук, тема, език и предпочитания за интерфейс</li>
+      <li>Статистика за прогрес през 14-дневната програма</li>
+    </ul>
+
+    <h3>Какво НЕ правим</h3>
+    <ul>
+      <li>Не изпращаме данни на сървър — нямаме backend</li>
+      <li>Не използваме инструменти за анализ на потребителското поведение (без Google Analytics, без Facebook Pixel, без подобни tracker-и)</li>
+      <li>Не споделяме данни с трети страни</li>
+      <li>Не пускаме реклами</li>
+      <li>Не съхраняваме гласови записи — при използване на гласова диктовка обработката става локално от браузъра Ви</li>
+    </ul>
+
+    <h3>Контрол върху данните</h3>
+    <p>
+      Можете да изтриете всички запазени данни по всяко време от
+      <strong>Настройки → Данни → Изтрий всички данни</strong>. Действието премахва цялото съдържание от
+      локалното хранилище и е необратимо. Изчистване на данните на браузъра Ви също премахва
+      информацията на приложението.
+    </p>
+
+    <h2 style="margin-top:48px">Регулаторна декларация</h2>
+
+    <h3>Образователен характер</h3>
+    <blockquote class="regulatory">
+      Цялото съдържание, генерирано от софтуера Auralis, има изключително информативен и
+      образователен характер. Софтуерът не съставлява медицинска диагноза, терапевтично
+      предписание или професионален медицински съвет.
+      <span class="source">Източник: Регулаторна стратегия за софтуерната платформа Auralis</span>
+    </blockquote>
+
+    <h3>Консултация с медицинско лице</h3>
+    <blockquote class="regulatory">
+      Потребителят е длъжен да се консултира с квалифицирано медицинско лице за всякакви въпроси,
+      свързани със здравословното му състояние, и не трябва да пренебрегва или забавя търсенето
+      на професионална медицинска помощ поради информация, получена чрез приложението.
+      <span class="source">Източник: Регулаторна стратегия за софтуерната платформа Auralis</span>
+    </blockquote>
+
+    <h3>Спешни състояния</h3>
+    <blockquote class="regulatory">
+      Auralis не е предназначен за използване при спешни медицински ситуации. В случай на
+      спешност, незабавно се свържете с местните служби за спешна помощ (тел. 112).
+      <span class="source">Източник: Регулаторна стратегия за софтуерната платформа Auralis</span>
+    </blockquote>
+
+    <h3>Wellness обхват</h3>
+    <blockquote class="regulatory">
+      Това приложение е инструмент за общо благополучие (wellness). То не диагностицира, не лекува
+      и не замества консултация с лекар или одиолог.
+      <span class="source">Източник: Регулаторна стратегия за софтуерната платформа Auralis</span>
+    </blockquote>
+
+    <h3>Контакт</h3>
+    <p class="muted">
+      Въпроси относно поверителността или регулаторния обхват:
+      <a href="mailto:support@tinnitus-app.help">support@tinnitus-app.help</a>
+    </p>
+  </section>
+
+  <hr class="section-sep">
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       ENGLISH
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section id="en" class="lang-section" lang="en">
+    <h2>Data Privacy</h2>
+
+    <p>
+      AURALIS runs entirely on your device. There is no server to which we transmit
+      or store any information about you.
+    </p>
+
+    <h3>What data is stored</h3>
+    <p>
+      The application uses your browser's local storage (<em>localStorage</em>) to remember:
+    </p>
+    <ul>
+      <li>Your questionnaire answers and the resulting sound profile</li>
+      <li>Diary entries (evening reflections, CBT responses) — kept only on your device</li>
+      <li>Hearing-test results (tinnitus frequency, if measured)</li>
+      <li>Sound, theme, language and interface preferences</li>
+      <li>Progress statistics across the 14-day programme</li>
+    </ul>
+
+    <h3>What we do not do</h3>
+    <ul>
+      <li>No data is sent to a server — we operate no backend</li>
+      <li>No behavioural analytics tools are used (no Google Analytics, no Facebook Pixel, no equivalent trackers)</li>
+      <li>No data is shared with third parties</li>
+      <li>No advertising</li>
+      <li>No voice recordings are retained — voice dictation, if used, is processed locally by your browser</li>
+    </ul>
+
+    <h3>Control over your data</h3>
+    <p>
+      You can delete all stored data at any time via
+      <strong>Settings → Data → Delete all data</strong>. The action removes the entire local-storage
+      payload and is irreversible. Clearing your browser data will also remove this application's
+      information.
+    </p>
+
+    <h2 style="margin-top:48px">Regulatory Disclaimer</h2>
+
+    <h3>Educational scope</h3>
+    <blockquote class="regulatory">
+      All content generated by the Auralis software is for informational and educational purposes
+      only. The software does not constitute a medical diagnosis, a therapeutic prescription, or
+      professional medical advice.
+      <span class="source">Source: Regulatory strategy for the Auralis software platform</span>
+    </blockquote>
+
+    <h3>Consultation with a medical professional</h3>
+    <blockquote class="regulatory">
+      The user is required to consult a qualified medical professional for any questions related
+      to their health, and must not disregard or delay seeking professional medical help because
+      of information obtained through the application.
+      <span class="source">Source: Regulatory strategy for the Auralis software platform</span>
+    </blockquote>
+
+    <h3>Emergencies</h3>
+    <blockquote class="regulatory">
+      Auralis is not intended for use in medical emergencies. In an emergency, contact your local
+      emergency services immediately (in the European Union: 112).
+      <span class="source">Source: Regulatory strategy for the Auralis software platform</span>
+    </blockquote>
+
+    <h3>Wellness scope</h3>
+    <blockquote class="regulatory">
+      This application is a general-wellness tool. It does not diagnose, does not treat, and is
+      not a substitute for consultation with a physician or audiologist.
+      <span class="source">Source: Regulatory strategy for the Auralis software platform</span>
+    </blockquote>
+
+    <h3>Contact</h3>
+    <p class="muted">
+      Privacy or regulatory enquiries:
+      <a href="mailto:support@tinnitus-app.help">support@tinnitus-app.help</a>
+    </p>
+  </section>
+
+  <footer class="page-foot">
+    <p>
+      © 2026 AURALIS · <a href="index.html">Към приложението / Back to app</a>
+    </p>
+  </footer>
+
+</main>
+</body>
+</html>

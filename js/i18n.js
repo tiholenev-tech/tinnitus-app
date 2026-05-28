@@ -22,7 +22,12 @@ window.i18n = (function () {
   'use strict';
 
   var STORAGE_KEY = 'auralis_locale';
-  var SUPPORTED = ['bg', 'en', 'zh', 'hi', 'es', 'ar', 'pt', 'ru', 'fr', 'de', 'ja', 'ko'];
+  // P0-FIX (2026-05-28): SUPPORTED намален до реално съществуващите JSON файлове
+  // (i18n/bg.json + i18n/en.json). Преди това setLocale('zh' etc.) минаваше guard
+  // → loadLocale fail-ваше с 404 → broken UI state. Освен това false claim за
+  // 12 езика beше regulatory issue (Google Play health-app audit).
+  // Когато добавим още locales → разшири този array + добави съответния JSON.
+  var SUPPORTED = ['bg', 'en'];
   var DEFAULT_FALLBACK = 'bg';  // beta: BG complete, EN stub, others later
 
   var locale = DEFAULT_FALLBACK;

@@ -11,19 +11,13 @@
 window.LanguagePicker = (function () {
   'use strict';
 
+  // P0-FIX (2026-05-28): редуциран до реално налични locales — съответства
+  // на i18n.SUPPORTED. Преди това picker-ът показваше 12 езика, но 10 от тях
+  // нямаха JSON файл → tap → silent failure. Добави нов entry ТУК + добави
+  // съответния i18n/<code>.json + extend SUPPORTED в i18n.js едновременно.
   var LANGUAGES = [
     { code: 'bg', name: 'Български', native: 'Български', flag: '🇧🇬' },
-    { code: 'en', name: 'English',   native: 'English',   flag: '🇺🇸' },
-    { code: 'es', name: 'Español',   native: 'Español',   flag: '🇪🇸' },
-    { code: 'zh', name: 'Chinese',   native: '中文',       flag: '🇨🇳' },
-    { code: 'hi', name: 'Hindi',     native: 'हिन्दी',      flag: '🇮🇳' },
-    { code: 'ar', name: 'Arabic',    native: 'العربية',    flag: '🇸🇦' },
-    { code: 'pt', name: 'Português', native: 'Português', flag: '🇧🇷' },
-    { code: 'ru', name: 'Русский',   native: 'Русский',   flag: '🇷🇺' },
-    { code: 'fr', name: 'Français',  native: 'Français',  flag: '🇫🇷' },
-    { code: 'de', name: 'Deutsch',   native: 'Deutsch',   flag: '🇩🇪' },
-    { code: 'ja', name: 'Japanese',  native: '日本語',     flag: '🇯🇵' },
-    { code: 'ko', name: 'Korean',    native: '한국어',     flag: '🇰🇷' }
+    { code: 'en', name: 'English',   native: 'English',   flag: '🇺🇸' }
   ];
 
   function t(key, fallback) {

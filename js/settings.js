@@ -552,6 +552,20 @@ window.Settings = (function () {
     );
   }
 
+  // Pitch retest entry — позволява повторно изпълнение на звуковия тест
+  // от Settings (без да чакаме Day 14 prompt).
+  function buildPitchRetestButton() {
+    return (
+      '<section class="set-section">' +
+        '<div class="set-data-actions">' +
+          '<button class="set-action" type="button" data-action="pitch-retest">' +
+            escapeHtml(t('settings.pitchRetest', 'Направи звуков тест отново')) +
+          '</button>' +
+        '</div>' +
+      '</section>'
+    );
+  }
+
   // ============================================================
   // Voice dictation privacy reset (Wave 3.2+)
   // ============================================================
@@ -672,6 +686,7 @@ window.Settings = (function () {
           buildAnalyticsButton() +
           buildScienceInfoButton() +
           buildFaqButton() +
+          buildPitchRetestButton() +
           buildVoicePrivacyButton() +
           buildDataSection() +
           buildAboutSection() +
@@ -852,6 +867,63 @@ window.Settings = (function () {
     }, 100);
   }
 
+  // P0-7 FIX (2026-05-28): пълно изтриване за Google Play health-app privacy
+  // claim. Преди това разчитахме само на 'auralis_'/'auralis-' prefix match;
+  // тук добавяме explicit known-keys list като primary mechanism (audit-ready
+  // документация за всички данни които приложението пази). Pattern fallback
+  // остава catch-all за бъдещи keys и dynamic такива (drafts, audio-toggles).
+  //
+  // ИНВАРИАНТ: всеки нов module който call-ва localStorage.setItem ТРЯБВА
+  // да добави своя key в DATA_KEYS_ALL по-долу.
+  var DATA_KEYS_ALL = [
+    // Theme + i18n
+    'auralis-theme', 'auralis_locale',
+    // Onboarding + consent + phase routing
+    'auralis-onboarding-done', 'auralis-consent-granted',
+    'auralis-phase', 'auralis-subphase',
+    // Quiz
+    'auralis-quiz-subphase', 'auralis-quiz-answers', 'auralis-quiz-done',
+    'auralis-quiz-profile', 'auralis-quiz-di',
+    // 14-day program + THI
+    'auralis-program-start-date', 'auralis-program-current-day',
+    'auralis-thi-baseline', 'auralis-thi-day14',
+    'auralis-thi-baseline-breakdown', 'auralis-thi-day14-breakdown',
+    'auralis-thi-active-index', 'auralis-thi-active-scores',
+    // Diary + streak (legacy + current)
+    'auralis-diary-entries', 'auralis_diary_entries',
+    'auralis-diary-soft-check',
+    'auralis-streak-active-days', 'auralis-streak-freezes-remaining',
+    'auralis-streak-last-entry-date', 'auralis-streak-frozen-dates',
+    // Nudges + timezone
+    'auralis-listen-nudge-dismissed-at',
+    'auralis-tz-last', 'auralis-tz-banner-dismissed-at',
+    // SAFETY-2 calibration
+    'auralis-calibration-done', 'auralis-mixing-point-volume',
+    // PROFILE-CONFIG + NAV
+    'auralis-user-overrides', 'auralis-last-category-view',
+    // PITCH-1 + PACK C T3 notch
+    'auralis-pitch-tests', 'auralis-pitch-skip-reason',
+    'auralis-pitch-skipped', 'auralis-audio-device',
+    'auralis-notch-disabled',
+    // Player / Mixer / Sleep
+    'auralis_player_noise_id', 'auralis_player_layer1_vol', 'auralis_player_layer2_vol',
+    'auralis-master-volume', 'auralis_sleep_timer_minutes',
+    // Library / Favorites
+    'auralis_library_favorites', 'auralis_favorites',
+    // Misc UI state
+    'auralis_haptics_enabled', 'auralis-headphones-warning-seen',
+    'auralis_voice_privacy_acknowledged',
+    'auralis_tour_done', 'auralis_notif_last_shown',
+    'auralis_category_autoplay', 'auralis-profile-welcome-seen',
+    'auralis-science-last-section', 'auralis-science-reminders',
+    'auralis_reminders',
+    // Analytics + error log
+    'auralis_analytics_sessions', 'auralis_analytics_summary',
+    'auralis_error_log',
+    // Trial gating
+    'auralis_trial_start', 'auralis_unlocked'
+  ];
+
   function deleteAllData() {
     var ok = window.confirm(
       t('settings.data.deleteConfirm',
@@ -861,14 +933,19 @@ window.Settings = (function () {
     // Stop audio преди reset за да не остане suspended source
     if (window.AudioEngine && window.AudioEngine.stop) window.AudioEngine.stop();
     try {
-      var keys = [];
+      var toRemove = DATA_KEYS_ALL.slice();
+      // Pattern fallback: catch dynamic keys (audio toggles, drafts, etc.)
+      // или keys въведени от нови modules които пропуснаха да обновят
+      // DATA_KEYS_ALL. Покрива auralis_audio_*, auralis_diary_draft_*, etc.
       for (var i = 0; i < localStorage.length; i++) {
         var k = localStorage.key(i);
         if (k && (k.indexOf('auralis_') === 0 || k.indexOf('auralis-') === 0)) {
-          keys.push(k);
+          if (toRemove.indexOf(k) === -1) toRemove.push(k);
         }
       }
-      keys.forEach(function (k) { localStorage.removeItem(k); });
+      toRemove.forEach(function (k) {
+        try { localStorage.removeItem(k); } catch (_) {}
+      });
     } catch (e) { /* ignore */ }
     window.location.reload();
   }
@@ -1099,6 +1176,11 @@ window.Settings = (function () {
         // Close Settings first, then open ScienceInfo overlay.
         close();
         if (window.ScienceInfo && window.ScienceInfo.open) window.ScienceInfo.open();
+      }
+      else if (action === 'pitch-retest') {
+        // Close Settings → open PitchTest fresh run (user-initiated retest).
+        close();
+        if (window.PitchTest && window.PitchTest.open) window.PitchTest.open();
       }
       else if (action === 'diary-import-trigger') {
         var input = el('setDiaryImportInput');
