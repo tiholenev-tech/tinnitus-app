@@ -60,6 +60,13 @@ window.AudioEngine = (function () {
   var SLEEP_FADE_SEC    = 30;
   var PINK_BUFFER_SEC   = 10;
   var BROWN_BUFFER_SEC  = 10;
+  // P0 QUALITY: unified RMS target за pink+brown.
+  // 0.08 ≈ -22 dBFS RMS — попада в препоръчания -23..-16 LUFS диапазон за noise
+  // и оставя headroom под safety limiter threshold (-12 dBFS). Phone test
+  // (бащата) преди fix: pink ярко силен, brown тих → различни normalization
+  // методи (pink × 0.11 multiplier vs brown peak→0.5). RMS-match изравнява
+  // perceived loudness между двата generators.
+  var NOISE_TARGET_RMS  = 0.08;
   var VOL_RAMP_SEC      = 0.05;
   var VOL_RAMP_DRAG_SEC = 0.015;
 
@@ -89,6 +96,8 @@ window.AudioEngine = (function () {
 
   var ctx = null;
   var masterGain = null;
+  var safetyLimiter = null;       // P0 SAFETY: DynamicsCompressor in hard-limit mode
+  var makeupCancelGain = null;    // P0 SAFETY: cancels compressor automatic makeup gain
   var masterVolume = DEFAULT_VOLUME;
   var iosUnlocked = false;
 
@@ -130,8 +139,32 @@ window.AudioEngine = (function () {
     ctx = new Ctx({ latencyHint: 'playback' });
     masterGain = ctx.createGain();
     masterGain.gain.value = volumeToGain(masterVolume);
-    masterGain.connect(ctx.destination);
-    console.log('[audio] context init, sample rate:', ctx.sampleRate);
+
+    // ============================================================
+    // P0 SAFETY LIMITER — hearing protection (50+ tinnitus/hyperacusis)
+    // ============================================================
+    // Scientifically validated params:
+    //   threshold -12 dBFS, ratio 20:1 (hard limit), attack 1ms, release 50ms,
+    //   knee 0 (hard). Release < 50ms causes "pumping" → worsens hyperacusis.
+    // Chain: masterGain → safetyLimiter → makeupCancelGain → destination
+    // makeupCancelGain cancels Web Audio compressor's automatic makeup gain
+    // (~0.5 * threshold). Formula: 10^((0.5 * threshold) / 20).
+    safetyLimiter = ctx.createDynamicsCompressor();
+    safetyLimiter.threshold.value = -12;
+    safetyLimiter.ratio.value     = 20;
+    safetyLimiter.attack.value    = 0.001;
+    safetyLimiter.release.value   = 0.050;
+    safetyLimiter.knee.value      = 0.0;
+
+    makeupCancelGain = ctx.createGain();
+    makeupCancelGain.gain.value = Math.pow(10, (0.5 * -12.0) / 20);
+
+    masterGain.connect(safetyLimiter);
+    safetyLimiter.connect(makeupCancelGain);
+    makeupCancelGain.connect(ctx.destination);
+
+    console.log('[audio] context init, sample rate:', ctx.sampleRate,
+      '| safety limiter: -12 dBFS / 20:1 / 1ms / 50ms');
     return ctx;
   }
 
@@ -406,6 +439,21 @@ window.AudioEngine = (function () {
     console.log('[noise-loop] detrended + crossfaded:', fadeSec + 's fade на', (N / sr).toFixed(1) + 's buffer');
   }
 
+  // P0 QUALITY: RMS normalize за loudness-match между pink/brown.
+  // Bridges различни generation математики (Kellet pink filter vs DC-accumulator
+  // brown) към единен perceived volume. LUFS-K weighting не е нужен за
+  // broadband noise — RMS е "достатъчно близо" (per научен източник).
+  function normalizeBufferRMS(data, targetRMS) {
+    var N = data.length;
+    if (N === 0) return;
+    var sumSq = 0;
+    for (var i = 0; i < N; i++) sumSq += data[i] * data[i];
+    var currentRMS = Math.sqrt(sumSq / N);
+    if (currentRMS < 1e-9) return;
+    var scale = targetRMS / currentRMS;
+    for (var j = 0; j < N; j++) data[j] *= scale;
+  }
+
   function getOrGeneratePinkBuffer() {
     if (generatedPinkBuffer) return generatedPinkBuffer;
     var sampleRate = ctx.sampleRate;
@@ -424,15 +472,18 @@ window.AudioEngine = (function () {
       b5 = -0.7616 * b5 - white * 0.0168980;
       var pink = b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362;
       b6 = white * 0.115926;
-      data[i] = pink * 0.11;
+      data[i] = pink; // raw — RMS normalize по-долу (заменя стария × 0.11 multiplier)
     }
+    // P0 QUALITY: RMS normalize → loudness-match с brown buffer.
+    normalizeBufferRMS(data, NOISE_TARGET_RMS);
     // P0 v4: detrend + SHORT (20ms) crossfade. v3 used 500ms → audible amplitude
     // modulation = "накъсан" звук (random noise blending в дълъг overlap window).
     // 20ms (~1000 samples @ 48kHz) е под perceptual threshold за noise blending,
     // но достатъчно за derivative smoothness след detrend (value continuity).
     applyLoopCrossfade(buffer, 0.02);
     generatedPinkBuffer = buffer;
-    console.log('[audio] generated pink buffer:', PINK_BUFFER_SEC + 's');
+    console.log('[audio] generated pink buffer:', PINK_BUFFER_SEC + 's',
+      '| RMS target:', NOISE_TARGET_RMS);
     return buffer;
   }
 
@@ -449,21 +500,18 @@ window.AudioEngine = (function () {
       lastOut = data[i];
       sum += data[i];
     }
-    // DC removal + normalize peak to 0.5 (standard). Perceptual curve в
-    // volumeToGain (pow 2.5) handles cross-layer balance.
+    // DC removal (brown DC-accumulator drifts → must subtract mean).
     var dc = sum / bufferSize;
-    var maxVal = 0;
-    for (var j = 0; j < bufferSize; j++) {
-      data[j] -= dc;
-      var abs = Math.abs(data[j]);
-      if (abs > maxVal) maxVal = abs;
-    }
-    var scale = 0.5 / (maxVal || 1);
-    for (var k = 0; k < bufferSize; k++) data[k] *= scale;
+    for (var j = 0; j < bufferSize; j++) data[j] -= dc;
+    // P0 QUALITY: RMS normalize → loudness-match с pink buffer.
+    // Премахнат peak-normalize-to-0.5 (различен от pink × 0.11) → причиняваше
+    // brown да звучи тихо при същия slider (потвърдено phone test, бащата).
+    normalizeBufferRMS(data, NOISE_TARGET_RMS);
     // P0 v4: detrend + 20ms crossfade (виж pink generator).
     applyLoopCrossfade(buffer, 0.02);
     generatedBrownBuffer = buffer;
-    console.log('[audio] generated brown buffer:', BROWN_BUFFER_SEC + 's');
+    console.log('[audio] generated brown buffer:', BROWN_BUFFER_SEC + 's',
+      '| RMS target:', NOISE_TARGET_RMS);
     return buffer;
   }
 
