@@ -176,11 +176,26 @@ a { text-decoration: none; }
 .app {
   position: relative;
   z-index: 5;
+  width: 100%;
   max-width: 480px;
   margin: 0 auto;
   padding: 8px 12px calc(80px + env(safe-area-inset-bottom, 0));
   /* NOTE: chat.php има 168px bottom (заради chat input bar). AURALIS
-     няма такъв, затова 80px достатъчно. */
+     няма такъв, затова 80px достатъчно.
+     PHONE-TEST FIX (Task 3): width:100% + overflow-x:hidden за защита
+     срещу cards излизащи извън viewport. body вече има overflow-x:hidden
+     но .app сам по себе си трябва да clip-ва children с твърди широчини.
+     Дизайнът не се променя — само defensive clipping. */
+  overflow-x: hidden;
+  min-width: 0;
+}
+
+/* Универсална защита: всеки direct child на .app не трябва да forces
+   parent-а да расте. min-width:0 на flex/grid items позволява shrinking
+   когато content има intrinsic min-width (long text / fixed-width cards). */
+.app > * {
+  min-width: 0;
+  max-width: 100%;
 }
 
 /* ═══════════════════════════════════════════════════════════════════

@@ -267,12 +267,22 @@
           else if (window.Mixer && window.Mixer.render) window.Mixer.render();
           else if (window.Quiz && window.Quiz.render) window.Quiz.render();
         } else {
-          // Иначе → onboarding welcome (изчисти стари quiz отговори за clean restart)
-          if (typeof s.resetQuiz === 'function') s.resetQuiz();
-          s.transition('onboarding');
-          s.transitionSubphase('welcome');
-          history.pushState({ phase: 'onboarding', subphase: 'welcome' }, '');
-          if (window.Onboarding && window.Onboarding.render) window.Onboarding.render();
+          // P0-5 FIX: НЕ извикваме resetQuiz() от brand-home click. Преди
+          // това случаен click на brand триеше quiz progress (потвърден bug).
+          // Reset е експлицитен — само от Settings → "Започни отначало".
+          // Тук просто навигираме към текущата фаза (онбординг или quiz).
+          if (s.isOnboardingDone()) {
+            // Onboarding done но quiz не — отиди към quiz current step.
+            s.transition('quiz');
+            history.pushState({ phase: 'quiz' }, '');
+            if (window.Quiz && window.Quiz.render) window.Quiz.render();
+          } else {
+            // Не е onboarding done — върни в onboarding welcome (без reset).
+            s.transition('onboarding');
+            s.transitionSubphase('welcome');
+            history.pushState({ phase: 'onboarding', subphase: 'welcome' }, '');
+            if (window.Onboarding && window.Onboarding.render) window.Onboarding.render();
+          }
         }
       }
 

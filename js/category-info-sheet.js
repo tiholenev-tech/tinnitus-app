@@ -403,8 +403,11 @@ window.CategoryInfoSheet = (function () {
     } else if (openHandle._fallback) {
       var ov = openHandle._fallback;
       if (ov.parentNode) ov.parentNode.removeChild(ov);
-      document.body.classList.remove('cis-locked');
     }
+    // P0-12 FIX: винаги изчистваме scroll lock независимо от branch.
+    // Преди това при някои edge-cases (early return, BottomSheet bypass)
+    // .cis-locked оставаше залепен и body-то не скролваше.
+    document.body.classList.remove('cis-locked');
     openHandle = null;
   }
 

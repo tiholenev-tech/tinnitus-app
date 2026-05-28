@@ -217,36 +217,41 @@ window.Favorites = (function () {
       }).join('');
 
       content.innerHTML = sortBtns + '<div class="fav-list">' + list + '</div>';
+      // P0-10 FIX: НЕ bind-ваме индивидуални listeners тук — те се
+      // акумулираха при всеки re-render (sort tap / remove tap) защото
+      // re-bind happen-ваше преди GC да овъвчисти старите closures.
+      // Сега използваме SINGLE delegated listener на `content` (виж по-долу).
+    }
 
-      // Bind sort buttons
-      var sortButtons = content.querySelectorAll('[data-sort]');
-      for (var i = 0; i < sortButtons.length; i++) {
-        sortButtons[i].addEventListener('click', function (e) {
-          sortMode = e.currentTarget.getAttribute('data-sort');
-          render();
-        });
+    // Single delegated click handler — bound веднъж за целия живот на sheet.
+    // innerHTML re-render-ите не го трият (parent остава, listener остава).
+    function onContentClick(e) {
+      // Sort buttons
+      var sortBtn = e.target.closest('[data-sort]');
+      if (sortBtn && content.contains(sortBtn)) {
+        sortMode = sortBtn.getAttribute('data-sort');
+        render();
+        return;
       }
-
-      // Bind item actions
-      var items = content.querySelectorAll('.fav-item');
-      for (var j = 0; j < items.length; j++) {
-        (function (item) {
-          var id = item.getAttribute('data-fav-id');
-          var playBtn = item.querySelector('[data-action="play"]');
-          var removeBtn = item.querySelector('[data-action="remove"]');
-          if (playBtn) playBtn.addEventListener('click', function () {
-            if (window.Player && window.Player.open) window.Player.open(id);
-            else if (window.AudioEngine && window.AudioEngine.play) window.AudioEngine.play(id);
-          });
-          if (removeBtn) removeBtn.addEventListener('click', function () {
-            remove(id);
-            all = getAll();
-            render();
-            if (window.Toast) window.Toast.info(t('favorites.removed', 'Премахнато от любими'));
-          });
-        })(items[j]);
+      // Item action — find both action и parent item.
+      var actionBtn = e.target.closest('[data-action]');
+      if (!actionBtn || !content.contains(actionBtn)) return;
+      var itemEl = actionBtn.closest('.fav-item');
+      if (!itemEl) return;
+      var id = itemEl.getAttribute('data-fav-id');
+      if (!id) return;
+      var action = actionBtn.getAttribute('data-action');
+      if (action === 'play') {
+        if (window.Player && window.Player.open) window.Player.open(id);
+        else if (window.AudioEngine && window.AudioEngine.play) window.AudioEngine.play(id);
+      } else if (action === 'remove') {
+        remove(id);
+        all = getAll();
+        render();
+        if (window.Toast) window.Toast.info(t('favorites.removed', 'Премахнато от любими'));
       }
     }
+    content.addEventListener('click', onContentClick);
 
     render();
 

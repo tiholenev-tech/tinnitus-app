@@ -76,10 +76,24 @@ window.OnboardingTour = (function () {
     }
 
     var step = STEPS[currentStep];
-    var target = document.querySelector(step.selector);
 
-    // Skip step if target not found
-    if (!target) {
+    // P0-11 FIX: querySelector може да хвърли (invalid selector) и
+    // getBoundingClientRect може да fail-не на detached node. Wrap-ваме
+    // целия probe в try-catch; при грешка skip-ваме step тихо.
+    var target = null;
+    var rect = null;
+    try {
+      target = document.querySelector(step.selector);
+      if (target && typeof target.getBoundingClientRect === 'function') {
+        rect = target.getBoundingClientRect();
+      }
+    } catch (e) {
+      target = null;
+      rect = null;
+    }
+
+    // Skip step if target not found OR rect inaccessible.
+    if (!target || !rect) {
       currentStep++;
       showStep();
       return;
@@ -90,8 +104,7 @@ window.OnboardingTour = (function () {
     overlay = document.createElement('div');
     overlay.className = 'tour-overlay';
 
-    // Spotlight hole
-    var rect = target.getBoundingClientRect();
+    // Spotlight hole (rect ще е валиден до тук — guard-нат по-горе)
     var pad = 8;
     var hole = document.createElement('div');
     hole.className = 'tour-hole';
