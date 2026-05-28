@@ -359,6 +359,11 @@ window.SoundDetail = (function () {
     }
     var app = el('app');
     if (!app) return;
+    // NAV-LISTENER-LEAK fix: clone-and-replace #app преди да закачаме нашия
+    // click listener (виж player.js openCore коментара).
+    var fresh = app.cloneNode(false);
+    app.parentNode.replaceChild(fresh, app);
+    app = fresh;
     app.innerHTML = '<div class="sd-loading">Зарежда се...</div>';
     ensureManifest().then(function () {
       var sound = findSound(activeSoundId);

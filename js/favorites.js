@@ -426,11 +426,18 @@ window.Favorites = (function () {
     }
   }
 
-  var pageMounted = false;
-
   function openPage() {
     var app = document.getElementById('app');
     if (!app) return;
+    // NAV-LISTENER-LEAK fix: clone-and-replace #app преди да закачаме нашия
+    // click listener. Преди това pageMounted flag предпазваше от double-bind,
+    // но flag-ът ставаше stale ако друг модул (Player/Home) клонираше #app —
+    // нашия listener се загубваше, но pageMounted=true го блокираше при
+    // следващ openPage → cards "глухи". Сега всеки openPage клонира → fresh
+    // node → винаги закачаме нов listener.
+    var fresh = app.cloneNode(false);
+    app.parentNode.replaceChild(fresh, app);
+    app = fresh;
     // Skeleton while manifest loads.
     app.innerHTML = '<div class="cv-loading" style="padding:24px;text-align:center;color:var(--text-muted);">Зарежда се...</div>';
 
@@ -454,15 +461,11 @@ window.Favorites = (function () {
       }
 
       app.innerHTML = buildPageHtml(sounds);
-      if (!pageMounted) {
-        app.addEventListener('click', onPageClick);
-        pageMounted = true;
-      }
+      app.addEventListener('click', onPageClick);
     });
   }
 
   function closePage() {
-    pageMounted = false; // listener живее до следваща render-fresh; cleanup при back
     if (window.AppState && window.AppState.transition) {
       window.AppState.transition('home');
     }

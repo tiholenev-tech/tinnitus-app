@@ -636,6 +636,13 @@ window.Home = (function () {
   function refresh() {
     var app = el('app');
     if (!app) return;
+    // NAV-LISTENER-LEAK fix: clone-and-replace #app преди да закачаме нашия
+    // click listener. innerHTML смята само децата — стария listener от
+    // предишния модул (Player/Category/etc.) ОСТАВА на #app и двойно
+    // fire-ва handler-ите.
+    var fresh = app.cloneNode(false);
+    app.parentNode.replaceChild(fresh, app);
+    app = fresh;
     app.innerHTML = buildHomeHtml();
     bindEvents(app);
   }

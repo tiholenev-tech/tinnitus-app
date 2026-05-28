@@ -904,6 +904,13 @@ window.Player = (function () {
 
     var app = el('app');
     if (app) {
+      // NAV-LISTENER-LEAK fix: clone-and-replace #app преди да закачаме нашия
+      // click listener. innerHTML смята само децата — стария listener от
+      // предишния модул (CategoryView/Home/Library/etc.) ОСТАВА на #app и
+      // двойно fire-ва handler-ите (e.g. UI back → 2× history.back → home).
+      var fresh = app.cloneNode(false);
+      app.parentNode.replaceChild(fresh, app);
+      app = fresh;
       app.innerHTML = buildPlayerHtml(sound, true);
       bindEvents(app);
     }
@@ -1048,6 +1055,10 @@ window.Player = (function () {
     if (!sound) { close(); return; }
     var app = el('app');
     if (app) {
+      // NAV-LISTENER-LEAK fix (виж openCore коментара).
+      var fresh = app.cloneNode(false);
+      app.parentNode.replaceChild(fresh, app);
+      app = fresh;
       app.innerHTML = buildPlayerHtml(sound, true);
       bindEvents(app);
     }

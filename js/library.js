@@ -608,6 +608,13 @@ window.Library = (function () {
   function refresh() {
     var app = el('app');
     if (!app) return;
+    // NAV-LISTENER-LEAK fix: clone-and-replace #app преди да закачаме нашите
+    // click + keydown + tabs listener-и. innerHTML смята само децата — стария
+    // listener от предишния модул ОСТАВА на #app и двойно fire-ва handler-ите.
+    // updateGridOnly() (surgical update) не минава оттук, не trigger-ва clone.
+    var fresh = app.cloneNode(false);
+    app.parentNode.replaceChild(fresh, app);
+    app = fresh;
     app.innerHTML = buildLibraryHtml();
     bindEvents(app);
   }
