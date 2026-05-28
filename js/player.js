@@ -998,53 +998,38 @@ window.Player = (function () {
     }
     activeSoundId = null;
 
-    // NAV-PLAYER-HOME: попщи stack debug + force home if empty/invalid.
+    // NAV-UNIFY: trust browser history stack — Player.open() push-на entry,
+    // history.back() pops до previous entry с правилен phase + catId.
+    // popstate handler в app.js (line ~166+) route-ва на правилния phase
+    // based on e.state.
+    //
+    // Преди (parallel-stack approach): AppState.popPhase() + replaceState +
+    // renderers[back].render(). phaseHistory се размъваше с history API →
+    // Player back понякога прескачаше category list (back='home' при stale stack).
+    // Single source of truth = history API за consistency с CategoryView.close
+    // (която вече ползва history.back()).
     var s = window.AppState;
-    if (!s) return;
-    var stackSnapshot = s.phaseHistory ? s.phaseHistory.slice() : [];
-    console.log('[player] close — stack BEFORE pop:', stackSnapshot);
+    var snapshotLen = window.history ? window.history.length : 0;
+    console.log('[player] close — history.length:', snapshotLen,
+      '| phase stack (debug):', s && s.phaseHistory ? s.phaseHistory.slice() : []);
 
-    // BACK-TO-ONBOARDING fix: добавени pitch_test + calibration + profile_results
-    // (single-pass setup phases) — не valid back targets от Player.
-    var BLOCK = ['player', 'thi_baseline', 'onboarding', 'quiz', 'results',
-                 'calibration', 'pitch_test', 'profile_results'];
-    var back = s.popPhase ? s.popPhase() : null;
-    while (back && BLOCK.indexOf(back) !== -1) {
-      console.log('[player] skip stale stack entry:', back);
-      back = s.popPhase ? s.popPhase() : null;
+    // Cleanup parallel phaseHistory (debug-only, не за nav). popPhase pop-ва
+    // 'category' (or whatever pushed by Player.open transition) → state.current
+    // ще се re-set правилно от popstate handler.
+    if (s && s.popPhase) s.popPhase();
+
+    if (window.history && window.history.length > 1) {
+      history.back();
+      return;
     }
 
-    // Empty stack ИЛИ unresolved phase → force Home.
-    if (!back) {
-      back = 'home';
-      console.log('[player] empty/blocked stack → force home');
-      if (s.clearPhaseHistory) s.clearPhaseHistory();
-      if (s.transition) s.transition('home');
-    }
-    console.log('[player] close → back to:', back, 'stack AFTER:',
-      s.phaseHistory ? s.phaseHistory.slice() : []);
-
-    // A2.4: replaceState (не pushState) consume-ва player history entry.
-    history.replaceState({ phase: back }, '');
-
-    var renderers = {
-      'home':            window.Home,
-      'category':        window.CategoryView,
-      'sound':           window.SoundDetail,
-      'diary_hub':       window.DiaryHub,
-      'profile_results': window.ProfileResults,
-      'library':         window.Library
-    };
-    var r = renderers[back];
-    if (r && r.render) {
-      r.render();
-    } else {
-      // Defensive: render-ерът липсва → force Home transition + render.
-      console.warn('[player] no renderer for', back, '→ home fallback');
-      if (s.transition) s.transition('home');
-      history.replaceState({ phase: 'home' }, '');
-      if (window.Home && window.Home.render) window.Home.render();
-    }
+    // Fallback: PWA reload landed directly на player history entry (length=1).
+    // Force home без back navigation (нямa предишен entry).
+    console.log('[player] empty history → force home');
+    if (s && s.transition) s.transition('home');
+    if (s && s.clearPhaseHistory) s.clearPhaseHistory();
+    history.replaceState({ phase: 'home' }, '');
+    if (window.Home && window.Home.render) window.Home.render();
   }
 
   function render() {

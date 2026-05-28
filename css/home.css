@@ -275,6 +275,14 @@
   color: var(--text);
   font-family: inherit;
   transition: transform var(--dur-fast) var(--ease);
+  /* TOUCH FIX: 'manipulation' премахва 300ms double-tap-zoom delay на mobile
+     (iOS Safari + някои Android browsers). Phone test (Тихол): "няколко
+     натискания за реакция". 'manipulation' allows pan/pinch но disable-ва
+     double-tap zoom → click event fires immediately. */
+  touch-action: manipulation;
+  /* Премахва default tap highlight overlay на iOS — bg color на :active
+     дава визуален feedback вместо генеричен grey flash. */
+  -webkit-tap-highlight-color: transparent;
 }
 .home-bottom-icon {
   display: grid;
@@ -296,7 +304,11 @@
   backdrop-filter: blur(8px);
 }
 .home-bottom-btn:active { transform: scale(0.98); }
-.home-bottom-btn:hover { color: var(--accent); }
+/* Hover само за pointer-fine устройства (mouse/trackpad) — предотвратява
+   sticky hover state на touch screens след tap (известен mobile pattern). */
+@media (hover: hover) and (pointer: fine) {
+  .home-bottom-btn:hover { color: var(--accent); }
+}
 
 @keyframes homeFadeIn {
   from { opacity: 0; }
