@@ -199,6 +199,105 @@ a { text-decoration: none; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════
+   HOME FAVORITES quick-access section (Task 1, phone test)
+   ───────────────────────────────────────────────────────────────────
+   Минималистична секция: title + "виж всички" link + grid от pills.
+   1 tap → Player. Скрита при празни favorites (без empty state шум).
+   Стилизирана в base.css вместо home.css защото home.css е out of scope.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.home-fav-section {
+  margin: 4px 0 18px;
+  padding: 0;
+}
+
+.home-fav-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 0 2px;
+}
+
+.home-fav-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.005em;
+  color: var(--text);
+}
+
+.home-fav-viewall {
+  border: none;
+  background: transparent;
+  color: var(--text-muted, var(--text));
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: var(--radius-pill, 999px);
+}
+.home-fav-viewall:active { transform: scale(0.97); }
+
+.home-fav-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.home-fav-pill {
+  position: relative;
+  min-height: 56px;
+  padding: 12px 14px;
+  border: 1px solid var(--border-color, rgba(0,0,0,0.1));
+  border-radius: var(--radius-sm, 14px);
+  background: var(--surface, rgba(255,255,255,0.04));
+  color: var(--text);
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 0;
+  transition: transform var(--dur-fast, 120ms) var(--ease, ease),
+              box-shadow var(--dur, 200ms) var(--ease, ease);
+}
+[data-theme="light"] .home-fav-pill,
+:root:not([data-theme]) .home-fav-pill {
+  box-shadow: var(--shadow-card-sm);
+}
+[data-theme="dark"] .home-fav-pill {
+  background: hsl(220 25% 8% / 0.6);
+  backdrop-filter: blur(8px);
+}
+.home-fav-pill:active { transform: scale(0.97); }
+
+.home-fav-name {
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-fav-meta {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-faint, var(--text-muted));
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
    GLASS · 1:1 от chat.php lines 672-686 (.shine + .glow)
    ═══════════════════════════════════════════════════════════════════ */
 

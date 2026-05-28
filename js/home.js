@@ -292,6 +292,63 @@ window.Home = (function () {
     if (window.ThiBaseline && window.ThiBaseline.open) window.ThiBaseline.open();
   }
 
+  // ============================================================
+  // Favorites quick-access section (Task 1, phone test)
+  // ============================================================
+  //
+  // Показва до 6 любими звука (most-played first) като големи бутони
+  // с едно докосване → Player.open(id). Целева група 50+: voice-first,
+  // минимум tap-ове за чест звук.
+
+  var FAV_MAX = 6;
+
+  function buildFavoritesSection() {
+    if (!window.Favorites || !window.Favorites.getMostPlayed) return '';
+    var favs = window.Favorites.getMostPlayed(FAV_MAX);
+    if (!favs || !favs.length) return ''; // hide when empty — без празна секция
+
+    var title = t('home.favorites.title', 'Моите любими');
+    var viewAll = t('home.favorites.viewAll', 'Виж всички');
+
+    var pillsHtml = favs.map(function (f) {
+      var label = t('sounds.' + f.id + '.title', f.id);
+      var meta = (f.playCount && f.playCount > 0) ? '<span class="home-fav-meta">' + f.playCount + 'x</span>' : '';
+      return (
+        '<button class="home-fav-pill" type="button"' +
+          ' data-action="play-fav" data-fav-id="' + escapeHtml(f.id) + '"' +
+          ' aria-label="' + escapeHtml(label) + '">' +
+          '<span class="home-fav-name">' + escapeHtml(label) + '</span>' +
+          meta +
+        '</button>'
+      );
+    }).join('');
+
+    return (
+      '<section class="home-fav-section" aria-label="' + escapeHtml(title) + '">' +
+        '<div class="home-fav-head">' +
+          '<h2 class="home-fav-title">' + escapeHtml(title) + '</h2>' +
+          '<button class="home-fav-viewall" type="button" data-action="open-favorites">' +
+            escapeHtml(viewAll) + ' ›' +
+          '</button>' +
+        '</div>' +
+        '<div class="home-fav-list">' + pillsHtml + '</div>' +
+      '</section>'
+    );
+  }
+
+  function playFavorite(soundId) {
+    if (!soundId) return;
+    if (window.Favorites && window.Favorites.incrementPlay) {
+      try { window.Favorites.incrementPlay(soundId); } catch (e) { /* ignore */ }
+    }
+    if (window.Player && window.Player.open) window.Player.open(soundId);
+    else if (window.AudioEngine && window.AudioEngine.play) window.AudioEngine.play(soundId);
+  }
+
+  function openFavoritesSheet() {
+    if (window.Favorites && window.Favorites.showSheet) window.Favorites.showSheet();
+  }
+
   // Science Info quick-access "?" бутон близо до THI badge.
   // Видим винаги (entry point към fullscreen научен прозорец).
   function buildScienceQuickButton() {
@@ -497,6 +554,8 @@ window.Home = (function () {
 
         '<div class="home-cat-list">' + cardsHtml + '</div>' +
 
+        buildFavoritesSection() +
+
         '<div class="home-bottom-row">' +
           '<button class="home-bottom-btn" type="button" data-action="open-diary">' +
             '<span class="home-bottom-icon" aria-hidden="true">' + SVG.book + '</span>' +
@@ -545,6 +604,11 @@ window.Home = (function () {
       openThiStart();
     } else if (action === 'open-science') {
       if (window.ScienceInfo && window.ScienceInfo.open) window.ScienceInfo.open();
+    } else if (action === 'play-fav') {
+      var favId = actionBtn.getAttribute('data-fav-id');
+      if (favId) playFavorite(favId);
+    } else if (action === 'open-favorites') {
+      openFavoritesSheet();
     }
   }
 
