@@ -534,8 +534,11 @@ window.Home = (function () {
         // Title row: заглавие + heart бутон вдясно. Inline flex wrapper
         // защото css/home.css не е в текущия scope; margin копира
         // оригиналния .home-title spacing (12px 4px 16px).
+        // FIX: padding-right:44px прави място за floating ".home-science-btn"
+        // (absolute right:8px, width:36px → заема първите 44px от десния
+        // край). Без padding heart падаше точно под "?" бутона.
         '<div class="home-title-row" style="display:flex;align-items:center;' +
-            'justify-content:space-between;gap:12px;margin:12px 4px 16px;padding:0 4px;">' +
+            'justify-content:space-between;gap:12px;margin:12px 4px 16px;padding:0 44px 0 4px;">' +
           '<h1 class="home-title" style="margin:0;padding:0;">' +
             escapeHtml(t('home.title', 'Изберете режим')) +
           '</h1>' +
