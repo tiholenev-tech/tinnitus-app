@@ -1939,6 +1939,9 @@
     "openLibraryAll": "Всички звуци",
     "openDiary": "Дневник",
     "soundCountFmt": "{n} звука",
+    "favoritesBtn": {
+      "aria": "Любими"
+    },
     "cat": {
       "sleep_deep": {
         "name": "Сън дълбок",

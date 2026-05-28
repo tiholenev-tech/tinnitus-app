@@ -1195,7 +1195,13 @@ window.Settings = (function () {
           }
         }
       }
-      else if (action === 'open-privacy') showPrivacyView();
+      else if (action === 'open-privacy') {
+        // P0 REGULATORY (2026-05-28): отваряме publicly-hosted privacy.html
+        // (Google Play submission изисква public URL). In-app
+        // buildPrivacyViewHtml остава като dead-code fallback за
+        // backward-compat но primary entry е external page.
+        window.open('privacy.html', '_blank', 'noopener,noreferrer');
+      }
       else if (action === 'open-terms') showTermsView();
       return;
     }
