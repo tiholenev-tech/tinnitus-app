@@ -154,19 +154,26 @@ window.CategoryInfoSheet = (function () {
   }
 
   function buildRecommendedNoise(catId) {
+    // SCIENCE-FIX (phone test 2026-05-28):
+    // Реалният фонов шум се избира PER-SOUND от manifest.recommended_noise,
+    // НЕ е fixed за цялата категория. По-рано този info-секция показваше
+    // конкретен цвят (напр. „розов") от categoryInfo.<cat>.recommendedNoise,
+    // което противоречеше на реално свирещия шум (често кафяв или друг)
+    // → объркваше потребителя.
+    //
+    // Fix: запазваме секцията (полезна е за разбиране че фоновият шум е
+    // персонализиран) но премахваме конкретния type/id/desc claim.
+    // Само неутрален текст обясняващ че шумът е per-sound + контрол.
     var obj = tObjOrNull('categoryInfo.' + catId + '.recommendedNoise');
     if (!obj || typeof obj !== 'object') return '';
-    var type = obj.type || '';
-    var desc = obj.description || '';
-    if (desc.indexOf('TODO:') === 0) desc = placeholderText();
-    var label = noiseLabel(type);
+    var neutralMsg = t('categoryInfo.recommendedNoiseNote',
+      'Всеки звук има подбран фонов шум, оптимизиран за този тип използване. ' +
+      'Можете да го промените от плеъра.');
     return (
       '<section class="cis-section">' +
         '<h3 class="cis-section-title">' + escapeHtml(sectionTitle('recommendedNoise', 'Препоръчителен фонов шум')) + '</h3>' +
         '<div class="cis-noise-card">' +
-          '<div class="cis-noise-type">' + escapeHtml(label) + '</div>' +
-          (type ? '<div class="cis-noise-id">' + escapeHtml(type) + '</div>' : '') +
-          '<p class="cis-text">' + escapeHtml(desc) + '</p>' +
+          '<p class="cis-text">' + escapeHtml(neutralMsg) + '</p>' +
         '</div>' +
       '</section>'
     );
