@@ -971,7 +971,19 @@ window.Player = (function () {
     startProgressTick();
   }
 
-  function close() {
+  // NAV-PARITY: audio cleanup отделен в idempotent функция — извиква се от:
+  //   1. close() (UI back бутон) — после прави history.back()
+  //   2. app.js popstate handler — когато системната Android стрелка напуска
+  //      player phase (без да минава през close())
+  // Phone test (Тихол): преди тoзi split UI back прескачаше category, а
+  // системната стрелка работеше nav но оставяше audio orphan (свирещ на фон
+  // без UI). Сега двата пътя са идентични — audio cleanup + history.back().
+  //
+  // Idempotent guard: ако activeSoundId е null и нямa subscriber, return.
+  // Втори call (popstate след close) → no-op.
+  function stopAudioAndCleanup() {
+    if (!activeSoundId && !noiseChangedHandler) return;
+
     stopProgressTick();
     if (noiseChangedHandler) {
       window.removeEventListener('noise-changed', noiseChangedHandler);
@@ -982,8 +994,7 @@ window.Player = (function () {
     if (window.AudioErrorBanner && window.AudioErrorBanner.suppress) {
       window.AudioErrorBanner.suppress(1500);
     }
-    // Д4: HARD STOP двата слоя при close — преди това sound продължаваше
-    // да върви като orphan playback (UI на home/diary, sound в background).
+    // Д4: HARD STOP двата слоя — иначе orphan playback (audio на фон без UI).
     if (window.AudioEngine) {
       if (window.AudioEngine.stopLayer1) {
         try { window.AudioEngine.stopLayer1(); } catch (e) {}
@@ -991,32 +1002,23 @@ window.Player = (function () {
       if (window.AudioEngine.stopLayer2) {
         try { window.AudioEngine.stopLayer2(); } catch (e) {}
       }
-      // Fallback: pause() ако stopLayer* липсват
       if (!window.AudioEngine.stopLayer1 && window.AudioEngine.pause) {
         try { window.AudioEngine.pause(); } catch (e) {}
       }
     }
     activeSoundId = null;
+  }
 
-    // NAV-UNIFY: trust browser history stack — Player.open() push-на entry,
-    // history.back() pops до previous entry с правилен phase + catId.
-    // popstate handler в app.js (line ~166+) route-ва на правилния phase
-    // based on e.state.
-    //
-    // Преди (parallel-stack approach): AppState.popPhase() + replaceState +
-    // renderers[back].render(). phaseHistory се размъваше с history API →
-    // Player back понякога прескачаше category list (back='home' при stale stack).
-    // Single source of truth = history API за consistency с CategoryView.close
-    // (която вече ползва history.back()).
-    var s = window.AppState;
+  function close() {
+    stopAudioAndCleanup();
+
+    // NAV-UNIFY v2: НИЩО друго преди history.back() — точно както системната
+    // Android стрелка би работила. Преди това close() викаше popPhase() и
+    // transition() които corrupt-ваха state.current → popstate handler-ът
+    // route-ваше неправилно (към home вместо category). Премахнато всичко
+    // което системната стрелка НЕ прави — само audio cleanup + history.back().
     var snapshotLen = window.history ? window.history.length : 0;
-    console.log('[player] close — history.length:', snapshotLen,
-      '| phase stack (debug):', s && s.phaseHistory ? s.phaseHistory.slice() : []);
-
-    // Cleanup parallel phaseHistory (debug-only, не за nav). popPhase pop-ва
-    // 'category' (or whatever pushed by Player.open transition) → state.current
-    // ще се re-set правилно от popstate handler.
-    if (s && s.popPhase) s.popPhase();
+    console.log('[player] close — history.length:', snapshotLen);
 
     if (window.history && window.history.length > 1) {
       history.back();
@@ -1024,8 +1026,9 @@ window.Player = (function () {
     }
 
     // Fallback: PWA reload landed directly на player history entry (length=1).
-    // Force home без back navigation (нямa предишен entry).
+    // Нямa предишен entry → force home.
     console.log('[player] empty history → force home');
+    var s = window.AppState;
     if (s && s.transition) s.transition('home');
     if (s && s.clearPhaseHistory) s.clearPhaseHistory();
     history.replaceState({ phase: 'home' }, '');
@@ -1155,6 +1158,9 @@ window.Player = (function () {
   return {
     open: open,
     close: close,
-    render: render
+    render: render,
+    // For app.js popstate handler — извикан когато системната Android стрелка
+    // напуска player phase. Stop audio + clean module state без history mutation.
+    stopAudioAndCleanup: stopAudioAndCleanup
   };
 })();

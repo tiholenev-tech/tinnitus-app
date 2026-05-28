@@ -166,6 +166,18 @@
   function onPopstate(e) {
     var s = e.state || {};
 
+    // NAV-PARITY: ако напускаме 'player' phase (UI back ИЛИ системна Android
+    // стрелка) → stop audio + clean Player module state. Без този block
+    // системната стрелка би оставила orphan playback (sound на фон без UI).
+    // Player.close() вече вика stopAudioAndCleanup() ПРЕДИ history.back() →
+    // идемпотентен guard prevents-ва double-stop.
+    var currentPhase = window.AppState && window.AppState.current;
+    if (currentPhase === 'player' && s.phase !== 'player') {
+      if (window.Player && window.Player.stopAudioAndCleanup) {
+        window.Player.stopAudioAndCleanup();
+      }
+    }
+
     // === Onboarding е завършен → quiz/mixer навигация ===
     if (window.AppState.isOnboardingDone()) {
       // Browser back към onboarding entries → блокирай (re-push текущото)
