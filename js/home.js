@@ -293,60 +293,48 @@ window.Home = (function () {
   }
 
   // ============================================================
-  // Favorites quick-access section (Task 1, phone test)
+  // Favorites entry — heart button до заглавието
   // ============================================================
   //
-  // Показва до 6 любими звука (most-played first) като големи бутони
-  // с едно докосване → Player.open(id). Целева група 50+: voice-first,
-  // минимум tap-ове за чест звук.
+  // Phone test ask (2026-05-28): премахната старата секция с pills
+  // (имаше bug с английски id-та + лошо позициониране на home).
+  // Сега: heart icon до заглавието → отваря fullscreen Favorites page
+  // (категория-style 2-col grid с правилни БГ имена от manifest).
 
-  var FAV_MAX = 6;
-
-  function buildFavoritesSection() {
-    if (!window.Favorites || !window.Favorites.getMostPlayed) return '';
-    var favs = window.Favorites.getMostPlayed(FAV_MAX);
-    if (!favs || !favs.length) return ''; // hide when empty — без празна секция
-
-    var title = t('home.favorites.title', 'Моите любими');
-    var viewAll = t('home.favorites.viewAll', 'Виж всички');
-
-    var pillsHtml = favs.map(function (f) {
-      var label = t('sounds.' + f.id + '.title', f.id);
-      var meta = (f.playCount && f.playCount > 0) ? '<span class="home-fav-meta">' + f.playCount + 'x</span>' : '';
-      return (
-        '<button class="home-fav-pill" type="button"' +
-          ' data-action="play-fav" data-fav-id="' + escapeHtml(f.id) + '"' +
-          ' aria-label="' + escapeHtml(label) + '">' +
-          '<span class="home-fav-name">' + escapeHtml(label) + '</span>' +
-          meta +
-        '</button>'
-      );
-    }).join('');
-
+  function buildFavoritesTitleButton() {
+    // i18n key за Code 3: home.favoritesBtn.aria → "Любими"
+    var label = t('home.favoritesBtn.aria', 'Любими');
+    // Inline style защото css/home.css не е в текущия scope.
+    // Pattern match-ва съществуващия .home-science-btn (същи dimensions).
+    var btnStyle = 'display:inline-flex;align-items:center;justify-content:center;' +
+      'width:36px;height:36px;flex-shrink:0;border-radius:50%;' +
+      'border:1px solid var(--border-color,rgba(0,0,0,0.1));' +
+      'background:var(--surface,rgba(255,255,255,0.04));' +
+      'color:var(--text-soft,var(--text));cursor:pointer;' +
+      'transition:background 150ms ease,transform 120ms ease;';
     return (
-      '<section class="home-fav-section" aria-label="' + escapeHtml(title) + '">' +
-        '<div class="home-fav-head">' +
-          '<h2 class="home-fav-title">' + escapeHtml(title) + '</h2>' +
-          '<button class="home-fav-viewall" type="button" data-action="open-favorites">' +
-            escapeHtml(viewAll) + ' ›' +
-          '</button>' +
-        '</div>' +
-        '<div class="home-fav-list">' + pillsHtml + '</div>' +
-      '</section>'
+      '<button class="home-favorites-btn" type="button"' +
+        ' data-action="open-favorites-page"' +
+        ' aria-label="' + escapeHtml(label) + '"' +
+        ' style="' + btnStyle + '">' +
+        '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"' +
+          ' style="width:18px;height:18px;">' +
+          '<path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>' +
+        '</svg>' +
+      '</button>'
     );
   }
 
-  function playFavorite(soundId) {
-    if (!soundId) return;
-    if (window.Favorites && window.Favorites.incrementPlay) {
-      try { window.Favorites.incrementPlay(soundId); } catch (e) { /* ignore */ }
+  function openFavoritesPage() {
+    if (window.Favorites && window.Favorites.openPage) {
+      if (window.AppState && window.AppState.transition) {
+        window.AppState.transition('home'); // safe parent phase
+      }
+      window.Favorites.openPage();
+    } else if (window.Favorites && window.Favorites.showSheet) {
+      // Fallback на legacy bottom sheet ако нов API липсва.
+      window.Favorites.showSheet();
     }
-    if (window.Player && window.Player.open) window.Player.open(soundId);
-    else if (window.AudioEngine && window.AudioEngine.play) window.AudioEngine.play(soundId);
-  }
-
-  function openFavoritesSheet() {
-    if (window.Favorites && window.Favorites.showSheet) window.Favorites.showSheet();
   }
 
   // Science Info quick-access "?" бутон близо до THI badge.
@@ -543,9 +531,16 @@ window.Home = (function () {
 
     return (
       '<div class="home-screen" data-screen="home">' +
-        '<h1 class="home-title">' +
-          escapeHtml(t('home.title', 'Изберете режим')) +
-        '</h1>' +
+        // Title row: заглавие + heart бутон вдясно. Inline flex wrapper
+        // защото css/home.css не е в текущия scope; margin копира
+        // оригиналния .home-title spacing (12px 4px 16px).
+        '<div class="home-title-row" style="display:flex;align-items:center;' +
+            'justify-content:space-between;gap:12px;margin:12px 4px 16px;padding:0 4px;">' +
+          '<h1 class="home-title" style="margin:0;padding:0;">' +
+            escapeHtml(t('home.title', 'Изберете режим')) +
+          '</h1>' +
+          buildFavoritesTitleButton() +
+        '</div>' +
 
         buildScienceQuickButton() +
         buildThiCta() +
@@ -553,8 +548,6 @@ window.Home = (function () {
         buildThiBadge() +
 
         '<div class="home-cat-list">' + cardsHtml + '</div>' +
-
-        buildFavoritesSection() +
 
         '<div class="home-bottom-row">' +
           '<button class="home-bottom-btn" type="button" data-action="open-diary">' +
@@ -604,11 +597,8 @@ window.Home = (function () {
       openThiStart();
     } else if (action === 'open-science') {
       if (window.ScienceInfo && window.ScienceInfo.open) window.ScienceInfo.open();
-    } else if (action === 'play-fav') {
-      var favId = actionBtn.getAttribute('data-fav-id');
-      if (favId) playFavorite(favId);
-    } else if (action === 'open-favorites') {
-      openFavoritesSheet();
+    } else if (action === 'open-favorites-page') {
+      openFavoritesPage();
     }
   }
 

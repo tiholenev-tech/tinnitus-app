@@ -262,6 +262,216 @@ window.Favorites = (function () {
     });
   }
 
+  // ============================================================
+  // FULL-SCREEN FAVORITES PAGE (phone test ask 2026-05-28)
+  // ────────────────────────────────────────────────────────────
+  // Identical layout на CategoryView (.cv-* classes reused) →
+  // 2-col sound grid с правилни БГ имена от manifest.
+  //
+  // КРИТИЧЕН BUG FIX: преди това home favorites pills чели
+  // t('sounds.'+id+'.title', id) — ключът не съществува в i18n
+  // (sounds.* namespace не е попълнен) → връщаше английски id-та.
+  // Сега използваме същия 3-stage fallback като category-view.js:
+  //   1. tOrNull(sound.title_key)   — i18n за категория-агностични keys
+  //   2. sound.bg_title              — readable БГ име от manifest
+  //   3. prettifyFilename(sound.id)  — graceful fallback
+  // ============================================================
+
+  function tOrNull(key) {
+    if (!window.i18n || !window.i18n.t) return null;
+    var v = window.i18n.t(key, null);
+    if (typeof v !== 'string' || v === key || v.indexOf('TODO:') === 0) return null;
+    return v;
+  }
+
+  function prettifyFilename(id) {
+    if (!id) return '';
+    return String(id).replace(/_/g, ' ').replace(/\s+/g, ' ').trim()
+      .replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+  }
+
+  function getSoundTitle(sound) {
+    if (!sound) return '';
+    var v = tOrNull(sound.title_key);
+    if (v) return v;
+    if (sound.bg_title) return sound.bg_title;
+    return prettifyFilename(sound.id);
+  }
+
+  function getSoundSubtitle(sound) {
+    if (!sound) return '';
+    var v = tOrNull(sound.subtitle_key);
+    if (v) return v;
+    var catId = sound.category_audio || sound.category || '';
+    return tOrNull('library.cat_audio.' + catId) || prettifyFilename(catId);
+  }
+
+  function ensureManifest() {
+    if (window.AURALIS_MANIFEST) return Promise.resolve(window.AURALIS_MANIFEST);
+    return fetch('audio/library/manifest.json', { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (data) { window.AURALIS_MANIFEST = data; return data; })
+      .catch(function () { return null; });
+  }
+
+  function findSoundsByIds(manifest, ids) {
+    if (!manifest || !Array.isArray(manifest.sounds) || !Array.isArray(ids)) return [];
+    var byId = {};
+    for (var i = 0; i < manifest.sounds.length; i++) {
+      var s = manifest.sounds[i];
+      if (s && s.id) byId[s.id] = s;
+    }
+    var found = [];
+    for (var j = 0; j < ids.length; j++) {
+      if (byId[ids[j]]) found.push(byId[ids[j]]);
+    }
+    return found;
+  }
+
+  function svgBackPage() {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"' +
+      ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>';
+  }
+
+  function svgPlayPage() {
+    return '<svg viewBox="0 0 24 24" aria-hidden="true">' +
+      '<polygon points="6,4 20,12 6,20" fill="currentColor"/></svg>';
+  }
+
+  function svgHeartPage() {
+    return '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
+      '<path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>' +
+      '</svg>';
+  }
+
+  function buildFavSoundCard(sound) {
+    var title = getSoundTitle(sound);
+    var subtitle = getSoundSubtitle(sound);
+    return (
+      '<button class="glass cv-sound-card" type="button"' +
+        ' data-action="open-sound" data-sound-id="' + escapeHtml(sound.id) + '"' +
+        ' aria-label="' + escapeHtml(title) + '">' +
+        '<span class="shine"></span>' +
+        '<span class="shine shine-bottom"></span>' +
+        '<span class="glow"></span>' +
+        '<span class="glow glow-bottom"></span>' +
+        '<span class="cv-sound-body">' +
+          '<span class="cv-sound-title">' + escapeHtml(title) + '</span>' +
+          '<span class="cv-sound-subtitle">' + escapeHtml(subtitle) + '</span>' +
+        '</span>' +
+        '<span class="cv-sound-play" aria-hidden="true">' + svgPlayPage() + '</span>' +
+      '</button>'
+    );
+  }
+
+  function buildPageHtml(sounds) {
+    var title    = t('favorites.title', 'Любими');
+    var subtitle = t('favorites.pageSubtitle', 'Вашите запазени звуци');
+    var backAria = t('favorites.backAria', 'Назад');
+    var count    = sounds.length;
+    var soundsLabel = t('favorites.countFmt', 'Звуци (' + count + ')', { n: count });
+
+    var emptyMsg = t('favorites.empty', 'Все още нямате любими звуци.');
+    var emptyHint = t('favorites.emptyHint',
+      'Натиснете сърцето в плеъра за да добавите звук към любими.');
+
+    var soundsHtml = count === 0
+      ? '<div class="cv-empty"><p>' + escapeHtml(emptyMsg) + '</p>' +
+        '<p style="margin-top:8px;font-size:13px;color:var(--text-muted);">' +
+          escapeHtml(emptyHint) + '</p></div>'
+      : '<div class="cv-sound-grid">' +
+        sounds.map(buildFavSoundCard).join('') +
+        '</div>';
+
+    return (
+      '<div class="cv-screen" data-screen="favorites">' +
+        '<header class="cv-header">' +
+          '<button class="cv-back" type="button" data-action="fav-back"' +
+            ' aria-label="' + escapeHtml(backAria) + '">' + svgBackPage() + '</button>' +
+          '<div class="cv-header-text">' +
+            '<h1 class="cv-title">' +
+              '<span class="cv-icon" aria-hidden="true">' + svgHeartPage() + '</span>' +
+              '<span class="cv-title-text">' + escapeHtml(title) + '</span>' +
+            '</h1>' +
+            '<div class="cv-subtitle">' + escapeHtml(subtitle) + '</div>' +
+          '</div>' +
+        '</header>' +
+        '<section class="cv-sounds-section">' +
+          '<h2 class="cv-section-title">' + escapeHtml(soundsLabel) + '</h2>' +
+          soundsHtml +
+        '</section>' +
+      '</div>'
+    );
+  }
+
+  function onPageClick(e) {
+    var btn = e.target.closest('[data-action]');
+    if (!btn) return;
+    var action = btn.getAttribute('data-action');
+    if (action === 'fav-back') {
+      e.stopPropagation();
+      closePage();
+    } else if (action === 'open-sound') {
+      e.stopPropagation();
+      var id = btn.getAttribute('data-sound-id');
+      if (!id) return;
+      // Increment play count за консистентност с другите play paths.
+      try { incrementPlay(id); } catch (e2) { /* ignore */ }
+      if (window.Player && window.Player.open) {
+        window.Player.open(id);
+      } else if (window.SoundDetail && window.SoundDetail.open) {
+        window.SoundDetail.open(id);
+      }
+    }
+  }
+
+  var pageMounted = false;
+
+  function openPage() {
+    var app = document.getElementById('app');
+    if (!app) return;
+    // Skeleton while manifest loads.
+    app.innerHTML = '<div class="cv-loading" style="padding:24px;text-align:center;color:var(--text-muted);">Зарежда се...</div>';
+
+    history.pushState({ phase: 'favorites' }, '');
+
+    ensureManifest().then(function (manifest) {
+      var favList = getAll(); // {id, addedAt, playCount, category}
+      // Sort: most-recent първи (consistency с home pattern).
+      favList.sort(function (a, b) {
+        return (b.addedAt || '').localeCompare(a.addedAt || '');
+      });
+      var ids = favList.map(function (f) { return f.id; });
+      var sounds = findSoundsByIds(manifest, ids);
+
+      // Manifest miss — fallback на raw favorites без metadata.
+      // Така empty state не показва грешно "няма" когато manifest fail-не.
+      if (sounds.length === 0 && favList.length > 0) {
+        sounds = favList.map(function (f) {
+          return { id: f.id, bg_title: null, title_key: null, category_audio: null };
+        });
+      }
+
+      app.innerHTML = buildPageHtml(sounds);
+      if (!pageMounted) {
+        app.addEventListener('click', onPageClick);
+        pageMounted = true;
+      }
+    });
+  }
+
+  function closePage() {
+    pageMounted = false; // listener живее до следваща render-fresh; cleanup при back
+    if (window.AppState && window.AppState.transition) {
+      window.AppState.transition('home');
+    }
+    history.replaceState({ phase: 'home' }, '');
+    if (window.Home && window.Home.render) {
+      window.Home.render();
+    }
+  }
+
   return {
     add: add,
     remove: remove,
@@ -273,6 +483,8 @@ window.Favorites = (function () {
     incrementPlay: incrementPlay,
     getStats: getStats,
     clear: clear,
-    showSheet: showSheet
+    showSheet: showSheet,
+    openPage: openPage,
+    closePage: closePage
   };
 })();
