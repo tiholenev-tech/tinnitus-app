@@ -453,33 +453,20 @@ window.CategoryView = (function () {
       .catch(function () { return null; });
   }
 
-  // NAV-LOOP FIX: timestamp на последен close() — used от open() за да
-  // detect-не popstate-triggered re-open в trap-loop сценарий:
-  //   home → cat → sound → back(sound) → cat → back(cat) → ...
-  // close() прави history.back() → popstate fires с {phase:'category'} →
-  // app.js handler извиква CategoryView.open(catId) → BEZ guard това
-  // push-ва нов entry и user не може да напусне категорията.
-  // С guard (300ms след close) → open() детектира и redirect-ва към Home.
-  var lastCloseTime = 0;
+  // NAV-POPSTATE: открит истинският bug — Player.close() прави history.back()
+  // → popstate fires с {phase:'category'} → app.js handler използваше
+  // CategoryView.open(catId) → open() прави pushState (дублиран entry) +
+  // 300ms guard fires WRONG за валиден back-from-child (Player) → redirect
+  // home → user прескача category list.
+  //
+  // FIX: отделен openFromPopstate() метод за popstate landing — history
+  // вече е позиционирано на правилния entry → НЕ прави pushState (no dup) и
+  // НЕ check-ва guard (валиден back from child, не trap-loop).
+  // 300ms guard премахнат от open() — beше dead code за trap-loop scenario
+  // който вече се route-ва правилно през openFromPopstate.
 
   function open(catId) {
     if (!catId) return;
-
-    // POPSTATE-LOOP GUARD: ако open() е извикан в първите 300ms след
-    // собствен close() → това е popstate auto-fire от history.back(),
-    // НЕ е user intent. Redirect към Home + replace history entry за
-    // да не остане stale category в stack-а.
-    if (Date.now() - lastCloseTime < 300) {
-      lastCloseTime = 0;
-      activeCatId = null;
-      if (window.AppState && window.AppState.transition) {
-        window.AppState.transition('home');
-      }
-      history.replaceState({ phase: 'home' }, '');
-      if (window.Home && window.Home.render) window.Home.render();
-      return;
-    }
-
     activeCatId = catId;
     if (window.AppState && window.AppState.transition) {
       window.AppState.transition('category');
@@ -488,10 +475,21 @@ window.CategoryView = (function () {
     render();
   }
 
+  // popstate landing: history вече е на category entry → render-ва БЕЗ
+  // pushState (би създал duplicate entry) и БЕЗ guard. catId идва от
+  // e.state в app.js popstate handler.
+  function openFromPopstate(catId) {
+    if (catId) activeCatId = catId;
+    if (window.AppState && window.AppState.transition) {
+      window.AppState.transition('category');
+    }
+    // Render() handle-ва activeCatId restore от lastCategoryView ако null,
+    // и Home fallback ако и него няма.
+    render();
+  }
+
   function close() {
     activeCatId = null;
-    // Mark close time за open() guard (виж по-горе).
-    lastCloseTime = Date.now();
     // Prefer history.back() — popstate handler ще route-не правилно:
     //   - ако стек-ът има 'home' преди нас → user попада там директно
     //   - ако стек-ът има 'category' (от replaceState след Player.close)
@@ -592,6 +590,7 @@ window.CategoryView = (function () {
 
   return {
     open: open,
+    openFromPopstate: openFromPopstate,
     close: close,
     render: render
   };

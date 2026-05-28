@@ -191,9 +191,19 @@
         return;
       }
       if (s.phase === 'category' && s.catId) {
-        window.AppState.transition('category');
-        if (window.CategoryView && window.CategoryView.open) window.CategoryView.open(s.catId);
-        else if (window.Home && window.Home.render) window.Home.render();
+        // popstate landing — history вече е на category entry → използваме
+        // openFromPopstate който НЕ прави pushState (би създал duplicate)
+        // и НЕ check-ва старият 300ms guard (валиден back-from-Player,
+        // не trap-loop). Fallback на Home ако CategoryView липсва.
+        if (window.CategoryView && window.CategoryView.openFromPopstate) {
+          window.CategoryView.openFromPopstate(s.catId);
+        } else if (window.CategoryView && window.CategoryView.render) {
+          // Fallback за стара cached version без openFromPopstate
+          window.AppState.transition('category');
+          window.CategoryView.render();
+        } else if (window.Home && window.Home.render) {
+          window.Home.render();
+        }
         return;
       }
       if (s.phase === 'sound' && s.soundId) {
