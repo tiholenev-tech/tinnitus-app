@@ -216,6 +216,11 @@
   padding: 14px 12px 12px;
   cursor: pointer;
   min-height: 156px;
+  /* P0 OVERFLOW FIX: grid items имат default min-width:auto (= min-content)
+     → дълги думи в title push-ват над 1fr → дясна колона излиза от viewport.
+     min-width:0 позволява на grid item да се свие под intrinsic content
+     size. Phone test (Тихол): десният ред карти отрязан вдясно. */
+  min-width: 0;
   transition: transform var(--dur-fast) var(--ease);
 }
 .lib-card:active { transform: scale(0.98); }
@@ -241,6 +246,8 @@
   min-height: 156px;
   border-radius: var(--radius);
   overflow: hidden;
+  /* P0 OVERFLOW FIX: skeleton е също grid item — да не over-grow-ва 1fr. */
+  min-width: 0;
 }
 [data-theme="light"] .lib-card-skeleton,
 :root:not([data-theme]) .lib-card-skeleton {
@@ -324,6 +331,10 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  /* P0 OVERFLOW FIX: дълги думи без spaces не wrap-ват по default →
+     intrinsic width pushes grid cell над 1fr → right column отрязан. */
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 .lib-card-subtitle {
   font-family: var(--font-mono);
@@ -336,6 +347,8 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 .lib-card-meta {
   margin-top: 4px;

@@ -296,11 +296,68 @@
     })();
   </script>
 
-  <!-- ═══ Service Worker ═══ -->
+  <!-- ═══ Service Worker — register + safe auto-reload при нов SW ═══ -->
+  <!--
+    Root cause на stale-UI bugs (heart, nav back, library overflow): нова SW
+    активира, нови файлове са cached, но page-ът продължава да върти СТАРАТА
+    JS code в memory → user-ът трябва ръчно refresh за да вземе новите fix-ове.
+    controllerchange handler auto-reload-ва САМО когато:
+      1. Има стар controller преди register (= update scenario, не първи install)
+      2. User не е в player/calm/sleep (терапия не се прекъсва)
+      3. AudioEngine не свири sound
+    Иначе set sessionStorage flag и retry при visibilitychange (user превключи
+    tab/PWA → safer момент за reload).
+  -->
   <script>
     if ('serviceWorker' in navigator) {
+      // Snapshot ПРЕДИ register: дали вече има активен controller (= update visit).
+      // При първи install controller е null → не reload-ваме (page току що зареди).
+      var hadController = !!navigator.serviceWorker.controller;
+      var refreshing = false;
+      var PENDING_KEY = 'auralis-sw-pending-reload';
+
+      function isSafeToReload() {
+        var phase = window.AppState && window.AppState.current;
+        var engine = window.AudioEngine;
+        var playing = engine && engine.isPlaying && engine.isPlaying();
+        // Не прекъсваме aktivnu терапия — user слуша sound.
+        if (phase === 'player' || phase === 'calm' || phase === 'sleep') return false;
+        if (playing) return false;
+        return true;
+      }
+
+      function tryReload(reason) {
+        if (refreshing) return;
+        if (!hadController) return;       // първи install — не reload
+        if (!isSafeToReload()) {
+          try { sessionStorage.setItem(PENDING_KEY, '1'); } catch (e) {}
+          console.log('[sw] reload deferred (' + reason + '): playback/therapy active');
+          return;
+        }
+        refreshing = true;
+        console.log('[sw] reload → apply new SW code (' + reason + ')');
+        window.location.reload();
+      }
+
       window.addEventListener('load', function () {
         navigator.serviceWorker.register('service-worker.js').catch(function () {});
+      });
+
+      navigator.serviceWorker.addEventListener('controllerchange', function () {
+        tryReload('controllerchange');
+      });
+
+      // Deferred retry: ако reload е skip-нат (audio свири), опитай при tab
+      // visibility return — user е току що превключил обратно на PWA-то,
+      // estimated по-safe момент. Ако още свири — пак skip + остава flag.
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState !== 'visible') return;
+        try {
+          if (sessionStorage.getItem(PENDING_KEY) !== '1') return;
+        } catch (e) { return; }
+        if (!isSafeToReload()) return;
+        try { sessionStorage.removeItem(PENDING_KEY); } catch (e) {}
+        tryReload('deferred-visibility');
       });
     }
   </script>
