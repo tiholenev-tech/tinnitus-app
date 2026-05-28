@@ -107,7 +107,18 @@ window.i18n = (function () {
       fallback = null;
     }
     var val = resolve(keyPath);
-    if (typeof val !== 'string') return (fallback != null ? fallback : keyPath);
+    // P0 FIX 2026-05-28 (launch blocker):
+    //   (A) "TODO:" prefix detection — централизирано тук вместо ad-hoc
+    //       tOrNull() helpers в 5+ модула. Когато се loadне en.json
+    //       (например stale SW cache от преди ['bg']-only commit), всичките
+    //       'TODO: Choose a mode' / 'TODO: 49 sounds' tab-ове щяха да
+    //       стигнат до UI. Третираме ги като missing key → fallback.
+    //   (B) Fallback също минава през interpolate() — преди това
+    //       t('thi.badge.goal', 'цел < {goal}', {goal:80}) при missing
+    //       връщаше литерален 'цел < {goal}' (без замяна).
+    if (typeof val !== 'string' || val.indexOf('TODO:') === 0) {
+      return interpolate(fallback != null ? fallback : keyPath, params);
+    }
     return interpolate(val, params);
   }
 
