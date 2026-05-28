@@ -554,6 +554,70 @@ window.AudioEngine = (function () {
     return buffer;
   }
 
+  // ============================================================
+  // P0 AUDIO-QUALITY v3: BROWN-INFRASOUND HIGHPASS
+  // ============================================================
+  // Brown noise (1/f² integration на бялия шум) натрупва sub-audio drift
+  // (<2 Hz brownian random walk). В 10-сек buffer тези цикли НЕ завършват
+  // цял период → loop create неравномерни вълни = "дишане" (~1-2s envelope
+  // oscillation на чуваемата амплитуда).
+  //
+  // Phone test (Тихол) корелация:
+  //   brown_pure (без LP)  → НАЙ-силно "дишане" (най-много LF energy)
+  //   brown_lp1000/lp500   → по-слабо
+  //   pink_pure            → едва доловимо
+  //   pink_lp2000/lp4000   → НЯМА проблем
+  // → колкото повече LF съдържание → толкова повече дишане → потвърждава
+  // brownian drift като root cause (НЕ underrun — би бил uniform).
+  //
+  // Fix: 2nd-order Butterworth highpass at 20Hz премахва inaudible <20Hz
+  // modulation която иначе модулира чуваемата амплитуда (envelope distortion).
+  // 20Hz е под чуваемия диапазон за 50+ users (повечето долна граница 30Hz+).
+  //
+  // Pink generator UNTOUCHED — pink е filtered white noise, без brownian
+  // random-walk integration → няма sub-audio DC wander.
+  //
+  // Primed state pattern (loop-friendly): pass 1 пропага filter state до
+  // end-of-buffer (output discarded). Pass 2 outputs in-place с primed state.
+  // Eliminates startup transient → seamless loop wrap без click на boundary.
+  function applyHighpass20Hz(data, sampleRate) {
+    var f0 = 20;
+    var Q  = 0.707;  // Butterworth (smooth, no resonance)
+    var w0 = 2 * Math.PI * f0 / sampleRate;
+    var cosw = Math.cos(w0);
+    var sinw = Math.sin(w0);
+    var alpha = sinw / (2 * Q);
+
+    // RBJ Audio EQ Cookbook — biquad highpass coefficients (a0-normalized).
+    var a0 = 1 + alpha;
+    var b0 =  (1 + cosw) / 2 / a0;
+    var b1 = -(1 + cosw)     / a0;
+    var b2 =  (1 + cosw) / 2 / a0;
+    var a1 = -2 * cosw       / a0;
+    var a2 =  (1 - alpha)    / a0;
+
+    var N = data.length;
+    var x1 = 0, x2 = 0, y1 = 0, y2 = 0;
+
+    // Pass 1 — prime state до end-of-buffer (output discarded).
+    var i, x, y;
+    for (i = 0; i < N; i++) {
+      x = data[i];
+      y = b0 * x + b1 * x1 + b2 * x2 - a1 * y1 - a2 * y2;
+      x2 = x1; x1 = x;
+      y2 = y1; y1 = y;
+    }
+
+    // Pass 2 — filter с primed state, write in-place.
+    for (i = 0; i < N; i++) {
+      x = data[i];
+      y = b0 * x + b1 * x1 + b2 * x2 - a1 * y1 - a2 * y2;
+      data[i] = y;
+      x2 = x1; x1 = x;
+      y2 = y1; y1 = y;
+    }
+  }
+
   function getOrGenerateBrownBuffer() {
     if (generatedBrownBuffer) return generatedBrownBuffer;
     var sampleRate = ctx.sampleRate;
@@ -568,17 +632,21 @@ window.AudioEngine = (function () {
       sum += data[i];
     }
     // DC removal (brown DC-accumulator drifts → must subtract mean).
+    // Rough first defense; highpass below премахва остатъчните brownian
+    // sub-audio components (<20Hz) които DC subtract пропуска.
     var dc = sum / bufferSize;
     for (var j = 0; j < bufferSize; j++) data[j] -= dc;
-    // P0 QUALITY: RMS normalize → loudness-match с pink buffer.
-    // Премахнат peak-normalize-to-0.5 (различен от pink × 0.11) → причиняваше
-    // brown да звучи тихо при същия slider (потвърдено phone test, бащата).
+    // P0 v3 BROWN-INFRASOUND: highpass 20Hz премахва brownian drift
+    // (виж detailed коментар на applyHighpass20Hz). Само за brown — pink
+    // не страда от тozi артефакт.
+    applyHighpass20Hz(data, sampleRate);
+    // P0 QUALITY: K-weighted RMS normalize → loudness-match с pink buffer.
     normalizeBufferRMS(data, NOISE_TARGET_RMS);
     // P0 v4: detrend + 20ms crossfade (виж pink generator).
     applyLoopCrossfade(buffer, 0.02);
     generatedBrownBuffer = buffer;
     console.log('[audio] generated brown buffer:', BROWN_BUFFER_SEC + 's',
-      '| RMS target:', NOISE_TARGET_RMS);
+      '| RMS target:', NOISE_TARGET_RMS, '| HP 20Hz applied');
     return buffer;
   }
 
