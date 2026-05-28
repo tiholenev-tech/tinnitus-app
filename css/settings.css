@@ -12,20 +12,21 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  background: rgba(8, 9, 13, 0.55);
-  backdrop-filter: blur(2px);
-  /* FIX flash: animation-fill-mode backwards елиминира first-frame flash.
-     Без него browser render-ва element с computed defaults (opacity 1)
-     за 1 кадър ПРЕДИ да приложи 'from' keyframe (opacity 0) → visible
-     flash. will-change (GPU promote) не решава този timing race —
-     compositor layer не променя initial paint state. */
+  /* FIX flash v3: backdrop-filter премахнат — на mobile (WebKit/Blink)
+     blur compositor може да flash-ва в първия кадър при opacity animation
+     (snapshot before/after blur kicks in). Alpha bumped 0.55→0.72 за да
+     компенсира липсата на blur (визуалното отделение от content зад
+     остава достатъчно). v2 (animation-fill-mode backwards) запазен —
+     решава другия timing race. */
+  background: rgba(8, 9, 13, 0.72);
   animation: setFadeIn 0.25s ease backwards;
   will-change: opacity;
 }
 
 [data-theme="light"] .set-overlay,
 :root:not([data-theme]) .set-overlay {
-  background: rgba(60, 70, 100, 0.35);
+  /* Light theme: 0.35 → 0.50 — същата компенсация без blur. */
+  background: rgba(60, 70, 100, 0.50);
 }
 
 /* ═══ SHEET ═══ */
