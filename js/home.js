@@ -304,21 +304,14 @@ window.Home = (function () {
   function buildFavoritesTitleButton() {
     // i18n key за Code 3: home.favoritesBtn.aria → "Любими"
     var label = t('home.favoritesBtn.aria', 'Любими');
-    // Inline style защото css/home.css не е в текущия scope.
-    // Pattern match-ва съществуващия .home-science-btn (същи dimensions).
-    var btnStyle = 'display:inline-flex;align-items:center;justify-content:center;' +
-      'width:36px;height:36px;flex-shrink:0;border-radius:50%;' +
-      'border:1px solid var(--border-color,rgba(0,0,0,0.1));' +
-      'background:var(--surface,rgba(255,255,255,0.04));' +
-      'color:var(--text-soft,var(--text));cursor:pointer;' +
-      'transition:background 150ms ease,transform 120ms ease;';
+    // Стилизирано чрез .home-favorites-btn в css/home.css —
+    // position:absolute top:8px right:52px (точно вляво от .home-science-btn
+    // с 8px gap). Така heart + ? са на ИДЕНТИЧНА вертикална позиция.
     return (
       '<button class="home-favorites-btn" type="button"' +
         ' data-action="open-favorites-page"' +
-        ' aria-label="' + escapeHtml(label) + '"' +
-        ' style="' + btnStyle + '">' +
-        '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"' +
-          ' style="width:18px;height:18px;">' +
+        ' aria-label="' + escapeHtml(label) + '">' +
+        '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
           '<path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>' +
         '</svg>' +
       '</button>'
@@ -531,20 +524,15 @@ window.Home = (function () {
 
     return (
       '<div class="home-screen" data-screen="home">' +
-        // Title row: заглавие + heart бутон вдясно. Inline flex wrapper
-        // защото css/home.css не е в текущия scope; margin копира
-        // оригиналния .home-title spacing (12px 4px 16px).
-        // FIX: padding-right:44px прави място за floating ".home-science-btn"
-        // (absolute right:8px, width:36px → заема първите 44px от десния
-        // край). Без padding heart падаше точно под "?" бутона.
-        '<div class="home-title-row" style="display:flex;align-items:center;' +
-            'justify-content:space-between;gap:12px;margin:12px 4px 16px;padding:0 44px 0 4px;">' +
-          '<h1 class="home-title" style="margin:0;padding:0;">' +
-            escapeHtml(t('home.title', 'Изберете режим')) +
-          '</h1>' +
-          buildFavoritesTitleButton() +
-        '</div>' +
+        // Title plain — БЕЗ flex wrapper. Heart + science са двата
+        // absolute-positioned siblings (top-right floating, ИДЕНТИЧНА
+        // височина 8px, gap 8px). Виж .home-favorites-btn (right:52px)
+        // и .home-science-btn (right:8px) в css/home.css.
+        '<h1 class="home-title">' +
+          escapeHtml(t('home.title', 'Изберете режим')) +
+        '</h1>' +
 
+        buildFavoritesTitleButton() +
         buildScienceQuickButton() +
         buildThiCta() +
         buildThiBanner() +

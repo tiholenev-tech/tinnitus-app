@@ -35,6 +35,34 @@
 [data-theme="dark"] .home-science-btn { background: rgba(255,255,255,0.04); }
 [data-theme="dark"] .home-science-btn:hover { background: rgba(255,255,255,0.08); }
 
+/* Favorites heart button — top-right floating, sibling на ".home-science-btn".
+   Right = 8 (science right offset) + 36 (science width) + 8 (gap) = 52px.
+   ИДЕНТИЧНА вертикална позиция (top:8) и размери (36x36) за perfect
+   alignment. Преди това heart беше в title-row flex (vertically centered
+   с h1) — различна височина от science btn, изглеждаше разместено. */
+.home-favorites-btn {
+  position: absolute;
+  top: 8px;
+  right: 52px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color, rgba(0,0,0,0.1));
+  background: var(--surface, rgba(255,255,255,0.04));
+  color: var(--text-soft, var(--text));
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition: background 150ms ease, transform 120ms ease;
+}
+.home-favorites-btn svg { width: 18px; height: 18px; }
+.home-favorites-btn:active { transform: scale(0.94); }
+.home-favorites-btn:hover { background: var(--surface-strong, rgba(0,0,0,0.04)); }
+[data-theme="dark"] .home-favorites-btn { background: rgba(255,255,255,0.04); }
+[data-theme="dark"] .home-favorites-btn:hover { background: rgba(255,255,255,0.08); }
+
 .home-title {
   font-size: 18px;
   font-weight: 800;

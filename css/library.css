@@ -185,12 +185,27 @@
     inset 0 1px 0 hsl(0 0% 100% / 0.3);
 }
 
+/* ═══ LIBRARY SCREEN container — viewport overflow guard ═══
+   Phone test: десният ред карти излизаше извън viewport на тесни
+   телефони (cards с твърди widths push-ваха parent над body width).
+   `.lib-screen` беше без CSS rule — сега minimal padding + clip. */
+.lib-screen {
+  padding: 0 4px;
+  overflow-x: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 /* ═══ SOUND GRID (2 colums) ═══ */
 .lib-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   margin-bottom: 80px; /* place for mini player */
+  /* Phone test fix: ограничава grid да не прелива над container width
+     (2 × card_min_width + gap може intrinsic да над 100%). */
+  max-width: 100%;
+  min-width: 0;
 }
 
 .lib-card {
