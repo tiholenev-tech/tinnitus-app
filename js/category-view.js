@@ -453,8 +453,33 @@ window.CategoryView = (function () {
       .catch(function () { return null; });
   }
 
+  // NAV-LOOP FIX: timestamp на последен close() — used от open() за да
+  // detect-не popstate-triggered re-open в trap-loop сценарий:
+  //   home → cat → sound → back(sound) → cat → back(cat) → ...
+  // close() прави history.back() → popstate fires с {phase:'category'} →
+  // app.js handler извиква CategoryView.open(catId) → BEZ guard това
+  // push-ва нов entry и user не може да напусне категорията.
+  // С guard (300ms след close) → open() детектира и redirect-ва към Home.
+  var lastCloseTime = 0;
+
   function open(catId) {
     if (!catId) return;
+
+    // POPSTATE-LOOP GUARD: ако open() е извикан в първите 300ms след
+    // собствен close() → това е popstate auto-fire от history.back(),
+    // НЕ е user intent. Redirect към Home + replace history entry за
+    // да не остане stale category в stack-а.
+    if (Date.now() - lastCloseTime < 300) {
+      lastCloseTime = 0;
+      activeCatId = null;
+      if (window.AppState && window.AppState.transition) {
+        window.AppState.transition('home');
+      }
+      history.replaceState({ phase: 'home' }, '');
+      if (window.Home && window.Home.render) window.Home.render();
+      return;
+    }
+
     activeCatId = catId;
     if (window.AppState && window.AppState.transition) {
       window.AppState.transition('category');
@@ -465,10 +490,24 @@ window.CategoryView = (function () {
 
   function close() {
     activeCatId = null;
+    // Mark close time за open() guard (виж по-горе).
+    lastCloseTime = Date.now();
+    // Prefer history.back() — popstate handler ще route-не правилно:
+    //   - ако стек-ът има 'home' преди нас → user попада там директно
+    //   - ако стек-ът има 'category' (от replaceState след Player.close)
+    //     → open() guard детектира recent-close и redirect-ва към Home
+    // Преди това: history.pushState({phase:'home'}) добавяше НОВ entry
+    // вместо да изважда — стек-ът трупа [home, category, sound, home]
+    // → следващ back отива на stale 'category' instead of 'home'.
+    if (window.history && window.history.length > 1) {
+      history.back();
+      return;
+    }
+    // Fallback: shallow history (entry-point start без previous entries).
     if (window.AppState && window.AppState.transition) {
       window.AppState.transition('home');
     }
-    history.pushState({ phase: 'home' }, '');
+    history.replaceState({ phase: 'home' }, '');
     if (window.Home && window.Home.render) window.Home.render();
   }
 
