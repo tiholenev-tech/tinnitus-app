@@ -14,7 +14,12 @@
   justify-content: center;
   background: rgba(8, 9, 13, 0.55);
   backdrop-filter: blur(2px);
-  animation: setFadeIn 0.25s ease;
+  /* FIX flash: animation-fill-mode backwards елиминира first-frame flash.
+     Без него browser render-ва element с computed defaults (opacity 1)
+     за 1 кадър ПРЕДИ да приложи 'from' keyframe (opacity 0) → visible
+     flash. will-change (GPU promote) не решава този timing race —
+     compositor layer не променя initial paint state. */
+  animation: setFadeIn 0.25s ease backwards;
   will-change: opacity;
 }
 
@@ -32,7 +37,9 @@
   flex-direction: column;
   border-top-left-radius: var(--radius);
   border-top-right-radius: var(--radius);
-  animation: setSlideUp 0.32s var(--ease-spring);
+  /* FIX flash: backwards fill-mode → translateY(100%) държана преди
+     animation start, без default-transform flash в първия кадър. */
+  animation: setSlideUp 0.32s var(--ease-spring) backwards;
   will-change: transform;
   backface-visibility: hidden;
   overflow: hidden;
