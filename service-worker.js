@@ -19,7 +19,7 @@
 // CACHE_AUDIO бамп също защото старите URLs (audio/library/* и
 // library_staging_loop_ready/*) са персистнали → нови URLs
 // (library_staging_normalized/*) не са в стария cache + 503 offline.
-var VERSION = '1.0.71';
+var VERSION = '1.0.72';
 var CACHE_SHELL = 'auralis-shell-v' + VERSION;
 var CACHE_I18N = 'auralis-i18n-v' + VERSION;
 var CACHE_AUDIO = 'auralis-audio-v3';
@@ -113,6 +113,12 @@ self.addEventListener('fetch', function (e) {
   if (url.origin !== self.location.origin) return;
 
   var pathname = url.pathname;
+
+  // /api/* (PHP endpoints) — никога не кешираме; винаги network passthrough.
+  // Beacon-ите са POST (вече return-нати горе), но guard-ваме и GET за всеки случай.
+  if (pathname.indexOf('/api/') !== -1) {
+    return;
+  }
 
   if (pathname.indexOf('/i18n/') !== -1) {
     e.respondWith(staleWhileRevalidate(e.request, CACHE_I18N));

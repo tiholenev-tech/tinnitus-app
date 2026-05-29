@@ -35,6 +35,41 @@
     try { console.log.apply(console, ['[resilience]'].concat([].slice.call(arguments))); } catch (e) {}
   }
 
+  // -- Telemetry (добавено 29.05 за дебъг на нощното спиране) --
+  // sendBeacon оцелява при suspend/unload на таба → стига до сървъра дори
+  // ако браузърът замразява JS таймерите нощем. Fire-and-forget: всичко в
+  // try/catch, никога не хвърля, не чупи нищо ако offline.
+  var SESSION_ID = (function () {
+    try {
+      return Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 8);
+    } catch (e) { return 'nosid'; }
+  })();
+
+  function tlog(event, reason) {
+    try {
+      var layers = {};
+      try { layers = AudioEngine.getActiveLayers() || {}; } catch (e) {}
+      var payload = {
+        sid: SESSION_ID,
+        event: event || '',
+        reason: reason || '',
+        l1: intended.l1 || '',
+        l2: intended.l2 || '',
+        ctx: (layers && layers.ctxState) ? layers.ctxState : ''
+      };
+      var body = JSON.stringify(payload);
+      if (navigator.sendBeacon) {
+        var blob = new Blob([body], { type: 'application/json' });
+        navigator.sendBeacon('/api/log.php', blob);
+      } else if (window.fetch) {
+        fetch('/api/log.php', {
+          method: 'POST', body: body, keepalive: true,
+          headers: { 'Content-Type': 'application/json' }
+        }).catch(function () {});
+      }
+    } catch (e) { /* fire-and-forget */ }
+  }
+
   // -- Wake Lock --
   function requestWakeLock() {
     if (!wakeLockSupported || wakeLock) return;
@@ -43,10 +78,11 @@
       log('wakeLock acquired');
       wakeLock.addEventListener('release', function () {
         log('wakeLock released от OS');
+        tlog('wakelock_released', 'os');
         wakeLock = null;
         if (intended.playing && document.visibilityState === 'visible') requestWakeLock();
       });
-    }).catch(function (e) { log('wakeLock error', e && e.message); wakeLock = null; });
+    }).catch(function (e) { log('wakeLock error', e && e.message); tlog('wakelock_fail', 'request'); wakeLock = null; });
   }
   function releaseWakeLock() {
     if (!wakeLock) return;
@@ -71,6 +107,7 @@
 
     restartInFlight = true;
     log('RECOVER', trigger, '| ctx:', ctxState, '| l1Down:', l1Down, '| l2Down:', l2Down);
+    tlog('recover', trigger + '_ctx_' + ctxState + (l1Down ? '_l1' : '') + (l2Down ? '_l2' : ''));
 
     var resume = (ctxObj && ctxObj.state === 'suspended')
       ? ctxObj.resume().catch(function () {}) : Promise.resolve();
@@ -95,6 +132,7 @@
   function beginSession() {
     if (!intended.playing) {
       intended.playing = true;
+      tlog('session_start', 'begin');
       requestWakeLock();
       startWatchdog();
       attachStateChange();
@@ -132,6 +170,7 @@
   window.addEventListener('auralis-sound-ended', function () {
     if (intended.playing) {
       log('spurious onended — recover');
+      tlog('onended', 'spurious');
       checkAndRecover('onended');
     }
   });
