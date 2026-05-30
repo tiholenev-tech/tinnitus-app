@@ -364,7 +364,24 @@ window.Home = (function () {
     var day = s.currentProgramDay || 0;
     var baseline = (typeof s.thiBaseline === 'number') ? s.thiBaseline : null;
     var day14 = (typeof s.thiDay14 === 'number') ? s.thiDay14 : null;
-    if (baseline === null || day14 !== null || day < THI_RETEST_DAY_MIN) return '';
+    // ONBOARDING SIMPLIFICATION: THI вече НЕ е в Ден-1 онбординга. Ако baseline
+    // още не е направен → нежна ПО ЖЕЛАНИЕ покана (търпеливо напомняне, не насила).
+    if (baseline === null) {
+      var bTitle = t('thi.homeBanner.baseline_title', 'Кратка оценка на тинитуса');
+      var bBody  = t('thi.homeBanner.baseline_body', 'По желание — помага да следим напредъка Ви. Отнема 2–3 минути.');
+      var bCta   = t('thi.homeBanner.baseline_cta', 'Направи оценка');
+      return (
+        '<button class="home-thi-banner" type="button" data-action="thi-retest"' +
+          ' aria-label="' + escapeHtml(bTitle) + '">' +
+          '<span class="home-thi-banner-content">' +
+            '<span class="home-thi-banner-title">' + escapeHtml(bTitle) + '</span>' +
+            '<span class="home-thi-banner-body">' + escapeHtml(bBody) + '</span>' +
+          '</span>' +
+          '<span class="home-thi-banner-cta">' + escapeHtml(bCta) + ' ›</span>' +
+        '</button>'
+      );
+    }
+    if (day14 !== null || day < THI_RETEST_DAY_MIN) return '';
     var title = t('thi.homeBanner.retest_title', 'Време е за вторично THI измерване');
     var body  = t('thi.homeBanner.retest_body', 'Изпълнихте 13 дни от програмата. Направете втория тест за сравнение.');
     var cta   = t('thi.homeBanner.retest_cta', 'Направи тест');
@@ -433,9 +450,9 @@ window.Home = (function () {
 
     var title, body, cta;
     if (done && freq) {
-      title = t('home.pitch.done_title', 'Тон на тинитуса');
-      body  = t('home.pitch.done_body', 'Текущ профил: {hz} Hz. Можете да повторите теста при нужда.', { hz: freq });
-      cta   = t('home.pitch.done_cta', 'Повтори теста');
+      title = t('home.pitch.done_title', 'Вашата честота');
+      body  = t('home.pitch.refine_body', 'Намерена: {hz} Hz. Искате ли да я уточним по-точно? Отнема 5 минути.', { hz: freq });
+      cta   = t('home.pitch.refine_cta', 'Уточни честотата');
     } else if (done) {
       title = t('home.pitch.skipped_title', 'Тон на тинитуса');
       body  = t('home.pitch.skipped_body', 'Тестът беше пропуснат. Направете го за персонализиран филтър.');
@@ -479,7 +496,11 @@ window.Home = (function () {
   }
 
   function openPitchTest() {
-    if (window.PitchTest && window.PitchTest.open) window.PitchTest.open();
+    if (!window.PitchTest || !window.PitchTest.open) return;
+    // Вече правен → „уточни" = precise (адаптивен Bayes, пропускаем). Иначе quick.
+    var s = window.AppState || {};
+    var done = !!(s.isPitchTestDone && s.isPitchTestDone());
+    window.PitchTest.open(done ? { mode: 'precise' } : undefined);
   }
 
   function openPitchInfo() {

@@ -51,7 +51,7 @@ window.AudioEngine = (function () {
   // CONSTANTS
   // ============================================================
 
-  var DEFAULT_VOLUME    = 50;
+  var DEFAULT_VOLUME    = 70;   // UX 2026-05-30: 50 беше твърде тихо (50%→0.18 gain). 70 default.
   var DEFAULT_L1_VOL    = 100;  // Layer 1 default 100% (gain 1.0)
   var DEFAULT_L2_VOL    = 50;   // A2.1: gain 0.5 default — фон да не дави главния звук
   var CROSSFADE_SEC     = 2.0;
@@ -235,7 +235,10 @@ window.AudioEngine = (function () {
     // като 70% perceived. Power 2.5 прави slider responsive в долната
     // половина (по-естествено усещане).
     var linear = Math.max(0, Math.min(1, vol / 100));
-    return Math.pow(linear, 2.5);
+    // UX 2026-05-30: смекчена от 2.5 → 2.2. 2.5 правеше средните стойности
+    // твърде тихи (баща на Тихол: „всичко е тихо"). При max (100) gain=1.0
+    // непроменен; safety limiter (-12 dBFS) пази пиковете.
+    return Math.pow(linear, 2.2);
   }
 
   // P0 SLIDER-CLICK v2: anchor fix alone недостатъчен — rapid input events

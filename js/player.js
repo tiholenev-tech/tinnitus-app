@@ -251,6 +251,23 @@ window.Player = (function () {
     );
   }
 
+  // Вертикален „обща сила" плъзгач отстрани (Тихол: баща му „всичко е тихо").
+  // Двата хоризонтални плъзгача = балансът между звуците; този = общата сила.
+  function buildMasterVol() {
+    var vol = (window.AudioEngine && window.AudioEngine.getMasterVolume)
+      ? window.AudioEngine.getMasterVolume() : 70;
+    return (
+      '<div class="pl-master" aria-label="Обща сила на звука">' +
+        '<span class="pl-master-icon" aria-hidden="true">' + SVG.speaker + '</span>' +
+        '<input type="range" class="pl-master-slider" id="plMaster"' +
+          ' min="0" max="100" step="1" value="' + vol + '"' +
+          ' orient="vertical"' +
+          ' aria-label="Обща сила на звука 0-100" aria-valuenow="' + vol + '">' +
+        '<span class="pl-master-plus" aria-hidden="true">+</span>' +
+      '</div>'
+    );
+  }
+
   function buildPlayerHtml(sound, isPlaying) {
     var title = soundTitle(sound);
     var subtitle = soundSubtitle(sound);
@@ -274,6 +291,8 @@ window.Player = (function () {
     return (
       '<div class="pl-screen" data-screen="player"' +
         ' role="region" aria-label="' + escapeHtml(title) + '">' +
+
+        buildMasterVol() +
 
         '<header class="pl-header">' +
           '<button class="pl-back" type="button" data-action="back"' +
@@ -473,6 +492,23 @@ window.Player = (function () {
       checkVolumeWarning(layer2Vol);
       scheduleUserOverrideSave();
     }
+  }
+
+  // Обща сила (master) — пише в същия ключ като Home slider-а → синхронни.
+  var masterPersistTimer = null;
+  function onMasterInput(e) {
+    var v = parseInt(e.currentTarget.value, 10);
+    if (isNaN(v)) return;
+    v = Math.max(0, Math.min(100, v));
+    if (window.AudioEngine && window.AudioEngine.setMasterVolume) {
+      window.AudioEngine.setMasterVolume(v, e.type === 'change');
+    }
+    if (masterPersistTimer) clearTimeout(masterPersistTimer);
+    masterPersistTimer = setTimeout(function () {
+      masterPersistTimer = null;
+      persist('auralis-master-volume', v);
+    }, 300);
+    if (e.type === 'change') { checkVolumeWarning(v); scheduleUserOverrideSave(); }
   }
 
   function onClick(e) {
@@ -819,9 +855,15 @@ window.Player = (function () {
     persist(STORAGE_L1_VOL, layer1Vol);
     persist(STORAGE_L2_VOL, layer2Vol);
 
-    // Master volume → AudioEngine.setMasterVolume
+    // Master volume → AudioEngine.setMasterVolume.
+    // „По-силен default" (Тихол): профилните таргети (35–70) през кривата
+    // звучат тихо. Под для не падаме под 60 при default (само ако НЕ е user
+    // override — изричният избор на потребителя се пази). Потребителят може
+    // да усили/намали с новия вертикален master плъзгач.
+    var masterVol = cfg.masterVol;
+    if (!cfg.fromOverride) masterVol = Math.max(masterVol, 60);
     if (window.AudioEngine && window.AudioEngine.setMasterVolume) {
-      window.AudioEngine.setMasterVolume(cfg.masterVol);
+      window.AudioEngine.setMasterVolume(masterVol);
     }
   }
 
@@ -843,6 +885,11 @@ window.Player = (function () {
     if (l2) {
       l2.addEventListener('input', onL2Input);
       l2.addEventListener('change', onL2Input);
+    }
+    var master = container.querySelector('#plMaster');
+    if (master) {
+      master.addEventListener('input', onMasterInput);
+      master.addEventListener('change', onMasterInput);
     }
   }
 

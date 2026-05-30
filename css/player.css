@@ -579,3 +579,43 @@
 .pl-notch-freq {
   letter-spacing: 0.02em;
 }
+
+/* ═══ Master „обща сила" — вертикален плъзгач отстрани (Тихол UX 2026-05-30) ═══ */
+/* Двата хоризонтални = баланс между звуците; този = общата сила на всичко.   */
+.pl-screen { padding-right: 58px; }   /* резервиран улей за master рейла */
+.pl-master {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 5px;
+  border-radius: 22px;
+  background: hsl(220 30% 14% / 0.5);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+[data-theme="light"] .pl-master,
+:root:not([data-theme]) .pl-master {
+  background: hsl(var(--hue1) 25% 90% / 0.72);
+  box-shadow: 0 4px 14px hsl(var(--hue1) 30% 40% / 0.15);
+}
+.pl-master-icon { width: 18px; height: 18px; opacity: 0.85; }
+.pl-master-icon svg { width: 100%; height: 100%; display: block; }
+.pl-master-plus { font-size: 18px; font-weight: 800; opacity: 0.55; line-height: 1; }
+.pl-master-slider {
+  -webkit-appearance: slider-vertical;
+  appearance: slider-vertical;
+  writing-mode: vertical-lr;
+  direction: rtl;
+  width: 30px;
+  height: 165px;
+  background: transparent;
+  cursor: pointer;
+  accent-color: hsl(var(--hue1) 70% 62%);
+  touch-action: none;
+}

@@ -56,6 +56,11 @@ window.PitchTest = (function () {
   var CI_TARGET_OCT = 0.25;          // динамичен стоп: 90% CI ≤ ±0.25 октава
   var MIN_MEAS = 4;
   var MAX_MEAS = 20;
+  // Два режима:
+  //   'quick'   (Ден 1 онбординг) — фиксирани QUICK_MEAS замервания, предвидим
+  //             прогрес „Замерване X от 5", бързо до наградата.
+  //   'precise' (Ден 2 „уточни честотата") — адаптивен Bayes 4–20 със стоп ±0.25.
+  var QUICK_MEAS = 5;
 
   var GRID = buildGrid();            // честоти 250→16000 на 1/12 октава
 
@@ -64,6 +69,7 @@ window.PitchTest = (function () {
   // ============================================================
 
   var phase = 'pretest';
+  var testMode = 'quick';            // 'quick' (Ден 1) | 'precise' (Ден 2)
   var ctx = null;
   var masterGain = null;
   var calibGain = CALIB_GAIN_DEFAULT;
@@ -155,6 +161,7 @@ window.PitchTest = (function () {
   }
 
   function bayesShouldStop() {
+    if (testMode === 'quick') return bayes.n >= QUICK_MEAS;
     if (bayes.n >= MAX_MEAS) return true;
     if (bayes.n >= MIN_MEAS && bayesCIHalfOct() <= CI_TARGET_OCT) return true;
     return false;
@@ -349,58 +356,35 @@ window.PitchTest = (function () {
   // после я вдига малко до комфортно ясно. Така NBN е чуваем и на високите
   // честоти (където е загубата + тинитусът) без да е силен.
 
+  // 70+ ВОДЕН РЕЖИМ: без плъзгач. Звукът сам се усилва бавно от тихо; голям
+  // пулсиращ СПРИ бутон — потребителят натиска, щом го чува удобно. Нула четене,
+  // нула решения. Силата в този момент става нивото за целия тест.
+  var calibRiseRAF = null;
+  var CALIB_RISE_MS = 13000;   // бавно усилване тихо → max за ~13 сек
+
   function renderCalibration() {
     var app = el('app');
     if (!app) return;
-    var pct = Math.round((calibGain - CALIB_GAIN_MIN) / (CALIB_GAIN_MAX - CALIB_GAIN_MIN) * 100);
     app.innerHTML = (
       '<div class="pt-screen" data-screen="pitch_test">' +
         '<header class="pt-header">' +
-          '<h1 class="pt-title">Настройте удобна сила</h1>' +
-          '<p class="pt-subtitle">Пуска се тих съскащ звук. Нагласете го така, ' +
-            'че да го чувате <b>ясно, но меко</b> — нито едва доловим, нито силен. ' +
-            'На тази сила ще слушате теста.</p>' +
+          '<h1 class="pt-title">Чувате ли звука?</h1>' +
+          '<p class="pt-subtitle">Звукът бавно се усилва.<br>Натиснете <b>СПРИ</b>, щом го чувате удобно.</p>' +
         '</header>' +
-        '<section class="pt-tones" style="justify-content:center;">' +
-          '<button class="pt-tone-btn" type="button" data-action="calib-toggle" style="max-width:280px;">' +
-            '<span class="pt-tone-label">Пусни звука</span>' +
-            '<span class="pt-tone-hint" data-calib-hint>Натиснете за прослушване</span>' +
-            '<span class="pt-tone-wave" aria-hidden="true"><span></span><span></span><span></span></span>' +
+        '<div class="pt-calib-wrap">' +
+          '<button class="pt-calib-stop" type="button" data-action="calib-stop"' +
+            ' aria-label="Спри — силата е удобна">' +
+            '<span class="pt-calib-pulse" aria-hidden="true"></span>' +
+            '<span class="pt-calib-stop-label">СПРИ</span>' +
           '</button>' +
-        '</section>' +
-        '<section class="pt-slider-section vc-slider-section" style="margin-top:8px;">' +
-          '<div class="vc-slider-head">' +
-            '<span class="vc-slider-label">Сила</span>' +
-            '<span class="vc-slider-value" id="ptCalibVal">' + pct + '%</span>' +
-          '</div>' +
-          '<input type="range" class="vc-slider" id="ptCalibSlider" min="0" max="100" step="1" value="' + pct + '"' +
-            ' aria-label="Сила на тестовия звук">' +
-        '</section>' +
-        '<div class="pt-actions">' +
-          '<button class="pt-btn pt-btn--primary" type="button" data-action="calib-done">Готово, започни теста</button>' +
         '</div>' +
       '</div>'
     );
     bindClicks(app);
-    var slider = el('ptCalibSlider');
-    if (slider) slider.addEventListener('input', onCalibSlider);
+    startCalibRise();
   }
 
-  function onCalibSlider(e) {
-    var p = parseInt(e.currentTarget.value, 10);
-    if (isNaN(p)) return;
-    calibGain = CALIB_GAIN_MIN + (p / 100) * (CALIB_GAIN_MAX - CALIB_GAIN_MIN);
-    var lbl = el('ptCalibVal'); if (lbl) lbl.textContent = p + '%';
-    if (calibGainNode && ctx) {
-      var now = ctx.currentTime;
-      calibGainNode.gain.cancelScheduledValues(now);
-      calibGainNode.gain.setValueAtTime(calibGainNode.gain.value, now);
-      calibGainNode.gain.linearRampToValueAtTime(clampGain(calibGain), now + 0.05);
-    }
-  }
-
-  function toggleCalibTone() {
-    if (calibHandle) { stopCalibTone(); return; }
+  function startCalibRise() {
     var c = ensureContext();
     if (!c) return;
     if (c.state === 'suspended') c.resume().catch(function () {});
@@ -410,25 +394,37 @@ window.PitchTest = (function () {
     var bp = c.createBiquadFilter();
     bp.type = 'bandpass'; bp.frequency.value = 4000; bp.Q.value = NBN_Q;
     calibGainNode = c.createGain();
-    calibGainNode.gain.value = 0;
+    calibGainNode.gain.value = clampGain(CALIB_GAIN_MIN);
     src.connect(bp); bp.connect(calibGainNode); calibGainNode.connect(masterGain);
-    src.start();
-    var now = c.currentTime;
-    calibGainNode.gain.linearRampToValueAtTime(clampGain(calibGain), now + 0.2);
+    try { src.start(); } catch (e) {}
     calibHandle = { src: src, bp: bp };
-    setCalibBtn(true);
+
+    var startT = now();
+    var wrap = document.querySelector('.pt-calib-stop');
+    function tick() {
+      if (!calibHandle) return;   // спряно
+      var p = Math.min(1, (now() - startT) / CALIB_RISE_MS);
+      calibGain = CALIB_GAIN_MIN + p * (CALIB_GAIN_MAX - CALIB_GAIN_MIN);
+      try { calibGainNode.gain.value = clampGain(calibGain); } catch (e) {}
+      if (wrap) wrap.style.setProperty('--p', p.toFixed(3));
+      calibRiseRAF = (p < 1) ? requestAnimationFrame(tick) : null;  // достигна max → задръж
+    }
+    calibRiseRAF = requestAnimationFrame(tick);
   }
 
+  function now() { return (window.performance && performance.now) ? performance.now() : 0; }
+
   function stopCalibTone() {
+    if (calibRiseRAF) { cancelAnimationFrame(calibRiseRAF); calibRiseRAF = null; }
     if (!calibHandle) return;
     var h = calibHandle, gn = calibGainNode;
     calibHandle = null; calibGainNode = null;
     try {
       if (gn && ctx) {
-        var now = ctx.currentTime;
-        gn.gain.cancelScheduledValues(now);
-        gn.gain.setValueAtTime(gn.gain.value, now);
-        gn.gain.linearRampToValueAtTime(0, now + 0.1);
+        var nt = ctx.currentTime;
+        gn.gain.cancelScheduledValues(nt);
+        gn.gain.setValueAtTime(gn.gain.value, nt);
+        gn.gain.linearRampToValueAtTime(0, nt + 0.12);
       }
     } catch (e) {}
     setTimeout(function () {
@@ -436,20 +432,11 @@ window.PitchTest = (function () {
       try { h.src.disconnect(); } catch (e) {}
       try { h.bp.disconnect(); } catch (e) {}
       if (gn) { try { gn.disconnect(); } catch (e) {} }
-    }, 140);
-    setCalibBtn(false);
+    }, 160);
   }
 
-  function setCalibBtn(playing) {
-    var btn = document.querySelector('[data-action="calib-toggle"]');
-    if (btn) btn.classList.toggle('pt-tone-btn--playing', playing);
-    var hint = document.querySelector('[data-calib-hint]');
-    if (hint) hint.textContent = playing ? 'Свири… (натиснете за спиране)' : 'Натиснете за прослушване';
-    var lbl = btn && btn.querySelector('.pt-tone-label');
-    if (lbl) lbl.textContent = playing ? 'Спри звука' : 'Пусни звука';
-  }
-
-  function onCalibDone() {
+  function onCalibStop() {
+    // calibGain вече държи текущата (чута) сила. Спираме и започваме теста.
     stopCalibTone();
     phase = 'measure';
     bayesReset();
@@ -492,13 +479,43 @@ window.PitchTest = (function () {
     bayesAdd(pm);
     if (bayesShouldStop()) {
       phase = 'octave';
-      startOctaveVerification(bayesMeanHz());
+      renderBravoThen(function () { startOctaveVerification(bayesMeanHz()); }, true);
     } else {
-      startMeasurement();
+      renderBravoThen(function () { startMeasurement(); }, false);
     }
   }
 
+  // „Браво" между замерванията — ясен сигнал че едно свърши, следващо започва.
+  // Авто-напред след кратка пауза (без излишни натискания за 70+).
+  function renderBravoThen(next, isLast) {
+    var app = el('app');
+    if (!app) { next(); return; }
+    stopCurrentTone();
+    var doneN = bayes.n;
+    var msg = isLast
+      ? 'Чудесно! Почти готово…'
+      : (testMode === 'quick'
+          ? ('Браво! ' + doneN + ' от ' + QUICK_MEAS + ' готови')
+          : ('Браво! Замерване ' + doneN + ' готово'));
+    app.innerHTML = (
+      '<div class="pt-screen" data-screen="pitch_test">' +
+        '<div class="pt-bravo">' +
+          '<div class="pt-bravo-check" aria-hidden="true">✓</div>' +
+          '<div class="pt-bravo-msg">' + escapeHtml(msg) + '</div>' +
+        '</div>' +
+      '</div>'
+    );
+    setTimeout(next, 1150);
+  }
+
   function measureMeta() {
+    if (testMode === 'quick') {
+      return {
+        progressLabel: 'Замерване ' + (bayes.n + 1) + ' от ' + QUICK_MEAS,
+        sub: '',
+        pct: Math.round((bayes.n / QUICK_MEAS) * 100)
+      };
+    }
     var ci = bayesCIHalfOct();
     var ciTxt = (bayes.n < 2 || !isFinite(ci)) ? '—' : ('±' + ci.toFixed(2) + ' окт');
     return {
@@ -539,27 +556,20 @@ window.PitchTest = (function () {
           '</div>' +
           (meta.sub ? '<p class="pt-progress-sub">' + escapeHtml(meta.sub) + '</p>' : '') +
         '</header>' +
-        '<section class="pt-help">' +
-          '<p class="pt-help-lead">Чуйте двата съскащи звука и изберете онзи, ' +
-            'чиято <b>височина</b> е по-близка до Вашия тинитус.</p>' +
-          '<p class="pt-help-note">Първият тръгва сам. Няма грешен отговор — ' +
-            'с всеки избор се доближаваме до Вашата честота.</p>' +
-        '</section>' +
+        '<p class="pt-help-one">Кой звук е по-близо до Вашия тинитус?</p>' +
         '<section class="pt-tones">' +
           toneBtnHtml('A') + toneBtnHtml('B') +
         '</section>' +
-        '<section class="pt-choice">' +
-          '<p class="pt-choice-prompt">Кой е по-близо до Вашия тинитус?</p>' +
-          '<div class="pt-choice-actions">' +
-            '<button class="pt-btn pt-btn--primary pt-choice-btn" type="button" data-action="choose" data-choice="A">A по-близо</button>' +
-            '<button class="pt-btn pt-btn--primary pt-choice-btn" type="button" data-action="choose" data-choice="B">B по-близо</button>' +
-          '</div>' +
-        '</section>' +
+        '<div class="pt-choice-actions">' +
+          '<button class="pt-btn pt-btn--primary pt-choice-btn" type="button" data-action="choose" data-choice="A">A по-близо</button>' +
+          '<button class="pt-btn pt-btn--primary pt-choice-btn" type="button" data-action="choose" data-choice="B">B по-близо</button>' +
+        '</div>' +
         '<section class="pt-vol-row">' +
           '<button class="pt-vol-btn" type="button" data-action="vol-down" aria-label="По-тихо">−</button>' +
           '<span class="pt-vol-label">Сила</span>' +
           '<button class="pt-vol-btn" type="button" data-action="vol-up" aria-label="По-силно">+</button>' +
         '</section>' +
+        '<button class="pt-quit" type="button" data-action="quit">Спри засега</button>' +
       '</div>'
     );
     bindClicks(app);
@@ -705,7 +715,121 @@ window.PitchTest = (function () {
       });
     }
     phase = 'done';
-    renderResult(freq, ciOct);
+    lastResultFreq = freq;
+    // Ден 1 (quick) → НАГРАДАТА (notched звук + дишане). Ден 2 (precise) → само резултат.
+    if (testMode === 'quick') renderReward(freq, ciOct);
+    else renderResult(freq, ciOct);
+  }
+
+  // ============================================================
+  // 🪝 НАГРАДАТА — notched звук (остатъчно инхибиране) = „първото облекчение"
+  // ============================================================
+  // Розов шум с изрязана точно намерената честота (doc 06). Engine-ът сам
+  // прилага notch на реалните звуци после; тук е демонстрацията на ефекта.
+  // Warming lowpass sweep към края → топъл „природен" завършек („и двете").
+  var rewardHandle = null;
+  var rewardTimer = null;
+  var lastResultFreq = 0;
+  var REWARD_MS = 34000;
+
+  function renderReward(freq, ciOct) {
+    var app = el('app');
+    if (!app) { goNext(); return; }
+    app.innerHTML = (
+      '<div class="pt-screen" data-screen="pitch_test">' +
+        '<header class="pt-header">' +
+          '<h1 class="pt-title">Намерихме Вашата честота</h1>' +
+          '<p class="pt-subtitle">Слушайте спокойно — звукът е настроен за Вас.<br>Дишайте бавно.</p>' +
+        '</header>' +
+        '<div class="pt-reward">' +
+          '<div class="pt-breathe" aria-hidden="true"><span></span></div>' +
+          '<div class="pt-reward-freq">' + escapeHtml(fmtFreq(freq)) + '</div>' +
+        '</div>' +
+        '<div class="pt-actions">' +
+          '<button class="pt-btn pt-btn--ghost" type="button" data-action="reward-done">Готово</button>' +
+        '</div>' +
+      '</div>'
+    );
+    bindClicks(app);
+    playReward(freq);
+    if (rewardTimer) clearTimeout(rewardTimer);
+    rewardTimer = setTimeout(function () { rewardTimer = null; finishReward(); }, REWARD_MS);
+  }
+
+  function playReward(freq) {
+    var c = ensureContext();
+    if (!c || !masterGain) return;
+    if (c.state === 'suspended') c.resume().catch(function () {});
+    var src = c.createBufferSource();
+    src.buffer = getNoiseBuffer(c); src.loop = true;
+    var notch = c.createBiquadFilter();
+    notch.type = 'notch'; notch.frequency.value = freq; notch.Q.value = 2.0;
+    var lp = c.createBiquadFilter();
+    lp.type = 'lowpass'; lp.frequency.value = 16000; lp.Q.value = 0.7;
+    var gain = c.createGain(); gain.gain.value = 0;
+    src.connect(notch); notch.connect(lp); lp.connect(gain); gain.connect(masterGain);
+    try { src.start(); } catch (e) {}
+    var n = c.currentTime;
+    var lvl = clampGain(NBN_LEVEL() * calibGain * 1.15);
+    gain.gain.linearRampToValueAtTime(lvl, n + 2.2);              // нежно влизане
+    try {
+      lp.frequency.setValueAtTime(16000, n + 20);                 // 20с ясен шум
+      lp.frequency.exponentialRampToValueAtTime(650, n + 32);     // топъл „природен" завършек
+    } catch (e) {}
+    rewardHandle = { src: src, notch: notch, lp: lp, gain: gain };
+  }
+
+  function stopReward() {
+    if (rewardTimer) { clearTimeout(rewardTimer); rewardTimer = null; }
+    if (!rewardHandle) return;
+    var h = rewardHandle; rewardHandle = null;
+    try {
+      if (ctx) {
+        var n = ctx.currentTime;
+        h.gain.gain.cancelScheduledValues(n);
+        h.gain.gain.setValueAtTime(h.gain.gain.value, n);
+        h.gain.gain.linearRampToValueAtTime(0, n + 0.6);
+      }
+    } catch (e) {}
+    setTimeout(function () {
+      try { h.src.stop(); } catch (e) {}
+      try { h.src.disconnect(); } catch (e) {}
+      try { h.notch.disconnect(); } catch (e) {}
+      try { h.lp.disconnect(); } catch (e) {}
+      try { h.gain.disconnect(); } catch (e) {}
+    }, 700);
+  }
+
+  function finishReward() {
+    stopReward();
+    renderRewardAsk();
+  }
+
+  function renderRewardAsk() {
+    var app = el('app');
+    if (!app) { goNext(); return; }
+    app.innerHTML = (
+      '<div class="pt-screen" data-screen="pitch_test">' +
+        '<header class="pt-header">' +
+          '<h1 class="pt-title">Усетихте ли разлика?</h1>' +
+          '<p class="pt-subtitle">При мнозина писъкът утихва за няколко минути след това.</p>' +
+        '</header>' +
+        '<div class="pt-pretest-options">' +
+          ptOption('reward-felt', 'yes', 'Да, по-тихо е', 'Писъкът намаля') +
+          ptOption('reward-felt', 'little', 'Малко', 'Лека промяна') +
+          ptOption('reward-felt', 'no', 'Не усетих', 'Няма промяна сега') +
+        '</div>' +
+      '</div>'
+    );
+    bindClicks(app);
+  }
+
+  function onRewardFelt(value) {
+    try {
+      var s = window.AppState;
+      if (s) { s.pitchRewardFelt = value; if (s.persist) s.persist(); }
+    } catch (e) {}
+    goNext();
   }
 
   function renderResult(freq, ciOct) {
@@ -778,15 +902,37 @@ window.PitchTest = (function () {
     switch (action) {
       case 'pretest':    onPretestChoice(btn.getAttribute('data-value')); break;
       case 'device':     onDeviceChoice(btn.getAttribute('data-value')); break;
-      case 'calib-toggle': toggleCalibTone(); break;
-      case 'calib-done': onCalibDone(); break;
+      case 'calib-stop': onCalibStop(); break;
       case 'play-tone':  onPlayToneRequest(btn.getAttribute('data-tone')); break;
       case 'choose':     onChoice(btn.getAttribute('data-choice')); break;
       case 'vol-down':   adjustVolume(-0.12); break;
       case 'vol-up':     adjustVolume(0.12); break;
-      case 'retest':     open(); break;
+      case 'retest':     open({ mode: 'precise' }); break;
+      case 'quit':       onQuit(); break;
+      case 'reward-done': finishReward(); break;
+      case 'reward-felt': onRewardFelt(btn.getAttribute('data-value')); break;
       case 'skip-continue': goNext(); break;
     }
+  }
+
+  // „Спри засега" — спокоен изход по всяко време, без вина. Нищо не се губи.
+  function onQuit() {
+    cleanupAudio();
+    var app = el('app');
+    if (!app) { goNext(); return; }
+    app.innerHTML = (
+      '<div class="pt-screen" data-screen="pitch_test">' +
+        '<header class="pt-header">' +
+          '<h1 class="pt-title">Няма проблем 🙂</h1>' +
+          '<p class="pt-subtitle">Спряхте теста. Можете да го направите по-късно, ' +
+            'когато Ви е удобно — отнема само минута.</p>' +
+        '</header>' +
+        '<div class="pt-actions">' +
+          '<button class="pt-btn pt-btn--primary" type="button" data-action="skip-continue">Към началото</button>' +
+        '</div>' +
+      '</div>'
+    );
+    bindClicks(app);
   }
 
   function goNext() {
@@ -801,6 +947,7 @@ window.PitchTest = (function () {
     if (autoPlayTimer) { clearTimeout(autoPlayTimer); autoPlayTimer = null; }
     stopCurrentTone();
     stopCalibTone();
+    stopReward();
   }
 
   // ============================================================
@@ -818,8 +965,9 @@ window.PitchTest = (function () {
     try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) { window.scrollTo(0, 0); }
   }
 
-  function open() {
+  function open(opts) {
     cleanupAudio();
+    testMode = (opts && opts.mode === 'precise') ? 'precise' : 'quick';
     phase = 'pretest';
     bayesReset();
     calibGain = CALIB_GAIN_DEFAULT;
@@ -831,8 +979,10 @@ window.PitchTest = (function () {
   }
 
   // Router/onboarding entry hook — започва теста чисто (reset на engine state).
+  // Онбординг Ден 1 = quick режим (кратък, предвидим прогрес).
   function render() {
     cleanupAudio();
+    testMode = 'quick';
     phase = 'pretest';
     bayesReset();
     calibGain = CALIB_GAIN_DEFAULT;

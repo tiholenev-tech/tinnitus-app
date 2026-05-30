@@ -244,14 +244,13 @@ window.VolumeCalibration = (function () {
       // Нов ред: thi_baseline (ако още не done) → pitch_test (ако не done)
       // → home. Това гарантира че всеки нов user попълва THI baseline
       // като част от onboarding.
-      var needsThi = s && (typeof s.thiBaseline !== 'number')
-                       && window.ThiBaseline && window.ThiBaseline.open;
+      // ONBOARDING SIMPLIFICATION 2026-05-30 (Тихол): 25-те THI въпроса ИЗЛИЗАТ
+      // от Ден-1 онбординга — твърде дълго за 70+. Ден 1 = калибрация → pitch
+      // (quick) → награда → home. THI baseline се прави по-късно чрез нежен
+      // banner на Home (търпеливо напомняне, не насила).
       var needsPitch = s && s.isPitchTestDone && !s.isPitchTestDone()
                         && window.PitchTest && window.PitchTest.render;
-      if (needsThi) {
-        // ThiBaseline.open() сам прави transition + history push + render.
-        window.ThiBaseline.open();
-      } else if (needsPitch) {
+      if (needsPitch) {
         if (s.transition) s.transition('pitch_test');
         history.replaceState({ phase: 'pitch_test' }, '');
         window.PitchTest.render();

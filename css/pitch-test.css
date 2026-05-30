@@ -584,3 +584,162 @@
   -webkit-tap-highlight-color: transparent;
 }
 .pt-vol-btn:active { transform: scale(0.94); }
+
+/* ═══ Авто-усилване калибрация (70+ воден режим) ═══ */
+.pt-calib-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  padding: 24px 0;
+}
+.pt-calib-stop {
+  --p: 0;
+  position: relative;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  background:
+    linear-gradient(to top,
+      hsl(var(--hue1) 72% 55%) calc(var(--p) * 100%),
+      hsl(var(--hue1) 30% 35% / 0.35) calc(var(--p) * 100%));
+  box-shadow: 0 12px 44px hsl(var(--hue1) 70% 50% / 0.45);
+  transition: transform 0.12s ease;
+}
+.pt-calib-stop:active { transform: scale(0.96); }
+.pt-calib-pulse {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 3px solid hsl(var(--hue1) 72% 62% / 0.55);
+  animation: ptCalibPulse 1.7s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes ptCalibPulse {
+  0%   { transform: scale(1);    opacity: 0.7; }
+  100% { transform: scale(1.28); opacity: 0; }
+}
+.pt-calib-stop-label { position: relative; z-index: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .pt-calib-pulse { animation: none; opacity: 0.4; }
+}
+
+/* ═══ Guided trial (70+) — single help line, quit, Браво beat ═══ */
+.pt-help-one {
+  margin: 4px 0 2px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.35;
+}
+.pt-quit {
+  margin: 14px auto 0;
+  display: block;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 10px 16px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.pt-quit:active { opacity: 0.6; }
+
+/* „Браво" между замерванията */
+.pt-bravo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 320px;
+  text-align: center;
+  animation: ptBravoIn 360ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pt-bravo-check {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+  color: #fff;
+  background: linear-gradient(135deg, hsl(145 60% 48%), hsl(165 60% 45%));
+  box-shadow: 0 10px 32px hsl(150 60% 45% / 0.45);
+  animation: ptBravoPop 520ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.pt-bravo-msg {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text);
+}
+@keyframes ptBravoIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes ptBravoPop {
+  0%   { transform: scale(0.4); opacity: 0; }
+  60%  { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pt-bravo, .pt-bravo-check { animation: none; }
+}
+
+/* ═══ 🪝 Наградата — дишащ кръг + честота ═══ */
+.pt-reward {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  min-height: 300px;
+  padding: 12px 0;
+}
+.pt-breathe {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.pt-breathe span {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 40%,
+    hsl(var(--hue1) 70% 62%), hsl(var(--hue2) 65% 48%));
+  box-shadow: 0 0 60px hsl(var(--hue1) 70% 55% / 0.55);
+  animation: ptBreathe 8s ease-in-out infinite;
+}
+@keyframes ptBreathe {
+  0%, 100% { transform: scale(0.7);  opacity: 0.7; }
+  50%      { transform: scale(1.18); opacity: 1; }
+}
+.pt-reward-freq {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  background: linear-gradient(135deg, hsl(var(--hue1) 65% 58%), hsl(var(--hue2) 65% 58%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pt-breathe span { animation: none; transform: scale(1); }
+}
