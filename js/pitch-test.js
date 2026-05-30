@@ -805,9 +805,10 @@ window.PitchTest = (function () {
         nextOctaveStep();
       });
     } else {
-      // Точният метод намери честотата → финален СЛАЙДЕР за усещане за контрол
-      // (Тихол): потребителят нагласява до точния си тон. После наградата.
-      renderFineTune(octaveState.base);
+      // Честотата е намерена → ЗАПАЗИ ВЕДНАГА (надеждно — дори потребителят да
+      // не довърши слайдера, тестът се отчита), после финален слайдер за контрол.
+      saveResult(octaveState.base);
+      renderFineTune(lastResultFreq);
     }
   }
 
@@ -827,7 +828,7 @@ window.PitchTest = (function () {
     fineHi = Math.log(Math.min(F_MAX, f0 * 2)) / Math.log(2);
     var pct = Math.round((Math.log(f0) / Math.log(2) - fineLo) / (fineHi - fineLo) * 100);
     var app = el('app');
-    if (!app) { finalizeResult(f0); return; }
+    if (!app) { renderReward(f0, bayesCIHalfOct()); return; }   // вече е запазено
     app.innerHTML = (
       '<div class="pt-screen" data-screen="pitch_test">' +
         '<header class="pt-header">' +
@@ -913,17 +914,30 @@ window.PitchTest = (function () {
 
   function onFineTuneDone() {
     stopFineTone();
-    finalizeResult(fineFreq);
+    // Обнови запазената честота с фино-настроената (мутирай последния запис).
+    var freq = Math.round(fineFreq);
+    if (!freq || freq <= 0 || !isFinite(freq)) freq = lastResultFreq || 4000;
+    freq = Math.max(F_MIN, Math.min(F_MAX, freq));
+    lastResultFreq = freq;
+    var s = window.AppState;
+    if (s && s.pitchTests && s.pitchTests.length) {
+      s.pitchTests[s.pitchTests.length - 1].freq = freq;
+      try { localStorage.setItem('auralis-pitch-tests', JSON.stringify(s.pitchTests)); } catch (e) {}
+    }
+    phase = 'done';
+    renderReward(freq, bayesCIHalfOct());   // ВИНАГИ награда
   }
 
   // ============================================================
-  // Finalize + result
+  // Finalize / save — ЗАПАЗВА веднага щом честотата е намерена (преди слайдера).
   // ============================================================
 
-  function finalizeResult(finalFreq) {
-    var freq = Math.round(finalFreq);
+  function saveResult(measuredFreq) {
+    var freq = Math.round(measuredFreq);
     if (!freq || freq <= 0 || !isFinite(freq)) freq = Math.round(bayesMeanHz()) || 4000;
     freq = Math.max(F_MIN, Math.min(F_MAX, freq));
+    lastResultFreq = freq;
+    phase = 'done';
     var ciOct = bayesCIHalfOct();
     var s = window.AppState;
     if (s && s.addPitchTest) {
@@ -939,9 +953,6 @@ window.PitchTest = (function () {
         }
       });
     }
-    phase = 'done';
-    lastResultFreq = freq;
-    renderReward(freq, ciOct);   // ВИНАГИ награда (quick + precise)
   }
 
   // ============================================================

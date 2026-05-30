@@ -831,3 +831,49 @@
   color: var(--text-muted);
   line-height: 1.4;
 }
+
+/* ═══ Финален слайдер „нагласи точно своя тон" + покана за по-точно ═══ */
+.pt-finetune {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 8px;
+  min-height: 220px;
+  justify-content: center;
+}
+.pt-finetune-val {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  background: linear-gradient(135deg, hsl(var(--hue1) 65% 58%), hsl(var(--hue2) 65% 58%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.pt-finetune-slider {
+  width: 100%;
+  max-width: 340px;
+  height: 46px;
+  cursor: pointer;
+  accent-color: hsl(var(--hue1) 70% 58%);
+  touch-action: pan-x;
+}
+.pt-finetune-hint {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 340px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.pt-finish-note {
+  margin: 16px 4px 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: var(--text-muted);
+}
