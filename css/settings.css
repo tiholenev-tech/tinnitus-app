@@ -121,20 +121,29 @@
   -webkit-overflow-scrolling: touch;
 }
 
-/* ═══ SECTION ═══ */
+/* ═══ SECTION — glass card (matches home aesthetic) ═══ */
 .set-section {
-  padding: 16px 0;
-  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: var(--radius);
+  isolation: isolate;
 }
 [data-theme="light"] .set-section,
 :root:not([data-theme]) .set-section {
-  border-bottom-color: hsl(220 18% 86%);
+  background: var(--surface);
+  box-shadow: var(--shadow-card-sm);
 }
 [data-theme="dark"] .set-section {
-  border-bottom-color: hsl(220 20% 16%);
+  background:
+    linear-gradient(235deg, hsl(var(--hue1) 50% 11% / .55), hsl(var(--hue1) 50% 11% / 0) 40%),
+    linear-gradient(45deg, hsl(var(--hue2) 50% 11% / .5), hsl(var(--hue2) 50% 11% / 0) 40%),
+    linear-gradient(hsl(220 25% 7% / .9));
+  border: 1px solid hsl(220 25% 22% / 0.5);
+  box-shadow: 0 6px 18px hsl(220 30% 0% / 0.35);
 }
 .set-section:last-child {
-  border-bottom: none;
+  margin-bottom: 0;
 }
 .set-section-head {
   display: flex;
@@ -287,7 +296,7 @@
 }
 .set-action {
   width: 100%;
-  min-height: 48px;
+  min-height: 50px;
   padding: 12px 16px;
   border: none;
   border-radius: var(--radius-sm);
@@ -296,7 +305,11 @@
   text-align: left;
   cursor: pointer;
   color: var(--text);
-  transition: transform var(--dur-fast) var(--ease);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur) var(--ease);
 }
 [data-theme="light"] .set-action,
 :root:not([data-theme]) .set-action {
@@ -304,10 +317,27 @@
   box-shadow: var(--shadow-card-sm);
 }
 [data-theme="dark"] .set-action {
-  background: hsl(220 25% 8% / 0.7);
-  border: 1px solid var(--border-color);
+  background: hsl(220 25% 11% / 0.85);
+  border: 1px solid hsl(220 25% 26% / 0.6);
 }
-.set-action:active { transform: scale(0.99); }
+.set-action:active { transform: scale(0.985); }
+.set-action-label { flex: 1; min-width: 0; }
+.set-action-chevron {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  color: var(--text-faint);
+}
+.set-action-chevron svg { width: 16px; height: 16px; }
+
+/* Primary action — gradient accent, как на сайта */
+.set-action--primary {
+  color: #fff;
+  background: linear-gradient(135deg, hsl(var(--hue1) 65% 55%), hsl(var(--hue2) 65% 55%)) !important;
+  border: none !important;
+  box-shadow: 0 6px 16px hsl(var(--hue1) 60% 50% / 0.32) !important;
+}
+.set-action--primary .set-action-chevron { color: hsl(0 0% 100% / 0.85); }
 .set-action--danger {
   color: hsl(0 70% 55%);
 }
@@ -461,12 +491,169 @@
   .set-sheet { animation: none; }
 }
 
-/* ═══ PACK C T3: notch toggle description ═══ */
-.set-notch-desc {
-  margin: 8px 0 0;
-  padding: 0 4px;
+/* ═══ Explanatory copy (what / why) ═══ */
+.set-desc {
+  margin: 0 0 14px;
   font-size: 13px;
   font-weight: 500;
-  line-height: 1.45;
+  line-height: 1.5;
   color: var(--text-muted);
+}
+.set-note {
+  margin: 12px 0 0;
+  padding-left: 12px;
+  border-left: 2px solid hsl(220 25% 50% / 0.3);
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--text-faint);
+}
+
+/* ═══ Caution copy (notch keep-on) ═══ */
+.set-caution {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: hsl(38 80% 42%);
+  background: hsl(40 85% 55% / 0.1);
+}
+[data-theme="dark"] .set-caution {
+  color: hsl(42 80% 74%);
+  background: hsl(40 70% 50% / 0.12);
+}
+.set-caution--strong {
+  color: hsl(0 70% 52%);
+  background: hsl(0 75% 55% / 0.1);
+}
+[data-theme="dark"] .set-caution--strong {
+  color: hsl(0 80% 76%);
+  background: hsl(0 70% 50% / 0.14);
+}
+
+/* ═══ Badge (Препоръчва се) ═══ */
+.set-badge {
+  flex-shrink: 0;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.set-badge--rec {
+  color: #fff;
+  background: linear-gradient(135deg, hsl(150 60% 42%), hsl(165 60% 38%));
+  box-shadow: 0 2px 8px hsl(150 55% 40% / 0.35);
+}
+
+/* ═══ SWITCH — proper toggle (преди беше undefined → счупен) ═══ */
+.set-switch {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0;
+  cursor: pointer;
+}
+.set-switch + .set-switch {
+  border-top: 1px solid var(--border-color);
+}
+[data-theme="dark"] .set-switch + .set-switch {
+  border-top-color: hsl(220 20% 20% / 0.5);
+}
+.set-switch-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.set-switch-label {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text);
+}
+.set-switch-help {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+.set-switch-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+.set-switch-track {
+  flex-shrink: 0;
+  position: relative;
+  width: 50px;
+  height: 30px;
+  border-radius: 999px;
+  background: hsl(220 15% 55% / 0.32);
+  transition: background var(--dur) var(--ease);
+}
+[data-theme="dark"] .set-switch-track {
+  background: hsl(220 20% 35% / 0.5);
+}
+.set-switch-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 5px hsl(220 30% 10% / 0.35);
+  transition: transform var(--dur) var(--ease-spring);
+}
+.set-switch-input:checked ~ .set-switch-track {
+  background: linear-gradient(135deg, hsl(var(--hue1) 65% 55%), hsl(var(--hue2) 65% 55%));
+}
+.set-switch-input:checked ~ .set-switch-track .set-switch-thumb {
+  transform: translateX(20px);
+}
+.set-switch-input:focus-visible ~ .set-switch-track {
+  outline: 2px solid hsl(var(--hue1) 70% 60%);
+  outline-offset: 2px;
+}
+
+/* ═══ Reminder time row ═══ */
+.set-time-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 4px 0 8px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: hsl(220 25% 50% / 0.08);
+}
+[data-theme="dark"] .set-time-row {
+  background: hsl(220 25% 14% / 0.6);
+}
+.set-time-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.set-time-input {
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--surface);
+  cursor: pointer;
+}
+[data-theme="dark"] .set-time-input {
+  background: hsl(220 25% 9%);
+  box-shadow: inset 0 0 0 1px hsl(220 25% 24% / 0.6);
 }

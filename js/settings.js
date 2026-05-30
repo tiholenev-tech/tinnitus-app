@@ -163,6 +163,17 @@ window.Settings = (function () {
       '<circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/>' +
       '<line x1="12" y1="8" x2="12.01" y2="8"/></svg>';
   }
+  function svgBell() {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"' +
+      ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/>' +
+      '<path d="M13.73 21a2 2 0 01-3.46 0"/></svg>';
+  }
+  function svgChevron() {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"' +
+      ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<polyline points="9 18 15 12 9 6"/></svg>';
+  }
 
   // ============================================================
   // HTML builders — Main view
@@ -383,32 +394,54 @@ window.Settings = (function () {
 
   function buildRemindersSection() {
     var reminders = loadReminders();
+    var intro = t('settings.reminders.intro',
+      'Нежни напомняния, които Ви помагат да задържите ежедневния навик. ' +
+      'Редовността е по-важна от продължителността — затова леко побутване всеки ден помага.');
+    var dailyLabel = t('settings.reminders.dailyLabel', 'Вечерно напомняне за дневника');
+    var dailyHelp = t('settings.reminders.dailyHelp',
+      'Известие всяка вечер да отбележите как мина денят. Дневникът проследява напредъка Ви.');
+    var weeklyLabel = t('settings.reminders.weeklyLabel', 'Седмично резюме');
+    var weeklyHelp = t('settings.reminders.weeklyHelp',
+      'Кратък преглед на седмицата Ви — изпраща се в понеделник сутрин.');
+    var note = t('settings.reminders.note',
+      'Известията изискват разрешение и приложението да е добавено на началния екран.');
+    var timeLabel = t('settings.reminders.timeLabel', 'Час на напомнянето');
+
     return (
       '<section class="set-section">' +
         '<div class="set-section-head">' +
-          '<span class="set-section-icon" aria-hidden="true">🔔</span>' +
+          '<span class="set-section-icon" aria-hidden="true">' + svgBell() + '</span>' +
           '<h3 class="set-section-title">' +
             escapeHtml(t('settings.reminders.title', 'Напомняния')) +
           '</h3>' +
         '</div>' +
+        '<p class="set-desc">' + escapeHtml(intro) + '</p>' +
         '<div class="set-reminders">' +
-          '<label class="set-toggle-row">' +
-            '<span class="set-toggle-label">' + escapeHtml(t('settings.reminders.daily', 'Дневно напомняне за дневник')) + '</span>' +
-            '<input type="checkbox" class="set-toggle-input" id="setReminderDaily"' +
+          '<label class="set-switch">' +
+            '<span class="set-switch-text">' +
+              '<span class="set-switch-label">' + escapeHtml(dailyLabel) + '</span>' +
+              '<span class="set-switch-help">' + escapeHtml(dailyHelp) + '</span>' +
+            '</span>' +
+            '<input type="checkbox" class="set-switch-input" id="setReminderDaily"' +
               (reminders.daily ? ' checked' : '') + '>' +
-            '<span class="set-toggle-track"></span>' +
+            '<span class="set-switch-track"><span class="set-switch-thumb"></span></span>' +
           '</label>' +
           '<div class="set-time-row" id="setDailyTimeRow"' + (reminders.daily ? '' : ' style="display:none"') + '>' +
+            '<span class="set-time-label">' + escapeHtml(timeLabel) + '</span>' +
             '<input type="time" class="set-time-input" id="setDailyTime" value="' +
               escapeHtml(reminders.dailyTime || '21:00') + '">' +
           '</div>' +
-          '<label class="set-toggle-row">' +
-            '<span class="set-toggle-label">' + escapeHtml(t('settings.reminders.weekly', 'Седмично резюме (понеделник 09:00)')) + '</span>' +
-            '<input type="checkbox" class="set-toggle-input" id="setReminderWeekly"' +
+          '<label class="set-switch">' +
+            '<span class="set-switch-text">' +
+              '<span class="set-switch-label">' + escapeHtml(weeklyLabel) + '</span>' +
+              '<span class="set-switch-help">' + escapeHtml(weeklyHelp) + '</span>' +
+            '</span>' +
+            '<input type="checkbox" class="set-switch-input" id="setReminderWeekly"' +
               (reminders.weekly ? ' checked' : '') + '>' +
-            '<span class="set-toggle-track"></span>' +
+            '<span class="set-switch-track"><span class="set-switch-thumb"></span></span>' +
           '</label>' +
         '</div>' +
+        '<p class="set-note">' + escapeHtml(note) + '</p>' +
       '</section>'
     );
   }
@@ -423,6 +456,34 @@ window.Settings = (function () {
 
   function saveReminders(obj) {
     try { localStorage.setItem('auralis_reminders', JSON.stringify(obj)); } catch (e) { /* ignore */ }
+  }
+
+  // Поискай разрешение за известия когато потребителят включи напомняне.
+  // Честно поведение: ако API не се поддържа или е отказано — кажи му.
+  function requestNotifyPermission() {
+    try {
+      if (!('Notification' in window)) {
+        if (window.Toast && window.Toast.info) {
+          window.Toast.info(t('settings.reminders.unsupported',
+            'Това устройство не поддържа известия в браузъра.'));
+        }
+        return;
+      }
+      if (Notification.permission === 'granted') return;
+      if (Notification.permission === 'denied') {
+        if (window.Toast && window.Toast.info) {
+          window.Toast.info(t('settings.reminders.denied',
+            'Известията са блокирани. Разрешете ги от настройките на устройството.'));
+        }
+        return;
+      }
+      Notification.requestPermission().then(function (res) {
+        if (res !== 'granted' && window.Toast && window.Toast.info) {
+          window.Toast.info(t('settings.reminders.denied',
+            'Известията са блокирани. Разрешете ги от настройките на устройството.'));
+        }
+      }).catch(function () {});
+    } catch (e) { /* ignore */ }
   }
 
   // ============================================================
@@ -542,7 +603,10 @@ window.Settings = (function () {
       '<section class="set-section">' +
         '<div class="set-data-actions">' +
           '<button class="set-action" type="button" data-action="open-faq">' +
-            escapeHtml(t('faq.openLabel', 'Често задавани въпроси')) +
+            '<span class="set-action-label">' +
+              escapeHtml(t('faq.openLabel', 'Често задавани въпроси')) +
+            '</span>' +
+            '<span class="set-action-chevron" aria-hidden="true">' + svgChevron() + '</span>' +
           '</button>' +
         '</div>' +
       '</section>'
@@ -555,7 +619,10 @@ window.Settings = (function () {
       '<section class="set-section">' +
         '<div class="set-data-actions">' +
           '<button class="set-action" type="button" data-action="open-science">' +
-            escapeHtml(t('science.openLabel', 'Научна основа')) +
+            '<span class="set-action-label">' +
+              escapeHtml(t('science.openLabel', 'Научна основа')) +
+            '</span>' +
+            '<span class="set-action-chevron" aria-hidden="true">' + svgChevron() + '</span>' +
           '</button>' +
         '</div>' +
       '</section>'
@@ -604,17 +671,25 @@ window.Settings = (function () {
   // ============================================================
 
   function buildAnalyticsButton() {
+    var desc = t('settings.stats.desc',
+      'Преглед на напредъка Ви: колко минути слушате, любими звуци и серията ' +
+      'от поредни дни (streak). Помага Ви да видите дали навикът се задържа. ' +
+      'Всичко се изчислява само на това устройство — нищо не напуска телефона Ви.');
     return (
       '<section class="set-section">' +
         '<div class="set-section-head">' +
           '<span class="set-section-icon" aria-hidden="true">' + svgChart() + '</span>' +
           '<h3 class="set-section-title">' +
-            escapeHtml(t('analytics.title', 'Вашата статистика')) +
+            escapeHtml(t('settings.stats.title', 'Вашата статистика')) +
           '</h3>' +
         '</div>' +
+        '<p class="set-desc">' + escapeHtml(desc) + '</p>' +
         '<div class="set-data-actions">' +
-          '<button class="set-action" type="button" data-action="open-stats">' +
-            escapeHtml(t('analytics.title', 'Покажи статистика')) +
+          '<button class="set-action set-action--primary" type="button" data-action="open-stats">' +
+            '<span class="set-action-label">' +
+              escapeHtml(t('settings.stats.cta', 'Покажи статистиката')) +
+            '</span>' +
+            '<span class="set-action-chevron" aria-hidden="true">' + svgChevron() + '</span>' +
           '</button>' +
         '</div>' +
       '</section>'
@@ -640,29 +715,39 @@ window.Settings = (function () {
     var enabled = !s.notchDisabled;
 
     var title = t('settings.notch.title', 'Лична честотна терапия');
-    var desc = enabled
-      ? t('settings.notch.descActive',
-          'Премахваме Вашата тинитус честота ({freq}) от всички звуци за подобрена терапия.',
-          { freq: freqLabel })
-      : t('settings.notch.descInactive',
-          'Терапията е спряна. Звуците се възпроизвеждат без личен филтър.');
+    // Какво е и защо — обяснение разбираемо за всеки потребител.
+    var what = t('settings.notch.what',
+      'От всеки звук премахваме точно Вашата тинитус честота (' + freqLabel + '). ' +
+      'Така ушите Ви получават по-малко стимулация около досадния тон — това е в основата на метода.');
+    // ВАЖНО: ясно съобщение, че изключването не е препоръчително.
+    var caution = enabled
+      ? t('settings.notch.keepOn',
+          'Препоръчваме да остане включена. Изключете я само ако звукът Ви е неприятен — иначе губите главното предимство на терапията.')
+      : t('settings.notch.offWarn',
+          'Терапията е спряна. Звуците се възпроизвеждат без личния филтър — за пълен ефект включете я отново.');
     var stateLabel = enabled
-      ? t('settings.notch.on', 'Активна')
-      : t('settings.notch.off', 'Спряна');
+      ? t('settings.notch.on', 'Включена')
+      : t('settings.notch.off', 'Изключена');
+    var recommended = t('settings.notch.recommended', 'Препоръчва се');
 
     return (
       '<section class="set-section">' +
         '<div class="set-section-head">' +
           '<span class="set-section-icon" aria-hidden="true">' + svgChart() + '</span>' +
           '<h3 class="set-section-title">' + escapeHtml(title) + '</h3>' +
+          '<span class="set-badge set-badge--rec">' + escapeHtml(recommended) + '</span>' +
         '</div>' +
-        '<label class="set-toggle-row">' +
-          '<span class="set-toggle-label">' + escapeHtml(stateLabel) + '</span>' +
-          '<input type="checkbox" class="set-toggle-input" id="setNotchToggle"' +
+        '<p class="set-desc">' + escapeHtml(what) + '</p>' +
+        '<label class="set-switch">' +
+          '<span class="set-switch-text">' +
+            '<span class="set-switch-label">' + escapeHtml(stateLabel) + '</span>' +
+          '</span>' +
+          '<input type="checkbox" class="set-switch-input" id="setNotchToggle"' +
             (enabled ? ' checked' : '') + '>' +
-          '<span class="set-toggle-track"></span>' +
+          '<span class="set-switch-track"><span class="set-switch-thumb"></span></span>' +
         '</label>' +
-        '<p class="set-notch-desc">' + escapeHtml(desc) + '</p>' +
+        '<p class="set-caution' + (enabled ? '' : ' set-caution--strong') + '">' +
+          escapeHtml(caution) + '</p>' +
       '</section>'
     );
   }
@@ -691,12 +776,10 @@ window.Settings = (function () {
           // Master volume + volume profiles преместени на началния екран
           // (Home → buildVolumeCard). Виж js/home.js.
           buildNotchSection() +
-          buildRemindersSection() +
-          buildFavoritesButton() +
           buildAnalyticsButton() +
+          buildRemindersSection() +
           buildScienceInfoButton() +
           buildFaqButton() +
-          buildPitchRetestButton() +
           buildVoicePrivacyButton() +
           buildDataSection() +
           buildAboutSection() +
@@ -1334,6 +1417,7 @@ window.Settings = (function () {
         saveReminders(rem);
         var row = overlay.querySelector('#setDailyTimeRow');
         if (row) row.style.display = rem.daily ? '' : 'none';
+        if (rem.daily) requestNotifyPermission();
       });
     }
     var dailyTime = overlay.querySelector('#setDailyTime');
@@ -1350,6 +1434,7 @@ window.Settings = (function () {
         var rem = loadReminders();
         rem.weekly = weeklyToggle.checked;
         saveReminders(rem);
+        if (rem.weekly) requestNotifyPermission();
       });
     }
 
@@ -1361,6 +1446,17 @@ window.Settings = (function () {
         if (!s || !s.setNotchDisabled) return;
         // checked = ON = NOT disabled
         var enabled = !!notchToggle.checked;
+        // Изключването НЕ е препоръчително — питай за потвърждение и при
+        // отказ върни toggle-а обратно на включено.
+        if (!enabled) {
+          var ok = window.confirm(t('settings.notch.confirmOff',
+            'Сигурни ли сте? Личната честотна терапия е в основата на метода. ' +
+            'Без нея звуците губят главното си предимство. Да я изключим ли все пак?'));
+          if (!ok) {
+            notchToggle.checked = true;
+            return;
+          }
+        }
         s.setNotchDisabled(!enabled);
         if (window.Toast) {
           var msg = enabled
