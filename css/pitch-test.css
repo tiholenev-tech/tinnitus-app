@@ -743,3 +743,49 @@
 @media (prefers-reduced-motion: reduce) {
   .pt-breathe span { animation: none; transform: scale(1); }
 }
+
+/* ═══ Hold-to-select tone buttons (натисни=чуй · задръж=избери) ═══ */
+.pt-tone-btn--hold {
+  position: relative;
+  overflow: visible;
+  min-height: 140px;
+  touch-action: none;          /* задържане без скрол да краде жеста */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+}
+/* Пълнещ се индикатор (отдолу нагоре, докато държиш) */
+.pt-hold-ring {
+  --fill: 0;
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: calc(var(--fill) * 100%);
+  background: linear-gradient(to top,
+    hsl(var(--hue1) 72% 55% / 0.65),
+    hsl(var(--hue1) 72% 62% / 0.30));
+  border-radius: 0 0 var(--radius, 22px) var(--radius, 22px);
+  opacity: 0;
+  transition: opacity 0.12s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.pt-tone-btn--holding .pt-hold-ring { opacity: 1; }
+.pt-tone-btn--holding {
+  border-color: hsl(var(--hue1) 70% 55%);
+  box-shadow: 0 10px 32px hsl(var(--hue1) 60% 55% / 0.5);
+  transform: scale(1.02);
+}
+/* текстът да стои над пълнежа */
+.pt-tone-btn .pt-tone-label,
+.pt-tone-btn .pt-tone-hint { position: relative; z-index: 1; }
+.pt-tone-hint {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  line-height: 1.35;
+  text-align: center;
+}
+.pt-tone-btn--playing .pt-tone-hint,
+.pt-tone-btn--holding .pt-tone-hint { color: #fff; opacity: 0.95; }
+.pt-tone-btn--playing .pt-tone-label,
+.pt-tone-btn--holding .pt-tone-label { color: #fff; }

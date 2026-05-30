@@ -70,6 +70,7 @@ window.PitchTest = (function () {
 
   var phase = 'pretest';
   var testMode = 'quick';            // 'quick' (Ден 1) | 'precise' (Ден 2)
+  var stimulusType = 'tone';         // 'tone' (тонален) | 'noise' (шумов) — по pretest
   var ctx = null;
   var masterGain = null;
   var calibGain = CALIB_GAIN_DEFAULT;
@@ -264,6 +265,61 @@ window.PitchTest = (function () {
   function NBN_LEVEL() { return 1.0; }
   function clampGain(g) { return Math.max(0, Math.min(CALIB_GAIN_MAX, g)); }
 
+  // Чист синусов ТОН (за тонален тинитус — ясна, точна височина, по-малко
+  // октавно объркване от съскащия NBN). Безопасен cap (тоновете са по-пиърсинг).
+  function playTone(freqHz, durationMs, fadeInMs) {
+    var c = ensureContext();
+    if (!c) return { stop: function () {}, promise: Promise.resolve() };
+    if (c.state === 'suspended') c.resume().catch(function () {});
+    var osc = c.createOscillator();
+    osc.type = 'sine';
+    osc.frequency.value = freqHz;
+    var gain = c.createGain();
+    var fadeInSec = (typeof fadeInMs === 'number' ? fadeInMs : FADE_MS) / 1000;
+    var fadeOutSec = FADE_MS / 1000;
+    var totalSec = durationMs / 1000;
+    var nowT = c.currentTime;
+    var target = Math.min(0.5, clampGain(calibGain * 0.6));   // hearing-safety за тон
+    gain.gain.setValueAtTime(0, nowT);
+    gain.gain.linearRampToValueAtTime(target, nowT + fadeInSec);
+    gain.gain.setValueAtTime(target, nowT + Math.max(fadeInSec, totalSec - fadeOutSec));
+    gain.gain.linearRampToValueAtTime(0, nowT + totalSec);
+    osc.connect(gain); gain.connect(masterGain);
+    osc.start(nowT);
+    try { osc.stop(nowT + totalSec + 0.05); } catch (e) {}
+    var settled = false, resolveFn = null;
+    var promise = new Promise(function (res) { resolveFn = res; });
+    function cleanup() {
+      if (settled) return; settled = true;
+      try { osc.disconnect(); } catch (e) {}
+      try { gain.disconnect(); } catch (e) {}
+      if (resolveFn) resolveFn();
+    }
+    osc.onended = cleanup;
+    setTimeout(cleanup, durationMs + 80);
+    return {
+      stop: function () {
+        if (settled) return;
+        try {
+          var ns = c.currentTime;
+          gain.gain.cancelScheduledValues(ns);
+          gain.gain.setValueAtTime(gain.gain.value, ns);
+          gain.gain.linearRampToValueAtTime(0, ns + 0.04);
+          osc.stop(ns + 0.05);
+        } catch (e) { try { osc.stop(); } catch (e2) {} }
+        setTimeout(cleanup, 90);
+      },
+      promise: promise
+    };
+  }
+
+  // Стимул според типа тинитус: тонален → чист тон; шумов/друго → NBN.
+  function playStimulus(freq, durationMs, fadeInMs) {
+    return (stimulusType === 'tone')
+      ? playTone(freq, durationMs, fadeInMs)
+      : playNBN(freq, durationMs, fadeInMs);
+  }
+
   function silence(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
 
   // ============================================================
@@ -311,7 +367,9 @@ window.PitchTest = (function () {
         'преди да продължите.');
       return;
     }
-    // тонален И шумов → продължаваме (NBN е подходящ и за двата). other → пробваме.
+    // СТИМУЛ ПО ТИП (поправя октавно объркване): тонален → чист ТОН (ясна
+    // височина); шумов/друго → теснолентов ШУМ (прилича на техния тинитус).
+    stimulusType = (value === 'tonal') ? 'tone' : 'noise';
     phase = 'device';
     renderDevice();
   }
@@ -539,6 +597,7 @@ window.PitchTest = (function () {
       lowIsA: lowIsA,
       onPick: onPick
     };
+    cancelHold();
     stopCurrentTone();
 
     var app = el('app');
@@ -556,56 +615,55 @@ window.PitchTest = (function () {
           '</div>' +
           (meta.sub ? '<p class="pt-progress-sub">' + escapeHtml(meta.sub) + '</p>' : '') +
         '</header>' +
-        '<p class="pt-help-one">Кой звук е по-близо до Вашия тинитус?</p>' +
+        '<p class="pt-help-one">Задръж звука, който е по-близо до твоя</p>' +
         '<section class="pt-tones">' +
           toneBtnHtml('A') + toneBtnHtml('B') +
-        '</section>' +
-        '<div class="pt-choice-actions">' +
-          '<button class="pt-btn pt-btn--primary pt-choice-btn" type="button" data-action="choose" data-choice="A">A по-близо</button>' +
-          '<button class="pt-btn pt-btn--primary pt-choice-btn" type="button" data-action="choose" data-choice="B">B по-близо</button>' +
-        '</div>' +
-        '<section class="pt-vol-row">' +
-          '<button class="pt-vol-btn" type="button" data-action="vol-down" aria-label="По-тихо">−</button>' +
-          '<span class="pt-vol-label">Сила</span>' +
-          '<button class="pt-vol-btn" type="button" data-action="vol-up" aria-label="По-силно">+</button>' +
         '</section>' +
         '<button class="pt-quit" type="button" data-action="quit">Спри засега</button>' +
       '</div>'
     );
     bindClicks(app);
+    bindHold(app);
     scheduleAutoPlay();
   }
 
   function toneBtnHtml(letter) {
     return (
-      '<button class="pt-tone-btn" type="button" data-action="play-tone" data-tone="' + letter + '"' +
-        ' aria-label="Звук ' + letter + '">' +
+      '<button class="pt-tone-btn pt-tone-btn--hold" type="button" data-tone="' + letter + '"' +
+        ' aria-label="Звук ' + letter + ' — натисни за чуване, задръж за избор">' +
+        '<span class="pt-hold-ring" aria-hidden="true"></span>' +
         '<span class="pt-tone-label">Звук ' + letter + '</span>' +
-        '<span class="pt-tone-hint" data-tone-hint="' + letter + '">Натиснете за прослушване</span>' +
-        '<span class="pt-tone-wave" aria-hidden="true"><span></span><span></span><span></span></span>' +
+        '<span class="pt-tone-hint" data-tone-hint="' + letter + '">Натисни = чуй<br>Задръж = избери</span>' +
       '</button>'
     );
   }
 
+  // Auto-play A → после B (и двата сами, без натискане).
   function scheduleAutoPlay() {
     var c = ensureContext();
     if (c && c.state === 'suspended') c.resume().catch(function () {});
     if (autoPlayTimer) { clearTimeout(autoPlayTimer); autoPlayTimer = null; }
     autoPlayTimer = setTimeout(function () {
       autoPlayTimer = null;
-      if (!document.querySelector('.pt-tone-btn[data-tone]')) return;
-      if (isPlayingTone) return;
-      onPlayToneRequest('A', true);
+      if (!onTrial() || isPlayingTone || holdState) return;
+      playLetter('A', true, function () {
+        if (!onTrial() || holdState || isPlayingTone) return;
+        playLetter('B', true);
+      });
     }, AUTO_PLAY_DELAY_MS);
   }
 
-  function freqForLetter(letter) { return letter === 'A' ? pair.fA : pair.fB; }
+  function onTrial() { return !!document.querySelector('.pt-tone-btn[data-tone]'); }
+  function freqForLetter(letter) { return pair ? (letter === 'A' ? pair.fA : pair.fB) : 0; }
+
+  function setHint(letter, html) {
+    var hint = document.querySelector('[data-tone-hint="' + letter + '"]');
+    if (hint) hint.innerHTML = html;
+  }
 
   function clearToneVisual(letter) {
     var btn = document.querySelector('[data-tone="' + letter + '"]');
     if (btn) btn.classList.remove('pt-tone-btn--playing');
-    var hint = document.querySelector('[data-tone-hint="' + letter + '"]');
-    if (hint) hint.textContent = 'Натиснете за прослушване';
   }
 
   function stopCurrentTone() {
@@ -614,9 +672,9 @@ window.PitchTest = (function () {
     currentToneHandle = null; currentToneLetter = null; isPlayingTone = false;
   }
 
-  function onPlayToneRequest(letter, gentle) {
+  // Принудително пуска стимула за letter (без toggle). onDone → след пълния край.
+  function playLetter(letter, gentle, onDone) {
     if (!pair) return;
-    if (isPlayingTone && currentToneLetter === letter) { stopCurrentTone(); return; }
     if (isPlayingTone) stopCurrentTone();
     var freq = freqForLetter(letter);
     if (!freq) return;
@@ -624,9 +682,7 @@ window.PitchTest = (function () {
     currentToneLetter = letter;
     var btn = document.querySelector('[data-tone="' + letter + '"]');
     if (btn) btn.classList.add('pt-tone-btn--playing');
-    var hint = document.querySelector('[data-tone-hint="' + letter + '"]');
-    if (hint) hint.textContent = 'Свири… (натиснете за спиране)';
-    var handle = playNBN(freq, NBN_DURATION_MS, gentle === true ? AUTO_FADE_IN_MS : FADE_MS);
+    var handle = playStimulus(freq, NBN_DURATION_MS, gentle === true ? AUTO_FADE_IN_MS : FADE_MS);
     currentToneHandle = handle;
     var myLetter = letter;
     handle.promise.then(function () {
@@ -637,23 +693,80 @@ window.PitchTest = (function () {
     }).then(function () {
       if (currentToneLetter !== null) return;
       isPlayingTone = false;
+      if (typeof onDone === 'function') onDone();
     });
   }
 
-  function onChoice(letter) {
-    if (isPlayingTone) { stopCurrentTone(); }
+  // ── Hold-to-select: натисни = чуй · задръж ~1.4с = избери (пръстен се пълни) ──
+  // Pointer capture → пръстът може да трепери/мърда, без да прекъсва (70+ tremor).
+  var holdState = null;
+  var HOLD_MS = 1400;
+
+  function bindHold(app) {
+    var btns = app.querySelectorAll('.pt-tone-btn[data-tone]');
+    for (var i = 0; i < btns.length; i++) {
+      (function (btn) {
+        var letter = btn.getAttribute('data-tone');
+        btn.addEventListener('pointerdown', function (e) {
+          if (e.cancelable) e.preventDefault();
+          try { btn.setPointerCapture(e.pointerId); } catch (x) {}
+          onHoldStart(letter, btn);
+        });
+        btn.addEventListener('pointerup', onHoldEnd);
+        btn.addEventListener('pointercancel', onHoldEnd);
+      })(btns[i]);
+    }
+  }
+
+  function onHoldStart(letter, btn) {
+    if (autoPlayTimer) { clearTimeout(autoPlayTimer); autoPlayTimer = null; }
+    cancelHold();
+    playLetter(letter, false);                 // чуй го (и докато държиш)
+    var ring = btn.querySelector('.pt-hold-ring');
+    holdState = { letter: letter, btn: btn, ring: ring, start: now(), raf: null };
+    btn.classList.add('pt-tone-btn--holding');
+    setHint(letter, 'Задръж…');
+    holdState.raf = requestAnimationFrame(holdTick);
+  }
+
+  function holdTick() {
+    if (!holdState) return;
+    var p = Math.min(1, (now() - holdState.start) / HOLD_MS);
+    if (holdState.ring) holdState.ring.style.setProperty('--fill', p.toFixed(3));
+    if (p >= 1) { completeHold(); return; }
+    holdState.raf = requestAnimationFrame(holdTick);
+  }
+
+  function cancelHold() {
+    if (!holdState) return;
+    if (holdState.raf) cancelAnimationFrame(holdState.raf);
+    if (holdState.btn) holdState.btn.classList.remove('pt-tone-btn--holding');
+    if (holdState.ring) holdState.ring.style.setProperty('--fill', '0');
+    setHint(holdState.letter, 'Натисни = чуй<br>Задръж = избери');
+    holdState = null;
+  }
+
+  function onHoldEnd() {
+    // Пуснато преди пълнене → беше леко натискане (чуване). Reset, без избор.
+    cancelHold();
+  }
+
+  function completeHold() {
+    var letter = holdState ? holdState.letter : null;
+    cancelHold();
+    if (!letter) return;
+    try { if (navigator.vibrate) navigator.vibrate(30); } catch (e) {}
+    selectLetter(letter);
+  }
+
+  function selectLetter(letter) {
     if (!pair || typeof pair.onPick !== 'function') return;
+    stopCurrentTone();
     var chosenFreq = freqForLetter(letter);
     var which = (chosenFreq === pair.fLow) ? 'lower' : 'higher';
     var cb = pair.onPick;
     pair = null;
     cb(which);
-  }
-
-  function adjustVolume(delta) {
-    var p = (calibGain - CALIB_GAIN_MIN) / (CALIB_GAIN_MAX - CALIB_GAIN_MIN);
-    p = Math.max(0, Math.min(1, p + delta));
-    calibGain = CALIB_GAIN_MIN + p * (CALIB_GAIN_MAX - CALIB_GAIN_MIN);
   }
 
   // ============================================================
@@ -673,7 +786,7 @@ window.PitchTest = (function () {
       if (halfF < F_MIN) { return nextOctaveStep(); }
       presentPair(halfF, F, { progressLabel: 'Проверка на октава', sub: 'долна октава', pct: 100 }, function (which) {
         octaveState.trials.push({ pair: 'F_vs_halfF', choice: which });
-        if (which === 'lower' && octaveState.shifts < 2) {   // избрал 0.5F → надолу
+        if (which === 'lower' && octaveState.shifts < 3) {   // избрал 0.5F → надолу
           octaveState.base = halfF; octaveState.shifts += 1; octaveState.step = 0;
         }
         nextOctaveStep();
@@ -683,7 +796,7 @@ window.PitchTest = (function () {
       if (dblF > F_MAX) { return nextOctaveStep(); }
       presentPair(octaveState.base, dblF, { progressLabel: 'Проверка на октава', sub: 'горна октава', pct: 100 }, function (which) {
         octaveState.trials.push({ pair: 'F_vs_2F', choice: which });
-        if (which === 'higher' && octaveState.shifts < 2) {  // избрал 2F → нагоре
+        if (which === 'higher' && octaveState.shifts < 3) {  // избрал 2F → нагоре
           octaveState.base = dblF; octaveState.shifts += 1; octaveState.step = 0;
         }
         nextOctaveStep();
@@ -903,10 +1016,6 @@ window.PitchTest = (function () {
       case 'pretest':    onPretestChoice(btn.getAttribute('data-value')); break;
       case 'device':     onDeviceChoice(btn.getAttribute('data-value')); break;
       case 'calib-stop': onCalibStop(); break;
-      case 'play-tone':  onPlayToneRequest(btn.getAttribute('data-tone')); break;
-      case 'choose':     onChoice(btn.getAttribute('data-choice')); break;
-      case 'vol-down':   adjustVolume(-0.12); break;
-      case 'vol-up':     adjustVolume(0.12); break;
       case 'retest':     open({ mode: 'precise' }); break;
       case 'quit':       onQuit(); break;
       case 'reward-done': finishReward(); break;
@@ -945,6 +1054,7 @@ window.PitchTest = (function () {
 
   function cleanupAudio() {
     if (autoPlayTimer) { clearTimeout(autoPlayTimer); autoPlayTimer = null; }
+    cancelHold();
     stopCurrentTone();
     stopCalibTone();
     stopReward();
