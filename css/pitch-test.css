@@ -789,3 +789,45 @@
 .pt-tone-btn--holding .pt-tone-hint { color: #fff; opacity: 0.95; }
 .pt-tone-btn--playing .pt-tone-label,
 .pt-tone-btn--holding .pt-tone-label { color: #fff; }
+
+/* ═══ Финален слайдер „нагласи точно своя тон" (усещане за контрол) ═══ */
+.pt-finetune {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 30px 8px;
+}
+.pt-finetune-val {
+  font-size: 34px;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(135deg, hsl(var(--hue1) 65% 58%), hsl(var(--hue2) 65% 58%));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+.pt-finetune-slider {
+  width: 100%;
+  max-width: 320px;
+  height: 44px;
+  accent-color: hsl(var(--hue1) 70% 58%);
+  cursor: pointer;
+  touch-action: pan-y;
+}
+.pt-finetune-hint {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 320px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.pt-finish-note {
+  margin: 16px 0 0;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  line-height: 1.4;
+}

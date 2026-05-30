@@ -434,3 +434,39 @@
 [data-theme="dark"] .home-volume-slider { background:hsl(220 25% 70% / 0.18); }
 .home-volume-slider::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:22px; height:22px; border-radius:50%; background:linear-gradient(135deg, hsl(var(--hue1) 65% 58%), hsl(var(--hue2) 65% 58%)); box-shadow:0 2px 8px hsl(var(--hue1) 60% 50% / 0.4); cursor:pointer; }
 .home-volume-slider::-moz-range-thumb { width:22px; height:22px; border:none; border-radius:50%; background:linear-gradient(135deg, hsl(var(--hue1) 65% 58%), hsl(var(--hue2) 65% 58%)); box-shadow:0 2px 8px hsl(var(--hue1) 60% 50% / 0.4); cursor:pointer; }
+
+/* ═══ Компактен setup ред — поканите една до друга, дискретни (Тихол UX) ═══ */
+.home-setup-row {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0 4px;
+  align-items: stretch;
+}
+.home-setup-row > * {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0 !important;
+}
+/* по-дискретно: крие дългия текст, остава заглавие + действие */
+.home-setup-row .home-pitch-card { padding: 12px; gap: 6px; }
+.home-setup-row .home-pitch-main { gap: 4px; }
+.home-setup-row .home-pitch-body,
+.home-setup-row .home-pitch-caution,
+.home-setup-row .home-pitch-info,
+.home-setup-row .home-thi-banner-body { display: none; }
+.home-setup-row .home-pitch-title,
+.home-setup-row .home-thi-banner-title {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.home-setup-row .home-thi-banner { padding: 12px; align-items: flex-start; flex-direction: column; gap: 8px; }
+.home-setup-row .home-pitch-cta,
+.home-setup-row .home-thi-banner-cta {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 10px;
+}
+@media (max-width: 360px) {
+  .home-setup-row { flex-direction: column; }
+}

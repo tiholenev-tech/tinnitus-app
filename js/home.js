@@ -497,10 +497,12 @@ window.Home = (function () {
 
   function openPitchTest() {
     if (!window.PitchTest || !window.PitchTest.open) return;
-    // Вече правен → „уточни" = precise (адаптивен Bayes, пропускаем). Иначе quick.
+    // BUG FIX: precise (дълъг, „уточни") САМО ако вече има ВАЛИДНА честота.
+    // Преди това „пропуснат/без честота" състояние (done, но freq=null) пускаше
+    // дългия precise режим без награда. Сега → нормалния кратък тест + награда.
     var s = window.AppState || {};
-    var done = !!(s.isPitchTestDone && s.isPitchTestDone());
-    window.PitchTest.open(done ? { mode: 'precise' } : undefined);
+    var hasFreq = !!(s.getNotchFreq && s.getNotchFreq());
+    window.PitchTest.open(hasFreq ? { mode: 'precise' } : undefined);
   }
 
   function openPitchInfo() {
@@ -719,9 +721,12 @@ window.Home = (function () {
         buildFavoritesTitleButton() +
         buildScienceQuickButton() +
         buildThiCta() +
-        buildThiBanner() +
+        // Компактен ред — setup поканите една до друга, дискретни (Тихол UX).
+        '<div class="home-setup-row">' +
+          buildThiBanner() +
+          buildPitchBanner() +
+        '</div>' +
         buildThiBadge() +
-        buildPitchBanner() +
 
         '<div class="home-cat-list">' + cardsHtml + '</div>' +
 

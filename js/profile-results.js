@@ -791,15 +791,17 @@ window.ProfileResults = (function () {
   }
 
   function goToHome() {
-    // CALIBRATION-ROUTING: При първо continue от profile_results → calibration.
-    // След calibration → home (handled от VolumeCalibration onComplete).
-    // Skip ако calibrationDone (повторно влизане в profile_results напр.
-    // от Settings → не повтаряме calibration).
+    // ONBOARDING SIMPLIFICATION 2026-05-30 (Тихол): махната отделната
+    // volume-calibration (mixing point, плъзгач) — pitch тестът има собствена
+    // авто-усилваща калибрация + плеърът има master плъзгач. Първо continue →
+    // pitch тест (ако не е правен) → home. Без двойна настройка на силата.
     var s = window.AppState;
-    if (s && !s.calibrationDone && window.VolumeCalibration && window.VolumeCalibration.render) {
-      if (s.transition) s.transition('calibration');
-      history.replaceState({ phase: 'calibration' }, '');
-      window.VolumeCalibration.render();
+    var needsPitch = s && s.isPitchTestDone && !s.isPitchTestDone()
+                      && window.PitchTest && window.PitchTest.render;
+    if (needsPitch) {
+      if (s.transition) s.transition('pitch_test');
+      history.replaceState({ phase: 'pitch_test' }, '');
+      window.PitchTest.render();
       return;
     }
     // BUG2-G: "Към звуците" CTA → Home. Use replaceState (не pushState),

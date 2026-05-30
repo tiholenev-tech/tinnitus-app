@@ -723,9 +723,12 @@ window.PitchTest = (function () {
     cancelHold();
     playLetter(letter, false);                 // чуй го (и докато държиш)
     var ring = btn.querySelector('.pt-hold-ring');
-    holdState = { letter: letter, btn: btn, ring: ring, start: now(), raf: null };
+    holdState = { letter: letter, btn: btn, ring: ring, start: now(), raf: null, timer: null };
     btn.classList.add('pt-tone-btn--holding');
     setHint(letter, 'Задръж…');
+    // Завършването е през setTimeout (надеждно), НЕ през rAF — за да работи
+    // и когато rAF е throttled (фон/енергоспестяване). rAF само за визуалния пълнеж.
+    holdState.timer = setTimeout(completeHold, HOLD_MS);
     holdState.raf = requestAnimationFrame(holdTick);
   }
 
@@ -733,13 +736,13 @@ window.PitchTest = (function () {
     if (!holdState) return;
     var p = Math.min(1, (now() - holdState.start) / HOLD_MS);
     if (holdState.ring) holdState.ring.style.setProperty('--fill', p.toFixed(3));
-    if (p >= 1) { completeHold(); return; }
-    holdState.raf = requestAnimationFrame(holdTick);
+    if (p < 1) holdState.raf = requestAnimationFrame(holdTick);
   }
 
   function cancelHold() {
     if (!holdState) return;
     if (holdState.raf) cancelAnimationFrame(holdState.raf);
+    if (holdState.timer) clearTimeout(holdState.timer);
     if (holdState.btn) holdState.btn.classList.remove('pt-tone-btn--holding');
     if (holdState.ring) holdState.ring.style.setProperty('--fill', '0');
     setHint(holdState.letter, 'Натисни = чуй<br>Задръж = избери');
@@ -802,16 +805,125 @@ window.PitchTest = (function () {
         nextOctaveStep();
       });
     } else {
-      finalizeResult();
+      // Точният метод намери честотата → финален СЛАЙДЕР за усещане за контрол
+      // (Тихол): потребителят нагласява до точния си тон. После наградата.
+      renderFineTune(octaveState.base);
     }
+  }
+
+  // ============================================================
+  // ФИНАЛЕН СЛАЙДЕР — „нагласи точно своя тон" (усещане за контрол).
+  // Анкорван на намерената честота (±1 октава); live тон/NBN докато плъзга.
+  // ============================================================
+  var fineHandle = null, fineIdleTimer = null, fineFreq = 0, fineLo = 0, fineHi = 0;
+
+  function renderFineTune(measuredFreq) {
+    phase = 'finetune';
+    var f0 = (measuredFreq && isFinite(measuredFreq) && measuredFreq > 0)
+      ? measuredFreq : Math.round(bayesMeanHz());
+    f0 = Math.max(F_MIN, Math.min(F_MAX, f0));
+    fineFreq = f0;
+    fineLo = Math.log(Math.max(F_MIN, f0 / 2)) / Math.log(2);
+    fineHi = Math.log(Math.min(F_MAX, f0 * 2)) / Math.log(2);
+    var pct = Math.round((Math.log(f0) / Math.log(2) - fineLo) / (fineHi - fineLo) * 100);
+    var app = el('app');
+    if (!app) { finalizeResult(f0); return; }
+    app.innerHTML = (
+      '<div class="pt-screen" data-screen="pitch_test">' +
+        '<header class="pt-header">' +
+          '<h1 class="pt-title">Нагласи точно своя тон</h1>' +
+          '<p class="pt-subtitle">Плъзгай бавно, докато звукът стане<br>точно като твоя тинитус.</p>' +
+        '</header>' +
+        '<div class="pt-finetune">' +
+          '<div class="pt-finetune-val" id="ptFineVal">' + escapeHtml(fmtFreq(f0)) + '</div>' +
+          '<input type="range" class="pt-finetune-slider" id="ptFineSlider" min="0" max="100" step="1"' +
+            ' value="' + pct + '" aria-label="Фина настройка на честотата">' +
+          '<div class="pt-finetune-hint"><span>по-ниско</span><span>по-високо</span></div>' +
+        '</div>' +
+        '<div class="pt-actions">' +
+          '<button class="pt-btn pt-btn--primary" type="button" data-action="finetune-done">Това е моят тон</button>' +
+        '</div>' +
+      '</div>'
+    );
+    bindClicks(app);
+    var sl = el('ptFineSlider');
+    if (sl) { sl.addEventListener('input', onFineInput); sl.addEventListener('change', onFineInput); }
+  }
+
+  function onFineInput(e) {
+    var p = parseInt(e.currentTarget.value, 10);
+    if (isNaN(p)) return;
+    var lg = fineLo + (p / 100) * (fineHi - fineLo);
+    fineFreq = Math.round(Math.pow(2, lg));
+    var lbl = el('ptFineVal'); if (lbl) lbl.textContent = fmtFreq(fineFreq);
+    playFineTone(fineFreq);
+  }
+
+  function playFineTone(freq) {
+    var c = ensureContext();
+    if (!c || !masterGain) return;
+    if (c.state === 'suspended') c.resume().catch(function () {});
+    if (fineIdleTimer) { clearTimeout(fineIdleTimer); fineIdleTimer = null; }
+    if (fineHandle) {
+      try {
+        if (fineHandle.osc) fineHandle.osc.frequency.setTargetAtTime(freq, c.currentTime, 0.02);
+        if (fineHandle.bp) fineHandle.bp.frequency.setTargetAtTime(freq, c.currentTime, 0.02);
+      } catch (e) {}
+    } else {
+      var gain = c.createGain(); gain.gain.value = 0;
+      if (stimulusType === 'tone') {
+        var osc = c.createOscillator(); osc.type = 'sine'; osc.frequency.value = freq;
+        osc.connect(gain); try { osc.start(); } catch (e) {}
+        fineHandle = { osc: osc, gain: gain };
+      } else {
+        var src = c.createBufferSource(); src.buffer = getNoiseBuffer(c); src.loop = true;
+        var bp = c.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = freq; bp.Q.value = NBN_Q;
+        src.connect(bp); bp.connect(gain); try { src.start(); } catch (e) {}
+        fineHandle = { src: src, bp: bp, gain: gain };
+      }
+      gain.connect(masterGain);
+      var target = (stimulusType === 'tone') ? Math.min(0.5, clampGain(calibGain * 0.6)) : clampGain(calibGain);
+      gain.gain.linearRampToValueAtTime(target, c.currentTime + 0.15);
+    }
+    // спри при бездействие (плъзгането спряло) → не звучи вечно
+    fineIdleTimer = setTimeout(stopFineTone, 1800);
+  }
+
+  function stopFineTone() {
+    if (fineIdleTimer) { clearTimeout(fineIdleTimer); fineIdleTimer = null; }
+    if (!fineHandle) return;
+    var h = fineHandle; fineHandle = null;
+    try {
+      if (ctx) {
+        var n = ctx.currentTime;
+        h.gain.gain.cancelScheduledValues(n);
+        h.gain.gain.setValueAtTime(h.gain.gain.value, n);
+        h.gain.gain.linearRampToValueAtTime(0, n + 0.15);
+      }
+    } catch (e) {}
+    setTimeout(function () {
+      try { if (h.osc) h.osc.stop(); } catch (e) {}
+      try { if (h.src) h.src.stop(); } catch (e) {}
+      try { if (h.osc) h.osc.disconnect(); } catch (e) {}
+      try { if (h.src) h.src.disconnect(); } catch (e) {}
+      try { if (h.bp) h.bp.disconnect(); } catch (e) {}
+      try { h.gain.disconnect(); } catch (e) {}
+    }, 200);
+  }
+
+  function onFineTuneDone() {
+    stopFineTone();
+    finalizeResult(fineFreq);
   }
 
   // ============================================================
   // Finalize + result
   // ============================================================
 
-  function finalizeResult() {
-    var freq = Math.round(octaveState.base);
+  function finalizeResult(finalFreq) {
+    var freq = Math.round(finalFreq);
+    if (!freq || freq <= 0 || !isFinite(freq)) freq = Math.round(bayesMeanHz()) || 4000;
+    freq = Math.max(F_MIN, Math.min(F_MAX, freq));
     var ciOct = bayesCIHalfOct();
     var s = window.AppState;
     if (s && s.addPitchTest) {
@@ -819,19 +931,17 @@ window.PitchTest = (function () {
         freq: freq,
         trials: measurements,
         octaveCheck: {
-          method: 'NBN-2AFC-bayesian',
+          method: (stimulusType === 'tone' ? 'tone' : 'NBN') + '-2AFC-bayesian+finetune',
           measurements: bayes.n,
           ciHalfOct: isFinite(ciOct) ? Number(ciOct.toFixed(3)) : null,
           meanHz: Math.round(bayesMeanHz()),
-          octaveTrials: octaveState.trials
+          octaveTrials: octaveState ? octaveState.trials : []
         }
       });
     }
     phase = 'done';
     lastResultFreq = freq;
-    // Ден 1 (quick) → НАГРАДАТА (notched звук + дишане). Ден 2 (precise) → само резултат.
-    if (testMode === 'quick') renderReward(freq, ciOct);
-    else renderResult(freq, ciOct);
+    renderReward(freq, ciOct);   // ВИНАГИ награда (quick + precise)
   }
 
   // ============================================================
@@ -932,6 +1042,10 @@ window.PitchTest = (function () {
           ptOption('reward-felt', 'little', 'Малко', 'Лека промяна') +
           ptOption('reward-felt', 'no', 'Не усетих', 'Няма промяна сега') +
         '</div>' +
+        (testMode === 'quick'
+          ? '<p class="pt-finish-note">За още по-точна честота можете да ' +
+            'довършите теста по-късно — когато Ви е удобно.</p>'
+          : '') +
       '</div>'
     );
     bindClicks(app);
@@ -1020,6 +1134,7 @@ window.PitchTest = (function () {
       case 'quit':       onQuit(); break;
       case 'reward-done': finishReward(); break;
       case 'reward-felt': onRewardFelt(btn.getAttribute('data-value')); break;
+      case 'finetune-done': onFineTuneDone(); break;
       case 'skip-continue': goNext(); break;
     }
   }
@@ -1057,6 +1172,7 @@ window.PitchTest = (function () {
     cancelHold();
     stopCurrentTone();
     stopCalibTone();
+    stopFineTone();
     stopReward();
   }
 
