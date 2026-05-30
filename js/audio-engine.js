@@ -189,6 +189,9 @@ window.AudioEngine = (function () {
 
     console.log('[audio] context init, sample rate:', ctx.sampleRate,
       '| safety limiter: -12 dBFS / 20:1 / 1ms / 50ms');
+    // Стартирай Opus probe-а рано (мъничък decode) → opusSupported е готов
+    // преди първия истински звук → правилен формат от първия fetch.
+    ensureOpusProbe();
     return ctx;
   }
 
@@ -395,21 +398,22 @@ window.AudioEngine = (function () {
     if (!sound || !sound.filename) {
       return Promise.reject(new Error('sound not in manifest'));
     }
-    var url = 'library_staging_compact/' + sound.filename;
-    if (bufferCache[url]) {
+    var rawUrl = 'library_staging_compact/' + sound.filename;
+    var cacheKey = audioUrl(rawUrl);   // .mp3 fallback се отразява в ключа
+    if (bufferCache[cacheKey]) {
       // Already decoded — bump LRU order.
       var idx = preloadOrder.indexOf(soundId);
       if (idx !== -1) preloadOrder.splice(idx, 1);
       preloadOrder.push(soundId);
-      return Promise.resolve(bufferCache[url]);
+      return Promise.resolve(bufferCache[cacheKey]);
     }
-    return fetchAndDecode(url, soundId).then(function (buffer) {
+    return fetchAndDecode(rawUrl, soundId).then(function (buffer) {
       preloadOrder.push(soundId);
       while (preloadOrder.length > PRELOAD_LIMIT) {
         var oldest = preloadOrder.shift();
         var oldSnd = findSoundInManifest(oldest);
         if (oldSnd && oldSnd.filename) {
-          var oldUrl = 'library_staging_compact/' + oldSnd.filename;
+          var oldUrl = audioUrl('library_staging_compact/' + oldSnd.filename);
           delete bufferCache[oldUrl];
         }
       }
@@ -421,7 +425,78 @@ window.AudioEngine = (function () {
     });
   }
 
-  function fetchAndDecode(url, presetId) {
+  // ============================================================
+  // OPUS SUPPORT PROBE + MP3 FALLBACK
+  // ============================================================
+  // Стари браузъри (стар Android WebView, стар iOS Safari) НЕ могат да
+  // decode-нат Opus през Web Audio decodeAudioData → всеки library звук
+  // (всички файлове са .opus) гърми с "decode" грешка → червен toast
+  // "Файлът не може да се възпроизведе". Решение: при init probe-ваме веднъж
+  // с мъничък вграден Opus sample. Ако browser-ът НЕ го разкодира →
+  // opusSupported=false → audioUrl() сервира .mp3 fallback (универсално
+  // поддържан). Така всеки телефон тегли САМО своя формат (модерен=Opus,
+  // стар=MP3) — без двойно теглене, защото probe-ът решава ПРЕДИ първия fetch.
+  var opusSupported    = null;   // null=untested, true/false след probe
+  var opusProbePromise = null;
+  // 200-байтов Ogg/Opus (anullsrc 0.08s mono) — само за capability detection.
+  var OPUS_PROBE_B64 = 'T2dnUwACAAAAAAAAAAAuKCpVAAAAALtfA7EBE09wdXNIZWFkAQE4AYC7AAAAAABPZ2dTAAAAAAAAAAAAAC4oKlUBAAAAA2oXGQE+T3B1c1RhZ3MNAAAATGF2ZjYyLjEyLjEwMQEAAAAdAAAAZW5jb2Rlcj1MYXZjNjIuMjguMTAxIGxpYm9wdXNPZ2dTAAQ4EAAAAAAAAC4oKlUCAAAApXHzMgUHBgYGBggL5jsjq2AICKyzDsYICKyzDsYICKyzDsYICKyzDsYICKyzDsY=';
+
+  function b64ToArrayBuffer(b64) {
+    var bin = atob(b64);
+    var len = bin.length;
+    var bytes = new Uint8Array(len);
+    for (var i = 0; i < len; i++) bytes[i] = bin.charCodeAt(i);
+    return bytes.buffer;
+  }
+
+  function ensureOpusProbe() {
+    if (opusSupported !== null) return Promise.resolve(opusSupported);
+    if (opusProbePromise) return opusProbePromise;
+    opusProbePromise = new Promise(function (resolve) {
+      if (!ctx) { opusSupported = true; return resolve(true); }
+      var ab;
+      try { ab = b64ToArrayBuffer(OPUS_PROBE_B64); }
+      catch (e) { opusSupported = true; return resolve(true); }
+      var settled = false;
+      function done(val) {
+        if (settled) return; settled = true;
+        opusSupported = val;
+        if (!val) console.warn('[audio] Opus НЕ се поддържа → MP3 fallback активен');
+        else console.log('[audio] Opus support: OK');
+        resolve(val);
+      }
+      // Safety: ако decodeAudioData никога не извика callback (рядко, но за
+      // да не увисне playback) → default MP3 (възпроизвежда се навсякъде).
+      setTimeout(function () { done(false); }, 5000);
+      try {
+        var p = ctx.decodeAudioData(ab,
+          function () { done(true); },
+          function () { done(false); }
+        );
+        // Promise-базиран decodeAudioData (modern) — покрий и двата сигнала.
+        if (p && p.then) p.then(function () { done(true); }, function () { done(false); });
+      } catch (e) { done(false); }
+    });
+    return opusProbePromise;
+  }
+
+  // Връща финалния URL: .opus → .mp3 само когато Opus не се поддържа.
+  function audioUrl(rawUrl) {
+    if (opusSupported === false && /\.opus$/i.test(rawUrl)) {
+      return rawUrl.replace(/\.opus$/i, '.mp3');
+    }
+    return rawUrl;
+  }
+
+  // Probe-ът се изпълнява веднъж, нормализира URL-а, после делегира на
+  // същинския loader. Всички playback пътища минават оттук → единствена точка.
+  function fetchAndDecode(rawUrl, presetId) {
+    return ensureOpusProbe().then(function () {
+      return fetchAndDecodeResolved(audioUrl(rawUrl), presetId);
+    });
+  }
+
+  function fetchAndDecodeResolved(url, presetId) {
     if (bufferCache[url]) return Promise.resolve(bufferCache[url]);
     console.log('[audio-engine] fetch attempt:', url);
     return fetch(url)
