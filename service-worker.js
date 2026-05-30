@@ -19,7 +19,7 @@
 // CACHE_AUDIO бамп също защото старите URLs (audio/library/* и
 // library_staging_loop_ready/*) са персистнали → нови URLs
 // (library_staging_normalized/*) не са в стария cache + 503 offline.
-var VERSION = '1.0.75';
+var VERSION = '1.0.76';
 var CACHE_SHELL = 'auralis-shell-v' + VERSION;
 var CACHE_I18N = 'auralis-i18n-v' + VERSION;
 var CACHE_AUDIO = 'auralis-audio-v3';
@@ -149,6 +149,13 @@ self.addEventListener('fetch', function (e) {
 self.addEventListener('message', function (e) {
   if (e.data && e.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
+  }
+  // Version handshake — page-ът пита активния SW коя версия cache-ва.
+  // Ако page CODE_VERSION !== SW VERSION → има нов код cached → show update button.
+  if (e.data && e.data.type === 'GET_VERSION') {
+    if (e.ports && e.ports[0]) {
+      e.ports[0].postMessage({ type: 'VERSION', version: VERSION });
+    }
   }
 });
 

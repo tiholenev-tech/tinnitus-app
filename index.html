@@ -297,69 +297,127 @@
     })();
   </script>
 
-  <!-- ═══ Service Worker — register + safe auto-reload при нов SW ═══ -->
+  <!-- ═══ Service Worker — register + PERSISTENT update button ═══ -->
   <!--
-    Root cause на stale-UI bugs (heart, nav back, library overflow): нова SW
-    активира, нови файлове са cached, но page-ът продължава да върти СТАРАТА
-    JS code в memory → user-ът трябва ръчно refresh за да вземе новите fix-ове.
-    controllerchange handler auto-reload-ва САМО когато:
-      1. Има стар controller преди register (= update scenario, не първи install)
-      2. User не е в player/calm/sleep (терапия не се прекъсва)
-      3. AudioEngine не свири sound
-    Иначе set sessionStorage flag и retry при visibilitychange (user превключи
-    tab/PWA → safer момент за reload).
+    Защо persistent button, а не auto-reload:
+    Standalone PWA (home-screen icon) НЕ е надежден с auto-reload — resume
+    от background не trigger-ва navigation, а pull-to-refresh сервира cached
+    shell (cache-first). Затова user-ът оставаше със стар код "залепен" на
+    екрана (напр. volume slider stuck на 50%).
+
+    Нов модел — version handshake:
+      • CODE_VERSION = версията на КОДА който се върти СЕГА (тази HTML страница).
+      • Питаме активния SW за неговата VERSION (GET_VERSION → VERSION).
+      • Ако SW.VERSION !== CODE_VERSION → SW вече е cache-нал НОВ код →
+        показваме persistent "Обнови" бутон. Tap → reload → нов код от cache.
+      • Бутонът се показва на ВСЯКО отваряне докато не се натисне (re-check
+        при load И при visibilitychange resume).
+    ВАЖНО: при всеки release CODE_VERSION трябва да === SW VERSION.
   -->
   <script>
     if ('serviceWorker' in navigator) {
-      // Snapshot ПРЕДИ register: дали вече има активен controller (= update visit).
-      // При първи install controller е null → не reload-ваме (page току що зареди).
-      var hadController = !!navigator.serviceWorker.controller;
-      var refreshing = false;
-      var PENDING_KEY = 'auralis-sw-pending-reload';
+      (function () {
+        var CODE_VERSION = '1.0.76';   // ← sync с service-worker.js VERSION при всеки release
+        var refreshing = false;
+        var reg = null;
 
-      function isSafeToReload() {
-        var phase = window.AppState && window.AppState.current;
-        var engine = window.AudioEngine;
-        var playing = engine && engine.isPlaying && engine.isPlaying();
-        // Не прекъсваме aktivnu терапия — user слуша sound.
-        if (phase === 'player' || phase === 'calm' || phase === 'sleep') return false;
-        if (playing) return false;
-        return true;
-      }
-
-      function tryReload(reason) {
-        if (refreshing) return;
-        if (!hadController) return;       // първи install — не reload
-        if (!isSafeToReload()) {
-          try { sessionStorage.setItem(PENDING_KEY, '1'); } catch (e) {}
-          console.log('[sw] reload deferred (' + reason + '): playback/therapy active');
-          return;
+        function injectStyles() {
+          if (document.getElementById('sw-update-style')) return;
+          var st = document.createElement('style');
+          st.id = 'sw-update-style';
+          st.textContent =
+            '#sw-update-bar{position:fixed;left:12px;right:12px;' +
+            'top:calc(env(safe-area-inset-top,0px) + 10px);z-index:99999;' +
+            'display:flex;align-items:center;gap:12px;padding:12px 14px;' +
+            'border-radius:16px;background:hsla(255,30%,14%,0.92);' +
+            '-webkit-backdrop-filter:blur(18px) saturate(1.2);' +
+            'backdrop-filter:blur(18px) saturate(1.2);' +
+            'border:1px solid hsla(255,45%,72%,0.20);' +
+            'box-shadow:0 12px 34px hsla(255,50%,4%,0.55);' +
+            'transform:translateY(-150%);opacity:0;' +
+            'transition:transform .42s cubic-bezier(.22,1,.36,1),opacity .42s ease;' +
+            "font-family:'Montserrat',system-ui,sans-serif;}" +
+            '#sw-update-bar.sw-show{transform:translateY(0);opacity:1;}' +
+            '#sw-update-bar .sw-txt{flex:1;color:#eef0ff;font-size:14px;' +
+            'font-weight:600;line-height:1.3;}' +
+            '#sw-update-bar .sw-btn{flex:none;border:0;cursor:pointer;' +
+            'padding:10px 20px;border-radius:999px;font-family:inherit;' +
+            'font-size:14px;font-weight:800;color:#0a0b12;' +
+            'background:linear-gradient(135deg,hsl(255 80% 78%),hsl(222 85% 72%));' +
+            'box-shadow:0 4px 14px hsla(255,70%,50%,0.40);' +
+            'transition:transform .12s ease;' +
+            '-webkit-tap-highlight-color:transparent;}' +
+            '#sw-update-bar .sw-btn:active{transform:scale(.93);}';
+          document.head.appendChild(st);
         }
-        refreshing = true;
-        console.log('[sw] reload → apply new SW code (' + reason + ')');
-        window.location.reload();
-      }
 
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('service-worker.js').catch(function () {});
-      });
+        function applyUpdate() {
+          if (refreshing) return;
+          refreshing = true;
+          // SW вече е активен и е cache-нал новите файлове → обикновен reload
+          // зарежда новия код. Ако случайно има waiting worker — събуди го.
+          try { if (reg && reg.waiting) reg.waiting.postMessage({ type: 'SKIP_WAITING' }); } catch (e) {}
+          window.location.reload();
+        }
 
-      navigator.serviceWorker.addEventListener('controllerchange', function () {
-        tryReload('controllerchange');
-      });
+        function showUpdateBar() {
+          injectStyles();
+          if (document.getElementById('sw-update-bar')) return;
+          var bar = document.createElement('div');
+          bar.id = 'sw-update-bar';
+          bar.setAttribute('role', 'alert');
+          var txt = document.createElement('span');
+          txt.className = 'sw-txt';
+          txt.textContent = 'Налична е нова версия';
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'sw-btn';
+          btn.textContent = 'Обнови';
+          btn.addEventListener('click', applyUpdate);
+          bar.appendChild(txt);
+          bar.appendChild(btn);
+          (document.body || document.documentElement).appendChild(bar);
+          requestAnimationFrame(function () { bar.classList.add('sw-show'); });
+        }
 
-      // Deferred retry: ако reload е skip-нат (audio свири), опитай при tab
-      // visibility return — user е току що превключил обратно на PWA-то,
-      // estimated по-safe момент. Ако още свири — пак skip + остава flag.
-      document.addEventListener('visibilitychange', function () {
-        if (document.visibilityState !== 'visible') return;
-        try {
-          if (sessionStorage.getItem(PENDING_KEY) !== '1') return;
-        } catch (e) { return; }
-        if (!isSafeToReload()) return;
-        try { sessionStorage.removeItem(PENDING_KEY); } catch (e) {}
-        tryReload('deferred-visibility');
-      });
+        // Питай активния SW коя версия cache-ва; mismatch → show button.
+        function checkVersion() {
+          var ctrl = navigator.serviceWorker.controller;
+          if (!ctrl) return;                 // първи install — няма стар код
+          if (document.getElementById('sw-update-bar')) return;
+          try {
+            var mc = new MessageChannel();
+            mc.port1.onmessage = function (ev) {
+              if (ev.data && ev.data.type === 'VERSION' &&
+                  ev.data.version && ev.data.version !== CODE_VERSION) {
+                showUpdateBar();
+              }
+            };
+            ctrl.postMessage({ type: 'GET_VERSION' }, [mc.port2]);
+          } catch (e) {}
+        }
+
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('service-worker.js').then(function (registration) {
+            reg = registration;
+            // Форсирай проверка за нова версия на сървъра при всяко отваряне.
+            try { reg.update(); } catch (e) {}
+            // Ако нов worker се активира докато сме отворени → re-check версия.
+            navigator.serviceWorker.addEventListener('controllerchange', function () {
+              setTimeout(checkVersion, 50);
+            });
+            checkVersion();
+          }).catch(function () {});
+        });
+
+        // PWA resume (reopen от background) → пак провери за нова версия,
+        // така бутонът се показва на ВСЯКО отваряне докато не се натисне.
+        document.addEventListener('visibilitychange', function () {
+          if (document.visibilityState !== 'visible') return;
+          if (reg) { try { reg.update(); } catch (e) {} }
+          checkVersion();
+        });
+      })();
     }
   </script>
 

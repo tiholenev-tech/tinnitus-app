@@ -462,17 +462,8 @@
       navigator.serviceWorker.register('/service-worker.js').catch(function (err) {
         console.warn('[auralis] SW registration failed:', err);
       });
-      // Listen for update notifications
-      navigator.serviceWorker.addEventListener('message', function (e) {
-        if (e.data && e.data.type === 'SW_UPDATED') {
-          if (window.Toast) {
-            window.Toast.show('Нова версия — обновете', {
-              variant: 'info',
-              durationMs: 10000
-            });
-          }
-        }
-      });
+      // Update notifications се handle-ват от persistent "Обнови" бутона
+      // в index.html (version handshake), не от еднократен toast тук.
     }
   });
 })();
