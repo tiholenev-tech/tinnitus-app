@@ -68,3 +68,29 @@ coverage/
 tmp/
 temp/
 *.tmp
+prompt_code*.md
+
+# Audio staging / working dirs (твърде големи за git — local working data)
+library_staging/
+library_staging_compact/
+library_staging_loop_ready/
+library_staging_normalized/
+library_staging_normalized_OLD2/
+audio_files_new/
+audio_files_new_new/
+audio_files_safe95/
+audio_files_safe95_normalized/
+meditation/
+meditation_loop_ready/
+auralis_noise_pack.zip
+app-icons/
+audio/library/manifest.backup.json
+
+# Working reports / generated lists (local only)
+audit_report.json
+audit_summary.txt
+normalize_results.json
+normalize_v2_results.json
+auralis_library_categorization.csv
+library_organize_report.csv
+library_final_list.txt
