@@ -21,13 +21,15 @@ window.VolumeCalibration = (function () {
   'use strict';
 
   var TEST_NOISE_ID = 'brown_lp500';
-  var INITIAL_VOLUME = 30;
-  var MAX_VOLUME = 75;
-  var WARN_THRESHOLD = 70;
+  // UX FIX 2026-05-30 (Тихол): по презумпция НАЙ-силно, клиентите сами
+  // намаляват. 70+ потребители оставяха default 30% и казваха "нищо не се
+  // чува". Премахнат и 75% cap + warning toast — DSP safety limiter (-12 dBFS)
+  // в audio-engine остава активен, така че защитата на слуха не е премахната.
+  var INITIAL_VOLUME = 100;
+  var MAX_VOLUME = 100;
 
   var currentVolume = INITIAL_VOLUME;
   var isPlaying = false;
-  var lastWarnTs = 0;
   var doneCallback = null;
 
   function el(id) { return document.getElementById(id); }
@@ -84,9 +86,6 @@ window.VolumeCalibration = (function () {
   function buildHtml() {
     // Copy от Code 3: volume_calibration_text_bg.md v1.0 (26.05.2026, ~149 думи).
     // Заглавие / подзаглавие / кратко обяснение / 3 стъпки / какво НЕ / disclaimer.
-    var warningHtml = (currentVolume >= WARN_THRESHOLD)
-      ? '<div class="vc-warning">Над 70% може да увреди слуха при дълго слушане.</div>'
-      : '';
 
     // FIX VC-BUTTON-FEEDBACK: button content builder (extracted за reuse в
     // updateTestButton partial render — избягва full screen re-render →
@@ -110,7 +109,7 @@ window.VolumeCalibration = (function () {
           '<ol class="vc-steps-list">' +
             '<li><strong>Седнете в тиха стая.</strong> Уверете се, че няма телевизор, разговор или шум от пътя.</li>' +
             '<li><strong>Пуснете тестовия звук.</strong> Слушайте на ниско ниво в продължение на 20 секунди.</li>' +
-            '<li><strong>Постепенно увеличавайте силата.</strong> Спрете в момента, в който чувате едновременно и тинитуса, и фоновия звук. Те трябва да съществуват заедно.</li>' +
+            '<li><strong>Намалявайте силата постепенно.</strong> Спрете в момента, в който чувате едновременно и тинитуса, и фоновия звук. Те трябва да съществуват заедно.</li>' +
           '</ol>' +
         '</section>' +
 
@@ -132,8 +131,7 @@ window.VolumeCalibration = (function () {
             ' value="' + currentVolume + '"' +
             ' aria-label="Сила на звука от 0 до ' + MAX_VOLUME + ' процента"' +
             ' aria-valuetext="' + currentVolume + ' от ' + MAX_VOLUME + '" />' +
-          '<div class="vc-slider-hint">Макс ' + MAX_VOLUME + '% — над това = риск за слуха</div>' +
-          warningHtml +
+          '<div class="vc-slider-hint">Нагласете до ниво, което чувате удобно.</div>' +
         '</section>' +
 
         '<section class="vc-section vc-warn-block">' +
@@ -191,29 +189,6 @@ window.VolumeCalibration = (function () {
     // Update aria-valuetext за screen reader (TalkBack / VoiceOver)
     var slider = el('vcVolSlider');
     if (slider) slider.setAttribute('aria-valuetext', currentVolume + ' от ' + MAX_VOLUME);
-    // Toggle warning visibility (cheap re-render на section)
-    var section = document.querySelector('.vc-slider-section');
-    if (section) {
-      var existing = section.querySelector('.vc-warning');
-      if (currentVolume >= WARN_THRESHOLD && !existing) {
-        var warn = document.createElement('div');
-        warn.className = 'vc-warning';
-        warn.textContent = 'Над 70% може да увреди слуха при дълго слушане.';
-        section.appendChild(warn);
-      } else if (currentVolume < WARN_THRESHOLD && existing) {
-        existing.parentNode.removeChild(existing);
-      }
-    }
-    // Throttled toast for >WARN_THRESHOLD
-    if (currentVolume >= WARN_THRESHOLD) {
-      var now = Date.now();
-      if (now - lastWarnTs > 8000) {
-        lastWarnTs = now;
-        if (window.Toast && window.Toast.warning) {
-          window.Toast.warning('Внимание: висока сила може да увреди слуха.');
-        }
-      }
-    }
   }
 
   // ============================================================
