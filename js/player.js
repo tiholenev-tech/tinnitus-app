@@ -1029,10 +1029,8 @@ window.Player = (function () {
     startProgressTick();
   }
 
-  // Friendly mix-hint popup (70+: голям шрифт). Стои по-дълго от стандартен toast
-  // (~14с) за спокойно четене, после се маха само̀; X / „Разбрах" затварят по-рано;
-  // „Не показвай повече" → повече не се показва (persist флаг).
-  var MIX_HINT_MS = 14000;
+  // Friendly mix-hint popup (70+: голям шрифт). НЕ се маха само̀ — само ръчно
+  // (X / „Разбрах" / „Не показвай повече"). „Не показвай повече" → persist флаг.
   var MIX_HINT_HIDDEN_KEY = 'auralis-mixhint-hidden';
   function showMixHint() {
     try { if (localStorage.getItem(MIX_HINT_HIDDEN_KEY) === '1') return; } catch (e) {}
@@ -1044,7 +1042,7 @@ window.Player = (function () {
     ov.innerHTML =
       '<div class="mix-hint-card" role="dialog" aria-label="Съвет за силата">' +
         '<button class="mix-hint-x" type="button" aria-label="Затвори" data-mixhint="ok">×</button>' +
-        '<div class="mix-hint-emoji" aria-hidden="true">💛</div>' +
+        '<div class="mix-hint-emoji" aria-hidden="true">🎧</div>' +
         '<h2 class="mix-hint-title">Малък съвет за Вас</h2>' +
         '<p class="mix-hint-body">Нагласете силата и микса както Ви е приятно — ' +
           '<b>Вие решавате</b>.</p>' +
@@ -1055,9 +1053,7 @@ window.Player = (function () {
         '<button class="mix-hint-never" type="button" data-mixhint="never">Не показвай повече</button>' +
       '</div>';
     document.body.appendChild(ov);
-    var timer = setTimeout(close, MIX_HINT_MS);
     function close() {
-      if (timer) { clearTimeout(timer); timer = null; }
       if (ov.parentNode) ov.parentNode.removeChild(ov);
     }
     ov.addEventListener('click', function (e) {
