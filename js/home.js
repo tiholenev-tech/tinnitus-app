@@ -535,6 +535,14 @@ window.Home = (function () {
     if (window.AudioEngine && window.AudioEngine.setMasterVolume) {
       window.AudioEngine.setMasterVolume(val, e.type === 'change');
     }
+    // 'change' = финален commit (потребителят пусна плъзгача) → пиши веднага,
+    // за да не се загуби стойността ако навигира < 300ms след това.
+    // 'input' = междинно влачене → debounce за да не спамим localStorage.
+    if (e.type === 'change') {
+      if (homeVolTimer) { clearTimeout(homeVolTimer); homeVolTimer = null; }
+      try { localStorage.setItem(STORAGE_VOLUME, String(val)); } catch (e2) {}
+      return;
+    }
     if (homeVolTimer) clearTimeout(homeVolTimer);
     homeVolTimer = setTimeout(function () {
       homeVolTimer = null;

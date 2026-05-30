@@ -108,7 +108,21 @@ window.AudioEngine = (function () {
   var masterGain = null;
   var safetyLimiter = null;       // P0 SAFETY: DynamicsCompressor in hard-limit mode
   var makeupCancelGain = null;    // P0 SAFETY: cancels compressor automatic makeup gain
-  var masterVolume = DEFAULT_VOLUME;
+
+  // Restore master volume от localStorage при load (persist across navigation /
+  // page reloads / SW updates). Без това getMasterVolume() връща DEFAULT_VOLUME
+  // и home slider-а "забравя" настройката на потребителя → reset на 50%.
+  function restoreMasterVolume() {
+    try {
+      var saved = localStorage.getItem('auralis-master-volume');
+      if (saved !== null) {
+        var n = parseInt(saved, 10);
+        if (!isNaN(n)) return Math.max(0, Math.min(100, n));
+      }
+    } catch (e) {}
+    return DEFAULT_VOLUME;
+  }
+  var masterVolume = restoreMasterVolume();
   var iosUnlocked = false;
 
   var bufferCache = {};               // url → AudioBuffer
