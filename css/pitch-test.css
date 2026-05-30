@@ -543,3 +543,44 @@
   color: var(--text-muted);
   line-height: 1.5;
 }
+
+/* ═══ Progress sub-label (Bayesian precision readout) ═══ */
+.pt-progress-sub {
+  margin: 6px 0 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ═══ Volume row (live level adjust during test) ═══ */
+.pt-vol-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 4px;
+}
+.pt-vol-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.pt-vol-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid hsl(var(--hue1) 30% 50% / 0.4);
+  background: hsl(var(--hue1) 40% 50% / 0.10);
+  color: var(--text);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.pt-vol-btn:active { transform: scale(0.94); }
