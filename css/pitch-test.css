@@ -128,13 +128,13 @@
 .pt-progress {
   display: inline-block;
   align-self: flex-start;
-  padding: 4px 12px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  padding: 6px 15px;
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
   border-radius: var(--radius-pill, 999px);
-  background: hsl(var(--hue1) 50% 55% / 0.12);
-  color: hsl(var(--hue1) 55% 55%);
+  background: hsl(var(--hue1) 50% 55% / 0.14);
+  color: hsl(var(--hue1) 55% 52%);
 }
 [data-theme="dark"] .pt-progress {
   background: hsl(var(--hue1) 50% 45% / 0.22);
@@ -160,16 +160,27 @@
   transition: width 400ms cubic-bezier(0.5, 1, 0.89, 1);
 }
 
-/* Bug 3: всеки нов trial влиза с fadeIn — user вижда смяна */
+/* UX: всеки нов trial влиза с подчертан slide-in (отдясно) — user-ът ясно
+   вижда че въпросът се е сменил, а не само цифрата в progress chip-а. */
 .pt-screen--trial {
-  animation: ptTrialFadeIn 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: ptTrialSlideIn 380ms cubic-bezier(0.16, 1, 0.3, 1);
 }
-@keyframes ptTrialFadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+@keyframes ptTrialSlideIn {
+  from { opacity: 0; transform: translateX(26px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+/* Progress chip „изскача" при всяка нова двойка → очите се насочват натам. */
+.pt-screen--trial .pt-progress {
+  animation: ptProgressPop 520ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes ptProgressPop {
+  0%   { transform: scale(0.7); opacity: 0; }
+  55%  { transform: scale(1.12); opacity: 1; }
+  100% { transform: scale(1); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .pt-screen--trial { animation: none; }
+  .pt-screen--trial,
+  .pt-screen--trial .pt-progress { animation: none; }
 }
 
 /* ═══ Tone buttons (2AFC) ═══ */
@@ -378,6 +389,38 @@
   .pt-tone-wave > span { animation: none; transform: scaleY(0.7); }
 }
 
+/* ═══ Help / explanation card (UX: какво са тоновете + защо избираме) ═══ */
+.pt-help {
+  padding: 14px 16px;
+  border-radius: var(--radius-sm, 14px);
+  border: 1px solid hsl(var(--hue1) 50% 55% / 0.22);
+  background: hsl(var(--hue1) 50% 55% / 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+[data-theme="dark"] .pt-help {
+  background: hsl(var(--hue1) 45% 45% / 0.14);
+  border-color: hsl(var(--hue1) 50% 55% / 0.3);
+}
+.pt-help-lead {
+  margin: 0;
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--text);
+}
+.pt-help-lead b { color: hsl(var(--hue1) 60% 52%); }
+[data-theme="dark"] .pt-help-lead b { color: hsl(var(--hue1) 70% 78%); }
+.pt-help-note {
+  margin: 0;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+.pt-help-note b { font-weight: 700; color: var(--text); }
+
 /* ═══ Choice section ═══ */
 .pt-choice {
   display: flex;
@@ -387,14 +430,85 @@
 .pt-choice-prompt {
   margin: 0;
   text-align: center;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   color: var(--text);
 }
 .pt-choice-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+}
+
+/* UX: по-релефни choice бутони + ясна press-анимация (без син tap flash) */
+.pt-btn,
+.pt-tone-btn,
+.pt-back-btn,
+.pt-option-card {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+.pt-btn:focus,
+.pt-tone-btn:focus,
+.pt-back-btn:focus { outline: none; }
+.pt-btn:focus-visible,
+.pt-tone-btn:focus-visible,
+.pt-back-btn:focus-visible {
+  outline: 2px solid hsl(var(--hue1) 65% 60%);
+  outline-offset: 2px;
+}
+
+.pt-choice-btn {
+  min-height: 58px;
+  position: relative;
+  isolation: isolate;
+  /* Релеф: горен highlight + плътна сянка надолу = „издигнат" бутон. */
+  box-shadow:
+    0 8px 20px hsl(var(--hue1) 60% 50% / 0.40),
+    inset 0 2px 0 hsl(0 0% 100% / 0.35),
+    inset 0 -3px 6px hsl(var(--hue2) 70% 25% / 0.45);
+  transition:
+    transform 110ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 110ms ease,
+    filter 110ms ease;
+}
+/* Натискане: бутонът „потъва" — намалена сянка + лек translateY + scale. */
+.pt-choice-btn:active {
+  transform: translateY(2px) scale(0.975);
+  filter: brightness(0.96);
+  box-shadow:
+    0 2px 6px hsl(var(--hue1) 60% 50% / 0.30),
+    inset 0 2px 5px hsl(var(--hue2) 70% 20% / 0.55),
+    inset 0 1px 0 hsl(0 0% 100% / 0.20);
+}
+@media (prefers-reduced-motion: reduce) {
+  .pt-choice-btn { transition: none; }
+  .pt-choice-btn:active { transform: none; }
+}
+
+/* ═══ Trial nav — „Назад към предишните тонове" ═══ */
+.pt-trial-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 2px;
+}
+.pt-back-btn {
+  padding: 10px 18px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill, 999px);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 120ms ease, background 160ms ease, color 160ms ease;
+}
+.pt-back-btn:active {
+  transform: scale(0.97);
+  background: hsl(var(--hue1) 50% 55% / 0.10);
+  color: var(--text);
 }
 
 /* ═══ Result screen ═══ */

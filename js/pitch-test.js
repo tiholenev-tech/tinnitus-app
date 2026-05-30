@@ -50,6 +50,9 @@ window.PitchTest = (function () {
   var trialIndex = 0;
   var pendingChoiceCallback = null;
   var isPlayingTone = false;
+  // UX: stack със snapshot-и преди всеки избор → бутон „Назад" възстановява
+  // предишната двойка тонове (user-ът се усъмни дали е чул правилно).
+  var trialStateStack = [];
 
   // ============================================================
   // Helpers
@@ -364,6 +367,7 @@ window.PitchTest = (function () {
 
   function startBayesianTest() {
     trials = [];
+    trialStateStack = [];
     currentLow = 0;
     currentHigh = FREQUENCIES.length - 1;
     trialIndex = 0;
@@ -380,6 +384,13 @@ window.PitchTest = (function () {
     var freqA = FREQUENCIES[mid];
     var freqB = FREQUENCIES[mid + 1];
     presentTrial(trialIndex + 1, freqA, freqB, function (userChoice) {
+      // Snapshot ПРЕДИ mutation → бутон „Назад" може да възстанови тази двойка.
+      trialStateStack.push({
+        currentLow: currentLow,
+        currentHigh: currentHigh,
+        trialIndex: trialIndex,
+        trialsLen: trials.length
+      });
       trials.push({
         trial: trialIndex + 1,
         freqA: freqA, freqB: freqB,
@@ -412,12 +423,21 @@ window.PitchTest = (function () {
     var ariaProgress = trialNum > 0
       ? 'Тест ' + trialNum + ' от ' + MAX_TRIALS
       : 'Финална проверка';
+    // UX: бутон „Назад" само за основните trials (не за octave проверката)
+    // и само ако има предишна двойка в стека.
+    var canGoBack = trialNum > 0 && trialStateStack.length > 0;
+    var backHtml = canGoBack
+      ? '<div class="pt-trial-nav">' +
+          '<button class="pt-back-btn" type="button" data-action="back-trial">' +
+            '‹ Чуй предишните тонове' +
+          '</button>' +
+        '</div>'
+      : '';
+
     app.innerHTML = (
       '<div class="pt-screen pt-screen--trial" data-screen="pitch_test" data-trial-num="' + trialNum + '">' +
         '<header class="pt-header">' +
-          '<h1 class="pt-title">Намиране на честотата на тинитуса</h1>' +
-          '<p class="pt-subtitle">Слушайте 2 тона. Изберете кой е по-близо ' +
-            'до Вашия шум.</p>' +
+          '<h1 class="pt-title">Намиране на Вашата честота</h1>' +
           '<div class="pt-progress-row">' +
             '<div class="pt-progress">' + escapeHtml(progressLabel) + '</div>' +
             '<div class="pt-progress-bar" role="progressbar"' +
@@ -428,6 +448,16 @@ window.PitchTest = (function () {
             '</div>' +
           '</div>' +
         '</header>' +
+
+        // Разяснение: какво са тоновете, защо избираме, че няма грешен отговор.
+        '<section class="pt-help">' +
+          '<p class="pt-help-lead">Чуйте двата тестови тона и изберете онзи, ' +
+            'чиято <b>височина</b> е по-близка до Вашето пищене.</p>' +
+          '<p class="pt-help-note">Тоновете <b>не са</b> Вашият тинитус — с всеки ' +
+            'избор стесняваме обхвата, докато открием точната Ви честота. Няма ' +
+            'грешен отговор; ако не сте сигурни, натиснете тон отново, за да го ' +
+            'чуете пак.</p>' +
+        '</section>' +
 
         '<section class="pt-tones">' +
           '<button class="pt-tone-btn" type="button" data-action="play-tone" data-tone="A">' +
@@ -447,14 +477,16 @@ window.PitchTest = (function () {
         '<section class="pt-choice">' +
           '<p class="pt-choice-prompt">Кой тон е по-близо до Вашия тинитус?</p>' +
           '<div class="pt-choice-actions">' +
-            '<button class="pt-btn pt-btn--primary" type="button" data-action="choose" data-choice="A">' +
+            '<button class="pt-btn pt-btn--primary pt-choice-btn" type="button" data-action="choose" data-choice="A">' +
               'A по-близо' +
             '</button>' +
-            '<button class="pt-btn pt-btn--primary" type="button" data-action="choose" data-choice="B">' +
+            '<button class="pt-btn pt-btn--primary pt-choice-btn" type="button" data-action="choose" data-choice="B">' +
               'B по-близо' +
             '</button>' +
           '</div>' +
         '</section>' +
+
+        backHtml +
       '</div>'
     );
     // Запази freqA/freqB върху container за достъп от click handler.
@@ -544,6 +576,19 @@ window.PitchTest = (function () {
     var cb = pendingChoiceCallback;
     pendingChoiceCallback = null;
     if (typeof cb === 'function') cb(letter);
+  }
+
+  // UX: „Назад" — възстановява предишната двойка тонове (undo последен избор).
+  function goBackTrial() {
+    if (!trialStateStack.length) return;
+    stopCurrentTone();
+    pendingChoiceCallback = null;
+    var prev = trialStateStack.pop();
+    currentLow = prev.currentLow;
+    currentHigh = prev.currentHigh;
+    trialIndex = prev.trialIndex;
+    if (trials.length > prev.trialsLen) trials.length = prev.trialsLen;
+    nextTrial();
   }
 
   function finalizeTest() {
@@ -810,6 +855,8 @@ window.PitchTest = (function () {
     } else if (action === 'choose') {
       var choice = btn.getAttribute('data-choice');
       onChoice(choice);
+    } else if (action === 'back-trial') {
+      goBackTrial();
     } else if (action === 'posttest') {
       onPostTestResponse(btn.getAttribute('data-value'));
     } else if (action === 'skip-continue') {
