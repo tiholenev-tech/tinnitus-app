@@ -619,3 +619,107 @@
   accent-color: hsl(var(--hue1) 70% 62%);
   touch-action: none;
 }
+
+/* ═══ Mix-hint popup (70+ friendly: голям шрифт, голям X, ръчно затваряне) ═══ */
+.mix-hint-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(5, 8, 14, 0.58);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  animation: mixHintFade 0.25s ease;
+}
+@keyframes mixHintFade { from { opacity: 0; } to { opacity: 1; } }
+.mix-hint-card {
+  position: relative;
+  width: 100%;
+  max-width: 390px;
+  padding: 32px 26px 26px;
+  text-align: center;
+  border-radius: 28px;
+  color: #fff;
+  background: linear-gradient(160deg, hsl(var(--hue1) 42% 24%), hsl(var(--hue2) 42% 18%));
+  border: 1px solid hsl(var(--hue1) 50% 55% / 0.4);
+  box-shadow: 0 22px 64px rgba(0, 0, 0, 0.55);
+  animation: mixHintPop 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+[data-theme="light"] .mix-hint-card,
+:root:not([data-theme]) .mix-hint-card {
+  background: #fff;
+  color: var(--text);
+  border-color: var(--border-color);
+}
+@keyframes mixHintPop {
+  from { transform: scale(0.85); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+.mix-hint-x {
+  position: absolute;
+  top: 12px; right: 12px;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: hsl(0 0% 50% / 0.18);
+  color: inherit;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.mix-hint-x:active { transform: scale(0.92); }
+.mix-hint-emoji { font-size: 50px; margin-bottom: 6px; }
+.mix-hint-title {
+  margin: 0 0 16px;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.mix-hint-body {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.mix-hint-ok {
+  margin-top: 16px;
+  width: 100%;
+  min-height: 56px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, hsl(var(--hue1) 65% 55%), hsl(var(--hue2) 65% 55%));
+  box-shadow: 0 8px 22px hsl(var(--hue1) 60% 50% / 0.4);
+}
+.mix-hint-ok:active { transform: scale(0.97); }
+
+.mix-hint-never {
+  margin-top: 12px;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  color: inherit;
+  opacity: 0.65;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.mix-hint-never:active { opacity: 0.4; }

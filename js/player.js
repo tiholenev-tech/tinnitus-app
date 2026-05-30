@@ -1022,7 +1022,52 @@ window.Player = (function () {
       window.addEventListener('noise-changed', noiseChangedHandler);
     }
 
+    // Mix-hint popup при ВСЕКИ нов звук (Тихол) — напомня за точката на
+    // смесване. Показва се само при НОВ звук (не при re-open на същия).
+    if (soundId !== prevSoundId) showMixHint();
+
     startProgressTick();
+  }
+
+  // Friendly mix-hint popup (70+: голям шрифт). Стои по-дълго от стандартен toast
+  // (~14с) за спокойно четене, после се маха само̀; X / „Разбрах" затварят по-рано;
+  // „Не показвай повече" → повече не се показва (persist флаг).
+  var MIX_HINT_MS = 14000;
+  var MIX_HINT_HIDDEN_KEY = 'auralis-mixhint-hidden';
+  function showMixHint() {
+    try { if (localStorage.getItem(MIX_HINT_HIDDEN_KEY) === '1') return; } catch (e) {}
+    var old = document.getElementById('mixHintOverlay');
+    if (old && old.parentNode) old.parentNode.removeChild(old);
+    var ov = document.createElement('div');
+    ov.id = 'mixHintOverlay';
+    ov.className = 'mix-hint-overlay';
+    ov.innerHTML =
+      '<div class="mix-hint-card" role="dialog" aria-label="Съвет за силата">' +
+        '<button class="mix-hint-x" type="button" aria-label="Затвори" data-mixhint="ok">×</button>' +
+        '<div class="mix-hint-emoji" aria-hidden="true">💛</div>' +
+        '<h2 class="mix-hint-title">Малък съвет за Вас</h2>' +
+        '<p class="mix-hint-body">Нагласете силата и микса както Ви е приятно — ' +
+          '<b>Вие решавате</b>.</p>' +
+        '<p class="mix-hint-body">За най-силен ефект и за да отслабва шумът с времето, ' +
+          'оставете звука да <b>не заглушава напълно</b> Вашия тинитус — добре е леко ' +
+          'да чувате и него под звука.</p>' +
+        '<button class="mix-hint-ok" type="button" data-mixhint="ok">Разбрах</button>' +
+        '<button class="mix-hint-never" type="button" data-mixhint="never">Не показвай повече</button>' +
+      '</div>';
+    document.body.appendChild(ov);
+    var timer = setTimeout(close, MIX_HINT_MS);
+    function close() {
+      if (timer) { clearTimeout(timer); timer = null; }
+      if (ov.parentNode) ov.parentNode.removeChild(ov);
+    }
+    ov.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-mixhint]');
+      if (!b) return;
+      if (b.getAttribute('data-mixhint') === 'never') {
+        try { localStorage.setItem(MIX_HINT_HIDDEN_KEY, '1'); } catch (x) {}
+      }
+      close();
+    });
   }
 
   // NAV-PARITY: audio cleanup отделен в idempotent функция — извиква се от:
