@@ -263,6 +263,74 @@ window.AudioEngine = (function () {
   }
   function getMasterVolume() { return masterVolume; }
 
+  // ============================================================
+  // VOLUME PREVIEW — pink noise референция докато потребителят настройва
+  // master slider-а (Home). Route-ва се през masterGain → loudness-ът се
+  // мени live заедно с master volume-а, така клиентът чува точно силата
+  // която ще остави. Напълно ИЗОЛИРАН source (собствен gain) → НЕ пипа
+  // layer1/layer2 нито audio recovery логиката. Минава през safety limiter
+  // (masterGain → safetyLimiter) → hearing protection остава активна.
+  // ============================================================
+  var previewSource    = null;
+  var previewGain      = null;
+  var previewStopTimer = null;
+  var PREVIEW_LEVEL    = 0.8;    // референтно ниво (под layer1 full=1.0, с headroom)
+  var PREVIEW_FADE_SEC = 0.12;
+
+  function startVolumePreview() {
+    if (!ctx) init();
+    if (!ctx || !masterGain) return;
+    if (ctx.state === 'suspended') {
+      ctx.resume().catch(function () { /* ignore */ });
+    }
+    // Ако вече свири реален звук → master промяната се чува през него;
+    // не наслагваме preview отгоре.
+    if (layer1.source || layer2.source) return;
+    if (previewStopTimer) { clearTimeout(previewStopTimer); previewStopTimer = null; }
+    if (previewSource) return;  // вече тече preview
+
+    var buffer = getOrGeneratePinkBuffer();
+    if (!buffer) return;
+
+    previewGain = ctx.createGain();
+    previewGain.gain.value = 0;
+    previewSource = ctx.createBufferSource();
+    previewSource.buffer = buffer;
+    previewSource.loop = true;
+    previewSource.connect(previewGain);
+    previewGain.connect(masterGain);
+    try { previewSource.start(0); } catch (e) { /* ignore */ }
+
+    var now = ctx.currentTime;
+    previewGain.gain.cancelScheduledValues(now);
+    previewGain.gain.setValueAtTime(0, now);
+    previewGain.gain.linearRampToValueAtTime(PREVIEW_LEVEL, now + PREVIEW_FADE_SEC);
+  }
+
+  function stopVolumePreview(delayMs) {
+    if (previewStopTimer) { clearTimeout(previewStopTimer); previewStopTimer = null; }
+    var ms = (typeof delayMs === 'number' && delayMs > 0) ? delayMs : 0;
+    previewStopTimer = setTimeout(function () {
+      previewStopTimer = null;
+      if (!previewSource || !ctx || !previewGain) {
+        previewSource = null; previewGain = null; return;
+      }
+      var now = ctx.currentTime;
+      try {
+        previewGain.gain.cancelScheduledValues(now);
+        previewGain.gain.setValueAtTime(previewGain.gain.value, now);
+        previewGain.gain.linearRampToValueAtTime(0, now + PREVIEW_FADE_SEC);
+      } catch (e) { /* ignore */ }
+      var src = previewSource, gn = previewGain;
+      previewSource = null; previewGain = null;
+      setTimeout(function () {
+        try { src.stop(); } catch (e) {}
+        try { src.disconnect(); } catch (e) {}
+        try { gn.disconnect(); } catch (e) {}
+      }, (PREVIEW_FADE_SEC * 1000) + 40);
+    }, ms);
+  }
+
   function applyLayerVolume(layer, isFinal) {
     if (!layer.gainNode || !ctx) return;
     var target = volumeToGain(layer.volume);
@@ -1511,6 +1579,8 @@ window.AudioEngine = (function () {
     // Master + sleep
     setMasterVolume: setMasterVolume,
     getMasterVolume: getMasterVolume,
+    startVolumePreview: startVolumePreview,
+    stopVolumePreview: stopVolumePreview,
     setSleepTimer: setSleepTimer,
     cancelSleepTimer: cancelSleepTimer,
     getSleepTimerInfo: getSleepTimerInfo,

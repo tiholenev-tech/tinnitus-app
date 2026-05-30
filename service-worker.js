@@ -19,7 +19,7 @@
 // CACHE_AUDIO бамп също защото старите URLs (audio/library/* и
 // library_staging_loop_ready/*) са персистнали → нови URLs
 // (library_staging_normalized/*) не са в стария cache + 503 offline.
-var VERSION = '1.0.77';
+var VERSION = '1.0.78';
 var CACHE_SHELL = 'auralis-shell-v' + VERSION;
 var CACHE_I18N = 'auralis-i18n-v' + VERSION;
 var CACHE_AUDIO = 'auralis-audio-v3';
@@ -69,9 +69,22 @@ var SHELL_FILES = [
 self.addEventListener('install', function (e) {
   e.waitUntil(
     caches.open(CACHE_SHELL).then(function (cache) {
-      return cache.addAll(SHELL_FILES).catch(function (err) {
-        console.warn('[SW] Shell precache partial fail:', err);
-      });
+      // DESYNC FIX 2026-05-30: НЕ ползваме cache.addAll защото то fetch-ва
+      // през browser HTTP cache (default). При дълъг max-age browser-ът
+      // може да върне СТАР css/js → тогава новият SW cache получава СТАР
+      // файл въпреки VERSION bump → desync (нов JS markup + стар CSS, или
+      // стар audio-engine.js → master volume reset на 50%).
+      // fetch с {cache:'reload'} bypass-ва HTTP cache → винаги свеж файл.
+      // Грешка на отделен файл НЕ прекъсва целия precache (per-file catch).
+      return Promise.all(SHELL_FILES.map(function (url) {
+        return fetch(new Request(url, { cache: 'reload' })).then(function (resp) {
+          if (resp && resp.ok) {
+            return cache.put(url, resp);
+          }
+        }).catch(function (err) {
+          console.warn('[SW] precache fail:', url, err);
+        });
+      }));
     })
   );
   self.skipWaiting();

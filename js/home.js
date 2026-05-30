@@ -532,8 +532,20 @@ window.Home = (function () {
     val = Math.max(0, Math.min(100, val));
     var label = el('homeVolValue');
     if (label) label.textContent = val + '%';
-    if (window.AudioEngine && window.AudioEngine.setMasterVolume) {
-      window.AudioEngine.setMasterVolume(val, e.type === 'change');
+    var isFinal = (e.type === 'change');
+    if (window.AudioEngine) {
+      // Preview noise: докато потребителят влачи, пускаме pink noise през
+      // master gain → той чува реалната сила и сам преценява какво да остави.
+      // На release (change) оставяме звука кратко на финалното ниво, после fade.
+      if (!isFinal && window.AudioEngine.startVolumePreview) {
+        window.AudioEngine.startVolumePreview();
+      }
+      if (window.AudioEngine.setMasterVolume) {
+        window.AudioEngine.setMasterVolume(val, isFinal);
+      }
+      if (isFinal && window.AudioEngine.stopVolumePreview) {
+        window.AudioEngine.stopVolumePreview(800);
+      }
     }
     // 'change' = финален commit (потребителят пусна плъзгача) → пиши веднага,
     // за да не се загуби стойността ако навигира < 300ms след това.
