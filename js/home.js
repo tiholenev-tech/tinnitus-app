@@ -199,6 +199,12 @@ window.Home = (function () {
       '<line x1="14" y1="8" x2="14" y2="16"/>' +
       '<line x1="18" y1="5" x2="18" y2="19"/>',
       2
+    ),
+    speaker: svg(
+      '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>' +
+      '<path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>' +
+      '<path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>',
+      2
     )
   };
 
@@ -260,6 +266,12 @@ window.Home = (function () {
   // PACK C T1 — Constants
   var THI_GOAL = 40;
   var THI_RETEST_DAY_MIN = 13;
+
+  // Pitch retest banner — soft caution ако последен тест е < N дни.
+  // Pitch-matching тестът е най-надежден при няколко дни между измерванията
+  // (test-retest reliability); банерът обаче СТОИ постоянно (user decision).
+  var PITCH_RETEST_MIN_DAYS = 7;
+  var STORAGE_VOLUME = 'auralis-master-volume';
 
   // Bug 5 (T1.5): THI-ENTRY CTA — показва се ако calibration done но
   // baseline още не. Подсказва user-а да направи THI оценка преди да
@@ -397,6 +409,137 @@ window.Home = (function () {
 
   function openThiRetest() {
     if (window.ThiBaseline && window.ThiBaseline.open) window.ThiBaseline.open();
+  }
+
+  // ============================================================
+  // Pitch retest banner — ВИНАГИ видим (user decision). Adaptive copy +
+  // info бутон (→ ScienceInfo s3, цитати Pantev 2012 / Stein 2015) + CTA.
+  // ============================================================
+
+  function getLastPitchTs() {
+    var s = window.AppState || {};
+    var arr = s.pitchTests;
+    if (arr && arr.length) {
+      var last = arr[arr.length - 1];
+      return (last && last.timestamp) || null;
+    }
+    return null;
+  }
+
+  function buildPitchBanner() {
+    var s = window.AppState || {};
+    var done = !!(s.isPitchTestDone && s.isPitchTestDone());
+    var freq = (s.getNotchFreq && s.getNotchFreq()) || null;
+
+    var title, body, cta;
+    if (done && freq) {
+      title = t('home.pitch.done_title', 'Тон на тинитуса');
+      body  = t('home.pitch.done_body', 'Текущ профил: {hz} Hz. Можете да повторите теста при нужда.', { hz: freq });
+      cta   = t('home.pitch.done_cta', 'Повтори теста');
+    } else if (done) {
+      title = t('home.pitch.skipped_title', 'Тон на тинитуса');
+      body  = t('home.pitch.skipped_body', 'Тестът беше пропуснат. Направете го за персонализиран филтър.');
+      cta   = t('home.pitch.skipped_cta', 'Направи тест');
+    } else {
+      title = t('home.pitch.new_title', 'Тон на тинитуса');
+      body  = t('home.pitch.new_body', 'Открийте честотата на вашия тинитус за персонализиран notch филтър.');
+      cta   = t('home.pitch.new_cta', 'Направи тест');
+    }
+
+    var cautionHtml = '';
+    var lastTs = getLastPitchTs();
+    if (lastTs) {
+      var days = Math.floor((Date.now() - lastTs) / 86400000);
+      if (days < PITCH_RETEST_MIN_DAYS) {
+        var caution = t('home.pitch.caution',
+          'Не е нужно да тествате често — резултатите са най-надеждни при няколко дни между измерванията.');
+        cautionHtml = '<span class="home-pitch-caution">' + escapeHtml(caution) + '</span>';
+      }
+    }
+
+    var infoAria = t('home.pitch.infoAria', 'Научна информация за теста');
+    return (
+      '<div class="home-pitch-card glass sm">' +
+        '<span class="shine" aria-hidden="true"></span>' +
+        '<span class="shine shine-bottom" aria-hidden="true"></span>' +
+        '<div class="home-pitch-main">' +
+          '<div class="home-pitch-text">' +
+            '<span class="home-pitch-title">' + escapeHtml(title) + '</span>' +
+            '<span class="home-pitch-body">' + escapeHtml(body) + '</span>' +
+            cautionHtml +
+          '</div>' +
+          '<button class="home-pitch-info" type="button" data-action="pitch-info"' +
+            ' aria-label="' + escapeHtml(infoAria) + '">' + SVG.info + '</button>' +
+        '</div>' +
+        '<button class="home-pitch-cta" type="button" data-action="pitch-retest">' +
+          escapeHtml(cta) + ' ›' +
+        '</button>' +
+      '</div>'
+    );
+  }
+
+  function openPitchTest() {
+    if (window.PitchTest && window.PitchTest.open) window.PitchTest.open();
+  }
+
+  function openPitchInfo() {
+    if (window.ScienceInfo && window.ScienceInfo.open) window.ScienceInfo.open('s3');
+  }
+
+  // ============================================================
+  // Master volume card — преместен от Настройки (user decision). Slider-only,
+  // без keyboard. Persist в localStorage (същия ключ като старата Settings).
+  // ============================================================
+
+  function getMasterVol() {
+    if (window.AudioEngine && window.AudioEngine.getMasterVolume) {
+      return window.AudioEngine.getMasterVolume();
+    }
+    try {
+      var saved = localStorage.getItem(STORAGE_VOLUME);
+      if (saved !== null) {
+        var n = parseInt(saved, 10);
+        if (!isNaN(n)) return n;
+      }
+    } catch (e) {}
+    return 50;
+  }
+
+  function buildVolumeCard() {
+    var vol = getMasterVol();
+    var label = t('home.volume.label', 'Сила на звука');
+    var aria  = t('home.volume.aria', 'Сила на звука 0-100');
+    return (
+      '<div class="home-volume-card glass sm">' +
+        '<span class="shine" aria-hidden="true"></span>' +
+        '<span class="shine shine-bottom" aria-hidden="true"></span>' +
+        '<div class="home-volume-head">' +
+          '<span class="home-volume-icon" aria-hidden="true">' + SVG.speaker + '</span>' +
+          '<span class="home-volume-label">' + escapeHtml(label) + '</span>' +
+          '<span class="home-volume-value" id="homeVolValue">' + vol + '%</span>' +
+        '</div>' +
+        '<input type="range" class="home-volume-slider" id="homeVolSlider"' +
+          ' min="0" max="100" step="1" value="' + vol + '"' +
+          ' aria-label="' + escapeHtml(aria) + '">' +
+      '</div>'
+    );
+  }
+
+  var homeVolTimer = null;
+  function onHomeVolInput(e) {
+    var val = parseInt(e.currentTarget.value, 10);
+    if (isNaN(val)) return;
+    val = Math.max(0, Math.min(100, val));
+    var label = el('homeVolValue');
+    if (label) label.textContent = val + '%';
+    if (window.AudioEngine && window.AudioEngine.setMasterVolume) {
+      window.AudioEngine.setMasterVolume(val, e.type === 'change');
+    }
+    if (homeVolTimer) clearTimeout(homeVolTimer);
+    homeVolTimer = setTimeout(function () {
+      homeVolTimer = null;
+      try { localStorage.setItem(STORAGE_VOLUME, String(val)); } catch (e2) {}
+    }, 300);
   }
 
   function buildThiSubscoresHtml(breakdown) {
@@ -537,8 +680,11 @@ window.Home = (function () {
         buildThiCta() +
         buildThiBanner() +
         buildThiBadge() +
+        buildPitchBanner() +
 
         '<div class="home-cat-list">' + cardsHtml + '</div>' +
+
+        buildVolumeCard() +
 
         '<div class="home-bottom-row">' +
           '<button class="home-bottom-btn" type="button" data-action="open-diary">' +
@@ -561,6 +707,11 @@ window.Home = (function () {
   function bindEvents(container) {
     container.addEventListener('click', onClick);
     container.addEventListener('keydown', onKeyDown);
+    var volSlider = container.querySelector('#homeVolSlider');
+    if (volSlider) {
+      volSlider.addEventListener('input', onHomeVolInput);
+      volSlider.addEventListener('change', onHomeVolInput);
+    }
   }
 
   function onClick(e) {
@@ -584,6 +735,10 @@ window.Home = (function () {
       openThiDetailSheet();
     } else if (action === 'thi-retest') {
       openThiRetest();
+    } else if (action === 'pitch-retest') {
+      openPitchTest();
+    } else if (action === 'pitch-info') {
+      openPitchInfo();
     } else if (action === 'thi-start') {
       openThiStart();
     } else if (action === 'open-science') {

@@ -688,8 +688,8 @@ window.Settings = (function () {
         '<div class="set-body">' +
           buildThemeSection() +
           buildLanguageSection() +
-          buildVolumeSection() +
-          buildVolumeProfilesSection() +
+          // Master volume + volume profiles преместени на началния екран
+          // (Home → buildVolumeCard). Виж js/home.js.
           buildNotchSection() +
           buildRemindersSection() +
           buildFavoritesButton() +

@@ -408,3 +408,29 @@
 .home-thi-cta-title { font-size:15px; font-weight:800; line-height:1.25; color:var(--text); }
 .home-thi-cta-body { font-size:12.5px; font-weight:500; line-height:1.4; color:var(--text-muted); }
 .home-thi-cta-btn { flex-shrink:0; padding:8px 14px; border-radius:var(--radius-pill); background:linear-gradient(135deg, hsl(var(--hue1) 65% 55%), hsl(var(--hue2) 65% 55%)); color:white; font-family:var(--font-mono); font-size:12px; font-weight:700; box-shadow:0 4px 12px hsl(var(--hue1) 60% 50% / 0.3); }
+
+/* ═══ Pitch retest banner — glass card, ВИНАГИ видим ═══ */
+.home-pitch-card { display:block; width:100%; margin:4px 0 14px; padding:14px 16px; text-align:left; }
+.home-pitch-main { display:flex; align-items:flex-start; gap:12px; }
+.home-pitch-text { display:flex; flex-direction:column; flex:1; min-width:0; gap:3px; }
+.home-pitch-title { font-size:15px; font-weight:800; line-height:1.25; color:var(--text); }
+.home-pitch-body { font-size:12.5px; font-weight:500; line-height:1.4; color:var(--text-muted); }
+.home-pitch-caution { font-size:11.5px; font-weight:600; line-height:1.4; color:hsl(38 75% 50%); margin-top:2px; }
+[data-theme="dark"] .home-pitch-caution { color:hsl(42 75% 72%); }
+.home-pitch-info { flex-shrink:0; width:30px; height:30px; padding:0; display:flex; align-items:center; justify-content:center; border:none; border-radius:var(--radius-pill); background:hsl(220 25% 50% / 0.14); color:var(--text-muted); cursor:pointer; transition:transform var(--dur-fast) var(--ease); }
+.home-pitch-info:active { transform:scale(0.94); }
+.home-pitch-info svg { width:17px; height:17px; }
+.home-pitch-cta { display:block; width:100%; margin-top:12px; padding:11px 16px; border:none; border-radius:var(--radius-pill); background:linear-gradient(135deg, hsl(var(--hue1) 65% 55%), hsl(var(--hue2) 65% 55%)); color:white; font-family:var(--font-mono); font-size:13px; font-weight:700; letter-spacing:0.02em; cursor:pointer; box-shadow:0 4px 12px hsl(var(--hue1) 60% 50% / 0.3); transition:transform var(--dur-fast) var(--ease); }
+.home-pitch-cta:active { transform:scale(0.98); }
+
+/* ═══ Master volume card — преместен от Настройки, slider-only ═══ */
+.home-volume-card { display:block; width:100%; margin:0 0 14px; padding:14px 16px; }
+.home-volume-head { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.home-volume-icon { flex-shrink:0; width:20px; height:20px; color:var(--text-muted); display:flex; align-items:center; justify-content:center; }
+.home-volume-icon svg { width:20px; height:20px; }
+.home-volume-label { flex:1; font-size:14px; font-weight:700; color:var(--text); }
+.home-volume-value { flex-shrink:0; font-family:var(--font-mono); font-size:13px; font-weight:700; color:var(--text-muted); }
+.home-volume-slider { -webkit-appearance:none; appearance:none; width:100%; height:6px; border-radius:999px; background:hsl(220 25% 50% / 0.22); outline:none; cursor:pointer; }
+[data-theme="dark"] .home-volume-slider { background:hsl(220 25% 70% / 0.18); }
+.home-volume-slider::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:22px; height:22px; border-radius:50%; background:linear-gradient(135deg, hsl(var(--hue1) 65% 58%), hsl(var(--hue2) 65% 58%)); box-shadow:0 2px 8px hsl(var(--hue1) 60% 50% / 0.4); cursor:pointer; }
+.home-volume-slider::-moz-range-thumb { width:22px; height:22px; border:none; border-radius:50%; background:linear-gradient(135deg, hsl(var(--hue1) 65% 58%), hsl(var(--hue2) 65% 58%)); box-shadow:0 2px 8px hsl(var(--hue1) 60% 50% / 0.4); cursor:pointer; }
