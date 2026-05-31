@@ -551,8 +551,21 @@
       return last.freq;
     },
 
+    // Старира 14-дневната програма при ПЪРВИ запис, БЕЗ да трие нищо
+    // (за разлика от startProgram). Ден 1 = днес (00:00). Поправя бъга
+    // „попълних дневника, а пише незапочнат" (startProgram не се викаше никъде).
+    ensureProgramStarted: function () {
+      if (this.programStartDate) return;
+      var d = new Date(); d.setHours(0, 0, 0, 0);
+      this.programStartDate = d.getTime();
+      this.currentProgramDay = 1;
+      set(KEY_PROGRAM_START_DATE, String(this.programStartDate));
+      set(KEY_PROGRAM_CURRENT_DAY, '1');
+    },
+
     saveDiaryEntry: function (dateKey, partial) {
       // partial = { evening?:..., morning?:..., cbtCompleted?:..., cbtReflection?:... }
+      this.ensureProgramStarted();   // първи запис → програмата тръгва (ден 1 = днес)
       if (!this.diaryEntries[dateKey]) this.diaryEntries[dateKey] = {};
       Object.keys(partial).forEach(function (k) {
         this.diaryEntries[dateKey][k] = partial[k];

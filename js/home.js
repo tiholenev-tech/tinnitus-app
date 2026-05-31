@@ -742,9 +742,36 @@ window.Home = (function () {
     return buildTestCard(o);
   }
 
+  // Дневник карта — горе до тестовете, ДОКАТО не е попълнен днешният запис
+  // (Тихол: напомняне + видимост). Скрива се щом днес е попълнен.
+  function buildDiaryCard() {
+    var s = window.AppState || {};
+    var started = !!s.programStartDate;
+    var day = s.currentProgramDay || 1;
+    var tk = s.todayKey ? s.todayKey() : null;
+    var todayEntry = (s.diaryEntries && tk) ? s.diaryEntries[tk] : null;
+    var todayDone = !!(todayEntry && (todayEntry.evening || todayEntry.cbtCompleted));
+    var o = { icon: SVG.book, name: t('home.diary.name', 'Дневник'), btnAction: 'open-diary' };
+    if (!started) {
+      o.state = 'todo';
+      o.statusMain = t('home.diary.todoMain', 'Започнете да следите');
+      o.statusSub = t('home.diary.todoSub', 'Сън и настроение · 14 дни');
+      o.btnLabel = t('home.diary.startBtn', 'Започни');
+    } else if (!todayDone) {
+      o.state = 'due';
+      o.statusMain = t('home.diary.dueFmt', 'Ден {n} от 14', { n: Math.min(day, 14) });
+      o.statusSub = t('home.diary.dueSub', 'Попълнете днешния запис');
+      o.btnLabel = t('home.diary.fillBtn', 'Попълни');
+    } else {
+      return '';   // днес е попълнен → не показваме (достъпен от долния ред)
+    }
+    return buildTestCard(o);
+  }
+
   function buildTestsSection() {
     var thiCard = buildThiTestCard();
     var pitchCard = buildPitchTestCard();
+    var diaryCard = buildDiaryCard();
     // брояч „готови" — done = завършен с резултат (не недовършен, не „по желание").
     var s = window.AppState || {};
     var thiDoneN = (typeof s.thiBaseline === 'number'
@@ -762,7 +789,7 @@ window.Home = (function () {
           '<span class="home-tests-counter" data-full="' + (doneCount === 2 ? 'true' : 'false') + '">' +
             escapeHtml(counter) + '</span>' +
         '</div>' +
-        '<div class="home-tests-list">' + thiCard + pitchCard + '</div>' +
+        '<div class="home-tests-list">' + thiCard + pitchCard + diaryCard + '</div>' +
       '</section>'
     );
   }
