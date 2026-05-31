@@ -520,10 +520,10 @@ window.AudioEngine = (function () {
         return new Promise(function (resolve, reject) {
           ctx.decodeAudioData(arr,
             function (buffer) {
-              // NOTE: L1 .opus буфери НЕ получават loop-crossfade — те са
-              // content recordings (prep_loop.py отговорност), не runtime
-              // noise generators. Click reports от user = L2 noise (brown/
-              // pink) loop boundary, fixed чрез detrend в applyLoopCrossfade.
+              // SEAMLESS LOOP (Тихол: „никаква граница"): ако файлът има
+              // fade-in/out към тишина → overlap-add crossfade прави loop-а
+              // безшумен. Seamless-те файлове минават непокътнати (no-op).
+              try { buffer = makeSeamlessLoop(buffer, 1.5); } catch (e) {}
               bufferCache[url] = buffer;
               console.log('[audio] decoded:', url, '(' + buffer.duration.toFixed(1) + 's)');
               resolve(buffer);
@@ -607,6 +607,69 @@ window.AudioEngine = (function () {
                       + head[j] * (sinVal * sinVal);
     }
     console.log('[noise-loop] detrended + crossfaded:', fadeSec + 's fade на', (N / sr).toFixed(1) + 's buffer');
+  }
+
+  // ============================================================
+  // SEAMLESS LOOP за library звуци (Тихол: „никаква граница")
+  // ============================================================
+  // Някои файлове имат fade-in/fade-out към тишина (prep_loop.py) → при
+  // loop=true се чува спад/пауза на шева (~0.5–1.5s). 23/256 файла, основно
+  // музика + „designed" ефекти (виж tools/check_loop_gap.py).
+  //
+  // Fix БЕЗ прекодиране: overlap-add loop crossfade. Премахваме последните O
+  // секунди и ги наслагваме върху първите O с equal-power crossfade:
+  //   • затихващият край се сумира с усилващото се начало → спадът се ЗАПЪЛВА
+  //   • new[newN-1] = src[newN-1] → new[0] = src[newN] (съседни в оригинала)
+  //     → шевът е sample-continuous → безшумен безкраен loop.
+  // Прилага се САМО ако се открие fade (edge RMS доста под mid) — вече
+  // seamless-те файлове (233) НЕ се пипат.
+  function makeSeamlessLoop(buffer, overlapSec) {
+    if (!buffer || !buffer.getChannelData) return buffer;
+    var sr = buffer.sampleRate;
+    var N = buffer.length;
+    var ch = buffer.numberOfChannels;
+    var O = Math.floor(sr * overlapSec);
+    if (O < 2048 || N < O * 3) return buffer;   // твърде кратък — пропусни
+
+    function rms(data, start, len) {
+      var end = Math.min(start + len, data.length);
+      var s = 0, n = 0;
+      for (var i = start; i < end; i++) { var v = data[i]; s += v * v; n++; }
+      return n ? Math.sqrt(s / n) : 0;
+    }
+    // Детекция върху КЪС ръб (0.3s) — fade-ът е към самия край; широк
+    // прозорец го разрежда и крие. (Mid = 1s референция от средата.)
+    var d0 = buffer.getChannelData(0);
+    var EPS = 1e-7;
+    var DET = Math.floor(sr * 0.3);
+    var MIDW = Math.floor(sr * 1.0);
+    var lead = rms(d0, 0, DET);
+    var trail = rms(d0, N - DET, DET);
+    var mid = rms(d0, Math.floor(N / 2 - MIDW / 2), MIDW);
+    var leadDrop = 20 * Math.log10((mid + EPS) / (lead + EPS));
+    var trailDrop = 20 * Math.log10((mid + EPS) / (trail + EPS));
+    // Праг 6 dB: открива fade-а, но не пипа естествено по-тихи краища.
+    if (leadDrop < 6 && trailDrop < 6) return buffer;
+
+    var newN = N - O;
+    var out;
+    try { out = ctx.createBuffer(ch, newN, sr); }
+    catch (e) { return buffer; }
+    for (var c = 0; c < ch; c++) {
+      var src = buffer.getChannelData(c);
+      var dst = out.getChannelData(c);
+      for (var i = 0; i < newN; i++) dst[i] = src[i];
+      for (var j = 0; j < O; j++) {
+        var t = j / O;
+        var fadeIn = Math.sin(Math.PI / 2 * t);   // начало 0→1
+        var fadeOut = Math.cos(Math.PI / 2 * t);  // премахнат край 1→0
+        dst[j] = src[j] * fadeIn + src[newN + j] * fadeOut;
+      }
+    }
+    console.log('[seamless] loop crossfade ' + overlapSec + 's · lead -' +
+      leadDrop.toFixed(1) + 'dB trail -' + trailDrop.toFixed(1) + 'dB · ' +
+      (N / sr).toFixed(1) + 's→' + (newN / sr).toFixed(1) + 's');
+    return out;
   }
 
   // ============================================================
