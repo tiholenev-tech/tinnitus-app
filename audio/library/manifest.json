@@ -2,7 +2,7 @@
  "version": "2.0",
  "generated": "2026-05-26T20:38:16Z",
  "source": "library_staging_compact",
- "soundCount": 256,
+ "soundCount": 280,
  "sounds": [
   {
    "id": "ambience_air_inside_bunker_sea_ambience_from_outside_02",
@@ -8471,6 +8471,846 @@
    "SM_F_score": 5.6,
    "HB_M_score": 5.6,
    "source_note": "[FROM_RESEARCH: режекторен филтър ред 84 — музика optimal]"
+  },
+  {
+   "id": "water_turbulent_river_small_waterfall",
+   "filename": "03_river/water_turbulent_river_small_waterfall.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 120.0,
+   "bg_title": "Малък бурен водопад",
+   "title_key": "library.sounds.water_turbulent_river_small_waterfall.title",
+   "subtitle_key": "library.sounds.water_turbulent_river_small_waterfall.subtitle",
+   "description_key": "library.sounds.water_turbulent_river_small_waterfall.description",
+   "why_key": "library.sounds.water_turbulent_river_small_waterfall.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_at_top_water_falling_into_creek_below",
+   "filename": "03_river/water_waterfall_at_top_water_falling_into_creek_below.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 72.2,
+   "bg_title": "Водопад над поточето",
+   "title_key": "library.sounds.water_waterfall_at_top_water_falling_into_creek_below.title",
+   "subtitle_key": "library.sounds.water_waterfall_at_top_water_falling_into_creek_below.subtitle",
+   "description_key": "library.sounds.water_waterfall_at_top_water_falling_into_creek_below.description",
+   "why_key": "library.sounds.water_waterfall_at_top_water_falling_into_creek_below.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_creek_from_waterfall_close",
+   "filename": "03_river/water_waterfall_creek_from_waterfall_close.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 56.5,
+   "bg_title": "Водопад над поток",
+   "title_key": "library.sounds.water_waterfall_creek_from_waterfall_close.title",
+   "subtitle_key": "library.sounds.water_waterfall_creek_from_waterfall_close.subtitle",
+   "description_key": "library.sounds.water_waterfall_creek_from_waterfall_close.description",
+   "why_key": "library.sounds.water_waterfall_creek_from_waterfall_close.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_distant_iceland_close",
+   "filename": "03_river/water_waterfall_distant_iceland_close.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 124.9,
+   "bg_title": "Исландски водопад отблизо",
+   "title_key": "library.sounds.water_waterfall_distant_iceland_close.title",
+   "subtitle_key": "library.sounds.water_waterfall_distant_iceland_close.subtitle",
+   "description_key": "library.sounds.water_waterfall_distant_iceland_close.description",
+   "why_key": "library.sounds.water_waterfall_distant_iceland_close.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_distant_iceland_high_perspective",
+   "filename": "03_river/water_waterfall_distant_iceland_high_perspective.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 129.1,
+   "bg_title": "Исландски водопад отвисоко",
+   "title_key": "library.sounds.water_waterfall_distant_iceland_high_perspective.title",
+   "subtitle_key": "library.sounds.water_waterfall_distant_iceland_high_perspective.subtitle",
+   "description_key": "library.sounds.water_waterfall_distant_iceland_high_perspective.description",
+   "why_key": "library.sounds.water_waterfall_distant_iceland_high_perspective.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_distant_iceland_semi_close",
+   "filename": "03_river/water_waterfall_distant_iceland_semi_close.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 138.7,
+   "bg_title": "Далечен исландски водопад",
+   "title_key": "library.sounds.water_waterfall_distant_iceland_semi_close.title",
+   "subtitle_key": "library.sounds.water_waterfall_distant_iceland_semi_close.subtitle",
+   "description_key": "library.sounds.water_waterfall_distant_iceland_semi_close.description",
+   "why_key": "library.sounds.water_waterfall_distant_iceland_semi_close.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_forest_ambience_birds_chirp",
+   "filename": "03_river/water_waterfall_forest_ambience_birds_chirp.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 50.0,
+   "bg_title": "Горски водопад с птици",
+   "title_key": "library.sounds.water_waterfall_forest_ambience_birds_chirp.title",
+   "subtitle_key": "library.sounds.water_waterfall_forest_ambience_birds_chirp.subtitle",
+   "description_key": "library.sounds.water_waterfall_forest_ambience_birds_chirp.description",
+   "why_key": "library.sounds.water_waterfall_forest_ambience_birds_chirp.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_grand_marais_minnesota",
+   "filename": "03_river/water_waterfall_grand_marais_minnesota.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 53.5,
+   "bg_title": "Водопад в Минесота",
+   "title_key": "library.sounds.water_waterfall_grand_marais_minnesota.title",
+   "subtitle_key": "library.sounds.water_waterfall_grand_marais_minnesota.subtitle",
+   "description_key": "library.sounds.water_waterfall_grand_marais_minnesota.description",
+   "why_key": "library.sounds.water_waterfall_grand_marais_minnesota.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_into_shallow_pool_forest",
+   "filename": "03_river/water_waterfall_into_shallow_pool_forest.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 91.8,
+   "bg_title": "Горски водопад в плитчина",
+   "title_key": "library.sounds.water_waterfall_into_shallow_pool_forest.title",
+   "subtitle_key": "library.sounds.water_waterfall_into_shallow_pool_forest.subtitle",
+   "description_key": "library.sounds.water_waterfall_into_shallow_pool_forest.description",
+   "why_key": "library.sounds.water_waterfall_into_shallow_pool_forest.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_large",
+   "filename": "03_river/water_waterfall_large.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 57.2,
+   "bg_title": "Голям водопад",
+   "title_key": "library.sounds.water_waterfall_large.title",
+   "subtitle_key": "library.sounds.water_waterfall_large.subtitle",
+   "description_key": "library.sounds.water_waterfall_large.description",
+   "why_key": "library.sounds.water_waterfall_large.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_4_0",
+   "filename": "03_river/water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_4_0.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 189.9,
+   "bg_title": "Голям 10-метров водопад",
+   "title_key": "library.sounds.water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_4_0.title",
+   "subtitle_key": "library.sounds.water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_4_0.subtitle",
+   "description_key": "library.sounds.water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_4_0.description",
+   "why_key": "library.sounds.water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_4_0.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_loud_waterfall",
+   "filename": "03_river/water_waterfall_loud_waterfall.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 60.0,
+   "bg_title": "Гръмък водопад",
+   "title_key": "library.sounds.water_waterfall_loud_waterfall.title",
+   "subtitle_key": "library.sounds.water_waterfall_loud_waterfall.subtitle",
+   "description_key": "library.sounds.water_waterfall_loud_waterfall.description",
+   "why_key": "library.sounds.water_waterfall_loud_waterfall.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_niagra_falls_distant",
+   "filename": "03_river/water_waterfall_niagra_falls_distant.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 89.8,
+   "bg_title": "Ниагарският водопад отдалеч",
+   "title_key": "library.sounds.water_waterfall_niagra_falls_distant.title",
+   "subtitle_key": "library.sounds.water_waterfall_niagra_falls_distant.subtitle",
+   "description_key": "library.sounds.water_waterfall_niagra_falls_distant.description",
+   "why_key": "library.sounds.water_waterfall_niagra_falls_distant.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_river_creek_australia",
+   "filename": "03_river/water_waterfall_river_creek_australia.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 56.1,
+   "bg_title": "Австралийски водопад над поток",
+   "title_key": "library.sounds.water_waterfall_river_creek_australia.title",
+   "subtitle_key": "library.sounds.water_waterfall_river_creek_australia.subtitle",
+   "description_key": "library.sounds.water_waterfall_river_creek_australia.description",
+   "why_key": "library.sounds.water_waterfall_river_creek_australia.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_small_birds",
+   "filename": "03_river/water_waterfall_small_birds.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 41.4,
+   "bg_title": "Малък водопад с птици",
+   "title_key": "library.sounds.water_waterfall_small_birds.title",
+   "subtitle_key": "library.sounds.water_waterfall_small_birds.subtitle",
+   "description_key": "library.sounds.water_waterfall_small_birds.description",
+   "why_key": "library.sounds.water_waterfall_small_birds.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_small_burbling_in_forest",
+   "filename": "03_river/water_waterfall_small_burbling_in_forest.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 58.2,
+   "bg_title": "Бълбукащ горски водопад",
+   "title_key": "library.sounds.water_waterfall_small_burbling_in_forest.title",
+   "subtitle_key": "library.sounds.water_waterfall_small_burbling_in_forest.subtitle",
+   "description_key": "library.sounds.water_waterfall_small_burbling_in_forest.description",
+   "why_key": "library.sounds.water_waterfall_small_burbling_in_forest.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_small_long_fall_flowing_trickle",
+   "filename": "03_river/water_waterfall_small_long_fall_flowing_trickle.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 178.4,
+   "bg_title": "Тънък дълъг водопад",
+   "title_key": "library.sounds.water_waterfall_small_long_fall_flowing_trickle.title",
+   "subtitle_key": "library.sounds.water_waterfall_small_long_fall_flowing_trickle.subtitle",
+   "description_key": "library.sounds.water_waterfall_small_long_fall_flowing_trickle.description",
+   "why_key": "library.sounds.water_waterfall_small_long_fall_flowing_trickle.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_strong_flow_forest_lower_waterfall_people_chatter_evening_zenny_fall_telluride",
+   "filename": "03_river/water_waterfall_strong_flow_forest_lower_waterfall_people_chatter_evening_zenny_fall_telluride.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 158.5,
+   "bg_title": "Силен горски водопад",
+   "title_key": "library.sounds.water_waterfall_strong_flow_forest_lower_waterfall_people_chatter_evening_zenny_fall_telluride.title",
+   "subtitle_key": "library.sounds.water_waterfall_strong_flow_forest_lower_waterfall_people_chatter_evening_zenny_fall_telluride.subtitle",
+   "description_key": "library.sounds.water_waterfall_strong_flow_forest_lower_waterfall_people_chatter_evening_zenny_fall_telluride.description",
+   "why_key": "library.sounds.water_waterfall_strong_flow_forest_lower_waterfall_people_chatter_evening_zenny_fall_telluride.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_top_deep_water_flowing_before_falling",
+   "filename": "03_river/water_waterfall_top_deep_water_flowing_before_falling.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 78.6,
+   "bg_title": "Водата преди водопада",
+   "title_key": "library.sounds.water_waterfall_top_deep_water_flowing_before_falling.title",
+   "subtitle_key": "library.sounds.water_waterfall_top_deep_water_flowing_before_falling.subtitle",
+   "description_key": "library.sounds.water_waterfall_top_deep_water_flowing_before_falling.description",
+   "why_key": "library.sounds.water_waterfall_top_deep_water_flowing_before_falling.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_water_big_waterfall_little_andaman",
+   "filename": "03_river/water_waterfall_water_big_waterfall_little_andaman.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 180.0,
+   "bg_title": "Голям водопад на Андаман",
+   "title_key": "library.sounds.water_waterfall_water_big_waterfall_little_andaman.title",
+   "subtitle_key": "library.sounds.water_waterfall_water_big_waterfall_little_andaman.subtitle",
+   "description_key": "library.sounds.water_waterfall_water_big_waterfall_little_andaman.description",
+   "why_key": "library.sounds.water_waterfall_water_big_waterfall_little_andaman.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_waterfall_200m_distant_strong_flow_forest_light_wind_evening_sunset_zenny_fall_telluride",
+   "filename": "03_river/water_waterfall_waterfall_200m_distant_strong_flow_forest_light_wind_evening_sunset_zenny_fall_telluride.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 177.0,
+   "bg_title": "Далечен горски водопад",
+   "title_key": "library.sounds.water_waterfall_waterfall_200m_distant_strong_flow_forest_light_wind_evening_sunset_zenny_fall_telluride.title",
+   "subtitle_key": "library.sounds.water_waterfall_waterfall_200m_distant_strong_flow_forest_light_wind_evening_sunset_zenny_fall_telluride.subtitle",
+   "description_key": "library.sounds.water_waterfall_waterfall_200m_distant_strong_flow_forest_light_wind_evening_sunset_zenny_fall_telluride.description",
+   "why_key": "library.sounds.water_waterfall_waterfall_200m_distant_strong_flow_forest_light_wind_evening_sunset_zenny_fall_telluride.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_waterfall_medium_flow_02",
+   "filename": "03_river/water_waterfall_waterfall_medium_flow_02.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 193.8,
+   "bg_title": "Среден водопад",
+   "title_key": "library.sounds.water_waterfall_waterfall_medium_flow_02.title",
+   "subtitle_key": "library.sounds.water_waterfall_waterfall_medium_flow_02.subtitle",
+   "description_key": "library.sounds.water_waterfall_waterfall_medium_flow_02.description",
+   "why_key": "library.sounds.water_waterfall_waterfall_medium_flow_02.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "water_waterfall_waterfalls_30_feet_away_pyrenees_france",
+   "filename": "03_river/water_waterfall_waterfalls_30_feet_away_pyrenees_france.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 80.5,
+   "bg_title": "Водопад в Пиренеите",
+   "title_key": "library.sounds.water_waterfall_waterfalls_30_feet_away_pyrenees_france.title",
+   "subtitle_key": "library.sounds.water_waterfall_waterfalls_30_feet_away_pyrenees_france.subtitle",
+   "description_key": "library.sounds.water_waterfall_waterfalls_30_feet_away_pyrenees_france.description",
+   "why_key": "library.sounds.water_waterfall_waterfalls_30_feet_away_pyrenees_france.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
+  },
+  {
+   "id": "waterfall_underneath_river_splashing_loud_big",
+   "filename": "03_river/waterfall_underneath_river_splashing_loud_big.opus",
+   "category_audio": "waterfall",
+   "categories_use": [
+    "relaxation",
+    "sleep_deep",
+    "daily"
+   ],
+   "duration_sec": 87.0,
+   "bg_title": "Под водопада",
+   "title_key": "library.sounds.waterfall_underneath_river_splashing_loud_big.title",
+   "subtitle_key": "library.sounds.waterfall_underneath_river_splashing_loud_big.subtitle",
+   "description_key": "library.sounds.waterfall_underneath_river_splashing_loud_big.description",
+   "why_key": "library.sounds.waterfall_underneath_river_splashing_loud_big.why",
+   "faq_keys": [],
+   "recommended_noise": "pink_lp4000",
+   "recommended_mix_ratio": [
+    80,
+    20
+   ],
+   "loop": true,
+   "lufs": -23.0,
+   "tags": [
+    "loop",
+    "tinnitus_safe",
+    "waterfall"
+   ],
+   "TH_C_score": 6.0,
+   "DN_S_score": 6.0,
+   "SS_R_score": 6.0,
+   "SM_F_score": 6.0,
+   "HB_M_score": 6.0,
+   "source_note": "[INGESTED 1.0.99: Epidemic Sound waterfall, loudnorm -23, opus+mp3]"
   }
  ],
  "categories_audio": [
