@@ -293,6 +293,17 @@ window.ScienceInfo = (function () {
   function buildGenericSection(sId, num) {
     var title    = t('science.' + sId + '.title', '');
     var subtitle = t('science.' + sId + '.subtitle', '');
+    // §5 „Звукова терапия" — броят проби/категории е ДИНАМИЧЕН от manifest
+    // (за да не остарява при добавяне на звуци). Заменя числата в текста.
+    if (sId === 's5' && window.AURALIS_MANIFEST) {
+      var n = (window.AURALIS_MANIFEST.sounds || []).length;
+      var c = (window.AURALIS_MANIFEST.categories_audio || []).length;
+      if (n) {
+        subtitle = subtitle
+          .replace(/\d+(\s*)(проби|prob[ai]|sounds|samples)/i, n + '$1$2')
+          .replace(/\d+(\s*)(категории|categories)/i, c + '$1$2');
+      }
+    }
     var paras    = tArr('science.' + sId + '.paragraphs');
     if (!paras || !paras.length) paras = [];
 
