@@ -375,26 +375,20 @@
     //   window.AppState.transition('diary_hub');
     // }
 
-    // SAFETY-2: при ПЪРВО profile_results landing → calibration screen първо.
-    // Calibration done flag persistent → не пита пак.
-    if (window.AppState.isQuizDone()
-        && !window.AppState.calibrationDone
-        && window.AppState.current === 'profile_results') {
-      console.log('[bootstrap] calibration pending → redirect from profile_results');
-      window.AppState.transition('calibration');
-    }
+    // ONBOARDING SIMPLIFICATION (Тихол, 06.01): махнат отделният
+    // volume-calibration екран от онбординга — дублираше се с авто-усилващата
+    // калибрация ВЪТРЕ в pitch теста, а записаната `mixingPointVolume` НЕ се
+    // ползва никъде (нямаше реална стойност). Реалната сила е master плъзгачът
+    // на Home (винаги променим). profile_results „Продължете" вече води директно
+    // към pitch (виж profile-results.goToHome) — затова тук НЯМА calibration
+    // редирект.
 
-    // PITCH-1E: post-calibration pitch test hook. Ако user-ът е завършил
-    // calibration но не е направил pitch test (нито го е skip-нал) → редирект
-    // към pitch_test от home/calibration landing.
-    //
-    // Trigger condition: quiz done + calibration done + pitch test "untouched"
-    // (no pitch tests, no skip flag). Avoid redirect ако user вече е навигирал
-    // другаде (е.g. category, player) — само от home/calibration entry.
+    // PITCH pending hook: quiz done + pitch test „untouched" (no tests, no skip)
+    // + landed на home → редирект към pitch_test (хваща reload по средата на
+    // онбординга). Без calibrationDone изискване (калибрацията е премахната).
     if (window.AppState.isQuizDone()
-        && window.AppState.calibrationDone
         && window.AppState.isPitchTestDone && !window.AppState.isPitchTestDone()
-        && (window.AppState.current === 'home' || window.AppState.current === 'calibration')) {
+        && window.AppState.current === 'home') {
       console.log('[bootstrap] pitch test pending → redirect to pitch_test');
       window.AppState.transition('pitch_test');
     }
