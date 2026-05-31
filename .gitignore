@@ -95,3 +95,4 @@ auralis_library_categorization.csv
 library_organize_report.csv
 library_final_list.txt
 tools/__pycache__/
+tools/_wf_out/
