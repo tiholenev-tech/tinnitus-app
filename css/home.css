@@ -435,6 +435,37 @@
 .home-volume-slider::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:22px; height:22px; border-radius:50%; background:linear-gradient(135deg, hsl(var(--hue1) 65% 58%), hsl(var(--hue2) 65% 58%)); box-shadow:0 2px 8px hsl(var(--hue1) 60% 50% / 0.4); cursor:pointer; }
 .home-volume-slider::-moz-range-thumb { width:22px; height:22px; border:none; border-radius:50%; background:linear-gradient(135deg, hsl(var(--hue1) 65% 58%), hsl(var(--hue2) 65% 58%)); box-shadow:0 2px 8px hsl(var(--hue1) 60% 50% / 0.4); cursor:pointer; }
 
+/* ═══ „Моите тестове" — единна секция (Тихол 31.05) ═══ */
+/* Заменя разпръснатите THI CTA/banner/badge + pitch card. 3 реда: име +
+   ясен статус + един бутон. Едри tap-таргети (≥40px) за 70+. */
+.home-tests { margin: 14px 0; }
+.home-tests-title { margin: 0 0 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+.home-tests-list { display: flex; flex-direction: column; gap: 8px; }
+
+.home-test-row { display: flex; align-items: center; gap: 12px; padding: 13px 14px; border-radius: var(--radius-sm); background: hsl(220 25% 12% / 0.4); border: 1px solid var(--border-color); }
+[data-theme="light"] .home-test-row, :root:not([data-theme]) .home-test-row { background: hsl(220 30% 96%); border-color: hsl(220 30% 88%); }
+
+.home-test-icon { flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: hsl(220 25% 50% / 0.14); color: var(--text-muted); }
+.home-test-icon svg { width: 20px; height: 20px; }
+.home-test-row.is-done .home-test-icon { background: hsl(145 45% 45% / 0.16); color: hsl(145 50% 42%); }
+[data-theme="dark"] .home-test-row.is-done .home-test-icon { color: hsl(145 55% 60%); }
+
+.home-test-info { display: flex; flex-direction: column; flex: 1; min-width: 0; gap: 2px; }
+.home-test-name { font-size: 15px; font-weight: 700; line-height: 1.2; color: var(--text); }
+.home-test-status { font-size: 12.5px; font-weight: 600; line-height: 1.3; color: var(--text-muted); }
+.home-test-row.is-done .home-test-status { color: hsl(145 50% 42%); }
+[data-theme="dark"] .home-test-row.is-done .home-test-status { color: hsl(145 50% 62%); }
+.home-test-row.is-todo .home-test-status { color: hsl(38 75% 48%); }
+[data-theme="dark"] .home-test-row.is-todo .home-test-status { color: hsl(42 75% 70%); }
+
+.home-test-btn { flex-shrink: 0; min-height: 40px; padding: 9px 18px; border: none; border-radius: var(--radius-pill); font-family: var(--font-mono); font-size: 13px; font-weight: 700; cursor: pointer; transition: transform var(--dur-fast) var(--ease); background: linear-gradient(135deg, hsl(var(--hue1) 65% 55%), hsl(var(--hue2) 65% 55%)); color: #fff; box-shadow: 0 4px 12px hsl(var(--hue1) 60% 50% / 0.3); }
+.home-test-btn.is-secondary { background: hsl(220 25% 50% / 0.16); color: var(--text); box-shadow: none; }
+[data-theme="dark"] .home-test-btn.is-secondary { background: hsl(220 25% 70% / 0.14); }
+.home-test-btn:active { transform: scale(0.97); }
+
+.home-test-check { flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800; color: hsl(145 50% 42%); background: hsl(145 45% 45% / 0.14); }
+[data-theme="dark"] .home-test-check { color: hsl(145 55% 60%); }
+
 /* ═══ Компактен setup ред — поканите една до друга, дискретни (Тихол UX) ═══ */
 .home-setup-row {
   display: flex;

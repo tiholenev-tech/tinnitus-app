@@ -205,6 +205,19 @@ window.Home = (function () {
       '<path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>' +
       '<path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>',
       2
+    ),
+
+    // „Моите тестове" иконки
+    testProfile: svg(
+      '<rect x="5" y="3.5" width="14" height="17" rx="2"/>' +
+      '<path d="M9 3.5h6v3H9z"/>' +
+      '<path d="M8.5 12l2 2 4-4"/>'
+    ),
+    testThi: svg('<polyline points="3 12 7 12 10 5 14 19 17 12 21 12"/>'),
+    testPitch: svg(
+      '<polygon points="10 5 6 9 3 9 3 15 6 15 10 19 10 5"/>' +
+      '<path d="M14 9a4 4 0 0 1 0 6"/>' +
+      '<path d="M17 6a8 8 0 0 1 0 12"/>'
     )
   };
 
@@ -510,6 +523,106 @@ window.Home = (function () {
   }
 
   // ============================================================
+  // „МОИТЕ ТЕСТОВЕ" — единна секция (Тихол 31.05). Заменя разпръснатите
+  // banner-и (THI banner + pitch card + THI badge + CTA), които объркваха:
+  // не личеше „кои са тестовете", THI изглеждаше скрит, а pitch банерът
+  // винаги пишеше „Уточни" сякаш пита наново (а резултатът Е запазен).
+  // Сега: 3 реда, всеки с ИМЕ + ЯСЕН СТАТУС + един бутон.
+  // ============================================================
+
+  function fmtHz(hz) {
+    if (!hz || hz <= 0) return '';
+    if (hz >= 1000) {
+      var k = hz / 1000;
+      return (k % 1 === 0 ? k.toFixed(0) : k.toFixed(1)) + ' kHz';
+    }
+    return hz + ' Hz';
+  }
+
+  // o = { icon, name, sub, done, statusText, btnLabel, btnAction }
+  // done=true → зелена иконка/статус + (по избор) check бадж; иначе „жълто" todo.
+  function buildTestRow(o) {
+    var stateCls = o.done ? 'is-done' : 'is-todo';
+    var right = o.btnLabel
+      ? '<button class="home-test-btn' + (o.done ? ' is-secondary' : '') + '" type="button"' +
+          ' data-action="' + o.btnAction + '">' + escapeHtml(o.btnLabel) + '</button>'
+      : (o.done
+          ? '<span class="home-test-check" aria-hidden="true">✓</span>'
+          : '');
+    return (
+      '<div class="home-test-row ' + stateCls + '">' +
+        '<span class="home-test-icon" aria-hidden="true">' + (o.icon || '') + '</span>' +
+        '<span class="home-test-info">' +
+          '<span class="home-test-name">' + escapeHtml(o.name) + '</span>' +
+          '<span class="home-test-status">' + escapeHtml(o.statusText) + '</span>' +
+        '</span>' +
+        right +
+      '</div>'
+    );
+  }
+
+  function buildTestsSection() {
+    var s = window.AppState || {};
+    var rows = '';
+
+    // 1) Профил (кратък въпросник) — на началния екран винаги е минат.
+    var hasProfile = !!s.profile;
+    rows += buildTestRow({
+      icon: SVG.testProfile,
+      name: t('home.tests.profile.name', 'Профил'),
+      done: hasProfile,
+      statusText: hasProfile
+        ? t('home.tests.profile.done', 'Готов · кратък въпросник')
+        : t('home.tests.profile.todo', 'Не е попълнен')
+    });
+
+    // 2) Оценка на тинитуса (THI, 25 въпроса) — по желание.
+    var thiDone = (typeof s.thiBaseline === 'number');
+    rows += buildTestRow({
+      icon: SVG.testThi,
+      name: t('home.tests.thi.name', 'Оценка на тинитуса'),
+      done: thiDone,
+      statusText: thiDone
+        ? t('home.tests.thi.done', 'Готова · резултат {n}', { n: s.thiBaseline })
+        : t('home.tests.thi.todo', 'Не е направена · 25 въпроса, по желание'),
+      btnLabel: thiDone ? t('home.tests.viewBtn', 'Виж') : t('home.tests.doBtn', 'Направи'),
+      btnAction: thiDone ? 'open-thi-detail' : 'thi-start'
+    });
+
+    // 3) Тон на тинитуса (честота → notch филтър).
+    var pitchDone = !!(s.isPitchTestDone && s.isPitchTestDone());
+    var freq = (s.getNotchFreq && s.getNotchFreq()) || null;
+    var pitchOk = !!(pitchDone && freq);
+    var pStatus, pBtn;
+    if (pitchOk) {
+      pStatus = t('home.tests.pitch.doneFreq', 'Готов · честота {hz}', { hz: fmtHz(freq) });
+      pBtn = t('home.tests.refineBtn', 'Уточни');
+    } else if (pitchDone) {
+      pStatus = t('home.tests.pitch.skipped', 'Пропуснат — направете го за личен филтър');
+      pBtn = t('home.tests.doBtn', 'Направи');
+    } else {
+      pStatus = t('home.tests.pitch.todo', 'Не е направен · ~5 минути');
+      pBtn = t('home.tests.doBtn', 'Направи');
+    }
+    rows += buildTestRow({
+      icon: SVG.testPitch,
+      name: t('home.tests.pitch.name', 'Тон на тинитуса'),
+      done: pitchOk,
+      statusText: pStatus,
+      btnLabel: pBtn,
+      btnAction: 'pitch-retest'
+    });
+
+    var title = t('home.tests.title', 'Моите тестове');
+    return (
+      '<section class="home-tests" aria-labelledby="homeTestsTitle">' +
+        '<h2 class="home-tests-title" id="homeTestsTitle">' + escapeHtml(title) + '</h2>' +
+        '<div class="home-tests-list">' + rows + '</div>' +
+      '</section>'
+    );
+  }
+
+  // ============================================================
   // Master volume card — преместен от Настройки (user decision). Slider-only,
   // без keyboard. Persist в localStorage (същия ключ като старата Settings).
   // ============================================================
@@ -720,13 +833,9 @@ window.Home = (function () {
 
         buildFavoritesTitleButton() +
         buildScienceQuickButton() +
-        buildThiCta() +
-        // Компактен ред — setup поканите една до друга, дискретни (Тихол UX).
-        '<div class="home-setup-row">' +
-          buildThiBanner() +
-          buildPitchBanner() +
-        '</div>' +
-        buildThiBadge() +
+        // Единна секция „Моите тестове" (Тихол 31.05) — заменя THI CTA/banner/
+        // badge + pitch card. Едно ясно място: кои са тестовете, кой е готов.
+        buildTestsSection() +
 
         '<div class="home-cat-list">' + cardsHtml + '</div>' +
 
