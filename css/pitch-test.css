@@ -794,68 +794,111 @@
 .pt-tone-btn--playing .pt-tone-label,
 .pt-tone-btn--holding .pt-tone-label { color: #fff; }
 
-/* ═══ НОВА 2AFC интеракция (Тихол): чуй → „Чуй пак" / „Това е моят" ═══ */
-/* Всяка клетка = карта: голям бутон „Звук X" + (след прослушване) две
-   действия. БЕЗ задържане. Едри таргети (≥48px) за 70+. */
-.pt-tone-card {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  min-width: 0;
-}
+/* ═══ 2AFC карти — PREMIUM дълбоки стъклени бутони (Тихол) ═══ */
+/* Чуй → „Чуй пак" / „Това е моят". Дълбочина: слоести градиенти, светещ
+   ръб, мек вътрешен highlight, богата сянка. Едри таргети за 70+. */
+.pt-tones { gap: 14px; }
+.pt-tone-card { display: flex; flex-direction: column; gap: 11px; min-width: 0; }
+
+/* Голям бутон „Звук X" — дълбоко стъкло */
 .pt-tone-card .pt-tone-btn {
   width: 100%;
-  min-height: 132px;
-  gap: 6px;
+  min-height: 156px;
+  gap: 12px;
+  border-radius: 26px;
+  border: 1px solid hsl(var(--hue1) 55% 72% / 0.20);
+  background:
+    radial-gradient(130% 95% at 50% 0%, hsl(var(--hue1) 62% 60% / 0.28), transparent 62%),
+    linear-gradient(165deg, hsl(var(--hue1) 48% 32% / 0.50), hsl(var(--hue2) 46% 22% / 0.42));
+  box-shadow:
+    0 22px 46px -14px hsl(var(--hue1) 60% 18% / 0.65),
+    0 2px 1px hsl(0 0% 100% / 0.10) inset,
+    0 -8px 22px hsl(var(--hue2) 60% 30% / 0.18) inset;
+  backdrop-filter: blur(16px) saturate(1.18);
 }
-.pt-tone-icon { display: flex; align-items: center; justify-content: center; }
-.pt-tone-icon svg { width: 30px; height: 30px; }
-.pt-tone-btn--playing .pt-tone-icon { color: #fff; }
+[data-theme="light"] .pt-tone-card .pt-tone-btn {
+  border-color: hsl(var(--hue1) 45% 55% / 0.22);
+  background:
+    radial-gradient(130% 95% at 50% 0%, hsl(var(--hue1) 75% 94% / 0.95), transparent 66%),
+    linear-gradient(165deg, #ffffff, hsl(var(--hue1) 45% 96%));
+  box-shadow: 0 18px 38px -16px hsl(var(--hue1) 50% 50% / 0.45), 0 1px 0 #fff inset;
+}
+
+/* Иконата в светещ кръг */
+.pt-tone-icon {
+  width: 58px; height: 58px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(circle at 35% 28%,
+    hsl(var(--hue1) 72% 66% / 0.55), hsl(var(--hue1) 60% 44% / 0.20));
+  box-shadow: 0 6px 16px hsl(var(--hue1) 60% 38% / 0.45),
+    0 1px 0 hsl(0 0% 100% / 0.22) inset;
+  color: #fff;
+}
+[data-theme="light"] .pt-tone-icon { color: hsl(var(--hue1) 60% 45%); }
+.pt-tone-icon svg { width: 27px; height: 27px; }
+.pt-tone-btn--playing .pt-tone-icon { color: #fff; background: hsl(0 0% 100% / 0.18); }
+.pt-tone-card .pt-tone-label { font-size: 22px; font-weight: 800; letter-spacing: 0.01em; }
 
 /* Действията — скрити докато звукът не е чут; плавно появяване */
 .pt-tone-actions { display: none; }
 .pt-tone-card.is-heard .pt-tone-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  animation: ptActionsIn 220ms var(--ease, ease) both;
+  display: flex; flex-direction: column; gap: 9px;
+  animation: ptActionsIn 240ms cubic-bezier(.22, 1, .36, 1) both;
 }
 .pt-tone-card.is-heard .pt-tone-hint { display: none; }
-
 @keyframes ptActionsIn {
-  from { opacity: 0; transform: translateY(-6px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(8px) scale(.98); }
+  to   { opacity: 1; transform: none; }
 }
 
-.pt-tone-replay,
-.pt-tone-choose {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  width: 100%;
-  min-height: 50px;
-  padding: 10px 12px;
-  border: none;
-  border-radius: var(--radius-pill, 999px);
-  font-family: inherit;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 150ms var(--ease, ease), box-shadow 200ms ease;
+.pt-tone-replay, .pt-tone-choose {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; min-height: 54px; padding: 12px 14px;
+  border-radius: 16px; font-family: inherit; font-size: 15.5px; font-weight: 800;
+  letter-spacing: 0.01em; cursor: pointer;
+  transition: transform 130ms var(--ease, ease), box-shadow 220ms ease, filter 200ms ease;
 }
-.pt-tone-replay svg, .pt-tone-choose svg { width: 18px; height: 18px; flex-shrink: 0; }
+.pt-tone-replay svg, .pt-tone-choose svg { width: 19px; height: 19px; flex-shrink: 0; }
+
+/* „Чуй пак" — фрост стъкло със светещ ръб */
 .pt-tone-replay {
-  background: hsl(220 25% 50% / 0.16);
+  border: 1px solid hsl(var(--hue1) 52% 75% / 0.30);
+  background: linear-gradient(180deg, hsl(var(--hue1) 32% 42% / 0.24), hsl(var(--hue1) 32% 24% / 0.14));
   color: var(--text);
+  box-shadow: 0 8px 18px -10px hsl(var(--hue1) 50% 18% / 0.55), 0 1px 0 hsl(0 0% 100% / 0.14) inset;
+  backdrop-filter: blur(8px);
 }
-[data-theme="dark"] .pt-tone-replay { background: hsl(220 25% 72% / 0.16); }
+[data-theme="light"] .pt-tone-replay {
+  background: linear-gradient(180deg, #fff, hsl(var(--hue1) 32% 95%));
+  border-color: hsl(var(--hue1) 42% 60% / 0.32);
+}
+
+/* „Това е моят" — богат градиент с дълбочина + глоу */
 .pt-tone-choose {
-  background: linear-gradient(135deg, hsl(var(--hue1) 65% 55%), hsl(var(--hue2) 65% 55%));
-  color: #fff;
-  box-shadow: 0 6px 16px hsl(var(--hue1) 60% 50% / 0.32);
+  border: none; color: #fff;
+  background: linear-gradient(150deg, hsl(var(--hue1) 76% 63%), hsl(var(--hue2) 72% 52%));
+  box-shadow:
+    0 14px 28px -8px hsl(var(--hue1) 70% 45% / 0.68),
+    0 1px 0 hsl(0 0% 100% / 0.38) inset,
+    0 -3px 8px hsl(var(--hue2) 70% 28% / 0.45) inset;
 }
-.pt-tone-replay:active, .pt-tone-choose:active { transform: scale(0.97); }
+.pt-tone-choose:hover { filter: brightness(1.05); }
+.pt-tone-replay:active, .pt-tone-choose:active { transform: scale(0.96); }
+
+/* „Назад към предишния" — дискретен стъклен ghost */
+.pt-back {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin: 16px auto 0; padding: 12px 24px; min-height: 50px;
+  border-radius: var(--radius-pill, 999px);
+  border: 1px solid hsl(var(--hue1) 45% 72% / 0.24);
+  background: hsl(var(--hue1) 32% 42% / 0.16);
+  color: var(--text); font-family: inherit; font-size: 14.5px; font-weight: 700;
+  cursor: pointer; transition: transform 130ms var(--ease, ease);
+  -webkit-tap-highlight-color: transparent;
+}
+[data-theme="light"] .pt-back { background: hsl(var(--hue1) 35% 93%); }
+.pt-back svg { width: 18px; height: 18px; }
+.pt-back:active { transform: scale(0.96); }
 
 /* ═══ Финален слайдер „нагласи точно своя тон" (усещане за контрол) ═══ */
 .pt-finetune {

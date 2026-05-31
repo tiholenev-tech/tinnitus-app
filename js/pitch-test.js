@@ -508,8 +508,11 @@ window.PitchTest = (function () {
   // 2AFC measurement (един staircase → едно PM_i)
   // ============================================================
 
+  var compHistory = [];   // снимки на meas преди всеки избор → „Назад"
+
   function startMeasurement() {
     meas = { lo: 0, hi: GRID.length - 1, step: 0 };
+    compHistory = [];
     nextComparison();
   }
 
@@ -525,12 +528,22 @@ window.PitchTest = (function () {
     meas.cut = meas.lo + Math.floor(span / 2);
     presentPair(GRID[ai], GRID[bi], measureMeta(), function (which) {
       // which = 'lower' | 'higher' (коя честота е по-близо до тинитуса)
+      compHistory.push({ lo: meas.lo, hi: meas.hi, step: meas.step });
       meas.step += 1;
       if (which === 'lower') meas.hi = meas.cut;
       else meas.lo = meas.cut + 1;
       if (meas.lo > meas.hi) meas.lo = meas.hi;
       nextComparison();
     });
+  }
+
+  // „Назад" — върни предишния звук (в рамките на текущото замерване).
+  function goBackComparison() {
+    if (!compHistory.length) return;
+    var prev = compHistory.pop();
+    meas.lo = prev.lo; meas.hi = prev.hi; meas.step = prev.step;
+    cancelAutoPlay();
+    nextComparison();
   }
 
   function finishMeasurement() {
@@ -624,6 +637,15 @@ window.PitchTest = (function () {
         '<section class="pt-tones">' +
           toneCardHtml('A') + toneCardHtml('B') +
         '</section>' +
+        // „Назад" — само в режим замерване и ако има предишен звук.
+        ((phase === 'measure' && compHistory.length > 0)
+          ? '<button class="pt-back" type="button" data-action="back-comparison">' +
+              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"' +
+              ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+              '<polyline points="15 18 9 12 15 6"/></svg>' +
+              'Назад към предишния' +
+            '</button>'
+          : '') +
         '<button class="pt-quit" type="button" data-action="quit">' +
           '<span class="pt-quit-main">' +
             '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
@@ -1202,6 +1224,7 @@ window.PitchTest = (function () {
       case 'hear':       onHearTone(btn.getAttribute('data-tone')); break;
       case 'replay':     onHearTone(btn.getAttribute('data-tone')); break;
       case 'choose':     onChooseTone(btn.getAttribute('data-tone')); break;
+      case 'back-comparison': goBackComparison(); break;
       case 'retest':     open({ mode: 'precise' }); break;
       case 'quit':       onQuit(); break;
       case 'reward-done': finishReward(); break;
