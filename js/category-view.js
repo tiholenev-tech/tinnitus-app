@@ -95,10 +95,25 @@ window.CategoryView = (function () {
     for (var j = 0; j < HARDCODED.length; j++) {
       if (HARDCODED[j].id === catId) return HARDCODED[j];
     }
+    // Елемент-категории (category_audio) → синтетичен обект.
+    var ELEM_ICONS = { ocean: 'waves', underwater: 'deep', river: 'stream',
+      waterfall: 'waterfall', rain: 'rain', wind: 'wind', forest: 'tree',
+      fire: 'fire', meditation: 'lotus', noise: 'equalizer', ambient: 'drone' };
+    if (ELEM_ICONS[catId]) return { id: catId, icon: ELEM_ICONS[catId], element: true };
     return null;
   }
 
+  // BG имена на елемент-категориите (fallback ако i18n още не е зареден).
+  var ELEM_BG = { ocean: 'Вълни', underwater: 'Подводно', river: 'Река',
+    waterfall: 'Водопад', rain: 'Дъжд', wind: 'Вятър', forest: 'Гора',
+    fire: 'Огън', meditation: 'Медитация', noise: 'Шум', ambient: 'Атмосфера' };
+
   function getCatName(catId) {
+    // Елемент-категории → име от library.cat_audio.<id> (Вълни, Дъжд…),
+    // с БГ fallback за да не се показва английско prettify.
+    var el = tOrNull('library.cat_audio.' + catId);
+    if (el) return el;
+    if (ELEM_BG[catId]) return ELEM_BG[catId];
     return t('home.cat.' + catId + '.name', prettifyFilename(catId));
   }
 
@@ -175,9 +190,23 @@ window.CategoryView = (function () {
 
   var MAX_SOUNDS_PER_CATEGORY = 30;
 
+  // Елемент-категории (category_audio) — началният екран вече е по елемент.
+  var ELEMENT_IDS = ['ocean', 'river', 'waterfall', 'underwater', 'rain',
+                     'wind', 'forest', 'fire', 'meditation', 'noise', 'ambient'];
+
   function getSoundsForCategory(catId) {
     if (!window.AURALIS_MANIFEST) return [];
     var all = window.AURALIS_MANIFEST.sounds || [];
+
+    // ELEMENT-режим: филтрирай по category_audio (вид звук), покажи ВСИЧКИ.
+    if (ELEMENT_IDS.indexOf(catId) !== -1) {
+      var el = all.filter(function (s) { return s.category_audio === catId; });
+      var p = (window.AppState && window.AppState.profile) || null;
+      if (p) el = sortByProfileScore(el, p);
+      return el;
+    }
+
+    // Legacy use-case режим (categories_use) — запазен за съвместимост.
     var matches = [];
     for (var i = 0; i < all.length; i++) {
       var s = all[i];
@@ -223,7 +252,7 @@ window.CategoryView = (function () {
     var v = tOrNull(sound.subtitle_key);
     if (v) return v;
     var catId = sound.category_audio || sound.category || '';
-    return tOrNull('library.cat_audio.' + catId) || prettifyFilename(catId);
+    return tOrNull('library.cat_audio.' + catId) || ELEM_BG[catId] || prettifyFilename(catId);
   }
 
   // ============================================================

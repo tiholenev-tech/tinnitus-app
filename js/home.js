@@ -24,24 +24,37 @@ window.Home = (function () {
   // CONSTANTS — 6 hardcoded use cases (placeholder)
   // ============================================================
 
+  // ПОДРЕДБА ПО ЕЛЕМЕНТ (Тихол 06.01): началният екран показва звуците по
+  // вид (вода, дъжд, вятър…), не по „повод". Водата първа (предпочитание).
+  // id-тата = category_audio в manifest; имената идват от library.cat_audio.
   var USE_CATEGORIES = [
-    { id: 'sleep_deep',     icon: 'moon'   },
-    { id: 'falling_asleep', icon: 'zzz'    },
-    { id: 'relaxation',     icon: 'waves'  },
-    { id: 'daily',          icon: 'sun'    },
-    { id: 'anxiety',        icon: 'shield' },
-    { id: 'meditation',     icon: 'lotus'  }
+    { id: 'ocean',      icon: 'waves'     },
+    { id: 'underwater', icon: 'deep'      },
+    { id: 'river',      icon: 'stream'    },
+    { id: 'waterfall',  icon: 'waterfall' },
+    { id: 'rain',       icon: 'rain'      },
+    { id: 'wind',       icon: 'wind'      },
+    { id: 'forest',     icon: 'tree'      },
+    { id: 'fire',       icon: 'fire'      },
+    { id: 'meditation', icon: 'lotus'     },
+    { id: 'noise',      icon: 'equalizer' },
+    { id: 'ambient',    icon: 'drone'     }
   ];
 
-  // Defense-in-depth BG fallback — used ако i18n keys липсват (path mismatch,
-  // late load, etc.). Content team-ът override-ва тези values през i18n.
+  // BG fallback (име + кратко описание). Името основно идва от
+  // library.cat_audio.<id>; тук е резервно + подзаглавие.
   var CAT_FALLBACK_BG = {
-    sleep_deep:     { name: 'Сън дълбок',  subtitle: 'Цяла нощ' },
-    falling_asleep: { name: 'Заспиване',   subtitle: '30–90 мин преди сън' },
-    relaxation:     { name: 'Релаксация',  subtitle: 'Преди сън, четене' },
-    daily:          { name: 'Ежедневие',   subtitle: 'Работа, концентрация' },
-    anxiety:        { name: 'Тревожност',  subtitle: 'SOS, паник атака' },
-    meditation:     { name: 'Медитация',   subtitle: 'Водени сесии' }
+    ocean:      { name: 'Вълни',     subtitle: 'Морски вълни и прибой' },
+    underwater: { name: 'Подводно',  subtitle: 'Звуци под водата' },
+    river:      { name: 'Река',      subtitle: 'Реки и потоци' },
+    waterfall:  { name: 'Водопад',   subtitle: 'Шум на водопад' },
+    rain:       { name: 'Дъжд',      subtitle: 'Дъжд и капки' },
+    wind:       { name: 'Вятър',     subtitle: 'Вятър и бриз' },
+    forest:     { name: 'Гора',      subtitle: 'Гора и птици' },
+    fire:       { name: 'Огън',      subtitle: 'Огън в камината' },
+    meditation: { name: 'Медитация', subtitle: 'Спокойна музика' },
+    noise:      { name: 'Шум',       subtitle: 'Кафяв и розов шум' },
+    ambient:    { name: 'Атмосфера', subtitle: 'Дълбоки тонове' }
   };
 
   var manifestPromise = null;
@@ -94,21 +107,14 @@ window.Home = (function () {
   //   • meditation → САМО category_audio==='meditation' (music sounds)
   //   • други → exclude meditation music от count
   // Това гарантира че числото на cards == списъка който user вижда.
+  // ПОДРЕДБА ПО ЕЛЕМЕНТ: броим звуците с category_audio === catId
+  // (същото като CategoryView element-режим → числото == списъка).
   function getCountForCategory(catId) {
     if (!window.AURALIS_MANIFEST) return 0;
     var sounds = window.AURALIS_MANIFEST.sounds || [];
     var count = 0;
-    var isMeditationCat = (catId === 'meditation');
     for (var j = 0; j < sounds.length; j++) {
-      var s = sounds[j];
-      var arr = s.categories_use || [];
-      if (arr.indexOf(catId) === -1) continue;
-      var isMedSound = (s.category_audio === 'meditation');
-      if (isMeditationCat) {
-        if (isMedSound) count++;
-      } else {
-        if (!isMedSound) count++;
-      }
+      if (sounds[j].category_audio === catId) count++;
     }
     return count;
   }
@@ -122,12 +128,13 @@ window.Home = (function () {
     // Read profile from AppState и map → препоръчителни use case ids
     // (Z task ще даде final mapping; засега базов hardcoded)
     var profile = window.AppState && window.AppState.profile;
+    // Map профил → препоръчани ЕЛЕМЕНТИ (ring индикация на картите).
     var MAP = {
-      'TH_C': ['sleep_deep', 'relaxation'],
-      'DN_S': ['relaxation', 'daily'],
-      'SS_R': ['anxiety', 'falling_asleep'],
-      'SM_F': ['meditation', 'relaxation'],
-      'HB_M': ['daily', 'falling_asleep']
+      'TH_C': ['ocean', 'underwater'],
+      'DN_S': ['river', 'rain'],
+      'SS_R': ['ocean', 'rain'],
+      'SM_F': ['meditation', 'underwater'],
+      'HB_M': ['wind', 'forest']
     };
     return MAP[profile] || [];
   }
@@ -149,7 +156,50 @@ window.Home = (function () {
   var SVG = {
     arrow: svg('<polyline points="9 18 15 12 9 6"/>', 2),
 
-    // 6 use category icons — outline style, consistent stroke
+    // Елемент-икони (outline, consistent stroke)
+    deep: svg(
+      '<path d="M2 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>' +
+      '<path d="M2 17c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>' +
+      '<path d="M12 3v6"/><path d="M9.5 6.5 12 9l2.5-2.5"/>'
+    ),
+    stream: svg(
+      '<path d="M3 7c4 0 4 3 8 3s4-3 8-3"/>' +
+      '<path d="M3 13c4 0 4 3 8 3s4-3 8-3"/>' +
+      '<path d="M5 19c3 0 3 2 7 2"/>'
+    ),
+    waterfall: svg(
+      '<path d="M5 3v8"/><path d="M10 3v10"/><path d="M14 3v9"/><path d="M19 3v8"/>' +
+      '<path d="M3 18c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0"/>'
+    ),
+    rain: svg(
+      '<path d="M7 14a5 5 0 011-9.8A5.5 5.5 0 0118 6.5 4 4 0 0117 14H7z"/>' +
+      '<line x1="8" y1="18" x2="7" y2="21"/>' +
+      '<line x1="12" y1="18" x2="11" y2="21"/>' +
+      '<line x1="16" y1="18" x2="15" y2="21"/>'
+    ),
+    wind: svg(
+      '<path d="M3 8h11a3 3 0 10-3-3"/>' +
+      '<path d="M3 12h15a3 3 0 11-3 3"/>' +
+      '<path d="M3 16h9a2.5 2.5 0 11-2.5 2.5"/>'
+    ),
+    tree: svg(
+      '<path d="M12 2 6 11h12L12 2z"/>' +
+      '<path d="M12 8 7 16h10L12 8z"/>' +
+      '<line x1="12" y1="16" x2="12" y2="22"/>'
+    ),
+    fire: svg(
+      '<path d="M12 2c1 3 4 4 4 8a4 4 0 01-8 0c0-1 .5-2 1-2.5C9 9 12 7 12 2z"/>' +
+      '<path d="M12 22a5 5 0 005-5c0-2-1.5-3.5-2.5-4.5C14 14 13 15 12 15s-2-1-2.5-2.5C8.5 13.5 7 15 7 17a5 5 0 005 5z"/>'
+    ),
+    drone: svg(
+      '<circle cx="12" cy="12" r="2"/>' +
+      '<path d="M7.5 7.5a6.4 6.4 0 000 9"/>' +
+      '<path d="M16.5 7.5a6.4 6.4 0 010 9"/>' +
+      '<path d="M4.5 4.5a10.6 10.6 0 000 15"/>' +
+      '<path d="M19.5 4.5a10.6 10.6 0 010 15"/>'
+    ),
+
+    // legacy use-case icons (запазени за съвместимост)
     moon:   svg('<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>'),
     zzz:    svg(
       // Cascading Z's — top-right (smaller) + bottom-left (larger)
@@ -227,15 +277,17 @@ window.Home = (function () {
 
   function buildCategoryCard(cat, recommended) {
     var bgFallback = CAT_FALLBACK_BG[cat.id] || { name: cat.id, subtitle: '' };
-    var name = t('home.cat.' + cat.id + '.name', bgFallback.name);
+    // Името по елемент идва от library.cat_audio.<id> (Вълни, Дъжд…).
+    var name = t('library.cat_audio.' + cat.id, bgFallback.name);
     var subtitle = t('home.cat.' + cat.id + '.subtitle', bgFallback.subtitle);
     // Strip TODO: prefix ако EN stub дойде като резултат (fallback към БГ)
     if (name && name.indexOf('TODO:') === 0) name = bgFallback.name;
     if (subtitle && subtitle.indexOf('TODO:') === 0) subtitle = bgFallback.subtitle;
 
     var count = getCountForCategory(cat.id);
+    var countWord = (count === 1) ? 'звук' : 'звука';   // БГ единствено/множествено
     var countText = count > 0
-      ? t('home.soundCountFmt', count + ' звука', { n: count })
+      ? t('home.soundCountFmt', count + ' ' + countWord, { n: count })
       : null; // count=0 → не показваме count line (subtitle вече описва)
     var isRecommended = recommended.indexOf(cat.id) !== -1;
     var iconSvg = SVG[cat.icon] || SVG.waves;
