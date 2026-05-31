@@ -620,26 +620,48 @@ window.PitchTest = (function () {
           '</div>' +
           (meta.sub ? '<p class="pt-progress-sub">' + escapeHtml(meta.sub) + '</p>' : '') +
         '</header>' +
-        '<p class="pt-help-one">Задръж звука, който е по-близо до твоя</p>' +
+        '<p class="pt-help-one">Чуйте двата звука. Изберете кой е по-близо до Вашия.</p>' +
         '<section class="pt-tones">' +
-          toneBtnHtml('A') + toneBtnHtml('B') +
+          toneCardHtml('A') + toneCardHtml('B') +
         '</section>' +
         '<button class="pt-quit" type="button" data-action="quit">Спри засега</button>' +
       '</div>'
     );
     bindClicks(app);
-    bindHold(app);
     scheduleAutoPlay();
   }
 
-  function toneBtnHtml(letter) {
+  // Икони (inline SVG, без emoji — design canon).
+  var SVG_SPEAKER = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"' +
+    ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>' +
+    '<path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>';
+  var SVG_REPLAY = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"' +
+    ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="M3 12a9 9 0 1 0 2.6-6.4"/><polyline points="3 3 3 9 9 9"/></svg>';
+  var SVG_CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"' +
+    ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<polyline points="20 6 9 17 4 12"/></svg>';
+
+  // Карта за един звук: голям бутон „чуй" + (след прослушване) действия
+  // „Чуй пак" / „Това е моят". БЕЗ задържане — изборът е ясно натискане,
+  // а звукът спира щом свърши → не пищи докато потребителят решава (Тихол UX).
+  function toneCardHtml(letter) {
     return (
-      '<button class="pt-tone-btn pt-tone-btn--hold" type="button" data-tone="' + letter + '"' +
-        ' aria-label="Звук ' + letter + ' — натисни за чуване, задръж за избор">' +
-        '<span class="pt-hold-ring" aria-hidden="true"></span>' +
-        '<span class="pt-tone-label">Звук ' + letter + '</span>' +
-        '<span class="pt-tone-hint" data-tone-hint="' + letter + '">Натисни = чуй<br>Задръж = избери</span>' +
-      '</button>'
+      '<div class="pt-tone-card" data-tone-card="' + letter + '">' +
+        '<button class="pt-tone-btn" type="button" data-action="hear" data-tone="' + letter + '"' +
+          ' aria-label="Звук ' + letter + ' — натиснете, за да чуете">' +
+          '<span class="pt-tone-icon" aria-hidden="true">' + SVG_SPEAKER + '</span>' +
+          '<span class="pt-tone-label">Звук ' + letter + '</span>' +
+          '<span class="pt-tone-hint" data-tone-hint="' + letter + '">Натиснете, за да чуете</span>' +
+        '</button>' +
+        '<div class="pt-tone-actions" data-tone-actions="' + letter + '">' +
+          '<button class="pt-tone-replay" type="button" data-action="replay" data-tone="' + letter + '">' +
+            SVG_REPLAY + '<span>Чуй пак</span></button>' +
+          '<button class="pt-tone-choose" type="button" data-action="choose" data-tone="' + letter + '">' +
+            SVG_CHECK + '<span>Това е моят</span></button>' +
+        '</div>' +
+      '</div>'
     );
   }
 
@@ -685,8 +707,11 @@ window.PitchTest = (function () {
     if (!freq) return;
     isPlayingTone = true;
     currentToneLetter = letter;
-    var btn = document.querySelector('[data-tone="' + letter + '"]');
+    var btn = document.querySelector('.pt-tone-btn[data-tone="' + letter + '"]');
     if (btn) btn.classList.add('pt-tone-btn--playing');
+    // Щом звукът е чут → разкрий действията „Чуй пак" / „Това е моят" на тази карта.
+    var card = document.querySelector('[data-tone-card="' + letter + '"]');
+    if (card) card.classList.add('is-heard');
     var handle = playStimulus(freq, NBN_DURATION_MS, gentle === true ? AUTO_FADE_IN_MS : FADE_MS);
     currentToneHandle = handle;
     var myLetter = letter;
@@ -775,6 +800,25 @@ window.PitchTest = (function () {
     var cb = pair.onPick;
     pair = null;
     cb(which);
+  }
+
+  // ── НОВА интеракция (Тихол): натисни „Звук X" → чуй (спира сам) → изскачат
+  // „Чуй пак" + „Това е моят". Изборът е натискане, не задържане; звукът не
+  // продължава да пищи докато решаваш. ──
+  function cancelAutoPlay() {
+    if (autoPlayTimer) { clearTimeout(autoPlayTimer); autoPlayTimer = null; }
+  }
+
+  function onHearTone(letter) {
+    if (!letter) return;
+    cancelAutoPlay();
+    playLetter(letter, false);
+  }
+
+  function onChooseTone(letter) {
+    if (!letter) return;
+    cancelAutoPlay();
+    selectLetter(letter);
   }
 
   // ============================================================
@@ -1147,6 +1191,9 @@ window.PitchTest = (function () {
       case 'pretest':    onPretestChoice(btn.getAttribute('data-value')); break;
       case 'device':     onDeviceChoice(btn.getAttribute('data-value')); break;
       case 'calib-stop': onCalibStop(); break;
+      case 'hear':       onHearTone(btn.getAttribute('data-tone')); break;
+      case 'replay':     onHearTone(btn.getAttribute('data-tone')); break;
+      case 'choose':     onChooseTone(btn.getAttribute('data-tone')); break;
       case 'retest':     open({ mode: 'precise' }); break;
       case 'quit':       onQuit(); break;
       case 'reward-done': finishReward(); break;

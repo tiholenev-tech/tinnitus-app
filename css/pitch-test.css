@@ -790,6 +790,69 @@
 .pt-tone-btn--playing .pt-tone-label,
 .pt-tone-btn--holding .pt-tone-label { color: #fff; }
 
+/* ═══ НОВА 2AFC интеракция (Тихол): чуй → „Чуй пак" / „Това е моят" ═══ */
+/* Всяка клетка = карта: голям бутон „Звук X" + (след прослушване) две
+   действия. БЕЗ задържане. Едри таргети (≥48px) за 70+. */
+.pt-tone-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.pt-tone-card .pt-tone-btn {
+  width: 100%;
+  min-height: 132px;
+  gap: 6px;
+}
+.pt-tone-icon { display: flex; align-items: center; justify-content: center; }
+.pt-tone-icon svg { width: 30px; height: 30px; }
+.pt-tone-btn--playing .pt-tone-icon { color: #fff; }
+
+/* Действията — скрити докато звукът не е чут; плавно появяване */
+.pt-tone-actions { display: none; }
+.pt-tone-card.is-heard .pt-tone-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: ptActionsIn 220ms var(--ease, ease) both;
+}
+.pt-tone-card.is-heard .pt-tone-hint { display: none; }
+
+@keyframes ptActionsIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.pt-tone-replay,
+.pt-tone-choose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  min-height: 50px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: var(--radius-pill, 999px);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 150ms var(--ease, ease), box-shadow 200ms ease;
+}
+.pt-tone-replay svg, .pt-tone-choose svg { width: 18px; height: 18px; flex-shrink: 0; }
+.pt-tone-replay {
+  background: hsl(220 25% 50% / 0.16);
+  color: var(--text);
+}
+[data-theme="dark"] .pt-tone-replay { background: hsl(220 25% 72% / 0.16); }
+.pt-tone-choose {
+  background: linear-gradient(135deg, hsl(var(--hue1) 65% 55%), hsl(var(--hue2) 65% 55%));
+  color: #fff;
+  box-shadow: 0 6px 16px hsl(var(--hue1) 60% 50% / 0.32);
+}
+.pt-tone-replay:active, .pt-tone-choose:active { transform: scale(0.97); }
+
 /* ═══ Финален слайдер „нагласи точно своя тон" (усещане за контрол) ═══ */
 .pt-finetune {
   display: flex;
