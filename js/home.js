@@ -567,6 +567,11 @@ window.Home = (function () {
             : '') +
         '</div>';
     }
+    // При недовършен тест — втора възможност „Започни отначало" (до „Продължи").
+    var restartHtml = o.restartAction
+      ? '<button class="home-test-restart" type="button" data-action="' + o.restartAction + '">' +
+          escapeHtml(o.restartLabel || 'Започни отначало') + '</button>'
+      : '';
     return (
       '<div class="home-test-card glass sm" data-state="' + (o.state || 'todo') + '">' +
         '<span class="shine" aria-hidden="true"></span>' +
@@ -586,6 +591,7 @@ window.Home = (function () {
             ' type="button" data-action="' + o.btnAction + '">' + escapeHtml(o.btnLabel) + '</button>' +
         '</div>' +
         progressHtml +
+        restartHtml +
       '</div>'
     );
   }
@@ -611,6 +617,8 @@ window.Home = (function () {
       o.btnAction = 'thi-resume';
       o.progressPct = Math.round((active.answered / active.total) * 100);
       o.progressText = active.answered + ' / ' + active.total;
+      o.restartLabel = t('home.tests.restartBtn', 'Започни отначало');
+      o.restartAction = 'thi-restart';
     } else if (has && day14) {
       o.state = 'done';
       o.statusMain = t('home.tests.thi.compared', 'Сравнение готово');
@@ -661,6 +669,8 @@ window.Home = (function () {
       }
       o.btnLabel = t('home.tests.continueBtn', 'Продължи');
       o.btnAction = 'pitch-resume';
+      o.restartLabel = t('home.tests.restartBtn', 'Започни отначало');
+      o.restartAction = 'pitch-restart';
     } else if (freq) {
       o.state = 'done';
       o.statusMain = t('home.tests.pitch.freqFmt', 'Честота {hz}', { hz: fmtHz(freq) });
@@ -979,6 +989,10 @@ window.Home = (function () {
       if (window.ThiBaseline && window.ThiBaseline.resume) window.ThiBaseline.resume();
     } else if (action === 'pitch-resume') {
       if (window.PitchTest && window.PitchTest.resume) window.PitchTest.resume();
+    } else if (action === 'thi-restart') {
+      if (window.ThiBaseline && window.ThiBaseline.open) window.ThiBaseline.open();
+    } else if (action === 'pitch-restart') {
+      openPitchTest();
     } else if (action === 'pitch-info') {
       openPitchInfo();
     } else if (action === 'thi-start') {

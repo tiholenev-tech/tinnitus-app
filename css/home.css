@@ -483,6 +483,10 @@
 .home-test-progress-text { flex-shrink: 0; font-family: var(--font-mono); font-size: 11.5px; font-weight: 700; color: hsl(38 78% 50%); }
 [data-theme="dark"] .home-test-progress-text { color: hsl(42 80% 68%); }
 
+/* „Започни отначало" — втора възможност при недовършен тест (до „Продължи") */
+.home-test-restart { display: inline-flex; align-items: center; margin-top: 10px; padding: 8px 14px; min-height: 38px; border: 1px solid var(--border-color); border-radius: var(--radius-pill); background: transparent; color: var(--text-muted); font-family: inherit; font-size: 12.5px; font-weight: 600; cursor: pointer; transition: transform var(--dur-fast) var(--ease); }
+.home-test-restart:active { transform: scale(0.97); }
+
 /* ═══ Компактен setup ред — поканите една до друга, дискретни (Тихол UX) ═══ */
 .home-setup-row {
   display: flex;

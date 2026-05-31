@@ -624,7 +624,15 @@ window.PitchTest = (function () {
         '<section class="pt-tones">' +
           toneCardHtml('A') + toneCardHtml('B') +
         '</section>' +
-        '<button class="pt-quit" type="button" data-action="quit">Спри засега</button>' +
+        '<button class="pt-quit" type="button" data-action="quit">' +
+          '<span class="pt-quit-main">' +
+            '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
+              '<rect x="6" y="5" width="4" height="14" rx="1"/>' +
+              '<rect x="14" y="5" width="4" height="14" rx="1"/></svg>' +
+            'Спри засега' +
+          '</span>' +
+          '<span class="pt-quit-sub">Запазваме докъде стигнахте</span>' +
+        '</button>' +
       '</div>'
     );
     bindClicks(app);

@@ -644,21 +644,25 @@
   line-height: 1.35;
 }
 .pt-quit {
-  margin: 14px auto 0;
-  display: block;
-  background: transparent;
-  border: none;
-  color: var(--text-muted);
+  margin: 18px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: hsl(220 25% 50% / 0.10);
+  border: 1.5px solid var(--border-color);
+  color: var(--text);
   font-family: inherit;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  padding: 10px 16px;
+  border-radius: var(--radius-pill, 999px);
+  padding: 11px 24px;
+  min-height: 54px;
   cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
 }
-.pt-quit:active { opacity: 0.6; }
+[data-theme="dark"] .pt-quit { background: hsl(220 25% 72% / 0.10); }
+.pt-quit-main { display: flex; align-items: center; gap: 7px; font-size: 15px; font-weight: 700; }
+.pt-quit-main svg { width: 16px; height: 16px; }
+.pt-quit-sub { font-size: 11.5px; font-weight: 500; color: var(--text-muted); }
+.pt-quit:active { transform: scale(0.97); opacity: 0.85; }
 
 /* „Браво" между замерванията */
 .pt-bravo {
