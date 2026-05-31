@@ -19,7 +19,7 @@
 // CACHE_AUDIO бамп също защото старите URLs (audio/library/* и
 // library_staging_loop_ready/*) са персистнали → нови URLs
 // (library_staging_normalized/*) не са в стария cache + 503 offline.
-var VERSION = '1.0.97';
+var VERSION = '1.0.98';
 var CACHE_SHELL = 'auralis-shell-v' + VERSION;
 var CACHE_I18N = 'auralis-i18n-v' + VERSION;
 var CACHE_AUDIO = 'auralis-audio-v3';
@@ -139,17 +139,21 @@ self.addEventListener('fetch', function (e) {
     return;
   }
 
+  // BUG FIX 1.0.98: manifest.json е на път audio/library/manifest.json →
+  // долният '/audio/' guard го хващаше в CACHE_AUDIO (cacheFirst, НИКОГА не
+  // се чисти при version bump) → старият manifest заседваше на устройството
+  // (нови имена/категории/водопад НЕ стигаха). Manifest ПЪРВО → networkFirst.
+  if (pathname.endsWith('manifest.json')) {
+    e.respondWith(networkFirst(e.request, CACHE_SHELL));
+    return;
+  }
+
   if (pathname.indexOf('/audio/') !== -1 ||
       pathname.indexOf('/library_staging_') !== -1 ||
       pathname.endsWith('.mp3') || pathname.endsWith('.wav') ||
       pathname.endsWith('.ogg') || pathname.endsWith('.opus') ||
       pathname.endsWith('.m4a') || pathname.endsWith('.aac')) {
     e.respondWith(cacheFirst(e.request, CACHE_AUDIO));
-    return;
-  }
-
-  if (pathname.endsWith('manifest.json')) {
-    e.respondWith(networkFirst(e.request, CACHE_SHELL));
     return;
   }
 
