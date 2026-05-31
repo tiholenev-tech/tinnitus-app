@@ -68,6 +68,8 @@ window.PitchTest = (function () {
   // STATE
   // ============================================================
 
+  var STORAGE_ACTIVE = 'auralis-pitch-active';   // resume: недовършен тест
+
   var phase = 'pretest';
   var testMode = 'quick';            // 'quick' (Ден 1) | 'precise' (Ден 2)
   var stimulusType = 'tone';         // 'tone' (тонален) | 'noise' (шумов) — по pretest
@@ -360,6 +362,7 @@ window.PitchTest = (function () {
     var s = window.AppState;
     if (value === 'pulsing') {
       if (s && s.setPitchSkip) s.setPitchSkip('pulsing');
+      clearPitchActive();
       phase = 'done';
       renderSkip('Препоръчваме преглед при УНГ специалист',
         'Пулсиращ тинитус (в ритъм със сърдечния пулс) изисква медицинска ' +
@@ -537,8 +540,10 @@ window.PitchTest = (function () {
     bayesAdd(pm);
     if (bayesShouldStop()) {
       phase = 'octave';
+      savePitchActive();   // resume точка: всички замервания готови, остава октава
       renderBravoThen(function () { startOctaveVerification(bayesMeanHz()); }, true);
     } else {
+      savePitchActive();   // resume точка: завършено замерване bayes.n
       renderBravoThen(function () { startMeasurement(); }, false);
     }
   }
@@ -938,6 +943,7 @@ window.PitchTest = (function () {
     freq = Math.max(F_MIN, Math.min(F_MAX, freq));
     lastResultFreq = freq;
     phase = 'done';
+    clearPitchActive();   // резултатът е запазен → вече не е „недовършен"
     var ciOct = bayesCIHalfOct();
     var s = window.AppState;
     if (s && s.addPitchTest) {
@@ -1188,6 +1194,47 @@ window.PitchTest = (function () {
   }
 
   // ============================================================
+  // Resume persistence — недовършен тест (запазва на граница на замерване)
+  // ============================================================
+  // Pitch тестът е аудио state machine; пазим прогреса на ниво „завършено
+  // замерване" (НЕ по средата на едно 2AFC сравнение). На resume продължаваме
+  // от следващото замерване — вече направените НЕ се повтарят.
+
+  function savePitchActive() {
+    try {
+      localStorage.setItem(STORAGE_ACTIVE, JSON.stringify({
+        v: 1,
+        mode: testMode,
+        stim: stimulusType,
+        calibGain: calibGain,
+        phase: phase,
+        bayes: bayes,
+        meas: measurements,
+        ts: Date.now()
+      }));
+    } catch (e) { /* ignore */ }
+  }
+
+  function clearPitchActive() {
+    try { localStorage.removeItem(STORAGE_ACTIVE); } catch (e) { /* ignore */ }
+  }
+
+  function readPitchActive() {
+    try { var raw = localStorage.getItem(STORAGE_ACTIVE); return raw ? JSON.parse(raw) : null; }
+    catch (e) { return null; }
+  }
+
+  // Public за Home: докъде стигна недовършеният тест (или null).
+  // { n: завършени замервания, total, phase, mode }
+  function activeProgress() {
+    var a = readPitchActive();
+    if (!a || !a.bayes || !(a.bayes.n > 0)) return null;
+    if (a.phase === 'finetune' || a.phase === 'done') return null;  // вече има резултат
+    var total = (a.mode === 'precise') ? MIN_MEAS : QUICK_MEAS;
+    return { n: a.bayes.n, total: total, phase: a.phase, mode: a.mode || 'quick' };
+  }
+
+  // ============================================================
   // Lifecycle
   // ============================================================
 
@@ -1204,6 +1251,7 @@ window.PitchTest = (function () {
 
   function open(opts) {
     cleanupAudio();
+    clearPitchActive();                 // нов тест → захвърли стар недовършен
     testMode = (opts && opts.mode === 'precise') ? 'precise' : 'quick';
     phase = 'pretest';
     bayesReset();
@@ -1215,10 +1263,40 @@ window.PitchTest = (function () {
     scrollTop();
   }
 
+  // Resume — продължи недовършен тест от следващото замерване (вече
+  // направените замервания се пазят; не се повтарят). Викан от Home бутон
+  // (user gesture → audio context може да стартира).
+  function resume() {
+    var a = readPitchActive();
+    if (!a || !a.bayes || !(a.bayes.n > 0) || a.phase === 'finetune' || a.phase === 'done') {
+      open();   // няма какво смислено да продължим → чист тест
+      return;
+    }
+    cleanupAudio();
+    testMode = a.mode || 'quick';
+    stimulusType = a.stim || 'tone';
+    calibGain = (typeof a.calibGain === 'number') ? a.calibGain : CALIB_GAIN_DEFAULT;
+    bayes = (a.bayes && typeof a.bayes.n === 'number') ? a.bayes : { n: 0, mean: 0, M2: 0 };
+    measurements = Array.isArray(a.meas) ? a.meas : [];
+    octaveState = null;
+    var s = window.AppState;
+    if (s && s.transition) s.transition('pitch_test');
+    history.pushState({ phase: 'pitch_test' }, '');
+    scrollTop();
+    if (a.phase === 'octave') {
+      phase = 'octave';
+      startOctaveVerification(bayesMeanHz());
+    } else {
+      phase = 'measure';
+      startMeasurement();
+    }
+  }
+
   // Router/onboarding entry hook — започва теста чисто (reset на engine state).
   // Онбординг Ден 1 = quick режим (кратък, предвидим прогрес).
   function render() {
     cleanupAudio();
+    clearPitchActive();
     testMode = 'quick';
     phase = 'pretest';
     bayesReset();
@@ -1230,6 +1308,8 @@ window.PitchTest = (function () {
   return {
     open: open,
     render: render,
+    resume: resume,
+    activeProgress: activeProgress,
     _GRID: GRID,
     _bayes: function () { return { n: bayes.n, meanHz: bayesMeanHz(), ciOct: bayesCIHalfOct() }; },
     _pair: function () { return pair ? { fA: pair.fA, fB: pair.fB, fLow: pair.fLow, fHigh: pair.fHigh } : null; },

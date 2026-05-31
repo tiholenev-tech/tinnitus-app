@@ -307,9 +307,38 @@ window.ThiBaseline = (function () {
     refresh();
   }
 
+  // Resume — продължи недовършена оценка от записания въпрос (Home бутон).
+  function resume() {
+    loadActive();
+    if (window.AppState && window.AppState.transition) {
+      window.AppState.transition('thi_baseline');
+    }
+    history.pushState({ phase: 'thi_baseline' }, '');
+    refresh();
+  }
+
+  // Public за Home: докъде стигна недовършена оценка (или null).
+  // Наличието на active ключове = започната, но незавършена (finalize() ги трие).
+  function activeProgress() {
+    try {
+      if (localStorage.getItem(STORAGE_INDEX) === null) return null;
+      var raw = localStorage.getItem(STORAGE_SCORES);
+      var sc = raw ? JSON.parse(raw) : [];
+      if (!Array.isArray(sc)) sc = [];
+      var answered = 0;
+      for (var i = 0; i < sc.length; i++) if (typeof sc[i] === 'number') answered++;
+      if (answered === 0) return null;
+      var idx = parseInt(localStorage.getItem(STORAGE_INDEX), 10);
+      if (isNaN(idx)) idx = answered - 1;
+      return { index: idx, answered: answered, total: TOTAL_QUESTIONS };
+    } catch (e) { return null; }
+  }
+
   return {
     open: open,
     render: render,
+    resume: resume,
+    activeProgress: activeProgress,
     scoreBreakdown: scoreBreakdown
   };
 })();

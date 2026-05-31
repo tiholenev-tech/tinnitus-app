@@ -523,11 +523,13 @@ window.Home = (function () {
   }
 
   // ============================================================
-  // „МОИТЕ ТЕСТОВЕ" — единна секция (Тихол 31.05). Заменя разпръснатите
-  // banner-и (THI banner + pitch card + THI badge + CTA), които объркваха:
-  // не личеше „кои са тестовете", THI изглеждаше скрит, а pitch банерът
-  // винаги пишеше „Уточни" сякаш пита наново (а резултатът Е запазен).
-  // Сега: 3 реда, всеки с ИМЕ + ЯСЕН СТАТУС + един бутон.
+  // „МОИТЕ ТЕСТОВЕ" — единна секция (Тихол 31.05 / 06.01). Само ДВАТА
+  // периодични теста: THI (оценка) + Тон (честота). Профилът (15 въпроса)
+  // е еднократен — не се показва тук. Всеки тест в .glass карта с:
+  //   • ясно ИМЕ + СТАТУС (THI → СТЕПЕН, не голо число; Тон → честота)
+  //   • прогрес-бар + „Продължи" ако има НЕДОВЪРШЕН тест (resume от където спря)
+  //   • последният резултат СТОИ докато новият тест не завърши
+  //   • напомняне за повтаряне по документацията (THI на 14-ия ден).
   // ============================================================
 
   function fmtHz(hz) {
@@ -539,85 +541,166 @@ window.Home = (function () {
     return hz + ' Hz';
   }
 
-  // o = { icon, name, sub, done, statusText, btnLabel, btnAction }
-  // done=true → зелена иконка/статус + (по избор) check бадж; иначе „жълто" todo.
-  function buildTestRow(o) {
-    var stateCls = o.done ? 'is-done' : 'is-todo';
-    var right = o.btnLabel
-      ? '<button class="home-test-btn' + (o.done ? ' is-secondary' : '') + '" type="button"' +
-          ' data-action="' + o.btnAction + '">' + escapeHtml(o.btnLabel) + '</button>'
-      : (o.done
-          ? '<span class="home-test-check" aria-hidden="true">✓</span>'
-          : '');
+  // THI степен по тежест (docs/research/18 — Newman граници), вместо голо число.
+  function thiGrade(score) {
+    if (typeof score !== 'number') return '';
+    if (score <= 16) return t('home.tests.thi.grade1', 'Много леко');
+    if (score <= 36) return t('home.tests.thi.grade2', 'Леко');
+    if (score <= 56) return t('home.tests.thi.grade3', 'Умерено');
+    if (score <= 76) return t('home.tests.thi.grade4', 'Тежко');
+    return t('home.tests.thi.grade5', 'Много тежко');
+  }
+
+  // o = { icon, name, statusMain, statusSub, state, btnLabel, btnAction,
+  //       btnSecondary, progressPct (null=без бар), progressText }
+  function buildTestCard(o) {
+    var progressHtml = '';
+    if (o.progressPct != null) {
+      progressHtml =
+        '<div class="home-test-progress">' +
+          '<div class="home-test-progress-bar" role="progressbar" aria-valuemin="0"' +
+            ' aria-valuemax="100" aria-valuenow="' + o.progressPct + '">' +
+            '<div class="home-test-progress-fill" style="width:' + o.progressPct + '%"></div>' +
+          '</div>' +
+          (o.progressText
+            ? '<span class="home-test-progress-text">' + escapeHtml(o.progressText) + '</span>'
+            : '') +
+        '</div>';
+    }
     return (
-      '<div class="home-test-row ' + stateCls + '">' +
-        '<span class="home-test-icon" aria-hidden="true">' + (o.icon || '') + '</span>' +
-        '<span class="home-test-info">' +
-          '<span class="home-test-name">' + escapeHtml(o.name) + '</span>' +
-          '<span class="home-test-status">' + escapeHtml(o.statusText) + '</span>' +
-        '</span>' +
-        right +
+      '<div class="home-test-card glass sm" data-state="' + (o.state || 'todo') + '">' +
+        '<span class="shine" aria-hidden="true"></span>' +
+        '<span class="shine shine-bottom" aria-hidden="true"></span>' +
+        '<span class="glow" aria-hidden="true"></span>' +
+        '<span class="glow glow-bottom" aria-hidden="true"></span>' +
+        '<div class="home-test-card-row">' +
+          '<span class="home-test-icon" aria-hidden="true">' + (o.icon || '') + '</span>' +
+          '<span class="home-test-info">' +
+            '<span class="home-test-name">' + escapeHtml(o.name) + '</span>' +
+            '<span class="home-test-status">' + escapeHtml(o.statusMain) + '</span>' +
+            (o.statusSub
+              ? '<span class="home-test-substatus">' + escapeHtml(o.statusSub) + '</span>'
+              : '') +
+          '</span>' +
+          '<button class="home-test-btn' + (o.btnSecondary ? ' is-secondary' : '') + '"' +
+            ' type="button" data-action="' + o.btnAction + '">' + escapeHtml(o.btnLabel) + '</button>' +
+        '</div>' +
+        progressHtml +
       '</div>'
     );
   }
 
-  function buildTestsSection() {
+  function buildThiTestCard() {
     var s = window.AppState || {};
-    var rows = '';
+    var active = (window.ThiBaseline && window.ThiBaseline.activeProgress)
+      ? window.ThiBaseline.activeProgress() : null;
+    var has = (typeof s.thiBaseline === 'number');
+    var day14 = (typeof s.thiDay14 === 'number');
+    var day = s.currentProgramDay || 0;
+    var o = { icon: SVG.testThi, name: t('home.tests.thi.name', 'Оценка на тинитуса') };
 
-    // 1) Профил (кратък въпросник) — на началния екран винаги е минат.
-    var hasProfile = !!s.profile;
-    rows += buildTestRow({
-      icon: SVG.testProfile,
-      name: t('home.tests.profile.name', 'Профил'),
-      done: hasProfile,
-      statusText: hasProfile
-        ? t('home.tests.profile.done', 'Готов · кратък въпросник')
-        : t('home.tests.profile.todo', 'Не е попълнен')
-    });
-
-    // 2) Оценка на тинитуса (THI, 25 въпроса) — по желание.
-    var thiDone = (typeof s.thiBaseline === 'number');
-    rows += buildTestRow({
-      icon: SVG.testThi,
-      name: t('home.tests.thi.name', 'Оценка на тинитуса'),
-      done: thiDone,
-      statusText: thiDone
-        ? t('home.tests.thi.done', 'Готова · резултат {n}', { n: s.thiBaseline })
-        : t('home.tests.thi.todo', 'Не е направена · 25 въпроса, по желание'),
-      btnLabel: thiDone ? t('home.tests.viewBtn', 'Виж') : t('home.tests.doBtn', 'Направи'),
-      btnAction: thiDone ? 'open-thi-detail' : 'thi-start'
-    });
-
-    // 3) Тон на тинитуса (честота → notch филтър).
-    var pitchDone = !!(s.isPitchTestDone && s.isPitchTestDone());
-    var freq = (s.getNotchFreq && s.getNotchFreq()) || null;
-    var pitchOk = !!(pitchDone && freq);
-    var pStatus, pBtn;
-    if (pitchOk) {
-      pStatus = t('home.tests.pitch.doneFreq', 'Готов · честота {hz}', { hz: fmtHz(freq) });
-      pBtn = t('home.tests.refineBtn', 'Уточни');
-    } else if (pitchDone) {
-      pStatus = t('home.tests.pitch.skipped', 'Пропуснат — направете го за личен филтър');
-      pBtn = t('home.tests.doBtn', 'Направи');
+    if (active) {
+      // Недовършена оценка → продължи; последният резултат (ако има) СТОИ.
+      o.state = 'progress';
+      o.statusMain = has
+        ? t('home.tests.lastFmt', 'Последно: {v}', { v: thiGrade(s.thiBaseline) })
+        : t('home.tests.unfinishedF', 'Недовършена оценка');
+      o.statusSub = t('home.tests.thi.resumeFmt', 'Има недовършен тест · въпрос {n} от {total}',
+        { n: active.index + 1, total: active.total });
+      o.btnLabel = t('home.tests.continueBtn', 'Продължи');
+      o.btnAction = 'thi-resume';
+      o.progressPct = Math.round((active.answered / active.total) * 100);
+      o.progressText = active.answered + ' / ' + active.total;
+    } else if (has && day14) {
+      o.state = 'done';
+      o.statusMain = t('home.tests.thi.compared', 'Сравнение готово');
+      o.statusSub = t('home.tests.thi.comparedSub', 'Ден 1 → Ден 14');
+      o.btnLabel = t('home.tests.viewBtn', 'Виж'); o.btnAction = 'open-thi-detail'; o.btnSecondary = true;
+    } else if (has && day >= THI_RETEST_DAY_MIN) {
+      // Програмата стигна 14-ия ден → активна покана за повторна оценка (MCID).
+      o.state = 'due';
+      o.statusMain = thiGrade(s.thiBaseline);
+      o.statusSub = t('home.tests.thi.due', 'Време за повторна оценка');
+      o.btnLabel = t('home.tests.retestBtn', 'Направи отново'); o.btnAction = 'thi-start';
+    } else if (has) {
+      o.state = 'done';
+      o.statusMain = thiGrade(s.thiBaseline);
+      o.statusSub = t('home.tests.thi.readySub', 'оценка готова');
+      o.btnLabel = t('home.tests.viewBtn', 'Виж'); o.btnAction = 'open-thi-detail'; o.btnSecondary = true;
     } else {
-      pStatus = t('home.tests.pitch.todo', 'Не е направен · ~5 минути');
-      pBtn = t('home.tests.doBtn', 'Направи');
+      o.state = 'todo';
+      o.statusMain = t('home.tests.thi.todoMain', 'Не е направена');
+      o.statusSub = t('home.tests.thi.todoSub', '25 въпроса · по желание');
+      o.btnLabel = t('home.tests.doBtn', 'Направи'); o.btnAction = 'thi-start';
     }
-    rows += buildTestRow({
-      icon: SVG.testPitch,
-      name: t('home.tests.pitch.name', 'Тон на тинитуса'),
-      done: pitchOk,
-      statusText: pStatus,
-      btnLabel: pBtn,
-      btnAction: 'pitch-retest'
-    });
+    return buildTestCard(o);
+  }
 
-    var title = t('home.tests.title', 'Моите тестове');
+  function buildPitchTestCard() {
+    var s = window.AppState || {};
+    var active = (window.PitchTest && window.PitchTest.activeProgress)
+      ? window.PitchTest.activeProgress() : null;
+    var freq = (s.getNotchFreq && s.getNotchFreq()) || null;
+    var pitchDone = !!(s.isPitchTestDone && s.isPitchTestDone());
+    var o = { icon: SVG.testPitch, name: t('home.tests.pitch.name', 'Тон на тинитуса') };
+
+    if (active) {
+      o.state = 'progress';
+      o.statusMain = freq
+        ? t('home.tests.lastFmt', 'Последно: {v}', { v: fmtHz(freq) })
+        : t('home.tests.unfinishedM', 'Недовършен тест');
+      if (active.phase === 'octave') {
+        o.statusSub = t('home.tests.pitch.resumeOctave', 'Има недовършен тест · финална проверка');
+        o.progressPct = 95;
+        o.progressText = active.total + ' / ' + active.total;
+      } else {
+        o.statusSub = t('home.tests.pitch.resumeFmt', 'Има недовършен тест · замерване {n} от {total}',
+          { n: active.n + 1, total: active.total });
+        o.progressPct = Math.round((active.n / active.total) * 100);
+        o.progressText = Math.min(active.n, active.total) + ' / ' + active.total;
+      }
+      o.btnLabel = t('home.tests.continueBtn', 'Продължи');
+      o.btnAction = 'pitch-resume';
+    } else if (freq) {
+      o.state = 'done';
+      o.statusMain = t('home.tests.pitch.freqFmt', 'Честота {hz}', { hz: fmtHz(freq) });
+      o.statusSub = t('home.tests.pitch.readySub', 'готов');
+      o.btnLabel = t('home.tests.refineBtn', 'Уточни'); o.btnAction = 'pitch-retest'; o.btnSecondary = true;
+    } else if (pitchDone) {
+      o.state = 'todo';
+      o.statusMain = t('home.tests.pitch.skippedMain', 'Пропуснат');
+      o.statusSub = t('home.tests.pitch.skippedSub', 'направете го за личен филтър');
+      o.btnLabel = t('home.tests.doBtn', 'Направи'); o.btnAction = 'pitch-retest';
+    } else {
+      o.state = 'todo';
+      o.statusMain = t('home.tests.pitch.todoMain', 'Не е направен');
+      o.statusSub = t('home.tests.pitch.todoSub', '~5 минути · по желание');
+      o.btnLabel = t('home.tests.doBtn', 'Направи'); o.btnAction = 'pitch-retest';
+    }
+    return buildTestCard(o);
+  }
+
+  function buildTestsSection() {
+    var thiCard = buildThiTestCard();
+    var pitchCard = buildPitchTestCard();
+    // брояч „готови" — done = завършен с резултат (не недовършен, не „по желание").
+    var s = window.AppState || {};
+    var thiDoneN = (typeof s.thiBaseline === 'number'
+      && !(window.ThiBaseline && window.ThiBaseline.activeProgress && window.ThiBaseline.activeProgress())) ? 1 : 0;
+    var pitchDoneN = ((s.getNotchFreq && s.getNotchFreq())
+      && !(window.PitchTest && window.PitchTest.activeProgress && window.PitchTest.activeProgress())) ? 1 : 0;
+    var doneCount = thiDoneN + pitchDoneN;
+    var counter = t('home.tests.counterFmt', '{n} от {total} готови', { n: doneCount, total: 2 });
+
     return (
       '<section class="home-tests" aria-labelledby="homeTestsTitle">' +
-        '<h2 class="home-tests-title" id="homeTestsTitle">' + escapeHtml(title) + '</h2>' +
-        '<div class="home-tests-list">' + rows + '</div>' +
+        '<div class="home-tests-head">' +
+          '<h2 class="home-tests-title" id="homeTestsTitle">' +
+            escapeHtml(t('home.tests.title', 'Моите тестове')) + '</h2>' +
+          '<span class="home-tests-counter" data-full="' + (doneCount === 2 ? 'true' : 'false') + '">' +
+            escapeHtml(counter) + '</span>' +
+        '</div>' +
+        '<div class="home-tests-list">' + thiCard + pitchCard + '</div>' +
       '</section>'
     );
   }
@@ -892,6 +975,10 @@ window.Home = (function () {
       openThiRetest();
     } else if (action === 'pitch-retest') {
       openPitchTest();
+    } else if (action === 'thi-resume') {
+      if (window.ThiBaseline && window.ThiBaseline.resume) window.ThiBaseline.resume();
+    } else if (action === 'pitch-resume') {
+      if (window.PitchTest && window.PitchTest.resume) window.PitchTest.resume();
     } else if (action === 'pitch-info') {
       openPitchInfo();
     } else if (action === 'thi-start') {
