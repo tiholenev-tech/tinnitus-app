@@ -121,8 +121,14 @@ window.Library = (function () {
       .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
   }
 
+  // audit 1.0.106: единен източник на любими = window.Favorites (същия, който
+  // плеърът и Favorites page ползват). Преди Library пазеше СВОЙ масив на друг
+  // ключ → любими добавени от плеъра не се виждаха тук. Деривираме id-тата.
   function loadFavorites() {
     try {
+      if (window.Favorites && window.Favorites.getAll) {
+        return window.Favorites.getAll().map(function (f) { return f.id; });
+      }
       var raw = localStorage.getItem(STORAGE_FAVORITES);
       if (!raw) return [];
       var arr = JSON.parse(raw);
@@ -131,6 +137,8 @@ window.Library = (function () {
   }
 
   function saveFavorites() {
+    // legacy fallback само ако window.Favorites липсва (иначе toggle минава през него)
+    if (window.Favorites && window.Favorites.toggle) return;
     try { localStorage.setItem(STORAGE_FAVORITES, JSON.stringify(favorites)); } catch (e) { /* ignore */ }
   }
 
@@ -226,7 +234,8 @@ window.Library = (function () {
     if (activeFilter === 'favorites') {
       sounds = sounds.filter(function (s) { return favorites.indexOf(s.id) !== -1; });
     } else if (activeFilter !== 'all') {
-      sounds = sounds.filter(function (s) { return s.category === activeFilter; });
+      // audit 1.0.106: схемата ползва category_audio (category не съществува)
+      sounds = sounds.filter(function (s) { return (s.category_audio || s.category) === activeFilter; });
     }
 
     if (searchQuery) {
@@ -234,7 +243,7 @@ window.Library = (function () {
       sounds = sounds.filter(function (s) {
         var title = soundTitle(s).toLowerCase();
         var subtitle = soundSubtitle(s).toLowerCase();
-        var cat = (s.category || '').toLowerCase();
+        var cat = (s.category_audio || s.category || '').toLowerCase();
         return title.indexOf(q) !== -1 || subtitle.indexOf(q) !== -1 || cat.indexOf(q) !== -1;
       });
     }
@@ -534,10 +543,16 @@ window.Library = (function () {
   }
 
   function toggleFavorite(soundId) {
-    var idx = favorites.indexOf(soundId);
-    if (idx === -1) favorites.push(soundId);
-    else favorites.splice(idx, 1);
-    saveFavorites();
+    // audit 1.0.106: делегирай на window.Favorites (единен store), после re-derive.
+    if (window.Favorites && window.Favorites.toggle) {
+      window.Favorites.toggle(soundId);
+      favorites = loadFavorites();
+    } else {
+      var idx = favorites.indexOf(soundId);
+      if (idx === -1) favorites.push(soundId);
+      else favorites.splice(idx, 1);
+      saveFavorites();
+    }
     refresh();
   }
 
@@ -608,6 +623,7 @@ window.Library = (function () {
   function refresh() {
     var app = el('app');
     if (!app) return;
+    favorites = loadFavorites();   // audit 1.0.106: re-derive от window.Favorites (хваща промени от плеъра)
     // NAV-LISTENER-LEAK fix: clone-and-replace #app преди да закачаме нашите
     // click + keydown + tabs listener-и. innerHTML смята само децата — стария
     // listener от предишния модул ОСТАВА на #app и двойно fire-ва handler-ите.
@@ -671,7 +687,9 @@ window.Library = (function () {
     var favBtn = e.target.closest('[data-action="fav"]');
     if (favBtn) {
       e.stopPropagation();
-      var card = favBtn.closest('.lib-card');
+      // audit 1.0.106: по-общ селектор → хваща и .lib-card, и .lib-med-card
+      // (преди медитация-сърцето беше no-op заради твърдото '.lib-card').
+      var card = favBtn.closest('[data-sound-id]');
       if (card) toggleFavorite(card.getAttribute('data-sound-id'));
       return;
     }
