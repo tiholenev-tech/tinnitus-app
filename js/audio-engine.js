@@ -181,7 +181,12 @@ window.AudioEngine = (function () {
     safetyLimiter.knee.value      = 0.0;
 
     makeupCancelGain = ctx.createGain();
-    makeupCancelGain.gain.value = Math.pow(10, (0.5 * -12.0) / 20);
+    // audit 1.0.105: Web Audio compressor НЯМА automatic makeup gain — старият
+    // -6 dB cut беше неоправдан и беше коренът на „всичко е тихо". Вдигнато
+    // УМЕРЕНО до -3 dB (половината) като безопасна стъпка за tinnitus уши;
+    // safetyLimiter (-12 dBFS) пак пази пиковете. (Тихол да тества; ако още е
+    // тихо → 0.0 фактор = пълно махане.)
+    makeupCancelGain.gain.value = Math.pow(10, (0.25 * -12.0) / 20);
 
     masterGain.connect(safetyLimiter);
     safetyLimiter.connect(makeupCancelGain);

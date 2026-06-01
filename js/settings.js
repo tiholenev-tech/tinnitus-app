@@ -306,12 +306,9 @@ window.Settings = (function () {
           '<button class="set-action" type="button" data-action="data-export">' +
             escapeHtml(t('settings.data.export', 'Изтегли всичко (JSON)')) +
           '</button>' +
-          '<button class="set-action" type="button" data-action="diary-import-trigger">' +
-            escapeHtml(t('ui.diary.import.button', 'Импорт на дневник (JSON)')) +
-          '</button>' +
-          '<input type="file" id="setDiaryImportInput" accept="application/json,.json"' +
-            ' style="display:none"' +
-            ' aria-label="' + escapeHtml(t('ui.diary.import.fileAria', 'Изберете JSON файл за импорт')) + '">' +
+          // „Импорт на дневник" СКРИТ (audit 1.0.105): importFromJson пише в
+          // мъртвия legacy '_' store (не в реалния дневник) → нищо не се появява.
+          // „Изтегли всичко (JSON)" пак прави backup. Връща се след пренапис.
           '<button class="set-action set-action--danger" type="button" data-action="data-delete">' +
             escapeHtml(t('settings.data.delete', 'Изтрий всички данни')) +
           '</button>' +
@@ -778,7 +775,10 @@ window.Settings = (function () {
           // Master volume + volume profiles преместени на началния екран
           // (Home → buildVolumeCard). Виж js/home.js.
           buildNotchSection() +
-          buildAnalyticsButton() +
+          // „Вашата статистика" СКРИТО (audit 1.0.105): екранът е изключен от
+          // реалните данни (нищо не track-ва слушане/sos/sleep + чете мъртъв
+          // legacy diary store). Връща се след правилно свързване post-launch.
+          // buildAnalyticsButton() +
           // „Напомняния" МАХНАТО (1.0.103): toggle-ите не правеха истинско
           // известие (PWA не може scheduled push при затворено приложение;
           // седмичното беше напълно мъртво). Напомнянето е честно през
@@ -1400,6 +1400,7 @@ window.Settings = (function () {
 
   function bindEvents() {
     if (!overlay) return;
+    overlay.removeEventListener('click', onOverlayClick);   // audit 1.0.105: refresh() вика bindEvents → без remove listener-ите се трупат
     overlay.addEventListener('click', onOverlayClick);
 
     // Action buttons + theme + back/close

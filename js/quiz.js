@@ -361,9 +361,11 @@ window.Quiz = (function () {
     );
   }
 
+  var advanceTimer = null;   // audit 1.0.105: guard срещу двоен тап → двоен advance/pushState
   function onAnswerSelected(button) {
     var optionKey = button.getAttribute('data-option');
     var qNum = currentQuestionNumber();
+    if (advanceTimer) { clearTimeout(advanceTimer); advanceTimer = null; }
 
     // Visual selection state
     var siblings = button.parentElement.parentElement.querySelectorAll('.quiz-option');
@@ -374,7 +376,8 @@ window.Quiz = (function () {
 
     // Auto-advance (по-малък delay при reduced motion)
     var delay = prefersReducedMotion() ? 50 : AUTO_ADVANCE_MS;
-    setTimeout(function () {
+    advanceTimer = setTimeout(function () {
+      advanceTimer = null;
       if (qNum < TOTAL) {
         goToQuestion(qNum + 1);
       } else {
