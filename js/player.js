@@ -333,7 +333,7 @@ window.Player = (function () {
               // когато notch активен (има pitch data + не disabled).
               buildNotchIndicator() +
             '</div>' +
-            buildSlider('plL1', escapeHtml(title), layer1Vol,
+            buildSlider('plL1', title, layer1Vol,
               l1Label + ' 0-100') +
           '</div>' +
           // BUG2: ако noise === 'none' (meditation scenario) — скрий L2 row.
@@ -346,7 +346,7 @@ window.Player = (function () {
               '<span class="pl-layer-name-text">' + escapeHtml(noiseLabel(noiseId)) + '</span>' +
               '<span class="pl-layer-chevron" aria-hidden="true">›</span>' +
             '</button>' +
-            buildSlider('plL2', escapeHtml(noiseLabel(noiseId)), layer2Vol,
+            buildSlider('plL2', noiseLabel(noiseId), layer2Vol,
               l2Label + ' 0-100') +
           '</div>') +
         '</div>' +
@@ -781,6 +781,11 @@ window.Player = (function () {
           // Failed → revert to play icon
           setPlayButtonIcon(false);
         });
+        // audit 1.0.104: pause() спира И двата слоя; play() рестартира само L1.
+        // Без това фоновият шум (маскиращ микс) изчезва след пауза→пусни.
+        if (noiseId && noiseId !== 'none' && window.AudioEngine.playLayer2) {
+          window.AudioEngine.playLayer2(noiseId, { fadeInSec: 1.0 });
+        }
       } else if (window.Library && window.Library.openSound) {
         window.Library.openSound(activeSoundId);
       }

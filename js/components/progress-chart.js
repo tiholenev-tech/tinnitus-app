@@ -82,8 +82,9 @@ window.ProgressChart = (function () {
 
     var states = [];
     for (var n = 1; n <= DAYS; n++) {
-      var ts = start ? (start + (n - 1) * 86400000) : null;
-      var key = ts ? dateKeyFromTs(ts) : null;
+      // audit 1.0.104: календарна аритметика (DST-устойчиво), не +ms
+      var key = null;
+      if (start) { var dd = new Date(start); dd.setDate(dd.getDate() + (n - 1)); key = dateKeyFromTs(dd.getTime()); }
       var entry = key ? entries[key] : null;
       var dims = dimensionsCount(entry);
       var isFrozen = key && frozen.indexOf(key) !== -1;

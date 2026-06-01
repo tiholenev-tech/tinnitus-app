@@ -1388,6 +1388,7 @@ window.PitchTest = (function () {
     render: render,
     resume: resume,
     activeProgress: activeProgress,
+    stopAudio: cleanupAudio,
     _GRID: GRID,
     _bayes: function () { return { n: bayes.n, meanHz: bayesMeanHz(), ciOct: bayesCIHalfOct() }; },
     _pair: function () { return pair ? { fA: pair.fA, fB: pair.fB, fLow: pair.fLow, fHigh: pair.fHigh } : null; },

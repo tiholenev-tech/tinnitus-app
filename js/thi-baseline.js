@@ -172,7 +172,10 @@ window.ThiBaseline = (function () {
 
   function buildResultHtml() {
     var score = totalScore();
-    var isDay14 = !!(window.AppState && window.AppState.currentProgramDay === 14);
+    // audit 1.0.104: етикетът трябва да съвпада с КРИТЕРИЯ за запис във
+    // finalize() (isRetest = thiBaseline вече е число), не с currentProgramDay===14
+    // — иначе при гъвкав Ден-13 retest пише „Baseline", а записва финал.
+    var isDay14 = !!(window.AppState && typeof window.AppState.thiBaseline === 'number');
     var label = isDay14
       ? t('thi.result.day14', 'Финален THI score (Ден 14)')
       : t('thi.result.baseline', 'Baseline THI score');

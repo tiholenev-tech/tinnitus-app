@@ -53,6 +53,15 @@ window.DiaryHub = (function () {
       ('0' + d.getDate()).slice(-2);
   }
 
+  // audit 1.0.104: ден N ключ чрез КАЛЕНДАРНА аритметика (setDate е DST-устойчив).
+  // Старото programStartDate + (n-1)*86400000 разместваше датата при есенния
+  // DST преход → запис се брои за „missed".
+  function programDayKey(startTs, n) {
+    var d = new Date(startTs);
+    d.setDate(d.getDate() + (n - 1));
+    return dateKeyFromTs(d.getTime());
+  }
+
   // ============================================================
   // Data
   // ============================================================
@@ -62,8 +71,7 @@ window.DiaryHub = (function () {
     if (!s || !s.diaryEntries || !s.programStartDate) return [];
     var done = [];
     for (var n = 1; n <= 14; n++) {
-      var ts = s.programStartDate + (n - 1) * 86400000;
-      var entry = s.diaryEntries[dateKeyFromTs(ts)];
+      var entry = s.diaryEntries[programDayKey(s.programStartDate, n)];
       if (entry && (entry.evening || entry.cbtCompleted)) {
         done.push(n);
       }
@@ -81,8 +89,7 @@ window.DiaryHub = (function () {
     var lastKey = null;
     var count = 0;
     for (var n = 1; n < current; n++) {
-      var ts = s.programStartDate + (n - 1) * 86400000;
-      var key = dateKeyFromTs(ts);
+      var key = programDayKey(s.programStartDate, n);
       var entry = (s.diaryEntries || {})[key];
       if (!entry || (!entry.evening && !entry.cbtCompleted)) {
         count++;
@@ -532,8 +539,7 @@ window.DiaryHub = (function () {
     // Изисквания: предишният ден трябва да е попълнен (cbtCompleted)
     // И трябва да са изминали >= 24 часа от попълването му.
     var prevDay = day - 1;
-    var prevTs = s.programStartDate + (prevDay - 1) * 86400000;
-    var prevKey = dateKeyFromTs(prevTs);
+    var prevKey = programDayKey(s.programStartDate, prevDay);
     var prevEntry = s.diaryEntries[prevKey];
     if (!prevEntry || !prevEntry.cbtCompleted) return null;  // нищо за блокиране
 
@@ -756,6 +762,7 @@ window.DiaryHub = (function () {
     var app = el('app');
     if (!app) return;
     app.innerHTML = buildHtml();
+    app.removeEventListener('click', onClick);   // audit 1.0.104: #app е персистентен → без remove listener-ите се трупат (двоен handler → фалшива freeze грешка)
     app.addEventListener('click', onClick);
     injectStreak();
     injectProgress();

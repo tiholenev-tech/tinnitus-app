@@ -227,6 +227,8 @@ window.CbtDay = (function () {
     var app = el('app');
     if (!app) return;
     app.innerHTML = buildHtml();
+    app.removeEventListener('click', onClick);   // audit 1.0.104: persistent #app → remove преди add
+    app.removeEventListener('input', onInput);
     app.addEventListener('click', onClick);
     app.addEventListener('input', onInput);
     injectVoiceDictation();

@@ -177,14 +177,30 @@
         window.Player.stopAudioAndCleanup();
       }
     }
+    // audit 1.0.104: същото за pitch_test — системната Android стрелка
+    // оставяше калибрацията/наградата (34s pink noise) да свири без UI.
+    if (currentPhase === 'pitch_test' && s.phase !== 'pitch_test') {
+      if (window.PitchTest && window.PitchTest.stopAudio) {
+        window.PitchTest.stopAudio();
+      }
+    }
 
     // === Onboarding е завършен → quiz/mixer навигация ===
     if (window.AppState.isOnboardingDone()) {
-      // Browser back към onboarding entries → блокирай (re-push текущото)
-      if (s.phase === 'onboarding' || s.subphase) {
+      // Browser back към onboarding entries → блокирай (re-push текущото).
+      // audit 1.0.104: но САМО ако quiz-ът реално още не е завършен — иначе
+      // стари {subphase} entries връщаха завършил потребител в Quiz wizard-а.
+      if ((s.phase === 'onboarding' || s.subphase) && !window.AppState.isQuizDone()) {
         var sub = window.AppState.quizSubphase || 'q1';
         history.pushState({ phase: window.AppState.current, quizSubphase: sub }, '');
         if (window.Quiz) window.Quiz.render(true);
+        return;
+      }
+      // Завършен quiz + стар onboarding/subphase entry → форсирай home.
+      if (s.phase === 'onboarding' || s.subphase) {
+        window.AppState.transition('home');
+        history.replaceState({ phase: 'home' }, '');
+        if (window.Home && window.Home.render) window.Home.render();
         return;
       }
 

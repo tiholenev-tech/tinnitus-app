@@ -93,18 +93,20 @@ window.Settings = (function () {
   }
 
   function isDebugMode() {
-    // Manual override
+    // КРИТИЧНО (audit 1.0.104): Capacitor нативната обвивка сервира на
+    // host 'localhost' → старият auto-enable показваше деструктивните debug
+    // бутони на реални 70+ потребители. Затова: под Capacitor → ВИНАГИ off;
+    // auto-enable само на ngrok dev тунели; 'localhost'/'.local' махнати.
+    try {
+      if (window.Capacitor) return false;
+    } catch (e) { /* ignore */ }
+    // Manual override (изричен флаг — за dev на localhost: set debug_mode=true)
     try {
       if (localStorage.getItem(DEBUG_FLAG) === 'true') return true;
     } catch (e) { /* ignore */ }
-    // Auto-enable на dev URLs (ngrok / localhost) — production wrap (Capacitor)
-    // няма да match-не и debug ще е off.
     try {
       var host = window.location && window.location.hostname || '';
-      if (host === 'localhost' || host === '127.0.0.1' ||
-          host.indexOf('.ngrok') !== -1 || host.indexOf('.local') !== -1) {
-        return true;
-      }
+      if (host.indexOf('.ngrok') !== -1) return true;
     } catch (e) { /* ignore */ }
     return false;
   }
@@ -1132,8 +1134,10 @@ window.Settings = (function () {
 
   var SECTION_KEYS = {
     quiz: ['auralis-quiz-answers', 'auralis-quiz-done', 'auralis-quiz-profile', 'auralis-quiz-di', 'auralis-quiz-subphase'],
-    diary: ['auralis_diary_entries'],
-    favorites: ['auralis_favorites'],
+    // audit 1.0.104: реалният 14-дневен дневник е 'auralis-diary-entries' (тире,
+    // state.js KEY_DIARY_ENTRIES); старият '_' ключ е мъртъв. Трием и двата.
+    diary: ['auralis-diary-entries', 'auralis_diary_entries', 'auralis-diary-soft-check'],
+    favorites: ['auralis_favorites', 'auralis_library_favorites'],
     history: ['auralis_analytics_sessions']
   };
 

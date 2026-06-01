@@ -1610,7 +1610,11 @@ window.AudioEngine = (function () {
     masterGain.gain.exponentialRampToValueAtTime(0.0001, now + SLEEP_FADE_SEC);
     sleepStopTimerId = setTimeout(function () {
       sleepStopTimerId = null;
-      stop();
+      // ВАЖНО: мини през ПУБЛИЧНИЯ stop (обвит от audio-resilience → endSession),
+      // не вътрешния stop() — иначе intended.playing остава true и watchdog-ът
+      // „съживява" звука след изтекъл sleep timer (blocker за заспиващ потребител).
+      if (window.AudioEngine && window.AudioEngine.stop) { window.AudioEngine.stop(); }
+      else { stop(); }
       if (masterGain) {
         masterGain.gain.cancelScheduledValues(ctx.currentTime);
         masterGain.gain.value = volumeToGain(masterVolume);

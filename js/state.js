@@ -704,6 +704,7 @@
       this.streakActiveDays = 0;
       this.streakFreezesRemaining = 2;
       this.streakLastEntryDate = null;
+      this.streakFrozenDates = [];   // audit 1.0.104: пропуснато → stale ice-blue дни след restart
 
       remove(KEY_PHASE);
       remove(KEY_SUBPHASE);
@@ -722,6 +723,7 @@
       remove(KEY_STREAK_ACTIVE_DAYS);
       remove(KEY_STREAK_FREEZES);
       remove(KEY_STREAK_LAST_ENTRY_DATE);
+      remove(KEY_STREAK_FROZEN_DATES);
       // SAFETY-2: calibration reset
       this.calibrationDone = false;
       this.mixingPointVolume = null;
