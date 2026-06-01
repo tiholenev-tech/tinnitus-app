@@ -777,7 +777,10 @@ window.Settings = (function () {
           // (Home → buildVolumeCard). Виж js/home.js.
           buildNotchSection() +
           buildAnalyticsButton() +
-          buildRemindersSection() +
+          // „Напомняния" МАХНАТО (1.0.103): toggle-ите не правеха истинско
+          // известие (PWA не може scheduled push при затворено приложение;
+          // седмичното беше напълно мъртво). Напомнянето е честно през
+          // Дневник-картата на началния екран. Истински push → с Capacitor.
           buildScienceInfoButton() +
           buildFaqButton() +
           buildVoicePrivacyButton() +
@@ -1408,35 +1411,7 @@ window.Settings = (function () {
       volSlider.addEventListener('change', onVolumeInput);
     }
 
-    // BB3: Reminders toggles
-    var dailyToggle = overlay.querySelector('#setReminderDaily');
-    if (dailyToggle) {
-      dailyToggle.addEventListener('change', function () {
-        var rem = loadReminders();
-        rem.daily = dailyToggle.checked;
-        saveReminders(rem);
-        var row = overlay.querySelector('#setDailyTimeRow');
-        if (row) row.style.display = rem.daily ? '' : 'none';
-        if (rem.daily) requestNotifyPermission();
-      });
-    }
-    var dailyTime = overlay.querySelector('#setDailyTime');
-    if (dailyTime) {
-      dailyTime.addEventListener('change', function () {
-        var rem = loadReminders();
-        rem.dailyTime = dailyTime.value;
-        saveReminders(rem);
-      });
-    }
-    var weeklyToggle = overlay.querySelector('#setReminderWeekly');
-    if (weeklyToggle) {
-      weeklyToggle.addEventListener('change', function () {
-        var rem = loadReminders();
-        rem.weekly = weeklyToggle.checked;
-        saveReminders(rem);
-        if (rem.weekly) requestNotifyPermission();
-      });
-    }
+    // (Reminders toggles МАХНАТИ 1.0.103 — секцията вече не се рендерира.)
 
     // PACK C T3: notch filter toggle (Лична честотна терапия)
     var notchToggle = overlay.querySelector('#setNotchToggle');
