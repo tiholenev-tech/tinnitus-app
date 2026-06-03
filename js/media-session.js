@@ -95,8 +95,10 @@
         title: 'AURALIS',
         artist: 'Звукова терапия',
         artwork: [
-          { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png' },
-          { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png' }
+          // Същата пътека като manifest.json / index.html (app-icons/ е тази,
+          // която реално се сервира на сървъра — в репото PNG-ите са в icons/).
+          { src: 'app-icons/icon-192.png', sizes: '192x192', type: 'image/png' },
+          { src: 'app-icons/icon-512.png', sizes: '512x512', type: 'image/png' }
         ]
       });
     } catch (e) {}
