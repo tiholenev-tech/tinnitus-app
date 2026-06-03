@@ -1,0 +1,16 @@
+{
+  "appId": "help.tinnitusapp.app",
+  "appName": "AURALIS",
+  "webDir": "www",
+  "server": {
+    "url": "https://tinnitus-app.help",
+    "androidScheme": "https",
+    "allowNavigation": ["tinnitus-app.help", "*.tinnitus-app.help"],
+    "cleartext": false
+  },
+  "android": {
+    "allowMixedContent": false,
+    "webContentsDebuggingEnabled": true,
+    "loggingBehavior": "debug"
+  }
+}
