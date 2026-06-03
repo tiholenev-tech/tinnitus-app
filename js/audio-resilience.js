@@ -129,6 +129,10 @@
   }
 
   // -- State machinery --
+  function emit(name) {
+    try { window.dispatchEvent(new CustomEvent(name)); } catch (e) {}
+  }
+
   function beginSession() {
     if (!intended.playing) {
       intended.playing = true;
@@ -136,14 +140,17 @@
       requestWakeLock();
       startWatchdog();
       attachStateChange();
+      emit('auralis-session-start'); // media-session.js закача keep-alive котвата тук
     }
   }
   function endSession() {
+    var was = intended.playing;
     intended.playing = false;
     intended.l1 = null;
     intended.l2 = null;
     releaseWakeLock();
     stopWatchdog();
+    if (was) emit('auralis-session-end');
   }
 
   function attachStateChange() {
@@ -218,5 +225,5 @@
     forceCheck: function () { checkAndRecover('manual'); }
   };
 
-  log('loaded | wakeLock:', wakeLockSupported, '| watchdog: 2min | telemetry: OFF (утре)');
+  log('loaded | wakeLock:', wakeLockSupported, '| watchdog: 2min | telemetry: ON');
 })();
