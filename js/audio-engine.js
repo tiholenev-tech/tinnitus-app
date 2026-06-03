@@ -1484,6 +1484,28 @@ window.AudioEngine = (function () {
     gainNode.gain.setValueAtTime(0, now);
     gainNode.gain.linearRampToValueAtTime(targetGain, now + fadeIn);
 
+    // BUGFIX (нощно спиране / "призрачен L2"): огледален на L1 onended (ред ~1312).
+    // Без това layer2.source оставаше ненулев когато OS прекъсне източника нощем
+    // (заключен екран) → getActiveLayers().layer2.playing лъжеше "true" →
+    // watchdog-ът в audio-resilience.js не рестартираше L2. Сега при спонтанен
+    // край нулираме състоянието и сигнализираме на resilience слоя да възстанови.
+    // (loop=true източник fire-ва onended само при .stop() или OS-прекъсване;
+    //  ръчните стопове слагат _manualStop=true и се игнорират тук.)
+    src.onended = function () {
+      if (src._manualStop) return;
+      if (layer2.source === src) {
+        clearLayer2State();
+      }
+      try { src.disconnect(); } catch (e) {}
+      try { gainNode.disconnect(); } catch (e) {}
+      if (filterNode) { try { filterNode.disconnect(); } catch (e) {} }
+      try {
+        window.dispatchEvent(new CustomEvent('auralis-sound-ended', {
+          detail: { presetId: src._noiseId, layer: 2 }
+        }));
+      } catch (e) {}
+    };
+
     src.start(0);
     layer2.source = src;
     layer2.gainNode = gainNode;
