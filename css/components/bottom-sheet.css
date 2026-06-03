@@ -33,7 +33,9 @@
 .bs-sheet {
   width: 100%;
   max-width: 480px;
-  max-height: 85vh;
+  max-height: 85vh;        /* fallback за стари WebView */
+  max-height: 85dvh;       /* визуален viewport — fix за Capacitor WebView / Z Flip6:
+                              vh се смята спрямо по-голям viewport → footer падаше под екрана */
   display: flex;
   flex-direction: column;
   border-top-left-radius: var(--radius);
@@ -126,7 +128,7 @@
 /* ═══ FOOTER (actions) ═══ */
 .bs-footer {
   flex-shrink: 0;
-  padding: 8px 16px 16px;
+  padding: 8px 16px 16px;   /* safe-area идва от .bs-sheet padding-bottom (no double) */
   border-top: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
