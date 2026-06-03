@@ -25,6 +25,7 @@ package-lock.json
 
 # Build (за бъдеще)
 dist/
+mobile/apk-out/
 build/
 .cache/
 
