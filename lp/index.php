@@ -4,6 +4,7 @@
  * Структура (одобрена): Проблем → Изживяване (тест) → Обяснение → Доказателство → Оферта.
  * Самото приложение остава тъмно; публичните страници са светли за четене/посрещане.
  */
+require __DIR__ . '/../inc/site.php';
 $PRICE = '19.99';
 $APP_URL = '/';
 $CANON = 'https://tinnitus-app.help/lp/';
@@ -26,12 +27,7 @@ $CANON = 'https://tinnitus-app.help/lp/';
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="192x192" href="/app-icons/icon-192.png">
 <link rel="apple-touch-icon" href="/app-icons/icon-180.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Montserrat:wght@400;500;600;700;800;900&family=DM+Serif+Display&display=swap">
-<link rel="stylesheet" href="/css/tokens.css">
-<link rel="stylesheet" href="/css/base.css">
-<link rel="stylesheet" href="/css/pages.css">
+<?php site_head_assets(); ?>
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -47,14 +43,8 @@ $CANON = 'https://tinnitus-app.help/lp/';
 </script>
 </head>
 <body>
+<?php site_nav('home'); ?>
 <div class="wrap">
-
-  <header class="page-head">
-    <div class="header-brand"><span class="brand-1">tinnitus</span><span class="brand-2">-app</span></div>
-    <span class="spacer"></span>
-    <a class="nav-link" href="<?= $APP_URL ?>">Приложението →</a>
-  </header>
-
   <main>
     <!-- 1 · ПРОБЛЕМ -->
     <section class="hero">
@@ -121,14 +111,35 @@ $CANON = 'https://tinnitus-app.help/lp/';
       <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">А при смяна на телефон?<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-a"><p>Влизате със същия имейл чрез защитена връзка и достъпът Ви се връща автоматично.</p></div></div>
     </section>
 
-    <footer class="page-foot">
-      <div>tinnitus<span style="color:var(--indigo)">-app</span> — звуково спокойствие при шум в ушите.</div>
-      <div class="foot-links"><a href="/articles/">Статии</a><a href="/privacy.html">Поверителност</a><a href="<?= $APP_URL ?>">Приложението</a><a href="mailto:support@tinnitus-app.help">Контакт</a></div>
-      <p class="src">AURALIS е wellness продукт за звуково облекчение — не диагностицира и не лекува. При проблеми със слуха се консултирайте с лекар. Слушайте на удобна, ниска сила.</p>
-      <p class="src" style="margin-top:8px;opacity:.7;">© <?= date('Y') ?> AURALIS</p>
-    </footer>
+    <!-- 6 · РАЗГЛЕДАЙ ПО ТЕМИ -->
+    <section class="home-block">
+      <div class="home-block__h">Разгледайте по теми</div>
+      <div class="sec-grid">
+        <?php foreach ($SECTIONS as $slug => $s): ?>
+        <a class="sec-card" href="/temi/<?= $slug ?>/">
+          <span class="sec-card__ic"><?= site_icon($s['icon']) ?></span>
+          <h3><?= htmlspecialchars($s['title']) ?></h3>
+          <p><?= htmlspecialchars($s['blurb']) ?></p>
+          <span class="sec-card__more">Виж →</span>
+        </a>
+        <?php endforeach; ?>
+      </div>
+    </section>
+
+    <!-- 7 · ПОЛЕЗНИ СТАТИИ -->
+    <section class="home-block home-list">
+      <div class="home-block__h">Полезни статии</div>
+      <?php foreach (array_slice($ARTICLES, 0, 4, true) as $aslug => $a): ?>
+      <a class="acard" href="/articles/<?= $aslug ?>.php">
+        <h2><?= htmlspecialchars($a['title']) ?></h2>
+        <p><?= htmlspecialchars($a['desc']) ?></p>
+      </a>
+      <?php endforeach; ?>
+      <p class="home-more"><a class="nav-link" href="/articles/">Всички статии →</a></p>
+    </section>
   </main>
 </div>
+<?php site_footer(); ?>
 
 <script>
 (function(){document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){var o=q.getAttribute('aria-expanded')==='true',a=q.nextElementSibling;q.setAttribute('aria-expanded',o?'false':'true');a.style.maxHeight=o?'0':(a.scrollHeight+'px');});});})();
