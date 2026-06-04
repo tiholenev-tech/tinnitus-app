@@ -4,7 +4,7 @@
  * Schema.org (Article/MedicalWebPage + FAQPage + reviewedBy), BLUF + Q&A + числа.
  */
 $SLUG  = 'shum-v-ushite-noshtem';
-$URL   = 'https://tinnitus-app.help/articles/' . $SLUG;
+$URL   = 'https://tinnitus-app.help/articles/' . $SLUG . '.php';
 $TITLE = 'Шум в ушите (тинитус): какво е, защо се появява и какво наистина помага';
 $DESC  = 'Шумът в ушите (тинитус) е симптом, не болест. Защо мозъкът го създава, защо се влошава нощем и кои подходи имат реални доказателства — обяснено ясно.';
 $UPDATED = '2026-06-04';
