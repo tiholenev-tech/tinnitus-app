@@ -13,6 +13,9 @@ desktop.ini
 # Claude Code (local permissions / cache)
 .claude/
 
+# Backend secrets — НИКОГА в git (живее само на сървъра)
+api/config.php
+
 # Node (за бъдеще)
 node_modules/
 npm-debug.log*
