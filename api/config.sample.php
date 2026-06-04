@@ -51,4 +51,15 @@ return [
         'price_id'       => '',   // price_... (по избор; иначе price_cents отгоре)
         'currency'       => 'eur',
     ],
+
+    // ── ePay.bg / EasyPay (Фаза 2, БГ канал) ──────────────────────────────
+    // Празен 'secret' = неактивно (epay_checkout връща 503). Виж db/EPAY_SETUP.md.
+    // submit_url прод: https://www.epay.bg/ ; DEMO: https://devep2.datamax.bg/ep2/epay2_demo/
+    'epay' => [
+        'min'        => '',     // КИН/MIN на търговеца
+        'secret'     => '',     // тайната дума
+        'submit_url' => 'https://www.epay.bg/',
+        'amount'     => '19.99',
+        'currency'   => 'EUR',  // BGN или EUR според акаунта
+    ],
 ];

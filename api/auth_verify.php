@@ -33,9 +33,26 @@ $st->execute([$email]);
 $u = $st->fetch();
 if (!$u) back($base, 'fail');
 
-// старт на trial при първи успешен вход
+// старт на trial при първи успешен вход — с anti-fraud IP лимит.
+// 1 email = 1 trial е вградено (trial_started_at се сетва веднъж). Освен това:
+// ако от този IP вече са стартирани >= ip_trial_limit trial-а за 30 дни →
+// вписваме ВЕЧЕ изтекъл trial (потребителят може да влезе и да плати, но не
+// получава пореден безплатен период). Не cookie-based.
 if (empty($u['trial_started_at'])) {
-    $pdo->prepare('UPDATE users SET trial_started_at = NOW(), last_seen_at = NOW() WHERE id = ?')->execute([$u['id']]);
+    $ip    = client_ip();
+    $limit = (int) cfg()['app']['ip_trial_limit'];
+    $days  = (int) cfg()['app']['trial_days'];
+    $st = $pdo->prepare('SELECT COUNT(*) FROM users
+                         WHERE trial_ip = ? AND trial_started_at > DATE_SUB(NOW(), INTERVAL 30 DAY)');
+    $st->execute([$ip]);
+    $recent = (int) $st->fetchColumn();
+    if ($limit > 0 && $recent >= $limit) {
+        $pdo->prepare('UPDATE users SET trial_started_at = DATE_SUB(NOW(), INTERVAL ? DAY), trial_ip = ?, last_seen_at = NOW() WHERE id = ?')
+            ->execute([$days, $ip, $u['id']]);
+    } else {
+        $pdo->prepare('UPDATE users SET trial_started_at = NOW(), trial_ip = ?, last_seen_at = NOW() WHERE id = ?')
+            ->execute([$ip, $u['id']]);
+    }
 } else {
     $pdo->prepare('UPDATE users SET last_seen_at = NOW() WHERE id = ?')->execute([$u['id']]);
 }

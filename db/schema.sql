@@ -11,7 +11,9 @@ CREATE TABLE IF NOT EXISTS users (
   trial_started_at DATETIME NULL,
   paid             TINYINT(1) NOT NULL DEFAULT 0,
   paid_at          DATETIME NULL,
-  last_seen_at     DATETIME NULL
+  last_seen_at     DATETIME NULL,
+  trial_ip         VARCHAR(45) NULL,
+  INDEX idx_trial_ip (trial_ip)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Magic link токени (пазим само sha256 хеш, не суровия токен)
@@ -49,3 +51,16 @@ CREATE TABLE IF NOT EXISTS user_state (
   updated_at  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   CONSTRAINT fk_state_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ePay.bg / EasyPay плащания (invoice → user mapping за notify)
+CREATE TABLE IF NOT EXISTS epay_payments (
+  invoice     BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  user_id     BIGINT UNSIGNED NOT NULL,
+  amount      VARCHAR(16) NOT NULL,
+  currency    VARCHAR(8) NOT NULL DEFAULT 'EUR',
+  status      VARCHAR(16) NOT NULL DEFAULT 'pending',
+  created_at  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  paid_at     DATETIME NULL,
+  INDEX idx_user (user_id),
+  CONSTRAINT fk_epay_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=100000 DEFAULT CHARSET=utf8mb4;
