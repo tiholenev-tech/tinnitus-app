@@ -10,11 +10,11 @@ $ARTICLES = [
 ];
 $CANON = 'https://tinnitus-app.help/articles/';
 ?><!DOCTYPE html>
-<html lang="bg">
+<html lang="bg" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#faf8f3">
+<meta name="theme-color" content="#e0e5ec">
 <title>Статии за шум в ушите (тинитус) — AURALIS</title>
 <meta name="description" content="Ясни, проверени статии за тинитус: причини, сън, звукова терапия, как да намалите тревожността и кога да отидете на лекар.">
 <link rel="canonical" href="<?= $CANON ?>">
@@ -27,12 +27,14 @@ $CANON = 'https://tinnitus-app.help/articles/';
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Montserrat:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
 <link rel="stylesheet" href="/css/pages.css">
 </head>
 <body>
 <div class="wrap">
   <header class="page-head">
-    <span class="brand">tinnitus<span class="b2">-app</span></span>
+    <div class="header-brand"><span class="brand-1">tinnitus</span><span class="brand-2">-app</span></div>
     <span class="spacer"></span>
     <a class="nav-link" href="/lp/">AURALIS →</a>
   </header>
