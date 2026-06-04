@@ -224,37 +224,60 @@
     <h2>Поверителност на данните</h2>
 
     <p>
-      AURALIS е приложение, което работи изцяло на Вашето устройство. Не разполагаме със сървър,
-      на който да изпращаме или съхраняваме информация за Вас.
+      AURALIS работи предимно на Вашето устройство. <strong>Без създаване на профил</strong> не
+      изпращаме лични данни на сървър — всичко се пази локално в браузъра Ви.
     </p>
 
-    <h3>Какви данни се запазват</h3>
-    <p>
-      Приложението използва локалното хранилище на браузъра (<em>localStorage</em>) за да помни:
-    </p>
+    <h3>Какви данни се запазват локално (на устройството)</h3>
+    <p>Локалното хранилище на браузъра (<em>localStorage</em>) помни:</p>
     <ul>
-      <li>Вашите отговори от въпросника и съответния звуков профил</li>
-      <li>Записи в дневника (вечерни рефлексии, CBT отговори) — само на устройството</li>
-      <li>Резултати от слуховите тестове (честота на тинитус, ако сте го измервали)</li>
+      <li>Отговорите от въпросника и съответния звуков профил</li>
+      <li>Записи в дневника (вечерни рефлексии, CBT отговори)</li>
+      <li>Резултати от слуховите тестове (честота на тинитус, ако сте я измервали)</li>
       <li>Настройки за звук, тема, език и предпочитания за интерфейс</li>
       <li>Статистика за прогрес през 14-дневната програма</li>
     </ul>
 
-    <h3>Какво НЕ правим</h3>
+    <h3>Какви данни обработваме на нашия сървър (само ако създадете профил)</h3>
+    <p>
+      Ако решите да влезете с профил (чрез защитена връзка по имейл — без парола), за да
+      синхронизирате данните си между устройства и да възстановите покупка, на нашия сървър
+      съхраняваме:
+    </p>
     <ul>
-      <li>Не изпращаме данни на сървър — нямаме backend</li>
-      <li>Не използваме инструменти за анализ на потребителското поведение (без Google Analytics, без Facebook Pixel, без подобни tracker-и)</li>
-      <li>Не споделяме данни с трети страни</li>
-      <li>Не пускаме реклами</li>
-      <li>Не съхраняваме гласови записи — при използване на гласова диктовка обработката става локално от браузъра Ви</li>
+      <li><strong>Имейл адрес</strong> — за вход и възстановяване на достъп</li>
+      <li><strong>Синхронизирано състояние</strong> на приложението (горните локални данни: профил,
+        любими, тестове, дневник, прогрес) — за смяна на телефон и възстановяване</li>
+      <li><strong>Статус на плащане</strong> (платено / пробен период) — НЕ съхраняваме данни на картата</li>
+      <li><strong>Технически дневник</strong> за надеждност на звука (анонимни събития, без съдържание)</li>
+    </ul>
+    <p class="muted">
+      Основание за обработка: изпълнение на услугата и Вашето съгласие. Срок на съхранение: докато
+      съществува профилът Ви.
+    </p>
+
+    <h3>Трети страни (обработващи)</h3>
+    <ul>
+      <li><strong>Плащане:</strong> Stripe и/или ePay.bg обработват плащането. Данните на картата
+        отиват директно при тях — ние не ги виждаме и не ги съхраняваме.</li>
+      <li><strong>Имейл:</strong> доставчик на имейл услуга, който изпраща връзката за вход.</li>
     </ul>
 
-    <h3>Контрол върху данните</h3>
+    <h3>Какво НЕ правим</h3>
+    <ul>
+      <li>Не използваме инструменти за анализ на поведението (без Google Analytics, без Facebook Pixel, без подобни tracker-и)</li>
+      <li>Не продаваме и не споделяме данни с трети страни за реклама</li>
+      <li>Не пускаме реклами</li>
+      <li>Не съхраняваме гласови записи — гласовата диктовка се обработва локално от браузъра Ви</li>
+    </ul>
+
+    <h3>Вашите права (GDPR) и контрол</h3>
     <p>
-      Можете да изтриете всички запазени данни по всяко време от
-      <strong>Настройки → Данни → Изтрий всички данни</strong>. Действието премахва цялото съдържание от
-      локалното хранилище и е необратимо. Изчистване на данните на браузъра Ви също премахва
-      информацията на приложението.
+      Локалните данни можете да изтриете по всяко време от
+      <strong>Настройки → Данни → Изтрий всички данни</strong>. За данните в профила имате право на
+      достъп, корекция, преносимост и <strong>изтриване</strong> — пишете на
+      <a href="mailto:support@tinnitus-app.help">support@tinnitus-app.help</a> и заличаваме профила Ви
+      и свързаните с него данни.
     </p>
 
     <h2 style="margin-top:48px">Регулаторна декларация</h2>
@@ -305,37 +328,58 @@
     <h2>Data Privacy</h2>
 
     <p>
-      AURALIS runs entirely on your device. There is no server to which we transmit
-      or store any information about you.
+      AURALIS runs primarily on your device. <strong>Without creating an account</strong> we send no
+      personal data to a server — everything stays locally in your browser.
     </p>
 
-    <h3>What data is stored</h3>
-    <p>
-      The application uses your browser's local storage (<em>localStorage</em>) to remember:
-    </p>
+    <h3>Data stored locally (on your device)</h3>
+    <p>Your browser's local storage (<em>localStorage</em>) remembers:</p>
     <ul>
       <li>Your questionnaire answers and the resulting sound profile</li>
-      <li>Diary entries (evening reflections, CBT responses) — kept only on your device</li>
+      <li>Diary entries (evening reflections, CBT responses)</li>
       <li>Hearing-test results (tinnitus frequency, if measured)</li>
       <li>Sound, theme, language and interface preferences</li>
       <li>Progress statistics across the 14-day programme</li>
     </ul>
 
-    <h3>What we do not do</h3>
+    <h3>Data we process on our server (only if you create an account)</h3>
+    <p>
+      If you choose to sign in (via a secure email link — no password) to sync your data across
+      devices and restore a purchase, we store on our server:
+    </p>
     <ul>
-      <li>No data is sent to a server — we operate no backend</li>
-      <li>No behavioural analytics tools are used (no Google Analytics, no Facebook Pixel, no equivalent trackers)</li>
-      <li>No data is shared with third parties</li>
-      <li>No advertising</li>
-      <li>No voice recordings are retained — voice dictation, if used, is processed locally by your browser</li>
+      <li><strong>Email address</strong> — for sign-in and access recovery</li>
+      <li><strong>Synced app state</strong> (the local data above: profile, favourites, tests, diary,
+        progress) — for switching phones and recovery</li>
+      <li><strong>Payment status</strong> (paid / trial) — we do NOT store card details</li>
+      <li><strong>Technical log</strong> for audio reliability (anonymous events, no content)</li>
+    </ul>
+    <p class="muted">
+      Legal basis: performance of the service and your consent. Retention: for as long as your
+      account exists.
+    </p>
+
+    <h3>Third parties (processors)</h3>
+    <ul>
+      <li><strong>Payments:</strong> Stripe and/or ePay.bg process the payment. Card details go
+        directly to them — we never see or store them.</li>
+      <li><strong>Email:</strong> an email provider that sends the sign-in link.</li>
     </ul>
 
-    <h3>Control over your data</h3>
+    <h3>What we do not do</h3>
+    <ul>
+      <li>No behavioural analytics tools (no Google Analytics, no Facebook Pixel, no equivalent trackers)</li>
+      <li>We do not sell or share data with third parties for advertising</li>
+      <li>No advertising</li>
+      <li>No voice recordings are retained — voice dictation is processed locally by your browser</li>
+    </ul>
+
+    <h3>Your rights (GDPR) and control</h3>
     <p>
-      You can delete all stored data at any time via
-      <strong>Settings → Data → Delete all data</strong>. The action removes the entire local-storage
-      payload and is irreversible. Clearing your browser data will also remove this application's
-      information.
+      You can delete local data at any time via <strong>Settings → Data → Delete all data</strong>.
+      For account data you have the right of access, rectification, portability and
+      <strong>erasure</strong> — email <a href="mailto:support@tinnitus-app.help">support@tinnitus-app.help</a>
+      and we will delete your account and its associated data.
     </p>
 
     <h2 style="margin-top:48px">Regulatory Disclaimer</h2>
