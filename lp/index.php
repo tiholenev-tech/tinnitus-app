@@ -8,11 +8,11 @@ $PRICE = '19.99';
 $APP_URL = '/';
 $CANON = 'https://tinnitus-app.help/lp/';
 ?><!DOCTYPE html>
-<html lang="bg">
+<html lang="bg" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#faf8f3">
+<meta name="theme-color" content="#e0e5ec">
 <title>Шум в ушите нощем? — намерете тона си и чуйте облекчение | AURALIS</title>
 <meta name="description" content="Намерете точно Вашата честота и чуйте облекчение сега. AURALIS я премахва от звука — не просто маскиране. Безплатен тест, без регистрация.">
 <link rel="canonical" href="<?= $CANON ?>">
@@ -29,6 +29,8 @@ $CANON = 'https://tinnitus-app.help/lp/';
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Montserrat:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
 <link rel="stylesheet" href="/css/pages.css">
 
 <script type="application/ld+json">
@@ -48,7 +50,7 @@ $CANON = 'https://tinnitus-app.help/lp/';
 <div class="wrap">
 
   <header class="page-head">
-    <span class="brand">tinnitus<span class="b2">-app</span></span>
+    <div class="header-brand"><span class="brand-1">tinnitus</span><span class="brand-2">-app</span></div>
     <span class="spacer"></span>
     <a class="nav-link" href="<?= $APP_URL ?>">Приложението →</a>
   </header>
