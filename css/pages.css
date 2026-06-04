@@ -22,7 +22,7 @@ h1{font-size:27px;line-height:1.2;font-weight:900;letter-spacing:-.02em;color:va
 h2{font-size:20px;font-weight:800;letter-spacing:-.01em;color:var(--text);margin:1.3em 0 .4em;}
 h3{font-size:16.5px;font-weight:800;color:var(--text);margin:1em 0 .3em;}
 p{margin:0 0 .9em;color:var(--text-muted);}
-strong{color:var(--text);font-weight:700;}
+strong{color:var(--text);font-weight:500;}
 em{color:var(--text-muted);}
 a.inl{color:var(--accent);}
 .lead{font-size:17px;color:var(--text-muted);margin-bottom:8px;}
@@ -45,7 +45,7 @@ a.inl{color:var(--accent);}
 
 /* Тест */
 .slider{width:100%;height:36px;margin:14px 0 4px;accent-color:var(--accent);}
-.freqval{font-family:var(--font-mono);font-weight:700;color:var(--accent);}
+.freqval{font-family:var(--font-mono);font-weight:600;color:#9a7a1e;}
 .step{font-weight:800;color:var(--text);margin:16px 0 4px;display:flex;align-items:center;}
 .step .n{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:var(--radius-icon,50%);background:var(--accent);color:#fff;font-weight:800;font-size:13px;margin-right:9px;flex:none;box-shadow:2px 2px 5px var(--shadow-dark);}
 .test-stack{display:flex;flex-direction:column;gap:10px;}
@@ -53,7 +53,7 @@ a.inl{color:var(--accent);}
 /* Статистики (вдлъбнати) / източници / disclaimer */
 .stats{display:flex;gap:8px;margin:14px 0 6px;}
 .stat{flex:1;text-align:center;padding:14px 6px;border-radius:var(--radius-sm);background:var(--surface);box-shadow:var(--shadow-pressed);}
-.stat-v{font-size:22px;font-weight:900;color:var(--accent);letter-spacing:-.02em;}
+.stat-v{font-family:'DM Serif Display',Georgia,serif;font-size:25px;font-weight:400;color:#9a7a1e;letter-spacing:0;}
 .stat-l{font-size:10.5px;color:var(--text-faint);margin-top:4px;line-height:1.3;}
 .src{font-size:12.5px;color:var(--text-faint);}
 .disclaimer{background:var(--surface);border-radius:var(--radius-sm);padding:14px 16px;margin-top:14px;box-shadow:var(--shadow-pressed);}
@@ -61,7 +61,7 @@ a.inl{color:var(--accent);}
 .note{font-size:13px;color:var(--text-muted);background:var(--surface);padding:11px 14px;margin:14px 0;border-radius:var(--radius-sm);box-shadow:var(--shadow-pressed);}
 
 /* Цена */
-.price{font-size:44px;font-weight:900;color:var(--accent);line-height:1;letter-spacing:-.02em;}
+.price{font-family:'DM Serif Display',Georgia,serif;font-size:48px;font-weight:400;color:#9a7a1e;line-height:1;letter-spacing:0;}
 .price-sub{color:var(--text-muted);font-size:13.5px;margin:6px 0 4px;}
 .feat{list-style:none;margin:16px 0;} .feat li{display:flex;gap:10px;align-items:flex-start;margin:9px 0;color:var(--text);font-size:14.5px;} .feat svg{flex:none;margin-top:3px;}
 
