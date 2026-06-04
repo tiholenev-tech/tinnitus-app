@@ -1,11 +1,10 @@
 <?php
 /**
- * AURALIS — Landing (Фаза 3 · вариант B: /lp/).
- * Структура по маркетинг законите (одобрена с Тихол):
- *   Проблем (hero) → ИЗЖИВЯВАНЕ (тест: намери тон → чуй облекчение) →
- *   ОБЯСНЕНИЕ след теста (човешки + източници) → Доказателство → Оферта → FAQ.
- * Self-contained inline CSS 1:1 по DESIGN CANON v1 (sacred mixer-v3 токени,
- * .glass + 2 shine, БЕЗ glow, indigo CTA, „Вие", soft-night, light/dark toggle).
+ * AURALIS — Landing (Фаза 3 · /lp/) · v4 „като приложението".
+ * Ползва РЕАЛНИЯ CSS на app-а (css/tokens.css + css/base.css) → жива aurora,
+ * светещи glass карти (shine + glow), преливащ бранд — за да изглежда като
+ * приложението, не като отделна тъмна брошура.
+ * Структура (одобрена): Проблем → Изживяване (тест) → Обяснение → Доказателство → Оферта.
  */
 $PRICE = '19.99';
 $APP_URL = '/';
@@ -17,11 +16,11 @@ $CANON = 'https://tinnitus-app.help/lp/';
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#08090d">
 <title>Шум в ушите нощем? — намерете тона си и чуйте облекчение | AURALIS</title>
-<meta name="description" content="Намерете точно Вашата честота и чуйте облекчение още сега. AURALIS я премахва от звука — не просто маскиране. Безплатен тест, без регистрация.">
+<meta name="description" content="Намерете точно Вашата честота и чуйте облекчение сега. AURALIS я премахва от звука — не просто маскиране. Безплатен тест, без регистрация.">
 <link rel="canonical" href="<?= $CANON ?>">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Шум в ушите нощем? Чуйте облекчение сега — AURALIS">
+<meta property="og:title" content="Шум в ушите нощем? Чуйте облекчение — AURALIS">
 <meta property="og:description" content="Намираме Вашата честота и я премахваме от звука — не просто маскиране.">
 <meta property="og:url" content="<?= $CANON ?>">
 <meta property="og:image" content="https://tinnitus-app.help/app-icons/icon-512.png">
@@ -31,7 +30,10 @@ $CANON = 'https://tinnitus-app.help/lp/';
 <link rel="apple-touch-icon" href="/app-icons/icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Montserrat:wght@400;500;600;700;800;900&display=swap">
+<!-- РЕАЛНИЯТ дизайн на приложението -->
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -47,112 +49,61 @@ $CANON = 'https://tinnitus-app.help/lp/';
 </script>
 
 <style>
-/* ═══ BICHROMATIC TOKENS — 1:1 от sacred mixer-2tabs-v3-cards.html ═══ */
-:root{
-  --hue1:255; --hue2:222; --champagne:#F1E6C8;
-  --radius-lg:22px; --radius-md:14px; --radius-pill:100px;
-  --font:'Montserrat',system-ui,-apple-system,sans-serif;
-  --font-mono:'JetBrains Mono','SF Mono',monospace;
-  --bg-base:hsl(220,25%,6.5%);
-  --bg-grad-1-opacity:0.07; --bg-grad-2-opacity:0.07; --noise-opacity:0.025;
-  --glass-bg-1:hsl(var(--hue1),35%,22%/0.18);
-  --glass-bg-2:hsl(var(--hue2),30%,25%/0.14);
-  --glass-bg-base:hsl(220,25%,6%/0.82);
-  --shine-intensity:0.42; --border-soft:hsl(var(--hue1),20%,35%/0.22);
-  --text:hsl(220,18%,88%); --text-muted:hsl(220,12%,62%); --text-faint:hsl(220,10%,48%);
-  --primary:hsl(var(--hue1),65%,68%); --primary-soft:hsl(var(--hue1),55%,55%);
-  --secondary:hsl(var(--hue2),60%,70%); --champagne-soft:hsl(42,45%,78%);
-}
-[data-theme="light"]{
-  --bg-base:#f7f5ef; --bg-grad-1-opacity:0.18; --bg-grad-2-opacity:0.16; --noise-opacity:0.04;
-  --glass-bg-1:hsl(var(--hue1),60%,92%); --glass-bg-2:hsl(var(--hue2),55%,94%);
-  --glass-bg-base:hsl(0,0%,100%/0.72);
-  --shine-intensity:0.55; --border-soft:hsl(var(--hue1),30%,75%/0.4);
-  --text:hsl(220,28%,18%); --text-muted:hsl(220,18%,42%); --text-faint:hsl(220,12%,56%);
-  --primary:hsl(var(--hue1),55%,48%); --primary-soft:hsl(var(--hue1),50%,60%);
-  --secondary:hsl(var(--hue2),50%,48%); --champagne-soft:hsl(42,50%,65%);
-}
-*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-html,body{font-family:var(--font);font-weight:400;font-size:16px;color:var(--text);background:var(--bg-base);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
-body{position:relative;line-height:1.5;background:
-  radial-gradient(circle at 15% 12%, hsl(var(--hue1),55%,38%/var(--bg-grad-1-opacity)) 0%, transparent 45%),
-  radial-gradient(circle at 88% 92%, hsl(var(--hue2),50%,42%/var(--bg-grad-2-opacity)) 0%, transparent 50%),
-  var(--bg-base);}
-body::before{content:"";position:fixed;inset:0;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");opacity:var(--noise-opacity);pointer-events:none;z-index:0;mix-blend-mode:overlay;}
-
-.app{position:relative;z-index:1;max-width:480px;margin:0 auto;padding:8px 16px 64px;}
-.header{display:flex;align-items:center;gap:12px;padding:8px 4px 14px;}
-.header-brand{flex:1;text-align:center;font-weight:800;font-size:19px;letter-spacing:-0.01em;color:var(--text);}
-.header-brand .brand-2{color:var(--primary);font-weight:600;}
-.icon-btn{width:44px;height:44px;display:grid;place-items:center;border:none;border-radius:50%;background:transparent;color:var(--text-muted);cursor:pointer;transition:color .2s,transform .1s;}
-.icon-btn:active{transform:scale(0.92);}
-.icon-btn svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
-
-.glass{position:relative;background:linear-gradient(235deg,var(--glass-bg-1) 0%,transparent 65%),linear-gradient(45deg,var(--glass-bg-2) 0%,transparent 65%),var(--glass-bg-base);backdrop-filter:blur(12px) saturate(1.1);-webkit-backdrop-filter:blur(12px) saturate(1.1);border:1px solid var(--border-soft);border-radius:var(--radius-lg);isolation:isolate;overflow:visible;padding:22px;margin-bottom:14px;}
-[data-theme="light"] .glass{backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);box-shadow:inset 0 1px 0 hsl(0,0%,100%/0.7),0 4px 12px hsl(220,30%,60%/0.15);}
-.shine{position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;padding:1px;background:conic-gradient(from 235deg at 95% 8%,oklch(0.72 0.08 285/var(--shine-intensity)) 0deg,oklch(0.72 0.08 285/0) 50deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;}
-.shine-bottom{background:conic-gradient(from 55deg at 5% 92%,oklch(0.72 0.08 220/var(--shine-intensity)) 0deg,oklch(0.72 0.08 220/0) 50deg,transparent 360deg);}
-[data-theme="light"] .shine,[data-theme="light"] .shine-bottom{mix-blend-mode:multiply;background:conic-gradient(from 235deg at 95% 8%,oklch(0.55 0.18 285/0.5) 0deg,oklch(0.55 0.18 285/0) 50deg,transparent 360deg);}
-[data-theme="light"] .shine-bottom{background:conic-gradient(from 55deg at 5% 92%,oklch(0.55 0.18 220/0.5) 0deg,oklch(0.55 0.18 220/0) 50deg,transparent 360deg);}
-
-.hero{padding:14px 2px 4px;text-align:center;}
-h1{font-size:30px;line-height:1.14;font-weight:900;letter-spacing:-0.02em;margin-bottom:12px;}
-h2{font-size:21px;font-weight:800;letter-spacing:-0.01em;margin-bottom:10px;}
-.lead{font-size:17px;color:var(--text-muted);margin-bottom:8px;}
-p{margin-bottom:11px;} .small{font-size:13.5px;} .muted{color:var(--text-muted);}
-.eyebrow{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);margin-bottom:8px;}
-strong{color:var(--text);font-weight:800;}
-
-/* CTA — indigo (canon §1.5) */
-.cta{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:54px;padding:16px 22px;border:none;border-radius:var(--radius-pill);font-family:var(--font);font-size:16.5px;font-weight:800;color:#fff;cursor:pointer;text-decoration:none;background:linear-gradient(135deg,hsl(var(--hue1),65%,60%),hsl(var(--hue2),60%,56%));box-shadow:0 6px 20px hsl(var(--hue1),60%,30%/0.45),inset 0 1px 0 hsl(0,0%,100%/0.25);transition:transform .12s ease;}
-.cta:active{transform:scale(0.97);}
-.cta-sec{display:flex;align-items:center;justify-content:center;width:100%;min-height:48px;padding:13px 20px;border-radius:var(--radius-pill);border:1px solid var(--border-soft);background:transparent;color:var(--text);font-family:var(--font);font-weight:700;font-size:15px;cursor:pointer;text-decoration:none;}
+/* Само ЛЕЙАУТ за лендинга — визията идва от tokens.css + base.css (app-а). */
+.lp-card{padding:22px;margin-bottom:14px;}
+.hero{text-align:center;padding:18px 6px 6px;}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+h1{font-size:33px;line-height:1.12;font-weight:900;letter-spacing:-0.02em;margin-bottom:12px;color:var(--text);}
+h1 .hl{background:linear-gradient(100deg,var(--accent),var(--accent-2),var(--accent-3));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+h2{font-size:22px;font-weight:800;letter-spacing:-0.01em;margin-bottom:10px;color:var(--text);}
+.lead{font-size:17px;color:var(--text-muted);margin-bottom:6px;}
+.lp p{margin-bottom:11px;color:var(--text);line-height:1.55;} .small{font-size:13.5px;} .muted{color:var(--text-muted);}
+.lp strong{font-weight:800;} .lp em{color:var(--text-muted);font-style:italic;}
+.cta{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:54px;padding:16px 22px;border:none;border-radius:var(--radius-pill);font-family:var(--font);font-size:16.5px;font-weight:800;color:#0b0b16;cursor:pointer;text-decoration:none;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 8px 26px hsl(255 80% 50%/.42);transition:transform .12s;}
+.cta:active{transform:scale(.97);}
+.cta-sec{display:flex;align-items:center;justify-content:center;width:100%;min-height:48px;padding:13px 20px;border-radius:var(--radius-pill);border:1px solid var(--border-color);background:hsl(220 25% 8%/.4);color:var(--text);font-family:var(--font);font-weight:700;font-size:15px;cursor:pointer;text-decoration:none;}
 .reassure{font-size:13px;color:var(--text-faint);text-align:center;margin-top:12px;}
-
-/* Тест */
-.slider{width:100%;height:38px;margin:14px 0 4px;accent-color:var(--primary);}
-.freqval{font-family:var(--font-mono);font-weight:700;color:var(--secondary);}
-.step{font-weight:700;margin:18px 0 4px;display:flex;align-items:center;}
-.step .n{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:hsl(var(--hue1),50%,40%/0.3);color:var(--primary);font-size:13px;font-weight:800;margin-right:9px;flex:none;}
+.slider{width:100%;height:38px;margin:14px 0 4px;accent-color:var(--accent);}
+.freqval{font-family:var(--font-mono);font-weight:700;color:var(--accent-3);}
+.step{font-weight:700;margin:18px 0 4px;display:flex;align-items:center;color:var(--text);}
+.step .n{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:hsl(255 60% 50%/.25);color:var(--accent);font-weight:800;font-size:13px;margin-right:9px;flex:none;}
 .test-stack{display:flex;flex-direction:column;gap:10px;}
-
-/* Stat tiles */
 .stats{display:flex;gap:8px;margin:14px 0 6px;}
-.stat{flex:1;text-align:center;padding:14px 6px;border-radius:var(--radius-md);border:1px solid var(--border-soft);background:var(--glass-bg-base);}
-.stat-v{font-size:22px;font-weight:900;color:var(--champagne);letter-spacing:-0.02em;}
+.stat{flex:1;text-align:center;padding:14px 6px;border-radius:var(--radius-sm);border:1px solid var(--border-color);background:hsl(220 25% 8%/.5);}
+.stat-v{font-size:22px;font-weight:900;color:#F1E6C8;letter-spacing:-.02em;}
 .stat-l{font-size:11px;color:var(--text-faint);margin-top:4px;line-height:1.3;}
 .src{font-size:12.5px;color:var(--text-faint);margin-top:10px;}
-.disclaimer{background:hsl(42,45%,78%/0.10);border-left:2px solid var(--champagne-soft);border-radius:var(--radius-md);padding:14px 16px;margin-top:14px;}
+.disclaimer{background:rgba(241,230,200,.08);border-left:2px solid #F1E6C8;border-radius:var(--radius-sm);padding:14px 16px;margin-top:14px;}
 .disclaimer p{font-size:13px;color:var(--text-muted);margin:0;}
-
-.price{font-size:44px;font-weight:900;color:var(--champagne);line-height:1;letter-spacing:-0.02em;}
+.price{font-size:46px;font-weight:900;color:#F1E6C8;line-height:1;letter-spacing:-.02em;}
 .price-sub{color:var(--text-muted);font-size:14px;margin:6px 0 4px;}
-.feat{list-style:none;margin:16px 0;}
-.feat li{display:flex;gap:10px;align-items:flex-start;margin:10px 0;font-size:14.5px;}
-.feat svg{flex:none;margin-top:3px;}
-
-.faq-item{border-top:1px solid var(--border-soft);}
+.feat{list-style:none;margin:16px 0;} .feat li{display:flex;gap:10px;align-items:flex-start;margin:10px 0;font-size:14.5px;color:var(--text);} .feat svg{flex:none;margin-top:3px;}
+.faq-item{border-top:1px solid var(--border-color);}
 .faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 2px;background:none;border:none;color:var(--text);font-family:var(--font);font-size:15.5px;font-weight:700;text-align:left;cursor:pointer;min-height:44px;}
 .faq-q .chev{flex:none;transition:transform .3s ease;color:var(--text-muted);}
-.faq-q[aria-expanded="true"] .chev{transform:rotate(180deg);}
-.faq-q[aria-expanded="true"]{color:var(--primary);}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;}
-.faq-a p{padding:0 2px 16px;color:var(--text-muted);font-size:14.5px;margin:0;}
-
-footer{margin-top:24px;padding-top:22px;border-top:1px solid var(--border-soft);color:var(--text-faint);font-size:13px;}
-footer a{color:var(--text-muted);}
-.foot-links{margin:10px 0;display:flex;gap:14px;flex-wrap:wrap;}
+.faq-q[aria-expanded="true"] .chev{transform:rotate(180deg);} .faq-q[aria-expanded="true"]{color:var(--accent);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;} .faq-a p{padding:0 2px 16px;color:var(--text-muted);font-size:14.5px;margin:0;}
+.lp-footer{margin-top:24px;padding-top:22px;border-top:1px solid var(--border-color);color:var(--text-faint);font-size:13px;}
+.lp-footer a{color:var(--text-muted);} .foot-links{margin:10px 0;display:flex;gap:14px;flex-wrap:wrap;}
+.app{padding-bottom:48px;}
 </style>
+<script>(function(){try{var s=localStorage.getItem('auralis-theme');if(s==='light'||s==='dark')document.documentElement.setAttribute('data-theme',s);}catch(e){}})();</script>
 </head>
 <body>
-<div class="app">
+
+<div class="aurora" aria-hidden="true">
+  <div class="aurora-blob"></div><div class="aurora-blob"></div><div class="aurora-blob"></div>
+</div>
+
+<div class="app lp">
 
   <header class="header">
+    <div class="header-brand"><span class="brand-1">tinnitus</span><span class="brand-2">-app</span></div>
+    <div class="header-spacer"></div>
     <button class="icon-btn" id="themeBtn" type="button" aria-label="Смяна на тема">
       <svg id="ic-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
       <svg id="ic-sun" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg>
     </button>
-    <div class="header-brand">tinnitus<span class="brand-2">-app</span></div>
     <a class="icon-btn" href="<?= $APP_URL ?>" aria-label="Отвори приложението">
       <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
@@ -162,13 +113,13 @@ footer a{color:var(--text-muted);}
     <!-- 1 · ПРОБЛЕМ -->
     <section class="hero">
       <div class="eyebrow">За спокоен сън</div>
-      <h1>Шум в ушите нощем?</h1>
+      <h1>Шум в ушите <span class="hl">нощем</span>?</h1>
       <p class="lead">Намерете точно Вашия тон и чуйте облекчение — тук, за 30 секунди.</p>
     </section>
 
     <!-- 2 · ИЗЖИВЯВАНЕ (тестът е героят) -->
-    <section id="test" class="glass">
-      <span class="shine"></span><span class="shine shine-bottom"></span>
+    <section id="test" class="glass lp-card">
+      <span class="shine"></span><span class="shine shine-bottom"></span><span class="glow"></span><span class="glow glow-bottom"></span>
       <div class="step"><span class="n">1</span>Настройте към Вашия тон</div>
       <p class="small muted">Плъзнете, докато тонът заприлича на шума в ушите Ви.</p>
       <input id="freq" class="slider" type="range" min="1500" max="12000" step="100" value="6000" aria-label="Честота на тона">
@@ -182,15 +133,14 @@ footer a{color:var(--text-muted);}
       <p class="reassure">Тонът спира сам, щом пуснете облекчението. Слушайте на удобна, ниска сила.</p>
     </section>
 
-    <!-- 3 · ОБЯСНЕНИЕ (човешки + източници) -->
-    <section class="glass">
-      <span class="shine"></span><span class="shine shine-bottom"></span>
+    <!-- 3 · ОБЯСНЕНИЕ -->
+    <section class="glass lp-card">
+      <span class="shine"></span><span class="shine shine-bottom"></span><span class="glow"></span><span class="glow glow-bottom"></span>
       <h2>Какво току-що се случи?</h2>
       <p>Шумът в ушите е като <strong>една заседнала нота</strong>, която мозъкът Ви свири сам — макар отвън да няма звук.</p>
       <p>Другите приложения пускат звуци <em>върху</em> нея — като вентилатор, който я заглушава. Спре ли, нотата се връща. Само я <strong>крият</strong>.</p>
       <p>Ние правим обратното. Първо <strong>намираме точно Вашата нота</strong> (това беше тестът). После от всеки наш звук <strong>изрязваме точно нея</strong> — все едно махаме един клавиш от пианото, за да не може да я свири.</p>
       <p>Така ухото чува пълния, мек звук, но спираме да „храним" проблемната нота. С времето мозъкът сваля силата ѝ — а веднага след слушане тя често утихва (това усетихте сега).</p>
-
       <div class="eyebrow" style="margin-top:18px;">А че работи — не го твърдим ние</div>
       <div class="stats">
         <div class="stat"><div class="stat-v">−8.6</div><div class="stat-l">THI · 3-ти месец</div></div>
@@ -204,8 +154,8 @@ footer a{color:var(--text-muted);}
     </section>
 
     <!-- 4 · ОФЕРТА -->
-    <section class="glass">
-      <span class="shine"></span><span class="shine shine-bottom"></span>
+    <section class="glass lp-card">
+      <span class="shine"></span><span class="shine shine-bottom"></span><span class="glow"></span><span class="glow glow-bottom"></span>
       <div class="eyebrow">Една цена</div>
       <div class="price">€<?= htmlspecialchars($PRICE) ?></div>
       <div class="price-sub">еднократно · без абонамент · 14 дни безплатно преди това</div>
@@ -220,87 +170,44 @@ footer a{color:var(--text-muted);}
     </section>
 
     <!-- 5 · FAQ -->
-    <section class="glass">
-      <span class="shine"></span><span class="shine shine-bottom"></span>
+    <section class="glass lp-card">
+      <span class="shine"></span><span class="shine shine-bottom"></span><span class="glow"></span><span class="glow glow-bottom"></span>
       <h2>Чести въпроси</h2>
-      <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false">AURALIS лекува ли тинитус?<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button>
-        <div class="faq-a"><p>Не. AURALIS е wellness инструмент за звуково облекчение и спокоен сън. Не е медицинско изделие и не замества лекар.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false">С какво е различно?<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button>
-        <div class="faq-a"><p>Другите наслагват звук върху шума. AURALIS намира Вашата честота и я премахва от звука — подход, изследван в рандомизирани проучвания.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false">Има ли месечен абонамент?<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button>
-        <div class="faq-a"><p>Не. Плащате €<?= htmlspecialchars($PRICE) ?> еднократно и остава Ваше. Преди това имате 14 дни безплатно.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false">А при смяна на телефон?<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button>
-        <div class="faq-a"><p>Влизате със същия имейл чрез защитена връзка и достъпът Ви се връща автоматично.</p></div>
-      </div>
+      <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">AURALIS лекува ли тинитус?<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-a"><p>Не. AURALIS е wellness инструмент за звуково облекчение и спокоен сън. Не е медицинско изделие и не замества лекар.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">С какво е различно?<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-a"><p>Другите наслагват звук върху шума. AURALIS намира Вашата честота и я премахва от звука — подход, изследван в рандомизирани проучвания.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Има ли месечен абонамент?<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-a"><p>Не. Плащате €<?= htmlspecialchars($PRICE) ?> еднократно и остава Ваше. Преди това имате 14 дни безплатно.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">А при смяна на телефон?<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-a"><p>Влизате със същия имейл чрез защитена връзка и достъпът Ви се връща автоматично.</p></div></div>
     </section>
 
-    <footer>
-      <div>tinnitus<span style="color:var(--primary)">-app</span> — звуково спокойствие при шум в ушите.</div>
-      <div class="foot-links">
-        <a href="/privacy.html">Поверителност</a>
-        <a href="<?= $APP_URL ?>">Приложението</a>
-        <a href="mailto:support@tinnitus-app.help">Контакт</a>
-      </div>
+    <div class="lp-footer">
+      <div>tinnitus<span style="color:var(--accent)">-app</span> — звуково спокойствие при шум в ушите.</div>
+      <div class="foot-links"><a href="/privacy.html">Поверителност</a><a href="<?= $APP_URL ?>">Приложението</a><a href="mailto:support@tinnitus-app.help">Контакт</a></div>
       <p class="small">AURALIS е wellness продукт за звуково облекчение — не диагностицира и не лекува. При проблеми със слуха се консултирайте с лекар. Слушайте на удобна, ниска сила.</p>
       <p class="small" style="margin-top:8px;opacity:.7;">© <?= date('Y') ?> AURALIS</p>
-    </footer>
+    </div>
   </main>
 </div>
 
 <script>
-/* Тема (default dark; помни в localStorage 'auralis-theme') */
-(function(){
-  var root=document.documentElement, moon=document.getElementById('ic-moon'), sun=document.getElementById('ic-sun');
-  try{var s=localStorage.getItem('auralis-theme'); if(s==='light'||s==='dark') root.setAttribute('data-theme',s);}catch(e){}
-  function sync(){var d=root.getAttribute('data-theme')!=='light'; moon.style.display=d?'':'none'; sun.style.display=d?'none':'';}
-  sync();
-  document.getElementById('themeBtn').addEventListener('click',function(){
-    var next=root.getAttribute('data-theme')==='light'?'dark':'light';
-    root.setAttribute('data-theme',next);
-    try{localStorage.setItem('auralis-theme',next);}catch(e){} sync();
-  });
-})();
-
-/* FAQ expandables */
-(function(){
-  document.querySelectorAll('.faq-q').forEach(function(q){
-    q.addEventListener('click',function(){
-      var open=q.getAttribute('aria-expanded')==='true', a=q.nextElementSibling;
-      q.setAttribute('aria-expanded',open?'false':'true');
-      a.style.maxHeight=open?'0':(a.scrollHeight+'px');
-    });
-  });
-})();
-
-/* Тест: тон за настройка + мек звук с ИЗВАДЕНА честота (notch).
-   ВАЖНО: щом пуснем облекчението → тонът спира сам. */
+(function(){var root=document.documentElement,moon=document.getElementById('ic-moon'),sun=document.getElementById('ic-sun');
+ function sync(){var d=root.getAttribute('data-theme')!=='light';moon.style.display=d?'':'none';sun.style.display=d?'none':'';}sync();
+ document.getElementById('themeBtn').addEventListener('click',function(){var n=root.getAttribute('data-theme')==='light'?'dark':'light';root.setAttribute('data-theme',n);try{localStorage.setItem('auralis-theme',n);}catch(e){}sync();});})();
+(function(){document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){var o=q.getAttribute('aria-expanded')==='true',a=q.nextElementSibling;q.setAttribute('aria-expanded',o?'false':'true');a.style.maxHeight=o?'0':(a.scrollHeight+'px');});});})();
 (function(){
   var ctx=null,osc=null,oscGain=null,noiseSrc=null,noiseGain=null,notch=null;
   var freqEl=document.getElementById('freq'),freqVal=document.getElementById('freqval');
   var toneBtn=document.getElementById('toneBtn'),maskBtn=document.getElementById('maskBtn'),stopBtn=document.getElementById('stopBtn');
   function ac(){if(!ctx){var C=window.AudioContext||window.webkitAudioContext;ctx=new C();}if(ctx.state==='suspended')ctx.resume();return ctx;}
-  freqEl.addEventListener('input',function(){
-    freqVal.textContent=freqEl.value+' Hz';
-    if(osc&&ctx)osc.frequency.setValueAtTime(+freqEl.value,ctx.currentTime);
-    if(notch&&ctx)notch.frequency.setValueAtTime(+freqEl.value,ctx.currentTime);
-  });
+  freqEl.addEventListener('input',function(){freqVal.textContent=freqEl.value+' Hz';if(osc&&ctx)osc.frequency.setValueAtTime(+freqEl.value,ctx.currentTime);if(notch&&ctx)notch.frequency.setValueAtTime(+freqEl.value,ctx.currentTime);});
   function startTone(){var c=ac();stopTone();osc=c.createOscillator();oscGain=c.createGain();osc.type='sine';osc.frequency.value=+freqEl.value;oscGain.gain.value=0;osc.connect(oscGain);oscGain.connect(c.destination);osc.start();oscGain.gain.linearRampToValueAtTime(0.05,c.currentTime+0.15);toneBtn.setAttribute('aria-pressed','true');toneBtn.textContent='Спрете тона';}
   function stopTone(){if(osc){try{oscGain.gain.linearRampToValueAtTime(0,ctx.currentTime+0.08);osc.stop(ctx.currentTime+0.12);}catch(e){}osc=null;}toneBtn.setAttribute('aria-pressed','false');toneBtn.textContent='Пуснете тона';}
   toneBtn.addEventListener('click',function(){osc?stopTone():startTone();});
-  function startNoise(){var c=ac();stopNoise();stopTone(); /* ← тонът спира сам */
+  function startNoise(){var c=ac();stopNoise();stopTone();
     var len=2*c.sampleRate,buf=c.createBuffer(1,len,c.sampleRate),d=buf.getChannelData(0),last=0;
     for(var i=0;i<len;i++){var w=Math.random()*2-1;d[i]=(last+0.02*w)/1.02;last=d[i];d[i]*=3.2;}
     noiseSrc=c.createBufferSource();noiseSrc.buffer=buf;noiseSrc.loop=true;
     notch=c.createBiquadFilter();notch.type='notch';notch.frequency.value=+freqEl.value;notch.Q.value=6;
-    noiseGain=c.createGain();noiseGain.gain.value=0;
-    noiseSrc.connect(notch);notch.connect(noiseGain);noiseGain.connect(c.destination);noiseSrc.start();
+    noiseGain=c.createGain();noiseGain.gain.value=0;noiseSrc.connect(notch);notch.connect(noiseGain);noiseGain.connect(c.destination);noiseSrc.start();
     noiseGain.gain.linearRampToValueAtTime(0.16,c.currentTime+0.6);
     maskBtn.setAttribute('aria-pressed','true');maskBtn.textContent='Спрете облекчението';}
   function stopNoise(){if(noiseSrc){try{noiseGain.gain.linearRampToValueAtTime(0,ctx.currentTime+0.3);noiseSrc.stop(ctx.currentTime+0.35);}catch(e){}noiseSrc=null;}maskBtn.setAttribute('aria-pressed','false');maskBtn.textContent='Чуйте облекчението';}
