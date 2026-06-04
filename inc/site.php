@@ -154,4 +154,19 @@ function site_footer() {
     <p class="site-foot__copy">© <?= date('Y') ?> AURALIS</p>
   </div>
 </footer>
+<script>
+/* Авто-освежаване: ако устройството има стар service worker, който сервира
+   кеширана версия на публичните страници, обнови SW и презареди веднъж. */
+(function(){
+  if (!('serviceWorker' in navigator)) return;
+  navigator.serviceWorker.getRegistration().then(function(reg){
+    if (!reg) return;
+    try { reg.update(); } catch(e){}
+    var done = false;
+    navigator.serviceWorker.addEventListener('controllerchange', function(){
+      if (done) return; done = true; location.reload();
+    });
+  });
+})();
+</script>
 <?php }
