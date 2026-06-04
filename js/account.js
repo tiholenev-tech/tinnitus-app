@@ -20,7 +20,8 @@
     me:      '/api/me.php',
     sync:    '/api/sync.php',
     logout:  '/api/logout.php',
-    checkout: '/api/checkout.php'
+    checkout: '/api/checkout.php',
+    epay:    '/api/epay_checkout.php'
   };
 
   var state = { ready: false, loggedIn: false, email: null, paid: false, trialLeft: null, rev: 0 };
@@ -207,6 +208,28 @@
     });
   }
 
+  // ── Плащане през ePay.bg / EasyPay (БГ) ─────────────────────────────────────
+  function startEpay() {
+    return postJSON(API.epay, {}).then(function (r) {
+      if (r && r.submit_url && r.fields) { submitForm(r.submit_url, r.fields); return { redirect: true }; }
+      if (r && r.already_paid) { state.paid = true; toast('Вече имате пълен достъп ✓'); return { paid: true }; }
+      return { notReady: true };
+    });
+  }
+  function submitForm(url, fields) {
+    try {
+      var f = document.createElement('form');
+      f.method = 'POST'; f.action = url; f.style.display = 'none';
+      Object.keys(fields).forEach(function (k) {
+        var i = document.createElement('input');
+        i.type = 'hidden'; i.name = k; i.value = fields[k];
+        f.appendChild(i);
+      });
+      document.body.appendChild(f);
+      f.submit();
+    } catch (e) {}
+  }
+
   // ── UI (самостоятелен модал) ────────────────────────────────────────────────
   function injectStyle() {
     if (document.getElementById('acc-style')) return;
@@ -298,6 +321,18 @@
           });
         });
         card.appendChild(bPay);
+
+        var bEpay = btn('Плати с ePay / EasyPay (България)', 'acc-ghost');
+        bEpay.addEventListener('click', function () {
+          bEpay.disabled = true; bEpay.textContent = 'Зареждам…';
+          startEpay().then(function (r) {
+            if (r && r.notReady) {
+              bEpay.disabled = false; bEpay.textContent = 'Плати с ePay / EasyPay (България)';
+              toast('ePay още се настройва. Опитайте малко по-късно.');
+            }
+          });
+        });
+        card.appendChild(bEpay);
       }
       var bSync = btn('Синхронизирай сега', 'acc-btn');
       bSync.style.marginTop = '14px';
