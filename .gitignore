@@ -21,9 +21,11 @@ yarn-error.log*
 .npm
 .yarn-integrity
 package-lock.json
+!mobile/package-lock.json
 
 # Build (за бъдеще)
 dist/
+mobile/apk-out/
 build/
 .cache/
 
