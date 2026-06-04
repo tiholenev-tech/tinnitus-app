@@ -2,6 +2,7 @@
 /**
  * AURALIS — статия „Notched звукова терапия". Светъл Bichromatic (css/pages.css).
  */
+require __DIR__ . '/../inc/site.php';
 $URL   = 'https://tinnitus-app.help/articles/notched-zvukova-terapiya.php';
 $TITLE = 'Какво е notched звукова терапия и наистина ли помага при тинитус?';
 $DESC  = 'Notched терапията намира Вашата тинитус честота и я премахва от звука — не просто маскиране. Как работи, какво показват проучванията и за кого е.';
@@ -26,12 +27,7 @@ $HAS_REVIEWER  = ($REVIEWER_NAME !== '' && $REVIEWER_NAME !== 'предстои'
 <meta property="og:image" content="https://tinnitus-app.help/app-icons/icon-512.png">
 <meta property="og:locale" content="bg_BG">
 <link rel="icon" type="image/png" sizes="192x192" href="/app-icons/icon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Montserrat:wght@400;500;600;700;800;900&family=DM+Serif+Display&display=swap">
-<link rel="stylesheet" href="/css/tokens.css">
-<link rel="stylesheet" href="/css/base.css">
-<link rel="stylesheet" href="/css/pages.css">
+<?php site_head_assets(); ?>
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -45,15 +41,10 @@ $HAS_REVIEWER  = ($REVIEWER_NAME !== '' && $REVIEWER_NAME !== 'предстои'
 </script>
 </head>
 <body>
+<?php site_nav('zvukova-terapiya'); ?>
 <div class="wrap">
-  <header class="page-head">
-    <div class="header-brand"><span class="brand-1">tinnitus</span><span class="brand-2">-app</span></div>
-    <span class="spacer"></span>
-    <a class="nav-link" href="/articles/">Статии</a>
-  </header>
-
   <article class="art">
-    <nav class="crumb"><a href="/">Начало</a> · <a href="/articles/">Статии</a> · Notched терапия</nav>
+    <nav class="crumb"><a href="/lp/">Начало</a> · <a href="/temi/zvukova-terapiya/">Звукова терапия</a> · Notched терапия</nav>
     <h1><?= htmlspecialchars($TITLE) ?></h1>
     <div class="meta">Обновено: <?= $UPDATED ?> · Автор: екип AURALIS<?php if ($HAS_REVIEWER): ?> · Рецензент: <?= htmlspecialchars($REVIEWER_NAME) ?> (УНГ)<?php endif; ?></div>
 
@@ -101,11 +92,7 @@ $HAS_REVIEWER  = ($REVIEWER_NAME !== '' && $REVIEWER_NAME !== 'предстои'
       AURALIS е wellness инструмент за звуково облекчение и спокоен сън — не диагностицира, не лекува и не замества консултация с лекар.
     </div>
   </article>
-
-  <footer class="page-foot">
-    <div class="foot-links"><a href="/articles/">Всички статии</a><a href="/lp/">AURALIS</a><a href="/privacy.html">Поверителност</a></div>
-    <p class="src" style="opacity:.7;">© <?= date('Y') ?> AURALIS</p>
-  </footer>
 </div>
+<?php site_footer(); ?>
 </body>
 </html>

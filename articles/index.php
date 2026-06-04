@@ -1,23 +1,9 @@
 <?php
 /**
- * AURALIS — хъб на статиите (topic cluster). СВЕТЪЛ (css/pages.css).
+ * AURALIS — всички статии, групирани по раздели. Светъл Bichromatic.
  */
-$ARTICLES = [
-  ['slug' => 'shum-v-ushite-noshtem',
-   'title' => 'Шум в ушите (тинитус): какво е, защо се появява и какво помага',
-   'desc'  => 'Защо мозъкът създава шума, защо нощем е по-силен и кои подходи имат реални доказателства.'],
-  ['slug' => 'tinitus-i-san',
-   'title' => 'Защо тинитусът се влошава нощем и как да заспите',
-   'desc'  => 'Защо шумът се усилва вечер и какво наистина помага да заспите — звук за сън, режим, успокояване.'],
-  ['slug' => 'zvukove-pri-tinitus',
-   'title' => 'Кой звук помага при тинитус? Бял, розов, кафяв и зелен',
-   'desc'  => 'Как се различават „цветовете" звук, кой е по-добър за сън и как да изберете подходящия за Вас.'],
-  ['slug' => 'notched-zvukova-terapiya',
-   'title' => 'Какво е notched звукова терапия и помага ли при тинитус?',
-   'desc'  => 'Подходът, който намира Вашата честота и я премахва от звука — как работи и какво показват проучванията.'],
-  // следващите статии се добавят тук
-];
-$CANON = 'https://tinnitus-app.help/articles/';
+require __DIR__ . '/../inc/site.php';
+$CANON = $SITE_URL . '/articles/';
 ?><!DOCTYPE html>
 <html lang="bg" data-theme="light">
 <head>
@@ -25,41 +11,43 @@ $CANON = 'https://tinnitus-app.help/articles/';
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#e0e5ec">
 <title>Статии за шум в ушите (тинитус) — AURALIS</title>
-<meta name="description" content="Ясни, проверени статии за тинитус: причини, сън, звукова терапия, как да намалите тревожността и кога да отидете на лекар.">
+<meta name="description" content="Ясни, проверени статии за тинитус: причини, звукова терапия, сън и как да намалите тревожността около шума. Подредени по теми.">
 <link rel="canonical" href="<?= $CANON ?>">
 <meta name="robots" content="index,follow">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Статии за шум в ушите (тинитус) — AURALIS">
 <meta property="og:url" content="<?= $CANON ?>">
-<meta property="og:image" content="https://tinnitus-app.help/app-icons/icon-512.png">
+<meta property="og:image" content="<?= $SITE_URL ?>/app-icons/icon-512.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/app-icons/icon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Montserrat:wght@400;500;600;700;800;900&family=DM+Serif+Display&display=swap">
-<link rel="stylesheet" href="/css/tokens.css">
-<link rel="stylesheet" href="/css/base.css">
-<link rel="stylesheet" href="/css/pages.css">
+<?php site_head_assets(); ?>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Статии за шум в ушите (тинитус)","url":"<?= $CANON ?>","inLanguage":"bg","isPartOf":{"@type":"WebSite","name":"AURALIS","url":"<?= $SITE_URL ?>/"}}
+</script>
 </head>
 <body>
+<?php site_nav('articles'); ?>
 <div class="wrap">
-  <header class="page-head">
-    <div class="header-brand"><span class="brand-1">tinnitus</span><span class="brand-2">-app</span></div>
-    <span class="spacer"></span>
-    <a class="nav-link" href="/lp/">AURALIS →</a>
-  </header>
   <main>
+    <nav class="crumb"><a href="/lp/">Начало</a> · Статии</nav>
     <h1>Статии за шум в ушите</h1>
-    <p class="lead">Ясно и проверено — причини, сън, звукова терапия и как да намалите тревожността около шума.</p>
-    <?php foreach ($ARTICLES as $a): ?>
-    <a class="acard" href="/articles/<?= htmlspecialchars($a['slug']) ?>.php">
-      <h2><?= htmlspecialchars($a['title']) ?></h2>
-      <p><?= htmlspecialchars($a['desc']) ?></p>
-    </a>
+    <p class="lead">Ясно и проверено — причини, звукова терапия, сън и как да намалите тревожността около шума. Подредени по теми.</p>
+
+    <?php foreach ($SECTIONS as $slug => $s): $items = site_articles_in($slug); if (!$items) continue; ?>
+    <section class="home-block" style="margin-top:26px;">
+      <div class="home-block__h" style="text-align:left;display:flex;align-items:center;gap:9px;">
+        <span style="color:var(--accent);display:inline-flex;"><?= site_icon($s['icon']) ?></span>
+        <a href="/temi/<?= $slug ?>/" style="color:var(--accent);text-decoration:none;"><?= htmlspecialchars($s['title']) ?> →</a>
+      </div>
+      <?php foreach ($items as $a): ?>
+      <a class="acard" href="/articles/<?= htmlspecialchars($a['slug']) ?>.php">
+        <h2><?= htmlspecialchars($a['title']) ?></h2>
+        <p><?= htmlspecialchars($a['desc']) ?></p>
+      </a>
+      <?php endforeach; ?>
+    </section>
     <?php endforeach; ?>
-    <footer class="page-foot">
-      <div class="foot-links"><a href="/lp/">AURALIS</a><a href="/privacy.html">Поверителност</a><a href="mailto:support@tinnitus-app.help">Контакт</a></div>
-    </footer>
   </main>
 </div>
+<?php site_footer(); ?>
 </body>
 </html>
