@@ -15,9 +15,12 @@ if (!empty($u['trial_started_at'])) {
     $trialLeft = max(0, (int) ceil($trialDays - $elapsed));
 }
 
+$entitled = ((bool) $u['paid']) || ($trialLeft !== null && $trialLeft > 0);
+
 json_out(200, [
     'logged_in'       => true,
     'email'           => $u['email'],
     'paid'            => (bool) $u['paid'],
     'trial_days_left' => $trialLeft,
+    'entitled'        => $entitled,
 ]);

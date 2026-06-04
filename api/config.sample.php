@@ -38,6 +38,17 @@ return [
         'magic_ttl_min'    => 20,   // валидност на magic link (мин)
         'session_ttl_days' => 90,   // колко дълго държи логнат
         'trial_days'       => 14,   // безплатен trial
+        'price_cents'      => 1999, // €19.99 еднократно (ако няма stripe.price_id)
         'ip_trial_limit'   => 3,    // anti-fraud (Фаза 2): trials/IP/30дни
+    ],
+
+    // ── Stripe (Фаза 2) ────────────────────────────────────────────────────
+    // Празен secret_key = плащането е неактивно (checkout връща 503, UI казва
+    // „още се настройва"). Виж db/STRIPE_SETUP.md за ключове + webhook.
+    'stripe' => [
+        'secret_key'     => '',   // sk_test_... / sk_live_...
+        'webhook_secret' => '',   // whsec_... (от webhook endpoint-а)
+        'price_id'       => '',   // price_... (по избор; иначе price_cents отгоре)
+        'currency'       => 'eur',
     ],
 ];
