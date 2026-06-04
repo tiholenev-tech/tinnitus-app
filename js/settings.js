@@ -581,6 +581,24 @@ window.Settings = (function () {
   // GG: Favorites button in Settings
   // ============================================================
 
+  // Профил / Вход — magic-link login + cloud sync (Account модул, js/account.js)
+  function buildAccountSection() {
+    var st = (window.Account && window.Account.status) ? window.Account.status() : { loggedIn: false, email: null };
+    var label = st.loggedIn
+      ? (t('account.profile', 'Профил') + (st.email ? ' · ' + escapeHtml(st.email) : ''))
+      : t('account.open', 'Вход и синхронизация');
+    return (
+      '<section class="set-section">' +
+        '<div class="set-data-actions">' +
+          '<button class="set-action set-action--primary" type="button" data-action="open-account">' +
+            '<span class="set-action-label">' + label + '</span>' +
+            '<span class="set-action-chevron" aria-hidden="true">' + svgChevron() + '</span>' +
+          '</button>' +
+        '</div>' +
+      '</section>'
+    );
+  }
+
   function buildFavoritesButton() {
     return (
       '<section class="set-section">' +
@@ -770,6 +788,7 @@ window.Settings = (function () {
             ' aria-label="' + escapeHtml(closeAria) + '">' + svgClose() + '</button>' +
         '</div>' +
         '<div class="set-body">' +
+          buildAccountSection() +
           buildThemeSection() +
           buildLanguageSection() +
           // Master volume + volume profiles преместени на началния екран
@@ -1267,6 +1286,10 @@ window.Settings = (function () {
       else if (action === 'vol-profile') applyVolumeProfile(actionBtn);
       else if (action === 'open-stats') { if (window.Analytics) window.Analytics.showStats(); }
       else if (action === 'open-favorites') { if (window.Favorites) window.Favorites.showSheet(); }
+      else if (action === 'open-account') {
+        close();
+        if (window.Account && window.Account.showLogin) window.Account.showLogin();
+      }
       else if (action === 'open-faq') {
         // Close Settings first, then open FAQ overlay.
         close();
