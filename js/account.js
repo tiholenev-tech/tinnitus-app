@@ -19,7 +19,8 @@
     request: '/api/auth_request.php',
     me:      '/api/me.php',
     sync:    '/api/sync.php',
-    logout:  '/api/logout.php'
+    logout:  '/api/logout.php',
+    checkout: '/api/checkout.php'
   };
 
   var state = { ready: false, loggedIn: false, email: null, paid: false, trialLeft: null, rev: 0 };
@@ -116,11 +117,11 @@
   }
 
   // ── Boot ───────────────────────────────────────────────────────────────────
-  function stripLoginParam() {
+  function stripParam(name) {
     try {
       var u = new URL(location.href);
-      if (u.searchParams.has('login')) {
-        u.searchParams.delete('login');
+      if (u.searchParams.has(name)) {
+        u.searchParams.delete(name);
         history.replaceState(null, '', u.pathname + (u.search || '') + u.hash);
       }
     } catch (e) {}
@@ -139,6 +140,9 @@
       };
     } catch (e) {}
 
+    var paidParam = null;
+    try { paidParam = new URL(location.href).searchParams.get('paid'); } catch (e) {}
+
     // flush при затваряне/скриване
     window.addEventListener('pagehide', flush);
     document.addEventListener('visibilitychange', function () {
@@ -146,13 +150,20 @@
     });
 
     if (loginParam === 'ok') {
-      stripLoginParam();
+      stripParam('login');
       checkSession().then(function (ok) {
         if (ok) { toast('Влязохте успешно ✓'); pullAndReload(); }
         else    { toast('Входът не беше успешен. Опитайте пак.'); }
       });
+    } else if (paidParam === 'ok') {
+      stripParam('paid');
+      confirmPaid(4);
+    } else if (paidParam === 'cancel') {
+      stripParam('paid');
+      toast('Плащането е отменено.');
+      checkSession();
     } else {
-      if (loginParam === 'fail') { stripLoginParam(); toast('Връзката е изтекла или невалидна.'); }
+      if (loginParam === 'fail') { stripParam('login'); toast('Връзката е изтекла или невалидна.'); }
       checkSession(); // тихо — за статус в Настройки + активиране на push
     }
   }
@@ -174,6 +185,25 @@
     return postJSON(API.logout, {}).then(function () {
       state.loggedIn = false; state.email = null; state.paid = false; state.trialLeft = null;
       toast('Излязохте от профила.');
+    });
+  }
+
+  // ── Плащане (Stripe Checkout) ───────────────────────────────────────────────
+  function startCheckout() {
+    return postJSON(API.checkout, {}).then(function (r) {
+      if (r && r.url) { try { location.href = r.url; } catch (e) {} return { redirect: true }; }
+      if (r && r.already_paid) { state.paid = true; toast('Вече имате пълен достъп ✓'); return { paid: true }; }
+      return { notReady: true };
+    });
+  }
+
+  // След връщане от Stripe (?paid=ok): webhook-ът може да закъснее няколко сек —
+  // проверяваме сесията няколко пъти докато paid стане true.
+  function confirmPaid(tries) {
+    checkSession().then(function () {
+      if (state.paid) { toast('Благодарим! Пълен достъп е отключен ✓'); return; }
+      if (tries > 0) setTimeout(function () { confirmPaid(tries - 1); }, 2500);
+      else toast('Плащането се обработва… може да отнеме минута.');
     });
   }
 
@@ -255,6 +285,20 @@
         '<h3>Вашият профил</h3>' +
         '<p class="acc-row">Влезли сте като <b>' + esc(state.email || '') + '</b></p>' +
         '<p class="acc-row">' + esc(trial) + '</p>';
+      if (!state.paid) {
+        var bPay = btn('Отключи пълен достъп — €19.99', 'acc-btn');
+        bPay.style.marginTop = '14px';
+        bPay.addEventListener('click', function () {
+          bPay.disabled = true; bPay.textContent = 'Зареждам…';
+          startCheckout().then(function (r) {
+            if (r && r.notReady) {
+              bPay.disabled = false; bPay.textContent = 'Отключи пълен достъп — €19.99';
+              toast('Плащането още се настройва. Опитайте малко по-късно.');
+            }
+          });
+        });
+        card.appendChild(bPay);
+      }
       var bSync = btn('Синхронизирай сега', 'acc-btn');
       bSync.style.marginTop = '14px';
       bSync.addEventListener('click', function () {
