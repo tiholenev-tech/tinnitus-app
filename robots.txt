@@ -30,3 +30,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://tinnitus-app.help/sitemap.xml
