@@ -1992,41 +1992,41 @@
    "theme": "Ziua dvs. conține mai multe momente bune decât observă creierul dvs.",
    "explanation": "Când aveți tinitus, mintea dvs. este învățată să observe mai ales lucrurile neplăcute. Acest lucru nu este o slăbiciune a dvs. — este o reacție de protecție. Dar există un antidot: în fiecare zi să vă faceți o listă scurtă cu trei momente senzoriale plăcute — un gust, o aromă, o priveliște, o atingere, un sunet liniștit. Cu timpul, creierul dvs. va începe să le caute singur.",
    "exercise": [
-    "Преди да заспите, спомнете си деня.",
-    "Запишете три неща, които сте усетили днес и са Ви били приятни (например аромат на кафе, топла светлина, разговор).",
-    "До всяко напишете една дума за чувството, което Ви даде."
+    "Înainte de a adormi, amintiți-vă ziua.",
+    "Scrieți trei lucruri pe care le-ați simțit astăzi și care v-au fost plăcute (de exemplu, aroma de cafea, o lumină caldă, o conversație).",
+    "Lângă fiecare scrieți un cuvânt pentru sentimentul pe care vi l-a dat."
    ],
-   "reflection": "Кой от трите мига беше най-неочакван за Вас?"
+   "reflection": "Care dintre cele trei momente a fost cel mai neașteptat pentru dvs.?"
   },
   "day_13": {
-   "title": "Звук и дишане заедно",
-   "theme": "Когато спокойната природа и спокойното дишане се срещнат, тинитусът губи силата си.",
-   "explanation": "Досега използвахте дишането и фоновия звук поотделно. Днес ще ги комбинирате. Мозъкът свързва двете преживявания — звукът става сигнал за релаксация, релаксацията засилва ефекта на звука. Постепенно изграждате нова, неутрална асоциация: тинитусът не е сам в съзнанието Ви — около него има спокойна среда и спокойно тяло.",
+   "title": "Sunet și respirație împreună",
+   "theme": "Când natura calmă și respirația calmă se întâlnesc, tinitusul își pierde puterea.",
+   "explanation": "Până acum ați folosit respirația și sunetul de fundal separat. Astăzi le veți combina. Creierul leagă cele două experiențe — sunetul devine un semnal de relaxare, relaxarea intensifică efectul sunetului. Treptat construiți o asociere nouă, neutră: tinitusul nu este singur în conștiința dvs. — în jurul lui există un mediu calm și un corp calm.",
    "exercise": [
-    "Пуснете 10-минутна природна звукова сесия от приложението (вълни, поток или дъжд).",
-    "През цялото време дишайте бавно: 4 секунди вдишване, 6 секунди издишване.",
-    "Когато тинитусът се обади, не реагирайте — продължете звука и дишането."
+    "Redați o sesiune sonoră naturală de 10 minute din aplicație (valuri, pârâu sau ploaie).",
+    "Tot timpul respirați lent: 4 secunde inspirație, 6 secunde expirație.",
+    "Când tinitusul se face simțit, nu reacționați — continuați sunetul și respirația."
    ],
-   "reflection": "Беше ли тинитусът същият през тези 10 минути, или нещо в усещането се промени?"
+   "reflection": "A fost tinitusul la fel în aceste 10 minute sau s-a schimbat ceva în percepție?"
   },
   "day_14": {
-   "title": "Поглед назад и напред",
-   "theme": "Две седмици назад — кое работи за Вас и какво ще пренесете нататък.",
-   "explanation": "Две седмици са достатъчни да усетите промяна в отношението си към шума, но не и за пълно привикване. Хабитуацията е процес от месеци, не дни. Това, което днес ще си отнесете, е не „лечение\", а лична карта на инструментите, които работят за Вас. Тази карта ще използвате занапред — при добри дни и при тежки.",
+   "title": "Privire înapoi și înainte",
+   "theme": "Două săptămâni în urmă — ce funcționează pentru dvs. și ce veți duce mai departe.",
+   "explanation": "Două săptămâni sunt suficiente pentru a simți o schimbare în atitudinea dvs. față de zgomot, dar nu și pentru o obișnuire completă. Habituarea este un proces de luni, nu de zile. Ceea ce veți lua cu dvs. astăzi nu este un „tratament\", ci o hartă personală a instrumentelor care funcționează pentru dvs. Această hartă o veți folosi de acum înainte — în zilele bune și în cele grele.",
    "exercise": [
-    "Прелистете всички записки и рефлексии от Дни 1–13.",
-    "Напишете три неща, които ще продължите да правите всеки ден (упражнения, фраза, звук).",
-    "Попълнете втория въпросник THI — той ще покаже как се чувствате сега, в сравнение с първия ден."
+    "Răsfoiți toate notițele și reflecțiile din Zilele 1–13.",
+    "Scrieți trei lucruri pe care veți continua să le faceți în fiecare zi (exerciții, frază, sunet).",
+    "Completați al doilea chestionar THI — el va arăta cum vă simțiți acum, în comparație cu prima zi."
    ],
-   "reflection": "Кое от наученото през тези 14 дни беше най-важно за Вас лично?"
+   "reflection": "Care dintre lucrurile învățate în aceste 14 zile a fost cel mai important pentru dvs. personal?"
   }
  },
  "home": {
-  "infoAria": "Информация за категорията",
-  "title": "Изберете режим",
+  "infoAria": "Informații despre categorie",
+  "title": "Alegeți un mod",
   "openLibraryAll": "Toate sunetele",
   "openDiary": "Jurnal",
-  "soundCountFmt": "{n} звука",
+  "soundCountFmt": "{n} sunete",
   "favoritesBtn": {
    "aria": "Favorite"
   },
@@ -2057,18 +2057,18 @@
    }
   },
   "thiCta": {
-   "title": "Завършете научната оценка",
-   "body": "Попълнете THI тест (5 минути) за персонализиран план",
-   "button": "Започнете теста"
+   "title": "Finalizați evaluarea științifică",
+   "body": "Completați testul THI (5 minute) pentru un plan personalizat",
+   "button": "Începeți testul"
   },
   "pitch": {
-   "new_title": "Тон на тинитуса",
+   "new_title": "Tonul tinitusului",
    "new_body": "Открийте честотата на вашия тинитус за персонализиран notch филтър.",
    "new_cta": "Fă testul",
-   "done_title": "Тон на тинитуса",
+   "done_title": "Tonul tinitusului",
    "done_body": "Текущ профил: {hz} Hz. Можете да повторите теста при нужда.",
    "done_cta": "Повтори теста",
-   "skipped_title": "Тон на тинитуса",
+   "skipped_title": "Tonul tinitusului",
    "skipped_body": "Тестът беше пропуснат. Направете го за персонализиран филтър.",
    "skipped_cta": "Fă testul",
    "caution": "Не е нужно да тествате често — резултатите са най-надеждни при няколко дни между измерванията.",
