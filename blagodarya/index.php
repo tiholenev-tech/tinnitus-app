@@ -14,7 +14,7 @@ auralis_masthead();
         <div class="medallion medallion--gold"><?= site_icon('check', 44, 1.7) ?></div>
         <h1>Благодаря!</h1>
         <p class="lead">Получихме съобщението Ви. Ако сте поискали връзка за вход, проверете пощата си — би трябвало да пристигне до минута.</p>
-        <a class="btn btn--primary btn--lg" href="/lp/">Към началото</a>
+        <a class="btn btn--primary btn--lg" href="/">Към началото</a>
         <p class="test__note" style="margin-top:16px">Не виждате имейла? Проверете папка „Спам".</p>
       </div>
     </div>

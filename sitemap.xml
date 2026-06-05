@@ -2,7 +2,7 @@
 <!-- AURALIS sitemap. Подава се в Google Search Console И Bing Webmaster Tools
      (ChatGPT търси през Bing, Gemini през Google). Добавяй нови статии/раздели тук. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://tinnitus-app.help/lp/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://tinnitus-app.help/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://tinnitus-app.help/articles/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 
   <url><loc>https://tinnitus-app.help/temi/za-tinitusa/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>

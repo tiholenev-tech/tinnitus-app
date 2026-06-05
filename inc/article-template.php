@@ -81,7 +81,7 @@ if ($FAQ) {
   $graph[] = ['@type'=>'FAQPage','mainEntity'=>$main];
 }
 $graph[] = ['@type'=>'BreadcrumbList','itemListElement'=>[
-  ['@type'=>'ListItem','position'=>1,'name'=>'Начало','item'=>$SITE_URL.'/lp/'],
+  ['@type'=>'ListItem','position'=>1,'name'=>'Начало','item'=>$SITE_URL.'/'],
   ['@type'=>'ListItem','position'=>2,'name'=>$secTitle,'item'=>$secUrl],
   ['@type'=>'ListItem','position'=>3,'name'=>$TITLE,'item'=>$URL],
 ]];
@@ -94,7 +94,7 @@ auralis_masthead($a['section']);
   <article>
     <div class="wrap wrap--read">
       <nav class="crumbs" aria-label="Път">
-        <a href="/lp/">Начало</a><span aria-hidden="true">›</span>
+        <a href="/">Начало</a><span aria-hidden="true">›</span>
         <a href="<?= $secUrl ?>"><?= htmlspecialchars($secTitle) ?></a><span aria-hidden="true">›</span>
         <b><?= htmlspecialchars($TITLE) ?></b>
       </nav>
@@ -130,7 +130,7 @@ auralis_masthead($a['section']);
         <p class="eyebrow">Опитайте тази вечер</p>
         <h2 style="font-size:clamp(22px,5vw,28px)">Намерете своя тон</h2>
         <p>AURALIS намира честотата на вашия шум и я премахва от звука ви — спокойно, направо от телефона.</p>
-        <a class="btn btn--primary btn--lg" href="/lp/#test">Пробвайте теста</a>
+        <a class="btn btn--primary btn--lg" href="/#test">Пробвайте теста</a>
       </div>
 
       <?php if ($SOURCES): ?>

@@ -9,7 +9,7 @@ auralis_masthead();
 ?>
 <main id="main">
   <div class="wrap wrap--read">
-    <nav class="crumbs" aria-label="Път"><a href="/lp/">Начало</a><span aria-hidden="true">›</span><b>Условия</b></nav>
+    <nav class="crumbs" aria-label="Път"><a href="/">Начало</a><span aria-hidden="true">›</span><b>Условия</b></nav>
     <header class="articlehead">
       <h1>Условия за ползване</h1>
       <div class="meta"><span class="meta__item">Обновено <b>юни 2026</b></span></div>

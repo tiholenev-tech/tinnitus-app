@@ -187,6 +187,8 @@ function auralis_head(array $o) {
   $img = $SITE_URL . '/app-icons/icon-512.png';
   echo "<!DOCTYPE html>\n<html lang=\"bg\">\n<head>\n";
   echo '<script>document.documentElement.className+=" js";</script>'."\n";
+  // Защита: ако сайтът се отвори в инсталираното приложение (standalone) — праща към /app.html.
+  echo '<script>(function(){try{if((window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone===true){location.replace("/app.html");}}catch(e){}})();</script>'."\n";
   echo '<meta charset="UTF-8">'."\n";
   echo '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">'."\n";
   echo '<meta name="theme-color" content="#e0e5ec">'."\n";
@@ -221,13 +223,13 @@ function auralis_masthead($active = '') {
 <header class="masthead">
   <div class="wrap">
     <div class="masthead__bar">
-      <a class="brand" href="/lp/" aria-label="tinnitus-app.help — начало">
+      <a class="brand" href="/" aria-label="tinnitus-app.help — начало">
         <span class="brand__mark"><span class="header-brand"><span class="brand-1">tinnitus</span><span class="brand-2">-app</span></span><span class="brand__tld">.help</span></span>
       </a>
-      <a class="btn btn--primary masthead__cta" href="/lp/#oferta">Пробвай безплатно</a>
+      <a class="btn btn--primary masthead__cta" href="/#oferta">Пробвай безплатно</a>
     </div>
     <nav class="navrow" aria-label="Основна навигация">
-      <a class="pill" href="/lp/"<?= $active === 'home' ? ' aria-current="page"' : '' ?>>Начало</a>
+      <a class="pill" href="/"<?= $active === 'home' ? ' aria-current="page"' : '' ?>>Начало</a>
       <?php foreach ($SECTIONS as $slug => $s): ?>
       <a class="pill" href="/temi/<?= $slug ?>/"<?= $active === $slug ? ' aria-current="page"' : '' ?>><?= htmlspecialchars($s['short']) ?></a>
       <?php endforeach; ?>

@@ -14,7 +14,7 @@ auralis_masthead();
         <h1>Тук е тихо… твърде тихо</h1>
         <p class="lead">Страницата, която търсите, я няма или е преместена. Но спокойствието е на един клик разстояние.</p>
         <div class="hero__actions">
-          <a class="btn btn--primary btn--lg" href="/lp/">Към началото</a>
+          <a class="btn btn--primary btn--lg" href="/">Към началото</a>
           <a class="btn btn--ghost" href="/articles/">Всички статии</a>
         </div>
       </div>
