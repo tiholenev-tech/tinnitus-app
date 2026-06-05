@@ -7,7 +7,7 @@
  */
 
 $SITE_URL = 'https://tinnitus-app.help';
-if (!defined('AURALIS_ASSET_V')) define('AURALIS_ASSET_V', '3'); // bump → cache-bust на css/js
+if (!defined('AURALIS_ASSET_V')) define('AURALIS_ASSET_V', '4'); // bump → cache-bust на css/js
 
 /* ── Раздели (подредбата = менюто и футъра) ───────────────────────── */
 $SECTIONS = [
@@ -226,9 +226,12 @@ function auralis_masthead($active = '') {
       <a class="brand" href="/" aria-label="tinnitus-app.help — начало">
         <span class="brand__mark"><span class="header-brand"><span class="brand-1">tinnitus</span><span class="brand-2">-app</span></span><span class="brand__tld">.help</span></span>
       </a>
+      <button class="masthead__menu" type="button" aria-label="Покажи менюто" aria-controls="site-nav" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
       <a class="btn btn--primary masthead__cta" href="/#oferta">Пробвай безплатно</a>
     </div>
-    <nav class="navrow" aria-label="Основна навигация">
+    <nav id="site-nav" class="navrow" aria-label="Основна навигация">
       <a class="pill" href="/"<?= $active === 'home' ? ' aria-current="page"' : '' ?>>Начало</a>
       <?php foreach ($SECTIONS as $slug => $s): ?>
       <a class="pill" href="/temi/<?= $slug ?>/"<?= $active === $slug ? ' aria-current="page"' : '' ?>><?= htmlspecialchars($s['short']) ?></a>
@@ -281,12 +284,24 @@ function auralis_foot($scripts = []) {
 <script defer src="<?= $src ?>?v=<?= AURALIS_ASSET_V ?>"></script>
 <?php endforeach; ?>
 <script>
-/* Компактен хедър — менюто (навигацията) се свива при скрол, остава слим лентата. */
+/* Компактен хедър — навигацията се свива плавно при скрол; бутонът ☰ я връща ръчно. */
 (function(){
   var mh = document.querySelector('.masthead'); if (!mh) return;
+  var btn = mh.querySelector('.masthead__menu');
   var t = false;
-  function u(){ mh.classList.toggle('is-scrolled', (window.scrollY || window.pageYOffset) > 48); t = false; }
+  function u(){
+    var sc = (window.scrollY || window.pageYOffset) > 48;
+    mh.classList.toggle('is-scrolled', sc);
+    if (!sc) mh.classList.remove('nav-open');            // в горната част менюто е винаги отворено
+    if (btn) btn.setAttribute('aria-expanded', (!sc || mh.classList.contains('nav-open')) ? 'true' : 'false');
+    t = false;
+  }
   window.addEventListener('scroll', function(){ if (!t) { t = true; requestAnimationFrame(u); } }, { passive: true });
+  if (btn) btn.addEventListener('click', function(){
+    var open = mh.classList.toggle('nav-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Скрий менюто' : 'Покажи менюто');
+  });
   u();
 })();
 /* Reveal on scroll — прогресивно подобрение (html.js вече е зададено в <head>). */

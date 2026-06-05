@@ -99,9 +99,35 @@ html, body { overflow-x: clip; }   /* clip НЕ чупи sticky менюто (з
 .navrow { gap: 7px; padding-bottom: 10px; }
 .pill   { min-height: 38px; padding: 0 13px; font-size: 13px; }
 
-/* Менюто се свива при скрол — остава само слим лентата (бранд + CTA) */
-.masthead.is-scrolled .navrow        { display: none; }
+/* Менюто се свива ПЛАВНО при скрол; бутон ☰ го връща ръчно */
+.navrow {
+  overflow: hidden;
+  max-height: 220px;
+  transition: max-height .34s ease, opacity .26s ease, padding-bottom .26s ease;
+}
+.masthead.is-scrolled:not(.nav-open) .navrow {
+  max-height: 0;
+  opacity: 0;
+  padding-bottom: 0;
+}
 .masthead.is-scrolled .masthead__bar { padding-block: 9px; }
+
+/* Бутон „меню" — показва се само при скрол (когато навигацията е скрита) */
+.masthead__menu {
+  display: none;
+  margin-left: auto;
+  flex: 0 0 auto;
+  width: 42px; height: 42px;
+  place-items: center;
+  border: 0; border-radius: var(--r-pill);
+  background: var(--bg); color: var(--indigo);
+  box-shadow: var(--convex-xs); cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.masthead.is-scrolled .masthead__menu { display: grid; }
+.masthead__menu:active { box-shadow: var(--concave-sm); }
+.masthead__menu svg { transition: transform .26s ease; }
+.masthead.nav-open .masthead__menu svg { transform: rotate(90deg); }
 
 /* Многоколонни решетки: да се свиват, не да преливат и да се режат */
 .stats     { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
