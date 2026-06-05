@@ -1704,55 +1704,55 @@
    },
    "emotional": {
     "title": "Predomină încărcătura emoțională",
-    "body": "Тинитусът Ви създава най-вече емоционално натоварване (тревожност, раздразнение). CBT упражненията във Вашата 14-дневна програма ще са особено полезни."
+    "body": "Tinitusul vă creează în principal o încărcătură emoțională (anxietate, iritare). Exercițiile CBT din programul dvs. de 14 zile vor fi deosebit de utile."
    },
    "catastrophic": {
-    "title": "Катастрофизиращи мисли за тинитуса",
-    "body": "Имате тенденция към катастрофизиращи мисли за тинитуса („никога няма да си тръгне“, „животът ми е разрушен“). Това е често срещано и поддаващо се на работа. Препоръчително е да говорите с професионалист (психотерапевт или специалист по тинитус), ако усещанията Ви се засилят."
+    "title": "Gânduri catastrofice despre tinitus",
+    "body": "Aveți o tendință către gânduri catastrofice despre tinitus („nu va dispărea niciodată“, „viața mea este distrusă“). Acest lucru este frecvent și se poate gestiona. Este recomandat să discutați cu un profesionist (psihoterapeut sau specialist în tinitus) dacă senzațiile dvs. se intensifică."
    },
    "balanced": {
-    "title": "Равномерно проявление",
-    "body": "Тинитусът Ви се проявява във всички аспекти равномерно. Препоръчителна е цялата 14-дневна програма без специален фокус."
+    "title": "Manifestare uniformă",
+    "body": "Tinitusul dvs. se manifestă uniform în toate aspectele. Este recomandat întregul program de 14 zile, fără un focus special."
    },
    "unknown": {
-    "title": "Резултат",
-    "body": "Няма достатъчно данни за интерпретация."
+    "title": "Rezultat",
+    "body": "Nu există date suficiente pentru o interpretare."
    }
   },
   "compare": {
-   "clinicalImprovement": "Намалили сте THI с {n} точки за 14 дни — клинично значимо подобрение. Продължавайте програмата.",
-   "mildImprovement": "THI е намален с {n} точки. Това е стъпка напред — продължете с програмата за по-устойчиво подобрение.",
-   "unchanged": "THI не се е променил. Продължете програмата — устойчивите промени обикновено настъпват в рамките на 3–6 месеца.",
-   "increased": "THI е увеличен с {n} точки. Това може да се дължи на периодични фактори (стрес, лош сън). Препоръчваме да продължите редовно с програмата."
+   "clinicalImprovement": "Ați redus THI cu {n} puncte în 14 zile — o îmbunătățire semnificativă clinic. Continuați programul.",
+   "mildImprovement": "THI a fost redus cu {n} puncte. Este un pas înainte — continuați cu programul pentru o îmbunătățire mai durabilă.",
+   "unchanged": "THI nu s-a modificat. Continuați programul — schimbările durabile apar de obicei în decurs de 3–6 luni.",
+   "increased": "THI a crescut cu {n} puncte. Acest lucru se poate datora unor factori periodici (stres, somn prost). Recomandăm să continuați regulat cu programul."
   },
   "homeBanner": {
-   "retest_title": "Време е за вторично THI измерване",
-   "retest_body": "Изпълнихте 13 дни от програмата. Направете втория тест за сравнение.",
-   "retest_cta": "Направи тест"
+   "retest_title": "Este timpul pentru o a doua măsurare THI",
+   "retest_body": "Ați finalizat 13 zile din program. Faceți al doilea test pentru comparație.",
+   "retest_cta": "Fă testul"
   }
  },
  "faq": {
   "title": "Întrebări frecvente",
   "openLabel": "Întrebări frecvente",
-  "closeAria": "Затвори въпроси и отговори",
-  "searchPlaceholder": "Търси въпрос…",
-  "searchAria": "Търси въпрос",
-  "noResults": "Няма намерени въпроси по тази дума.",
-  "supportHint": "Не намерихте отговор? Свържете се с support чрез email.",
-  "supportButton": "Свържи се със support",
+  "closeAria": "Închide întrebările și răspunsurile",
+  "searchPlaceholder": "Caută o întrebare…",
+  "searchAria": "Caută o întrebare",
+  "noResults": "Nu s-au găsit întrebări după acest cuvânt.",
+  "supportHint": "Nu ați găsit un răspuns? Contactați support prin email.",
+  "supportButton": "Contactează support",
   "supportEmail": "support@auralis.app",
-  "supportSubject": "AURALIS въпрос",
+  "supportSubject": "Întrebare AURALIS",
   "categories": {
    "safety": "Siguranță",
    "technical": "Tehnic",
-   "therapeutic": "Терапевтични",
-   "program": "Програма"
+   "therapeutic": "Terapeutice",
+   "program": "Program"
   },
   "items": [
    {
     "cat": "safety",
-    "q": "Опасно ли е да слушам звуци дълго време всеки ден?",
-    "a": "Не е опасно при правилни нива. WHO и NIOSH определят 70 dBA като лимит за неограничено време на ден — това е по-силно от тиха разговорна реч. AURALIS препоръчва 50–65 dBA за дневна употреба и 45–55 dBA нощем. Опасност има само ако надвишите тези нива — над 80 dBA има ограничение от 40 часа седмично. Спазвайте правилото 60/60 — 60% от силата на устройството, не повече от 60 минути активно слушане, последвани от 10–15 минути тишина. При тези параметри, цял живот на ежедневно слушане е безопасен."
+    "q": "Este periculos să ascult sunete mult timp în fiecare zi?",
+    "a": "Nu este periculos la niveluri corecte. WHO și NIOSH definesc 70 dBA ca limită pentru un timp nelimitat pe zi — aceasta este mai puternic decât vorbirea liniștită într-o conversație. AURALIS recomandă 50–65 dBA pentru utilizare diurnă și 45–55 dBA noaptea. Există pericol doar dacă depășiți aceste niveluri — peste 80 dBA există o limitare de 40 de ore pe săptămână. Respectați regula 60/60 — 60% din intensitatea dispozitivului, nu mai mult de 60 de minute de ascultare activă, urmate de 10–15 minute de liniște. La acești parametri, o viață întreagă de ascultare zilnică este sigură."
    },
    {
     "cat": "safety",
@@ -2064,13 +2064,13 @@
   "pitch": {
    "new_title": "Тон на тинитуса",
    "new_body": "Открийте честотата на вашия тинитус за персонализиран notch филтър.",
-   "new_cta": "Направи тест",
+   "new_cta": "Fă testul",
    "done_title": "Тон на тинитуса",
    "done_body": "Текущ профил: {hz} Hz. Можете да повторите теста при нужда.",
    "done_cta": "Повтори теста",
    "skipped_title": "Тон на тинитуса",
    "skipped_body": "Тестът беше пропуснат. Направете го за персонализиран филтър.",
-   "skipped_cta": "Направи тест",
+   "skipped_cta": "Fă testul",
    "caution": "Не е нужно да тествате често — резултатите са най-надеждни при няколко дни между измерванията.",
    "infoAria": "Научна информация за теста"
   },
