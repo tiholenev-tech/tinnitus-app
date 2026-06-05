@@ -10,7 +10,7 @@ auralis_masthead('articles');
 ?>
 <main id="main">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Път"><a href="/lp/">Начало</a><span aria-hidden="true">›</span><b>Всички статии</b></nav>
+    <nav class="crumbs" aria-label="Път"><a href="/">Начало</a><span aria-hidden="true">›</span><b>Всички статии</b></nav>
     <header class="pagehead">
       <div class="pagehead__icon"><?= site_icon('list', 38, 1.6) ?></div>
       <h1>Всички статии</h1>
@@ -46,7 +46,7 @@ auralis_masthead('articles');
         <p class="eyebrow">Готови за по-тиха вечер?</p>
         <h2>Дайте на ушите си почивка</h2>
         <p>Намерете тона си тази вечер и оставете AURALIS да поеме останалото.</p>
-        <a class="btn btn--primary btn--lg" href="/lp/#test">Пробвайте теста</a>
+        <a class="btn btn--primary btn--lg" href="/#test">Пробвайте теста</a>
       </div>
     </div>
   </section>

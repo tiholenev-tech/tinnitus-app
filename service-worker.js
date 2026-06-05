@@ -19,14 +19,13 @@
 // CACHE_AUDIO бамп също защото старите URLs (audio/library/* и
 // library_staging_loop_ready/*) са персистнали → нови URLs
 // (library_staging_normalized/*) не са в стария cache + 503 offline.
-var VERSION = '1.0.114';
+var VERSION = '1.0.115';
 var CACHE_SHELL = 'auralis-shell-v' + VERSION;
 var CACHE_I18N = 'auralis-i18n-v' + VERSION;
 var CACHE_AUDIO = 'auralis-audio-v3';
 
 var SHELL_FILES = [
-  '/',
-  '/index.html',
+  '/app.html',
   '/manifest.json',
   '/css/tokens.css',
   '/css/base.css',
@@ -166,9 +165,17 @@ self.addEventListener('fetch', function (e) {
   // Публични съдържателни страници (маркетинг/статии/раздели) — networkFirst:
   // винаги свежи онлайн, cache fallback офлайн. Така редакции по сайта се виждат
   // веднага и при потребители с инсталирано приложение (SW), без version bump.
-  if (pathname.indexOf('/lp/') === 0 ||
+  if (pathname === '/' || pathname === '/index.php' ||
+      pathname.indexOf('/lp/') === 0 ||
       pathname.indexOf('/articles/') === 0 ||
-      pathname.indexOf('/temi/') === 0) {
+      pathname.indexOf('/temi/') === 0 ||
+      pathname.indexOf('/cena/') === 0 ||
+      pathname.indexOf('/za-nas/') === 0 ||
+      pathname.indexOf('/kontakt/') === 0 ||
+      pathname.indexOf('/vhod/') === 0 ||
+      pathname.indexOf('/blagodarya/') === 0 ||
+      pathname.indexOf('/poveritelnost/') === 0 ||
+      pathname.indexOf('/usloviya/') === 0) {
     e.respondWith(networkFirst(e.request, CACHE_SHELL));
     return;
   }

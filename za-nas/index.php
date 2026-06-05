@@ -9,7 +9,7 @@ auralis_masthead();
 ?>
 <main id="main">
   <div class="wrap wrap--read">
-    <nav class="crumbs" aria-label="Път"><a href="/lp/">Начало</a><span aria-hidden="true">›</span><b>За нас</b></nav>
+    <nav class="crumbs" aria-label="Път"><a href="/">Начало</a><span aria-hidden="true">›</span><b>За нас</b></nav>
     <header class="pagehead">
       <h1>За AURALIS</h1>
       <p class="lead">Спокойна помощ за шума в ушите — създадена с уважение към хората, които живеят с него.</p>
@@ -48,7 +48,7 @@ auralis_masthead();
         <p class="eyebrow">Запознайте се за минута</p>
         <h2>Чуйте как звучи облекчението</h2>
         <p>Намерете тона си и чуйте разликата — безплатно, направо от телефона.</p>
-        <a class="btn btn--primary btn--lg" href="/lp/#test">Пробвайте теста</a>
+        <a class="btn btn--primary btn--lg" href="/#test">Пробвайте теста</a>
       </div>
     </div>
   </section>

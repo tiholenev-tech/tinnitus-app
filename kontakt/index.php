@@ -9,7 +9,7 @@ auralis_masthead();
 ?>
 <main id="main">
   <div class="wrap wrap--read">
-    <nav class="crumbs" aria-label="Път"><a href="/lp/">Начало</a><span aria-hidden="true">›</span><b>Контакт</b></nav>
+    <nav class="crumbs" aria-label="Път"><a href="/">Начало</a><span aria-hidden="true">›</span><b>Контакт</b></nav>
     <header class="pagehead">
       <div class="pagehead__icon"><?= site_icon('mail', 36, 1.6) ?></div>
       <h1>Свържете се с нас</h1>

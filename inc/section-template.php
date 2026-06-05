@@ -14,7 +14,7 @@ $DESC  = $S['lead'];
 $JSONLD = '{"@context":"https://schema.org","@graph":['
   . '{"@type":"CollectionPage","name":' . json_encode($S['title'], JSON_UNESCAPED_UNICODE) . ',"url":"' . $URL . '","inLanguage":"bg","description":' . json_encode($DESC, JSON_UNESCAPED_UNICODE) . ',"isPartOf":{"@type":"WebSite","name":"AURALIS","url":"' . $SITE_URL . '/"}},'
   . '{"@type":"BreadcrumbList","itemListElement":['
-    . '{"@type":"ListItem","position":1,"name":"Начало","item":"' . $SITE_URL . '/lp/"},'
+    . '{"@type":"ListItem","position":1,"name":"Начало","item":"' . $SITE_URL . '/"},'
     . '{"@type":"ListItem","position":2,"name":"Статии","item":"' . $SITE_URL . '/articles/"},'
     . '{"@type":"ListItem","position":3,"name":' . json_encode($S['title'], JSON_UNESCAPED_UNICODE) . ',"item":"' . $URL . '"}'
   . ']}]}';
@@ -25,7 +25,7 @@ auralis_masthead($SLUG);
 <main id="main">
   <div class="wrap">
     <nav class="crumbs" aria-label="Път">
-      <a href="/lp/">Начало</a><span aria-hidden="true">›</span>
+      <a href="/">Начало</a><span aria-hidden="true">›</span>
       <a href="/articles/">Статии</a><span aria-hidden="true">›</span>
       <b><?= htmlspecialchars($S['title']) ?></b>
     </nav>
@@ -60,7 +60,7 @@ auralis_masthead($SLUG);
         <p class="eyebrow">Готови за по-тиха вечер?</p>
         <h2>Намерете своя тон тази вечер</h2>
         <p>AURALIS открива честотата на вашия шум и я премахва от звука ви — спокойно и научно.</p>
-        <a class="btn btn--primary btn--lg" href="/lp/#test">Пробвайте теста</a>
+        <a class="btn btn--primary btn--lg" href="/#test">Пробвайте теста</a>
       </div>
     </div>
   </section>
