@@ -2112,50 +2112,50 @@
     "text": "Care este înălțimea sunetului?",
     "options": {
      "a": "Înalt (ca un fluier)",
-     "b": "Среден (като комар)",
-     "c": "Нисък (като бучене)",
-     "d": "Не съм сигурен/а"
+     "b": "Mediu (ca un țânțar)",
+     "c": "Jos (ca un bubuit)",
+     "d": "Nu sunt sigur(ă)"
     }
    },
    "q3": {
-    "text": "В кое ухо го чувате?",
+    "text": "În care ureche îl auziți?",
     "options": {
-     "a": "Само в лявото",
-     "b": "Само в дясното",
-     "c": "И в двете",
-     "d": "В главата (не от ушите)"
+     "a": "Doar în stânga",
+     "b": "Doar în dreapta",
+     "c": "În ambele",
+     "d": "În cap (nu din urechi)"
     }
    },
    "q4": {
-    "text": "Кога чувате звука?",
+    "text": "Când auziți sunetul?",
     "options": {
-     "a": "Постоянно",
-     "b": "Идва и си отива",
-     "c": "Само в тишина",
-     "d": "Само вечер"
+     "a": "Constant",
+     "b": "Vine și pleacă",
+     "c": "Doar în liniște",
+     "d": "Doar seara"
     }
    },
    "q5": {
-    "text": "Кога е НАЙ-СИЛЕН?",
+    "text": "Când este CEL MAI PUTERNIC?",
     "options": {
-     "a": "Сутрин",
-     "b": "През деня",
-     "c": "Вечер",
-     "d": "През нощта",
-     "e": "Без значение"
+     "a": "Dimineața",
+     "b": "În timpul zilei",
+     "c": "Seara",
+     "d": "Noaptea",
+     "e": "Indiferent"
     }
    },
    "q6": {
-    "text": "Откога имате тинитус?",
+    "text": "De când aveți tinitus?",
     "options": {
-     "a": "По-малко от 6 месеца",
-     "b": "6 месеца – 2 години",
-     "c": "2 – 5 години",
-     "d": "Повече от 5 години"
+     "a": "Mai puțin de 6 luni",
+     "b": "6 luni – 2 ani",
+     "c": "2 – 5 ani",
+     "d": "Mai mult de 5 ani"
     }
    },
    "q7": {
-    "text": "Имало ли е силен звук преди появата?",
+    "text": "A existat un sunet puternic înainte de apariție?",
     "options": {
      "a": "Концерт / силна музика",
      "b": "Експлозия / стрелба",
