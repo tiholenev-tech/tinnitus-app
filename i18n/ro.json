@@ -1404,19 +1404,19 @@
     },
     {
      "q": "Pot folosi în pat?",
-     "a": "Не препоръчваме дневна релаксация в леглото — леглото трябва да остане свързано с асоциация „сън“, не с дневен релакс. Това е ключово правило за хора с тинитус-индуцирана инсомния. За дневна релаксация: всекидневна стая, удобен фотьойл, не легло."
+     "a": "Nu recomandăm relaxarea diurnă în pat — patul trebuie să rămână legat de asocierea „somn“, nu de relaxarea diurnă. Aceasta este o regulă cheie pentru persoanele cu insomnie indusă de tinitus. Pentru relaxare diurnă: cameră de zi, un fotoliu confortabil, nu patul."
     },
     {
-     "q": "Подходящо ли е при тревожност?",
-     "a": "Релаксацията не е заместител на режим „Тревожност“ (SOS). При остра паник атака — първо режим „Тревожност“ (4-7-8 дишане, котва-фраза, познат розов шум 3–5 dB по-тих). След стабилизация → релаксация може да поддържа парасимпатиковата доминация. Релаксация ≠ криза."
+     "q": "Este potrivit în caz de anxietate?",
+     "a": "Relaxarea nu este un înlocuitor al modului „Anxietate“ (SOS). În caz de atac de panică acut — mai întâi modul „Anxietate“ (respirație 4-7-8, frază-ancoră, zgomot roz familiar cu 3–5 dB mai liniștit). După stabilizare → relaxarea poate menține dominanța parasimpatică. Relaxare ≠ criză."
     },
     {
-     "q": "Тапи или говорител?",
-     "a": "Същата препоръка като „Сън дълбок“ — отворени говорители или костно-проводими слушалки; не in-ear „тапи“ за дълги сесии."
+     "q": "Dopuri sau difuzor?",
+     "a": "Aceeași recomandare ca la „Somn profund“ — difuzoare deschise sau căști cu conducere osoasă; nu căști in-ear de tip „dopuri“ pentru sesiuni lungi."
     },
     {
-     "q": "Опасно ли е, ако заспивам с релаксационна сесия?",
-     "a": "Не — но ако редовно заспивате с релаксация, преминете към режим „Сън дълбок“ вместо това. „Сън дълбок“ е специално настроен за 8-часов сън и точка на смесване по-тиха от релаксацията. Дневното ниво на релаксация, поддържано цяла нощ, може да фрагментира съня."
+     "q": "Este periculos dacă adorm cu o sesiune de relaxare?",
+     "a": "Nu — dar dacă adormiți în mod regulat cu relaxarea, treceți la modul „Somn profund“ în schimb. „Somn profund“ este special reglat pentru un somn de 8 ore și un punct de amestec mai liniștit decât relaxarea. Nivelul diurn de relaxare, menținut toată noaptea, poate fragmenta somnul."
     }
    ],
    "scientificBasis": [
@@ -1427,36 +1427,36 @@
    ]
   },
   "daily": {
-   "title": "Ежедневие",
-   "subtitle": "Работа, концентрация",
-   "definition": "Режим за дневна употреба по време на работа или концентрация, с цел осигуряване на леко, маскиращо акустично обогатяване на работната среда, което поддържа тинитуса извън фокуса на съзнателното внимание и стимулира кортикалната хабитуация. Симулира естественото маскиране, което осигуряват екологичните и индустриални звукови източници през деня.",
+   "title": "Zilnic",
+   "subtitle": "Muncă, concentrare",
+   "definition": "Un mod pentru utilizare diurnă în timpul muncii sau al concentrării, cu scopul de a asigura o îmbogățire acustică ușoară, de mascare, a mediului de lucru, care menține tinitusul în afara focusului atenției conștiente și stimulează habituarea corticală. Simulează mascarea naturală pe care o asigură sursele sonore ecologice și industriale în timpul zilei.",
    "whenUsed": {
-    "timeOfDay": "Работно време, преди 12:00 ч. идеално; следобед при концентрационни задачи.",
-    "context": "Офис, домашен офис, четене, учене — седяща активност с фокус.",
-    "duration": "1–2 часа по време на будни сесии; може и по-дълго при ниски нива (под 70 dBA)."
+    "timeOfDay": "Program de lucru, ideal înainte de ora 12:00; după-amiaza la sarcini de concentrare.",
+    "context": "Birou, birou de acasă, citit, învățat — activitate sedentară cu focus.",
+    "duration": "1–2 ore în timpul sesiunilor de veghe; se poate și mai mult la niveluri scăzute (sub 70 dBA)."
    },
    "whenNotUsed": [
-    "При шофиране или работа с тежки машини — отвлича внимание; високи когнитивни последствия от грешка.",
-    "При срещи, обаждания, разговори — водещият звук пречи на комуникацията.",
-    "При остра паник атака — използвайте режим „Тревожност“.",
-    "За деца — само под 50 dBA."
+    "La condus sau la lucrul cu utilaje grele — distrage atenția; consecințe cognitive ridicate ale unei greșeli.",
+    "La întâlniri, apeluri, conversații — sunetul principal împiedică comunicarea.",
+    "În caz de atac de panică acut — folosiți modul „Anxietate“.",
+    "Pentru copii — doar sub 50 dBA."
    ],
    "recommendedNoise": {
     "type": "pink_pure",
-    "description": "Лек, маскиращ розов шум — мозъкът се нуждае от позната, стабилна акустична сигнатура, към която вече е започнал да хабитуира. Дневното ниво е с 3–5 dB по-високо от нощното (поради по-високия дневен праг на чуваемост). Алтернативно: фрактални природни тонове (вятър, далечен дъжд)."
+    "description": "Zgomot roz ușor, de mascare — creierul are nevoie de o semnătură acustică familiară și stabilă, la care a început deja să se habitueze. Nivelul diurn este cu 3–5 dB mai ridicat decât cel nocturn (din cauza pragului auditiv diurn mai ridicat). Alternativ: tonuri naturale fractale (vânt, ploaie îndepărtată)."
    },
    "mixRatio": {
     "layer1": 25,
     "layer2": 75,
-    "reasoning": "Layer 1 (опционален, мек главен звук — природа, инструментална музика без вокали): 20–30%. Layer 2 (фонов розов шум): 70–80%. Дневният режим е по-фонов от „Сън дълбок“ — Layer 1 е минимален или липсва; Layer 2 доминира, защото целта е акустично обогатяване, не активно слушане. Музика с вокали е изключена, защото вокалите конкурират когнитивните ресурси за работа."
+    "reasoning": "Layer 1 (opțional, sunet principal blând — natură, muzică instrumentală fără voce): 20–30%. Layer 2 (zgomot roz de fundal): 70–80%. Modul diurn este mai mult de fundal decât „Somn profund“ — Layer 1 este minim sau lipsește; Layer 2 domină, deoarece scopul este îmbogățirea acustică, nu ascultarea activă. Muzica cu voce este exclusă, deoarece vocea concurează cu resursele cognitive pentru muncă."
    },
-   "expectedEffect": "Поддържане на тинитуса извън фокуса на съзнателното внимание чрез частично екологично маскиране; стимулиране на кортикалната хабитуация през деня; редукция на дневната соматична умора, причинена от тинитус-индуцирана инсомния.",
+   "expectedEffect": "Menținerea tinitusului în afara focusului atenției conștiente prin mascare ecologică parțială; stimularea habituării corticale în timpul zilei; reducerea oboselii somatice diurne, cauzate de insomnia indusă de tinitus.",
    "safety": [
-    "70 dBA максимум за неограничено време (WHO/NIOSH lifetime safe).",
-    "80 dBA = максимум 40 часа седмично.",
-    "Правило 60/60 (60% volume на устройството, не повече от 60 мин, после 10–15 мин тишина).",
-    "Внимание: емоционално харесвани звуци се възприемат субективно като по-тихи, отколкото са физически — използвайте обективен SPL meter (или dB measurement app) при настройка.",
-    "За деца — строго под 50 dBA.",
+    "70 dBA maximum pentru un timp nelimitat (WHO/NIOSH lifetime safe).",
+    "80 dBA = maximum 40 de ore pe săptămână.",
+    "Regula 60/60 (60% volume al dispozitivului, nu mai mult de 60 min, apoi 10–15 min de liniște).",
+    "Atenție: sunetele plăcute emoțional sunt percepute subiectiv ca fiind mai liniștite decât sunt fizic — folosiți un SPL meter obiectiv (sau o aplicație de dB measurement) la reglare.",
+    "Pentru copii — strict sub 50 dBA.",
     "Disclaimer wellness obligatoriu."
    ],
    "faq": [
@@ -2044,8 +2044,8 @@
     "subtitle": "Înainte de somn, citit"
    },
    "daily": {
-    "name": "Ежедневие",
-    "subtitle": "Работа, концентрация"
+    "name": "Zilnic",
+    "subtitle": "Muncă, concentrare"
    },
    "anxiety": {
     "name": "Тревожност",
