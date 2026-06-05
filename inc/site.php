@@ -7,7 +7,7 @@
  */
 
 $SITE_URL = 'https://tinnitus-app.help';
-if (!defined('AURALIS_ASSET_V')) define('AURALIS_ASSET_V', '2'); // bump → cache-bust на css/js
+if (!defined('AURALIS_ASSET_V')) define('AURALIS_ASSET_V', '3'); // bump → cache-bust на css/js
 
 /* ── Раздели (подредбата = менюто и футъра) ───────────────────────── */
 $SECTIONS = [
@@ -279,6 +279,14 @@ function auralis_foot($scripts = []) {
 <script defer src="<?= $src ?>?v=<?= AURALIS_ASSET_V ?>"></script>
 <?php endforeach; ?>
 <script>
+/* Компактен хедър — менюто (навигацията) се свива при скрол, остава слим лентата. */
+(function(){
+  var mh = document.querySelector('.masthead'); if (!mh) return;
+  var t = false;
+  function u(){ mh.classList.toggle('is-scrolled', (window.scrollY || window.pageYOffset) > 48); t = false; }
+  window.addEventListener('scroll', function(){ if (!t) { t = true; requestAnimationFrame(u); } }, { passive: true });
+  u();
+})();
 /* Reveal on scroll — прогресивно подобрение (html.js вече е зададено в <head>). */
 (function(){
   if (!('IntersectionObserver' in window)) { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');}); return; }
