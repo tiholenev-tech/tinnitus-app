@@ -633,288 +633,288 @@
   }
  },
  "science": {
-  "title": "Научна основа",
-  "subtitle": "AURALIS — защо работи",
-  "openLabel": "Научна основа",
-  "closeAria": "Затвори научната основа",
-  "pillsAria": "Секции",
+  "title": "Basi scientifiche",
+  "subtitle": "AURALIS — perché funziona",
+  "openLabel": "Basi scientifiche",
+  "closeAria": "Chiudi le basi scientifiche",
+  "pillsAria": "Sezioni",
   "pills": {
-   "s1": "Общо",
+   "s1": "Generale",
    "s2": "THI",
    "s3": "Pitch",
    "s4": "Notch ★",
-   "s5": "Звук",
-   "s6": "Безопасност",
-   "s7": "Източници"
+   "s5": "Suono",
+   "s6": "Sicurezza",
+   "s7": "Fonti"
   },
   "s1": {
-   "title": "Защо AURALIS работи",
-   "subtitle": "Научна основа на терапията",
-   "intro": "AURALIS е дигитално приложение за управление на хроничен субективен тинитус. Не е лекарство. Не замества медицински преглед. Но методите вътре са базирани на 14 рандомизирани клинични изпитвания (RCT) и одобрени от FDA устройства.",
-   "doTitle": "Какво правим:",
-   "do1": "Измерваме тежестта на тинитуса Ви с THI — клинично валидирана скала от 1996.",
-   "do2": "Намираме точната Ви тинитус честота с pitch matching тест (двоично търсене).",
-   "do3": "Премахваме точно тази честота от всичките терапевтични звуци — нарича се „Notched Sound Therapy\".",
-   "do4": "Слушате тези звуци по 30–60 минути на ден.",
-   "expectTitle": "Какво очаквате:",
-   "stat1": "−8.6 точки THI",
-   "stat1Label": "На 3-тия месец (14-RCT meta-analysis)",
-   "stat2": "−24.6 точки THI",
-   "stat2Label": "На 6-тия месец (същата meta-analysis)",
-   "stat3": "−28 точки THI",
-   "stat3Label": "Lenire FDA-одобрено устройство, 12 седмици (real-world 2025–2026)",
-   "ctaSources": "Виж научните източници"
+   "title": "Perché AURALIS funziona",
+   "subtitle": "Le basi scientifiche della terapia",
+   "intro": "AURALIS è un'app digitale per la gestione dell'acufene cronico soggettivo. Non è un farmaco. Non sostituisce una visita medica. Ma i metodi che contiene si basano su 14 studi clinici randomizzati (RCT) e su dispositivi approvati dalla FDA.",
+   "doTitle": "Cosa facciamo:",
+   "do1": "Misuriamo la gravità del tuo acufene con il THI — una scala clinicamente validata dal 1996.",
+   "do2": "Troviamo la frequenza esatta del tuo acufene con un test di pitch matching (ricerca binaria).",
+   "do3": "Rimuoviamo esattamente quella frequenza da tutti i suoni terapeutici — si chiama „Notched Sound Therapy\" (terapia del suono con notch).",
+   "do4": "Ascolti questi suoni per 30-60 minuti al giorno.",
+   "expectTitle": "Cosa aspettarti:",
+   "stat1": "−8,6 punti THI",
+   "stat1Label": "Al 3° mese (meta-analisi di 14 RCT)",
+   "stat2": "−24,6 punti THI",
+   "stat2Label": "Al 6° mese (stessa meta-analisi)",
+   "stat3": "−28 punti THI",
+   "stat3Label": "Lenire, dispositivo approvato dalla FDA, 12 settimane (real-world 2025-2026)",
+   "ctaSources": "Vedi le fonti scientifiche"
   },
   "s2": {
-   "title": "THI: какво мерим",
+   "title": "THI: cosa misuriamo",
    "subtitle": "Tinnitus Handicap Inventory (Newman et al., 1996)",
    "paragraphs": [
-    "Tinnitus Handicap Inventory (THI) е създаден през 1996 г. от Newman, Jacobson и Spitzer — психометрично валидиран въпросник за оценка на тежестта на тинитуса.",
+    "Il Tinnitus Handicap Inventory (THI) è stato creato nel 1996 da Newman, Jacobson e Spitzer — un questionario psicometricamente validato per valutare la gravità dell'acufene.",
     {
      "type": "h3",
-     "text": "25 въпроса, разделени в 3 категории:"
+     "text": "25 domande, suddivise in 3 categorie:"
     },
     {
      "type": "list",
      "items": [
-      "Функционални (11 въпр.): концентрация, сън, работа",
-      "Емоционални (9 въпр.): тревожност, гняв, фрустрация",
-      "Катастрофизиращи (5 въпр.): чувство за безнадеждност"
+      "Funzionali (11 dom.): concentrazione, sonno, lavoro",
+      "Emotive (9 dom.): ansia, rabbia, frustrazione",
+      "Catastrofizzanti (5 dom.): senso di disperazione"
      ]
     },
-    "Точки: Да = 4, Понякога = 2, Не = 0. Общ резултат: 0–100.",
+    "Punteggio: Sì = 4, A volte = 2, No = 0. Punteggio totale: 0-100.",
     {
      "type": "h3",
-     "text": "Класификация (British Association of Otolaryngologists):"
+     "text": "Classificazione (British Association of Otolaryngologists):"
     },
     {
      "type": "list",
      "items": [
-      "0–16: Слабо",
-      "18–36: Леко",
-      "38–56: Умерено",
-      "58–76: Тежко",
-      "78–100: Катастрофично"
+      "0-16: Lievissimo",
+      "18-36: Lieve",
+      "38-56: Moderato",
+      "58-76: Grave",
+      "78-100: Catastrofico"
      ]
     },
     {
      "type": "note",
-     "text": "Клинично значимо подобрение (MCID): минимум 7 точки спад. Това е установеният праг за реална промяна."
+     "text": "Miglioramento clinicamente significativo (MCID): un calo di almeno 7 punti. È la soglia stabilita per un cambiamento reale."
     },
-    "Защо го правим: измерване ПРЕДИ терапия + ПОВТАРЯНЕ след 14 дни — за да виждате обективен прогрес, не само субективно усещане."
+    "Perché lo facciamo: una misurazione PRIMA della terapia + una RIPETIZIONE dopo 14 giorni — per farti vedere un progresso oggettivo, non solo una sensazione soggettiva."
    ]
   },
   "s3": {
    "title": "Pitch Matching",
-   "subtitle": "Намиране на Вашата тинитус честота",
+   "subtitle": "Trovare la frequenza del tuo acufene",
    "paragraphs": [
-    "Тинитусът има „тон\" — една или няколко основни честоти. За повечето хора с тонален тинитус това е между 1000 и 12000 Hz (обикновено в средно-високите честоти).",
+    "L'acufene ha un „tono\" — una o più frequenze principali. Per la maggior parte delle persone con acufene tonale è tra 1000 e 12000 Hz (di solito nelle medio-alte frequenze).",
     {
      "type": "h3",
-     "text": "Нашият метод: 2AFC binary search"
+     "text": "Il nostro metodo: 2AFC binary search"
     },
-    "Two-Alternative Forced Choice — стандартен психофизичен метод за определяне на прагови честоти.",
+    "Two-Alternative Forced Choice — un metodo psicofisico standard per determinare le frequenze di soglia.",
     {
      "type": "h3",
-     "text": "Как работи:"
+     "text": "Come funziona:"
     },
     {
      "type": "ol",
      "items": [
-      "Чувате Тон А и Тон Б (две различни честоти).",
-      "Избирате кой е по-близо до Вашия тинитус.",
-      "Системата стеснява диапазона по двоична логика.",
-      "След 3–4 итерации намираме честотата с точност ±1/4 octave."
+      "Senti il Tono A e il Tono B (due frequenze diverse).",
+      "Scegli quale è più vicino al tuo acufene.",
+      "Il sistema restringe l'intervallo con una logica binaria.",
+      "Dopo 3-4 iterazioni troviamo la frequenza con una precisione di ±1/4 di ottava."
      ]
     },
     {
      "type": "note",
-     "text": "Защо binary search: log₂(12 възможни честоти) ≈ 3–4 итерации. Минимум tap-ове, максимум точност."
+     "text": "Perché la ricerca binaria: log₂(12 frequenze possibili) ≈ 3-4 iterazioni. Minimo di tap, massima precisione."
     }
    ]
   },
   "s4": {
    "title": "Notched Therapy",
-   "subtitle": "Терапевтичното сърце на AURALIS",
+   "subtitle": "Il cuore terapeutico di AURALIS",
    "paragraphs": [
     {
      "type": "h3",
-     "text": "Принцип"
+     "text": "Principio"
     },
-    "При продължително слушане на звук с премахната Ваша тинитус честота, мозъкът прави „re-mapping\" на слуховия кортекс. Невроните, отговорни за phantom тон, постепенно намаляват активността си.",
+    "Con l'ascolto prolungato di un suono da cui è stata rimossa la frequenza del tuo acufene, il cervello effettua un „re-mapping\" della corteccia uditiva. I neuroni responsabili del tono fantasma riducono gradualmente la loro attività.",
     {
      "type": "h3",
-     "text": "Технически"
+     "text": "Aspetti tecnici"
     },
     {
      "type": "list",
      "items": [
-      "Notch филтър (Web Audio BiquadFilterNode тип „notch\")",
-      "Q фактор = 2.871 (стандарт за 1/2 octave bandwidth)",
-      "Центриран точно на Вашата pitch честота"
+      "Filtro notch (Web Audio BiquadFilterNode di tipo „notch\")",
+      "Fattore Q = 2,871 (standard per una larghezza di banda di 1/2 ottava)",
+      "Centrato esattamente sulla tua frequenza pitch"
      ]
     },
     {
      "type": "h3",
-     "text": "Валидиран в:"
+     "text": "Validato in:"
     },
-    "Pantev et al. (2012) — „Tailor-made notched music training for tinnitus\", Frontiers in Systems Neuroscience. Първото RCT, показало значимо намаление при 6 месеца ежедневно слушане.",
-    "Stein et al. (2015) — Repeated follow-up. Потвърждава дългосрочни ефекти.",
+    "Pantev et al. (2012) — „Tailor-made notched music training for tinnitus\", Frontiers in Systems Neuroscience. Il primo RCT a mostrare una riduzione significativa con 6 mesi di ascolto quotidiano.",
+    "Stein et al. (2015) — follow-up ripetuto. Conferma gli effetti a lungo termine.",
     {
      "type": "h3",
-     "text": "Notched Therapy Meta-analysis (2025):"
+     "text": "Meta-analisi sulla Notched Therapy (2025):"
     },
     {
      "type": "list",
      "items": [
-      "14 RCT, общо 793 пациенти",
-      "3 месец: −8.6 THI точки (95% CI)",
-      "6 месец: −24.6 THI точки",
-      "Терапевтичният ефект НАРАСТВА с дългосрочна употреба",
-      "По-добра поносимост от TRT (Tinnitus Retraining Therapy)"
+      "14 RCT, 793 pazienti in totale",
+      "3° mese: −8,6 punti THI (95% CI)",
+      "6° mese: −24,6 punti THI",
+      "L'effetto terapeutico AUMENTA con l'uso a lungo termine",
+      "Migliore tollerabilità rispetto alla TRT (Tinnitus Retraining Therapy)"
      ]
     }
    ]
   },
   "s5": {
-   "title": "Звукова терапия",
-   "subtitle": "256 проби, 10 категории, 2 layer-а",
+   "title": "Terapia del suono",
+   "subtitle": "256 campioni, 10 categorie, 2 layer",
    "paragraphs": [
-    "AURALIS използва 256 терапевтични звукови проби, организирани в 10 категории: Океан, Дъжд, Река, Подводен, Вятър, Медитация, Гора, Огън, Околни, Шум.",
+    "AURALIS usa 256 campioni sonori terapeutici, organizzati in 10 categorie: Oceano, Pioggia, Fiume, Subacqueo, Vento, Meditazione, Foresta, Fuoco, Ambientali, Rumore.",
     {
      "type": "h3",
-     "text": "Всеки звук:"
+     "text": "Ogni suono:"
     },
     {
      "type": "list",
      "items": [
-      "Преминава през notch филтър (премахва Вашата честота)",
-      "Loop-friendly (без crossfade артефакти)",
-      "Нормализиран по LUFS (постоянна сила)"
+      "Passa attraverso un filtro notch (rimuove la tua frequenza)",
+      "Loop-friendly (senza artefatti di crossfade)",
+      "Normalizzato in LUFS (volume costante)"
      ]
     },
     {
      "type": "h3",
-     "text": "Два слоя:"
+     "text": "Due layer:"
     },
     {
      "type": "list",
      "items": [
-      "Layer 1 (основен звук): природа, музика, медитация",
-      "Layer 2 (фонов шум): розов или кафяв (генерира се в реално време)"
+      "Layer 1 (suono principale): natura, musica, meditazione",
+      "Layer 2 (rumore di fondo): rosa o marrone (generato in tempo reale)"
      ]
     },
-    "Защо двата слоя: розов/кафяв шум осигурява постоянна „маскираща\" основа. Природните звуци дават емоционално приятно преживяване. Комбинацията увеличава compliance (продължителното слушане).",
+    "Perché due layer: il rumore rosa/marrone fornisce una base „mascherante\" costante. I suoni naturali danno un'esperienza emotivamente piacevole. La combinazione aumenta la compliance (l'ascolto prolungato).",
     {
      "type": "h3",
-     "text": "Препоръчителна продължителност:"
+     "text": "Durata consigliata:"
     },
     {
      "type": "list",
      "items": [
-      "Минимум 30 минути на ден",
-      "Идеално 60–120 минути",
-      "14 дни въвеждаща програма",
-      "12 седмици пълен курс за измерим резултат"
+      "Minimo 30 minuti al giorno",
+      "Idealmente 60-120 minuti",
+      "14 giorni di programma introduttivo",
+      "12 settimane di corso completo per un risultato misurabile"
      ]
     }
    ]
   },
   "s6": {
-   "title": "Безопасност и поверителност",
-   "subtitle": "Какво остава на телефона Ви",
+   "title": "Sicurezza e privacy",
+   "subtitle": "Cosa resta sul tuo telefono",
    "paragraphs": [
     {
      "type": "h3",
-     "text": "Безопасност"
+     "text": "Sicurezza"
     },
     {
      "type": "list",
      "items": [
-      "Всички звуци са нормализирани под 70 dB SPL (безопасно ниво)",
-      "Препоръчваме затворени слушалки за чистота",
-      "Спрете слушане ако чувствате неудобство"
+      "Tutti i suoni sono normalizzati sotto i 70 dB SPL (livello sicuro)",
+      "Consigliamo cuffie chiuse per una maggiore pulizia del suono",
+      "Interrompi l'ascolto se avverti fastidio"
      ]
     },
     {
      "type": "h3",
-     "text": "Поверителност"
+     "text": "Privacy"
     },
     {
      "type": "list",
      "items": [
-      "Всички Ваши данни остават на устройството Ви (localStorage)",
-      "AURALIS не изпраща нищо към сървъри",
-      "THI отговори, pitch резултати, дневник — само локално"
+      "Tutti i tuoi dati restano sul tuo dispositivo (localStorage)",
+      "AURALIS non invia nulla a server",
+      "Risposte THI, risultati pitch, diario — solo in locale"
      ]
     },
     {
      "type": "h3",
-     "text": "Регулаторен статус"
+     "text": "Stato normativo"
     },
     {
      "type": "list",
      "items": [
-      "AURALIS е дигитална wellness платформа, не медицинско устройство",
-      "Не замества преглед от УНГ лекар",
-      "За тежки случаи (THI > 78) препоръчваме консултация"
+      "AURALIS è una piattaforma digitale di benessere, non un dispositivo medico",
+      "Non sostituisce una visita da un medico ORL",
+      "Per i casi gravi (THI > 78) consigliamo una consulenza"
      ]
     },
     {
      "type": "note",
-     "text": "При въпроси: tinnitus-app.help/contact"
+     "text": "Per domande: tinnitus-app.help/contact"
     }
    ]
   },
   "s7": {
-   "title": "Научни източници",
-   "subtitle": "Студии, на които се базира AURALIS"
+   "title": "Fonti scientifiche",
+   "subtitle": "Gli studi su cui si basa AURALIS"
   },
   "sources": {
    "src1": {
     "title": "Development of the Tinnitus Handicap Inventory",
-    "contrib": "Създаване на THI скалата — основа на нашата оценка."
+    "contrib": "Creazione della scala THI — la base della nostra valutazione."
    },
    "src2": {
     "title": "Tinnitus: the dark side of the auditory cortex plasticity",
-    "contrib": "Доказва невропластичния ефект на notched терапия."
+    "contrib": "Dimostra l'effetto neuroplastico della terapia notched."
    },
    "src3": {
     "title": "Clinical trial on tonal tinnitus with tailor-made notched music training",
-    "contrib": "6-месечно RCT с дълготрайни ефекти."
+    "contrib": "RCT di 6 mesi con effetti duraturi."
    },
    "src4": {
-    "title": "14 RCT, общо 793 пациенти",
-    "contrib": "−24.6 точки THI на 6 месец; ефектът нараства с продължителна употреба."
+    "title": "14 RCT, 793 pazienti in totale",
+    "contrib": "−24,6 punti THI al 6° mese; l'effetto aumenta con l'uso prolungato."
    },
    "src5": {
-    "title": "FDA-одобрена бимодална стимулация",
-    "contrib": "−28 точки THI за 12 седмици в real-world practice."
+    "title": "Stimolazione bimodale approvata dalla FDA",
+    "contrib": "−28 punti THI in 12 settimane nella pratica real-world."
    },
    "src6": {
-    "title": "THI grading system — 5 категории на тежест",
-    "contrib": "Клиничната класификация Слабо/Леко/Умерено/Тежко/Катастрофично."
+    "title": "Sistema di gradazione THI — 5 categorie di gravità",
+    "contrib": "La classificazione clinica Lievissimo/Lieve/Moderato/Grave/Catastrofico."
    },
    "src7": {
-    "title": "Multicenter, double-blind, n=440",
-    "contrib": "9 месеца проследяване — потвърждава дългосрочни ефекти."
+    "title": "Multicentrico, in doppio cieco, n=440",
+    "contrib": "9 mesi di follow-up — conferma gli effetti a lungo termine."
    }
   },
   "reminders": {
    "pitch": {
-    "body": "Notch филтър активиран на {freq} Hz. От сега всичките звуци премахват Вашата тинитус честота — клинично доказана терапия (Pantev 2012, Stein 2015).",
-    "cta": "Научи повече"
+    "body": "Filtro notch attivato a {freq} Hz. Da ora tutti i suoni rimuovono la frequenza del tuo acufene — una terapia clinicamente provata (Pantev 2012, Stein 2015).",
+    "cta": "Scopri di più"
    },
    "day7": {
-    "title": "Поздравления — половината е зад Вас",
-    "body": "Notched therapy показва ефекти от 3-тия месец и нараства до 6-тия. Продължавайте.",
-    "cta": "Виж научните данни"
+    "title": "Congratulazioni — sei a metà strada",
+    "body": "La notched therapy mostra effetti dal 3° mese e cresce fino al 6°. Continua così.",
+    "cta": "Vedi i dati scientifici"
    },
    "day14": {
-    "mcid": "MCID (Minimal Clinically Important Difference) за THI = 7 точки.",
-    "delta": "Вашата промяна: {delta} точки.",
-    "significant": "Това е клинично значимо подобрение.",
-    "partial": "Дайте на терапията време — пълен ефект се вижда от 3-тия до 6-тия месец."
+    "mcid": "La MCID (Minimal Clinically Important Difference) per il THI = 7 punti.",
+    "delta": "Il tuo cambiamento: {delta} punti.",
+    "significant": "È un miglioramento clinicamente significativo.",
+    "partial": "Dai tempo alla terapia — l'effetto pieno si vede dal 3° al 6° mese."
    }
   }
  },
