@@ -1150,51 +1150,51 @@
    "HB_M": {
     "shortName": "Adaptat / Ușor",
     "fullName": "Adaptat / Ușor",
-    "description": "Профил \"Адаптиран / Лек\". Подробно описание скоро ще бъде добавено в това приложение.",
+    "description": "Profil \"Adaptat / Ușor\". O descriere detaliată va fi adăugată în curând în această aplicație.",
     "expectations": "Așteptările detaliate pentru acest profil vor fi adăugate în curând.",
-    "meaning": "Вие имате тинитус, но той Ви безпокои предимно в условия на абсолютна тишина и не оказва съществено влияние върху ежедневните Ви задачи, концентрация, сън или настроение. Вашата нервна система вече е изградила висока степен на естествена хабитуация — мозъкът Ви до голяма степен филтрира фантомния сигнал като маловажен фон.\n\nВ клиничен модел това състояние отразява запазен инхибиторен контрол в централните слухови пътища и адекватно функциониране на лимбичните оценъчни структури — те не приписват \"заплаха\" на сигнала.\n\nЦелта на звуковата терапия при този профил не е активно потискане на тинитуса (тъй като той не Ви натоварва), а превенция — поддържане на лек звуков фон, който предотвратява засилване на сетивния контраст в моментите на абсолютна тишина.",
-    "why": "Адаптираният профил често се асоциира с по-късна или по-малко травматична поява на тинитуса, с устойчива личностна структура без тенденция към тревожност, с активен и социален начин на живот, или с предишен успешен индивидуален опит за справяне с подобен стимул.\n\nЗасилващи фактори, които могат временно да дестабилизират HB_M: тежък нелекуван период на стрес, продължителна болест, нощно бдение, акутна слухова експозиция (концерт без защита), или нов медицински проблем (ототоксичен медикамент).",
-    "strategyReasoning": "- Препоръчителен носещ звук: ултра-меки природни звуци — шепот на листа, тих летен дъжд, лек вятър, рaйн зад прозорец.\n\n- Препоръчителен `recommended_noise` в библиотеката: `brown_lowpass_500` (минимално, само за фоново обогатяване) или `none` — често само природният звук без допълнителен шум е достатъчен.\n\n- Препоръчително съотношение: 0.85/0.15 или дори 0.95/0.05 — звукът трябва да е едва доловим.\n\n- Препоръчителна продължителност: 30–60 минути в моменти на абсолютна тишина (вечер преди сън, ранно утро, продължителна работа в тиха стая).\n\n- Топ use cases по приоритет: `relaxation` → `falling_asleep` → `daily`.",
+    "meaning": "Aveți tinitus, dar acesta vă deranjează în principal în condiții de liniște absolută și nu are un impact semnificativ asupra sarcinilor dvs. zilnice, concentrării, somnului sau dispoziției. Sistemul dvs. nervos a dezvoltat deja un grad ridicat de habituare naturală — creierul dvs. filtrează în mare măsură semnalul fantomă ca pe un fundal lipsit de importanță.\n\nÎn modelul clinic, această stare reflectă un control inhibitor păstrat în căile auditive centrale și o funcționare adecvată a structurilor limbice de evaluare — acestea nu atribuie semnalului o „amenințare\".\n\nScopul terapiei sonore la acest profil nu este suprimarea activă a tinitusului (deoarece acesta nu vă împovărează), ci prevenția — menținerea unui fundal sonor ușor, care previne intensificarea contrastului senzorial în momentele de liniște absolută.",
+    "why": "Profilul adaptat se asociază adesea cu o apariție mai târzie sau mai puțin traumatică a tinitusului, cu o structură de personalitate stabilă, fără tendință spre anxietate, cu un stil de viață activ și social sau cu o experiență individuală anterioară de succes în gestionarea unui stimul similar.\n\nFactori care intensifică și pot destabiliza temporar HB_M: o perioadă grea de stres netratat, o boală prelungită, o noapte de veghe, o expunere auditivă acută (un concert fără protecție) sau o nouă problemă medicală (un medicament ototoxic).",
+    "strategyReasoning": "- Sunet purtător recomandat: sunete naturale ultra-blânde — foșnet de frunze, ploaie liniștită de vară, vânt ușor, ploaie în spatele geamului.\n\n- `recommended_noise` recomandat din bibliotecă: `brown_lowpass_500` (minim, doar pentru îmbogățire de fundal) sau `none` — adesea doar sunetul natural, fără zgomot suplimentar, este suficient.\n\n- Raport recomandat: 0.85/0.15 sau chiar 0.95/0.05 — sunetul trebuie să fie abia perceptibil.\n\n- Durată recomandată: 30–60 de minute în momentele de liniște absolută (seara înainte de somn, dimineața devreme, muncă prelungită într-o cameră liniștită).\n\n- Top use cases după prioritate: `relaxation` → `falling_asleep` → `daily`.",
     "timeline": [
      {
-      "period": "Кратки периоди (дни до седмици)",
-      "expectation": "при HB_M профила обикновено не очаквайте драматични промени в усещането, защото базовото състояние вече е добро. Целта е поддръжка, не подобрение."
+      "period": "Perioade scurte (de la zile la săptămâni)",
+      "expectation": "la profilul HB_M de obicei nu vă așteptați la schimbări dramatice ale senzației, deoarece starea de bază este deja bună. Scopul este menținerea, nu îmbunătățirea."
      },
      {
       "period": "Luna 1–3",
-      "expectation": "очаквайте, че по-меките вечери в тишина стават по-приятни. Емоционалната неутралност спрямо тинитуса се запазва или леко се укрепва."
+      "expectation": "așteptați-vă ca serile mai blânde în liniște să devină mai plăcute. Neutralitatea emoțională față de tinitus se păstrează sau se întărește ușor."
      },
      {
-      "period": "Дългосрочно (6+ месеца)",
-      "expectation": "профилактичното звуково обогатяване намалява вероятността от епизоди на дестабилизация при бъдещ стрес."
+      "period": "Pe termen lung (6+ luni)",
+      "expectation": "îmbogățirea sonoră profilactică reduce probabilitatea episoadelor de destabilizare în caz de stres viitor."
      },
      {
-      "period": "При дестабилизация",
-      "expectation": "ако забелязвате, че тинитусът внезапно стане по-натрапчив за повече от 2 седмици, преоценете профила си през quiz-а — възможно е преминаване към друг профил (например DN_S при нов сън-проблем или SS_R при нов стрес)."
+      "period": "În caz de destabilizare",
+      "expectation": "dacă observați că tinitusul devine brusc mai supărător timp de mai mult de 2 săptămâni, reevaluați-vă profilul prin quiz — este posibilă o trecere către un alt profil (de exemplu DN_S în cazul unei noi probleme de somn sau SS_R în cazul unui nou stres)."
      }
     ],
-    "additional": "- Поддържайте това, което работи: активен начин на живот, социална среда, физическа активност, добър сън. Тези фактори са най-силната защита срещу прогресия.\n\n- Слухова защита: при концерти, тенис-турнири, ловно оръжие или високи звуци в работна среда — носете слухови защитни тапи. Една акутна експозиция може да дестабилизира профила за месеци.\n\n- Звукова среда: избягвайте дълго слушане на музика с високи нива на слушалки — при тинитус общата препоръка е <60% от макс. ниво за <60 минути.\n\n- Поведенческа поддръжка: активна реалистична оценка — не превръщайте тинитуса в \"проблем\", който още не съществува. Това запазва положителната емоционална оценъчност на лимбичната система.\n\n- Допълнителни техники: не са необходими активни CBT/ACT интервенции при този профил, но добра обща хигиена на съня и стрес-мениджмънт остават полезни.",
-    "medicalFlags": "- При промяна в характера: ако тинитусът внезапно стане едностранен, пулсиращ, или съпроводен от загуба на слуха — незабавно към УНГ.\n\n- При продължителна дестабилизация: ако базовото състояние се влоши и остане влошено >2 седмици — преоценете през quiz-а и потърсете консултация (одиолог или УНГ).\n\n- Превантивно: едно изходно аудиологично изследване (audiogram) е препоръчително, ако не сте правили такова — то осигурява базова линия за бъдещо сравнение, ако нещо се промени.",
+    "additional": "- Mențineți ceea ce funcționează: un stil de viață activ, mediu social, activitate fizică, somn bun. Acești factori sunt cea mai puternică protecție împotriva progresiei.\n\n- Protecție auditivă: la concerte, turnee de tenis, arme de vânătoare sau sunete puternice în mediul de lucru — purtați dopuri de protecție auditivă. O singură expunere acută poate destabiliza profilul pentru luni întregi.\n\n- Mediu sonor: evitați ascultarea îndelungată a muzicii la niveluri ridicate în căști — în caz de tinitus, recomandarea generală este <60% din nivelul maxim pentru <60 de minute.\n\n- Sprijin comportamental: o evaluare activă și realistă — nu transformați tinitusul într-o „problemă\" care încă nu există. Acest lucru păstrează evaluarea emoțională pozitivă a sistemului limbic.\n\n- Tehnici suplimentare: nu sunt necesare intervenții active CBT/ACT la acest profil, dar o bună igienă generală a somnului și gestionarea stresului rămân utile.",
+    "medicalFlags": "- La o schimbare a caracterului: dacă tinitusul devine brusc unilateral, pulsatil sau însoțit de o pierdere a auzului — imediat la medicul ORL.\n\n- La o destabilizare prelungită: dacă starea de bază se înrăutățește și rămâne înrăutățită >2 săptămâni — reevaluați prin quiz și căutați o consultație (audiolog sau ORL).\n\n- Preventiv: o investigație audiologică inițială (audiogramă) este recomandată dacă nu ați făcut una — aceasta oferă o linie de bază pentru o comparație viitoare, în cazul în care ceva se modifică.",
     "reasons": {
-     "daily": "Лек звуков фон за поддръжка на адаптацията",
-     "falling_asleep": "Тихи природни звуци за вечерта"
+     "daily": "Fundal sonor ușor pentru susținerea adaptării",
+     "falling_asleep": "Sunete naturale liniștite pentru seară"
     }
    }
   },
   "pitch": {
-   "title": "Вашата тинитус честота",
-   "intro": "Вашата честота: {freq}",
-   "skipped": "Не сте завършили теста за честота. Можете да го направите по-късно от Настройки.",
+   "title": "Frecvența tinitusului dvs.",
+   "intro": "Frecvența dvs.: {freq}",
+   "skipped": "Nu ați finalizat testul de frecvență. Îl puteți face mai târziu din Setări.",
    "cat": {
-    "low": "Нискочестотен тинитус",
-    "mid": "Среднен честотен тинитус",
-    "high": "Високочестотен тинитус",
-    "veryHigh": "Много висок честотен тинитус",
-    "extreme": "Изключително висок тинитус"
+    "low": "Tinitus de joasă frecvență",
+    "mid": "Tinitus de frecvență medie",
+    "high": "Tinitus de înaltă frecvență",
+    "veryHigh": "Tinitus de frecvență foarte înaltă",
+    "extreme": "Tinitus extrem de înalt"
    },
    "rec": {
-    "low": "Препоръчителни звуци с богат среден и висок спектър за маскиране — препоръчваме категория „Гора“ и „Дъжд“.",
-    "mid": "Препоръчителни звуци с балансиран спектър — препоръчваме „Океан“ и „Река“.",
+    "low": "Sunete recomandate cu un spectru mediu și înalt bogat pentru mascare — recomandăm categoria „Pădure“ și „Ploaie“.",
+    "mid": "Sunete recomandate cu un spectru echilibrat — recomandăm „Ocean“ și „Râu“.",
     "high": "Препоръчителни звуци с акцент върху ниски и средни честоти — препоръчваме „Подводен“ и „Кафяв шум“.",
     "veryHigh": "Препоръчителни наситено basov звук за оптимална маска — препоръчваме „Дълбок кафяв шум“ или „Подводна тишина“.",
     "extreme": "Препоръчителни наситено basov звук за оптимална маска — препоръчваме „Дълбок кафяв шум“ или „Подводна тишина“."
