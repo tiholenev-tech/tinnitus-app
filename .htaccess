@@ -1,0 +1,11 @@
+# AURALIS — само ErrorDocument (без rewrites, за да не пипа PWA-то в корена).
+# Грешките връщат реален статус, не 200 с празна страница.
+ErrorDocument 404 /404.php
+ErrorDocument 500 /500.php
+
+# Лек кеш за статиката (CSS/JS се версионират при нужда).
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+</IfModule>

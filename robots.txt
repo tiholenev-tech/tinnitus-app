@@ -28,6 +28,13 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+# Търсещи ботове на Google/Bing (изрично разрешени)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
 User-agent: *
 Allow: /
 

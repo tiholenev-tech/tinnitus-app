@@ -1,170 +1,239 @@
 <?php
 /**
- * AURALIS — Landing (Фаза 3 · /lp/) · СВЕТЪЛ, приветлив дизайн (css/pages.css).
- * Структура (одобрена): Проблем → Изживяване (тест) → Обяснение → Доказателство → Оферта.
- * Самото приложение остава тъмно; публичните страници са светли за четене/посрещане.
+ * AURALIS — Начало (landing). Дизайн: auralis.css. Production варианти:
+ * hero=question · test=slider · offer=centered. Реален Web Audio (js/auralis-test.js).
  */
 require __DIR__ . '/../inc/site.php';
-$PRICE = '19.99';
-$APP_URL = '/';
-$CANON = 'https://tinnitus-app.help/lp/';
-?><!DOCTYPE html>
-<html lang="bg" data-theme="light">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#e0e5ec">
-<title>Шум в ушите нощем? — намерете тона си и чуйте облекчение | AURALIS</title>
-<meta name="description" content="Намерете точно Вашата честота и чуйте облекчение сега. AURALIS я премахва от звука — не просто маскиране. Безплатен тест, без регистрация.">
-<link rel="canonical" href="<?= $CANON ?>">
-<meta name="robots" content="index,follow,max-image-preview:large">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Шум в ушите нощем? Чуйте облекчение — AURALIS">
-<meta property="og:description" content="Намираме Вашата честота и я премахваме от звука — не просто маскиране.">
-<meta property="og:url" content="<?= $CANON ?>">
-<meta property="og:image" content="https://tinnitus-app.help/app-icons/icon-512.png">
-<meta property="og:locale" content="bg_BG">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" sizes="192x192" href="/app-icons/icon-192.png">
-<link rel="apple-touch-icon" href="/app-icons/icon-180.png">
-<?php site_head_assets(); ?>
+$URL = $SITE_URL . '/lp/';
+$TITLE = 'AURALIS — спокойно облекчение от шума в ушите (тинитус)';
+$DESC  = 'Намерете честотата на Вашия шум в ушите и я премахнете от звука — notched звукова терапия, не просто маскиране. Пробвайте теста безплатно, без регистрация.';
 
-<script type="application/ld+json">
+$JSONLD = <<<JSON
 {"@context":"https://schema.org","@graph":[
- {"@type":"Organization","name":"AURALIS","url":"https://tinnitus-app.help/","logo":"https://tinnitus-app.help/app-icons/icon-512.png"},
- {"@type":"MedicalWebPage","name":"Звуков подход при шум в ушите (тинитус)","url":"<?= $CANON ?>","inLanguage":"bg","about":{"@type":"MedicalCondition","name":"Тинитус (шум в ушите)","alternateName":"Tinnitus"}},
+ {"@type":"Organization","@id":"{$SITE_URL}/#org","name":"AURALIS","url":"{$SITE_URL}/","logo":"{$SITE_URL}/app-icons/icon-512.png"},
+ {"@type":"WebSite","@id":"{$SITE_URL}/#website","name":"AURALIS","url":"{$SITE_URL}/","inLanguage":"bg","publisher":{"@id":"{$SITE_URL}/#org"}},
+ {"@type":"MedicalWebPage","name":"Звуков подход при шум в ушите (тинитус)","url":"{$URL}","inLanguage":"bg","isPartOf":{"@id":"{$SITE_URL}/#website"},"about":{"@type":"MedicalCondition","name":"Тинитус (шум в ушите)","alternateName":"Tinnitus"}},
  {"@type":"FAQPage","mainEntity":[
-   {"@type":"Question","name":"AURALIS лекува ли тинитус?","acceptedAnswer":{"@type":"Answer","text":"Не. AURALIS е wellness инструмент за звуково облекчение и спокоен сън. Не е медицинско изделие и не замества лекар."}},
-   {"@type":"Question","name":"С какво е различно от другите приложения?","acceptedAnswer":{"@type":"Answer","text":"Другите наслагват звук върху шума (маскиране). AURALIS намира Вашата честота и я премахва от звука — подход, изследван в рандомизирани проучвания (Pantev 2012; Stein 2015)."}},
-   {"@type":"Question","name":"Колко струва?","acceptedAnswer":{"@type":"Answer","text":"19.99 евро еднократно, без абонамент. Преди това имате 14 дни пълен безплатен достъп."}},
-   {"@type":"Question","name":"Какво става при смяна на телефон?","acceptedAnswer":{"@type":"Answer","text":"Влизате със същия имейл чрез защитена връзка и достъпът Ви се възстановява автоматично."}}
+   {"@type":"Question","name":"Това лек ли е за тинитус?","acceptedAnswer":{"@type":"Answer","text":"Не. AURALIS е wellness инструмент, който помага на много хора да се чувстват по-спокойни и да спят по-добре. Не е медицинско изделие и не обещава излекуване."}},
+   {"@type":"Question","name":"Трябва ли да съм добър с технологиите?","acceptedAnswer":{"@type":"Answer","text":"Не. Слагате слушалки, премествате един плъзгач и натискате едно копче. Всичко друго приложението прави вместо вас."}},
+   {"@type":"Question","name":"Кога ще усетя разлика?","acceptedAnswer":{"@type":"Answer","text":"При повечето хора са нужни няколко седмици спокойна, редовна употреба. Това е меко, постепенно облекчение, не моментален превключвател."}},
+   {"@type":"Question","name":"Има ли скрит абонамент?","acceptedAnswer":{"@type":"Answer","text":"Няма. 14 дни безплатно, после еднократно €19.99. Плащате веднъж и приложението остава ваше."}}
  ]}
 ]}
-</script>
-</head>
-<body>
-<?php site_nav('home'); ?>
-<div class="wrap">
-  <main>
-    <!-- 1 · ПРОБЛЕМ -->
-    <section class="hero">
-      <div class="eyebrow">За спокоен сън</div>
-      <h1>Шум в ушите нощем?</h1>
-      <p class="lead">Намерете точно Вашия тон и чуйте облекчение — тук, за 30 секунди.</p>
-    </section>
+JSON;
 
-    <!-- 2 · ИЗЖИВЯВАНЕ (тестът) -->
-    <section id="test" class="card">
-      <div class="step"><span class="n">1</span>Настройте към Вашия тон</div>
-      <p class="src">Плъзнете, докато тонът заприлича на шума в ушите Ви.</p>
-      <input id="freq" class="slider" type="range" min="1500" max="12000" step="100" value="6000" aria-label="Честота на тона">
-      <div style="text-align:center;font-size:14px;color:var(--ink-soft)">Вашият тон: <span id="freqval" class="freqval">6000 Hz</span></div>
-      <div class="test-stack" style="margin-top:12px;">
-        <button id="toneBtn" class="cta-sec" type="button" aria-pressed="false">Пуснете тона</button>
-        <div class="step"><span class="n">2</span>Сега чуйте облекчението</div>
-        <button id="maskBtn" class="cta" type="button" aria-pressed="false">Чуйте облекчението</button>
-        <button id="stopBtn" class="cta-sec" type="button">Спрете</button>
+auralis_head(['title' => $TITLE, 'desc' => $DESC, 'url' => $URL, 'jsonld' => $JSONLD]);
+auralis_masthead('home');
+?>
+<main id="main">
+
+  <!-- HERO (question) -->
+  <section class="section hero center">
+    <div class="wrap">
+      <p class="eyebrow reveal">Тиха помощ за неспокойни уши</p>
+      <h1 class="reveal">Шум в ушите<br>нощем?</h1>
+      <p class="lead reveal">Има спокоен начин да го заглушите — и да заспите по-лесно. Без хапчета, без обещания за чудо.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="#test">Пробвайте теста ↓</a>
+        <span class="hero__reassure">
+          <?= site_icon('check', 15, 2) ?>
+          14 дни безплатно · без карта
+        </span>
       </div>
-      <p class="reassure">Тонът спира сам, щом пуснете облекчението. Слушайте на удобна, ниска сила.</p>
-    </section>
+    </div>
+  </section>
 
-    <!-- 3 · ОБЯСНЕНИЕ -->
-    <section class="card">
-      <h2>Какво току-що се случи?</h2>
-      <p>Шумът в ушите е като <strong>една заседнала нота</strong>, която мозъкът Ви свири сам — макар отвън да няма звук.</p>
-      <p>Другите приложения пускат звуци <em>върху</em> нея — като вентилатор, който я заглушава. Спре ли, нотата се връща. Само я <strong>крият</strong>.</p>
-      <p>Ние правим обратното. Първо <strong>намираме точно Вашата нота</strong> (това беше тестът). После от всеки наш звук <strong>изрязваме точно нея</strong> — все едно махаме един клавиш от пианото, за да не може да я свири.</p>
-      <p>Така ухото чува пълния, мек звук, но спираме да „храним" проблемната нота. С времето мозъкът сваля силата ѝ — а веднага след слушане тя често утихва (това усетихте сега).</p>
-      <div class="eyebrow" style="margin-top:18px;">А че работи — не го твърдим ние</div>
+  <!-- ИНТЕРАКТИВЕН ТЕСТ (slider) -->
+  <section class="section section--tight" id="test">
+    <div class="wrap center">
+      <p class="eyebrow">Сърцето на AURALIS</p>
+      <h2>Намерете своя тон</h2>
+      <p class="lead" style="max-width:34ch;margin:14px auto 24px;">Преместете плъзгача, докато тонът прозвучи като вашия шум. После чуйте разликата.</p>
+    </div>
+    <div class="wrap">
+      <p class="headphones"><?= site_icon('phones', 16, 1.7) ?> Сложете слушалки за най-добър ефект</p>
+      <div class="card test">
+        <div class="test__label">
+          <span style="font-weight:700;font-size:14px;color:var(--muted)">Честота</span>
+          <span class="test__hz"><span data-hz>6&nbsp;400</span> <small>Hz</small></span>
+        </div>
+        <input class="range" type="range" min="2000" max="12000" step="50" value="6400" data-range aria-label="Честота в херци">
+        <div class="range__scale"><span>2 kHz</span><span>7 kHz</span><span>12 kHz</span></div>
+        <div class="test__btns">
+          <button class="btn btn--ghost" type="button" data-sound="tone">▶ Пуснете тона</button>
+          <button class="btn btn--primary" type="button" data-sound="relief">Чуйте облекчението</button>
+        </div>
+        <p class="test__note">Демонстрация. Слушайте тихо и спрете при дискомфорт.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- МЕТАФОРА / КАК РАБОТИ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow">Как работи</p>
+        <h2>Като заседнала нота, която махаме</h2>
+      </div>
+      <div class="steps">
+        <div class="card metastep reveal">
+          <div class="metastep__n">1</div>
+          <div>
+            <h3>Една нота е „заседнала"</h3>
+            <p>Тинитусът често звучи като един постоянен тон — сякаш един клавиш на пианото свири без спиране, ден и нощ.</p>
+          </div>
+        </div>
+        <div class="card metastep reveal">
+          <div class="metastep__n">2</div>
+          <div>
+            <h3>Маскирането само я крие</h3>
+            <p>Дъжд или бял шум покриват тона за малко, но той си остава отдолу. Щом спре звукът, шумът се връща.</p>
+          </div>
+        </div>
+        <div class="card metastep reveal">
+          <div class="metastep__n">3</div>
+          <div>
+            <h3>Ние махаме точния клавиш</h3>
+            <p>AURALIS намира честотата на вашия тон и я <strong>изрязва</strong> от музиката и звуците, които слушате (notched терапия) — мозъкът постепенно я отучва.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ДОКАЗАТЕЛСТВО / СТАТИСТИКИ -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow">Какво показват изследванията</p>
+        <h2>Малки, постоянни стъпки</h2>
+      </div>
       <div class="stats">
-        <div class="stat"><div class="stat-v">−8.6</div><div class="stat-l">THI · 3-ти месец</div></div>
-        <div class="stat"><div class="stat-v">−24.6</div><div class="stat-l">THI · 6-ти месец</div></div>
-        <div class="stat"><div class="stat-v">−28</div><div class="stat-l">THI · 12 седмици*</div></div>
+        <div class="stat reveal">
+          <div class="stat__num">10–15<small>%</small></div>
+          <div class="stat__label">от възрастните живеят с траен шум в ушите</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat__num">2<small>×</small></div>
+          <div class="stat__label">по-чест при хора над 55 години</div>
+        </div>
+        <div class="stat reveal">
+          <div class="stat__num">8<small> сед.</small></div>
+          <div class="stat__label">типичен период преди хората да усетят разлика</div>
+        </div>
       </div>
-      <p class="src">Методът се казва <em>notched sound therapy</em>. Изследван в клинични проучвания (Pantev&nbsp;2012; Stein&nbsp;2015) и мета-анализ — 14 проучвания, 793 души. *Lenire real-world.</p>
+      <p class="sources">Обобщени данни за обществено здраве. Конкретните източници с DOI са в <a href="/articles/">статиите</a>.</p>
       <div class="disclaimer">
-        <p>AURALIS е wellness инструмент за звуково облекчение и спокоен сън. Не е медицинско изделие, не поставя диагноза и не замества лекар. Усещането е индивидуално.</p>
+        <?= site_icon('info', 16, 1.8) ?>
+        <span>AURALIS е wellness инструмент за релаксация и сън, не е медицинско изделие и не лекува заболявания. При внезапна загуба на слух, болка или световъртеж потърсете лекар.</span>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 4 · ОФЕРТА -->
-    <section class="card">
-      <div class="eyebrow">Една цена</div>
-      <div class="price">€<?= htmlspecialchars($PRICE) ?></div>
-      <div class="price-sub">еднократно · без абонамент · 14 дни безплатно преди това</div>
-      <ul class="feat">
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4f46e5" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Пълна звукова библиотека (стотици звуци)</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4f46e5" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Микс и настройка по Вашата честота</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4f46e5" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Личен дневник и програма за напредък</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#4f46e5" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Достъпът се връща при смяна на телефон</li>
-      </ul>
-      <a class="cta" href="<?= $APP_URL ?>">Започнете безплатно</a>
-      <p class="reassure">14 дни пълен достъп · без карта предварително</p>
-    </section>
+  <!-- ОФЕРТА (centered) -->
+  <section class="section" id="oferta">
+    <div class="wrap">
+      <div class="card offer">
+        <p class="eyebrow">Опитайте спокойно</p>
+        <h2>Цялото приложение, веднъж</h2>
+        <div class="offer__price"><small>€</small>19<small>.99</small></div>
+        <p class="offer__sub">Еднократно плащане · без абонамент · завинаги ваше</p>
+        <div class="benefits">
+          <div class="benefit"><span class="benefit__tick"><?= site_icon('check', 16, 2.4) ?></span><span>Личен тон и notched звукова терапия</span></div>
+          <div class="benefit"><span class="benefit__tick"><?= site_icon('check', 16, 2.4) ?></span><span>Звуци и програми за по-лек сън</span></div>
+          <div class="benefit"><span class="benefit__tick"><?= site_icon('check', 16, 2.4) ?></span><span>Дихателни и релаксиращи упражнения</span></div>
+          <div class="benefit"><span class="benefit__tick"><?= site_icon('check', 16, 2.4) ?></span><span>Проследяване на спокойните ви вечери</span></div>
+        </div>
+        <a class="btn btn--primary btn--lg btn--block" href="/">Започнете 14 дни безплатно</a>
+        <p class="test__note" style="margin-top:14px">Без карта за пробния период. Откажете по всяко време.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- 5 · FAQ -->
-    <section class="card">
-      <h2>Чести въпроси</h2>
-      <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">AURALIS лекува ли тинитус?<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-a"><p>Не. AURALIS е wellness инструмент за звуково облекчение и спокоен сън. Не е медицинско изделие и не замества лекар.</p></div></div>
-      <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">С какво е различно?<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-a"><p>Другите наслагват звук върху шума. AURALIS намира Вашата честота и я премахва от звука — подход, изследван в рандомизирани проучвания.</p></div></div>
-      <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Има ли месечен абонамент?<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-a"><p>Не. Плащате €<?= htmlspecialchars($PRICE) ?> еднократно и остава Ваше. Преди това имате 14 дни безплатно.</p></div></div>
-      <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">А при смяна на телефон?<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span></button><div class="faq-a"><p>Влизате със същия имейл чрез защитена връзка и достъпът Ви се връща автоматично.</p></div></div>
-    </section>
+  <!-- FAQ -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow">Чести въпроси</p>
+        <h2>Спокойно. Питайте.</h2>
+      </div>
+      <div class="faq">
+        <details class="qa" open>
+          <summary class="qa__q">Това лек ли е за тинитус?<?= '<svg class="qa__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>' ?></summary>
+          <div class="qa__a"><p>Не. AURALIS е wellness инструмент, който помага на много хора да се чувстват по-спокойни и да спят по-добре. Не е медицинско изделие и не обещава излекуване.</p></div>
+        </details>
+        <details class="qa">
+          <summary class="qa__q">Трябва ли да съм добър с технологиите?<?= '<svg class="qa__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>' ?></summary>
+          <div class="qa__a"><p>Не. Слагате слушалки, премествате един плъзгач и натискате едно копче. Всичко друго приложението прави вместо вас.</p></div>
+        </details>
+        <details class="qa">
+          <summary class="qa__q">Кога ще усетя разлика?<?= '<svg class="qa__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>' ?></summary>
+          <div class="qa__a"><p>При повечето хора са нужни няколко седмици спокойна, редовна употреба. Това е меко, постепенно облекчение, не моментален превключвател.</p></div>
+        </details>
+        <details class="qa">
+          <summary class="qa__q">Има ли скрит абонамент?<?= '<svg class="qa__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>' ?></summary>
+          <div class="qa__a"><p>Няма. 14 дни безплатно, после еднократно €19.99. Плащате веднъж и приложението остава ваше.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
 
-    <!-- 6 · РАЗГЛЕДАЙ ПО ТЕМИ -->
-    <section class="home-block">
-      <div class="home-block__h">Разгледайте по теми</div>
-      <div class="sec-grid">
+  <!-- ТЕМИ -->
+  <section class="section" id="temi">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow">Разгледай по теми</p>
+        <h2>Спокойно ръководство</h2>
+      </div>
+      <div class="topics">
         <?php foreach ($SECTIONS as $slug => $s): ?>
-        <a class="sec-card" href="/temi/<?= $slug ?>/">
-          <span class="sec-card__ic"><?= site_icon($s['icon']) ?></span>
+        <a class="topic reveal" href="/temi/<?= $slug ?>/">
+          <span class="topic__icon"><?= site_icon($s['icon'], 26) ?></span>
           <h3><?= htmlspecialchars($s['title']) ?></h3>
           <p><?= htmlspecialchars($s['blurb']) ?></p>
-          <span class="sec-card__more">Виж →</span>
         </a>
         <?php endforeach; ?>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 7 · ПОЛЕЗНИ СТАТИИ -->
-    <section class="home-block home-list">
-      <div class="home-block__h">Полезни статии</div>
-      <?php foreach (array_slice($ARTICLES, 0, 4, true) as $aslug => $a): ?>
-      <a class="acard" href="/articles/<?= $aslug ?>.php">
-        <h2><?= htmlspecialchars($a['title']) ?></h2>
-        <p><?= htmlspecialchars($a['desc']) ?></p>
-      </a>
-      <?php endforeach; ?>
-      <p class="home-more"><a class="nav-link" href="/articles/">Всички статии →</a></p>
-    </section>
-  </main>
-</div>
-<?php site_footer(); ?>
+  <!-- СТАТИИ -->
+  <section class="section section--tight" id="statii">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow">Полезни статии</p>
+        <h2>Започнете с тези</h2>
+      </div>
+      <div class="articles">
+        <?php foreach (array_slice($ARTICLES, 0, 3, true) as $slug => $a): $sec = $SECTIONS[$a['section']] ?? null; ?>
+        <a class="article article--row reveal" href="/articles/<?= $slug ?>.php">
+          <div>
+            <div class="article__tag"><?= htmlspecialchars($sec ? $sec['short'] : $a['tag']) ?></div>
+            <h3><?= htmlspecialchars($a['title']) ?></h3>
+            <p><?= htmlspecialchars($a['desc']) ?></p>
+            <span class="article__meta">Обновено юни 2026 · <?= htmlspecialchars($a['reading']) ?> четене</span>
+          </div>
+          <span class="article__more">Чети →</span>
+        </a>
+        <?php endforeach; ?>
+      </div>
+      <div class="center" style="margin-top:24px"><a class="btn btn--ghost" href="/articles/">Всички статии</a></div>
+    </div>
+  </section>
 
-<script>
-(function(){document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){var o=q.getAttribute('aria-expanded')==='true',a=q.nextElementSibling;q.setAttribute('aria-expanded',o?'false':'true');a.style.maxHeight=o?'0':(a.scrollHeight+'px');});});})();
-(function(){
-  var ctx=null,osc=null,oscGain=null,noiseSrc=null,noiseGain=null,notch=null;
-  var freqEl=document.getElementById('freq'),freqVal=document.getElementById('freqval');
-  var toneBtn=document.getElementById('toneBtn'),maskBtn=document.getElementById('maskBtn'),stopBtn=document.getElementById('stopBtn');
-  function ac(){if(!ctx){var C=window.AudioContext||window.webkitAudioContext;ctx=new C();}if(ctx.state==='suspended')ctx.resume();return ctx;}
-  freqEl.addEventListener('input',function(){freqVal.textContent=freqEl.value+' Hz';if(osc&&ctx)osc.frequency.setValueAtTime(+freqEl.value,ctx.currentTime);if(notch&&ctx)notch.frequency.setValueAtTime(+freqEl.value,ctx.currentTime);});
-  function startTone(){var c=ac();stopTone();osc=c.createOscillator();oscGain=c.createGain();osc.type='sine';osc.frequency.value=+freqEl.value;oscGain.gain.value=0;osc.connect(oscGain);oscGain.connect(c.destination);osc.start();oscGain.gain.linearRampToValueAtTime(0.05,c.currentTime+0.15);toneBtn.setAttribute('aria-pressed','true');toneBtn.textContent='Спрете тона';}
-  function stopTone(){if(osc){try{oscGain.gain.linearRampToValueAtTime(0,ctx.currentTime+0.08);osc.stop(ctx.currentTime+0.12);}catch(e){}osc=null;}toneBtn.setAttribute('aria-pressed','false');toneBtn.textContent='Пуснете тона';}
-  toneBtn.addEventListener('click',function(){osc?stopTone():startTone();});
-  function startNoise(){var c=ac();stopNoise();stopTone();
-    var len=2*c.sampleRate,buf=c.createBuffer(1,len,c.sampleRate),d=buf.getChannelData(0),last=0;
-    for(var i=0;i<len;i++){var w=Math.random()*2-1;d[i]=(last+0.02*w)/1.02;last=d[i];d[i]*=3.2;}
-    noiseSrc=c.createBufferSource();noiseSrc.buffer=buf;noiseSrc.loop=true;
-    notch=c.createBiquadFilter();notch.type='notch';notch.frequency.value=+freqEl.value;notch.Q.value=6;
-    noiseGain=c.createGain();noiseGain.gain.value=0;noiseSrc.connect(notch);notch.connect(noiseGain);noiseGain.connect(c.destination);noiseSrc.start();
-    noiseGain.gain.linearRampToValueAtTime(0.16,c.currentTime+0.6);
-    maskBtn.setAttribute('aria-pressed','true');maskBtn.textContent='Спрете облекчението';}
-  function stopNoise(){if(noiseSrc){try{noiseGain.gain.linearRampToValueAtTime(0,ctx.currentTime+0.3);noiseSrc.stop(ctx.currentTime+0.35);}catch(e){}noiseSrc=null;}maskBtn.setAttribute('aria-pressed','false');maskBtn.textContent='Чуйте облекчението';}
-  maskBtn.addEventListener('click',function(){noiseSrc?stopNoise():startNoise();});
-  stopBtn.addEventListener('click',function(){stopTone();stopNoise();});
-  window.addEventListener('pagehide',function(){stopTone();stopNoise();});
-})();
-</script>
-</body>
-</html>
+  <!-- ФИНАЛЕН CTA -->
+  <section class="section">
+    <div class="wrap">
+      <div class="card ctabox">
+        <p class="eyebrow">Готови за по-тиха вечер?</p>
+        <h2>Дайте на ушите си почивка</h2>
+        <p>Започнете спокойно — намерете тона си тази вечер и оставете AURALIS да поеме останалото.</p>
+        <a class="btn btn--primary btn--lg" href="/">Започнете 14 дни безплатно</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+<?php
+auralis_footer();
+auralis_foot(['/js/auralis-test.js']);
