@@ -80,3 +80,38 @@ html, body { overflow-x: clip; }   /* clip НЕ чупи sticky менюто (з
   .brand__tld    { font-size: 12px; }
   .masthead__cta { padding: 0 13px; font-size: 12.5px; }
 }
+
+/* ============================================================
+   Поправки v3 — компактен хедър + колони без изрязване отдясно
+   ============================================================ */
+
+/* Бранд: винаги на един ред; побира се до CTA */
+.brand__mark   { white-space: nowrap; }
+.masthead__bar { flex-wrap: nowrap; gap: 10px; }
+.masthead__cta { flex: 0 0 auto; white-space: nowrap; }
+@media (max-width: 480px) {
+  .brand__mark   { font-size: 16px; }
+  .masthead__cta { padding: 0 14px; font-size: 12.5px; min-height: 42px; }
+}
+@media (max-width: 400px) { .brand__tld { display: none; } } /* маха отрязаното „.help" */
+
+/* По-малки, по-събрани пилюли → по-нисък хедър */
+.navrow { gap: 7px; padding-bottom: 10px; }
+.pill   { min-height: 38px; padding: 0 13px; font-size: 13px; }
+
+/* Менюто се свива при скрол — остава само слим лентата (бранд + CTA) */
+.masthead.is-scrolled .navrow        { display: none; }
+.masthead.is-scrolled .masthead__bar { padding-block: 9px; }
+
+/* Многоколонни решетки: да се свиват, не да преливат и да се режат */
+.stats     { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.stat      { padding: 18px 8px; }
+.stat__num { font-size: clamp(20px, 6.4vw, 44px); }
+.topics    { grid-template-columns: 1fr; }
+@media (min-width: 560px) { .topics { grid-template-columns: minmax(0,1fr) minmax(0,1fr); } }
+.pricegrid { grid-template-columns: 1fr; }
+@media (min-width: 640px) { .pricegrid { grid-template-columns: minmax(0,1fr) minmax(0,1fr); } }
+.topic, .article, .card, .metastep, .bio, .trust, .stat, .footer__col { min-width: 0; }
+
+/* Дълги низове (DOI/URL) се пренасят, не изтласкват ширина */
+.prose, .bluf, .sourcelist, .article__meta { overflow-wrap: anywhere; }
