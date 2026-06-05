@@ -1249,50 +1249,50 @@
     "layer2": 65,
     "reasoning": "Layer 1 (sunet principal — natură/melodie): 30–40%. Layer 2 (zgomot roz sau maro de fundal): 60–70%. Research-ul oferă parametri absoluți (zgomot roz cu 2–3 dB sub pragul tinitusului; în total 45–55 dBA pentru adulți, <50 dBA pentru copii), dar nu oferă un procent X/Y. Dominarea Layer 2 rezultă din logica potrivit căreia masca de fundal este elementul activ terapeutic."
    },
-   "expectedEffect": "Понижена реактивност на амигдалата при нощни преходи между сънни цикли; защита на REM и N3 (дълбок бавновълнов) сън; при продължителна употреба — стимулиране на невропластичност и постепенна когнитивна хабитуация към тинитуса. Терапевтична цел: седмична ефективност на съня (SE) ≥85%.",
+   "expectedEffect": "Reactivitate redusă a amigdalei la tranzițiile nocturne dintre ciclurile de somn; protecția somnului REM și N3 (somn profund cu unde lente); la utilizare prelungită — stimularea neuroplasticității și o habituare cognitivă treptată la tinitus. Obiectiv terapeutic: eficiența săptămânală a somnului (SE) ≥85%.",
    "safety": [
-    "Максимум 50 dBA нощем (за деца строго <50 dBA).",
-    "Нива над 50 dBA започват субклинично увреждане на слуха и нарушават хомеостазата на съня.",
-    "Системно нощно излагане >50 dB е свързано с риск за деменция (атрофия на кората, тау-протеини).",
-    "Без бял шум, без пикове >8 kHz, без резки transients.",
-    "Loudness стандарт: −23 LUFS integrated, True peak ≤ −1 dBTP.",
-    "Wellness disclaimer задължителен — продуктът не е медицинско устройство."
+    "Maximum 50 dBA noaptea (pentru copii strict <50 dBA).",
+    "Nivelurile peste 50 dBA încep o deteriorare subclinică a auzului și perturbă homeostazia somnului.",
+    "Expunerea nocturnă sistematică >50 dB este asociată cu un risc de demență (atrofia cortexului, proteine tau).",
+    "Fără zgomot alb, fără vârfuri >8 kHz, fără transients bruște.",
+    "Standard loudness: −23 LUFS integrated, True peak ≤ −1 dBTP.",
+    "Disclaimer wellness obligatoriu — produsul nu este un dispozitiv medical."
    ],
    "faq": [
     {
-     "q": "Колко силно да пускам звука нощем?",
-     "a": "Между 45 и 55 dBA за възрастни; строго под 50 dBA за деца и кърмачета. Розовият шум трябва да е настроен 2–3 dB под прага на Вашия субективен тинитус — двата звука трябва да се смесват частично (точка на смесване на Jastreboff), а не да го заглушават напълно."
+     "q": "Cât de tare să pun sunetul noaptea?",
+     "a": "Între 45 și 55 dBA pentru adulți; strict sub 50 dBA pentru copii și sugari. Zgomotul roz trebuie reglat cu 2–3 dB sub pragul tinitusului dvs. subiectiv — cele două sunete trebuie să se amestece parțial (punctul de amestec al lui Jastreboff), nu să-l mascheze complet."
     },
     {
-     "q": "Колко дълго мога да го пускам през нощта? Цяла нощ ли?",
-     "a": "Препоръчително непрекъснато през 8-часовия сънен прозорец. В научната литература има две противоречиви гледни точки: едни изследвания посочват, че таймери за изключване след 30–60 мин са „сериозна терапевтична грешка“, защото внезапната тишина задейства амигдалата при преходите между сънни цикли; други препоръчват таймер 30–40 мин или 60–90 мин за защита на REM. В AURALIS: default е непрекъснато; потребителят може да зададе sleep timer (30/60/90/120 мин) в настройките, ако предпочита автоматично изключване."
+     "q": "Cât timp îl pot reda în timpul nopții? Toată noaptea?",
+     "a": "Recomandat continuu pe parcursul ferestrei de somn de 8 ore. În literatura științifică există două puncte de vedere contradictorii: unele studii indică faptul că timerele de oprire după 30–60 min sunt „o greșeală terapeutică serioasă“, deoarece liniștea bruscă activează amigdala la tranzițiile dintre ciclurile de somn; altele recomandă un timer de 30–40 min sau 60–90 min pentru protecția REM. În AURALIS: implicit este continuu; utilizatorul poate seta un sleep timer (30/60/90/120 min) în setări, dacă preferă oprirea automată."
     },
     {
-     "q": "Може ли да го слушам с шумозащитни тапи или in-ear слушалки?",
-     "a": "Не препоръчваме дългосрочно блокиране на ушния канал със стандартни in-ear слушалки тип „тапи“ — предизвиква оклузивен ефект, който прави вътрешния тинитус по-силен, пречи на естествената миграция на ушната кал и създава условия за бактериални инфекции (външен отит). Препоръчват се отворени говорители в спалнята или висококачествени слушалки с костна проводимост (bone conduction), които оставят ушния канал свободен."
+     "q": "Îl pot asculta cu dopuri de protecție sau cu căști in-ear?",
+     "a": "Nu recomandăm blocarea pe termen lung a canalului auditiv cu căști in-ear standard de tip „dopuri“ — provoacă un efect de ocluzie, care face tinitusul intern mai puternic, împiedică migrarea naturală a cerumenului și creează condiții pentru infecții bacteriene (otită externă). Se recomandă difuzoare deschise în dormitor sau căști de înaltă calitate cu conducere osoasă (bone conduction), care lasă canalul auditiv liber."
     },
     {
-     "q": "Кога ще усетя ефект?",
-     "a": "Първи терапевтичен отговор е възможен още в първите 2 седмици (субакутен интервал 11–31 дни) — спад от ≥10 точки по THI скалата. Реален клинично значим ефект от звукова терапия с филтриран честотен ноч: −8.6 точки THI след 3 месеца, −24.6 точки след 6 месеца. При мащабно RCT за 9 месеца медианният THI спада от 50 на 35. Не очаквайте пълно изчезване на тинитуса — целта е хабитуация (мозъкът да спре да го третира като заплаха), не премахване."
+     "q": "Când voi simți un efect?",
+     "a": "Un prim răspuns terapeutic este posibil încă din primele 2 săptămâni (interval subacut 11–31 de zile) — o scădere de ≥10 puncte pe scala THI. Efect real, semnificativ clinic, al terapiei sonore cu filtru de frecvență notch: −8.6 puncte THI după 3 luni, −24.6 puncte după 6 luni. Într-un RCT amplu de 9 luni, THI median scade de la 50 la 35. Nu vă așteptați la o dispariție completă a tinitusului — scopul este habituarea (creierul să nu-l mai trateze ca pe o amenințare), nu eliminarea."
     },
     {
-     "q": "Опасно ли е дълго слушане всяка нощ?",
-     "a": "Опасно е само ако нивото надхвърля 50 dBA — над този праг започва субклинично увреждане на слуха, нарушаване на хомеостазата на съня, и при хронично нощно излагане над 50 dB е документиран дългосрочен риск (атрофия на кората, тау-протеини, ускорено когнитивно стареене). При спазване на 45–55 dBA нощем (за деца <50 dBA), 8-часовият цикъл е безопасен дългосрочно. WHO/NIOSH lifetime safe лимит е 70 dBA за 24/7 — нощната препоръка е значително под този праг."
+     "q": "Este periculoasă ascultarea îndelungată în fiecare noapte?",
+     "a": "Este periculoasă doar dacă nivelul depășește 50 dBA — peste acest prag începe o deteriorare subclinică a auzului, o perturbare a homeostaziei somnului, iar la o expunere nocturnă cronică peste 50 dB este documentat un risc pe termen lung (atrofia cortexului, proteine tau, îmbătrânire cognitivă accelerată). Cu respectarea a 45–55 dBA noaptea (pentru copii <50 dBA), ciclul de 8 ore este sigur pe termen lung. Limita WHO/NIOSH lifetime safe este de 70 dBA pentru 24/7 — recomandarea nocturnă este semnificativ sub acest prag."
     },
     {
-     "q": "Може ли да слушам с медикаменти за сън или антидепресанти?",
-     "a": "Звуковата терапия не взаимодейства фармакологично с медикаменти. Но внимание: някои класове антидепресанти (както и аспирин във високи дози, ибупрофен, определени антибиотици, диуретици) могат самостоятелно да повлияят тинитуса — нивата им в плазмата флуктуират през деня. Ако забелязвате влошаване на тинитуса при определен медикамент, консултирайте се с Вашия лекар. AURALIS е wellness приложение, не замества медицинска консултация."
+     "q": "Pot asculta în timpul tratamentului cu medicamente pentru somn sau antidepresive?",
+     "a": "Terapia sonoră nu interacționează farmacologic cu medicamentele. Dar atenție: unele clase de antidepresive (precum și aspirina în doze mari, ibuprofenul, anumite antibiotice, diureticele) pot influența singure tinitusul — nivelurile lor plasmatice fluctuează pe parcursul zilei. Dacă observați o înrăutățire a tinitusului la un anumit medicament, consultați-vă medicul. AURALIS este o aplicație de wellness, nu înlocuiește o consultație medicală."
     },
     {
-     "q": "Какво ако не действа след няколко седмици?",
-     "a": "Първо: проверете дали спазвате правилата — 45–55 dBA, непрекъснат фон (не таймер за изключване, ако сте на default режим), без бял шум, нощта в тъмна спалня без екрани. Второ: добавете дневна CBT-I/ACT практика (категория медитация) — звуковата терапия е по-ефективна в комбинация с когнитивно-поведенчески елемент. Трето: ако след 6 месеца няма промяна в THI скора — препоръчваме консултация с аудиолог или специалист по тинитус. AURALIS не лекува тинитус, а помага за хабитуация."
+     "q": "Ce se întâmplă dacă nu funcționează după câteva săptămâni?",
+     "a": "Mai întâi: verificați dacă respectați regulile — 45–55 dBA, fundal continuu (nu un timer de oprire, dacă sunteți pe modul implicit), fără zgomot alb, noaptea într-un dormitor întunecat fără ecrane. În al doilea rând: adăugați o practică zilnică CBT-I/ACT (categoria meditație) — terapia sonoră este mai eficientă în combinație cu un element cognitiv-comportamental. În al treilea rând: dacă după 6 luni nu există nicio schimbare în scorul THI — recomandăm o consultație cu un audiolog sau un specialist în tinitus. AURALIS nu vindecă tinitusul, ci ajută la habituare."
     }
    ],
    "scientificBasis": [
-    "Файл 'Детайлна невробиология и терапия на инсомнията при пациенти с хроничен тинитус'",
-    "Файл 'Клинична и невробиологична ефективност на звуковата терапия при хроничен тинитус'",
-    "Файл 'Анализ на клиничната ефикасност, честотните спектри и невробиологичните механизми на звуковата терапия при субективен тинитус (период 2020-2026)'",
-    "Файл 'Физикални, психоакустични и физиологични принципи за безопасно и естетическо смесване на звукови слоеве'",
+    "Fișier 'Neurobiologia detaliată și terapia insomniei la pacienții cu tinitus cronic'",
+    "Fișier 'Eficacitatea clinică și neurobiologică a terapiei sonore în tinitusul cronic'",
+    "Fișier 'Analiza eficacității clinice, a spectrelor de frecvență și a mecanismelor neurobiologice ale terapiei sonore în tinitusul subiectiv (perioada 2020-2026)'",
+    "Fișier 'Principii fizice, psihoacustice și fiziologice pentru o amestecare sigură și estetică a straturilor sonore'",
     "Файл 'AURALIS_BIBLE_v3_PIVOT.md'"
    ]
   },
@@ -1324,7 +1324,7 @@
     "Същите ограничения като „Сън дълбок“ — максимум 50 dBA.",
     "Без бял шум, без резки transients.",
     "Ако сесията не води до сънливост след 20 мин, не насилвайте — изправете се и преминете към тиха активност в съседна стая с лек фонов розов шум до появата на естествена сомнолентност.",
-    "Loudness стандарт: −23 LUFS integrated, True peak ≤ −1 dBTP.",
+    "Standard loudness: −23 LUFS integrated, True peak ≤ −1 dBTP.",
     "Wellness disclaimer задължителен."
    ],
    "faq": [
@@ -1358,8 +1358,8 @@
     }
    ],
    "scientificBasis": [
-    "Файл 'Детайлна невробиология и терапия на инсомнията при пациенти с хроничен тинитус'",
-    "Файл 'Клинична и невробиологична ефективност на звуковата терапия при хроничен тинитус'",
+    "Fișier 'Neurobiologia detaliată și terapia insomniei la pacienții cu tinitus cronic'",
+    "Fișier 'Eficacitatea clinică și neurobiologică a terapiei sonore în tinitusul cronic'",
     "Файл 'AURALIS_BIBLE_v3_PIVOT.md'"
    ]
   },
@@ -1420,9 +1420,9 @@
     }
    ],
    "scientificBasis": [
-    "Файл 'Детайлна невробиология и терапия на инсомнията при пациенти с хроничен тинитус'",
-    "Файл 'Клинична и невробиологична ефективност на звуковата терапия при хроничен тинитус'",
-    "Файл 'Физикални, психоакустични и физиологични принципи за безопасно и естетическо смесване на звукови слоеве'",
+    "Fișier 'Neurobiologia detaliată și terapia insomniei la pacienții cu tinitus cronic'",
+    "Fișier 'Eficacitatea clinică și neurobiologică a terapiei sonore în tinitusul cronic'",
+    "Fișier 'Principii fizice, psihoacustice și fiziologice pentru o amestecare sigură și estetică a straturilor sonore'",
     "Файл 'AURALIS_BIBLE_v3_PIVOT.md'"
    ]
   },
@@ -1490,10 +1490,10 @@
     }
    ],
    "scientificBasis": [
-    "Файл 'Детайлна невробиология и терапия на инсомнията при пациенти с хроничен тинитус'",
-    "Файл 'Клинична и невробиологична ефективност на звуковата терапия при хроничен тинитус'",
-    "Файл 'Анализ на клиничната ефикасност, честотните спектри и невробиологичните механизми на звуковата терапия при субективен тинитус (период 2020-2026)'",
-    "Файл 'Физикални, психоакустични и физиологични принципи за безопасно и естетическо смесване на звукови слоеве'",
+    "Fișier 'Neurobiologia detaliată și terapia insomniei la pacienții cu tinitus cronic'",
+    "Fișier 'Eficacitatea clinică și neurobiologică a terapiei sonore în tinitusul cronic'",
+    "Fișier 'Analiza eficacității clinice, a spectrelor de frecvență și a mecanismelor neurobiologice ale terapiei sonore în tinitusul subiectiv (perioada 2020-2026)'",
+    "Fișier 'Principii fizice, psihoacustice și fiziologice pentru o amestecare sigură și estetică a straturilor sonore'",
     "Файл 'Оптимизирана двуседмична когнитивно-поведенческа програма за първоначално справяне с хроничен тинитус'"
    ]
   },
@@ -1556,8 +1556,8 @@
     }
    ],
    "scientificBasis": [
-    "Файл 'Детайлна невробиология и терапия на инсомнията при пациенти с хроничен тинитус'",
-    "Файл 'Клинична и невробиологична ефективност на звуковата терапия при хроничен тинитус'",
+    "Fișier 'Neurobiologia detaliată și terapia insomniei la pacienții cu tinitus cronic'",
+    "Fișier 'Eficacitatea clinică și neurobiologică a terapiei sonore în tinitusul cronic'",
     "Файл 'AURALIS_BIBLE_v3_PIVOT.md'"
    ]
   },
@@ -1607,7 +1607,7 @@
      "a": "Абсолютно противопоказана при епилепсия или тежки психиатрични разстройства. Може да предизвика при неподходяща честотна разлика: краткотрайно повишаване на раздразнителността, тревожност, главоболие. Ако усетите някое от тези → прекратете и преминете към друг тип медитация (body scan, дефузия). AURALIS е wellness приложение, не медицинско."
     },
     {
-     "q": "Кога ще усетя ефект?",
+     "q": "Când voi simți un efect?",
      "a": "Различно според типа сесия. CBT-I/ACT микропрактики (5-10 мин дневно): първи терапевтичен отговор в субакутния интервал (11–31 дни) — спад на THI с ≥10 точки при системно прилагане. Бинаурални вълни 8 Hz + сонда терапия: статистически по-голям ефект отколкото сондата сама в RCT 2025 (Δ=17.33 точки THI за комбинирана група спрямо Δ=9.00 за TMNMT самостоятелно). ACT като комплексна терапия 6 месеца: 54.5% от пациентите поддържат трайно подобрение (срещу 20% при TRT); мета-анализ — средно намаление на THI с 17.67 точки."
     },
     {
@@ -1625,9 +1625,9 @@
    ],
    "scientificBasis": [
     "Файл 'Оптимизирана двуседмична когнитивно-поведенческа програма за първоначално справяне с хроничен тинитус'",
-    "Файл 'Анализ на клиничната ефикасност, честотните спектри и невробиологичните механизми на звуковата терапия при субективен тинитус (период 2020-2026)'",
+    "Fișier 'Analiza eficacității clinice, a spectrelor de frecvență și a mecanismelor neurobiologice ale terapiei sonore în tinitusul subiectiv (perioada 2020-2026)'",
     "Файл 'Клиничен доклад за прилагане на Терапия за приемане и обвързване (ACT) при пациенти над 50-годишна възраст с хроничен субективен тинитус'",
-    "Файл 'Детайлна невробиология и терапия на инсомнията при пациенти с хроничен тинитус'"
+    "Fișier 'Neurobiologia detaliată și terapia insomniei la pacienții cu tinitus cronic'"
    ]
   }
  },
