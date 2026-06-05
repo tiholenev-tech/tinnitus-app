@@ -2499,35 +2499,35 @@
   "empty": "Zi goală",
   "frozen": "Zi înghețată",
   "today": "Astăzi",
-  "freeze_use": "Използвайте freeze",
-  "freeze_remaining": "{count} оставащи freeze-а",
+  "freeze_use": "Folosiți freeze",
+  "freeze_remaining": "{count} freeze rămase",
   "freeze": {
-   "banner_title": "Замразете ден {n}",
-   "banner_body": "Streak-ът Ви се запазва. Имате {count} оставащ(и) freeze.",
-   "success_toast": "Ден {n} е замразен",
-   "failed": "Замразяването не успя"
+   "banner_title": "Înghețați ziua {n}",
+   "banner_body": "Streak-ul dvs. se păstrează. Aveți {count} freeze rămase.",
+   "success_toast": "Ziua {n} este înghețată",
+   "failed": "Înghețarea nu a reușit"
   },
   "legend": {
-   "completed": "завършени",
-   "partial": "частични",
-   "frozen": "замразени"
+   "completed": "finalizate",
+   "partial": "parțiale",
+   "frozen": "înghețate"
   }
  },
  "settings": {
-  "pitchRetest": "Направи звуков тест отново",
+  "pitchRetest": "Fă din nou testul sonor",
   "notch": {
-   "title": "Лична честотна терапия",
-   "on": "Активна",
-   "off": "Спряна",
-   "descActive": "Премахваме Вашата тинитус честота ({freq}) от всички звуци за подобрена терапия.",
-   "descInactive": "Терапията е спряна. Звуците се възпроизвеждат без личен филтър.",
-   "toastOn": "Личната терапия е активирана",
-   "toastOff": "Личната терапия е спряна. Звуците ще се възпроизвеждат без notch филтър."
+   "title": "Terapie de frecvență personală",
+   "on": "Activă",
+   "off": "Oprită",
+   "descActive": "Eliminăm frecvența tinitusului dvs. ({freq}) din toate sunetele pentru o terapie îmbunătățită.",
+   "descInactive": "Terapia este oprită. Sunetele se redau fără un filtru personal.",
+   "toastOn": "Terapia personală a fost activată",
+   "toastOff": "Terapia personală a fost oprită. Sunetele se vor reda fără filtru notch."
   }
  },
  "player": {
   "notch": {
-   "aria": "Лична честотна терапия активна — {freq} премахната"
+   "aria": "Terapie de frecvență personală activă — {freq} eliminată"
   }
  }
 }
