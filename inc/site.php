@@ -195,6 +195,11 @@ function auralis_head(array $o) {
   echo '<title>'.htmlspecialchars($title).'</title>'."\n";
   echo '<meta name="description" content="'.htmlspecialchars($desc).'">'."\n";
   echo '<link rel="canonical" href="'.$url.'">'."\n";
+  if (!empty($o['alt_it'])) {
+    echo '<link rel="alternate" hreflang="bg" href="'.$url.'">'."\n";
+    echo '<link rel="alternate" hreflang="it" href="'.$o['alt_it'].'">'."\n";
+    echo '<link rel="alternate" hreflang="x-default" href="'.$url.'">'."\n";
+  }
   echo '<meta name="robots" content="'.$robots.'">'."\n";
   echo '<meta property="og:type" content="'.$ogType.'">'."\n";
   echo '<meta property="og:title" content="'.htmlspecialchars($title).'">'."\n";
@@ -237,6 +242,7 @@ function auralis_masthead($active = '') {
       <a class="pill" href="/temi/<?= $slug ?>/"<?= $active === $slug ? ' aria-current="page"' : '' ?>><?= htmlspecialchars($s['short']) ?></a>
       <?php endforeach; ?>
       <a class="pill" href="/articles/"<?= $active === 'articles' ? ' aria-current="page"' : '' ?>>Всички</a>
+      <a class="pill lang-switch" href="/it/" lang="it" hreflang="it" title="Italiano">IT</a>
     </nav>
   </div>
 </header>

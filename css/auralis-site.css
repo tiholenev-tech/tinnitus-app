@@ -141,3 +141,6 @@ html, body { overflow-x: clip; }   /* clip НЕ чупи sticky менюто (з
 
 /* Дълги низове (DOI/URL) се пренасят, не изтласкват ширина */
 .prose, .bluf, .sourcelist, .article__meta { overflow-wrap: anywhere; }
+
+/* Езиков превключвател (BG/IT) в менюто */
+.pill.lang-switch { font-weight: 800; letter-spacing: 1.5px; color: var(--indigo); }
