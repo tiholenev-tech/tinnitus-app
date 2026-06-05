@@ -954,66 +954,66 @@
   }
  },
  "profile_results": {
-  "title": "Вашата оценка",
+  "title": "La tua valutazione",
   "welcomes": {
-   "TH_C": "Вие чувате високочестотен, постоянен пищящ или звънящ тон, който се натрапва особено в тиха среда и при умствена работа. Това е чест профил при хора, които са били излагани на високи звуци или забелязват промени в слуха с възрастта — мозъкът компенсира липсващите сигнали със собствена активност. AURALIS ще Ви предложи филтрирани природни звуци и розов шум за маскиране, заедно с кратки CBT практики, които насочват вниманието далеч от пищенето.",
-   "DN_S": "Вие чувате плътен, нискочестотен, понякога бучащ или тътнещ шум, който е особено натрапчив вечер и нарушава качеството на Вашия сън. Това е чест профил при хора, които прекарват време в тихи спални — без външен звук мозъкът усилва вътрешния шум. AURALIS ще Ви предложи дълбоки кафяви звуци, които смесват тинитуса с фон, без да го заглушават напълно — тази стратегия се нарича „точка на смесване\" и помага за по-добър сън без внезапна тишина.",
-   "SS_R": "Вашият тинитус е силно свързан със състоянието на нервната Ви система — той се засилва при стрес, тревожност и емоционално натоварване, а при спокойствие отслабва. Това отразява висока чувствителност на тялото към сигнали — Вашата лимбична система реагира бързо на промени. AURALIS ще Ви даде нежни природни звуци, дихателно упражнение 4-7-8 за остри моменти и кратки практики за приемане, които прекъсват порочния кръг между шум и тревога.",
-   "SM_F": "Вашият тинитус има променлив характер — силата му се променя през деня, понякога значително, и често е свързан с физическо напрежение във врата, челюстта или раменете. Това е соматичен тип тинитус: мускулите около ухото и тригеминалният нерв могат да модулират шума. AURALIS ще Ви предложи динамични природни звуци като океански вълни (които ангажират мозъка по-силно), упражнение за отпускане на челюстта и нежен масаж — телесните практики имат измерим ефект при този профил.",
-   "HB_M": "Вие имате тинитус, но той Ви безпокои предимно в условия на абсолютна тишина и не оказва съществено влияние върху ежедневните Ви задачи, концентрация, сън или настроение. Вашата нервна система вече е изградила висока степен на естествена адаптация — мозъкът Ви до голяма степен филтрира фантомния сигнал като маловажен фон. AURALIS ще Ви предложи ултра-меки природни звуци за моментите на пълна тишина и насоки как да поддържате тази устойчивост и в стресови периоди."
+   "TH_C": "Senti un tono acuto, costante, fischiante o sibilante, che si fa notare soprattutto in ambienti silenziosi e durante il lavoro mentale. È un profilo comune in chi è stato esposto a suoni forti o nota cambiamenti dell'udito con l'età — il cervello compensa i segnali mancanti con la propria attività. AURALIS ti proporrà suoni naturali filtrati e rumore rosa per il mascheramento, insieme a brevi pratiche CBT che spostano l'attenzione lontano dal fischio.",
+   "DN_S": "Senti un rumore denso, a bassa frequenza, a volte rombante o cupo, particolarmente invadente la sera, che disturba la qualità del tuo sonno. È un profilo comune in chi passa il tempo in camere silenziose — senza suono esterno il cervello amplifica il rumore interno. AURALIS ti proporrà suoni marroni profondi che fondono l'acufene con uno sfondo senza coprirlo del tutto — questa strategia si chiama „punto di mescolamento\" e aiuta a dormire meglio senza un silenzio improvviso.",
+   "SS_R": "Il tuo acufene è strettamente legato allo stato del tuo sistema nervoso — si intensifica con lo stress, l'ansia e il carico emotivo, e si attenua con la calma. Riflette un'alta sensibilità del corpo ai segnali — il tuo sistema limbico reagisce in fretta ai cambiamenti. AURALIS ti darà suoni naturali delicati, l'esercizio di respirazione 4-7-8 per i momenti acuti e brevi pratiche di accettazione, che interrompono il circolo vizioso tra rumore e ansia.",
+   "SM_F": "Il tuo acufene ha un carattere variabile — la sua intensità cambia durante il giorno, a volte molto, ed è spesso legato a tensione fisica del collo, della mandibola o delle spalle. È un acufene di tipo somatico: i muscoli intorno all'orecchio e il nervo trigemino possono modulare il rumore. AURALIS ti proporrà suoni naturali dinamici come le onde dell'oceano (che impegnano di più il cervello), un esercizio per rilassare la mandibola e un massaggio leggero — le pratiche corporee hanno un effetto misurabile in questo profilo.",
+   "HB_M": "Hai un acufene, ma ti disturba soprattutto in condizioni di silenzio assoluto e non incide in modo significativo sulle tue attività quotidiane, sulla concentrazione, sul sonno o sull'umore. Il tuo sistema nervoso ha già sviluppato un alto grado di adattamento naturale — il cervello filtra in gran parte il segnale fantasma come uno sfondo poco importante. AURALIS ti proporrà suoni naturali ultra-morbidi per i momenti di silenzio totale e indicazioni su come mantenere questa resilienza anche nei periodi di stress."
   },
-  "welcomeAria": "Персонално приветствие за профил {code}",
+  "welcomeAria": "Benvenuto personale per il profilo {code}",
   "code": {
-   "label": "Код на профил"
+   "label": "Codice del profilo"
   },
   "di": {
-   "label": "DI скор",
-   "low": "Слаб интензитет",
-   "medium": "Умерен интензитет",
-   "high": "Висок интензитет"
+   "label": "Punteggio DI",
+   "low": "Intensità lieve",
+   "medium": "Intensità moderata",
+   "high": "Intensità alta"
   },
   "sections": {
-   "meaning": "Какво означава за вас",
-   "why": "Защо имате този тип",
-   "strategy": "Препоръчителна стратегия",
-   "recommended": "Препоръчителни режими",
-   "topSounds": "Топ препоръчителни звуци",
-   "timeline": "Очаквания във времето",
-   "additional": "Допълнителни препоръки",
-   "medical": "Кога към лекар"
+   "meaning": "Cosa significa per te",
+   "why": "Perché hai questo tipo",
+   "strategy": "Strategia consigliata",
+   "recommended": "Modalità consigliate",
+   "topSounds": "Suoni più consigliati",
+   "timeline": "Aspettative nel tempo",
+   "additional": "Consigli aggiuntivi",
+   "medical": "Quando rivolgersi al medico"
   },
   "strategy": {
-   "noiseLabel": "Препоръчителен фонов шум",
-   "mixRatioLabel": "Препоръчително съотношение",
+   "noiseLabel": "Rumore di fondo consigliato",
+   "mixRatioLabel": "Rapporto consigliato",
    "mixRatioFmt": "{l1}/{l2}",
-   "durationLabel": "Препоръчителна продължителност",
-   "reasoningLabel": "Защо тази стратегия"
+   "durationLabel": "Durata consigliata",
+   "reasoningLabel": "Perché questa strategia"
   },
   "topSounds": {
-   "loading": "Зареждане на препоръки...",
-   "empty": "Препоръките се подготвят...",
-   "viewAll": "Виж всички препоръчителни"
+   "loading": "Caricamento dei consigli...",
+   "empty": "I consigli sono in preparazione...",
+   "viewAll": "Vedi tutti i consigliati"
   },
   "timeline": {
-   "loading": "Прогнозата се подготвя..."
+   "loading": "La previsione è in preparazione..."
   },
-  "placeholder": "Това съдържание се подготвя от научния екип.",
-  "descriptionTitle": "Какво означава това",
-  "expectationsTitle": "Какво да очаквате",
-  "recommendedTitle": "Препоръчителни режими",
-  "recommendedBadge": "За Вас",
+  "placeholder": "Questo contenuto è in preparazione dal team scientifico.",
+  "descriptionTitle": "Cosa significa",
+  "expectationsTitle": "Cosa aspettarsi",
+  "recommendedTitle": "Modalità consigliate",
+  "recommendedBadge": "Per te",
   "duration": {
-   "title": "Препоръчителна продължителност",
-   "firstTwoWeeks": "Първи 2 седмици",
-   "firstTwoWeeksText": "2–3 часа на ден",
-   "afterTitle": "След това",
-   "afterText": "Цяла нощ (с sleep timer)"
+   "title": "Durata consigliata",
+   "firstTwoWeeks": "Prime 2 settimane",
+   "firstTwoWeeksText": "2–3 ore al giorno",
+   "afterTitle": "Dopo",
+   "afterText": "Tutta la notte (con sleep timer)"
   },
   "disclaimer": {
-   "title": "Важно — научни ограничения",
-   "text": "AURALIS е инструмент за wellness support, не заменя медицинска диагноза или лечение. Препоръките се базират на агрегирани изследвания и общи модели, не на личен медицински преглед. При тежки симптоми или нарастващо влошаване — консултирайте се със специалист (УНГ лекар или аудиолог)."
+   "title": "Importante — limiti scientifici",
+   "text": "AURALIS è uno strumento di supporto al benessere, non sostituisce una diagnosi o un trattamento medico. I consigli si basano su ricerche aggregate e modelli generali, non su una visita medica personale. In caso di sintomi gravi o peggioramento crescente — consulta uno specialista (medico ORL o audiologo)."
   },
-  "continue": "Към звуците",
+  "continue": "Vai ai suoni",
   "profiles": {
    "TH_C": {
     "shortName": "Тонален висок",
@@ -1182,24 +1182,24 @@
    }
   },
   "pitch": {
-   "title": "Вашата тинитус честота",
-   "intro": "Вашата честота: {freq}",
-   "skipped": "Не сте завършили теста за честота. Можете да го направите по-късно от Настройки.",
+   "title": "La tua frequenza dell'acufene",
+   "intro": "La tua frequenza: {freq}",
+   "skipped": "Non hai completato il test della frequenza. Puoi farlo più tardi dalle Impostazioni.",
    "cat": {
-    "low": "Нискочестотен тинитус",
-    "mid": "Среднен честотен тинитус",
-    "high": "Високочестотен тинитус",
-    "veryHigh": "Много висок честотен тинитус",
-    "extreme": "Изключително висок тинитус"
+    "low": "Acufene a bassa frequenza",
+    "mid": "Acufene a media frequenza",
+    "high": "Acufene ad alta frequenza",
+    "veryHigh": "Acufene a frequenza molto alta",
+    "extreme": "Acufene a frequenza estremamente alta"
    },
    "rec": {
-    "low": "Препоръчителни звуци с богат среден и висок спектър за маскиране — препоръчваме категория „Гора“ и „Дъжд“.",
-    "mid": "Препоръчителни звуци с балансиран спектър — препоръчваме „Океан“ и „Река“.",
-    "high": "Препоръчителни звуци с акцент върху ниски и средни честоти — препоръчваме „Подводен“ и „Кафяв шум“.",
-    "veryHigh": "Препоръчителни наситено basov звук за оптимална маска — препоръчваме „Дълбок кафяв шум“ или „Подводна тишина“.",
-    "extreme": "Препоръчителни наситено basov звук за оптимална маска — препоръчваме „Дълбок кафяв шум“ или „Подводна тишина“."
+    "low": "Suoni consigliati con ricco spettro medio-alto per il mascheramento — consigliamo le categorie „Foresta\" e „Pioggia\".",
+    "mid": "Suoni consigliati con spettro bilanciato — consigliamo „Oceano\" e „Fiume\".",
+    "high": "Suoni consigliati con enfasi su basse e medie frequenze — consigliamo „Sott'acqua\" e „Rumore marrone\".",
+    "veryHigh": "Suono ricco di bassi consigliato per un mascheramento ottimale — consigliamo „Rumore marrone profondo\" o „Silenzio sottomarino\".",
+    "extreme": "Suono ricco di bassi consigliato per un mascheramento ottimale — consigliamo „Rumore marrone profondo\" o „Silenzio sottomarino\"."
    },
-   "notchActive": "✓ Активна лична терапия на {freq}"
+   "notchActive": "✓ Terapia personale attiva a {freq}"
   }
  },
  "categoryInfo": {
