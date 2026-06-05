@@ -35,4 +35,15 @@
   <url><loc>https://tinnitus-app.help/cena/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tinnitus-app.help/za-nas/</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
   <url><loc>https://tinnitus-app.help/kontakt/</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+
+  <!-- Italiano (/it/) -->
+  <url><loc>https://tinnitus-app.help/it/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tinnitus-app.help/it/articoli/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tinnitus-app.help/it/argomenti/sull-acufene/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tinnitus-app.help/it/argomenti/terapia-del-suono/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tinnitus-app.help/it/argomenti/sonno/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tinnitus-app.help/it/articoli/fischio-nelle-orecchie.php</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://tinnitus-app.help/it/articoli/acufene-pulsante.php</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://tinnitus-app.help/it/articoli/terapia-del-suono-notched.php</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://tinnitus-app.help/it/articoli/acufene-di-notte.php</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
 </urlset>
