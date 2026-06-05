@@ -1573,69 +1573,69 @@
    "whenNotUsed": [
     "În caz de atac de panică acut — mai întâi modul „Anxietate“, apoi meditație după stabilizare.",
     "Sesiunile cu unde binaurale — absolut contraindicate în caz de epilepsie sau tulburări psihiatrice grave.",
-    "Без качествени стерео слушалки за бинаурални — при моно източник бинауралният ефект изчезва напълно.",
-    "При тежко непридържане (3+ дни пропуснати сесии) — системата прилага Adaptive Micro-Dosing (2-минутни микро-дози), не наказва пациента."
+    "Fără căști stereo de calitate pentru binaurale — la o sursă mono efectul binaural dispare complet.",
+    "În caz de neaderență gravă (3+ zile de sesiuni ratate) — sistemul aplică Adaptive Micro-Dosing (micro-doze de 2 minute), nu pedepsește pacientul."
    ],
    "recommendedNoise": {
     "type": "pink_pure",
-    "description": "Силно зависи от типа сесия. За body scan / дефузия / приемане: фрактален розов шум на ниско ниво или фрактални природни тонове (за асоциация с релаксация). За бинаурални вълни (алфа 8 Hz): теснолентов карър с binaural beat — задължително стерео слушалки, без широкоспектърен фонов шум, който би прикрил бинауралния ефект."
+    "description": "Depinde puternic de tipul sesiunii. Pentru body scan / defuzie / acceptare: zgomot roz fractal la un nivel scăzut sau tonuri naturale fractale (pentru asocierea cu relaxarea). Pentru unde binaurale (alfa 8 Hz): un carrier de bandă îngustă cu binaural beat — obligatoriu căști stereo, fără un zgomot de fundal de spectru larg, care ar masca efectul binaural."
    },
    "mixRatio": {
     "layer1": 65,
     "layer2": 35,
-    "reasoning": "Layer 1 (водещ глас / бинаурален беат / водена медитация): 60–70%. Layer 2 (фонов розов шум или природа): 30–40%. Layer 1 (водещият елемент) е доминантен, защото активното съдържание (глас, бинаурален беат) е терапевтично активното — обратно от „Сън дълбок“, където фонът е активен."
+    "reasoning": "Layer 1 (voce principală / binaural beat / meditație ghidată): 60–70%. Layer 2 (zgomot roz de fundal sau natură): 30–40%. Layer 1 (elementul principal) este dominant, deoarece conținutul activ (voce, binaural beat) este cel terapeutic activ — invers față de „Somn profund“, unde fundalul este cel activ."
    },
-   "expectedEffect": "CBT-I/ACT практики: елиминиране на емоционалната съпротива срещу тинитуса (която поддържа таламо-кортикалната активност); намаляване на хиперфокуса върху слуховия анализатор. Бинаурални вълни (алфа 8 Hz): статистически по-нисък THI скор (Δ=17.33 за TMNMT+BBS vs Δ=9.00 за TMNMT самостоятелно в RCT 2025); по-голям ефект върху депресивните симптоми. ACT като терапия: 54.5% от пациентите поддържат трайно подобрение при 6-месечно проследяване (срещу 20% при TRT); средно намаление на THI с 17.67 точки (мета-анализ).",
+   "expectedEffect": "Practici CBT-I/ACT: eliminarea rezistenței emoționale față de tinitus (care menține activitatea talamo-corticală); reducerea hiperfocusului asupra analizatorului auditiv. Unde binaurale (alfa 8 Hz): un scor THI statistic mai scăzut (Δ=17.33 pentru TMNMT+BBS vs Δ=9.00 pentru TMNMT singur într-un RCT 2025); un efect mai mare asupra simptomelor depresive. ACT ca terapie: 54.5% dintre pacienți mențin o îmbunătățire durabilă la o urmărire de 6 luni (față de 20% la TRT); o reducere medie a THI cu 17.67 puncte (meta-analiză).",
    "safety": [
-    "Бинаурални вълни могат да предизвикат краткотрайно повишаване на раздразнителността, тревожността или главоболието при неподходяща честотна разлика — намалете честотата или прекратете сесията.",
-    "Бинаурални вълни — абсолютно противопоказани при епилепсия или тежки психиатрични разстройства.",
-    "За бинаурални — задължително стерео слушалки.",
-    "Микропрактики: избягвайте едночасови сесии — продължителното фокусиране върху упражнение може парадоксално да увеличи соматичния фокус върху тинитуса и да засили таламо-кортикалната възбуда (exposure fatigue).",
+    "Undele binaurale pot provoca o creștere de scurtă durată a iritabilității, anxietății sau a durerii de cap la o diferență de frecvență nepotrivită — reduceți frecvența sau încheiați sesiunea.",
+    "Unde binaurale — absolut contraindicate în caz de epilepsie sau tulburări psihiatrice grave.",
+    "Pentru binaurale — obligatoriu căști stereo.",
+    "Micropractici: evitați sesiunile de o oră — focalizarea prelungită asupra unui exercițiu poate crește paradoxal focusul somatic asupra tinitusului și poate intensifica excitația talamo-corticală (exposure fatigue).",
     "Disclaimer wellness obligatoriu."
    ],
    "faq": [
     {
-     "q": "Колко дълго трябва да медитирам?",
-     "a": "5–10 мин на сесия е оптимално за CBT-I/ACT микропрактики. Research показва, че 3 кратки тренировки по 3 минути през деня са по-ефективни от една 60-минутна сесия седмично — за невропластична консолидация е критична честотата на активиране, не дължината на единичната сесия. По-дълги сесии могат парадоксално да увеличат соматичния фокус върху тинитуса (exposure fatigue). За бинаурално-аудио сесии: 15–30 мин, 1–2 пъти дневно."
+     "q": "Cât timp trebuie să meditez?",
+     "a": "5–10 min per sesiune este optim pentru micropracticile CBT-I/ACT. Research-ul arată că 3 antrenamente scurte de 3 minute pe parcursul zilei sunt mai eficiente decât o singură sesiune de 60 de minute pe săptămână — pentru consolidarea neuroplastică este critică frecvența de activare, nu durata unei singure sesiuni. Sesiunile mai lungi pot crește paradoxal focusul somatic asupra tinitusului (exposure fatigue). Pentru sesiunile binaural-audio: 15–30 min, de 1–2 ori pe zi."
     },
     {
-     "q": "Нужни ли са специални слушалки?",
-     "a": "За бинаурални вълни — ДА, задължително висококачествени стерео слушалки. При моно източник бинауралният ефект изчезва напълно. За CBT-I/ACT гласови медитации (body scan, дефузия, приемане) — отворени говорители или костно-проводими слушалки също работят."
+     "q": "Sunt necesare căști speciale?",
+     "a": "Pentru undele binaurale — DA, obligatoriu căști stereo de înaltă calitate. La o sursă mono efectul binaural dispare complet. Pentru meditațiile vocale CBT-I/ACT (body scan, defuzie, acceptare) — difuzoarele deschise sau căștile cu conducere osoasă funcționează și ele."
     },
     {
-     "q": "Кога е опасна бинауралната медитация?",
-     "a": "Абсолютно противопоказана при епилепсия или тежки психиатрични разстройства. Може да предизвика при неподходяща честотна разлика: краткотрайно повишаване на раздразнителността, тревожност, главоболие. Ако усетите някое от тези → прекратете и преминете към друг тип медитация (body scan, дефузия). AURALIS е wellness приложение, не медицинско."
+     "q": "Când este periculoasă meditația binaurală?",
+     "a": "Absolut contraindicată în caz de epilepsie sau tulburări psihiatrice grave. Poate provoca, la o diferență de frecvență nepotrivită: o creștere de scurtă durată a iritabilității, anxietate, dureri de cap. Dacă simțiți oricare dintre acestea → încheiați și treceți la un alt tip de meditație (body scan, defuzie). AURALIS este o aplicație de wellness, nu medicală."
     },
     {
      "q": "Când voi simți un efect?",
-     "a": "Различно според типа сесия. CBT-I/ACT микропрактики (5-10 мин дневно): първи терапевтичен отговор в субакутния интервал (11–31 дни) — спад на THI с ≥10 точки при системно прилагане. Бинаурални вълни 8 Hz + сонда терапия: статистически по-голям ефект отколкото сондата сама в RCT 2025 (Δ=17.33 точки THI за комбинирана група спрямо Δ=9.00 за TMNMT самостоятелно). ACT като комплексна терапия 6 месеца: 54.5% от пациентите поддържат трайно подобрение (срещу 20% при TRT); мета-анализ — средно намаление на THI с 17.67 точки."
+     "a": "Diferit în funcție de tipul sesiunii. Micropractici CBT-I/ACT (5-10 min pe zi): primul răspuns terapeutic în intervalul subacut (11–31 de zile) — o scădere a THI cu ≥10 puncte la aplicarea sistematică. Unde binaurale 8 Hz + terapie sonoră: un efect statistic mai mare decât terapia sonoră singură într-un RCT 2025 (Δ=17.33 puncte THI pentru grupul combinat față de Δ=9.00 pentru TMNMT singur). ACT ca terapie complexă timp de 6 luni: 54.5% dintre pacienți mențin o îmbunătățire durabilă (față de 20% la TRT); meta-analiză — o reducere medie a THI cu 17.67 puncte."
     },
     {
-     "q": "Какво ако пропусна няколко дни?",
-     "a": "Не се паникьосвайте. Adaptive Micro-Dosing — продължете със съкратени 2-минутни микропрактики (например 3 дълбоки вдишвания или само отпускане на челюстта). Системата не наказва за пропуски — целта е поддържане на навика, не перфектно придържане. След 4+ дни без сесия — фокусирайте се само на пасивна звукова библиотека („Сън дълбок“, „Ежедневие“), докато се почувствате готови да възстановите активните практики."
+     "q": "Ce se întâmplă dacă ratez câteva zile?",
+     "a": "Nu intrați în panică. Adaptive Micro-Dosing — continuați cu micropractici scurtate de 2 minute (de exemplu, 3 respirații profunde sau doar relaxarea maxilarului). Sistemul nu pedepsește ratările — scopul este menținerea obiceiului, nu o aderență perfectă. După 4+ zile fără sesiune — concentrați-vă doar pe biblioteca sonoră pasivă („Somn profund“, „Zilnic“), până când vă simțiți gata să reluați practicile active."
     },
     {
-     "q": "Може ли с медикаменти?",
-     "a": "Медитацията няма фармакологично взаимодействие. Но при прием на антидепресанти, бензодиазепини или седативи — консултирайте се с лекар за оптимална комбинация. ACT е доказано ефективна дори при пациенти, които не са се повлияли от 6+ месеца TRT терапия — медитативните практики допълват, не заменят медицинско лечение."
+     "q": "Pot folosi în timpul tratamentului medicamentos?",
+     "a": "Meditația nu are interacțiune farmacologică. Dar în cazul administrării de antidepresive, benzodiazepine sau sedative — consultați-vă medicul pentru o combinație optimă. ACT este dovedit eficientă chiar și la pacienții care nu au răspuns la 6+ luni de terapie TRT — practicile meditative completează, nu înlocuiesc un tratament medical."
     },
     {
-     "q": "Кои техники са най-важни?",
-     "a": "Според research, ядрените ACT/CBT-I компоненти за тинитус са: (1) Радикално приемане — спиране на борбата с шума; „Аз ти позволявам да присъстваш тук в момента“. (2) Когнитивна дефузия — преструктуриране на метафорите („пищене“ → „вятър в клоните“). (3) Body scan — намаляване на хиперфокуса върху слуховия анализатор. (4) Екстернализация на вниманието — пренасочване от вътрешни към външни стимули. (5) Редукция на избягващото поведение — извършване на дейности, които сте избягвали заради страх от засилване на тинитуса."
+     "q": "Care tehnici sunt cele mai importante?",
+     "a": "Conform research-ului, componentele de bază ACT/CBT-I pentru tinitus sunt: (1) Acceptare radicală — încetarea luptei cu zgomotul; „Îți permit să fii prezent aici în acest moment“. (2) Defuzie cognitivă — restructurarea metaforelor („țiuit“ → „vânt prin crengi“). (3) Body scan — reducerea hiperfocusului asupra analizatorului auditiv. (4) Externalizarea atenției — redirecționarea de la stimuli interni către cei externi. (5) Reducerea comportamentului de evitare — efectuarea unor activități pe care le-ați evitat de frica intensificării tinitusului."
     }
    ],
    "scientificBasis": [
     "Fișier 'Program cognitiv-comportamental optimizat de două săptămâni pentru gestionarea inițială a tinitusului cronic'",
     "Fișier 'Analiza eficacității clinice, a spectrelor de frecvență și a mecanismelor neurobiologice ale terapiei sonore în tinitusul subiectiv (perioada 2020-2026)'",
-    "Файл 'Клиничен доклад за прилагане на Терапия за приемане и обвързване (ACT) при пациенти над 50-годишна възраст с хроничен субективен тинитус'",
+    "Fișier 'Raport clinic privind aplicarea Terapiei de acceptare și angajament (ACT) la pacienții cu vârsta de peste 50 de ani cu tinitus subiectiv cronic'",
     "Fișier 'Neurobiologia detaliată și terapia insomniei la pacienții cu tinitus cronic'"
    ]
   }
  },
  "thi": {
-  "title": "THI оценка",
+  "title": "Evaluare THI",
   "progressFmt": "Întrebarea {n} din {total}",
   "options": {
-   "yes": "Да",
+   "yes": "Da",
    "sometimes": "Понякога",
    "no": "Не"
   },
