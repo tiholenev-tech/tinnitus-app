@@ -1,0 +1,2533 @@
+{
+ "_meta": {
+  "locale": "bg",
+  "name": "Български",
+  "rtl": false,
+  "version": "1.0.0",
+  "status": "complete (beta)",
+  "note": "BG е reference complete за beta. Други езици се generate-ват от bg.json чрез DeepL Pro в Phase 2."
+ },
+ "ui": {
+  "meta": {
+   "title": "tinnitus-app",
+   "description": "Strumento di rilassamento uditivo per l'acufene"
+  },
+  "header": {
+   "brandHomeAria": "Alla pagina iniziale",
+   "themeToggleAria": "Cambia tema",
+   "settingsAria": "Impostazioni"
+  },
+  "onboarding": {
+   "back": "Indietro",
+   "progressLabel": "Passo {step} di 3",
+   "welcome": {
+    "title": "Controlla il rumore.<br>Ritrova la calma.",
+    "subtitle": "Una libreria di suoni scelta apposta per chi ha il fischio nelle orecchie.<br>Versione beta gratuita — senza pubblicità, senza abbonamento.",
+    "cta": "Inizia"
+   },
+   "value": {
+    "title": "Cosa otterrai",
+    "beta": {
+     "title": "Questa è una versione beta",
+     "text": "Sei tra i primi tester. Il tuo feedback aiuterà a migliorare l'app."
+    },
+    "cards": {
+     "mixer": {
+      "heading": "Mix sonoro personalizzato",
+      "body": "In base al tuo profilo di acufene."
+     },
+     "chart": {
+      "heading": "Diario dei progressi",
+      "body": "Vedi i tuoi miglioramenti con i numeri."
+     },
+     "voice": {
+      "heading": "Assistente vocale",
+      "body": "Senza scrivere, senza complicazioni."
+     }
+    },
+    "timeline": {
+     "relief": {
+      "label": "Primi segni di sollievo:",
+      "value": "14–21 giorni"
+     },
+     "habituation": {
+      "label": "Abituazione completa:",
+      "value": "8–12 settimane"
+     }
+    },
+    "disclaimerSoft": "Non promettiamo miracoli. Alleniamo il cervello a ignorare il suono.",
+    "cta": "Continua"
+   },
+   "consent": {
+    "title": "Importante prima di continuare",
+    "intro": "tinnitus-app è uno strumento di rilassamento uditivo.",
+    "lines": {
+     "noReplaceConsult": "Non sostituisce il parere medico",
+     "noTreatment": "Non cura l'acufene",
+     "helpsHabituation": "Aiuta l'abituazione e il rilassamento",
+     "resultsVary": "I risultati variano da persona a persona"
+    },
+    "footer": "In caso di sintomi acuti consulta un medico.",
+    "checkboxLabel": "Ho capito e sono d'accordo",
+    "cta": "Continua alla valutazione"
+   }
+  },
+  "mixer": {
+   "tabs": {
+    "recommended": "Consigliati",
+    "all": "Tutti i suoni"
+   },
+   "profilePillPrefix": "Per il tuo profilo: ",
+   "starTag": "Il migliore per te",
+   "volumeAria": "Volume da 0 a 100",
+   "playAria": "Riproduci {title}",
+   "playGenericAria": "Riproduci",
+   "infoAria": "Informazioni",
+   "infoLoadingMissing": "Le informazioni si stanno caricando... (voce \"{key}\" non trovata).",
+   "categoriesLoading": "Caricamento...",
+   "categoryCountSuffix": "{n} file",
+   "sleepBtn": "Timer Sleep",
+   "sleepBtnAria": "Timer Sleep",
+   "sleepCurrentSuffix": "· {n} min",
+   "sourcePrefix": "Fonte: ",
+   "infoToggle": "Vuoi saperne di più?",
+   "sleepOverlay": {
+    "title": "Timer Sleep",
+    "sub": "Il suono si fermerà gradualmente dopo il tempo scelto",
+    "chip15": "15 minuti",
+    "chip30": "30 minuti",
+    "chip60": "60 minuti",
+    "chip120": "120 minuti",
+    "cancel": "Annulla il timer"
+   },
+   "infoExpand": {
+    "whyForYou": {
+     "title": "Perché questi mix per te",
+     "body": "Il tuo profilo ({code} — {name}) risponde meglio a suoni con uno spettro che si sovrappone in parte all'acufene. L'obiettivo è un'abituazione graduale — abituare il cervello a sentirlo meno col tempo."
+    },
+    "expectations": {
+     "title": "Cosa aspettarsi",
+     "weeks1_2": {
+      "label": "Settimana 1–2",
+      "text": "Addormentarsi più facilmente. L'acufene è ancora presente, ma meno invadente."
+     },
+     "weeks3_4": {
+      "label": "Settimana 3–4",
+      "text": "Inizi a dimenticare l'acufene durante il lavoro tranquillo. Migliore concentrazione."
+     },
+     "months2_3": {
+      "label": "Mese 2–3",
+      "text": "Abituazione — l'acufene si allontana dall'attenzione cosciente per lunghi periodi."
+     }
+    },
+    "disclaimer": [
+     "AURALIS è uno strumento di benessere, non un prodotto medico.",
+     "In caso di sintomi acuti (perdita improvvisa dell'udito, vertigini) consulta un medico ORL.",
+     "Ascolta a volume moderato — il suono non deve mai coprire del tutto l'acufene."
+    ]
+   },
+   "cards": {
+    "underwater": {
+     "title": "Silenzio sottomarino",
+     "subtitle": "Frequenze profonde · 60–120 Hz"
+    },
+    "deep_calm": {
+     "title": "Sonno profondo",
+     "subtitle": "60% brown noise · 30% onde · 10% delta"
+    },
+    "sea_shore": {
+     "title": "Riva del mare",
+     "subtitle": "Onde lente in lontananza"
+    },
+    "pink_rain": {
+     "title": "Pioggia leggera",
+     "subtitle": "Pioggia primaverile nella foresta"
+    },
+    "brown_noise": {
+     "title": "Pink noise",
+     "subtitle": "Rumore terapeutico di base"
+    }
+   }
+  },
+  "quiz": {
+   "back": "Назад",
+   "progressText": "Въпрос {n} от {total}",
+   "progressAria": "Прогрес {n} от {total}",
+   "errorQuestionMissing": "Грешка: въпрос {n} не съществува.",
+   "confirmRestart": "Сигурни ли сте? Това ще изтрие всички отговори и ще започне отначало.",
+   "results": {
+    "computing": "Изчисляване...",
+    "notComputed": "Профилът все още не е изчислен.",
+    "startOver": "Започни отначало",
+    "eyebrow": "Вашият профил",
+    "diEyebrow": "Ниво на дискомфорт",
+    "diSuffix": "/ 20",
+    "intensityLabel": "Препоръчителен интензитет:",
+    "mixesTitle": "Препоръчани миксове",
+    "disclaimer": "Този профил е базиран на Вашите отговори. Можете да го промените по-късно в настройките.",
+    "continueToMixer": "Продължи към Mixer",
+    "restart": "Започни оценката отначало"
+   },
+   "mixerPlaceholder": {
+    "title": "Mixer следва",
+    "body": "Web Audio engine + 5 канала + Sleep Mode идват в следваща задача.",
+    "reset": "Нулирай всичко"
+   }
+  },
+  "settings": {
+   "title": "Impostazioni",
+   "openAria": "Apri impostazioni",
+   "closeAria": "Chiudi impostazioni",
+   "back": "Indietro",
+   "lang": {
+    "label": "Lingua",
+    "active": "attiva",
+    "preview": "anteprima",
+    "todo": "traduzione in arrivo",
+    "names": {
+     "bg": "Български",
+     "en": "English",
+     "it": "Italiano",
+     "zh": "中文 (简体)",
+     "hi": "हिन्दी",
+     "es": "Español",
+     "ar": "العربية",
+     "pt": "Português",
+     "ru": "Русский",
+     "fr": "Français",
+     "de": "Deutsch",
+     "ja": "日本語",
+     "ko": "한국어"
+    }
+   },
+   "theme": {
+    "label": "Tema",
+    "light": "Chiaro",
+    "dark": "Scuro",
+    "auto": "Automatico"
+   },
+   "volume": {
+    "label": "Volume",
+    "aria": "Volume da 0 a 100"
+   },
+   "data": {
+    "label": "I miei dati",
+    "export": "Scarica tutto (JSON)",
+    "exportFilename": "auralis-data-{date}.json",
+    "delete": "Elimina tutti i dati",
+    "deleteConfirm": "Sei sicuro? Questo eliminerà il quiz, i preferiti, il diario e tutte le impostazioni. L'azione è irreversibile.",
+    "debugResetTrial": "Reset trial period (debug)",
+    "debugResetDone": "Trial reset ✓",
+    "debugSkipOnboarding": "Skip onboarding → Library (debug)",
+    "debugResetOnboarding": "Reset onboarding (debug)",
+    "debugMockQuiz": "Mock quiz: TH_C profile → Library (debug)"
+   },
+   "about": {
+    "label": "Informazioni sull'app",
+    "version": "AURALIS · versione {v} (beta) · 2026",
+    "disclaimer": "Strumento di benessere, non sostituisce il medico.",
+    "privacyLink": "Informativa sulla privacy",
+    "termsLink": "Termini di servizio"
+   }
+  },
+  "trial": {},
+  "audio": {
+   "error": {
+    "notFound": "Impossibile caricare il suono",
+    "network": "Controlla la connessione internet",
+    "decode": "Impossibile riprodurre il file"
+   }
+  },
+  "components": {
+   "infoPanel": {
+    "readMore": "Leggi di più",
+    "readLess": "Mostra meno",
+    "citationsLabel": "Fonti",
+    "faqLabel": "Domande frequenti",
+    "expandQuestionAria": "Mostra la risposta a: {question}",
+    "collapseQuestionAria": "Nascondi la risposta a: {question}"
+   },
+   "noisePicker": {
+    "title": "Scegli il rumore di fondo",
+    "close": "Chiudi",
+    "infoAria": "Informazioni su: {name}",
+    "options": {
+     "none": "Senza sfondo",
+     "brown_pure": "Marrone (puro)",
+     "brown_lp1000": "Marrone · filtro 1000 Hz",
+     "brown_lp500": "Marrone · filtro 500 Hz",
+     "pink_pure": "Rosa (puro)",
+     "pink_lp2000": "Rosa · filtro 2000 Hz",
+     "pink_lp4000": "Rosa · filtro 4000 Hz"
+    }
+   },
+   "player": {
+    "backAria": "Torna alla libreria",
+    "layer1Label": "Suono principale",
+    "layer2Label": "Rumore di fondo",
+    "noiseChange": "Cambia sfondo",
+    "pauseAria": "Pausa",
+    "playAria": "Riproduci",
+    "sleepAria": "Modalità notte",
+    "sosAria": "Respirazione SOS",
+    "noLayer2": "Senza sfondo"
+   }
+  },
+  "noises": {
+   "none": {
+    "title": "Senza sfondo",
+    "description": "Senza secondo livello sonoro."
+   },
+   "brown_pure": {
+    "title": "Brown noise (puro)",
+    "description": "Rumore morbido e profondo con enfasi sulle basse frequenze (1/f²). Adatto al rilassamento e all'addormentamento. Spesso usato da chi ha acufene a tonalità alta."
+   },
+   "brown_lp1000": {
+    "title": "Brown lowpass 1000 Hz",
+    "description": "Brown noise filtrato — rimosse le frequenze sopra i 1000 Hz. Suono più morbido e di sfondo. Buono per la concentrazione prolungata."
+   },
+   "brown_lp500": {
+    "title": "Brown lowpass 500 Hz",
+    "description": "Brown noise filtrato fino a frequenze molto basse (sotto i 500 Hz). Più un rombo profondo che un rumore."
+   },
+   "pink_pure": {
+    "title": "Pink noise (puro)",
+    "description": "Rumore naturale (1/f). Simile a pioggia leggera o vento. Uno dei tipi di rumore più studiati per il sonno."
+   },
+   "pink_lp2000": {
+    "title": "Pink lowpass 2000 Hz",
+    "description": "Pink noise filtrato — senza il sibilo delle alte frequenze. Più morbido e piacevole per l'ascolto prolungato."
+   },
+   "pink_lp4000": {
+    "title": "Pink lowpass 4000 Hz",
+    "description": "Pink noise con alte frequenze leggermente attenuate. Mantiene la texture della pioggia, senza asprezza."
+   }
+  },
+  "library": {
+   "title": "Libreria di suoni",
+   "cat_audio": {
+    "ocean": "Onde",
+    "rain": "Pioggia",
+    "river": "Fiume",
+    "underwater": "Sott'acqua",
+    "wind": "Vento",
+    "forest": "Foresta",
+    "fire": "Fuoco",
+    "meditation": "Meditazione",
+    "noise": "Rumore",
+    "ambient": "Ambiente",
+    "waves": "Onde",
+    "waterfall": "Cascata",
+    "music": "Meditazione"
+   },
+   "loading": "Caricamento...",
+   "empty": "Presto altri suoni",
+   "errorManifest": "Errore nel caricamento della libreria.",
+   "search": {
+    "placeholder": "Cerca un suono...",
+    "noResults": "Nessun suono trovato per \"{query}\"",
+    "clearAria": "Cancella la ricerca"
+   },
+   "favorites": {
+    "label": "Preferiti",
+    "count": "{n}",
+    "empty": "Premi ♡ su un suono per salvarlo qui"
+   },
+   "cat": {
+    "all": "Tutti",
+    "ocean": "Oceano",
+    "rain": "Pioggia",
+    "river": "Fiume",
+    "underwater": "Sott'acqua",
+    "wind": "Vento",
+    "forest": "Foresta",
+    "fire": "Fuoco",
+    "meditation": "Meditazione",
+    "noise": "Rumori",
+    "ambient": "Ambient"
+   },
+   "card": {
+    "durationFmt": "{m}:{s}",
+    "playAria": "Riproduci {title}",
+    "favoriteAddAria": "Aggiungi {title} ai preferiti",
+    "favoriteRemoveAria": "Rimuovi {title} dai preferiti"
+   },
+   "player": {
+    "playing": "In riproduzione",
+    "paused": "In pausa",
+    "playAria": "Riproduci",
+    "pauseAria": "Pausa",
+    "nextAria": "Suono successivo",
+    "expandAria": "Espandi il lettore"
+   },
+   "sounds": {
+    "sample_ocean_01": {
+     "title": "Mare lontano",
+     "subtitle": "Onde calme in lontananza"
+    },
+    "sample_rain_01": {
+     "title": "Pioggia leggera",
+     "subtitle": "Pioggia primaverile costante"
+    },
+    "sample_underwater_01": {
+     "title": "Silenzio sottomarino",
+     "subtitle": "Frequenze profonde · 60–120 Hz"
+    },
+    "sample_deep_01": {
+     "title": "Ambient profondo",
+     "subtitle": "Sfondo di bassi tranquillo"
+    },
+    "sample_pink_01": {
+     "title": "Pink noise",
+     "subtitle": "Generato in tempo reale"
+    },
+    "sample_river_01": {
+     "title": "Torrente di montagna",
+     "subtitle": "Placeholder (audio in arrivo)"
+    },
+    "sample_forest_01": {
+     "title": "Mattino nella foresta",
+     "subtitle": "Placeholder (audio in arrivo)"
+    },
+    "sample_meditation_01": {
+     "title": "Subconscio",
+     "subtitle": "Sonno profondo · meditazione guidata",
+     "author": "Anna Landström"
+    },
+    "sample_meditation_02": {
+     "title": "Campane tibetane",
+     "subtitle": "Rilassamento · armonici",
+     "author": "Luba Hilman"
+    },
+    "sample_meditation_03": {
+     "title": "Body scan",
+     "subtitle": "Rilassamento progressivo",
+     "author": "Hanna Lindgren"
+    },
+    "sample_meditation_04": {
+     "title": "Respiro 4-7-8",
+     "subtitle": "Breve meditazione prima di dormire",
+     "author": "AURALIS"
+    },
+    "sample_meditation_05": {
+     "title": "Foresta al mattino",
+     "subtitle": "Natura · 30 min",
+     "author": "Joseph Beg"
+    }
+   }
+  },
+  "sleep": {
+   "title": "Modalità notte",
+   "closeAria": "Esci dalla modalità notte",
+   "nothingPlaying": "Scegli un suono dalla libreria",
+   "openLibrary": "Alla libreria",
+   "timer": {
+    "label": "Timer di spegnimento",
+    "off": "Senza timer",
+    "min15": "15 min",
+    "min30": "30 min",
+    "min60": "1 ora",
+    "min90": "1,5 ore",
+    "min120": "2 ore",
+    "stopTime": "Spegnimento: {time}"
+   },
+   "sos": {
+    "button": "Respirazione anti-panico",
+    "subtitle": "Premi in caso d'ansia"
+   }
+  },
+  "sos": {
+   "openAria": "Apri respirazione SOS",
+   "closeAria": "Ferma l'esercizio",
+   "inhale": "INSPIRA",
+   "hold": "TRATTIENI",
+   "exhale": "ESPIRA",
+   "pause": "—",
+   "cycle": "Ciclo {n} di {total}",
+   "stop": "Ferma l'esercizio",
+   "instructionsTop": "Respira lentamente con il naso",
+   "end": {
+    "title": "Ti senti meglio?",
+    "yes": "Sì, grazie",
+    "again": "Un altro ciclo"
+   }
+  },
+  "privacy": {
+   "title": "Политика за поверителност",
+   "lastUpdated": "Последна актуализация: 24 май 2026",
+   "intro": "AURALIS уважава Вашата поверителност. Този документ обяснява простичко какво (НЕ) събираме и какво се случва с данните Ви.",
+   "collection": {
+    "title": "Какво събираме",
+    "text": "AURALIS НЕ събира лични данни. Всичко работи на Вашето устройство. Няма account регистрация, няма имейл, няма телефон."
+   },
+   "storage": {
+    "title": "Къде се пазят данните",
+    "text": "Всички данни (квиз отговори, дневник, любими, история на слушане) се пазят само в браузъра или приложението на Вашето устройство (localStorage / app sandbox). Когато изтриете приложението — данните изчезват с него."
+   },
+   "sharing": {
+    "title": "Споделяне",
+    "text": "Ние НЕ споделяме данни с трети страни. Няма analytics, няма advertising trackers, няма cookies от трети страни. Няма облачен сървър, на който да изпращаме нещо."
+   },
+   "gdpr": {
+    "title": "Вашите права (GDPR)",
+    "text": "Можете да изтеглите всички свои данни като JSON по всяко време (Настройки → Моите данни → Изтегли всичко). Можете да изтриете всички данни с един бутон. Понеже не пазим нищо на сървър, няма какво да изискваме отделно."
+   },
+   "platform": {
+    "title": "Google Play / App Store",
+    "text": "При инсталация от Google Play или App Store, платформата може да обработва Вашия email и платежна информация — това е тяхна отговорност, не нашата. Прочетете техните политики отделно."
+   },
+   "contact": {
+    "title": "Контакт",
+    "email": "tiholenev@gmail.com"
+   },
+   "body": "AURALIS е инструмент за слухова релаксация. Не лекува тинитус и не заменя медицинска консултация.\n\nВсички Ваши данни (квиз отговори, дневник, любими, история на слушане) се пазят локално на устройството Ви.\n\nНие не събираме нищо. Не изпращаме никакви данни към сървър. Няма tracking, няма analytics, няма cookies от трети страни.\n\nМожете да изтриете всички свои данни по всяко време от Настройки → Моите данни → Изтрий всички данни.\n\nПри инсталация от Google Play / App Store, платформата може да обработва Вашия email и платежна информация — това е тяхна отговорност, не нашата.\n\nПри въпроси: tiholenev@gmail.com"
+  },
+  "terms": {
+   "title": "Условия за ползване",
+   "lastUpdated": "Последна актуализация: 24 май 2026",
+   "intro": "С отварянето на AURALIS приемате тези условия. Те са кратки и прости.",
+   "wellness": {
+    "title": "Wellness, не медицинско приложение",
+    "text": "AURALIS е инструмент за слухова релаксация. Помага за хабитуация (свикване) с тинитуса чрез звуково обогатяване, дишане и водени медитации. НЕ е медицинско изделие. НЕ заменя лекар, диагноза или предписана терапия."
+   },
+   "disclaimer": {
+    "title": "Дисклеймър за здравето",
+    "text": "При интензивен или внезапен тинитус (особено в едно ухо, с виене на свят или загуба на слуха) се консултирайте със специалист по уши-нос-гърло (УНГ). При мисли за самонараняване или тежка депресия — потърсете незабавно професионална помощ."
+   },
+   "volume": {
+    "title": "Сила на звука",
+    "text": "Слушайте на умерена сила. Не позволявайте звукът напълно да заглушава тинитуса (това би било вредно при дългосрочно ползване). Препоръчителна сила: при слушалки около 30–40 % от max."
+   },
+   "noWarranty": {
+    "title": "Без гаранция за резултат",
+    "text": "AURALIS НЕ гарантира намаление на тинитуса. Резултатите варират индивидуално. Цитираните проучвания са референция, не обещание."
+   },
+   "license": {
+    "title": "Лиценз за ползване",
+    "text": "С плащане получавате лично право да ползвате AURALIS на Вашите устройства. Не може да препродавате, decompile-вате или преразпространявате приложението."
+   },
+   "changes": {
+    "title": "Промени",
+    "text": "Можем да актуализираме приложението с нови звуци, поправки и функционалности. Тези Условия може да се променят — ще видите датата по-горе при всяка нова версия."
+   }
+  },
+  "calm": {
+   "categoryLabel": "Meditazione",
+   "playerAria": "Lettore per la meditazione",
+   "closeAria": "Chiudi il lettore",
+   "playAria": "Riproduci",
+   "pauseAria": "Pausa",
+   "missingFile": "File audio mancante (placeholder per lo sviluppo UI).",
+   "ended": "Completata",
+   "endedSub": "Ritorno alla libreria..."
+  },
+  "diary": {
+   "title": "Дневник",
+   "openAria": "Отвори дневника",
+   "closeAria": "Затвори дневника",
+   "today": "Днес, {date}",
+   "q": {
+    "sleep": "Колко часа спахте?",
+    "sleepHoursSuffix": "{n} ч",
+    "tinnitus": "Тинитусът днес:",
+    "tinnitusLow": "Тих",
+    "tinnitusHigh": "Силен",
+    "stress": "Стресът днес:",
+    "stressLow": "Спокоен",
+    "stressHigh": "Тревожен"
+   },
+   "save": "Запиши днешния запис",
+   "saveUpdate": "Обнови днешния запис",
+   "saved": "Записано",
+   "history": {
+    "label": "История",
+    "range7": "7 дни",
+    "range30": "30 дни",
+    "range90": "90 дни"
+   },
+   "chart": {
+    "sleep": "Сън (часове)",
+    "tinnitus": "Тинитус (0-10)",
+    "stress": "Стрес (0-10)",
+    "avg": "Средно: {n}",
+    "noData": "Няма записи в този период"
+   },
+   "insights": {
+    "title": "Какво забелязваме",
+    "betterWithSleep": "Когато спите повече от 7 часа, тинитусът е средно с {delta} точки по-нисък.",
+    "moreStressMoreTinnitus": "Когато стресът е над 6, тинитусът е средно с {delta} точки по-висок.",
+    "needMoreData": "Запишете поне 7 дни за да видите тенденции."
+   },
+   "empty": "Започнете да записвате днес — само 3 въпроса, 30 секунди.",
+   "export": "Изтегли история (JSON)",
+   "exportFilename": "auralis-diary-{date}.json",
+   "evening": {
+    "title": "Вечерен дневник",
+    "questionIndexFmt": "{n} / {total}",
+    "save": "Запиши",
+    "cancel": "Откажи",
+    "savedToast": "Записано",
+    "questions": {
+     "noise_intensity": "Колко силен беше шумът днес?",
+     "noise_distress": "Колко ви пречеше шумът?",
+     "calm": "Колко спокоен се чувствахте?",
+     "mood": "Какво беше настроението ви?",
+     "sleep_last_night": "Как беше съня снощи?"
+    },
+    "noteLabel": "Бележка за деня (по избор)",
+    "notePlaceholder": "Една кратка мисъл за днес — например „променливо: сутрин 4, вечер 2\"."
+   },
+   "validation": {
+    "fillAllHint": "Попълнете всички плъзгачи, за да продължите.",
+    "incomplete": "Все още не сте попълнили всички въпроси."
+   },
+   "import": {
+    "button": "Импорт на дневник (JSON)",
+    "fileAria": "Изберете JSON файл за импорт",
+    "successFmt": "Импортирани {imported} записа ({skipped} пропуснати).",
+    "errorEmpty": "Файлът е празен или невалиден.",
+    "errorParse": "Файлът не е валиден JSON. Проверете формата и опитайте отново.",
+    "errorFormat": "Файлът не съдържа очаквания формат на дневник.",
+    "confirmReplace": "Имате {n} записа. Импортът ще ги слее с файла (запазват се по-новите). Продължи?"
+   },
+   "hub": {
+    "cbtLocked24hToast": "Ден {n} ще е достъпен утре. Този материал работи най-добре, когато оставите време между дните.",
+    "timezoneChangedBanner": "Часовата зона се промени на {tz}. Следващите записи ще използват новата зона.",
+    "timezoneDismissAria": "Затвори съобщението за часова зона",
+    "listenNudgeTitle": "Не сте слушали звуци още",
+    "listenNudgeBody": "Звуковото обогатяване е една от опорите на 14-дневния модул. Можете да опитате кратка сесия сега — само 5 минути.",
+    "listenNudgeCta": "Опитай 5 минути",
+    "listenNudgeSkip": "По-късно",
+    "missedYesterday": "Вчера не успяхте да попълните дневника. Това е напълно нормално. Ден {n} Ви чака — можете да го направите днес или просто да продължите.",
+    "missedYesterdayCta": "Попълни Ден {n} със закъснение",
+    "missedYesterdaySkip": "Прескочи към днешния ден",
+    "microDoseTitle": "Ние сме тук.",
+    "microDoseBody": "Започнете отново — с 2 минути. Просто 3 спокойни вдишвания или един ред в дневника.",
+    "microDoseCta": "Започни 2-минутна доза",
+    "softCheckTitle": "Какво се случи?",
+    "softCheckBody": "Виждаме, че Ви няма от няколко дни. Не сте задължен да отговорите, но ще ни помогне да Ви бъдем полезни.",
+    "softCheckOpt1": "Бях зает",
+    "softCheckOpt2": "Чувствах се по-зле",
+    "softCheckOpt3": "Технически проблем",
+    "softCheckOpt4": "Не беше за мен",
+    "softCheckSkip": "Прескочи",
+    "softCheckSavedToast": "Благодарим за отговора. AURALIS остава с Вас.",
+    "softCheckWorseAdvice": "Чувствата Ви са важни. Може да е добра идея да говорите с лекар или специалист.",
+    "lateEntrySavedToast": "Записан със закъснение"
+   },
+   "edge": {
+    "nightHintTitle": "Не успявате да заспите?",
+    "nightHintBody": "Това е чест момент при тинитус. Можете да попълните дневника сега, или вместо това да изберете тиха звукова сесия.",
+    "confirmAllMaxTitle": "Точно ли е?",
+    "confirmAllMaxBody": "Отбелязахте най-високата стойност на всички въпроси. Сигурни ли сте, че така са били усещанията Ви днес?",
+    "confirmYes": "Да, запиши",
+    "confirmFix": "Поправи",
+    "resumeDraftTitle": "Имате незавършен запис",
+    "resumeDraftBody": "Желаете ли да продължите от там, където спряхте?",
+    "resumeYes": "Продължи",
+    "resumeStartOver": "Започни отначало",
+    "highDistress3d": "През последните 3 дни сте отчели висок дистрес. AURALIS е wellness инструмент, не медицински. Ако се чувствате претоварен, можете да обмислите консултация със специалист.",
+    "multiEntryHint": "Виждаме, че днес попълвате и сутрешния, и вечерния запис заедно. Това е окей. Обикновено вечерният се прави след 20:00.",
+    "saveDraftFailed": "Не успяхме да запазим автоматично. Натиснете „Запиши\" преди да затворите."
+   }
+  }
+ },
+ "science": {
+  "title": "Научна основа",
+  "subtitle": "AURALIS — защо работи",
+  "openLabel": "Научна основа",
+  "closeAria": "Затвори научната основа",
+  "pillsAria": "Секции",
+  "pills": {
+   "s1": "Общо",
+   "s2": "THI",
+   "s3": "Pitch",
+   "s4": "Notch ★",
+   "s5": "Звук",
+   "s6": "Безопасност",
+   "s7": "Източници"
+  },
+  "s1": {
+   "title": "Защо AURALIS работи",
+   "subtitle": "Научна основа на терапията",
+   "intro": "AURALIS е дигитално приложение за управление на хроничен субективен тинитус. Не е лекарство. Не замества медицински преглед. Но методите вътре са базирани на 14 рандомизирани клинични изпитвания (RCT) и одобрени от FDA устройства.",
+   "doTitle": "Какво правим:",
+   "do1": "Измерваме тежестта на тинитуса Ви с THI — клинично валидирана скала от 1996.",
+   "do2": "Намираме точната Ви тинитус честота с pitch matching тест (двоично търсене).",
+   "do3": "Премахваме точно тази честота от всичките терапевтични звуци — нарича се „Notched Sound Therapy\".",
+   "do4": "Слушате тези звуци по 30–60 минути на ден.",
+   "expectTitle": "Какво очаквате:",
+   "stat1": "−8.6 точки THI",
+   "stat1Label": "На 3-тия месец (14-RCT meta-analysis)",
+   "stat2": "−24.6 точки THI",
+   "stat2Label": "На 6-тия месец (същата meta-analysis)",
+   "stat3": "−28 точки THI",
+   "stat3Label": "Lenire FDA-одобрено устройство, 12 седмици (real-world 2025–2026)",
+   "ctaSources": "Виж научните източници"
+  },
+  "s2": {
+   "title": "THI: какво мерим",
+   "subtitle": "Tinnitus Handicap Inventory (Newman et al., 1996)",
+   "paragraphs": [
+    "Tinnitus Handicap Inventory (THI) е създаден през 1996 г. от Newman, Jacobson и Spitzer — психометрично валидиран въпросник за оценка на тежестта на тинитуса.",
+    {
+     "type": "h3",
+     "text": "25 въпроса, разделени в 3 категории:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Функционални (11 въпр.): концентрация, сън, работа",
+      "Емоционални (9 въпр.): тревожност, гняв, фрустрация",
+      "Катастрофизиращи (5 въпр.): чувство за безнадеждност"
+     ]
+    },
+    "Точки: Да = 4, Понякога = 2, Не = 0. Общ резултат: 0–100.",
+    {
+     "type": "h3",
+     "text": "Класификация (British Association of Otolaryngologists):"
+    },
+    {
+     "type": "list",
+     "items": [
+      "0–16: Слабо",
+      "18–36: Леко",
+      "38–56: Умерено",
+      "58–76: Тежко",
+      "78–100: Катастрофично"
+     ]
+    },
+    {
+     "type": "note",
+     "text": "Клинично значимо подобрение (MCID): минимум 7 точки спад. Това е установеният праг за реална промяна."
+    },
+    "Защо го правим: измерване ПРЕДИ терапия + ПОВТАРЯНЕ след 14 дни — за да виждате обективен прогрес, не само субективно усещане."
+   ]
+  },
+  "s3": {
+   "title": "Pitch Matching",
+   "subtitle": "Намиране на Вашата тинитус честота",
+   "paragraphs": [
+    "Тинитусът има „тон\" — една или няколко основни честоти. За повечето хора с тонален тинитус това е между 1000 и 12000 Hz (обикновено в средно-високите честоти).",
+    {
+     "type": "h3",
+     "text": "Нашият метод: 2AFC binary search"
+    },
+    "Two-Alternative Forced Choice — стандартен психофизичен метод за определяне на прагови честоти.",
+    {
+     "type": "h3",
+     "text": "Как работи:"
+    },
+    {
+     "type": "ol",
+     "items": [
+      "Чувате Тон А и Тон Б (две различни честоти).",
+      "Избирате кой е по-близо до Вашия тинитус.",
+      "Системата стеснява диапазона по двоична логика.",
+      "След 3–4 итерации намираме честотата с точност ±1/4 octave."
+     ]
+    },
+    {
+     "type": "note",
+     "text": "Защо binary search: log₂(12 възможни честоти) ≈ 3–4 итерации. Минимум tap-ове, максимум точност."
+    }
+   ]
+  },
+  "s4": {
+   "title": "Notched Therapy",
+   "subtitle": "Терапевтичното сърце на AURALIS",
+   "paragraphs": [
+    {
+     "type": "h3",
+     "text": "Принцип"
+    },
+    "При продължително слушане на звук с премахната Ваша тинитус честота, мозъкът прави „re-mapping\" на слуховия кортекс. Невроните, отговорни за phantom тон, постепенно намаляват активността си.",
+    {
+     "type": "h3",
+     "text": "Технически"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Notch филтър (Web Audio BiquadFilterNode тип „notch\")",
+      "Q фактор = 2.871 (стандарт за 1/2 octave bandwidth)",
+      "Центриран точно на Вашата pitch честота"
+     ]
+    },
+    {
+     "type": "h3",
+     "text": "Валидиран в:"
+    },
+    "Pantev et al. (2012) — „Tailor-made notched music training for tinnitus\", Frontiers in Systems Neuroscience. Първото RCT, показало значимо намаление при 6 месеца ежедневно слушане.",
+    "Stein et al. (2015) — Repeated follow-up. Потвърждава дългосрочни ефекти.",
+    {
+     "type": "h3",
+     "text": "Notched Therapy Meta-analysis (2025):"
+    },
+    {
+     "type": "list",
+     "items": [
+      "14 RCT, общо 793 пациенти",
+      "3 месец: −8.6 THI точки (95% CI)",
+      "6 месец: −24.6 THI точки",
+      "Терапевтичният ефект НАРАСТВА с дългосрочна употреба",
+      "По-добра поносимост от TRT (Tinnitus Retraining Therapy)"
+     ]
+    }
+   ]
+  },
+  "s5": {
+   "title": "Звукова терапия",
+   "subtitle": "256 проби, 10 категории, 2 layer-а",
+   "paragraphs": [
+    "AURALIS използва 256 терапевтични звукови проби, организирани в 10 категории: Океан, Дъжд, Река, Подводен, Вятър, Медитация, Гора, Огън, Околни, Шум.",
+    {
+     "type": "h3",
+     "text": "Всеки звук:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Преминава през notch филтър (премахва Вашата честота)",
+      "Loop-friendly (без crossfade артефакти)",
+      "Нормализиран по LUFS (постоянна сила)"
+     ]
+    },
+    {
+     "type": "h3",
+     "text": "Два слоя:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Layer 1 (основен звук): природа, музика, медитация",
+      "Layer 2 (фонов шум): розов или кафяв (генерира се в реално време)"
+     ]
+    },
+    "Защо двата слоя: розов/кафяв шум осигурява постоянна „маскираща\" основа. Природните звуци дават емоционално приятно преживяване. Комбинацията увеличава compliance (продължителното слушане).",
+    {
+     "type": "h3",
+     "text": "Препоръчителна продължителност:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Минимум 30 минути на ден",
+      "Идеално 60–120 минути",
+      "14 дни въвеждаща програма",
+      "12 седмици пълен курс за измерим резултат"
+     ]
+    }
+   ]
+  },
+  "s6": {
+   "title": "Безопасност и поверителност",
+   "subtitle": "Какво остава на телефона Ви",
+   "paragraphs": [
+    {
+     "type": "h3",
+     "text": "Безопасност"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Всички звуци са нормализирани под 70 dB SPL (безопасно ниво)",
+      "Препоръчваме затворени слушалки за чистота",
+      "Спрете слушане ако чувствате неудобство"
+     ]
+    },
+    {
+     "type": "h3",
+     "text": "Поверителност"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Всички Ваши данни остават на устройството Ви (localStorage)",
+      "AURALIS не изпраща нищо към сървъри",
+      "THI отговори, pitch резултати, дневник — само локално"
+     ]
+    },
+    {
+     "type": "h3",
+     "text": "Регулаторен статус"
+    },
+    {
+     "type": "list",
+     "items": [
+      "AURALIS е дигитална wellness платформа, не медицинско устройство",
+      "Не замества преглед от УНГ лекар",
+      "За тежки случаи (THI > 78) препоръчваме консултация"
+     ]
+    },
+    {
+     "type": "note",
+     "text": "При въпроси: tinnitus-app.help/contact"
+    }
+   ]
+  },
+  "s7": {
+   "title": "Научни източници",
+   "subtitle": "Студии, на които се базира AURALIS"
+  },
+  "sources": {
+   "src1": {
+    "title": "Development of the Tinnitus Handicap Inventory",
+    "contrib": "Създаване на THI скалата — основа на нашата оценка."
+   },
+   "src2": {
+    "title": "Tinnitus: the dark side of the auditory cortex plasticity",
+    "contrib": "Доказва невропластичния ефект на notched терапия."
+   },
+   "src3": {
+    "title": "Clinical trial on tonal tinnitus with tailor-made notched music training",
+    "contrib": "6-месечно RCT с дълготрайни ефекти."
+   },
+   "src4": {
+    "title": "14 RCT, общо 793 пациенти",
+    "contrib": "−24.6 точки THI на 6 месец; ефектът нараства с продължителна употреба."
+   },
+   "src5": {
+    "title": "FDA-одобрена бимодална стимулация",
+    "contrib": "−28 точки THI за 12 седмици в real-world practice."
+   },
+   "src6": {
+    "title": "THI grading system — 5 категории на тежест",
+    "contrib": "Клиничната класификация Слабо/Леко/Умерено/Тежко/Катастрофично."
+   },
+   "src7": {
+    "title": "Multicenter, double-blind, n=440",
+    "contrib": "9 месеца проследяване — потвърждава дългосрочни ефекти."
+   }
+  },
+  "reminders": {
+   "pitch": {
+    "body": "Notch филтър активиран на {freq} Hz. От сега всичките звуци премахват Вашата тинитус честота — клинично доказана терапия (Pantev 2012, Stein 2015).",
+    "cta": "Научи повече"
+   },
+   "day7": {
+    "title": "Поздравления — половината е зад Вас",
+    "body": "Notched therapy показва ефекти от 3-тия месец и нараства до 6-тия. Продължавайте.",
+    "cta": "Виж научните данни"
+   },
+   "day14": {
+    "mcid": "MCID (Minimal Clinically Important Difference) за THI = 7 точки.",
+    "delta": "Вашата промяна: {delta} точки.",
+    "significant": "Това е клинично значимо подобрение.",
+    "partial": "Дайте на терапията време — пълен ефект се вижда от 3-тия до 6-тия месец."
+   }
+  }
+ },
+ "voice": {
+  "startAria": "Започни диктовка",
+  "stopAria": "Спри диктовката",
+  "listening": "Слушам…",
+  "privacy": {
+   "title": "Гласовата диктовка",
+   "body": "При натискане на микрофона, гласът Ви се обработва от браузъра Ви. Браузърът използва безплатна услуга на Google (Chrome) или Apple (Safari), което изисква интернет връзка.\n\nТекстът остава САМО на телефона Ви — AURALIS не пази и не изпраща Вашите записи.\n\nМожете да изключите гласовата диктовка по всяко време чрез настройките на телефона.",
+   "acknowledge": "Разбирам, продължи",
+   "cancel": "Отмени"
+  },
+  "error": {
+   "noSpeech": "Не чух нищо. Опитайте отново.",
+   "mic": "Не намирам микрофон.",
+   "permission": "Разрешете достъп до микрофона в настройките на браузъра.",
+   "offline": "Гласовата диктовка изисква интернет. Опитайте отново когато сте online.",
+   "lang": "Българският не се поддържа от браузъра Ви.",
+   "generic": "Възникна грешка при гласовото въвеждане."
+  },
+  "settings": {
+   "section": "Поверителност",
+   "resetPrivacy": "Покажи отново инфото за диктовка",
+   "resetDoneToast": "Готово. При следваща употреба ще видите инфото отново."
+  },
+  "overlay": {
+   "recording": "ЗАПИСВАНЕ",
+   "ready": "ГОТОВО",
+   "hintRecording": "Говорете на български. Спрете и ще видите текста.",
+   "hintReady": "Натиснете „Запиши\" за да добавите, или текста за нов запис.",
+   "hintEmpty": "Не чух нищо. Натиснете текста за нов опит.",
+   "placeholder": "Текстът ще се появи тук…",
+   "save": "Запиши",
+   "cancel": "Отмени",
+   "closeAria": "Затвори диктовката"
+  }
+ },
+ "profile_results": {
+  "title": "Вашата оценка",
+  "welcomes": {
+   "TH_C": "Вие чувате високочестотен, постоянен пищящ или звънящ тон, който се натрапва особено в тиха среда и при умствена работа. Това е чест профил при хора, които са били излагани на високи звуци или забелязват промени в слуха с възрастта — мозъкът компенсира липсващите сигнали със собствена активност. AURALIS ще Ви предложи филтрирани природни звуци и розов шум за маскиране, заедно с кратки CBT практики, които насочват вниманието далеч от пищенето.",
+   "DN_S": "Вие чувате плътен, нискочестотен, понякога бучащ или тътнещ шум, който е особено натрапчив вечер и нарушава качеството на Вашия сън. Това е чест профил при хора, които прекарват време в тихи спални — без външен звук мозъкът усилва вътрешния шум. AURALIS ще Ви предложи дълбоки кафяви звуци, които смесват тинитуса с фон, без да го заглушават напълно — тази стратегия се нарича „точка на смесване\" и помага за по-добър сън без внезапна тишина.",
+   "SS_R": "Вашият тинитус е силно свързан със състоянието на нервната Ви система — той се засилва при стрес, тревожност и емоционално натоварване, а при спокойствие отслабва. Това отразява висока чувствителност на тялото към сигнали — Вашата лимбична система реагира бързо на промени. AURALIS ще Ви даде нежни природни звуци, дихателно упражнение 4-7-8 за остри моменти и кратки практики за приемане, които прекъсват порочния кръг между шум и тревога.",
+   "SM_F": "Вашият тинитус има променлив характер — силата му се променя през деня, понякога значително, и често е свързан с физическо напрежение във врата, челюстта или раменете. Това е соматичен тип тинитус: мускулите около ухото и тригеминалният нерв могат да модулират шума. AURALIS ще Ви предложи динамични природни звуци като океански вълни (които ангажират мозъка по-силно), упражнение за отпускане на челюстта и нежен масаж — телесните практики имат измерим ефект при този профил.",
+   "HB_M": "Вие имате тинитус, но той Ви безпокои предимно в условия на абсолютна тишина и не оказва съществено влияние върху ежедневните Ви задачи, концентрация, сън или настроение. Вашата нервна система вече е изградила висока степен на естествена адаптация — мозъкът Ви до голяма степен филтрира фантомния сигнал като маловажен фон. AURALIS ще Ви предложи ултра-меки природни звуци за моментите на пълна тишина и насоки как да поддържате тази устойчивост и в стресови периоди."
+  },
+  "welcomeAria": "Персонално приветствие за профил {code}",
+  "code": {
+   "label": "Код на профил"
+  },
+  "di": {
+   "label": "DI скор",
+   "low": "Слаб интензитет",
+   "medium": "Умерен интензитет",
+   "high": "Висок интензитет"
+  },
+  "sections": {
+   "meaning": "Какво означава за вас",
+   "why": "Защо имате този тип",
+   "strategy": "Препоръчителна стратегия",
+   "recommended": "Препоръчителни режими",
+   "topSounds": "Топ препоръчителни звуци",
+   "timeline": "Очаквания във времето",
+   "additional": "Допълнителни препоръки",
+   "medical": "Кога към лекар"
+  },
+  "strategy": {
+   "noiseLabel": "Препоръчителен фонов шум",
+   "mixRatioLabel": "Препоръчително съотношение",
+   "mixRatioFmt": "{l1}/{l2}",
+   "durationLabel": "Препоръчителна продължителност",
+   "reasoningLabel": "Защо тази стратегия"
+  },
+  "topSounds": {
+   "loading": "Зареждане на препоръки...",
+   "empty": "Препоръките се подготвят...",
+   "viewAll": "Виж всички препоръчителни"
+  },
+  "timeline": {
+   "loading": "Прогнозата се подготвя..."
+  },
+  "placeholder": "Това съдържание се подготвя от научния екип.",
+  "descriptionTitle": "Какво означава това",
+  "expectationsTitle": "Какво да очаквате",
+  "recommendedTitle": "Препоръчителни режими",
+  "recommendedBadge": "За Вас",
+  "duration": {
+   "title": "Препоръчителна продължителност",
+   "firstTwoWeeks": "Първи 2 седмици",
+   "firstTwoWeeksText": "2–3 часа на ден",
+   "afterTitle": "След това",
+   "afterText": "Цяла нощ (с sleep timer)"
+  },
+  "disclaimer": {
+   "title": "Важно — научни ограничения",
+   "text": "AURALIS е инструмент за wellness support, не заменя медицинска диагноза или лечение. Препоръките се базират на агрегирани изследвания и общи модели, не на личен медицински преглед. При тежки симптоми или нарастващо влошаване — консултирайте се със специалист (УНГ лекар или аудиолог)."
+  },
+  "continue": "Към звуците",
+  "profiles": {
+   "TH_C": {
+    "shortName": "Тонален висок",
+    "fullName": "Тонален високочестотен",
+    "description": "Профил \"Тонален висок\". Подробно описание скоро ще бъде добавено в това приложение.",
+    "expectations": "Подробни очаквания за този профил скоро ще бъдат добавени.",
+    "meaning": "Вие чувате високочестотен, постоянен пищящ или звънящ тон, който се натрапва особено в тиха среда и при умствена работа. Този тип тинитус се възприема като еднoтонен звук, концентриран във високия край на чуваемия спектър.\n\nВ клиничния модел това състояние се обяснява чрез \"ефекта на засилване на контраста\": в абсолютна тишина мозъкът насочва максимално когнитивно внимание към вътрешния сигнал, който се превръща в доминиращ — подобно на запалена свещ в тъмна стая.\n\nНа клетъчно ниво се наблюдава отслабване на инхибиторния тонус в централната слухова система — понижена GABA активност и засилена глутаматергична възбуда, което създава абнормна синхронизация в слуховата кора. Висшите когнитивни центрове интерпретират тази синхронизация като устойчив фантомен звук.",
+    "why": "Най-чести фактори са продължителна експозиция на висoки звукови нива в миналото (концерти, индустриална работа, ловно оръжие) и възрастово свързано увреждане на високочестотните косменни клетки в кохлеята (presbycusis). Допринасящи фактори, които засилват възприятието: тиха среда вечер, недостатъчен сън, високи нива на стрес, дехидратация и кофеин.",
+    "strategyReasoning": "- Препоръчителен носещ звук: филтриран дъжд или балансиран розов шум.\n\n- Препоръчителен `recommended_noise` в библиотеката: `pink_lowpass_4000` или `brown_lowpass_1000`.\n\n- Препоръчително съотношение sound/noise: 0.70/0.30 (леко sound-dominant). Принцип на \"точката на смесване\" — звукът трябва да бъде малко под силата на тинитуса, не да го заглушава напълно.\n\n- Препоръчителна продължителност: минимум 2 часа дневно за устойчива хабитуация; идеално 4–6 часа разпределени през деня.\n\n- Топ use cases по приоритет: `daily` (умствена работа) → `relaxation` → `falling_asleep`.",
+    "timeline": [
+     {
+      "period": "Седмица 1–2",
+      "expectation": "обикновено се появява първо усещане за \"по-малко натрапчив\" звук в момента на слушане. Веднага след спиране на звука тинитусът се възприема в първоначалната си сила. Това е напълно нормално и не означава, че процесът не работи."
+     },
+     {
+      "period": "Месец 1",
+      "expectation": "проучвания регистрират средно намаление от около 17.6% по въпросника за здраве при тинитус на четвъртата седмица."
+     },
+     {
+      "period": "Месец 3",
+      "expectation": "мета-анализ на 14 RCT показва средно подобрение от −8.6 точки по скалата THI на третия месец. MCID (минимално клинично значима разлика) на THI е 7 точки — т.е. на 3 месец много хора пресичат прагa на \"усетима\" промяна."
+     },
+     {
+      "period": "Месец 6 и след",
+      "expectation": "същият мета-анализ регистрира средно подобрение от −24.6 точки по THI на 6 месец, което е почти 3-кратно над MCID. Минималният терапевтичен прозорец за устойчиво пренастройване е 9–18 месеца."
+     }
+    ],
+    "additional": "- Слуховa среда: предпочитайте отворени говорители или костна проводимост пред затворени слушалки — оклузивният ефект може да усили вътрешния звук.\n\n- Хигиенa на съня: избягвайте абсолютна тишина в спалнята; контраст между тинитуса и тишината е най-силен именно вечер.\n\n- Кофеин и алкохол: ограничете кофеин след 14:00 ч. и алкохол вечер. Кофеинът е централен стимулант, който засилва кортикалната чувствителност; алкохолът променя архитектурата на съня.\n\n- Когнитивна работа: при концентрация използвайте `focus_brown_noise`-стил mix — кафяв шум блокира високочестотния писък без претоварване на средните честоти, важни за реч.\n\n- Допълнителни техники: Когнитивно-поведенческо консултиране (CBT) се препоръчва като комплемент към звуковата терапия — то прекъсва \"когнитивния цикъл на дистрес\".",
+    "medicalFlags": "- Незабавно към УНГ: ако тинитусът е едностранен (само в едното ухо), пулсиращ (синхронизиран със сърдечен ритъм), внезапно появил се през последните дни, или съпроводен от рязка загуба на слуха.\n\n- Към одиолог: ако забелязвате влошаване на разбираемостта на речта в шумна среда (ресторант, парти) — възможна е скрита загуба на слуха, която изисква обективен слухов тест.\n\n- Към психолог / психотерапевт: ако тинитусът Ви води до устойчиви мисли от типа \"няма да издържа\" или \"винаги ще е така\" — структуриран CBT курс е доказано ефективен.",
+    "reasons": {
+     "sleep_deep": "Дълбоки честоти срещу високия тон преди сън",
+     "relaxation": "Тихи природни звуци за вечерно успокояване"
+    }
+   },
+   "DN_S": {
+    "shortName": "Шумов нискочестотен",
+    "fullName": "Шумов нискочестотен / Сън",
+    "description": "Профил \"Шумов нискочестотен\". Подробно описание скоро ще бъде добавено в това приложение.",
+    "expectations": "Подробни очаквания за този профил скоро ще бъдат добавени.",
+    "meaning": "Вие чувате плътен, нискочестотен, понякога бучащ или тътнещ шум, който е особено натрапчив вечер и нарушава качеството на Вашия сън. Вашите оплаквания най-често се концентрират около заспиване и поддържане на съня — събуждания през нощта, чувство за \"недостатъчно почивка\" сутрин.\n\nВ клиничен модел тинитусът и инсомнията формират двупосочен затворен цикъл — всяко състояние подхранва другото. Лимбичната система интерпретира тинитуса като заплаха, активира ХХН-оста (хипоталамус-хипофиза-надбъбречни), което води до повишен кортизол в късния следобед и предсънния период, поддържайки нервната система в хипервъзбудимост.\n\nПолисомнографските проучвания показват, че при този профил архитектурата на съня е тежко нарушена — средно 85% от нощта се прекарва в повърхностни стадии 1–2, а дълбокият бавновълнов сън и REM спадат до ~6.4% (при здрави контроли — 21.5%).",
+    "why": "Този профил често се асоциира с нискочестотна хидропсна или съдова компонента (например еднoстранен туптящ шум при колебания на кръвното налягане), с продължително битово или работно излагане на ниски шумове (вентилации, машини), или с възрастова деаферентация на ниските честоти.\n\nЗасилващи фактори: вечерна тишина в спалнята (усилва вътрешния шум при липса на маскант), стрес и тревожност преди сън, нарушена циркадна крива на кортизола, и обструктивна сънна апнея, ако присъства.",
+    "strategyReasoning": "- Препоръчителен носещ звук: дълбок кафяв шум, плътни водопади, планински поток с филтриран розов слой.\n\n- Препоръчителен `recommended_noise` в библиотеката: `brown_lowpass_500` (най-deep) или `brown_pure`.\n\n- Препоръчително съотношение: 0.50/0.50 (равно) до 0.30/0.70 (noise-dominant) при акутно безсъние.\n\n- Препоръчителна продължителност: непрекъснато през целия 8-часов сънен прозорец. Не използвайте sleep таймер — внезапната тишина в средата на нощта моментално задейства амигдалата при първия лек преход между сънните цикли.\n\n- Топ use cases по приоритет: `sleep_deep` → `falling_asleep` → `relaxation` (вечерно сваляне на тонуса).",
+    "timeline": [
+     {
+      "period": "Нощ 1–7",
+      "expectation": "обикновено се появява първо леко съкращаване на латентността на заспиване (време от лягането до първия сън). Шумът остава, но контрастът с тишината намалява, което прекъсва верижната реакция \"тинитус → паника → пик на кортизол\"."
+     },
+     {
+      "period": "Седмица 2–4",
+      "expectation": "проучвания регистрират подобрение по THI скалата от около 11.8% (седмица 2) до 17.6% (седмица 4) при последователно прилагане на звукова терапия."
+     },
+     {
+      "period": "Месец 3–6",
+      "expectation": "при последователно прилагане се възстановява част от дълбокия бавновълнов сън — pink/brown noise има потвърден положителен ефект върху SWS (stage 3) консолидация. THI спадане в диапазона −13 до −25 точки."
+     },
+     {
+      "period": "Месец 6+",
+      "expectation": "при 6-месечен курс на бимодална + звукова терапия 73.4% от пациенти достигат клинично значимо подобрение по TFI (≥13 точки спад). Минималният терапевтичен прозорец е 9–18 месеца."
+     }
+    ],
+    "additional": "- Хигиена на съня: запазете последователно време за лягане и ставане ±30 минути.\n\n- Сценарий \"събуждане в 3:00 ч.\": ако след 15–20 минути не сте се върнали в съня, плавно станете и отидете в друга стая с пуснат непрекъснат розов шум малко под силата на тинитуса. Извършете 5-минутна сесия на 4-7-8 дишане. Върнете се в леглото когато се появи естествена сънливост.\n\n- Кафе, сол, алкохол: ограничете кофеин след 14:00 ч.; намалете натрий вечер (задържане на течности влошава ниските честоти на тинитуса); избягвайте алкохол като \"приспивателно\" — той фрагментира съня.\n\n- Не използвайте бял шум. При продължително нощно слушане белият шум води до кортикална дедиференциация и парадоксално влошаване — този ефект е известен като \"ефект на кобрата\".\n\n- Допълнителни техники: модифициран CBT-I (когнитивно-поведенческа терапия за инсомния) е златен стандарт. Класическият SCT протокол изисква модификация — никога не оставайте в напълно тиха стая.",
+    "medicalFlags": "- Към УНГ: ако тинитусът е едностранен или пулсиращ; ако забелязвате замайвания, вертиго или чувство за пълнота в ухото (възможен болест на Мениер).\n\n- Към сомнолог: ако имате силно хъркане, спирания на дишането през нощта, дневна сънливост — може да е обструктивна сънна апнея, която изисква PSG изследване.\n\n- Към общопрактикуващ: ако приемате диуретици, високи дози NSAID или антибиотици и забелязвате влошаване — някои медикаменти са ототоксични.",
+    "reasons": {
+     "relaxation": "Балансирани природни звуци за намаляване на бученето",
+     "daily": "Меки фонови звуци за работа"
+    }
+   },
+   "SS_R": {
+    "shortName": "Стрес-чувствителен",
+    "fullName": "Стрес-чувствителен / Реактивен",
+    "description": "Профил \"Стрес-чувствителен\". Подробно описание скоро ще бъде добавено в това приложение.",
+    "expectations": "Подробни очаквания за този профил скоро ще бъдат добавени.",
+    "meaning": "Вашият тинитус е силно свързан със състоянието на нервната Ви система — той се засилва при стрес, тревожност, конфликти и емоционално натоварване, а при спокойствие отслабва. Леки външни звуци или ежедневни събития могат временно да усилят възприятието на вътрешния шум.\n\nТова състояние се медиира от висока лабилност на автономната нервна система и лимбичната структура — амигдалата и предният cingulate отговарят за свръхреактивната оценка на сигнала като \"заплаха\". При типична ситуация мозъкът на хора с устойчив тинитус навлиза в защитен режим, при който вътрешният шум поддържа активна симпатиковата ос.\n\nПри част от хората с този профил се наблюдава реактивен тинитус — вътрешният шум парадоксално се засилва временно в отговор на нови външни звуци. В такъв случай агресивното широколентово маскиране е противопоказано.",
+    "why": "Този профил често се асоциира с предхождаща тревожна симптоматика, перфекционистки тип личност, постоянен професионален или семеен стрес, и понякога — с обща хиперсензитивност (или хиперакузис — повишена чувствителност към нормални звуци).\n\nЗасилващи фактори: ранен следобед след кофе, конфликтни ситуации, последователни нощи с недостатъчен сън, новинарска информационна претовареност, и социална изолация в тиха среда.",
+    "strategyReasoning": "- Препоръчителен носещ звук: изключително нежни природни блендове и зелен шум (центриран около средните честоти).\n\n- Препоръчителен `recommended_noise` в библиотеката: зеленият шум засега не е наличен в библиотеката — като временен fallback използваме `brown_lowpass_500` за дълбоко успокоение и нежни meditation треки (`grounded`, `inner_balance`).\n\n- Препоръчително съотношение: при остра тревожност → 0.30/0.70 (noise dominant) за бързо потискане на сетивния контраст; при ежедневно слушане → 0.50/0.50.\n\n- Препоръчителна продължителност: използвайте SOS режим (3–10 мин noise-dominant) при остри пикове; ежедневно фоново слушане 2–4 часа разпределени през деня.\n\n- Топ use cases по приоритет: `anxiety` → `relaxation` → `meditation`.",
+    "timeline": [
+     {
+      "period": "Първа сесия (минути)",
+      "expectation": "при правилно избран зелен шум или меки природни звуци, повечето хора усещат намаляване на остротата на ситуацията в рамките на 5–15 минути. Това е незабавният anxiolytic ефект на средночестотната звукова обертурата."
+     },
+     {
+      "period": "Седмица 1–2",
+      "expectation": "при последователно ежедневно прилагане намалява базовата реактивност — амплитудата на пиковете в стресовия отговор спада."
+     },
+     {
+      "period": "Месец 1–3",
+      "expectation": "очаквайте намаление по емоционалните под-скали на THI/TFI; пълната хабитуация и пренастройване на оценъчния процес изискват по-дълго време."
+     },
+     {
+      "period": "Месец 6+",
+      "expectation": "при комбинирана интервенция (звук + структуриран CBT курс) клинично значимо подобрение се постига от мнозинството пациенти."
+     }
+    ],
+    "additional": "- Дихателни техники: 4-7-8 дишане при остри пикове (вдишване 4 сек, задържане 7, издишване 8). Това активира блуждаещия нерв и сваля симпатиковия тонус.\n\n- Информационна хигиена: ограничете социални мрежи и новини в първите 30 минути след събуждане и последните 60 минути преди сън.\n\n- Кофеин: при този профил кофеинът има особено силен ефект — обмислете преминаване към 1 чаша сутрин или decaf.\n\n- Слухова среда: избягвайте слушалки с активно шумоподтискане (active noise cancelling) — при някои хора с реактивен тинитус те усилват възприятието на вътрешния шум поради създаване на абсолютна тишина.\n\n- Допълнителни техники: Терапия за приемане и обвързване (ACT), mindfulness-базирани практики и структуриран CBT курс са особено подходящи за този профил.",
+    "medicalFlags": "- Към психиатър или психотерапевт: ако имате персистираща тревожност, панически атаки, обсесивни мисли за тинитуса, или симптоми на депресия в продължение на повече от 2 седмици.\n\n- Към УНГ: ако забелязвате хиперакузис (нормални звуци стават болезнено силни) — необходимо е аудиологично изследване с тимпанометрия и стапедиален рефлекс.\n\n- Към общопрактикуващ: при чести епизоди на сърцебиене, изпотяване, замайване, треперене — за изключване на ендокринни (щитовидна жлеза) или сърдечно-съдови причини, които могат да наподобяват тревожност.",
+    "reasons": {
+     "anxiety": "SOS дишане + успокояващи звуци при кризи",
+     "falling_asleep": "Постепенно понижаване на стреса преди сън"
+    }
+   },
+   "SM_F": {
+    "shortName": "Соматичен / Флуктуиращ",
+    "fullName": "Соматичен / Флуктуиращ",
+    "description": "Профил \"Соматичен / Флуктуиращ\". Подробно описание скоро ще бъде добавено в това приложение.",
+    "expectations": "Подробни очаквания за този профил скоро ще бъдат добавени.",
+    "meaning": "Вашият тинитус има променлив характер — силата му се променя през деня, понякога значително, и често е свързан с физическо напрежение във врата, челюстта или раменете. Можете да забележите, че при определени движения, позиции на главата или стискане на челюстите шумът се променя — това е \"соматичен модулиращ\" феномен.\n\nТози тип се медиира от взаимовръзка между тригеминалната и соматосензорната система (врат, темпоромандибуларна става) и слуховите пътища. Абнормни сигнали от напрегнати или дисфункционални тъкани (TMD — темпоромандибуларна дисфункция, цервикална дисфункция) се \"пренасочват\" към слуховата кора и модулират фантомния звук.\n\nКлинично проучване на orofacial терапия показва, че намаляването на болката в темпоромандибуларната става обяснява около 35% от спада в индекса TFI при този подтип.",
+    "why": "Този профил често се асоциира с brux (стискане или скърцане на зъби — нощно или дневно), forward-head posture (придвижена напред глава, особено при дълга работа на екран), травма на врата (whiplash), или предишен спортен/професионален стрес върху шийния отдел.\n\nЗасилващи фактори: продължителни часове на компютъра без почивки, носене на тежки чанти на едно рамо, спане на корем, и стрес-индуцирано стискане на челюстите.",
+    "strategyReasoning": "- Препоръчителен носещ звук: силно динамични и непериодични природни среди — океански приливи и отливи, modulated wave swells, binaural ambient.\n\n- Препоръчителен `recommended_noise` в библиотеката: `brown_lowpass_1000` за равномерно тяло на звука; mix с natural дунамични файлове (например `water_wave_ocean_wave_swells`, ocean swells, дишащи waves).\n\n- Препоръчително съотношение: 0.85/0.15 (sound dominant) — динамиката на природния звук ангажира вниманието и пречи на кортикалната адаптация.\n\n- Препоръчителна продължителност: 2–4 часа дневно, с акцент върху периоди на физическо ангажиране — разходка, рутинни задачи. Това комбинира моторно разсейване със звуково обогатяване.\n\n- Топ use cases по приоритет: `relaxation` → `daily` → `meditation`.",
+    "timeline": [
+     {
+      "period": "Седмица 1–2",
+      "expectation": "при паралелна orofacial физиотерапия можете да забележите бързи флуктуации — добри и лоши дни. Това не означава, че процесът не работи; означава, че се отнема пресъхналата тъканна тяга."
+     },
+     {
+      "period": "Седмица 9 (директна orofacial група)",
+      "expectation": "клинично проучване с 9-седмичен orofacial курс регистрира средно намаление на TFI с −13.8 точки, докато групата с отложена терапия показва само −5.0 точки. MCID на TFI е 13 точки."
+     },
+     {
+      "period": "Месец 3–6",
+      "expectation": "при последователно прилагане на звук + физиотерапия + ограничаване на bruxism: средни намаления THI в диапазона −8.6 до −24.6 точки."
+     },
+     {
+      "period": "Месец 6+",
+      "expectation": "при този профил особено важна е дългосрочната последователност — пренастройването на cross-modal interactions изисква поне 9–18 месеца."
+     }
+    ],
+    "additional": "- Постура: при работа на компютър — екран на нивото на очите, ходила на пода, ушите подравнени над раменете. Микро-почивки на всеки 30–45 минути с леки flexion-extension движения на врата.\n\n- Челюст: ако забелязвате стискане на зъбите през деня — поставете малък напомнящ стикер на компютъра; вечер обмислете oклузална шинa след преглед при стоматолог.\n\n- Прогресивна мускулна релаксация (ПМР): 10-минутна вечерна сесия с фокус върху врата, челюстта и раменете е особено подходяща.\n\n- Слухова среда: избягвайте дълго слушане с in-ear слушалки — те могат да създадат TMJ натоварване при някои хора; предпочитайте open-back или говорители.\n\n- Допълнителни техники: orofacial физиотерапия и при необходимост консултация със стоматолог-специалист по TMD са доказано ефективни като комплемент към звуковата терапия.",
+    "medicalFlags": "- Към орален хирург или специалист по TMD: ако имате болка при отваряне на устата, щракане в челюстната става, ограничено отваряне (<35 mm), или сутрешно главоболие в слепоочията — възможна е темпоромандибуларна дисфункция.\n\n- Към физиотерапевт (специалност шиен отдел): ако забелязвате болка в шията, ограничена ротация, или връзка между шийни движения и интензитета на тинитуса.\n\n- Към УНГ: ако модулацията не се ограничава до врата/челюстта и тинитусът става пулсиращ, или ако се появят епизоди на вертиго.",
+    "reasons": {
+     "meditation": "Водени сесии за намаляване на физическо напрежение",
+     "relaxation": "Динамични природни звуци срещу циклите"
+    }
+   },
+   "HB_M": {
+    "shortName": "Адаптиран / Лек",
+    "fullName": "Адаптиран / Лек",
+    "description": "Профил \"Адаптиран / Лек\". Подробно описание скоро ще бъде добавено в това приложение.",
+    "expectations": "Подробни очаквания за този профил скоро ще бъдат добавени.",
+    "meaning": "Вие имате тинитус, но той Ви безпокои предимно в условия на абсолютна тишина и не оказва съществено влияние върху ежедневните Ви задачи, концентрация, сън или настроение. Вашата нервна система вече е изградила висока степен на естествена хабитуация — мозъкът Ви до голяма степен филтрира фантомния сигнал като маловажен фон.\n\nВ клиничен модел това състояние отразява запазен инхибиторен контрол в централните слухови пътища и адекватно функциониране на лимбичните оценъчни структури — те не приписват \"заплаха\" на сигнала.\n\nЦелта на звуковата терапия при този профил не е активно потискане на тинитуса (тъй като той не Ви натоварва), а превенция — поддържане на лек звуков фон, който предотвратява засилване на сетивния контраст в моментите на абсолютна тишина.",
+    "why": "Адаптираният профил често се асоциира с по-късна или по-малко травматична поява на тинитуса, с устойчива личностна структура без тенденция към тревожност, с активен и социален начин на живот, или с предишен успешен индивидуален опит за справяне с подобен стимул.\n\nЗасилващи фактори, които могат временно да дестабилизират HB_M: тежък нелекуван период на стрес, продължителна болест, нощно бдение, акутна слухова експозиция (концерт без защита), или нов медицински проблем (ототоксичен медикамент).",
+    "strategyReasoning": "- Препоръчителен носещ звук: ултра-меки природни звуци — шепот на листа, тих летен дъжд, лек вятър, рaйн зад прозорец.\n\n- Препоръчителен `recommended_noise` в библиотеката: `brown_lowpass_500` (минимално, само за фоново обогатяване) или `none` — често само природният звук без допълнителен шум е достатъчен.\n\n- Препоръчително съотношение: 0.85/0.15 или дори 0.95/0.05 — звукът трябва да е едва доловим.\n\n- Препоръчителна продължителност: 30–60 минути в моменти на абсолютна тишина (вечер преди сън, ранно утро, продължителна работа в тиха стая).\n\n- Топ use cases по приоритет: `relaxation` → `falling_asleep` → `daily`.",
+    "timeline": [
+     {
+      "period": "Кратки периоди (дни до седмици)",
+      "expectation": "при HB_M профила обикновено не очаквайте драматични промени в усещането, защото базовото състояние вече е добро. Целта е поддръжка, не подобрение."
+     },
+     {
+      "period": "Месец 1–3",
+      "expectation": "очаквайте, че по-меките вечери в тишина стават по-приятни. Емоционалната неутралност спрямо тинитуса се запазва или леко се укрепва."
+     },
+     {
+      "period": "Дългосрочно (6+ месеца)",
+      "expectation": "профилактичното звуково обогатяване намалява вероятността от епизоди на дестабилизация при бъдещ стрес."
+     },
+     {
+      "period": "При дестабилизация",
+      "expectation": "ако забелязвате, че тинитусът внезапно стане по-натрапчив за повече от 2 седмици, преоценете профила си през quiz-а — възможно е преминаване към друг профил (например DN_S при нов сън-проблем или SS_R при нов стрес)."
+     }
+    ],
+    "additional": "- Поддържайте това, което работи: активен начин на живот, социална среда, физическа активност, добър сън. Тези фактори са най-силната защита срещу прогресия.\n\n- Слухова защита: при концерти, тенис-турнири, ловно оръжие или високи звуци в работна среда — носете слухови защитни тапи. Една акутна експозиция може да дестабилизира профила за месеци.\n\n- Звукова среда: избягвайте дълго слушане на музика с високи нива на слушалки — при тинитус общата препоръка е <60% от макс. ниво за <60 минути.\n\n- Поведенческа поддръжка: активна реалистична оценка — не превръщайте тинитуса в \"проблем\", който още не съществува. Това запазва положителната емоционална оценъчност на лимбичната система.\n\n- Допълнителни техники: не са необходими активни CBT/ACT интервенции при този профил, но добра обща хигиена на съня и стрес-мениджмънт остават полезни.",
+    "medicalFlags": "- При промяна в характера: ако тинитусът внезапно стане едностранен, пулсиращ, или съпроводен от загуба на слуха — незабавно към УНГ.\n\n- При продължителна дестабилизация: ако базовото състояние се влоши и остане влошено >2 седмици — преоценете през quiz-а и потърсете консултация (одиолог или УНГ).\n\n- Превантивно: едно изходно аудиологично изследване (audiogram) е препоръчително, ако не сте правили такова — то осигурява базова линия за бъдещо сравнение, ако нещо се промени.",
+    "reasons": {
+     "daily": "Лек звуков фон за поддръжка на адаптацията",
+     "falling_asleep": "Тихи природни звуци за вечерта"
+    }
+   }
+  },
+  "pitch": {
+   "title": "Вашата тинитус честота",
+   "intro": "Вашата честота: {freq}",
+   "skipped": "Не сте завършили теста за честота. Можете да го направите по-късно от Настройки.",
+   "cat": {
+    "low": "Нискочестотен тинитус",
+    "mid": "Среднен честотен тинитус",
+    "high": "Високочестотен тинитус",
+    "veryHigh": "Много висок честотен тинитус",
+    "extreme": "Изключително висок тинитус"
+   },
+   "rec": {
+    "low": "Препоръчителни звуци с богат среден и висок спектър за маскиране — препоръчваме категория „Гора“ и „Дъжд“.",
+    "mid": "Препоръчителни звуци с балансиран спектър — препоръчваме „Океан“ и „Река“.",
+    "high": "Препоръчителни звуци с акцент върху ниски и средни честоти — препоръчваме „Подводен“ и „Кафяв шум“.",
+    "veryHigh": "Препоръчителни наситено basov звук за оптимална маска — препоръчваме „Дълбок кафяв шум“ или „Подводна тишина“.",
+    "extreme": "Препоръчителни наситено basov звук за оптимална маска — препоръчваме „Дълбок кафяв шум“ или „Подводна тишина“."
+   },
+   "notchActive": "✓ Активна лична терапия на {freq}"
+  }
+ },
+ "categoryInfo": {
+  "sectionTitles": {
+   "definition": "За какво е този режим",
+   "whenUsed": "Кога се ползва",
+   "whenNotUsed": "Кога НЕ се ползва",
+   "recommendedNoise": "Препоръчителен фонов шум",
+   "mixRatio": "Препоръчително съотношение",
+   "expectedEffect": "Очакван ефект",
+   "safety": "Безопасност",
+   "faq": "Чести въпроси",
+   "scientificBasis": "Научна основа"
+  },
+  "whenUsedLabels": {
+   "timeOfDay": "Час от деня",
+   "context": "Контекст",
+   "duration": "Продължителност"
+  },
+  "mixRatioLabels": {
+   "layer1": "Layer 1 (главен звук)",
+   "layer2": "Layer 2 (фон шум)"
+  },
+  "previewCta": "Опитайте сега",
+  "closeAria": "Затвори",
+  "placeholder": "Това съдържание се подготвя от научния екип.",
+  "sleep_deep": {
+   "title": "Сън дълбок",
+   "subtitle": "Цяла нощ",
+   "definition": "Звуков режим за нощно ползване по време на естествения сън, с цел намаляване на акустичния контраст между фантомния тинитусен сигнал и тихата спалня, понижаване на реактивността на амигдалата при преходите между сънни цикли, и защита на REM/N3 архитектурата. Не цели пълно маскиране, а смесване с тинитуса на „точката на смесване“ на Jastreboff.",
+   "whenUsed": {
+    "timeOfDay": "Старт 5–10 мин преди заспиване, продължава през цялата нощ.",
+    "context": "Тиха тъмна спалня; температура 15.5–20°C; без екрани и синя светлина 1 час преди сън.",
+    "duration": "Препоръчително непрекъснато през 8-часовия сънен прозорец. Потребителят може да зададе sleep timer (30/60/90/120 мин) в настройките, ако предпочита автоматично изключване."
+   },
+   "whenNotUsed": [
+    "При коморбидна обструктивна сънна апнея (OSA) без консултация с лекар — повтарящите се десатурации засилват симпатиковата активация.",
+    "При епилепсия или тежки психиатрични разстройства, ако сесията включва бинаурални вълни.",
+    "При остра ушна болка или необяснимо едностранен тинитус без преглед."
+   ],
+   "recommendedNoise": {
+    "type": "pink_lp2000",
+    "description": "Розов шум с фрактален характер, спектрален наклон −3 dB/октава. Съответства на логаритмичната подредба на космените клетки в кохлеата; вълновата форма симулира естествени среди (водопад, дъжд, вятър). При хиперакузис: low-pass над 5 kHz, или преминаване към кафяв шум (−6 dB/октава)."
+   },
+   "mixRatio": {
+    "layer1": 35,
+    "layer2": 65,
+    "reasoning": "Layer 1 (главен звук — природа/мелодия): 30–40%. Layer 2 (фонов розов или кафяв шум): 60–70%. Research дава абсолютни параметри (розов шум 2–3 dB под прага на тинитуса; общо 45–55 dBA за възрастни, <50 dBA за деца), но не дава процентен X/Y. Доминирането на Layer 2 следва от логиката, че фоновата маска е терапевтично активният елемент."
+   },
+   "expectedEffect": "Понижена реактивност на амигдалата при нощни преходи между сънни цикли; защита на REM и N3 (дълбок бавновълнов) сън; при продължителна употреба — стимулиране на невропластичност и постепенна когнитивна хабитуация към тинитуса. Терапевтична цел: седмична ефективност на съня (SE) ≥85%.",
+   "safety": [
+    "Максимум 50 dBA нощем (за деца строго <50 dBA).",
+    "Нива над 50 dBA започват субклинично увреждане на слуха и нарушават хомеостазата на съня.",
+    "Системно нощно излагане >50 dB е свързано с риск за деменция (атрофия на кората, тау-протеини).",
+    "Без бял шум, без пикове >8 kHz, без резки transients.",
+    "Loudness стандарт: −23 LUFS integrated, True peak ≤ −1 dBTP.",
+    "Wellness disclaimer задължителен — продуктът не е медицинско устройство."
+   ],
+   "faq": [
+    {
+     "q": "Колко силно да пускам звука нощем?",
+     "a": "Между 45 и 55 dBA за възрастни; строго под 50 dBA за деца и кърмачета. Розовият шум трябва да е настроен 2–3 dB под прага на Вашия субективен тинитус — двата звука трябва да се смесват частично (точка на смесване на Jastreboff), а не да го заглушават напълно."
+    },
+    {
+     "q": "Колко дълго мога да го пускам през нощта? Цяла нощ ли?",
+     "a": "Препоръчително непрекъснато през 8-часовия сънен прозорец. В научната литература има две противоречиви гледни точки: едни изследвания посочват, че таймери за изключване след 30–60 мин са „сериозна терапевтична грешка“, защото внезапната тишина задейства амигдалата при преходите между сънни цикли; други препоръчват таймер 30–40 мин или 60–90 мин за защита на REM. В AURALIS: default е непрекъснато; потребителят може да зададе sleep timer (30/60/90/120 мин) в настройките, ако предпочита автоматично изключване."
+    },
+    {
+     "q": "Може ли да го слушам с шумозащитни тапи или in-ear слушалки?",
+     "a": "Не препоръчваме дългосрочно блокиране на ушния канал със стандартни in-ear слушалки тип „тапи“ — предизвиква оклузивен ефект, който прави вътрешния тинитус по-силен, пречи на естествената миграция на ушната кал и създава условия за бактериални инфекции (външен отит). Препоръчват се отворени говорители в спалнята или висококачествени слушалки с костна проводимост (bone conduction), които оставят ушния канал свободен."
+    },
+    {
+     "q": "Кога ще усетя ефект?",
+     "a": "Първи терапевтичен отговор е възможен още в първите 2 седмици (субакутен интервал 11–31 дни) — спад от ≥10 точки по THI скалата. Реален клинично значим ефект от звукова терапия с филтриран честотен ноч: −8.6 точки THI след 3 месеца, −24.6 точки след 6 месеца. При мащабно RCT за 9 месеца медианният THI спада от 50 на 35. Не очаквайте пълно изчезване на тинитуса — целта е хабитуация (мозъкът да спре да го третира като заплаха), не премахване."
+    },
+    {
+     "q": "Опасно ли е дълго слушане всяка нощ?",
+     "a": "Опасно е само ако нивото надхвърля 50 dBA — над този праг започва субклинично увреждане на слуха, нарушаване на хомеостазата на съня, и при хронично нощно излагане над 50 dB е документиран дългосрочен риск (атрофия на кората, тау-протеини, ускорено когнитивно стареене). При спазване на 45–55 dBA нощем (за деца <50 dBA), 8-часовият цикъл е безопасен дългосрочно. WHO/NIOSH lifetime safe лимит е 70 dBA за 24/7 — нощната препоръка е значително под този праг."
+    },
+    {
+     "q": "Може ли да слушам с медикаменти за сън или антидепресанти?",
+     "a": "Звуковата терапия не взаимодейства фармакологично с медикаменти. Но внимание: някои класове антидепресанти (както и аспирин във високи дози, ибупрофен, определени антибиотици, диуретици) могат самостоятелно да повлияят тинитуса — нивата им в плазмата флуктуират през деня. Ако забелязвате влошаване на тинитуса при определен медикамент, консултирайте се с Вашия лекар. AURALIS е wellness приложение, не замества медицинска консултация."
+    },
+    {
+     "q": "Какво ако не действа след няколко седмици?",
+     "a": "Първо: проверете дали спазвате правилата — 45–55 dBA, непрекъснат фон (не таймер за изключване, ако сте на default режим), без бял шум, нощта в тъмна спалня без екрани. Второ: добавете дневна CBT-I/ACT практика (категория медитация) — звуковата терапия е по-ефективна в комбинация с когнитивно-поведенчески елемент. Трето: ако след 6 месеца няма промяна в THI скора — препоръчваме консултация с аудиолог или специалист по тинитус. AURALIS не лекува тинитус, а помага за хабитуация."
+    }
+   ],
+   "scientificBasis": [
+    "Файл 'Детайлна невробиология и терапия на инсомнията при пациенти с хроничен тинитус'",
+    "Файл 'Клинична и невробиологична ефективност на звуковата терапия при хроничен тинитус'",
+    "Файл 'Анализ на клиничната ефикасност, честотните спектри и невробиологичните механизми на звуковата терапия при субективен тинитус (период 2020-2026)'",
+    "Файл 'Физикални, психоакустични и физиологични принципи за безопасно и естетическо смесване на звукови слоеве'",
+    "Файл 'AURALIS_BIBLE_v3_PIVOT.md'"
+   ]
+  },
+  "falling_asleep": {
+   "title": "Заспиване",
+   "subtitle": "30–90 мин преди сън",
+   "definition": "Режим за последните 30–90 минути преди лягане, с цел плавно понижаване на симпатиковата активация, активиране на парасимпатиковата нервна система и съкращаване на латентността на заспиване (SOL). Изгражда условна асоциация между конкретен звук и мускулната релаксация, която впоследствие подпомага по-бързо заспиване.",
+   "whenUsed": {
+    "timeOfDay": "Последните 30–90 мин преди установения час за лягане.",
+    "context": "Легло или удобно кресло; приглушена топла светлина без сини дължини; без екрани.",
+    "duration": "15–30 мин активна релаксационна сесия (например прогресивна мускулна релаксация с фонов звук). След тази сесия можете да преминете към режим „Сън дълбок“."
+   },
+   "whenNotUsed": [
+    "Веднага след тежко хранене или прием на кофеин/алкохол (кофеин се спира след 12:00 ч., алкохол — вечер).",
+    "При остра паник атака — там първо приложете режим „Тревожност“.",
+    "В легло през деня — леглото трябва да остане свързано с асоциация „сън + релакс“, не с дневна активност."
+   ],
+   "recommendedNoise": {
+    "type": "pink_lp2000",
+    "description": "Същият фрактален розов шум, който се ползва нощем — за изграждане на условна асоциация звук → отпускане. По време на 15-минутна прогресивна мускулна релаксация (PMR) се пуска „същият фрактален розов шум“. Алтернативно: фрактални природни тонове (водопад, лек дъжд) на ниско ниво."
+   },
+   "mixRatio": {
+    "layer1": 45,
+    "layer2": 55,
+    "reasoning": "Layer 1 (водеща релаксация — дихателно упражнение, PMR voice guide, или мелодия): 40–50%. Layer 2 (фонов розов шум): 50–60%. Layer 1 има малко по-голяма тежест отколкото в режим „Сън дълбок“, защото релаксационното съдържание е активно фокусирано; Layer 2 пак е доминантен."
+   },
+   "expectedEffect": "Скъсяване на латентността на заспиване (SOL); активиране на вагусовия тонус; понижение на сърдечния ритъм и кръвното налягане; плавен преход към N1/N2 фази на съня. При продължителна употреба — изграждане на устойчива условна връзка „звук = отпускане“.",
+   "safety": [
+    "Същите ограничения като „Сън дълбок“ — максимум 50 dBA.",
+    "Без бял шум, без резки transients.",
+    "Ако сесията не води до сънливост след 20 мин, не насилвайте — изправете се и преминете към тиха активност в съседна стая с лек фонов розов шум до появата на естествена сомнолентност.",
+    "Loudness стандарт: −23 LUFS integrated, True peak ≤ −1 dBTP.",
+    "Wellness disclaimer задължителен."
+   ],
+   "faq": [
+    {
+     "q": "Колко силно?",
+     "a": "По време на 15–30 мин активна релаксационна сесия преди сън, фоновият звук трябва да е сходен или малко по-висок от планираното нощно ниво (45–55 dBA за възрастни). За децата под 50 dBA. Същата препоръка като за режим „Сън дълбок“ — точка на смесване, не пълно заглушаване."
+    },
+    {
+     "q": "Колко минути преди да заспя?",
+     "a": "30–90 мин преди установения час за лягане. Активната релаксационна сесия (например прогресивна мускулна релаксация с фрактален розов шум) е 15–30 мин. След нея — преминете към режим „Сън дълбок“, не изключвайте звука."
+    },
+    {
+     "q": "Кое е по-добре — слушалки или говорител?",
+     "a": "Отворени говорители в спалнята или костно-проводими слушалки. Стандартни in-ear „тапи“ не са препоръчителни — оклузивен ефект прави тинитуса по-силен; риск от ушна кал и инфекции при дълга употреба."
+    },
+    {
+     "q": "Какво ако не заспя след 20 мин?",
+     "a": "Не насилвайте. Изправете се и преминете в съседна стая (всекидневна) с лек фонов розов шум 3–5 dB по-тих от нощното ниво и приглушена топла светлина. Прочетете книга на хартия, изпийте чаша топла вода или хапнете лек въглехидратен снакс. Върнете се в леглото само когато усетите истинска сомнолентност (натежали клепачи, повтарящи се прозявки). Не гледайте часовник или телефон — светлината и осъзнаването на часа задействат HPA-оста и блокират заспиването."
+    },
+    {
+     "q": "Може ли с дихателно упражнение?",
+     "a": "Да, силно препоръчително. Техниката 4-7-8 (вдишване 4 сек, задържане 7 сек, издишване 8 сек) активира парасимпатиковите влакна на блуждаещия нерв, забавя сърдечния ритъм и потиска амигдалата. Може и прогресивна мускулна релаксация (PMR) 15 мин с фонов розов шум — изгражда условна асоциация звук → отпускане."
+    },
+    {
+     "q": "Кога ще усетя ефект на скъсена латентност на заспиване?",
+     "a": "При системно ежедневно прилагане — обикновено в първите 1–2 седмици, заедно с другите компоненти на терапията. Точното намаляване на латентността е индивидуално; следете го с дневник на съня (час на лягане, време за заспиване, среднощни събуждания). Целта е седмична ефективност на съня (SE) ≥85%."
+    },
+    {
+     "q": "Какво ако режимът ме разбуди вместо да ме приспи?",
+     "a": "Звукът е твърде силен — намалете с 3–5 dB. Или съдържанието е твърде стимулиращо — заменете музика с глас, природа, или фрактален розов шум сам (без Layer 1). Избягвайте нови или експериментални звуци преди сън — мозъкът се нуждае от позната, стабилна акустична сигнатура."
+    }
+   ],
+   "scientificBasis": [
+    "Файл 'Детайлна невробиология и терапия на инсомнията при пациенти с хроничен тинитус'",
+    "Файл 'Клинична и невробиологична ефективност на звуковата терапия при хроничен тинитус'",
+    "Файл 'AURALIS_BIBLE_v3_PIVOT.md'"
+   ]
+  },
+  "relaxation": {
+   "title": "Релаксация",
+   "subtitle": "Преди сън, четене",
+   "definition": "Режим за пасивна релаксация през деня или вечерта — четене на хартиена книга, лек разговор, чаша топла вода или чай, ниско-енергийни занимания. Целта е общо понижение на психофизиологичния тонус, не подготовка за сън. Може да се ползва и при среднощно събуждане, когато се напуска леглото временно (Night Wake Protocol).",
+   "whenUsed": {
+    "timeOfDay": "Следобед или ранна вечер; също като част от Night Wake Protocol след среднощно събуждане.",
+    "context": "Всекидневна стая (НЕ легло), приглушена топла светлина, удобна позиция.",
+    "duration": "20–60 мин, гъвкаво според нуждата. 60 мин е консервативна горна граница спрямо общото правило 60/60."
+   },
+   "whenNotUsed": [
+    "Като заместител на сън (за това използвайте режим „Сън дълбок“).",
+    "В самото легло през деня — леглото трябва да остане свързано с асоциация „сън + релакс“, не с дневна активност.",
+    "При шофиране или работа с машини — режимът цели понижение на сърдечния ритъм и съзнателната активност."
+   ],
+   "recommendedNoise": {
+    "type": "pink_pure",
+    "description": "Мек, непрекъснат неутрален звук — розов шум или фрактални природни тонове, настроени под субективната точка на смесване (mixing point), за да се намали акустичният контраст без да привлича вниманието. При нощно ползване (Night Wake) — същият розов шум, но 3–5 dB по-тих от дневното ниво."
+   },
+   "mixRatio": {
+    "layer1": 45,
+    "layer2": 55,
+    "reasoning": "Layer 1 (главен звук — природа, лека инструментална музика): 40–50%. Layer 2 (фонов розов шум): 50–60%. Подобно на „Заспиване“ — Layer 1 може да е по-разнообразен (музика, природа), Layer 2 остава доминантен за маскираща функция."
+   },
+   "expectedEffect": "Намаляване на психофизиологичния тонус; снижаване на сърдечния ритъм; парасимпатикова доминация. При нощно ползване (Night Wake) — улеснение на връщането към сън без задействане на условна връзка „легло = тревога“.",
+   "safety": [
+    "Максимум 70 dBA за неограничено време (WHO/NIOSH lifetime safe).",
+    "Правило 60/60 (60% volume / 60 мин) с 10–15 мин пълна тишина след.",
+    "Без бял шум.",
+    "Wellness disclaimer задължителен."
+   ],
+   "faq": [
+    {
+     "q": "Колко силно?",
+     "a": "Под точката на смесване на тинитуса — мек, непрекъснат неутрален звук. За дневна релаксация: 50–65 dBA общо в стаята. За Night Wake (среднощна релаксация в съседна стая): 3–5 dB по-тих от дневното ниво."
+    },
+    {
+     "q": "Колко дълго мога да го пускам?",
+     "a": "20–60 мин типична сесия. При по-дълго слушане спазвайте правилото 60/60 (60% volume / 60 мин), последвано от 10–15 мин пълна тишина за защита от слухова умора. При нива под 70 dBA няма дневен лимит (WHO/NIOSH lifetime safe)."
+    },
+    {
+     "q": "Може ли в леглото?",
+     "a": "Не препоръчваме дневна релаксация в леглото — леглото трябва да остане свързано с асоциация „сън“, не с дневен релакс. Това е ключово правило за хора с тинитус-индуцирана инсомния. За дневна релаксация: всекидневна стая, удобен фотьойл, не легло."
+    },
+    {
+     "q": "Подходящо ли е при тревожност?",
+     "a": "Релаксацията не е заместител на режим „Тревожност“ (SOS). При остра паник атака — първо режим „Тревожност“ (4-7-8 дишане, котва-фраза, познат розов шум 3–5 dB по-тих). След стабилизация → релаксация може да поддържа парасимпатиковата доминация. Релаксация ≠ криза."
+    },
+    {
+     "q": "Тапи или говорител?",
+     "a": "Същата препоръка като „Сън дълбок“ — отворени говорители или костно-проводими слушалки; не in-ear „тапи“ за дълги сесии."
+    },
+    {
+     "q": "Опасно ли е, ако заспивам с релаксационна сесия?",
+     "a": "Не — но ако редовно заспивате с релаксация, преминете към режим „Сън дълбок“ вместо това. „Сън дълбок“ е специално настроен за 8-часов сън и точка на смесване по-тиха от релаксацията. Дневното ниво на релаксация, поддържано цяла нощ, може да фрагментира съня."
+    }
+   ],
+   "scientificBasis": [
+    "Файл 'Детайлна невробиология и терапия на инсомнията при пациенти с хроничен тинитус'",
+    "Файл 'Клинична и невробиологична ефективност на звуковата терапия при хроничен тинитус'",
+    "Файл 'Физикални, психоакустични и физиологични принципи за безопасно и естетическо смесване на звукови слоеве'",
+    "Файл 'AURALIS_BIBLE_v3_PIVOT.md'"
+   ]
+  },
+  "daily": {
+   "title": "Ежедневие",
+   "subtitle": "Работа, концентрация",
+   "definition": "Режим за дневна употреба по време на работа или концентрация, с цел осигуряване на леко, маскиращо акустично обогатяване на работната среда, което поддържа тинитуса извън фокуса на съзнателното внимание и стимулира кортикалната хабитуация. Симулира естественото маскиране, което осигуряват екологичните и индустриални звукови източници през деня.",
+   "whenUsed": {
+    "timeOfDay": "Работно време, преди 12:00 ч. идеално; следобед при концентрационни задачи.",
+    "context": "Офис, домашен офис, четене, учене — седяща активност с фокус.",
+    "duration": "1–2 часа по време на будни сесии; може и по-дълго при ниски нива (под 70 dBA)."
+   },
+   "whenNotUsed": [
+    "При шофиране или работа с тежки машини — отвлича внимание; високи когнитивни последствия от грешка.",
+    "При срещи, обаждания, разговори — водещият звук пречи на комуникацията.",
+    "При остра паник атака — използвайте режим „Тревожност“.",
+    "За деца — само под 50 dBA."
+   ],
+   "recommendedNoise": {
+    "type": "pink_pure",
+    "description": "Лек, маскиращ розов шум — мозъкът се нуждае от позната, стабилна акустична сигнатура, към която вече е започнал да хабитуира. Дневното ниво е с 3–5 dB по-високо от нощното (поради по-високия дневен праг на чуваемост). Алтернативно: фрактални природни тонове (вятър, далечен дъжд)."
+   },
+   "mixRatio": {
+    "layer1": 25,
+    "layer2": 75,
+    "reasoning": "Layer 1 (опционален, мек главен звук — природа, инструментална музика без вокали): 20–30%. Layer 2 (фонов розов шум): 70–80%. Дневният режим е по-фонов от „Сън дълбок“ — Layer 1 е минимален или липсва; Layer 2 доминира, защото целта е акустично обогатяване, не активно слушане. Музика с вокали е изключена, защото вокалите конкурират когнитивните ресурси за работа."
+   },
+   "expectedEffect": "Поддържане на тинитуса извън фокуса на съзнателното внимание чрез частично екологично маскиране; стимулиране на кортикалната хабитуация през деня; редукция на дневната соматична умора, причинена от тинитус-индуцирана инсомния.",
+   "safety": [
+    "70 dBA максимум за неограничено време (WHO/NIOSH lifetime safe).",
+    "80 dBA = максимум 40 часа седмично.",
+    "Правило 60/60 (60% volume на устройството, не повече от 60 мин, после 10–15 мин тишина).",
+    "Внимание: емоционално харесвани звуци се възприемат субективно като по-тихи, отколкото са физически — използвайте обективен SPL meter (или dB measurement app) при настройка.",
+    "За деца — строго под 50 dBA.",
+    "Wellness disclaimer задължителен."
+   ],
+   "faq": [
+    {
+     "q": "Колко силно по време на работа?",
+     "a": "Под 70 dBA — това е WHO/NIOSH lifetime safe лимит за 24/7 експозиция. Реално: 50–65 dBA в работната среда е достатъчно за маскиращ ефект, без да пречи на концентрацията. За деца — строго под 50 dBA."
+    },
+    {
+     "q": "Колко дълго на ден?",
+     "a": "1–2 часа активно при будни сесии — посочено в research за розов шум. При нива под 70 dBA може и по-дълго. Спазвайте правилото 60/60 (60% volume / 60 мин активно слушане), последвано от 10–15 мин тишина за защита от слухова умора."
+    },
+    {
+     "q": "Може ли с музика с вокали?",
+     "a": "Не препоръчителен Layer 1 с вокали за дневен режим — вокалите конкурират за когнитивни ресурси по време на работа. Препоръчват се: инструментална музика без вокали, природни звуци (вятър, далечен дъжд), или само фрактален розов шум."
+    },
+    {
+     "q": "Слушалки за работа?",
+     "a": "Костно-проводими (bone conduction) са най-добрият избор за дълъг работен ден — оставят ушния канал свободен и не предизвикват оклузивен ефект. Открити on-ear слушалки също са приемливи. Избягвайте in-ear „тапи“ за 4+ часа дневно."
+    },
+    {
+     "q": "Пречи ли на концентрация?",
+     "a": "Не — целта на дневния режим е обратното: да поддържа тинитуса извън фокуса на съзнателното внимание, освобождавайки префронталния кортекс за работата. Ако усещате, че Layer 1 (мелодия/природа) Ви разсейва — премахнете го и оставете само Layer 2 (розов шум)."
+    },
+    {
+     "q": "Кофеин и звукова терапия?",
+     "a": "Кофеинът действа като вазоконстриктор и централен стимулант — засилва тревожността и кортикалната сетивност, влошава тинитуса. Звуковата терапия не неутрализира този ефект. Препоръка: спрете кофеина след 12:00 ч. Алкохол вечер също — нарушава перфузията на вътрешното ухо."
+    },
+    {
+     "q": "Кога ще усетя ефект върху дневния тинитус?",
+     "a": "Кратки ежедневни 5-минутни сесии са по-ефективни от една дълга сесия — research посочва, че 3 кратки тренировки по 3 минути дневно са по-ефективни за невропластична консолидация от еднократна 60-минутна практика седмично. Първи признаци за намалена дневна осведоменост за тинитуса — обикновено 2–4 седмици при системна употреба."
+    }
+   ],
+   "scientificBasis": [
+    "Файл 'Детайлна невробиология и терапия на инсомнията при пациенти с хроничен тинитус'",
+    "Файл 'Клинична и невробиологична ефективност на звуковата терапия при хроничен тинитус'",
+    "Файл 'Анализ на клиничната ефикасност, честотните спектри и невробиологичните механизми на звуковата терапия при субективен тинитус (период 2020-2026)'",
+    "Файл 'Физикални, психоакустични и физиологични принципи за безопасно и естетическо смесване на звукови слоеве'",
+    "Файл 'Оптимизирана двуседмична когнитивно-поведенческа програма за първоначално справяне с хроничен тинитус'"
+   ]
+  },
+  "anxiety": {
+   "title": "Тревожност",
+   "subtitle": "SOS, паник атака",
+   "definition": "Кратък аварен режим за остра тинитус-индуцирана тревожна криза или паник атака — типично при среднощно събуждане в 3:00 ч., но и при дневен пик. Целта е незабавна стабилизация чрез поведенчески и акустичен алгоритъм: вагусово активиране, понижение на симпатиковата хиперактивност и когнитивно неутрализиране на сигнала.",
+   "whenUsed": {
+    "timeOfDay": "При остра нужда — нощем (среднощно събуждане), денем (тревожен пик).",
+    "context": "Дръжте очите си затворени или гледайте към тъмен сектор. Избягвайте часовника и екрана на телефона — светлината и осъзнаването на часа задействат HPA-оста.",
+    "duration": "Първи 30 секунди — лимбична стабилизация; минути 1–15 — продължено дишане; ако сънят не се възстанови след 15–20 мин нощем → ставане и преминаване към „Релаксация“ в съседна стая."
+   },
+   "whenNotUsed": [
+    "За дълготрайно ежедневно слушане — режимът е SOS, не дневна терапия.",
+    "Като заместител на психиатрична помощ при тежки или продължителни паник атаки — wellness disclaimer."
+   ],
+   "recommendedNoise": {
+    "type": "pink_lp2000",
+    "description": "Същият розов шум, който се ползва нощем — мозъкът се нуждае от позната, стабилна акустична сигнатура. Не нов или експериментален звук. Хардуерно/софтуерно пренастроен 3–5 dB по-тих от стандартното дневно ниво."
+   },
+   "mixRatio": {
+    "layer1": 55,
+    "layer2": 45,
+    "reasoning": "Layer 1 (гласово водене — 4-7-8 дишане voice guide, котва-фраза): 50–60%. Layer 2 (фонов розов шум): 40–50%. Layer 1 (водещ глас) е по-доминантен, защото структурираното дишане е активният терапевтичен елемент, а фоновият шум е поддържащ."
+   },
+   "expectedEffect": "Стимулиране на парасимпатиковите влакна на блуждаещия нерв; принудително забавяне на сърдечния ритъм; понижение на кръвното налягане; постепенно потискане на хиперактивността на амигдалата; прекъсване на адреналиновия/кортизолов пик. Техника 4-7-8: вдишване през носа за 4 секунди, задържане на дъха за 7 секунди, издишване през устата за 8 секунди.",
+   "safety": [
+    "НЕ повишавайте силата при паника — „паническото маскиране“ (увеличаване до пълно заглушаване на тинитуса) тренира амигдалата да възприема тинитуса като критична заплаха, влошава дългосрочния прогноз.",
+    "Останете на нормално нощно/дневно ниво (3–5 dB под прага на тинитуса).",
+    "Wellness disclaimer задължителен — продуктът не заменя психиатрична грижа при тежки или повтарящи се панически атаки."
+   ],
+   "faq": [
+    {
+     "q": "Какво да направя в първите 30 секунди при паник атака?",
+     "a": "Три стъпки: (1) Визуална блокада — затворете очи или гледайте към тъмен сектор. НЕ гледайте часовник или екран (светлината и осъзнаването на часа задействат HPA-оста). (2) 4-7-8 дишане — вдишване през носа за 4 секунди, задържане 7 секунди, издишване през устата за 8 секунди. Стимулира блуждаещия нерв. (3) Когнитивна котва-фраза — повторете наум: „Това е просто безвредна електрическа активност в слуховия ми нерв. Тялото ми е в безопасност и сега ще се отпусне.“"
+    },
+    {
+     "q": "Колко силно да пусна звука при паник атака?",
+     "a": "Същото нормално ниво като нощния режим — 3–5 dB по-тих от дневното ниво на тинитуса. НЕ повишавайте силата за заглушаване — това е „паническо маскиране“ и тренира амигдалата да възприема тинитуса като критична заплаха, влошава дългосрочния прогноз."
+    },
+    {
+     "q": "Колко често мога да го ползвам?",
+     "a": "Режим „Тревожност“ е SOS — за остри кризи, не за ежедневна употреба. Ако ползвате протокола повече от 2–3 пъти седмично, това е сигнал за консултация с лекар или психотерапевт. AURALIS не замества психиатрична грижа. За дневен поддържащ ефект ползвайте „Ежедневие“ и „Медитация“."
+    },
+    {
+     "q": "Какво ако дишането не помогне?",
+     "a": "Ако след 15–20 мин 4-7-8 дишане и котва-фраза не настъпи стабилизация (нощем — повторно заспиване), изправете се и преминете в съседна стая (всекидневна) с лек фонов розов шум. Не оставайте в леглото в състояние на тревожност — продължителното въртене изгражда условна връзка „легло = тревожност + шум“. Върнете се в леглото само при реална сомнолентност."
+    },
+    {
+     "q": "Звукът ме плаши повече, не помага. Защо?",
+     "a": "Възможни причини: (1) Силата е твърде висока — намалете до 3–5 dB под прага на тинитуса. (2) Звукът е нов или непознат — research препоръчва позната акустична сигнатура (същия розов шум, който ползвате нощем); не нов експериментален звук в момент на криза. (3) Съдържанието е твърде стимулиращо — заменете музиката с глас (4-7-8 voice guide) или само розов шум."
+    },
+    {
+     "q": "Може ли при дневна тревожност (не нощем)?",
+     "a": "Да, режимът работи и денем. 4-7-8 дишането е валидно винаги. Дневната версия е по-кратка — обикновено 2–5 мин до стабилизация. След това можете да продължите с „Ежедневие“ или „Релаксация“ за поддържащ ефект."
+    },
+    {
+     "q": "Кога трябва да потърся професионална помощ?",
+     "a": "Незабавно ако: паническите атаки са с честота над 2–3 пъти седмично; появяват се суицидни мисли; тинитусът е новопоявен в едно ухо без обяснение; имате остра ушна болка или загуба на слух заедно с тинитуса. AURALIS е wellness приложение, не медицинско устройство. При тежки симптоми — психиатър, аудиолог или ОНГ специалист."
+    }
+   ],
+   "scientificBasis": [
+    "Файл 'Детайлна невробиология и терапия на инсомнията при пациенти с хроничен тинитус'",
+    "Файл 'Клинична и невробиологична ефективност на звуковата терапия при хроничен тинитус'",
+    "Файл 'AURALIS_BIBLE_v3_PIVOT.md'"
+   ]
+  },
+  "meditation": {
+   "title": "Медитация",
+   "subtitle": "Водени сесии",
+   "definition": "Режим за активна, водена практика — кратки 5–10 мин дневни упражнения по принципите на CBT-I и ACT (Acceptance and Commitment Therapy): екстернализация на вниманието, когнитивна дефузия, body scan, радикално приемане. Не е пасивно слушане — изисква съзнателен ангажимент.",
+   "whenUsed": {
+    "timeOfDay": "Препоръчва се 3 кратки сесии по 3 минути през деня вместо една дълга 60-минутна — невропластично консолидиране чрез висока честота на активиране, не дължина.",
+    "context": "Удобна тиха позиция; не по време на работа, шофиране или съсредоточена дейност.",
+    "duration": "5–10 мин на сесия (микропрактики); за бинаурално-аудио сесии — 15–30 мин, 1–2 пъти дневно."
+   },
+   "whenNotUsed": [
+    "При остра паник атака — първо режим „Тревожност“, после медитация след стабилизация.",
+    "Бинаурални вълни сесии — абсолютно противопоказани при епилепсия или тежки психиатрични разстройства.",
+    "Без качествени стерео слушалки за бинаурални — при моно източник бинауралният ефект изчезва напълно.",
+    "При тежко непридържане (3+ дни пропуснати сесии) — системата прилага Adaptive Micro-Dosing (2-минутни микро-дози), не наказва пациента."
+   ],
+   "recommendedNoise": {
+    "type": "pink_pure",
+    "description": "Силно зависи от типа сесия. За body scan / дефузия / приемане: фрактален розов шум на ниско ниво или фрактални природни тонове (за асоциация с релаксация). За бинаурални вълни (алфа 8 Hz): теснолентов карър с binaural beat — задължително стерео слушалки, без широкоспектърен фонов шум, който би прикрил бинауралния ефект."
+   },
+   "mixRatio": {
+    "layer1": 65,
+    "layer2": 35,
+    "reasoning": "Layer 1 (водещ глас / бинаурален беат / водена медитация): 60–70%. Layer 2 (фонов розов шум или природа): 30–40%. Layer 1 (водещият елемент) е доминантен, защото активното съдържание (глас, бинаурален беат) е терапевтично активното — обратно от „Сън дълбок“, където фонът е активен."
+   },
+   "expectedEffect": "CBT-I/ACT практики: елиминиране на емоционалната съпротива срещу тинитуса (която поддържа таламо-кортикалната активност); намаляване на хиперфокуса върху слуховия анализатор. Бинаурални вълни (алфа 8 Hz): статистически по-нисък THI скор (Δ=17.33 за TMNMT+BBS vs Δ=9.00 за TMNMT самостоятелно в RCT 2025); по-голям ефект върху депресивните симптоми. ACT като терапия: 54.5% от пациентите поддържат трайно подобрение при 6-месечно проследяване (срещу 20% при TRT); средно намаление на THI с 17.67 точки (мета-анализ).",
+   "safety": [
+    "Бинаурални вълни могат да предизвикат краткотрайно повишаване на раздразнителността, тревожността или главоболието при неподходяща честотна разлика — намалете честотата или прекратете сесията.",
+    "Бинаурални вълни — абсолютно противопоказани при епилепсия или тежки психиатрични разстройства.",
+    "За бинаурални — задължително стерео слушалки.",
+    "Микропрактики: избягвайте едночасови сесии — продължителното фокусиране върху упражнение може парадоксално да увеличи соматичния фокус върху тинитуса и да засили таламо-кортикалната възбуда (exposure fatigue).",
+    "Wellness disclaimer задължителен."
+   ],
+   "faq": [
+    {
+     "q": "Колко дълго трябва да медитирам?",
+     "a": "5–10 мин на сесия е оптимално за CBT-I/ACT микропрактики. Research показва, че 3 кратки тренировки по 3 минути през деня са по-ефективни от една 60-минутна сесия седмично — за невропластична консолидация е критична честотата на активиране, не дължината на единичната сесия. По-дълги сесии могат парадоксално да увеличат соматичния фокус върху тинитуса (exposure fatigue). За бинаурално-аудио сесии: 15–30 мин, 1–2 пъти дневно."
+    },
+    {
+     "q": "Нужни ли са специални слушалки?",
+     "a": "За бинаурални вълни — ДА, задължително висококачествени стерео слушалки. При моно източник бинауралният ефект изчезва напълно. За CBT-I/ACT гласови медитации (body scan, дефузия, приемане) — отворени говорители или костно-проводими слушалки също работят."
+    },
+    {
+     "q": "Кога е опасна бинауралната медитация?",
+     "a": "Абсолютно противопоказана при епилепсия или тежки психиатрични разстройства. Може да предизвика при неподходяща честотна разлика: краткотрайно повишаване на раздразнителността, тревожност, главоболие. Ако усетите някое от тези → прекратете и преминете към друг тип медитация (body scan, дефузия). AURALIS е wellness приложение, не медицинско."
+    },
+    {
+     "q": "Кога ще усетя ефект?",
+     "a": "Различно според типа сесия. CBT-I/ACT микропрактики (5-10 мин дневно): първи терапевтичен отговор в субакутния интервал (11–31 дни) — спад на THI с ≥10 точки при системно прилагане. Бинаурални вълни 8 Hz + сонда терапия: статистически по-голям ефект отколкото сондата сама в RCT 2025 (Δ=17.33 точки THI за комбинирана група спрямо Δ=9.00 за TMNMT самостоятелно). ACT като комплексна терапия 6 месеца: 54.5% от пациентите поддържат трайно подобрение (срещу 20% при TRT); мета-анализ — средно намаление на THI с 17.67 точки."
+    },
+    {
+     "q": "Какво ако пропусна няколко дни?",
+     "a": "Не се паникьосвайте. Adaptive Micro-Dosing — продължете със съкратени 2-минутни микропрактики (например 3 дълбоки вдишвания или само отпускане на челюстта). Системата не наказва за пропуски — целта е поддържане на навика, не перфектно придържане. След 4+ дни без сесия — фокусирайте се само на пасивна звукова библиотека („Сън дълбок“, „Ежедневие“), докато се почувствате готови да възстановите активните практики."
+    },
+    {
+     "q": "Може ли с медикаменти?",
+     "a": "Медитацията няма фармакологично взаимодействие. Но при прием на антидепресанти, бензодиазепини или седативи — консултирайте се с лекар за оптимална комбинация. ACT е доказано ефективна дори при пациенти, които не са се повлияли от 6+ месеца TRT терапия — медитативните практики допълват, не заменят медицинско лечение."
+    },
+    {
+     "q": "Кои техники са най-важни?",
+     "a": "Според research, ядрените ACT/CBT-I компоненти за тинитус са: (1) Радикално приемане — спиране на борбата с шума; „Аз ти позволявам да присъстваш тук в момента“. (2) Когнитивна дефузия — преструктуриране на метафорите („пищене“ → „вятър в клоните“). (3) Body scan — намаляване на хиперфокуса върху слуховия анализатор. (4) Екстернализация на вниманието — пренасочване от вътрешни към външни стимули. (5) Редукция на избягващото поведение — извършване на дейности, които сте избягвали заради страх от засилване на тинитуса."
+    }
+   ],
+   "scientificBasis": [
+    "Файл 'Оптимизирана двуседмична когнитивно-поведенческа програма за първоначално справяне с хроничен тинитус'",
+    "Файл 'Анализ на клиничната ефикасност, честотните спектри и невробиологичните механизми на звуковата терапия при субективен тинитус (период 2020-2026)'",
+    "Файл 'Клиничен доклад за прилагане на Терапия за приемане и обвързване (ACT) при пациенти над 50-годишна възраст с хроничен субективен тинитус'",
+    "Файл 'Детайлна невробиология и терапия на инсомнията при пациенти с хроничен тинитус'"
+   ]
+  }
+ },
+ "thi": {
+  "title": "THI оценка",
+  "progressFmt": "Въпрос {n} от {total}",
+  "options": {
+   "yes": "Да",
+   "sometimes": "Понякога",
+   "no": "Не"
+  },
+  "actions": {
+   "prev": "Назад",
+   "next": "Следващ",
+   "finish": "Завърши",
+   "continue": "Продължи"
+  },
+  "result": {
+   "done": "Готово",
+   "baseline": "Baseline THI score",
+   "day14": "Финален THI score (Ден 14)",
+   "completed": "Записахме новия резултат"
+  },
+  "q1": "Поради тинитуса си, трудно ли се концентрирате?",
+  "q2": "Силата на тинитуса Ви пречи ли Ви да чувате другите хора?",
+  "q3": "Тинитусът Ви ядосва ли Ви?",
+  "q4": "Тинитусът Ви предизвиква ли усещане за обърканост?",
+  "q5": "Поради тинитуса си, чувствате ли се отчаян?",
+  "q6": "Често ли се оплаквате от тинитуса си?",
+  "q7": "Поради тинитуса си, трудно ли заспивате вечер?",
+  "q8": "Имате ли усещането, че не можете да избягате от тинитуса си?",
+  "q9": "Тинитусът Ви пречи ли Ви да се наслаждавате на социални дейности (например излизане на вечеря или кино)?",
+  "q10": "Поради тинитуса си, чувствате ли се фрустриран?",
+  "q11": "Поради тинитуса си, имате ли усещането, че страдате от тежко заболяване?",
+  "q12": "Тинитусът Ви пречи ли Ви да се наслаждавате на живота?",
+  "q13": "Тинитусът Ви пречи ли Ви на работата или на домашните задължения?",
+  "q14": "Поради тинитуса си, забелязвате ли, че сте често раздразнителен?",
+  "q15": "Поради тинитуса си, трудно ли четете?",
+  "q16": "Тинитусът Ви разстройва ли Ви?",
+  "q17": "Чувствате ли, че проблемът с тинитуса натоварва отношенията Ви с членовете на семейството и приятелите Ви?",
+  "q18": "Трудно ли Ви е да насочите вниманието си извън тинитуса и към други неща?",
+  "q19": "Имате ли усещането, че нямате никакъв контрол над тинитуса си?",
+  "q20": "Поради тинитуса си, често ли се чувствате уморен?",
+  "q21": "Поради тинитуса си, чувствате ли се в подтиснато настроение?",
+  "q22": "Тинитусът Ви предизвиква ли тревожност?",
+  "q23": "Имате ли усещането, че повече не можете да се справите с тинитуса си?",
+  "q24": "Тинитусът Ви се влошава ли, когато сте под стрес?",
+  "q25": "Поради тинитуса си, чувствате ли се несигурен?",
+  "badge": {
+   "label": "THI",
+   "goal": "цел < {goal}",
+   "tapHint": "Натиснете за подробности"
+  },
+  "detail": {
+   "title": "Резултат от THI теста",
+   "subscoresTitle": "По категории",
+   "functional": "Функционален",
+   "emotional": "Емоционален",
+   "catastrophic": "Катастрофичен",
+   "retest_label": "Тест отново на ден 14",
+   "retest_countdown": "Тест отново след {days} дни",
+   "retest_ready": "Време е за нов тест",
+   "retest_button": "Направи тест отново",
+   "compareTitle": "Сравнение Ден 1 → Ден 14",
+   "compareDay1": "Ден 1",
+   "compareDay14": "Ден 14",
+   "compareChange": "Промяна",
+   "close": "Затвори"
+  },
+  "insights": {
+   "functional": {
+    "title": "Преобладават практически затруднения",
+    "body": "Тинитусът Ви създава най-вече практически проблеми (концентрация, сън, работа). Препоръчваме фокус върху сценариите „Заспиване“ и „Дневна работа“ в програмата."
+   },
+   "emotional": {
+    "title": "Преобладава емоционалното натоварване",
+    "body": "Тинитусът Ви създава най-вече емоционално натоварване (тревожност, раздразнение). CBT упражненията във Вашата 14-дневна програма ще са особено полезни."
+   },
+   "catastrophic": {
+    "title": "Катастрофизиращи мисли за тинитуса",
+    "body": "Имате тенденция към катастрофизиращи мисли за тинитуса („никога няма да си тръгне“, „животът ми е разрушен“). Това е често срещано и поддаващо се на работа. Препоръчително е да говорите с професионалист (психотерапевт или специалист по тинитус), ако усещанията Ви се засилят."
+   },
+   "balanced": {
+    "title": "Равномерно проявление",
+    "body": "Тинитусът Ви се проявява във всички аспекти равномерно. Препоръчителна е цялата 14-дневна програма без специален фокус."
+   },
+   "unknown": {
+    "title": "Резултат",
+    "body": "Няма достатъчно данни за интерпретация."
+   }
+  },
+  "compare": {
+   "clinicalImprovement": "Намалили сте THI с {n} точки за 14 дни — клинично значимо подобрение. Продължавайте програмата.",
+   "mildImprovement": "THI е намален с {n} точки. Това е стъпка напред — продължете с програмата за по-устойчиво подобрение.",
+   "unchanged": "THI не се е променил. Продължете програмата — устойчивите промени обикновено настъпват в рамките на 3–6 месеца.",
+   "increased": "THI е увеличен с {n} точки. Това може да се дължи на периодични фактори (стрес, лош сън). Препоръчваме да продължите редовно с програмата."
+  },
+  "homeBanner": {
+   "retest_title": "Време е за вторично THI измерване",
+   "retest_body": "Изпълнихте 13 дни от програмата. Направете втория тест за сравнение.",
+   "retest_cta": "Направи тест"
+  }
+ },
+ "faq": {
+  "title": "Често задавани въпроси",
+  "openLabel": "Често задавани въпроси",
+  "closeAria": "Затвори въпроси и отговори",
+  "searchPlaceholder": "Търси въпрос…",
+  "searchAria": "Търси въпрос",
+  "noResults": "Няма намерени въпроси по тази дума.",
+  "supportHint": "Не намерихте отговор? Свържете се с support чрез email.",
+  "supportButton": "Свържи се със support",
+  "supportEmail": "support@auralis.app",
+  "supportSubject": "AURALIS въпрос",
+  "categories": {
+   "safety": "Безопасност",
+   "technical": "Технически",
+   "therapeutic": "Терапевтични",
+   "program": "Програма"
+  },
+  "items": [
+   {
+    "cat": "safety",
+    "q": "Опасно ли е да слушам звуци дълго време всеки ден?",
+    "a": "Не е опасно при правилни нива. WHO и NIOSH определят 70 dBA като лимит за неограничено време на ден — това е по-силно от тиха разговорна реч. AURALIS препоръчва 50–65 dBA за дневна употреба и 45–55 dBA нощем. Опасност има само ако надвишите тези нива — над 80 dBA има ограничение от 40 часа седмично. Спазвайте правилото 60/60 — 60% от силата на устройството, не повече от 60 минути активно слушане, последвани от 10–15 минути тишина. При тези параметри, цял живот на ежедневно слушане е безопасен."
+   },
+   {
+    "cat": "safety",
+    "q": "Мога ли да пускам приложението в самолет?",
+    "a": "Да, напълно. AURALIS работи изцяло без интернет — всички звуци, въпросници и CBT текстове са локални на телефона Ви. Активирайте Airplane mode и приложението ще функционира както обикновено. Това е удобно и за спестяване на батерия по време на дълъг полет. На борда на самолет: фоновото шумоиздаване обикновено е около 75–85 dB — препоръчваме да слушате с костно-проводими слушалки или висококачествени отворени слушалки, а не с in-ear „тапи\". Те създават оклузивен ефект, който прави тинитуса по-силен."
+   },
+   {
+    "cat": "safety",
+    "q": "Да слушам ли със слушалки или говорител?",
+    "a": "Предпочитайте говорител или костно-проводими слушалки. Стандартните in-ear „тапи\" не са препоръчителни за дълга употреба — те блокират ушния канал и създават оклузивен ефект, който всъщност прави вътрешния тинитус по-силен. Освен това при дълги часове ежедневно слушане се повишава рискът от запушване с ушна кал и външен отит. За нощно слушане: отворени говорители в спалнята са най-добрият избор. За работа или разходка: костно-проводими слушалки оставят ушния канал свободен и не предизвикват оклузия. Бутонни слушалки on-ear също са приемливи."
+   },
+   {
+    "cat": "safety",
+    "q": "Какво е максималното време на ден за слушане?",
+    "a": "Няма строг лимит при правилни нива. При 50–65 dBA няма дневен лимит — WHO определя 70 dBA като безопасен за 24/7. На практика: 4–6 часа разпределени през деня е терапевтично оптимално, плюс 8 часа за нощно непрекъснато ползване. Важно е разнообразието на ушите — не дръжте едни и същи слушалки или ракурс часове наред. Правете кратки паузи на всеки час (правилото 60/60). При признаци на слухова умора — звън, чувствителност към звук, тъпота — спрете за 2–3 часа и продължете на по-ниско ниво."
+   },
+   {
+    "cat": "safety",
+    "q": "Какво да правя ако усетя влошаване след слушане?",
+    "a": "Спрете първо, не паникьосвайте. Леко временно влошаване след слушане е възможно при три причини: твърде силно ниво (намалете с 5–10 dB при следваща сесия), грешен тип звук за профила Ви (TH_C изисква pink и филтриран дъжд, не белия шум), или соматично напрежение от деня (опитайте Day 8 упражнение за мускулна релаксация). Ако влошаването продължи повече от 48 часа след спиране, консултирайте се с УНГ. Червен флаг: ако шумът стане едностранен, пулсиращ или придружен от загуба на слух — незабавно потърсете лекар."
+   },
+   {
+    "cat": "technical",
+    "q": "Защо звукът се чува със закъснение след натискане на бутона?",
+    "a": "Това е нормално явление при PWA приложения. Браузърът или Capacitor обвивката декодира MP3 файла, преди да го пусне — обикновено забавянето е 100–500 ms. AURALIS използва кеширане в Service Worker, така че втория път звукът пуска незабавно. Ако забавянето е по-голямо от 2 секунди, проверете: 1) има ли достатъчно памет на телефона, 2) затворете други приложения работещи на фон, 3) рестартирайте AURALIS. На по-стари телефони (Android 8–9) забавянето може да е малко по-голямо."
+   },
+   {
+    "cat": "technical",
+    "q": "Работи ли AURALIS без интернет?",
+    "a": "Да, напълно. AURALIS е offline-first приложение — Bible v3 ЗАКОН №6. Всички звуци (250 файла) са свалени на Вашия телефон при инсталиране. Всички въпросници (THI, дневник), CBT текстове и настройки се пазят в локалното хранилище на телефона. AURALIS не изпраща никакви данни на сървър — Вашите отговори и прогрес остават единствено на Вашия телефон. Това отговаря на най-строгите GDPR изисквания за чувствителни здравни данни. Изключение: единствено при покупка през Google Play или App Store, плащането се обработва от платформата, не от нас."
+   },
+   {
+    "cat": "technical",
+    "q": "Защо приложението не се отваря?",
+    "a": "Най-чести причини: 1) Първото отваряне след инсталация — изчакайте 10–20 секунди, защото системата подготвя 100–150 MB звукови файлове. 2) Малко памет на устройството — освободете 200 MB на телефона. 3) Стара версия на Android (под 8.0) — приложението изисква Android 8.0+. 4) Бавна първа графика — обновете до последната версия от Google Play. Ако проблемът продължи, опитайте: затворете приложението от менюто за активни приложения и го отворете отново. При повторно невъзможност за стартиране — преинсталирайте от Google Play (Вашите данни се пазят в Profile → Експорт, ако сте го направили)."
+   },
+   {
+    "cat": "technical",
+    "q": "Защо батерията се изтощава бързо?",
+    "a": "Не би трябвало. AURALIS използва оптимизиран AudioBufferSourceNode (не AudioWorklet), system sample rate, и suspend при пауза — Bible v3 ЗАКОН №4. Цяла нощ слушане (8 часа) трябва да изтощи 3–8% от батерията. Ако виждате по-голяма консумация: 1) Изключете „Wi-Fi\" и „Bluetooth\" нощем — те източват повече от самото звуково възпроизвеждане. 2) Активирайте „Не безпокой\" режим за нощта. 3) Намалете яркостта на екрана преди заспиване. 4) Проверете в Settings → Battery дали друго приложение работи на фон. Ако AURALIS наистина изтощава много — съобщете на support, това е технически бъг."
+   },
+   {
+    "cat": "technical",
+    "q": "Какво се случва ако телефонът се изключи нощем?",
+    "a": "Звукът спира и сесията се запазва. Когато стартирате AURALIS отново, приложението ви предлага да продължите от мястото, на което спряхте. Всички записи в дневника, THI отговори и CBT прогрес се записват веднага в localStorage — не се губят при внезапно изключване. Ако телефонът се изключи поради изтощаване на батерията: преди заспиване включете го в зарядно или активирайте „Battery saver\" режим. Ако звукът внезапно изчезне посред нощ при работещ телефон — амигдалата ще го регистрира като преход. Препоръчваме непрекъсната нощна сесия, не sleep timer."
+   },
+   {
+    "cat": "therapeutic",
+    "q": "Кога ще усетя първи ефект?",
+    "a": "Различно за всеки. Първите признаци на по-малко натрапчив шум могат да се появят още в първите 1–2 седмици — особено усещане за по-лесно заспиване и кратки моменти, в които не забелязвате тинитуса. Клинично значим резултат (спад на THI с 7 или повече точки) обикновено идва за 3 месеца при последователно прилагане. По-сериозен ефект (−24 точки THI) се регистрира при 6 месеца. Реалното привикване (хабитуация), при което мозъкът престава да третира шума като заплаха, е процес от 9 до 18 месеца. AURALIS не лекува тинитус — той помага за хабитуация и по-добро качество на живот."
+   },
+   {
+    "cat": "therapeutic",
+    "q": "Какво да правя ако усещам, че се влошава?",
+    "a": "Първо — не правете заключения от един или два дни. Тинитусът има добри и лоши периоди, които не отразяват цялостен тренд. Прегледайте записите си в дневника за последните 7 дни — често „по-зле днес\" не е тенденция. Втора стъпка: помислете за външни фактори — стрес, кофеин след 14:00, безсънна нощ, остра шумова експозиция. Тези често засилват тинитуса временно. Ако наистина усещате трайно влошаване (над 2 седмици), консултирайте се с УНГ. Червен флаг: ако шумът стане едностранен, пулсиращ, придружен от замайване или загуба на слух — незабавно търсете лекар."
+   },
+   {
+    "cat": "therapeutic",
+    "q": "Колко часа на ден трябва да слушам?",
+    "a": "За Вашия профил TH_C — минимум 2 часа дневно за устойчива хабитуация; идеално 4–6 часа разпределени през деня. Не е необходимо да слушате непрекъснато — кратки сесии от 30 минути няколко пъти на ден работят по-добре от една дълга сесия. По време на нощта — непрекъснат фонов звук през целия 8-часов сън (изследванията показват, че sleep timer може да задейства амигдалата при преходи между сънни цикли). Това е препоръка, не задължение. Дори 1 час на ден с правилен звук работи по-добре от нищо. Слушайте, когато е удобно за Вас."
+   },
+   {
+    "cat": "therapeutic",
+    "q": "Трябва ли да се откажа от кафето?",
+    "a": "Не напълно, но ограничете го. Кофеинът е централен стимулант — увеличава кортикалната чувствителност и може да засили тинитуса. Препоръка: 1 чаша сутрин (до 10:00), без кафе след 14:00. Това дава достатъчно време на тялото да изчисти кофеина преди сън (полу-разпадане ~5 часа). При Вашия TH_C профил кофеинът има особено силен ефект върху високочестотния звън. Алкохол вечер също влошава — нарушава перфузията на вътрешното ухо и фрагментира съня. Сол вечер — задържа течности, влошава ниските честоти. Опитайте 2 седмици без кофеин след 14:00 и наблюдавайте."
+   },
+   {
+    "cat": "therapeutic",
+    "q": "Помагат ли витамините или добавките?",
+    "a": "AURALIS не дава медицински препоръки за добавки. Това попада извън нашата компетентност (Bible §1 — ЗАКОН №2: NO MEDICAL ADVICE). Има научни проучвания за магнезий и тинитус — те показват смесени резултати; не препоръчвайте сами без консултация с лекар. Витамин B12 дефицит може да влоши тинитуса — кръвен тест ще покаже дали имате нужда. Гинко билоба — клиничните доказателства са слаби. Никога не започвайте добавки без консултация с Вашия лекар, особено ако приемате други медикаменти. AURALIS се фокусира на това, което сме доказали — звукова терапия и CBT практики."
+   },
+   {
+    "cat": "program",
+    "q": "Какво е THI и защо го попълвам?",
+    "a": "THI (Tinnitus Handicap Inventory) е стандартизиран въпросник от 25 въпроса, разработен от Newman и колеги през 1996 г. Той измерва не силата на шума, а колко той Ви безпокои в ежедневието. Резултатът варира от 0 (без увреждане) до 100 (катастрофално). Попълвате го на Ден 1 за изходна линия и на Ден 14 за сравнение — така виждате конкретен числов прогрес. Спад от 7 или повече точки между двата теста се счита за клинично значим. Това е публичен медицински инструмент, използван по целия свят. Резултатите остават единствено на Вашия телефон."
+   },
+   {
+    "cat": "program",
+    "q": "Защо 14 дни? Защо не по-кратко или по-дълго?",
+    "a": "14 дни е оптимизиран „субакутен\" интервал, доказан в клиничните проучвания. По-кратко (1–7 дни) — твърде малко за да усетите промяна и за да може мозъкът да започне привикване. По-дълго (3–6 месеца) — голяма част от потребителите отпадат преди завършване. Класическата програма Kalmeda има 9–12-месечен курс, но 60% от пациентите я прекратяват в първите 3 месеца. 14-дневният модул на AURALIS включва критичните CBT елементи: демистификация, преструктуриране на мисли, релаксация и приемане. След тези 2 седмици можете да продължите с поддържащ режим — слушане на звуци и кратки практики."
+   },
+   {
+    "cat": "program",
+    "q": "Какво да правя след Ден 14?",
+    "a": "14-дневният модул не приключва тинитуса — той е начало. След Ден 14 продължете със следното: 1) Слушане на звуковата библиотека всеки ден (минимум 2 часа). 2) Повторете най-полезните CBT упражнения 2–3 пъти седмично. 3) Попълвайте вечерен дневник без натиск — кратко самонаблюдение. 4) Преоценка на THI след 30 дни и 90 дни (Profile → Повторен тест). За реално привикване (хабитуация) клиничните проучвания препоръчват минимум 9–18 месеца последователно ползване. AURALIS остава на телефона Ви като дългосрочен инструмент за поддръжка, не за интензивно лечение."
+   },
+   {
+    "cat": "program",
+    "q": "Какво ако пропусна ден?",
+    "a": "Нищо не е загубено. AURALIS не наказва за пропуски — Bible §1 е wellness, не дисциплинарен инструмент. Имате 2 „дни почивка\" (freeze days) на разположение за 14-те дни — стрик броячът не пада на 0. На сутринта на следващия ден ще видите тих съобщение, че можете да попълните пропуснатия ден със закъснение или просто да продължите към следващия. При 2 поредни дни пропуск — системата автоматично намалява задачата за следващия ден до 2-минутна микро-доза (само 3 дълбоки вдишвания). Звуковата библиотека и Sleep mode остават напълно достъпни при всеки сценарий."
+   },
+   {
+    "cat": "program",
+    "q": "Мога ли да попълня дневника за пропуснат предишен ден?",
+    "a": "Да. В дневния hub ще видите бутон „Попълни Ден X със закъснение\" за всеки пропуснат ден. Това отваря същите въпроси, но с пометка „попълнен на: <текуща дата>\" — за да виждате честно кога е било. Бележете: при попълване със закъснение точността на спомена за деня намалява, особено за плъзгачи 1–5. Препоръчваме да попълвате дневника в денят му (вечерта за вечерен, сутринта за сутрешен). При повече от 3 дни закъснение — по-добре е да го прескочите, отколкото да попълните неточно. Записът остава в експорта Ви като референция."
+   }
+  ]
+ },
+ "cbt": {
+  "dayTitleFmt": "Ден {n} — {title}",
+  "sections": {
+   "theme": "Тема на деня",
+   "description": "Описание",
+   "exercise": "Упражнение",
+   "reflection": "Рефлексия"
+  },
+  "reflectionPlaceholder": "Запишете отговора си тук (по избор)…",
+  "alreadyDone": "Тази практика вече е записана за днес. Можете да я обновите.",
+  "actions": {
+   "save": "Запиши",
+   "cancel": "Откажи"
+  },
+  "savedToast": "Записано",
+  "day_1": {
+   "title": "Сензорна демистификация",
+   "theme": "Тинитусът е звук, който мозъкът създава сам — не е увреждане на ухото и не е предупреждение за опасност.",
+   "explanation": "Шумът, който чувате, идва от мозъка, не от ухото. Когато слуховият път получава по-малко сигнали от обкръжаващия свят, мозъкът компенсира със собствена активност — точно както очите „рисуват\" светлинни точки в пълна тъмнина. Това не е тумор, не е лудост и не е знак за нещо опасно. Това е реакция, която Вашият мозък може постепенно да привикне (хабитуира) да пренебрегва.",
+   "exercise": [
+    "Седнете спокойно и за 1 минута слушайте тинитуса си — без да го оценявате, без да се борите с него.",
+    "След това си кажете на глас или наум: „Това е звук, който мозъкът ми произвежда. Не съм в опасност.\"",
+    "Запишете в едно изречение какво почувствахте, когато спряхте да се борите със звука."
+   ],
+   "reflection": "Кое от тези твърдения днес Ви беше най-трудно да приемете — че шумът идва от мозъка, че не е опасен, или че може да отслабне?"
+  },
+  "day_2": {
+   "title": "Порочният кръг на дистреса",
+   "theme": "Колкото повече се тревожите за шума, толкова по-силен става — и обратното.",
+   "explanation": "Когато усетите тинитуса и веднага си помислите „пак започна\", тялото Ви се напряга, сърцето започва да бие по-бързо, а мозъкът Ви насочва още повече внимание към звука. Тогава звукът наистина се възприема по-силно. Това е затворен кръг: шум → тревога → напрежение → по-силен шум. Прекъсването му не става със сила, а с разбиране и спокоен отговор.",
+   "exercise": [
+    "Спомнете си момент от днес, когато тинитусът Ви се засили.",
+    "Запишете три неща: какво се случваше около Вас, какво си помислихте веднага, как се почувствахте в тялото.",
+    "Прочетете записаното и забележете връзката между трите — мисъл, тяло, звук."
+   ],
+   "reflection": "В кой момент днес тинитусът беше най-силен и какво се случваше с Вас точно преди това?"
+  },
+  "day_3": {
+   "title": "Улавяне на автоматичните мисли",
+   "theme": "Първата мисъл, която идва при шума, често е плашеща — и не винаги вярна.",
+   "explanation": "Когато тинитусът се появи, в ума Ви за секунда минават мисли — толкова бързо, че едва ги забелязвате. Например: „Това никога няма да спре\" или „Ще ме съсипе\". Тези автоматични мисли не са факти. Те са навик на ума, изграден от страх. Първата стъпка към промяна е просто да ги забележите и запишете, без да ги оценявате.",
+   "exercise": [
+    "Носете със себе си тефтерче или използвайте бележки в телефона.",
+    "Всеки път, когато тинитусът Ви засили, запишете точната мисъл, която изскочи в ума Ви (с Вашите думи).",
+    "До вечерта съберете поне 3 такива мисли."
+   ],
+   "reflection": "Коя от мислите, които записахте днес, най-често се повтаря в главата Ви?"
+  },
+  "day_4": {
+   "title": "Лична фраза-котва",
+   "theme": "Една кратка, лично избрана фраза може да спре тревогата в момента, в който се появи.",
+   "explanation": "Когато повтаряте плашеща мисъл, мозъкът Ви я заучава. Същото важи и за спокойната мисъл. Изберете собствена фраза, която Ви носи усещане за спокойствие и устойчивост — например „Шумът тече като река, аз стоя спокойно на брега\" или „Този звук може да остане, аз ще си живея живота\". Тази фраза-котва ще използвате всеки път, когато тинитусът се натрапи.",
+   "exercise": [
+    "Напишете 3 варианта на лична фраза с по 5–8 думи.",
+    "Прочетете ги бавно на глас и изберете тази, която най-силно Ви успокоява.",
+    "Повторете я бавно 10 пъти, със спокойно дишане между повторенията."
+   ],
+   "reflection": "Коя фраза избрахте и какво почувствахте, когато я повторихте?"
+  },
+  "day_5": {
+   "title": "Извеждане на вниманието навън",
+   "theme": "Колкото повече се вслушвате в шума, толкова по-силен става — затова умът ще се учи да се обръща навън.",
+   "explanation": "Когато сте съсредоточен върху тинитуса, мозъкът работи на максимална чувствителност точно към него. Ако обучите ума си да се обръща към външните сетива — гледка, други звуци, докосване — той ще научи, че светът е по-голям от шума в главата Ви. Това умение се изгражда с практика, точно както мускул.",
+   "exercise": [
+    "Седнете в стая, която обичате. Назовете на глас 3 неща, които виждате около себе си.",
+    "След това 3 различни звука, които чувате наоколо (не тинитуса).",
+    "Накрая 3 физически усещания по кожата си (стол под Вас, дрехи, въздух по ръцете)."
+   ],
+   "reflection": "Кое сетиво — зрение, слух или допир — Ви беше най-лесно да го забележите днес?"
+  },
+  "day_6": {
+   "title": "Меко звуково обогатяване",
+   "theme": "Лек фонов звук намалява контраста между тинитуса и тишината.",
+   "explanation": "В пълна тишина мозъкът Ви усилва вътрешния шум, защото няма с какво да го сравни. Когато добавите тих фонов звук — лек дъжд, шум на река, мек розов шум — шумът в главата Ви губи своята изключителност. Силата на фоновия звук винаги е точно под силата на тинитуса. Целта не е да го заглушите, а леко да го „смесите\" с външния свят.",
+   "exercise": [
+    "Отворете раздела „Препоръчани\" в приложението и пуснете звук, който Ви е приятен.",
+    "Настройте силата така, че да го чувате ясно, но шумът в главата Ви да остава доловим.",
+    "Слушайте 10 минути, без да правите нищо друго. Просто наблюдавайте как двата звука съществуват едновременно."
+   ],
+   "reflection": "Какво се промени във Вашето усещане за тинитуса по време на тези 10 минути?"
+  },
+  "day_7": {
+   "title": "Преглед на първата седмица",
+   "theme": "Една седмица назад — какво научихте за себе си.",
+   "explanation": "Не очаквайте шумът да е изчезнал. Целта на първата седмица не е тишина, а ново разбиране: че тинитусът има произход в мозъка, че мислите и тялото го засилват и че Вие имате инструменти за отговор. Тази седмица сте посели семената. Привикването (хабитуацията) идва с повторение, не за дни — за месеци.",
+   "exercise": [
+    "Прелистете записките си от Дни 1–6.",
+    "Напишете един момент от седмицата, в който фразата-котва или упражнение Ви помогна.",
+    "Напишете едно нещо, което Ви беше най-трудно — и не се укорявайте за него."
+   ],
+   "reflection": "Кой ден от тази седмица беше най-полезен за Вас и защо?"
+  },
+  "day_8": {
+   "title": "Прогресивно мускулно отпускане",
+   "theme": "Когато тялото е напрегнато, шумът се усеща по-силно — затова ще се учите да го отпускате нарочно.",
+   "explanation": "Стресът свива мускулите на врата, раменете и челюстта. Тези мускули са свързани със слуховата система — напрежението им буквално се „чува\" в главата Ви като по-силен тинитус. Когато съзнателно стегнете и след това отпуснете един мускул, тялото запомня разликата и започва да живее в по-спокойно състояние.",
+   "exercise": [
+    "Седнете удобно. Стиснете юмруци силно за 5 секунди, после ги отпуснете и забележете усещането за 15 секунди.",
+    "Повторете същото с раменете (вдигнете ги към ушите, после отпуснете).",
+    "Накрая с врата (леко наклонете глава напред, после я отпуснете). Усетете тежестта на главата си."
+   ],
+   "reflection": "Кой от трите мускула беше най-стегнат, когато започнахте упражнението?"
+  },
+  "day_9": {
+   "title": "Отпускане на челюстта",
+   "theme": "Челюстта често стиска без да усещате — и тинитусът се усилва.",
+   "explanation": "Много хора с шум в ушите стискат зъби през деня, без да забележат. Челюстните мускули са свързани със слуховия нерв — когато са стегнати, мозъкът ги тълкува като сигнал и засилва тинитуса. Ако се научите да усещате челюстта си и да я пускате, ще прекъснете една от скритите причини шумът да е по-силен.",
+   "exercise": [
+    "Поставете върховете на пръстите си върху мускулите пред ушите (там, където челюстта се отваря).",
+    "Правете бавни кръгови движения 1 минута, с лек натиск.",
+    "Накрая нарочно отпуснете долната устна и оставете долната челюст леко да увисне за 30 секунди."
+   ],
+   "reflection": "Колко пъти днес се хванахте, че стискате челюст?"
+  },
+  "day_10": {
+   "title": "Дишане за успокоение",
+   "theme": "Дългото издишване включва спирачката на нервната система.",
+   "explanation": "Когато издишвате по-дълго, отколкото вдишвате, активира се блуждаещият нерв. Това е естествената спирачка на тялото — тя забавя сърцето, отпуска мускулите и казва на мозъка, че сте в безопасност. След няколко минути такова дишане симпатиковата „тревога\" утихва и тинитусът се отдалечава от центъра на вниманието.",
+   "exercise": [
+    "Седнете изправен, едната ръка на гърдите, другата на корема.",
+    "Вдишайте бавно през носа за 4 секунди, така че да се повдигне коремът, не гърдите.",
+    "Издишайте бавно през устата за 6 секунди. Повторете цикъла 10 пъти."
+   ],
+   "reflection": "Колко спокойно се чувствахте в тялото си след 10-те цикъла, в сравнение с преди това?"
+  },
+  "day_11": {
+   "title": "Мислите като облаци",
+   "theme": "Мисълта не е факт — тя е събитие в ума, което идва и си отива.",
+   "explanation": "Когато мисъл като „пак започна, ще ме съсипе\" се появи, не сте длъжен да й вярвате. Можете просто да я забележите — както бихте забелязали облак в небето. Не я гонете, не се борете с нея, не я раздухвайте. Гледайте я как минава. Това умение се нарича дистанциране и е едно от най-силните при работа с тинитус.",
+   "exercise": [
+    "Седнете спокойно с леко затворени очи.",
+    "Когато се появи мисъл за тинитуса, кажете си наум: „Имам мисълта, че…\", след което допълнете мисълта.",
+    "Оставете мисълта да премине, без да реагирате на нея. Правете това 5 минути."
+   ],
+   "reflection": "Беше ли Ви по-лесно да гледате мислите си отстрани, или да им вярвате както обикновено?"
+  },
+  "day_12": {
+   "title": "Три приятни мига",
+   "theme": "Денят Ви съдържа повече добри моменти, отколкото мозъкът Ви забелязва.",
+   "explanation": "Когато имате тинитус, умът Ви е научен да забелязва най-вече неприятното. Това не е Ваша слабост — това е защитна реакция. Но има противоотрова: всеки ден да си правите кратък списък от три приятни сетивни мига — вкус, аромат, гледка, докосване, тих звук. С времето мозъкът Ви ще започне сам да ги търси.",
+   "exercise": [
+    "Преди да заспите, спомнете си деня.",
+    "Запишете три неща, които сте усетили днес и са Ви били приятни (например аромат на кафе, топла светлина, разговор).",
+    "До всяко напишете една дума за чувството, което Ви даде."
+   ],
+   "reflection": "Кой от трите мига беше най-неочакван за Вас?"
+  },
+  "day_13": {
+   "title": "Звук и дишане заедно",
+   "theme": "Когато спокойната природа и спокойното дишане се срещнат, тинитусът губи силата си.",
+   "explanation": "Досега използвахте дишането и фоновия звук поотделно. Днес ще ги комбинирате. Мозъкът свързва двете преживявания — звукът става сигнал за релаксация, релаксацията засилва ефекта на звука. Постепенно изграждате нова, неутрална асоциация: тинитусът не е сам в съзнанието Ви — около него има спокойна среда и спокойно тяло.",
+   "exercise": [
+    "Пуснете 10-минутна природна звукова сесия от приложението (вълни, поток или дъжд).",
+    "През цялото време дишайте бавно: 4 секунди вдишване, 6 секунди издишване.",
+    "Когато тинитусът се обади, не реагирайте — продължете звука и дишането."
+   ],
+   "reflection": "Беше ли тинитусът същият през тези 10 минути, или нещо в усещането се промени?"
+  },
+  "day_14": {
+   "title": "Поглед назад и напред",
+   "theme": "Две седмици назад — кое работи за Вас и какво ще пренесете нататък.",
+   "explanation": "Две седмици са достатъчни да усетите промяна в отношението си към шума, но не и за пълно привикване. Хабитуацията е процес от месеци, не дни. Това, което днес ще си отнесете, е не „лечение\", а лична карта на инструментите, които работят за Вас. Тази карта ще използвате занапред — при добри дни и при тежки.",
+   "exercise": [
+    "Прелистете всички записки и рефлексии от Дни 1–13.",
+    "Напишете три неща, които ще продължите да правите всеки ден (упражнения, фраза, звук).",
+    "Попълнете втория въпросник THI — той ще покаже как се чувствате сега, в сравнение с първия ден."
+   ],
+   "reflection": "Кое от наученото през тези 14 дни беше най-важно за Вас лично?"
+  }
+ },
+ "home": {
+  "infoAria": "Informazioni sulla categoria",
+  "title": "Scegli una modalità",
+  "openLibraryAll": "Tutti i suoni",
+  "openDiary": "Diario",
+  "soundCountFmt": "{n} suoni",
+  "favoritesBtn": {
+   "aria": "Preferiti"
+  },
+  "cat": {
+   "sleep_deep": {
+    "name": "Sonno profondo",
+    "subtitle": "Tutta la notte"
+   },
+   "falling_asleep": {
+    "name": "Addormentarsi",
+    "subtitle": "30–90 min prima di dormire"
+   },
+   "relaxation": {
+    "name": "Rilassamento",
+    "subtitle": "Prima di dormire, lettura"
+   },
+   "daily": {
+    "name": "Quotidiano",
+    "subtitle": "Lavoro, concentrazione"
+   },
+   "anxiety": {
+    "name": "Ansia",
+    "subtitle": "SOS, attacco di panico"
+   },
+   "meditation": {
+    "name": "Meditazione",
+    "subtitle": "Sessioni guidate"
+   }
+  },
+  "thiCta": {
+   "title": "Completa la valutazione scientifica",
+   "body": "Compila il test THI (5 minuti) per un piano personalizzato",
+   "button": "Inizia il test"
+  },
+  "pitch": {
+   "new_title": "Tono dell'acufene",
+   "new_body": "Scopri la frequenza del tuo acufene per un filtro notch personalizzato.",
+   "new_cta": "Fai il test",
+   "done_title": "Tono dell'acufene",
+   "done_body": "Profilo attuale: {hz} Hz. Puoi ripetere il test se necessario.",
+   "done_cta": "Ripeti il test",
+   "skipped_title": "Tono dell'acufene",
+   "skipped_body": "Il test è stato saltato. Fallo per un filtro personalizzato.",
+   "skipped_cta": "Fai il test",
+   "caution": "Non serve testare spesso — i risultati sono più affidabili con qualche giorno tra le misurazioni.",
+   "infoAria": "Informazioni scientifiche sul test"
+  },
+  "volume": {
+   "label": "Volume",
+   "aria": "Volume 0-100"
+  }
+ },
+ "categoryView": {
+  "backAria": "Назад към началото",
+  "soundsCount": "Звуци ({n})",
+  "noSounds": "Скоро ще има звуци в тази категория.",
+  "description": "За какво е",
+  "faqLabel": "Чести въпроси"
+ },
+ "soundDetail": {
+  "backAria": "Назад към категорията",
+  "playCta": "Слушай",
+  "description": "Описание",
+  "recommendedNoise": "Препоръчителен фон",
+  "recommendedMix": "Препоръчителен микс: {ratio}",
+  "noRecommendation": "Без препоръка за фон",
+  "why": "Защо точно този звук",
+  "faqLabel": "Чести въпроси"
+ },
+ "quiz": {
+  "questions": {
+   "q1": {
+    "text": "Какъв звук чувате?",
+    "options": {
+     "a": "Звънене (висок тон)",
+     "b": "Бръмчене (нисък тон)",
+     "c": "Съскане (като пара)",
+     "d": "Пулсиращ",
+     "e": "Друг / не съм сигурен/а"
+    }
+   },
+   "q2": {
+    "text": "Каква е височината на звука?",
+    "options": {
+     "a": "Висок (като свирка)",
+     "b": "Среден (като комар)",
+     "c": "Нисък (като бучене)",
+     "d": "Не съм сигурен/а"
+    }
+   },
+   "q3": {
+    "text": "В кое ухо го чувате?",
+    "options": {
+     "a": "Само в лявото",
+     "b": "Само в дясното",
+     "c": "И в двете",
+     "d": "В главата (не от ушите)"
+    }
+   },
+   "q4": {
+    "text": "Кога чувате звука?",
+    "options": {
+     "a": "Постоянно",
+     "b": "Идва и си отива",
+     "c": "Само в тишина",
+     "d": "Само вечер"
+    }
+   },
+   "q5": {
+    "text": "Кога е НАЙ-СИЛЕН?",
+    "options": {
+     "a": "Сутрин",
+     "b": "През деня",
+     "c": "Вечер",
+     "d": "През нощта",
+     "e": "Без значение"
+    }
+   },
+   "q6": {
+    "text": "Откога имате тинитус?",
+    "options": {
+     "a": "По-малко от 6 месеца",
+     "b": "6 месеца – 2 години",
+     "c": "2 – 5 години",
+     "d": "Повече от 5 години"
+    }
+   },
+   "q7": {
+    "text": "Имало ли е силен звук преди появата?",
+    "options": {
+     "a": "Концерт / силна музика",
+     "b": "Експлозия / стрелба",
+     "c": "Работа в шумна среда",
+     "d": "Не помня нищо специално"
+    }
+   },
+   "q8": {
+    "text": "Имате ли загуба на слуха?",
+    "options": {
+     "a": "Да, явно",
+     "b": "Може би леко",
+     "c": "Не",
+     "d": "Не съм проверявал/а"
+    }
+   },
+   "q9": {
+    "text": "Имате ли други състояния? (само информативно)",
+    "options": {
+     "a": "Високо кръвно",
+     "b": "Диабет",
+     "c": "Тревожност / стрес",
+     "d": "Нищо особено",
+     "e": "Не искам да отговарям"
+    }
+   },
+   "q10": {
+    "text": "Колко силно тинитусът влияе на съня Ви?",
+    "options": {
+     "a": "Изобщо",
+     "b": "Малко",
+     "c": "Доста",
+     "d": "Не мога да спя"
+    }
+   },
+   "q11": {
+    "text": "Колко силно влияе на концентрацията Ви?",
+    "options": {
+     "a": "Изобщо",
+     "b": "Малко",
+     "c": "Доста",
+     "d": "Не мога да се фокусирам"
+    }
+   },
+   "q12": {
+    "text": "Колко е стресиращ за Вас (0-10)?",
+    "options": {
+     "a": "0 – 2 (минимален стрес)",
+     "b": "3 – 5 (лек до умерен стрес)",
+     "c": "6 – 8 (силен стрес)",
+     "d": "9 – 10 (непоносим стрес)"
+    }
+   },
+   "q13": {
+    "text": "Какво сте опитвали досега?",
+    "options": {
+     "a": "Лекарства",
+     "b": "Слухови апарати",
+     "c": "Звукова терапия",
+     "d": "Медитация",
+     "e": "Нищо още"
+    }
+   },
+   "q14": {
+    "text": "Какво Ви помага най-много?",
+    "options": {
+     "a": "Тишина",
+     "b": "Слаб шум",
+     "c": "Силен шум",
+     "d": "Природа",
+     "e": "Нищо не помага"
+    }
+   },
+   "q15": {
+    "text": "Какво очаквате от приложението?",
+    "options": {
+     "a": "По-добър сън",
+     "b": "Маскиране на шума",
+     "c": "По-малко стрес",
+     "d": "Дълготрайна промяна"
+    }
+   }
+  },
+  "profiles": {
+   "TH_C": {
+    "shortName": "Тонален високочестотен",
+    "fullName": "Тонален високочестотен / Когнитивен",
+    "description": "Този профил включва субективно усещане за висок, пищящ и тонален тинитус, който оказва сериозно влияние върху когнитивните процеси и ежедневната концентрация. При него се препоръчват високочестотни звуци като филтриран дъжд и балансиран розов шум, настроени близо до точката на смесване, за да улеснят хабитуацията на ниво мозъчна кора."
+   },
+   "DN_S": {
+    "shortName": "Шумов нискочестотен",
+    "fullName": "Шумов нискочестотен / Сън",
+    "description": "Профил, дефиниран от наличието на плътни, нискочестотни звуци и сериозни проблеми със заспиването или поддържането на съня. При него водещи са по-дълбоките акустични среди (кафяв шум, плътни водопади), които силно маскират субективното бучене и успокояват ума вечер, подпомагайки плавния и здравословен преход към сън."
+   },
+   "SS_R": {
+    "shortName": "Стрес-чувствителен",
+    "fullName": "Стрес-чувствителен / Реактивен",
+    "description": "При този профил възприятието на тинитус е силно свързано с активността на вегетативната нервна система и лимбичната структура. Дори леки звукови дразнители или ежедневен стрес засилват усещането за шум. Акустичният отговор изисква зелен шум за облекчение и изключително нежни природни блендове за намаляване на кортикалната възбудимост."
+   },
+   "SM_F": {
+    "shortName": "Соматичен / Флуктуиращ",
+    "fullName": "Соматичен / Флуктуиращ",
+    "description": "Профил, съответстващ на тинитус с променлива сила и честота, често проявяващ се на цикли или силно свързан с физическо напрежение във врата и челюстта. Използват се силно динамични и непериодични природни среди, като океански приливи и отливи, които ангажират слуховия апарат без риск от привикване към статичен сигнал."
+   },
+   "HB_M": {
+    "shortName": "Адаптиран / Лек",
+    "fullName": "Адаптиран / Лек",
+    "description": "Този профил показва високо ниво на естествено привикване. Шумът се чува предимно в условия на абсолютна тишина и няма съществено влияние върху качеството на живот. Акустичната препоръка цели единствено обогатяване на тихата среда с минимални природни звуци за дългосрочно предотвратяване на сензорния контраст."
+   }
+  },
+  "diLevels": {
+   "low": "Лек",
+   "medium": "Умерен",
+   "high": "Тежък"
+  },
+  "intensity": {
+   "low": "Изключително тих, едва доловим фон",
+   "medium": "Равен на точката на смесване (Mixing Point)",
+   "high": "Малко под нивото на тинитуса; мек тембър"
+  }
+ },
+ "content": {
+  "mixer": {
+   "preset_deep_calm": {
+    "title": "Защо \"Дълбока тишина\"?",
+    "micro": "Дълбоки, басови звуци които помагат на тялото да се успокои. Универсален микс — подходящ за повечето хора с тинитус.",
+    "full": "📊 КАКЪВ Е ЗВУКЪТ:\n\nСпокойно басово жужене, подобно на дълбокия шум на хладилник или далечен климатик. Без високи звуци, без резки промени.\n\n🎯 ЗА КОГО Е:\n✅ Универсален — подходящ за всички профили\n✅ Особено добър за хора с висок свирещ тинитус\n✅ Помага при стрес или тревожност\n⚠ Ако имате нисък басов тинитус — изпробвайте първо за 5 минути\n\n💡 КОГА ДА ГО ПУСНЕТЕ:\n• Преди сън (30-60 минути)\n• По време на работа за концентрация\n• При стрес моменти през деня\n• Препоръчителна продължителност: 30-60 минути\n\n📈 КАКВО ДА ОЧАКВАТЕ:\n\nАко слушате 30-60 минути дневно:\n\nСедмица 1-2:\nЛеко облекчение. Може да забележите по-спокоен сън.\n\nСедмица 3-4:\nТинитусът става \"по-тих\" когато слушате. По-малко мисли за него.\n\nМесец 2-3:\nЗапочвате да не го забелязвате толкова често. Това е първият знак на хабитуация (привикване).\n\n⚠ ВАЖНО:\n• Резултатите варират\n• НЕ обещаваме лечение\n• Тинитусът не изчезва, но мозъкът се научава да го игнорира\n\n🧠 ЗАЩО РАБОТИ:\n\nДълбоките звуци не активират \"алармената\" част на мозъка (амигдала). Това разкъсва порочния кръг между тинитуса и стреса. Когато стресът намалее, тинитусът звучи по-тих.\n\n📚 ПРОУЧВАНЕ:\n\nМета-анализ от 14 проучвания (793 пациенти, 2024 г.): след 6 месеца редовно слушане, средното подобрение по скалата THI е 24.6 точки. Минимално значимо подобрение е 7 точки — пациентите получават над 3 пъти повече.",
+    "source": "Мета-анализ от 14 RCT (n=793), 2024. Виж docs/research/11."
+   },
+   "preset_underwater": {
+    "title": "Защо \"Подводна релаксация\"?",
+    "micro": "Звуци като под вода — много дълбоки честоти под 200Hz. Подобно на това, което чувате когато сте в басейн под повърхността.",
+    "full": "📊 КАКЪВ Е ЗВУКЪТ:\n\nМного дълбок, равномерен шум — като да си под вода в басейн. Без високи звуци, без вълни, без транзиции. Напомня на това как бебетата чуват звуци в утробата.\n\n🎯 ЗА КОГО Е:\n✅ Хора с висок свирещ тинитус (като свирка или цвърчене)\n✅ Стрес-чувствителен профил\n✅ Особено за нощни часове и заспиване\n⚠ Не за хора които имат тинитус именно в басовия диапазон\n\n💡 КОГА ДА ГО ПУСНЕТЕ:\n• Преди сън (силно препоръчително)\n• През нощта при безсъние\n• При паник атака или силна тревожност\n• Препоръчителна продължителност: до 2 часа подред\n\n📈 КАКВО ДА ОЧАКВАТЕ:\n\nАко слушате 60 минути дневно (вечер):\n\nСедмица 1-2:\nПо-бързо заспиване. Може да отнема 10-15 минути по-малко за да заспите.\n\nСедмица 3-4:\nПо-малко събуждания през нощта. По-дълбок сън.\n\nМесец 2-3:\nСутрешният тинитус се чувства по-тих. Това е знак че мозъкът се успокоява.\n\n⚠ ВАЖНО:\n• Резултатите варират\n• НЕ обещаваме лечение\n• Тинитусът не изчезва, но мозъкът се научава да го игнорира\n\n🧠 ЗАЩО РАБОТИ:\n\nДълбоките подводни звуци (60-200Hz) маскират високите тонове на тинитуса. По същия начин, по който в шумна стая трудно чувате тиха разговор. Освен това, тези честоти активират успокояващата нервна система (парасимпатиковата).\n\n📚 ПРОУЧВАНЕ:\n\nИзследване от 2024 г. (TENT-A1/A2 проучвания, 200+ пациенти): след 12 седмици използване на дълбоки тонални звуци, 73% от пациентите постигат значимо подобрение в качеството на живот (TFI скала, ≥13 точки подобрение).",
+    "source": "TENT-A1/A2 RCT, 2024. Виж docs/research/11."
+   },
+   "preset_sea_shore": {
+    "title": "Защо \"Морски бряг\"?",
+    "micro": "Далечен шум на морски вълни плюс дълбок басов фон. Естествена природна сцена за релаксация.",
+    "full": "📊 КАКЪВ Е ЗВУКЪТ:\n\nСпокоен шум на вълни в далечината (около 100 метра), смесен с дълбок басов фон. Чувате океан, но без силен прибой. Като да седите на тераса в курорт.\n\n🎯 ЗА КОГО Е:\n✅ Стрес-чувствителен профил (SS_R)\n✅ Соматичен/флуктуиращ профил (SM_F)\n✅ Хора които обичат природата\n⚠ Не за хора със страх от вода или морски травми\n\n💡 КОГА ДА ГО ПУСНЕТЕ:\n• Сутрин при събуждане (15-30 минути)\n• След работа за релаксация\n• Преди сън (с по-ниска сила на звука)\n• Препоръчителна продължителност: 30-90 минути\n\n📈 КАКВО ДА ОЧАКВАТЕ:\n\nАко слушате 30-60 минути дневно:\n\nСедмица 1-2:\nУсещане на ваканция и спокойствие. По-малко напрегнатост в раменете.\n\nСедмица 3-4:\nЗапочвате да асоциирате звука с релакс. Тялото се успокоява още преди да чуете звука.\n\nМесец 2-3:\nМозъкът свързва тинитуса с приятен спомен (морето), а не с тревога. Това е ключът към хабитуация.\n\n⚠ ВАЖНО:\n• Резултатите варират\n• НЕ обещаваме лечение\n• Тинитусът не изчезва, но мозъкът се научава да го игнорира\n\n🧠 ЗАЩО РАБОТИ:\n\nПриродните звуци на вода активират мозъчни области свързани с положителни емоции. Тинитусът става \"част от природата\" вместо \"враг\". Това е известна техника от Tinnitus Retraining Therapy (TRT) — учените я ползват от 30 години.\n\n📚 ПРОУЧВАНЕ:\n\nСравнително проучване от 2023 г. (Tong et al., 120 пациенти): персонализирани природни звуци показват по-добри резултати от традиционната звукова терапия, с 2 пъти по-малко отпадане от лечението (16% vs 36% при бял шум).",
+    "source": "Tong et al. (2023). 120 пациенти. Виж docs/research/11."
+   },
+   "preset_forest_stream": {
+    "title": "Защо \"Подводен поток\"?",
+    "micro": "Звуци от подводно течение в река — средни честоти около 1500Hz. Богат, \"пълен\" звук.",
+    "full": "📊 КАКЪВ Е ЗВУКЪТ:\n\nПодобно на това, което чувате когато сте под вода в река. Чувате как водата минава покрай камъни. Пълен, средночестотен звук — не твърде дълбок, не твърде ярък.\n\n🎯 ЗА КОГО Е:\n✅ Нискочестотен шумов тинитус (DN_S)\n✅ Адаптиран/лек тинитус (HB_M)\n✅ Хора които ползват звукова терапия дълго време\n⚠ Не за хора с тинитус в средните честоти\n\n💡 КОГА ДА ГО ПУСНЕТЕ:\n• По време на работа или четене\n• При концентрация\n• След стресов ден\n• Препоръчителна продължителност: 30-120 минути\n\n📈 КАКВО ДА ОЧАКВАТЕ:\n\nАко слушате 60 минути дневно:\n\nСедмица 1-2:\nПодобрена концентрация. По-малко разсейване от тинитуса при работа.\n\nСедмица 3-4:\nПо-малко \"глъчка\" в главата. По-ясно мислене.\n\nМесец 2-3:\nТинитусът престава да бъде в центъра на вниманието ви. Започва да става \"фон\" вместо \"първи план\".\n\n⚠ ВАЖНО:\n• Резултатите варират\n• НЕ обещаваме лечение\n• Тинитусът не изчезва, но мозъкът се научава да го игнорира\n\n🧠 ЗАЩО РАБОТИ:\n\nСредночестотните звуци (1000-2000Hz) перфектно \"припокриват\" зоната където много тинитуси живеят. Освен това, водните звуци имат естествени вариации, които не уморяват мозъка така, както постоянният бял шум.\n\n📚 ПРОУЧВАНЕ:\n\nИзследване на акустичните средi (2024 г., 4-месечно проследяване): обогатени природни звуци показват 84% по-добро придържане към лечението от пациентите, в сравнение с традиционен бял шум.",
+    "source": "EAEGT vs WN study, 2024. Виж docs/research/11."
+   },
+   "preset_pink_pure": {
+    "title": "Защо \"Розов шум\"?",
+    "micro": "Класически базов звук за облекчение на тинитуса. Равномерен \"дъжд\" звук, използван в клинични проучвания над 30 години.",
+    "full": "📊 КАКЪВ Е ЗВУКЪТ:\n\nПодобно на равномерен слаб дъжд върху листа. Постоянен, \"пушистен\" звук без високи или ниски пикове. Учените го наричат \"розов\" защото има повече ниски от високи честоти (като розова светлина).\n\n🎯 ЗА КОГО Е:\n✅ Универсален — работи за всички профили\n✅ Класически избор за облекчение на тинитуса\n✅ Добър за хора, които искат да започнат с проверена опция\n⚠ Понякога може да изглежда монотонен — затова го комбинираме с други звуци\n\n💡 КОГА ДА ГО ПУСНЕТЕ:\n• Когато искате нещо просто и предсказуемо\n• Като фон по време на сън\n• Когато други микси не работят за вас\n• Препоръчителна продължителност: 30 минути - цяла нощ\n\n📈 КАКВО ДА ОЧАКВАТЕ:\n\nАко слушате 60 минути дневно:\n\nСедмица 1-2:\nТинитусът е по-малко доловим докато слушате. Може да забележите по-добро заспиване.\n\nСедмица 3-4:\nПо-малко мислене за тинитуса през деня. По-малко стрес.\n\nМесец 2-3:\nЗапочвате да слушате розовия шум по навик. Мозъкът го асоциира с релакс.\n\n⚠ ВАЖНО:\n• Резултатите варират\n• НЕ обещаваме лечение\n• Тинитусът не изчезва, но мозъкът се научава да го игнорира\n\n🧠 ЗАЩО РАБОТИ:\n\nРозовият шум съдържа всички честоти едновременно, балансирано. Това дава на мозъка \"равномерно меню\" звуци, което маскира тинитуса по-добре от тишината. Не активира стресовата система, защото няма резки промени.\n\n📚 ПРОУЧВАНЕ:\n\nРозовият шум е изследван в десетки RCT проучвания от 90-те години насам. В клиничната практика (TRT терапия) се ползва като база за над 100,000 пациенти със значими резултати в качеството на съня.",
+    "source": "Tinnitus Retraining Therapy (TRT) clinical practice, 30+ години. Виж docs/research/02."
+   },
+   "preset_brown_pure": {
+    "title": "Защо \"Кафяв шум\"?",
+    "micro": "По-дълбок от розовия — звучи като силен дъжд или водопад в далечината. Идеален за заспиване.",
+    "full": "📊 КАКЪВ Е ЗВУКЪТ:\n\nПо-басов от розовия. Подобно на силен дъжд по покрив или далечен водопад. Дълбок и обгръщащ — много хора го намират за уютен.\n\n🎯 ЗА КОГО Е:\n✅ За заспиване — особено добър\n✅ За хора с висок свирещ тинитус\n✅ При тревожност\n⚠ Не за хора с нисък басов тинитус (рискувате да го засилите)\n\n💡 КОГА ДА ГО ПУСНЕТЕ:\n• Преди сън (силно препоръчително)\n• През нощта като фон\n• При паник атака\n• Препоръчителна продължителност: цяла нощ е безопасно\n\n📈 КАКВО ДА ОЧАКВАТЕ:\n\nАко слушате 8 часа през нощта:\n\nСедмица 1-2:\nПо-малко събуждания. Сутрин се чувствате по-отпочинал.\n\nСедмица 3-4:\nПо-стабилен ритъм на съня. По-малко \"тинитусен\" звук при събуждане.\n\nМесец 2-3:\nКачество на съня значимо по-добро. Това е известно индиректно подобрение — добрият сън намалява тинитуса.\n\n⚠ ВАЖНО:\n• Резултатите варират\n• НЕ обещаваме лечение\n• Тинитусът не изчезва, но мозъкът се научава да го игнорира\n\n🧠 ЗАЩО РАБОТИ:\n\nКафявият шум има най-много басови честоти. Това активира успокояващата нервна система (парасимпатиковата) дори когато спите. Освен това маскира малки шумове в къщата (камина, климатик, скърцания) които могат да ви събудят.\n\n📚 ПРОУЧВАНЕ:\n\nДълбоките шумови маскери са основа на TRT терапията. Клинични данни от 2024 г. показват: качеството на съня е най-силния предиктор за облекчение на тинитуса — пациенти със 7+ часа сън имат 2 пъти по-бързо подобрение по THI скалата.",
+    "source": "TRT clinical practice + Sleep research 2024. Виж docs/research/09 + docs/research/11."
+   }
+  },
+  "general": {
+   "why_no_white_noise": {
+    "title": "Защо нямаме бял шум?",
+    "micro": "Белият шум е лош за тинитус. Прави го по-силен, не по-тих. Това е научно доказано.",
+    "full": "📊 КАКЪВ Е БЕЛИЯТ ШУМ:\n\n\"Сив\" звук, подобно на стара телевизия без сигнал. Съдържа всички честоти равномерно, включително високите. Често рекламиран като \"помощник за сън\".\n\n🚨 ЗАЩО НЕ ГО ПОЛЗВАМЕ:\n\nБелият шум активира мозъчната структура за тревога (амигдала). При хора с тинитус това създава така наречения \"ефект на кобра\" — когато белият шум спре, тинитусът звучи МНОГО по-силно от преди.\n\n📈 КАКВО СЕ СЛУЧВА АКО ГО ИЗПОЛЗВАТЕ:\n\nПърви дни: Изглежда че помага (маскира тинитуса)\nСедмица 1-2: Свикване — белият шум помага все по-малко\nСедмица 3-4: Тинитусът става ПО-СИЛЕН в моменти когато не слушате\nМесец 2+: Зависимост — не можете да заспите без него\n\n⚠ ВАЖНО:\n\nТова НЕ е наша теория. Това е научен консенсус. Затова нашите алтернативи (розов, кафяв, природни) са по-добри.\n\n🧠 ЗАЩО АЛТЕРНАТИВИТЕ СА ПО-ДОБРИ:\n\n• Розов шум — по-малко високи честоти, не активира алармата\n• Кафяв шум — успокояващ, дълбок\n• Природни звуци — асоциирани с позитивни емоции\n\n📚 ПРОУЧВАНЕ:\n\nСравнително проучване от 2023 г. (4-месечно проследяване): пациенти на бял шум имат 36% отпадане от лечението, докато при персонализирани природни звуци отпадането е само 16%. Пациентите буквално не понасят бял шум продължително време.",
+    "source": "Comparison of Enriched Acoustic Environment and White Noise study, 2024. Виж docs/research/11."
+   },
+   "why_habituation": {
+    "title": "Защо \"хабитуация\", а не лечение?",
+    "micro": "Тинитусът не може да се излекува — той е сигнал в мозъка. Но мозъкът може да се научи да го игнорира. Това се нарича хабитуация.",
+    "full": "📊 КАКВО Е ТИНИТУС РЕАЛНО:\n\nТинитусът НЕ е звук във ушите. Той е електрически сигнал в мозъка, който мозъкът обработва като звук. Затова операция на ушите не помага.\n\n🎯 ЗАЩО НЕ МОЖЕМ ДА ГО ИЗЛЕКУВАМЕ:\n\nВ 95% от случаите тинитусът се причинява от:\n• Загуба на слуха (с възрастта или след шумно излагане)\n• Стрес и тревога\n• Промени в нервната система\n\nТези промени не са обратими — мозъкът не може да забрави грешния сигнал.\n\n✅ КАКВО ВСЪЩНОСТ РАБОТИ:\n\nМозъкът може да се научи да ИГНОРИРА тинитуса. По същия начин, по който след известно време не забелязвате:\n• Часовник по стената (тиктакане)\n• Хладилника в кухнята\n• Колани на колата\n\nТова се нарича ХАБИТУАЦИЯ.\n\n📈 КАКВО ДА ОЧАКВАТЕ ОТ ХАБИТУАЦИЯ:\n\nТинитусът ще ОСТАНЕ, но:\n\nМесец 1-2:\nПо-малко стрес от него. По-малко мисли \"защо аз?\".\n\nМесец 3-6:\nМинути на ден когато не го забелязвате.\n\nМесец 6-12:\nЧасове на ден когато не го забелязвате. Тинитусът става като фонов шум.\n\n⚠ ВАЖНО:\n\n• Тинитусът няма да изчезне\n• Но мозъкът ще се научи да не реагира\n• Това освобождава от стрес и страдание\n\n🧠 ЗАЩО ПРИЛОЖЕНИЕ КАТО AURALIS ПОМАГА:\n\nПомагаме на мозъка да се \"пренастрои\". Звуковото обогатяване + правилните мисли (CBT) учат мозъка че тинитусът НЕ Е ОПАСЕН.\n\n📚 ПРОУЧВАНЕ:\n\nTRT (Tinnitus Retraining Therapy) — методология ползвана от 1990 г. от Pawel Jastreboff. Над 80,000 пациенти по света. Резултати: 75-85% постигат хабитуация за 12-18 месеца с правилен протокол.",
+    "source": "Jastreboff TRT model, 1990+. Виж docs/research/11."
+   },
+   "what_is_di_score": {
+    "title": "Какво е DI (Стресов Индекс)?",
+    "micro": "DI измерва колко стрес ви причинява тинитусът сега. Скала от 0 до 20. Колкото по-нисък, толкова по-добре.",
+    "full": "📊 КАКВО Е DI:\n\nDI = Distress Index (Стресов Индекс). Скала от 0 до 20.\n\nDI се изчислява от 3 въпроса в нашия тест:\n1. Колко често мислите за тинитуса?\n2. Колко силно ви пречи на ежедневието?\n3. Какво е субективното ниво (0-10)?\n\n🎯 ЗАЩО Е ВАЖЕН:\n\nDI ни казва две неща:\n1. Колко силно ВАШИЯТ тинитус ви пречи\n2. Кой звуков микс е подходящ за вас\n\nНе всички тинитуси са еднакви. Високият DI се нуждае от различен звуков подход от ниския DI.\n\n📈 КАКВО ОЗНАЧАВАТ НИВАТА:\n\nDI 0-5: Лек\n• Тинитусът е там, но рядко пречи\n• Препоръка: слаби звуци, само при нужда\n\nDI 6-12: Умерен\n• Тинитусът пречи в тихи моменти\n• Препоръка: средно силни звуци, ежедневно\n\nDI 13-20: Силен\n• Тинитусът пречи всеки ден\n• Препоръка: силни маскиращи звуци, дълги сесии\n\n📊 КАК ДА ПРОСЛЕДЯВАТЕ:\n\nDI се измерва наново всеки месец. Очаквайте:\n\nМесец 1: DI намалява с 1-2 точки\nМесец 3: DI намалява с 3-5 точки\nМесец 6: DI намалява с 5-10 точки\n\nТова е реалистична прогресия според клинични данни.\n\n⚠ ВАЖНО:\n\n• DI не е \"тежест\" на болестта — той измерва ВЪЗДЕЙСТВИЕТО върху живота ви\n• Намаляване на DI = по-малко страдание (дори ако звукът остава същия)\n\n🧠 ЗАЩО ПОЛЗВАМЕ DI:\n\nDI е базиран на международни валидирани скали (THI и TFI), но опростен за бърз daily tracking. Минимално клинично значимо подобрение по THI е 7 точки — нашата DI скала отразява това.\n\n📚 ИЗТОЧНИК:\n\nDI скала разработена на база Tinnitus Handicap Inventory (THI, Newman et al., 1996) — златен стандарт в клиничната практика, използван от 1996 г. в над 50 страни.",
+    "source": "Newman, C.W. et al. (1996). THI. Виж docs/research/18."
+   },
+   "how_long_to_listen": {
+    "title": "Колко време да слушам всеки ден?",
+    "micro": "Минимум 30 минути дневно. Идеално 60-90 минути. По-малко = слабо подобрение. Повече = добре, но не задължително.",
+    "full": "📊 ПРЕПОРЪЧИТЕЛНА ПРОДЪЛЖИТЕЛНОСТ:\n\nЗа значими резултати:\n• МИНИМУМ: 30 минути дневно\n• ИДЕАЛНО: 60-90 минути дневно\n• МАКСИМУМ: цяла нощ (за заспиване) е безопасно\n\n🎯 ЗАЩО ИМА МИНИМУМ:\n\nМозъкът се нуждае от време да \"научи\" новата звукова среда. Под 30 минути дневно — ефектът е минимален.\n\nТова е като физическа тренировка: 5 минути във фитнеса не строят мускули.\n\n📈 ЕФЕКТ ОТ РАЗЛИЧНИ ПРОДЪЛЖИТЕЛНОСТИ:\n\n15 минути дневно:\nМалък ефект. Подобрение по DI: 1-2 точки за месец.\n\n30 минути дневно:\nУмерен ефект. Подобрение по DI: 3-5 точки за месец.\n\n60 минути дневно:\nСилен ефект. Подобрение по DI: 5-8 точки за месец.\n\n90+ минути дневно:\nМаксимален ефект. Подобрение по DI: 7-10 точки за месец.\n\n⚠ КОГА Е ДРИФТ:\n\n• По-малко от 15 минути → губите време\n• Повече от 4 часа подред → давайте почивка (10-15 минути)\n• Цяла нощ за сън → безопасно\n\n💡 ПРАКТИЧНИ СЪВЕТИ:\n\n• Сутрин (15 мин) + Преди сън (30 мин) = добра комбинация\n• По време на работа (60 мин фон) — много ефективно\n• През нощта като фон — безопасно за дълги сесии\n\n🧠 ЗАЩО ЕЖЕДНЕВИЕТО Е КЛЮЧ:\n\nХабитуацията на мозъка е като учене на нова дума — изисква повторение. Един ден интензивно е по-малко ефективен от ежедневни кратки сесии.\n\n📚 ПРОУЧВАНЕ:\n\nМногоцентрово проучване (2024 г., 793 пациенти): пациентите със 60+ минути ежедневно ползване постигат -24.6 точки подобрение по THI скала за 6 месеца. Това е 3.5 пъти повече от минималното клинично значимо подобрение (7 точки).",
+    "source": "Мета-анализ от 14 RCT (n=793), 2024. Виж docs/research/11."
+   },
+   "why_no_volume_max": {
+    "title": "Защо силата на звука е важна?",
+    "micro": "Не пускайте на максимум! Препоръчителна сила е такава, при която ЕДВА маскира тинитуса. Силно = вредно за слуха.",
+    "full": "📊 ПРАВИЛНОТО НИВО НА ЗВУКА:\n\nЗвукът трябва да бъде:\n✅ Достатъчно силен че да го чуете комфортно\n✅ Точно толкова, че да МАСКИРА но не ЗАГЛУШИ тинитуса\n❌ НЕ толкова силен, че да заглуши всичко около вас\n\n🎯 ЗАЩО ТОЛКОВА ТОЧНА БАЛАНСА:\n\nПрекалено силен звук:\n1. Може да увреди слуха ви (особено над 60 dB)\n2. Не помага повече от средно силен звук\n3. Уморява мозъка след часове\n4. Може да направи тинитуса ПО-СИЛЕН в дългосрочен план\n\nПрекалено тих звук:\n1. Не маскира тинитуса\n2. Чувате тинитуса по-силно\n3. Стрес\n\n📈 \"MIXING POINT\" — ИДЕАЛНОТО НИВО:\n\nВ клиничната практика се ползва понятието \"mixing point\" — точката където чувате И звука И тинитуса, но звукът преобладава.\n\nКак да го намерите:\n1. Започнете тихо\n2. Бавно увеличавайте силата\n3. Спрете когато тинитусът стане \"приятно прикрит\" но НЕ изцяло заглушен\n\n⚠ ВАЖНО:\n\n• НЕ повишавайте силата за да изключите тинитуса напълно\n• Това активира защитна реакция на мозъка\n• Тинитусът ще се върне по-силно когато спрете\n\n💡 ПРАКТИЧЕСКИ СЪВЕТ:\n\nПрепоръчителна сила на телефона: 30-40% (не повече от 50%).\n\nПри слушалки: ВИНАГИ по-тихо от без слушалки — звукът отива директно в ухото.\n\n🧠 ЗАЩО ТАЗИ ТЕХНИКА:\n\nЦелта на звуковото обогатяване НЕ е да заглуши тинитуса. Целта е да даде на мозъка АЛТЕРНАТИВЕН звук, върху който да фокусира. Това позволява хабитуацията.\n\n📚 ПРОУЧВАНЕ:\n\nPhase II LINTS проучване (2023 г.): най-добри резултати са постигнати с ЕДВА доловими звуци (на прага на чуване) — пациентите често дори не осъзнават че звучи, но мозъкът се пренастройва.\n\nВНИМАНИЕ: Дългосрочно излагане над 70 dB може да увреди слуха. Препоръчителна максимална сила на слушалки: 60% от максималната за устройството.",
+    "source": "Phase II LINTS, 2023 + WHO Safe Listening Guidelines. Виж docs/research/11 + docs/research/13."
+   }
+  },
+  "categories": {
+   "cat_underwater": {
+    "title": "Подводни звуци",
+    "micro": "Дълбоки, обгръщащи звуци като да си под вода. Между 60 и 300 херца. Най-безопасни за хора с висок тинитус.",
+    "full": "📊 КАКВО СА:\n\nЗвуци които напомнят на това как чувате когато сте под вода в басейн или езеро. Много дълбоки честоти (60-300 херца) без високи \"свирещи\" тонове.\n\n🎯 ЗА КОГО:\n✅ Висок свирещ тинитус (TH_C) — най-добро покритие\n✅ Стрес-чувствителни хора\n✅ За заспиване (особено)\n✅ За хора които обичат уединение\n⚠ Не за хора с тинитус именно в басовия диапазон\n\n💡 КОГА:\n• Преди сън (силно препоръчително)\n• През нощта като фон\n• При тревожност или паник атака\n• При тиха работа или четене\n\n📈 ЗАЩО ТЕЗИ ЗВУЦИ СА ИЗБРАНИ:\n\nВсеки от нашите подводни звуци е тестван със научен анализ:\n• Spectral centroid под 350 херца\n• Без високи пикове над 4000 херца\n• Loop-friendly (тих в краищата за безшумен преход)\n• Score 100/100 по нашия алгоритъм за тинитус-безопасност\n\n🧠 ЗАЩО РАБОТЯТ:\n\nДълбоките честоти под 300Hz активират успокояващата нервна система. Те \"припокриват\" високите тонове на тинитуса (които са обикновено 4000-8000Hz). Това разкъсва връзката \"тинитус → стрес\".\n\n📚 ПРОУЧВАНЕ:\n\nИзследване на акустични среди (EAE vs WN, 2024): обогатени дълбоки звуци показват 50% по-малко отпадане от лечението в сравнение с традиционния бял шум (16% vs 36% drop-out за 4 месеца).",
+    "source": "EAE vs White Noise 4-Month Feasibility Study, 2024. Виж docs/research/11."
+   },
+   "cat_ocean": {
+    "title": "Океан и морски звуци",
+    "micro": "Шум на вълни и далечни морски сцени. Естествени звуци, асоциирани с почивка и спокойствие.",
+    "full": "📊 КАКВО СА:\n\nИстински записи на морски брегове — далечни вълни, тих прибой, морска ваканция атмосфера. Не \"буря в океана\", а спокойно море.\n\n🎯 ЗА КОГО:\n✅ Стрес-чувствителен профил (SS_R)\n✅ Соматичен/флуктуиращ профил (SM_F)\n✅ Хора с положителни асоциации към морето\n⚠ Не за хора със страх от вода или морски травми\n\n💡 КОГА:\n• Сутрин при събуждане (15-30 мин)\n• След работа за релаксация\n• През деня като ambient фон\n• При нужда от \"ментална ваканция\"\n\n📈 ЗАЩО ТЕЗИ ЗВУЦИ:\n\nНе всички океански звуци са еднакви. Нашите са специално избрани:\n• Без силни вълни или прибой (резки transients)\n• Без чайки или птици (високи пикове)\n• Без хора или машини\n• Чисто природна сцена\n\n🧠 ЗАЩО РАБОТЯТ:\n\nПриродните звуци на вода активират мозъчни области свързани с позитивни емоции и спомени. Това е форма на емоционална хабитуация — мозъкът свързва тинитуса с приятен спомен, не с тревога.\n\n📚 ПРОУЧВАНЕ:\n\nСравнително проучване (Tong et al., 2023, 120 пациенти): персонализирани природни звуци показват 2 пъти по-малко отпадане от традиционната звукова терапия. 73% от пациентите след 12 седмици постигат клинично значимо подобрение.",
+    "source": "Tong et al. (2023) + TENT-A1/A2 trials, 2024. Виж docs/research/11."
+   },
+   "cat_river": {
+    "title": "Реки и потоци",
+    "micro": "Подводни и надводни звуци от реки. Средночестотни (1000-2000Hz). Идеални за концентрация и работа.",
+    "full": "📊 КАКВО СА:\n\nЗаписи на планински реки, ручейчета и потоци — от подводна перспектива (по-меки) и надводна (с повече детайли). Между средно меки и средно ярки звуци.\n\n🎯 ЗА КОГО:\n✅ Нискочестотен шумов тинитус (DN_S)\n✅ Адаптиран/лек профил (HB_M)\n✅ Хора които ползват звукова терапия дълго време\n✅ За концентрация и работа\n⚠ Не за хора с тинитус в средните честоти (1000-3000Hz)\n\n💡 КОГА:\n• По време на работа (60-120 мин)\n• При учене или четене\n• След стресов ден\n• По-малко подходящи за нощно слушане\n\n📈 ЗАЩО ТЕЗИ ЗВУЦИ:\n\nРеките са в средночестотния диапазон, който перфектно \"припокрива\" зоната където много тинитуси живеят. Освен това имат естествени вариации, които не уморяват мозъка така, както постоянният бял шум.\n\n🧠 ЗАЩО РАБОТЯТ:\n\nСредночестотните звуци (1000-2000Hz) маскират директно най-разпространените тинитус честоти. Естествените флуктуации в течението създават \"звукова текстура\" която мозъкът намира за приятна.\n\n📚 ПРОУЧВАНЕ:\n\nМногоцентрово проучване (2024, n=793): обогатени природни звуци (включително реки) показват 84% по-добро придържане към лечението от пациентите в сравнение с традиционен бял шум.",
+    "source": "Мета-анализ от 14 RCT, 2024. Виж docs/research/11."
+   },
+   "cat_meditation": {
+    "title": "Медитативни композиции",
+    "micro": "Дълги, дизайнирани ambient произведения. Между 5 и 15 минути всяко. За дълбок релакс и медитация.",
+    "full": "📊 КАКВО СА:\n\nВнимателно избрани композиции от професионални артисти. Без думи, без ритъм, без мелодия в традиционния смисъл — само дълъг, бавно променящ се звуков пейзаж.\n\n🎯 ЗА КОГО:\n✅ За дълги медитативни сесии (5-15 мин)\n✅ За хора които вече практикуват медитация\n✅ За дълбок релакс при стрес\n✅ Универсален — повечето профили\n⚠ Може да бъдат \"твърде дълбоки\" за активни моменти от деня\n\n💡 КОГА:\n• Преди сън (особено 15-минутната Aquatic Meditation)\n• За структурирани медитативни сесии\n• При силен стрес или панически епизоди\n• НЕ препоръчваме като фон за работа (твърде въвличащи)\n\n📈 ЗАЩО ТЕЗИ КОМПОЗИЦИИ:\n\nВсяка композиция е тествана:\n• Без резки преходи или транзиции\n• Без високи пикове (>4kHz)\n• Дълга достатъчно за пълна релаксация\n• Score 80-100 по нашия алгоритъм\n\n🧠 ЗАЩО РАБОТЯТ:\n\nДългите композиции позволяват на мозъка да навлезе в по-дълбоко състояние. След 7-10 минути започват промени в мозъчните вълни (alpha и theta), което е състоянието на дълбок релакс.\n\n📚 ПРОУЧВАНЕ:\n\nИзследвания на музикална терапия и тинитус (2020-2024): дългите ambient композиции показват по-добри резултати за качество на съня от кратки звуци. Особено когато се ползват като част от вечерен ритуал.",
+    "source": "Music therapy for tinnitus review, 2020-2024. Виж docs/research/11 + docs/research/09."
+   },
+   "cat_forest": {
+    "title": "Горски звуци",
+    "micro": "Зимна гора, мокри листа, далечен дъжд в гората. Внимателно избрани БЕЗ птици (които могат да тригерат тинитус).",
+    "full": "📊 КАКВО СА:\n\nПриродни сцени от гори — зимни условия с мек сняг, мокри листа, далечни ромолящи звуци. Спокойни, без драматични елементи.\n\n🎯 ЗА КОГО:\n✅ Адаптиран/лек профил (HB_M)\n✅ Стрес-чувствителен (SS_R)\n✅ Хора които обичат природата\n✅ За психологическа отмора\n⚠ Не за хора с фобия от гори или природа\n\n💡 КОГА:\n• През деня като ambient фон\n• При работа на компютъра\n• След градско напрежение\n• По-малко подходящи за нощно слушане\n\n📈 ЗАЩО ТЕЗИ СПЕЦИФИЧНИ ЗВУЦИ:\n\nВНИМАНИЕ: Повечето \"forest\" записи имат птици. Птичите трели са във ВИСОКИТЕ честоти (3000-8000Hz) — точно там където е тинитусът на много хора. Това може да изостри проблема.\n\nНашите forest звуци са:\n• Зимни условия (по-малко птици)\n• Wetlands (мокри гори, по-приглушени)\n• Без birdsong като основен елемент\n• Тествани за безопасност\n\n🧠 ЗАЩО РАБОТЯТ:\n\nПриродните звуци активират префронталния кортекс — частта от мозъка свързана с позитивни емоции и спокойствие. Това е директна противоположност на тревожността, която поддържа тинитуса.\n\n📚 ПРОУЧВАНЕ:\n\nSound therapy research review (2024): природни звуци показват по-добра компенсация и по-малко отпадане от изкуствените (бял шум). 84% по-добро придържане към лечението след 3 месеца.",
+    "source": "Sound therapy meta-review, 2024. Виж docs/research/11."
+   },
+   "cat_base_noise": {
+    "title": "Базови шумове (Pink, Brown, Green)",
+    "micro": "Математически генерирани шумове — класиката в звуковото обогатяване за тинитус. Розов, кафяв, зелен — всеки с различен спектрален профил.",
+    "full": "📊 КАКВО СА:\n\nЧисти, \"технически\" шумове, изчислени с математически формули. Те не идват от реалния свят — генерират се в реално време от вашия телефон.\n\n🎯 ТРИТЕ ВИДА:\n\nPINK NOISE (Розов):\n• Балансиран — повече ниски от високи\n• Подобно на равномерен дъжд\n• Универсален избор\n• Класика от 30+ години в TRT терапията\n\nBROWN NOISE (Кафяв):\n• По-басов от розовия\n• Подобно на силен дъжд или водопад в далечина\n• Идеален за заспиване\n• Препоръчителен при висок свирещ тинитус\n\nGREEN NOISE (Зелен):\n• Средночестотен филтриран\n• Фокусиран около 500Hz\n• По-фокусиран от розовия\n• Добър при концентрация\n\n💡 КОГА КОЙТО:\n\n• Pink — за начало, универсално\n• Brown — за заспиване, нощ\n• Green — за работа, фокусиране\n\n📈 ЗАЩО ТЕЗИ ЗВУЦИ ВСЕ ОЩЕ СА АКТУАЛНИ:\n\nВъпреки че имаме природни звуци, базовите шумове остават полезни:\n• Постоянна предсказуемост (без вариации)\n• Перфектно равномерен спектър\n• Не уморяват вниманието\n• Не съдържат семантична информация (като птици или хора)\n\n🧠 ЗАЩО РАБОТЯТ:\n\nБазовите шумове са изследвани от 70-те години. Pink и Brown са основа на Tinnitus Retraining Therapy (TRT) — методология ползвана от 1990 г. от Pawel Jastreboff.\n\n📚 ПРОУЧВАНЕ:\n\nTRT клинична практика над 30 години, 80,000+ пациенти по света. 75-85% постигат хабитуация при правилно прилагане. Pink и Brown noise са препоръчителни като база за всеки звуков протокол.",
+    "source": "Jastreboff TRT model, 1990+ + Web Audio API research. Виж docs/research/02 + docs/research/11."
+   }
+  },
+  "navigation": {
+   "nav_mixer_intro": {
+    "title": "Какво е \"Микс\"?",
+    "micro": "Сърцето на AURALIS. Тук пускате звуци които помагат при тинитуса — поотделно или комбинирани в препоръчани микси.",
+    "full": "📊 КАКВО Е MIXER:\n\nMixer (микс) е основният инструмент в AURALIS. Тук:\n• Слушате препоръчани микси (готови комбинации звуци)\n• Намирате отделни звуци по категории\n• Контролирате силата на звука\n• Задавате таймер за заспиване\n\n🎯 КАК ДА ЗАПОЧНЕТЕ:\n\nПърви стъпки:\n1. Влезте в \"Препоръчани\" — там са микси избрани специално за Вашия профил\n2. Натиснете звезда ⭐ — това е най-препоръчания за Вас\n3. Слушайте 30-60 минути\n4. Запазете предпочитаните\n\n📈 РАЗДЕЛЕНИЕ:\n\nTab 1 \"Препоръчани\" (3-5 микса):\n• Базирани на Вашия Quiz отговори\n• ⭐ означава \"най-подходящ за Вашия профил\"\n• Започнете с тези\n\nTab 2 \"Всички звуци\":\n• 30+ отделни звука по категории\n• Подводни, океан, реки, медитации, горски, базови\n• За изследване и експериментиране\n\n💡 ПРАКТИЧНИ СЪВЕТИ:\n\n• Не сменяйте микса твърде често (минимум 10 мин)\n• Дайте на мозъка време да приеме звука\n• Експериментирайте с различни в различни моменти от деня\n\n⚠ ВАЖНО:\n\nMixer работи най-добре при редовно ползване. 30 минути дневно е минимумът за значими резултати.\n\n📚 ПРОУЧВАНЕ:\n\nКлинични данни показват: ежедневното ползване на звуково обогатяване (минимум 30 мин) за 3 месеца постига средно подобрение от 8.6 точки по THI скалата.",
+    "source": "Sound therapy duration studies, 2020-2024. Виж docs/research/11."
+   },
+   "nav_calm_intro": {
+    "title": "Какво е \"Спокойствие\"?",
+    "micro": "Аудио-водени упражнения за релаксация. Дишане, мускулна релаксация и приемане на тинитуса.",
+    "full": "📊 КАКВО Е CALM:\n\nCalm секцията е \"психологическата\" страна на AURALIS. Докато Mixer-ът работи със звуково обогатяване, Calm работи с психологически техники.\n\n🎯 КАКВО Е ВКЛЮЧЕНО (beta 1.0):\n\nТри кратки упражнения:\n\n1. Дишане 4-7-8 (3 минути)\n• Вдишване 4 секунди\n• Задържане 7 секунди\n• Издишване 8 секунди\n• Намалява стрес моментално\n\n2. Прогресивна мускулна релаксация (5 минути)\n• Систематично разпускане на мускули\n• От стъпала до главата\n• Особено добро преди сън\n\n3. Приемане на шума (4 минути)\n• Базирано на ACT терапия (Acceptance and Commitment Therapy)\n• Учи мозъка че тинитусът НЕ Е заплаха\n• Намалява стреса дългосрочно\n\n💡 КАК ДА ГИ ПОЛЗВАТЕ:\n\n• Едно упражнение дневно е достатъчно\n• Различно упражнение в различни моменти:\n  - Дишане → при стрес през деня\n  - PMR → преди сън\n  - Приемане → когато тинитусът ви тревожи\n\n📈 КАКВО ДА ОЧАКВАТЕ:\n\nСедмица 1-2: По-малък стрес моментално\nСедмица 3-4: По-малко негативни мисли за тинитуса\nМесец 2-3: По-голямо психологическо приемане\n\n⚠ ВАЖНО:\n\nТези техники НЕ ще премахнат тинитуса. Те ще променят отношението Ви към него.\n\n📚 ПРОУЧВАНЕ:\n\nСистематичен преглед на CBT (когнитивно-поведенческа терапия) при тинитус: 65-75% от пациентите отчитат значимо подобрение в качеството на живот, дори когато силата на тинитуса остава същата.",
+    "source": "CBT for tinnitus systematic review, 2024. Виж docs/research/07 + docs/research/08 + docs/research/21."
+   },
+   "nav_diary_intro": {
+    "title": "Какво е \"Дневник\"?",
+    "micro": "Ежедневен запис на съня и нивото на тинитуса. Помага да видите прогреса си с числа.",
+    "full": "📊 КАКВО Е DIARY:\n\nКратък ежедневен запис (1 минута дневно). Записвате:\n• Колко часа сте спали\n• Колко добре сте спали (1-5)\n• Ниво на тинитуса (0-10)\n• Кратка бележка ако искате\n\n🎯 ЗАЩО Е ВАЖЕН:\n\nБез числа не можете да виждате прогрес. Хората с тинитус често не забелязват малките подобрения — те се случват бавно (с месеци).\n\nДневникът ви помага да:\n• Виждате тренда (с графика)\n• Намирате патърни (кога е по-зле, кога по-добре)\n• Корелирате с медицински посещения\n\n💡 КАК ДА ГО ПОЛЗВАТЕ:\n\n• Сутрин (след събуждане) — за нощта\n• Запис за по-малко от минута\n• Без писане — само бутони\n\n📈 КАКВО ДА ОЧАКВАТЕ:\n\nСлед 14 дни ще имате достатъчно данни за първи графики.\nСлед 30 дни ще видите ясни патърни.\nСлед 60 дни ще видите дългосрочния тренд.\n\n⚠ ВАЖНО:\n\nТинитусът варира естествено. Един лош ден не означава, че нищо не работи. Гледайте средната за 7 дни, не отделни дни.\n\n📚 ПРОУЧВАНЕ:\n\nКлиничната оценка на качеството на съня (Consensus Sleep Diary) е златен стандарт в изследванията на тинитус. Ежедневното проследяване позволява да се хване подобрение от 7+ точки по THI, което е минимално клинично значимо.",
+    "source": "Consensus Sleep Diary methodology + THI MCID studies. Виж docs/research/10 + docs/research/18."
+   }
+  },
+  "mechanics": {
+   "sleep_timer_explained": {
+    "title": "Какво е \"Sleep таймер\"?",
+    "micro": "Автоматично спира звука след избрано време. Безопасно за цяла нощ — звукът избледнява плавно последните 5 секунди.",
+    "full": "📊 КАКВО ПРАВИ:\n\nЗадавате време (15, 30, 60, 90, 120 минути) → звукът автоматично спира → телефонът заспива батерията.\n\n🎯 ЗАЩО Е ВАЖЕН:\n\n• Безопасност — не звучи цялата нощ ако не сте искали\n• Батерия — пести електричество\n• Слух — намалява общата експозиция\n\n💡 ПРАКТИЧНИ СЪВЕТИ:\n\nЗа заспиване:\n• Изберете 30-60 минути\n• Това е достатъчно за заспиване\n• Ако се събудите — пуснете отново\n\nЗа цяла нощ:\n• Изберете 120 минути ИЛИ\n• Изключете таймера (опасно за батерия)\n\n📈 ТЕХНИЧЕСКИ ДЕТАЙЛИ:\n\nЗвукът не спира рязко. Последните 5 секунди:\n• Постепенно намаляваща сила\n• Без рязко прекъсване\n• Мозъкът не получава \"shock\" сигнал\n\n⚠ ВАЖНО:\n\nРязкото спиране на звуковото обогатяване може да предизвика \"rebound effect\" — тинитусът да звучи по-силно отколкото е бил преди слушането. Затова fade-out е критичен.\n\n📚 ПРОУЧВАНЕ:\n\nSleep research показва: пациенти с тинитус които ползват таймер за заспиване (vs цяла нощ) отчитат по-добро качество на съня. Прекалено дългото нощно излагане може да доведе до зависимост.",
+    "source": "Sleep + sound therapy research. Виж docs/research/09."
+   },
+   "theme_toggle_explained": {
+    "title": "Защо две теми (тъмна и светла)?",
+    "micro": "Тъмната е за вечер и нощ (по-малко натоварване за очите). Светлата е за деня. Можете да превключвате по всяко време.",
+    "full": "📊 КАКВО ПРАВИ:\n\nБутонът горе вдясно превключва между:\n• Тъмна тема — за вечер, нощ, тиха работа\n• Светла тема — за деня, ярка светлина\n\n🎯 ЗАЩО ИМАТЕ ИЗБОР:\n\nТъмна тема (вечер/нощ):\n• По-малко синя светлина (нарушава съня)\n• По-малко натоварване за очите\n• По-малко \"будене\" преди сън\n\nСветла тема (ден):\n• По-добра четивност при ярка светлина\n• По-естествена за дневни часове\n• По-малко \"сънлива\" атмосфера\n\n💡 ПРЕПОРЪКА:\n\n• Сутрин и през деня → Светла\n• След залез слънце → Тъмна\n• Преди сън → Тъмна (задължително)\n\n📈 ЗАЩО Е ВАЖНО ЗА ТИНИТУС:\n\nЛошият сън влошава тинитуса. Синята светлина от екрани (особено вечер) нарушава мелатонина и съня.\n\nТъмната тема намалява синята светлина и помага на тялото да се подготви за сън. Това подобрява качеството на съня → намалява тинитуса.\n\n📚 ПРОУЧВАНЕ:\n\nИзследване на синята светлина и съня: излагане на синя светлина 2 часа преди сън намалява производството на мелатонин с 23%. При тинитус пациенти, лошият сън е директно свързан с по-висок THI score.",
+    "source": "Blue light + sleep research + tinnitus sleep studies. Виж docs/research/09."
+   },
+   "profile_recommendation_explained": {
+    "title": "Защо тези микси са препоръчани?",
+    "micro": "Базирани са на отговорите Ви в Quiz-а. Различни тинитуси изискват различни звуци. Нашите препоръки са персонализирани.",
+    "full": "📊 КАК РАБОТИ ПРЕПОРЪЧВАНЕТО:\n\nВ Quiz-а отговорихте на 15 въпроса. Системата изчислява:\n1. Тип на Вашия тинитус (5 възможни профила)\n2. Стресов индекс (0-20)\n3. Препоръчителни звуци\n\n🎯 ПЕТТЕ ПРОФИЛА:\n\nTH_C - Тонален високочестотен:\n• Свирещ или цвърчещ звук\n• Висока честота (8000Hz+)\n• Препоръка: дълбоки маскиращи звуци\n\nDN_S - Шумов нискочестотен:\n• Бучене или хъркане\n• Ниска честота\n• Препоръка: средночестотни звуци\n\nSS_R - Стрес-чувствителен:\n• Силно реагира на стрес\n• Колеблив във времето\n• Препоръка: природни релаксиращи звуци\n\nSM_F - Соматичен/Флуктуиращ:\n• Свързан с тялото (шия, челюст)\n• Променя се с положението\n• Препоръка: разнообразни звуци\n\nHB_M - Адаптиран/Лек:\n• Вече по-малко тревожен\n• По-голям контрол\n• Препоръка: експериментиране с различни\n\n💡 ЗАЩО Е ВАЖНО:\n\nГрешен микс = губите време. Правилен микс = по-бързо подобрение.\n\nНапример:\n• Висок тинитус + дълбок звук = ОТЛИЧНО маскиране\n• Висок тинитус + висок звук = ГРЕШНО (засилва тинитуса)\n\n📈 КАКВО ОЗНАЧАВА ⭐:\n\nЗвездата маркира МНОГО подходящ микс за Вашия профил. Препоръчваме да започнете с него.\n\n⚠ ВАЖНО:\n\nПрепоръката е базирана на средни данни от проучвания. Всеки човек е индивидуален. Експериментирайте — може да откриете че друг микс работи по-добре за Вас.\n\n📚 ПРОУЧВАНЕ:\n\nИзследване (Tong et al., 2023): персонализирани препоръки базирани на тинитус характеристики водят до 2 пъти по-добро придържане към лечението от стандартни препоръки.",
+    "source": "Tong et al. (2023) + Quiz validation studies. Виж docs/research/01 + docs/research/11."
+   },
+   "star_icon_explained": {
+    "title": "Какво означава звездата?",
+    "micro": "Звездата маркира най-подходящия микс за Вашия профил. Базира се на отговорите Ви в Quiz-а.",
+    "full": "📊 КАКВО ОЗНАЧАВА:\n\nЗвездата = \"Най-препоръчан за Вас\"\n\nНе всички 5 препоръчани микса са равностойни. Звездата маркира ТОП-1 според Вашия профил.\n\n🎯 КАК Е ИЗБРАНА:\n\nАлгоритъм взема предвид:\n• Тип на тинитуса (от Quiz)\n• Сила на тинитуса (от DI)\n• Чувствителност към стрес\n• Предпочитания за продължителност\n\nПосле приоритизира микса с най-силно припокриване с Вашите нужди.\n\n💡 ПРАКТИЧНО ЗНАЧЕНИЕ:\n\nПрепоръчвам да:\n1. Започнете със звездния микс (първите 7 дни)\n2. После пробвайте останалите препоръчани\n3. Видете кое работи най-добре за ВАС\n\n⚠ ВАЖНО:\n\nЗвездата е препоръка, не закон. Ако звукът не Ви харесва или не помага след 7 дни — пробвайте друг.\n\n📚 ПРОУЧВАНЕ:\n\nПерсонализирани препоръки в звукова терапия показват 2x по-добра ефективност от стандартни (Tong et al., 2023, 120 пациенти).",
+    "source": "Tong et al. (2023) + personalization studies. Виж docs/research/01 + docs/research/05."
+   },
+   "why_no_medical_advice": {
+    "title": "Защо не препоръчваме лекарства или добавки?",
+    "micro": "AURALIS е wellness инструмент, не медицински продукт. Лекарства и добавки се препоръчват от лекар, не от приложение.",
+    "full": "📊 КАКВО Е AURALIS:\n\nAURALIS е приложение за УЕЛНЕС. Помагаме с:\n✅ Звуково обогатяване\n✅ Психологически техники (CBT, mindfulness)\n✅ Образование за тинитуса\n✅ Проследяване на прогрес\n\n🚨 КАКВО AURALIS НЕ Е:\n\nAURALIS НЕ е:\n❌ Медицински продукт\n❌ Лекар\n❌ Замяна на медицинска консултация\n❌ Източник на лекарствени препоръки\n\n🎯 ЗАЩО НЕ ДАВАМЕ МЕДИЦИНСКИ СЪВЕТИ:\n\n1. Безопасност - всеки човек е различен. Какво работи за един може да навреди на друг.\n2. Регулация - регулаторите изискват медицински продукти да преминат строга сертификация. Ние сме wellness, не medical.\n3. Доверие - истинският лекар Ви познава лично. Ние не.\n\n💡 КОГА ДА ОТИДЕТЕ ПРИ ЛЕКАР:\n\n✅ Първи път с тинитус (за изключване на болести)\n✅ Тинитус само в едно ухо\n✅ Тинитус с виене на свят\n✅ Тинитус с загуба на слуха\n✅ Тинитус след травма\n✅ Тинитус с депресия или мисли за самоунищожение\n\n📈 КАКВО ПРЕПОРЪЧВАМЕ:\n\nНамерете специалист:\n• ОТО-РИНО-ЛАРИНГОЛОГ (УНГ лекар)\n• АУДИОЛОГ\n• ПСИХОЛОГ (при тежък стрес)\n\n⚠ ВАЖНО ЗАКЛЮЧЕНИЕ:\n\nAURALIS работи НАЙ-ДОБРЕ когато се комбинира с медицинска грижа. Лекарят се грижи за тялото. Ние помагаме с ежедневното справяне.\n\n📚 ПРОУЧВАНЕ:\n\nРегулаторен анализ (2024): wellness продукти БЕЗ медицински твърдения имат по-добра дългосрочна приемливост и доверие от потребителите.",
+    "source": "Regulatory analysis for digital tinnitus tools, 2024. Виж docs/research/16."
+   }
+  }
+ },
+ "noises": {
+  "none": {
+   "title": "Без фон",
+   "description": "Само главният звук, без фонов шум. Подходящо за медитативни мелодии."
+  },
+  "pink_pure": {
+   "title": "Ясен розов шум",
+   "description": "Най-широкоспектърният равномерен шум. Прилича на постоянен дъжд върху листа. Подходящ за концентрация и широко маскиране."
+  },
+  "pink_lp2000": {
+   "title": "Приглушен розов шум",
+   "description": "Розов шум с приглушени високи честоти. По-меко звучене, подходящо при чувствителност към ярки звуци."
+  },
+  "pink_lp4000": {
+   "title": "Мек розов шум",
+   "description": "Леко филтриран розов шум. Научно потвърден като оптимален за маскиране на високочестотен тинитус."
+  },
+  "brown_pure": {
+   "title": "Плътен кафяв шум",
+   "description": "Богат, басов шум с пълен спектър. Прилича на далечен водопад или океан. Силно маскира."
+  },
+  "brown_lp1000": {
+   "title": "Топъл кафяв шум",
+   "description": "Меко филтриран кафяв шум. Топло и обгръщащо звучене, подходящо за релакс и заспиване."
+  },
+  "brown_lp500": {
+   "title": "Дълбок кафяв шум",
+   "description": "Най-дълбокият вариант, само ниски честоти. Идеален за дълбок сън и SOS моменти на тревожност."
+  },
+  "green_noise": {
+   "title": "Зелен шум",
+   "description": "Центриран в средни честоти, подобен на природна среда. Подходящ при стрес и за дневен фон."
+  }
+ },
+ "components": {
+  "noisePicker": {
+   "title": "Изберете фонов шум",
+   "close": "Затвори",
+   "infoAria": "Информация за: {name}",
+   "options": {
+    "none": "Без фон",
+    "pink_pure": "Ясен розов шум",
+    "pink_lp2000": "Приглушен розов шум",
+    "pink_lp4000": "Мек розов шум",
+    "brown_pure": "Плътен кафяв шум",
+    "brown_lp1000": "Топъл кафяв шум",
+    "brown_lp500": "Дълбок кафяв шум",
+    "green_noise": "Зелен шум"
+   }
+  }
+ },
+ "progress": {
+  "title": "Вашата 14-дневна програма",
+  "day_of": "Ден {n} от 14",
+  "day_n": "Ден {n}",
+  "completed": "Завършен ден",
+  "partial": "Частичен ден",
+  "empty": "Празен ден",
+  "frozen": "Замразен ден",
+  "today": "Днес",
+  "freeze_use": "Използвайте freeze",
+  "freeze_remaining": "{count} оставащи freeze-а",
+  "freeze": {
+   "banner_title": "Замразете ден {n}",
+   "banner_body": "Streak-ът Ви се запазва. Имате {count} оставащ(и) freeze.",
+   "success_toast": "Ден {n} е замразен",
+   "failed": "Замразяването не успя"
+  },
+  "legend": {
+   "completed": "завършени",
+   "partial": "частични",
+   "frozen": "замразени"
+  }
+ },
+ "settings": {
+  "pitchRetest": "Направи звуков тест отново",
+  "notch": {
+   "title": "Лична честотна терапия",
+   "on": "Активна",
+   "off": "Спряна",
+   "descActive": "Премахваме Вашата тинитус честота ({freq}) от всички звуци за подобрена терапия.",
+   "descInactive": "Терапията е спряна. Звуците се възпроизвеждат без личен филтър.",
+   "toastOn": "Личната терапия е активирана",
+   "toastOff": "Личната терапия е спряна. Звуците ще се възпроизвеждат без notch филтър."
+  }
+ },
+ "player": {
+  "notch": {
+   "aria": "Лична честотна терапия активна — {freq} премахната"
+  }
+ }
+}
