@@ -56,3 +56,27 @@ html:not(.js) .reveal { opacity:1 !important; transform:none !important; }
 .skip { position:absolute; left:-9999px; top:0; background:var(--bg); color:var(--indigo);
   padding:12px 18px; border-radius:0 0 var(--r-sm) 0; box-shadow:var(--convex-sm); z-index:100; font-weight:700; }
 .skip:focus { left:0; }
+
+/* ============================================================
+   Поправки за тесни телефони — без хоризонтално преливане.
+   (При влаченето на плъзгача екранът „играеше", защото тест-бутоните
+   разширяваха решетката извън ширината на екрана.)
+   ============================================================ */
+html, body { overflow-x: clip; }   /* clip НЕ чупи sticky менюто (за разлика от hidden) */
+
+/* Тест-бутоните: пълна ширина; на тесен екран един под друг (по-големи цели) */
+.test__btns { grid-template-columns: 1fr; }
+.test__btns .btn { width: 100%; min-width: 0; padding-inline: 16px; }
+@media (min-width: 480px) {
+  .test__btns { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+.btn { overflow-wrap: anywhere; }   /* дълги думи се пренасят, не изтласкват ширина */
+
+/* Masthead: бранд + CTA да се събират и на най-тесните екрани */
+.masthead__bar { gap: 10px; }
+.brand, .brand__mark { min-width: 0; }
+@media (max-width: 430px) {
+  .brand__mark   { font-size: 18px; }
+  .brand__tld    { font-size: 12px; }
+  .masthead__cta { padding: 0 13px; font-size: 12.5px; }
+}

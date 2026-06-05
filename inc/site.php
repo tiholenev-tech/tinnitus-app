@@ -7,6 +7,7 @@
  */
 
 $SITE_URL = 'https://tinnitus-app.help';
+if (!defined('AURALIS_ASSET_V')) define('AURALIS_ASSET_V', '2'); // bump → cache-bust на css/js
 
 /* ── Раздели (подредбата = менюто и футъра) ───────────────────────── */
 $SECTIONS = [
@@ -122,8 +123,8 @@ function auralis_head(array $o) {
   echo '<link rel="preconnect" href="https://fonts.googleapis.com">'."\n";
   echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'."\n";
   echo '<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=DM+Serif+Display&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">'."\n";
-  echo '<link rel="stylesheet" href="/css/auralis.css">'."\n";
-  echo '<link rel="stylesheet" href="/css/auralis-site.css">'."\n";
+  echo '<link rel="stylesheet" href="/css/auralis.css?v=' . AURALIS_ASSET_V . '">'."\n";
+  echo '<link rel="stylesheet" href="/css/auralis-site.css?v=' . AURALIS_ASSET_V . '">'."\n";
   if (!empty($o['jsonld'])) {
     echo '<script type="application/ld+json">'.$o['jsonld'].'</script>'."\n";
   }
@@ -192,7 +193,7 @@ function auralis_footer() {
 /* ── Затварящи скриптове (reveal + авто-освежаване на кеша + extra) ── */
 function auralis_foot($scripts = []) {
   foreach ((array)$scripts as $src): ?>
-<script defer src="<?= $src ?>"></script>
+<script defer src="<?= $src ?>?v=<?= AURALIS_ASSET_V ?>"></script>
 <?php endforeach; ?>
 <script>
 /* Reveal on scroll — прогресивно подобрение (html.js вече е зададено в <head>). */
