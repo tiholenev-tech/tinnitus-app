@@ -1519,40 +1519,40 @@
     "layer2": 45,
     "reasoning": "Layer 1 (ghidare vocală — 4-7-8 respirație voice guide, frază-ancoră): 50–60%. Layer 2 (zgomot roz de fundal): 40–50%. Layer 1 (vocea principală) este mai dominant, deoarece respirația structurată este elementul terapeutic activ, iar zgomotul de fundal este de susținere."
    },
-   "expectedEffect": "Стимулиране на парасимпатиковите влакна на блуждаещия нерв; принудително забавяне на сърдечния ритъм; понижение на кръвното налягане; постепенно потискане на хиперактивността на амигдалата; прекъсване на адреналиновия/кортизолов пик. Техника 4-7-8: вдишване през носа за 4 секунди, задържане на дъха за 7 секунди, издишване през устата за 8 секунди.",
+   "expectedEffect": "Stimularea fibrelor parasimpatice ale nervului vag; încetinirea forțată a ritmului cardiac; scăderea tensiunii arteriale; suprimarea treptată a hiperactivității amigdalei; întreruperea vârfului de adrenalină/cortizol. Tehnica 4-7-8: inspirați pe nas timp de 4 secunde, țineți respirația 7 secunde, expirați pe gură timp de 8 secunde.",
    "safety": [
-    "НЕ повишавайте силата при паника — „паническото маскиране“ (увеличаване до пълно заглушаване на тинитуса) тренира амигдалата да възприема тинитуса като критична заплаха, влошава дългосрочния прогноз.",
-    "Останете на нормално нощно/дневно ниво (3–5 dB под прага на тинитуса).",
-    "Wellness disclaimer задължителен — продуктът не заменя психиатрична грижа при тежки или повтарящи се панически атаки."
+    "NU creșteți intensitatea în timpul panicii — „mascarea de panică“ (creșterea până la mascarea completă a tinitusului) antrenează amigdala să perceapă tinitusul ca pe o amenințare critică, înrăutățește prognosticul pe termen lung.",
+    "Rămâneți la nivelul normal nocturn/diurn (3–5 dB sub pragul tinitusului).",
+    "Disclaimer wellness obligatoriu — produsul nu înlocuiește îngrijirea psihiatrică în cazul atacurilor de panică grave sau recurente."
    ],
    "faq": [
     {
-     "q": "Какво да направя в първите 30 секунди при паник атака?",
-     "a": "Три стъпки: (1) Визуална блокада — затворете очи или гледайте към тъмен сектор. НЕ гледайте часовник или екран (светлината и осъзнаването на часа задействат HPA-оста). (2) 4-7-8 дишане — вдишване през носа за 4 секунди, задържане 7 секунди, издишване през устата за 8 секунди. Стимулира блуждаещия нерв. (3) Когнитивна котва-фраза — повторете наум: „Това е просто безвредна електрическа активност в слуховия ми нерв. Тялото ми е в безопасност и сега ще се отпусне.“"
+     "q": "Ce să fac în primele 30 de secunde în timpul unui atac de panică?",
+     "a": "Trei pași: (1) Blocaj vizual — închideți ochii sau priviți către un sector întunecat. NU vă uitați la ceas sau la ecran (lumina și conștientizarea orei activează axa HPA). (2) Respirație 4-7-8 — inspirați pe nas timp de 4 secunde, țineți 7 secunde, expirați pe gură timp de 8 secunde. Stimulează nervul vag. (3) Frază-ancoră cognitivă — repetați în gând: „Aceasta este doar o activitate electrică inofensivă în nervul meu auditiv. Corpul meu este în siguranță și acum se va relaxa.“"
     },
     {
-     "q": "Колко силно да пусна звука при паник атака?",
-     "a": "Същото нормално ниво като нощния режим — 3–5 dB по-тих от дневното ниво на тинитуса. НЕ повишавайте силата за заглушаване — това е „паническо маскиране“ и тренира амигдалата да възприема тинитуса като критична заплаха, влошава дългосрочния прогноз."
+     "q": "Cât de tare să pun sunetul în timpul unui atac de panică?",
+     "a": "Același nivel normal ca în modul nocturn — cu 3–5 dB mai liniștit decât nivelul diurn al tinitusului. NU creșteți intensitatea pentru mascare — aceasta este „mascarea de panică“ și antrenează amigdala să perceapă tinitusul ca pe o amenințare critică, înrăutățește prognosticul pe termen lung."
     },
     {
-     "q": "Колко често мога да го ползвам?",
-     "a": "Режим „Тревожност“ е SOS — за остри кризи, не за ежедневна употреба. Ако ползвате протокола повече от 2–3 пъти седмично, това е сигнал за консултация с лекар или психотерапевт. AURALIS не замества психиатрична грижа. За дневен поддържащ ефект ползвайте „Ежедневие“ и „Медитация“."
+     "q": "Cât de des îl pot folosi?",
+     "a": "Modul „Anxietate“ este SOS — pentru crize acute, nu pentru utilizare zilnică. Dacă folosiți protocolul mai mult de 2–3 ori pe săptămână, acesta este un semnal pentru o consultație cu un medic sau un psihoterapeut. AURALIS nu înlocuiește îngrijirea psihiatrică. Pentru un efect de susținere diurn folosiți „Zilnic“ și „Meditație“."
     },
     {
-     "q": "Какво ако дишането не помогне?",
-     "a": "Ако след 15–20 мин 4-7-8 дишане и котва-фраза не настъпи стабилизация (нощем — повторно заспиване), изправете се и преминете в съседна стая (всекидневна) с лек фонов розов шум. Не оставайте в леглото в състояние на тревожност — продължителното въртене изгражда условна връзка „легло = тревожност + шум“. Върнете се в леглото само при реална сомнолентност."
+     "q": "Ce se întâmplă dacă respirația nu ajută?",
+     "a": "Dacă după 15–20 min de respirație 4-7-8 și frază-ancoră nu apare o stabilizare (noaptea — readormirea), ridicați-vă și mergeți într-o cameră alăturată (living) cu un zgomot roz de fundal ușor. Nu rămâneți în pat într-o stare de anxietate — răsucitul prelungit construiește o legătură condiționată „pat = anxietate + zgomot“. Întoarceți-vă în pat doar la o somnolență reală."
     },
     {
-     "q": "Звукът ме плаши повече, не помага. Защо?",
-     "a": "Възможни причини: (1) Силата е твърде висока — намалете до 3–5 dB под прага на тинитуса. (2) Звукът е нов или непознат — research препоръчва позната акустична сигнатура (същия розов шум, който ползвате нощем); не нов експериментален звук в момент на криза. (3) Съдържанието е твърде стимулиращо — заменете музиката с глас (4-7-8 voice guide) или само розов шум."
+     "q": "Sunetul mă sperie mai mult, nu ajută. De ce?",
+     "a": "Cauze posibile: (1) Intensitatea este prea ridicată — reduceți la 3–5 dB sub pragul tinitusului. (2) Sunetul este nou sau necunoscut — research-ul recomandă o semnătură acustică familiară (același zgomot roz pe care îl folosiți noaptea); nu un sunet nou, experimental, într-un moment de criză. (3) Conținutul este prea stimulant — înlocuiți muzica cu voce (4-7-8 voice guide) sau doar cu zgomot roz."
     },
     {
-     "q": "Може ли при дневна тревожност (не нощем)?",
-     "a": "Да, режимът работи и денем. 4-7-8 дишането е валидно винаги. Дневната версия е по-кратка — обикновено 2–5 мин до стабилизация. След това можете да продължите с „Ежедневие“ или „Релаксация“ за поддържащ ефект."
+     "q": "Pot folosi în caz de anxietate diurnă (nu noaptea)?",
+     "a": "Da, modul funcționează și ziua. Respirația 4-7-8 este valabilă întotdeauna. Versiunea diurnă este mai scurtă — de obicei 2–5 min până la stabilizare. După aceea puteți continua cu „Zilnic“ sau „Relaxare“ pentru un efect de susținere."
     },
     {
-     "q": "Кога трябва да потърся професионална помощ?",
-     "a": "Незабавно ако: паническите атаки са с честота над 2–3 пъти седмично; появяват се суицидни мисли; тинитусът е новопоявен в едно ухо без обяснение; имате остра ушна болка или загуба на слух заедно с тинитуса. AURALIS е wellness приложение, не медицинско устройство. При тежки симптоми — психиатър, аудиолог или ОНГ специалист."
+     "q": "Când ar trebui să caut ajutor profesional?",
+     "a": "Imediat dacă: atacurile de panică au o frecvență de peste 2–3 ori pe săptămână; apar gânduri suicidare; tinitusul a apărut recent într-o ureche fără explicație; aveți durere acută de ureche sau pierdere de auz împreună cu tinitusul. AURALIS este o aplicație de wellness, nu un dispozitiv medical. În caz de simptome grave — psihiatru, audiolog sau specialist ORL."
     }
    ],
    "scientificBasis": [
@@ -1563,16 +1563,16 @@
   },
   "meditation": {
    "title": "Meditație",
-   "subtitle": "Водени сесии",
-   "definition": "Режим за активна, водена практика — кратки 5–10 мин дневни упражнения по принципите на CBT-I и ACT (Acceptance and Commitment Therapy): екстернализация на вниманието, когнитивна дефузия, body scan, радикално приемане. Не е пасивно слушане — изисква съзнателен ангажимент.",
+   "subtitle": "Sesiuni ghidate",
+   "definition": "Un mod pentru o practică activă, ghidată — exerciții zilnice scurte de 5–10 min după principiile CBT-I și ACT (Acceptance and Commitment Therapy): externalizarea atenției, defuzie cognitivă, body scan, acceptare radicală. Nu este o ascultare pasivă — necesită un angajament conștient.",
    "whenUsed": {
-    "timeOfDay": "Препоръчва се 3 кратки сесии по 3 минути през деня вместо една дълга 60-минутна — невропластично консолидиране чрез висока честота на активиране, не дължина.",
-    "context": "Удобна тиха позиция; не по време на работа, шофиране или съсредоточена дейност.",
-    "duration": "5–10 мин на сесия (микропрактики); за бинаурално-аудио сесии — 15–30 мин, 1–2 пъти дневно."
+    "timeOfDay": "Se recomandă 3 sesiuni scurte de 3 minute pe parcursul zilei în loc de una lungă de 60 de minute — consolidare neuroplastică printr-o frecvență ridicată de activare, nu prin durată.",
+    "context": "O poziție confortabilă și liniștită; nu în timpul muncii, al condusului sau al unei activități care necesită concentrare.",
+    "duration": "5–10 min per sesiune (micropractici); pentru sesiunile binaural-audio — 15–30 min, de 1–2 ori pe zi."
    },
    "whenNotUsed": [
-    "При остра паник атака — първо режим „Тревожност“, после медитация след стабилизация.",
-    "Бинаурални вълни сесии — абсолютно противопоказани при епилепсия или тежки психиатрични разстройства.",
+    "În caz de atac de panică acut — mai întâi modul „Anxietate“, apoi meditație după stabilizare.",
+    "Sesiunile cu unde binaurale — absolut contraindicate în caz de epilepsie sau tulburări psihiatrice grave.",
     "Без качествени стерео слушалки за бинаурални — при моно източник бинауралният ефект изчезва напълно.",
     "При тежко непридържане (3+ дни пропуснати сесии) — системата прилага Adaptive Micro-Dosing (2-минутни микро-дози), не наказва пациента."
    ],
@@ -2053,7 +2053,7 @@
    },
    "meditation": {
     "name": "Meditație",
-    "subtitle": "Водени сесии"
+    "subtitle": "Sesiuni ghidate"
    }
   },
   "thiCta": {
