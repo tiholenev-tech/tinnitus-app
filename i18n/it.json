@@ -1016,168 +1016,168 @@
   "continue": "Vai ai suoni",
   "profiles": {
    "TH_C": {
-    "shortName": "Тонален висок",
-    "fullName": "Тонален високочестотен",
-    "description": "Профил \"Тонален висок\". Подробно описание скоро ще бъде добавено в това приложение.",
-    "expectations": "Подробни очаквания за този профил скоро ще бъдат добавени.",
-    "meaning": "Вие чувате високочестотен, постоянен пищящ или звънящ тон, който се натрапва особено в тиха среда и при умствена работа. Този тип тинитус се възприема като еднoтонен звук, концентриран във високия край на чуваемия спектър.\n\nВ клиничния модел това състояние се обяснява чрез \"ефекта на засилване на контраста\": в абсолютна тишина мозъкът насочва максимално когнитивно внимание към вътрешния сигнал, който се превръща в доминиращ — подобно на запалена свещ в тъмна стая.\n\nНа клетъчно ниво се наблюдава отслабване на инхибиторния тонус в централната слухова система — понижена GABA активност и засилена глутаматергична възбуда, което създава абнормна синхронизация в слуховата кора. Висшите когнитивни центрове интерпретират тази синхронизация като устойчив фантомен звук.",
-    "why": "Най-чести фактори са продължителна експозиция на висoки звукови нива в миналото (концерти, индустриална работа, ловно оръжие) и възрастово свързано увреждане на високочестотните косменни клетки в кохлеята (presbycusis). Допринасящи фактори, които засилват възприятието: тиха среда вечер, недостатъчен сън, високи нива на стрес, дехидратация и кофеин.",
-    "strategyReasoning": "- Препоръчителен носещ звук: филтриран дъжд или балансиран розов шум.\n\n- Препоръчителен `recommended_noise` в библиотеката: `pink_lowpass_4000` или `brown_lowpass_1000`.\n\n- Препоръчително съотношение sound/noise: 0.70/0.30 (леко sound-dominant). Принцип на \"точката на смесване\" — звукът трябва да бъде малко под силата на тинитуса, не да го заглушава напълно.\n\n- Препоръчителна продължителност: минимум 2 часа дневно за устойчива хабитуация; идеално 4–6 часа разпределени през деня.\n\n- Топ use cases по приоритет: `daily` (умствена работа) → `relaxation` → `falling_asleep`.",
+    "shortName": "Tonale acuto",
+    "fullName": "Tonale ad alta frequenza",
+    "description": "Profilo \"Tonale acuto\". Una descrizione dettagliata sarà presto aggiunta in questa app.",
+    "expectations": "Aspettative dettagliate per questo profilo saranno presto aggiunte.",
+    "meaning": "Senti un tono acuto, costante, sibilante o squillante, che si impone soprattutto in ambienti silenziosi e durante il lavoro mentale. Questo tipo di acufene è percepito come un suono monotonale, concentrato nell'estremità alta dello spettro udibile.\n\nNel modello clinico questa condizione si spiega con \"l'effetto di amplificazione del contrasto\": nel silenzio assoluto il cervello rivolge la massima attenzione cognitiva al segnale interno, che diventa dominante — come una candela accesa in una stanza buia.\n\nA livello cellulare si osserva un indebolimento del tono inibitorio nel sistema uditivo centrale — ridotta attività GABA e aumentata eccitazione glutammatergica, che crea una sincronizzazione anomala nella corteccia uditiva. I centri cognitivi superiori interpretano questa sincronizzazione come un suono fantasma persistente.",
+    "why": "I fattori più comuni sono un'esposizione prolungata a livelli sonori elevati in passato (concerti, lavoro industriale, armi da caccia) e un danno legato all'età alle cellule ciliate ad alta frequenza nella coclea (presbiacusia). Fattori contribuenti che intensificano la percezione: ambiente silenzioso la sera, sonno insufficiente, alti livelli di stress, disidratazione e caffeina.",
+    "strategyReasoning": "- Suono portante consigliato: pioggia filtrata o rumore rosa bilanciato.\n\n- `recommended_noise` consigliato nella libreria: `pink_lowpass_4000` o `brown_lowpass_1000`.\n\n- Rapporto sound/noise consigliato: 0,70/0,30 (leggermente sound-dominant). Principio del \"punto di miscelazione\" — il suono deve restare poco sotto l'intensità dell'acufene, non coprirlo del tutto.\n\n- Durata consigliata: minimo 2 ore al giorno per un'abituazione stabile; idealmente 4-6 ore distribuite nell'arco della giornata.\n\n- Use case principali per priorità: `daily` (lavoro mentale) → `relaxation` → `falling_asleep`.",
     "timeline": [
      {
-      "period": "Седмица 1–2",
-      "expectation": "обикновено се появява първо усещане за \"по-малко натрапчив\" звук в момента на слушане. Веднага след спиране на звука тинитусът се възприема в първоначалната си сила. Това е напълно нормално и не означава, че процесът не работи."
+      "period": "Settimana 1-2",
+      "expectation": "di solito compare per prima una sensazione di suono \"meno invadente\" durante l'ascolto. Subito dopo aver interrotto il suono, l'acufene si percepisce alla sua intensità iniziale. È del tutto normale e non significa che il processo non funzioni."
      },
      {
-      "period": "Месец 1",
-      "expectation": "проучвания регистрират средно намаление от около 17.6% по въпросника за здраве при тинитус на четвъртата седмица."
+      "period": "Mese 1",
+      "expectation": "gli studi registrano una riduzione media di circa il 17,6% sul questionario sulla salute dell'acufene alla quarta settimana."
      },
      {
-      "period": "Месец 3",
-      "expectation": "мета-анализ на 14 RCT показва средно подобрение от −8.6 точки по скалата THI на третия месец. MCID (минимално клинично значима разлика) на THI е 7 точки — т.е. на 3 месец много хора пресичат прагa на \"усетима\" промяна."
+      "period": "Mese 3",
+      "expectation": "una meta-analisi di 14 RCT mostra un miglioramento medio di −8,6 punti sulla scala THI al terzo mese. La MCID (differenza minima clinicamente significativa) del THI è di 7 punti — cioè al 3° mese molte persone superano la soglia del cambiamento \"percepibile\"."
      },
      {
-      "period": "Месец 6 и след",
-      "expectation": "същият мета-анализ регистрира средно подобрение от −24.6 точки по THI на 6 месец, което е почти 3-кратно над MCID. Минималният терапевтичен прозорец за устойчиво пренастройване е 9–18 месеца."
+      "period": "Mese 6 e oltre",
+      "expectation": "la stessa meta-analisi registra un miglioramento medio di −24,6 punti sul THI al 6° mese, quasi 3 volte oltre la MCID. La finestra terapeutica minima per una riprogrammazione stabile è di 9-18 mesi."
      }
     ],
-    "additional": "- Слуховa среда: предпочитайте отворени говорители или костна проводимост пред затворени слушалки — оклузивният ефект може да усили вътрешния звук.\n\n- Хигиенa на съня: избягвайте абсолютна тишина в спалнята; контраст между тинитуса и тишината е най-силен именно вечер.\n\n- Кофеин и алкохол: ограничете кофеин след 14:00 ч. и алкохол вечер. Кофеинът е централен стимулант, който засилва кортикалната чувствителност; алкохолът променя архитектурата на съня.\n\n- Когнитивна работа: при концентрация използвайте `focus_brown_noise`-стил mix — кафяв шум блокира високочестотния писък без претоварване на средните честоти, важни за реч.\n\n- Допълнителни техники: Когнитивно-поведенческо консултиране (CBT) се препоръчва като комплемент към звуковата терапия — то прекъсва \"когнитивния цикъл на дистрес\".",
-    "medicalFlags": "- Незабавно към УНГ: ако тинитусът е едностранен (само в едното ухо), пулсиращ (синхронизиран със сърдечен ритъм), внезапно появил се през последните дни, или съпроводен от рязка загуба на слуха.\n\n- Към одиолог: ако забелязвате влошаване на разбираемостта на речта в шумна среда (ресторант, парти) — възможна е скрита загуба на слуха, която изисква обективен слухов тест.\n\n- Към психолог / психотерапевт: ако тинитусът Ви води до устойчиви мисли от типа \"няма да издържа\" или \"винаги ще е така\" — структуриран CBT курс е доказано ефективен.",
+    "additional": "- Ambiente uditivo: preferisci altoparlanti aperti o conduzione ossea alle cuffie chiuse — l'effetto di occlusione può amplificare il suono interno.\n\n- Igiene del sonno: evita il silenzio assoluto in camera; il contrasto tra acufene e silenzio è più forte proprio la sera.\n\n- Caffeina e alcol: limita la caffeina dopo le 14:00 e l'alcol la sera. La caffeina è uno stimolante centrale che aumenta la sensibilità corticale; l'alcol altera l'architettura del sonno.\n\n- Lavoro cognitivo: per concentrarti usa un mix in stile `focus_brown_noise` — il rumore marrone blocca il fischio acuto senza sovraccaricare le medie frequenze, importanti per il parlato.\n\n- Tecniche aggiuntive: la consulenza cognitivo-comportamentale (CBT) è consigliata come complemento alla terapia del suono — interrompe il \"ciclo cognitivo del disagio\".",
+    "medicalFlags": "- Subito da un ORL: se l'acufene è unilaterale (solo in un orecchio), pulsante (sincronizzato col battito cardiaco), comparso all'improvviso negli ultimi giorni, o accompagnato da una brusca perdita uditiva.\n\n- Da un audiologo: se noti un peggioramento della comprensione del parlato in ambienti rumorosi (ristorante, festa) — è possibile una perdita uditiva nascosta, che richiede un test uditivo obiettivo.\n\n- Da uno psicologo / psicoterapeuta: se l'acufene ti porta a pensieri persistenti del tipo \"non ce la farò\" o \"sarà sempre così\" — un percorso CBT strutturato è di comprovata efficacia.",
     "reasons": {
-     "sleep_deep": "Дълбоки честоти срещу високия тон преди сън",
-     "relaxation": "Тихи природни звуци за вечерно успокояване"
+     "sleep_deep": "Frequenze profonde contro il tono acuto prima di dormire",
+     "relaxation": "Suoni naturali tranquilli per la calma serale"
     }
    },
    "DN_S": {
-    "shortName": "Шумов нискочестотен",
-    "fullName": "Шумов нискочестотен / Сън",
-    "description": "Профил \"Шумов нискочестотен\". Подробно описание скоро ще бъде добавено в това приложение.",
-    "expectations": "Подробни очаквания за този профил скоро ще бъдат добавени.",
-    "meaning": "Вие чувате плътен, нискочестотен, понякога бучащ или тътнещ шум, който е особено натрапчив вечер и нарушава качеството на Вашия сън. Вашите оплаквания най-често се концентрират около заспиване и поддържане на съня — събуждания през нощта, чувство за \"недостатъчно почивка\" сутрин.\n\nВ клиничен модел тинитусът и инсомнията формират двупосочен затворен цикъл — всяко състояние подхранва другото. Лимбичната система интерпретира тинитуса като заплаха, активира ХХН-оста (хипоталамус-хипофиза-надбъбречни), което води до повишен кортизол в късния следобед и предсънния период, поддържайки нервната система в хипервъзбудимост.\n\nПолисомнографските проучвания показват, че при този профил архитектурата на съня е тежко нарушена — средно 85% от нощта се прекарва в повърхностни стадии 1–2, а дълбокият бавновълнов сън и REM спадат до ~6.4% (при здрави контроли — 21.5%).",
-    "why": "Този профил често се асоциира с нискочестотна хидропсна или съдова компонента (например еднoстранен туптящ шум при колебания на кръвното налягане), с продължително битово или работно излагане на ниски шумове (вентилации, машини), или с възрастова деаферентация на ниските честоти.\n\nЗасилващи фактори: вечерна тишина в спалнята (усилва вътрешния шум при липса на маскант), стрес и тревожност преди сън, нарушена циркадна крива на кортизола, и обструктивна сънна апнея, ако присъства.",
-    "strategyReasoning": "- Препоръчителен носещ звук: дълбок кафяв шум, плътни водопади, планински поток с филтриран розов слой.\n\n- Препоръчителен `recommended_noise` в библиотеката: `brown_lowpass_500` (най-deep) или `brown_pure`.\n\n- Препоръчително съотношение: 0.50/0.50 (равно) до 0.30/0.70 (noise-dominant) при акутно безсъние.\n\n- Препоръчителна продължителност: непрекъснато през целия 8-часов сънен прозорец. Не използвайте sleep таймер — внезапната тишина в средата на нощта моментално задейства амигдалата при първия лек преход между сънните цикли.\n\n- Топ use cases по приоритет: `sleep_deep` → `falling_asleep` → `relaxation` (вечерно сваляне на тонуса).",
+    "shortName": "Di rumore a bassa frequenza",
+    "fullName": "Di rumore a bassa frequenza / Sonno",
+    "description": "Profilo \"Di rumore a bassa frequenza\". Una descrizione dettagliata sarà presto aggiunta in questa app.",
+    "expectations": "Aspettative dettagliate per questo profilo saranno presto aggiunte.",
+    "meaning": "Senti un rumore denso, a bassa frequenza, a volte rombante o cupo, particolarmente invadente la sera e che compromette la qualità del tuo sonno. I tuoi disturbi si concentrano per lo più sull'addormentamento e il mantenimento del sonno — risvegli notturni, sensazione di \"riposo insufficiente\" al mattino.\n\nNel modello clinico l'acufene e l'insonnia formano un circolo chiuso bidirezionale — ogni condizione alimenta l'altra. Il sistema limbico interpreta l'acufene come una minaccia, attiva l'asse HPA (ipotalamo-ipofisi-surrene), il che porta a un cortisolo elevato nel tardo pomeriggio e nel periodo pre-sonno, mantenendo il sistema nervoso in ipereccitabilità.\n\nGli studi polisonnografici mostrano che in questo profilo l'architettura del sonno è gravemente compromessa — in media l'85% della notte si trascorre negli stadi superficiali 1-2, mentre il sonno profondo a onde lente e il REM scendono a ~6,4% (nei controlli sani — 21,5%).",
+    "why": "Questo profilo si associa spesso a una componente idropica o vascolare a bassa frequenza (per esempio un rumore pulsante unilaterale con le oscillazioni della pressione arteriosa), a un'esposizione domestica o lavorativa prolungata a rumori bassi (ventilazioni, macchinari), o a una deafferentazione delle basse frequenze legata all'età.\n\nFattori aggravanti: il silenzio serale in camera (amplifica il rumore interno in assenza di un mascherante), stress e ansia prima di dormire, una curva circadiana del cortisolo alterata e l'apnea ostruttiva del sonno, se presente.",
+    "strategyReasoning": "- Suono portante consigliato: rumore marrone profondo, cascate dense, torrente di montagna con uno strato di rosa filtrato.\n\n- `recommended_noise` consigliato nella libreria: `brown_lowpass_500` (il più profondo) o `brown_pure`.\n\n- Rapporto consigliato: da 0,50/0,50 (pari) a 0,30/0,70 (noise-dominant) in caso di insonnia acuta.\n\n- Durata consigliata: in continuo per tutta la finestra di sonno di 8 ore. Non usare il timer del sonno — il silenzio improvviso a metà notte attiva istantaneamente l'amigdala al primo lieve passaggio tra i cicli del sonno.\n\n- Use case principali per priorità: `sleep_deep` → `falling_asleep` → `relaxation` (abbassamento serale del tono).",
     "timeline": [
      {
-      "period": "Нощ 1–7",
-      "expectation": "обикновено се появява първо леко съкращаване на латентността на заспиване (време от лягането до първия сън). Шумът остава, но контрастът с тишината намалява, което прекъсва верижната реакция \"тинитус → паника → пик на кортизол\"."
+      "period": "Notte 1-7",
+      "expectation": "di solito compare per prima una lieve riduzione della latenza dell'addormentamento (il tempo dal momento in cui ci si corica al primo sonno). Il rumore resta, ma il contrasto con il silenzio diminuisce, il che interrompe la reazione a catena \"acufene → panico → picco di cortisolo\"."
      },
      {
-      "period": "Седмица 2–4",
-      "expectation": "проучвания регистрират подобрение по THI скалата от около 11.8% (седмица 2) до 17.6% (седмица 4) при последователно прилагане на звукова терапия."
+      "period": "Settimana 2-4",
+      "expectation": "gli studi registrano un miglioramento sulla scala THI da circa l'11,8% (settimana 2) al 17,6% (settimana 4) con un'applicazione costante della terapia del suono."
      },
      {
-      "period": "Месец 3–6",
-      "expectation": "при последователно прилагане се възстановява част от дълбокия бавновълнов сън — pink/brown noise има потвърден положителен ефект върху SWS (stage 3) консолидация. THI спадане в диапазона −13 до −25 точки."
+      "period": "Mese 3-6",
+      "expectation": "con un'applicazione costante si recupera parte del sonno profondo a onde lente — pink/brown noise ha un effetto positivo confermato sul consolidamento dello SWS (stadio 3). Calo del THI nell'intervallo da −13 a −25 punti."
      },
      {
-      "period": "Месец 6+",
-      "expectation": "при 6-месечен курс на бимодална + звукова терапия 73.4% от пациенти достигат клинично значимо подобрение по TFI (≥13 точки спад). Минималният терапевтичен прозорец е 9–18 месеца."
+      "period": "Mese 6+",
+      "expectation": "con un percorso di 6 mesi di terapia bimodale + del suono, il 73,4% dei pazienti raggiunge un miglioramento clinicamente significativo del TFI (calo ≥13 punti). La finestra terapeutica minima è di 9-18 mesi."
      }
     ],
-    "additional": "- Хигиена на съня: запазете последователно време за лягане и ставане ±30 минути.\n\n- Сценарий \"събуждане в 3:00 ч.\": ако след 15–20 минути не сте се върнали в съня, плавно станете и отидете в друга стая с пуснат непрекъснат розов шум малко под силата на тинитуса. Извършете 5-минутна сесия на 4-7-8 дишане. Върнете се в леглото когато се появи естествена сънливост.\n\n- Кафе, сол, алкохол: ограничете кофеин след 14:00 ч.; намалете натрий вечер (задържане на течности влошава ниските честоти на тинитуса); избягвайте алкохол като \"приспивателно\" — той фрагментира съня.\n\n- Не използвайте бял шум. При продължително нощно слушане белият шум води до кортикална дедиференциация и парадоксално влошаване — този ефект е известен като \"ефект на кобрата\".\n\n- Допълнителни техники: модифициран CBT-I (когнитивно-поведенческа терапия за инсомния) е златен стандарт. Класическият SCT протокол изисква модификация — никога не оставайте в напълно тиха стая.",
-    "medicalFlags": "- Към УНГ: ако тинитусът е едностранен или пулсиращ; ако забелязвате замайвания, вертиго или чувство за пълнота в ухото (възможен болест на Мениер).\n\n- Към сомнолог: ако имате силно хъркане, спирания на дишането през нощта, дневна сънливост — може да е обструктивна сънна апнея, която изисква PSG изследване.\n\n- Към общопрактикуващ: ако приемате диуретици, високи дози NSAID или антибиотици и забелязвате влошаване — някои медикаменти са ототоксични.",
+    "additional": "- Igiene del sonno: mantieni orari costanti per coricarti e alzarti, ±30 minuti.\n\n- Scenario \"risveglio alle 3:00\": se dopo 15-20 minuti non sei tornato al sonno, alzati con calma e vai in un'altra stanza con un rumore rosa continuo poco sotto l'intensità dell'acufene. Esegui una sessione di 5 minuti di respirazione 4-7-8. Torna a letto quando compare una sonnolenza naturale.\n\n- Caffè, sale, alcol: limita la caffeina dopo le 14:00; riduci il sodio la sera (la ritenzione di liquidi peggiora le basse frequenze dell'acufene); evita l'alcol come \"sonnifero\" — frammenta il sonno.\n\n- Non usare il rumore bianco. Con un ascolto notturno prolungato il rumore bianco porta a una dedifferenziazione corticale e a un paradossale peggioramento — effetto noto come \"effetto cobra\".\n\n- Tecniche aggiuntive: la CBT-I modificata (terapia cognitivo-comportamentale per l'insonnia) è lo standard di riferimento. Il protocollo SCT classico richiede una modifica — non restare mai in una stanza completamente silenziosa.",
+    "medicalFlags": "- Da un ORL: se l'acufene è unilaterale o pulsante; se noti capogiri, vertigini o senso di pienezza nell'orecchio (possibile malattia di Ménière).\n\n- Da uno specialista del sonno: se hai un forte russamento, pause respiratorie durante la notte, sonnolenza diurna — può trattarsi di apnea ostruttiva del sonno, che richiede un esame PSG (polisonnografia).\n\n- Dal medico di base: se assumi diuretici, alte dosi di FANS o antibiotici e noti un peggioramento — alcuni farmaci sono ototossici.",
     "reasons": {
-     "relaxation": "Балансирани природни звуци за намаляване на бученето",
-     "daily": "Меки фонови звуци за работа"
+     "relaxation": "Suoni naturali bilanciati per ridurre il rombo",
+     "daily": "Suoni di sottofondo morbidi per il lavoro"
     }
    },
    "SS_R": {
-    "shortName": "Стрес-чувствителен",
-    "fullName": "Стрес-чувствителен / Реактивен",
-    "description": "Профил \"Стрес-чувствителен\". Подробно описание скоро ще бъде добавено в това приложение.",
-    "expectations": "Подробни очаквания за този профил скоро ще бъдат добавени.",
-    "meaning": "Вашият тинитус е силно свързан със състоянието на нервната Ви система — той се засилва при стрес, тревожност, конфликти и емоционално натоварване, а при спокойствие отслабва. Леки външни звуци или ежедневни събития могат временно да усилят възприятието на вътрешния шум.\n\nТова състояние се медиира от висока лабилност на автономната нервна система и лимбичната структура — амигдалата и предният cingulate отговарят за свръхреактивната оценка на сигнала като \"заплаха\". При типична ситуация мозъкът на хора с устойчив тинитус навлиза в защитен режим, при който вътрешният шум поддържа активна симпатиковата ос.\n\nПри част от хората с този профил се наблюдава реактивен тинитус — вътрешният шум парадоксално се засилва временно в отговор на нови външни звуци. В такъв случай агресивното широколентово маскиране е противопоказано.",
-    "why": "Този профил често се асоциира с предхождаща тревожна симптоматика, перфекционистки тип личност, постоянен професионален или семеен стрес, и понякога — с обща хиперсензитивност (или хиперакузис — повишена чувствителност към нормални звуци).\n\nЗасилващи фактори: ранен следобед след кофе, конфликтни ситуации, последователни нощи с недостатъчен сън, новинарска информационна претовареност, и социална изолация в тиха среда.",
-    "strategyReasoning": "- Препоръчителен носещ звук: изключително нежни природни блендове и зелен шум (центриран около средните честоти).\n\n- Препоръчителен `recommended_noise` в библиотеката: зеленият шум засега не е наличен в библиотеката — като временен fallback използваме `brown_lowpass_500` за дълбоко успокоение и нежни meditation треки (`grounded`, `inner_balance`).\n\n- Препоръчително съотношение: при остра тревожност → 0.30/0.70 (noise dominant) за бързо потискане на сетивния контраст; при ежедневно слушане → 0.50/0.50.\n\n- Препоръчителна продължителност: използвайте SOS режим (3–10 мин noise-dominant) при остри пикове; ежедневно фоново слушане 2–4 часа разпределени през деня.\n\n- Топ use cases по приоритет: `anxiety` → `relaxation` → `meditation`.",
+    "shortName": "Sensibile allo stress",
+    "fullName": "Sensibile allo stress / Reattivo",
+    "description": "Profilo \"Sensibile allo stress\". Una descrizione dettagliata sarà presto aggiunta in questa app.",
+    "expectations": "Aspettative dettagliate per questo profilo saranno presto aggiunte.",
+    "meaning": "Il tuo acufene è fortemente legato allo stato del tuo sistema nervoso — si intensifica con stress, ansia, conflitti e carico emotivo, mentre si attenua nella calma. Suoni esterni lievi o eventi quotidiani possono amplificare temporaneamente la percezione del rumore interno.\n\nQuesta condizione è mediata da un'elevata labilità del sistema nervoso autonomo e dalla struttura limbica — l'amigdala e la corteccia cingolata anteriore sono responsabili della valutazione iper-reattiva del segnale come \"minaccia\". In una situazione tipica il cervello di chi ha un acufene persistente entra in modalità difensiva, in cui il rumore interno mantiene attivo l'asse simpatico.\n\nIn una parte delle persone con questo profilo si osserva un acufene reattivo — il rumore interno si intensifica paradossalmente e temporaneamente in risposta a nuovi suoni esterni. In tal caso il mascheramento aggressivo a banda larga è controindicato.",
+    "why": "Questo profilo si associa spesso a una sintomatologia ansiosa preesistente, a un tipo di personalità perfezionista, a uno stress professionale o familiare costante e a volte a un'ipersensibilità generale (o iperacusia — maggiore sensibilità ai suoni normali).\n\nFattori aggravanti: il primo pomeriggio dopo il caffè, le situazioni di conflitto, notti consecutive con sonno insufficiente, il sovraccarico informativo delle notizie e l'isolamento sociale in un ambiente silenzioso.",
+    "strategyReasoning": "- Suono portante consigliato: blend naturali estremamente delicati e rumore verde (centrato sulle medie frequenze).\n\n- `recommended_noise` consigliato nella libreria: il rumore verde non è ancora disponibile nella libreria — come fallback temporaneo usiamo `brown_lowpass_500` per una calma profonda e delicate tracce di meditazione (`grounded`, `inner_balance`).\n\n- Rapporto consigliato: in caso di ansia acuta → 0,30/0,70 (noise dominant) per sopprimere rapidamente il contrasto sensoriale; per l'ascolto quotidiano → 0,50/0,50.\n\n- Durata consigliata: usa la modalità SOS (3-10 min noise-dominant) durante i picchi acuti; ascolto di sottofondo quotidiano di 2-4 ore distribuite nell'arco della giornata.\n\n- Use case principali per priorità: `anxiety` → `relaxation` → `meditation`.",
     "timeline": [
      {
-      "period": "Първа сесия (минути)",
-      "expectation": "при правилно избран зелен шум или меки природни звуци, повечето хора усещат намаляване на остротата на ситуацията в рамките на 5–15 минути. Това е незабавният anxiolytic ефект на средночестотната звукова обертурата."
+      "period": "Prima sessione (minuti)",
+      "expectation": "con un rumore verde ben scelto o suoni naturali morbidi, la maggior parte delle persone avverte una riduzione dell'intensità della situazione entro 5-15 minuti. È l'effetto ansiolitico immediato della copertura sonora di media frequenza."
      },
      {
-      "period": "Седмица 1–2",
-      "expectation": "при последователно ежедневно прилагане намалява базовата реактивност — амплитудата на пиковете в стресовия отговор спада."
+      "period": "Settimana 1-2",
+      "expectation": "con un'applicazione quotidiana costante diminuisce la reattività di base — l'ampiezza dei picchi nella risposta allo stress cala."
      },
      {
-      "period": "Месец 1–3",
-      "expectation": "очаквайте намаление по емоционалните под-скали на THI/TFI; пълната хабитуация и пренастройване на оценъчния процес изискват по-дълго време."
+      "period": "Mese 1-3",
+      "expectation": "aspettati una riduzione nelle sotto-scale emotive del THI/TFI; l'abituazione completa e la riprogrammazione del processo valutativo richiedono più tempo."
      },
      {
-      "period": "Месец 6+",
-      "expectation": "при комбинирана интервенция (звук + структуриран CBT курс) клинично значимо подобрение се постига от мнозинството пациенти."
+      "period": "Mese 6+",
+      "expectation": "con un intervento combinato (suono + percorso CBT strutturato) un miglioramento clinicamente significativo è raggiunto dalla maggior parte dei pazienti."
      }
     ],
-    "additional": "- Дихателни техники: 4-7-8 дишане при остри пикове (вдишване 4 сек, задържане 7, издишване 8). Това активира блуждаещия нерв и сваля симпатиковия тонус.\n\n- Информационна хигиена: ограничете социални мрежи и новини в първите 30 минути след събуждане и последните 60 минути преди сън.\n\n- Кофеин: при този профил кофеинът има особено силен ефект — обмислете преминаване към 1 чаша сутрин или decaf.\n\n- Слухова среда: избягвайте слушалки с активно шумоподтискане (active noise cancelling) — при някои хора с реактивен тинитус те усилват възприятието на вътрешния шум поради създаване на абсолютна тишина.\n\n- Допълнителни техники: Терапия за приемане и обвързване (ACT), mindfulness-базирани практики и структуриран CBT курс са особено подходящи за този профил.",
-    "medicalFlags": "- Към психиатър или психотерапевт: ако имате персистираща тревожност, панически атаки, обсесивни мисли за тинитуса, или симптоми на депресия в продължение на повече от 2 седмици.\n\n- Към УНГ: ако забелязвате хиперакузис (нормални звуци стават болезнено силни) — необходимо е аудиологично изследване с тимпанометрия и стапедиален рефлекс.\n\n- Към общопрактикуващ: при чести епизоди на сърцебиене, изпотяване, замайване, треперене — за изключване на ендокринни (щитовидна жлеза) или сърдечно-съдови причини, които могат да наподобяват тревожност.",
+    "additional": "- Tecniche di respirazione: respirazione 4-7-8 durante i picchi acuti (inspira 4 sec, trattieni 7, espira 8). Questo attiva il nervo vago e abbassa il tono simpatico.\n\n- Igiene informativa: limita social network e notizie nei primi 30 minuti dopo il risveglio e negli ultimi 60 minuti prima di dormire.\n\n- Caffeina: in questo profilo la caffeina ha un effetto particolarmente forte — valuta di passare a 1 tazza al mattino o al decaffeinato.\n\n- Ambiente uditivo: evita le cuffie con cancellazione attiva del rumore (active noise cancelling) — in alcune persone con acufene reattivo amplificano la percezione del rumore interno perché creano un silenzio assoluto.\n\n- Tecniche aggiuntive: la terapia di accettazione e impegno (ACT), le pratiche basate sulla mindfulness e un percorso CBT strutturato sono particolarmente indicati per questo profilo.",
+    "medicalFlags": "- Da uno psichiatra o psicoterapeuta: se hai ansia persistente, attacchi di panico, pensieri ossessivi sull'acufene o sintomi di depressione per più di 2 settimane.\n\n- Da un ORL: se noti iperacusia (i suoni normali diventano dolorosamente forti) — è necessario un esame audiologico con timpanometria e riflesso stapediale.\n\n- Dal medico di base: in caso di frequenti episodi di palpitazioni, sudorazione, capogiri, tremori — per escludere cause endocrine (tiroide) o cardiovascolari, che possono assomigliare all'ansia.",
     "reasons": {
-     "anxiety": "SOS дишане + успокояващи звуци при кризи",
-     "falling_asleep": "Постепенно понижаване на стреса преди сън"
+     "anxiety": "Respirazione SOS + suoni calmanti durante le crisi",
+     "falling_asleep": "Riduzione graduale dello stress prima di dormire"
     }
    },
    "SM_F": {
-    "shortName": "Соматичен / Флуктуиращ",
-    "fullName": "Соматичен / Флуктуиращ",
-    "description": "Профил \"Соматичен / Флуктуиращ\". Подробно описание скоро ще бъде добавено в това приложение.",
-    "expectations": "Подробни очаквания за този профил скоро ще бъдат добавени.",
-    "meaning": "Вашият тинитус има променлив характер — силата му се променя през деня, понякога значително, и често е свързан с физическо напрежение във врата, челюстта или раменете. Можете да забележите, че при определени движения, позиции на главата или стискане на челюстите шумът се променя — това е \"соматичен модулиращ\" феномен.\n\nТози тип се медиира от взаимовръзка между тригеминалната и соматосензорната система (врат, темпоромандибуларна става) и слуховите пътища. Абнормни сигнали от напрегнати или дисфункционални тъкани (TMD — темпоромандибуларна дисфункция, цервикална дисфункция) се \"пренасочват\" към слуховата кора и модулират фантомния звук.\n\nКлинично проучване на orofacial терапия показва, че намаляването на болката в темпоромандибуларната става обяснява около 35% от спада в индекса TFI при този подтип.",
-    "why": "Този профил често се асоциира с brux (стискане или скърцане на зъби — нощно или дневно), forward-head posture (придвижена напред глава, особено при дълга работа на екран), травма на врата (whiplash), или предишен спортен/професионален стрес върху шийния отдел.\n\nЗасилващи фактори: продължителни часове на компютъра без почивки, носене на тежки чанти на едно рамо, спане на корем, и стрес-индуцирано стискане на челюстите.",
-    "strategyReasoning": "- Препоръчителен носещ звук: силно динамични и непериодични природни среди — океански приливи и отливи, modulated wave swells, binaural ambient.\n\n- Препоръчителен `recommended_noise` в библиотеката: `brown_lowpass_1000` за равномерно тяло на звука; mix с natural дунамични файлове (например `water_wave_ocean_wave_swells`, ocean swells, дишащи waves).\n\n- Препоръчително съотношение: 0.85/0.15 (sound dominant) — динамиката на природния звук ангажира вниманието и пречи на кортикалната адаптация.\n\n- Препоръчителна продължителност: 2–4 часа дневно, с акцент върху периоди на физическо ангажиране — разходка, рутинни задачи. Това комбинира моторно разсейване със звуково обогатяване.\n\n- Топ use cases по приоритет: `relaxation` → `daily` → `meditation`.",
+    "shortName": "Somatico / Fluttuante",
+    "fullName": "Somatico / Fluttuante",
+    "description": "Profilo \"Somatico / Fluttuante\". Una descrizione dettagliata sarà presto aggiunta in questa app.",
+    "expectations": "Aspettative dettagliate per questo profilo saranno presto aggiunte.",
+    "meaning": "Il tuo acufene ha un carattere variabile — la sua intensità cambia durante la giornata, a volte in modo marcato, ed è spesso legato a una tensione fisica nel collo, nella mandibola o nelle spalle. Puoi notare che con certi movimenti, posizioni della testa o serrando le mascelle il rumore cambia — è il fenomeno della \"modulazione somatica\".\n\nQuesto tipo è mediato dall'interazione tra il sistema trigeminale e somatosensoriale (collo, articolazione temporomandibolare) e le vie uditive. Segnali anomali da tessuti tesi o disfunzionali (TMD — disfunzione temporomandibolare, disfunzione cervicale) vengono \"reindirizzati\" alla corteccia uditiva e modulano il suono fantasma.\n\nUno studio clinico sulla terapia orofacciale mostra che la riduzione del dolore nell'articolazione temporomandibolare spiega circa il 35% del calo dell'indice TFI in questo sottotipo.",
+    "why": "Questo profilo si associa spesso al bruxismo (serrare o digrignare i denti — di notte o di giorno), alla forward-head posture (testa spostata in avanti, soprattutto durante il lavoro prolungato allo schermo), a un trauma del collo (colpo di frusta) o a un precedente stress sportivo/professionale sul tratto cervicale.\n\nFattori aggravanti: ore prolungate al computer senza pause, portare borse pesanti su una sola spalla, dormire a pancia in giù e il serramento delle mascelle indotto dallo stress.",
+    "strategyReasoning": "- Suono portante consigliato: ambienti naturali molto dinamici e non periodici — maree oceaniche, modulated wave swells, ambient binaurale.\n\n- `recommended_noise` consigliato nella libreria: `brown_lowpass_1000` per un corpo del suono uniforme; mix con file naturali dinamici (per esempio `water_wave_ocean_wave_swells`, ocean swells, onde \"che respirano\").\n\n- Rapporto consigliato: 0,85/0,15 (sound dominant) — la dinamica del suono naturale cattura l'attenzione e ostacola l'adattamento corticale.\n\n- Durata consigliata: 2-4 ore al giorno, con enfasi sui periodi di impegno fisico — passeggiata, attività di routine. Questo combina la distrazione motoria con l'arricchimento sonoro.\n\n- Use case principali per priorità: `relaxation` → `daily` → `meditation`.",
     "timeline": [
      {
-      "period": "Седмица 1–2",
-      "expectation": "при паралелна orofacial физиотерапия можете да забележите бързи флуктуации — добри и лоши дни. Това не означава, че процесът не работи; означава, че се отнема пресъхналата тъканна тяга."
+      "period": "Settimana 1-2",
+      "expectation": "con una fisioterapia orofacciale parallela puoi notare rapide fluttuazioni — giorni buoni e giorni cattivi. Non significa che il processo non funzioni; significa che la tensione tissutale accumulata si sta sciogliendo."
      },
      {
-      "period": "Седмица 9 (директна orofacial група)",
-      "expectation": "клинично проучване с 9-седмичен orofacial курс регистрира средно намаление на TFI с −13.8 точки, докато групата с отложена терапия показва само −5.0 точки. MCID на TFI е 13 точки."
+      "period": "Settimana 9 (gruppo orofacciale diretto)",
+      "expectation": "uno studio clinico con un percorso orofacciale di 9 settimane registra una riduzione media del TFI di −13,8 punti, mentre il gruppo con terapia differita mostra solo −5,0 punti. La MCID del TFI è di 13 punti."
      },
      {
-      "period": "Месец 3–6",
-      "expectation": "при последователно прилагане на звук + физиотерапия + ограничаване на bruxism: средни намаления THI в диапазона −8.6 до −24.6 точки."
+      "period": "Mese 3-6",
+      "expectation": "con un'applicazione costante di suono + fisioterapia + riduzione del bruxismo: riduzioni medie del THI nell'intervallo da −8,6 a −24,6 punti."
      },
      {
-      "period": "Месец 6+",
-      "expectation": "при този профил особено важна е дългосрочната последователност — пренастройването на cross-modal interactions изисква поне 9–18 месеца."
+      "period": "Mese 6+",
+      "expectation": "in questo profilo è particolarmente importante la costanza a lungo termine — la riprogrammazione delle cross-modal interactions richiede almeno 9-18 mesi."
      }
     ],
-    "additional": "- Постура: при работа на компютър — екран на нивото на очите, ходила на пода, ушите подравнени над раменете. Микро-почивки на всеки 30–45 минути с леки flexion-extension движения на врата.\n\n- Челюст: ако забелязвате стискане на зъбите през деня — поставете малък напомнящ стикер на компютъра; вечер обмислете oклузална шинa след преглед при стоматолог.\n\n- Прогресивна мускулна релаксация (ПМР): 10-минутна вечерна сесия с фокус върху врата, челюстта и раменете е особено подходяща.\n\n- Слухова среда: избягвайте дълго слушане с in-ear слушалки — те могат да създадат TMJ натоварване при някои хора; предпочитайте open-back или говорители.\n\n- Допълнителни техники: orofacial физиотерапия и при необходимост консултация със стоматолог-специалист по TMD са доказано ефективни като комплемент към звуковата терапия.",
-    "medicalFlags": "- Към орален хирург или специалист по TMD: ако имате болка при отваряне на устата, щракане в челюстната става, ограничено отваряне (<35 mm), или сутрешно главоболие в слепоочията — възможна е темпоромандибуларна дисфункция.\n\n- Към физиотерапевт (специалност шиен отдел): ако забелязвате болка в шията, ограничена ротация, или връзка между шийни движения и интензитета на тинитуса.\n\n- Към УНГ: ако модулацията не се ограничава до врата/челюстта и тинитусът става пулсиращ, или ако се появят епизоди на вертиго.",
+    "additional": "- Postura: al computer — schermo all'altezza degli occhi, piedi a terra, orecchie allineate sopra le spalle. Micro-pause ogni 30-45 minuti con leggeri movimenti di flessione-estensione del collo.\n\n- Mandibola: se noti il serramento dei denti durante il giorno — metti un piccolo adesivo promemoria sul computer; la sera valuta un bite occlusale dopo una visita dal dentista.\n\n- Rilassamento muscolare progressivo (RMP): una sessione serale di 10 minuti con focus su collo, mandibola e spalle è particolarmente indicata.\n\n- Ambiente uditivo: evita l'ascolto prolungato con auricolari in-ear — possono creare un sovraccarico della TMJ (articolazione temporomandibolare) in alcune persone; preferisci open-back o altoparlanti.\n\n- Tecniche aggiuntive: la fisioterapia orofacciale e, se necessario, una consulenza con un dentista specialista in TMD sono di comprovata efficacia come complemento alla terapia del suono.",
+    "medicalFlags": "- Da un chirurgo orale o specialista in TMD: se hai dolore all'apertura della bocca, click nell'articolazione mandibolare, apertura limitata (<35 mm) o mal di testa mattutino alle tempie — è possibile una disfunzione temporomandibolare.\n\n- Da un fisioterapista (specializzato nel tratto cervicale): se noti dolore al collo, rotazione limitata o un legame tra i movimenti del collo e l'intensità dell'acufene.\n\n- Da un ORL: se la modulazione non si limita al collo/mandibola e l'acufene diventa pulsante, o se compaiono episodi di vertigine.",
     "reasons": {
-     "meditation": "Водени сесии за намаляване на физическо напрежение",
-     "relaxation": "Динамични природни звуци срещу циклите"
+     "meditation": "Sessioni guidate per ridurre la tensione fisica",
+     "relaxation": "Suoni naturali dinamici contro i cicli"
     }
    },
    "HB_M": {
-    "shortName": "Адаптиран / Лек",
-    "fullName": "Адаптиран / Лек",
-    "description": "Профил \"Адаптиран / Лек\". Подробно описание скоро ще бъде добавено в това приложение.",
-    "expectations": "Подробни очаквания за този профил скоро ще бъдат добавени.",
-    "meaning": "Вие имате тинитус, но той Ви безпокои предимно в условия на абсолютна тишина и не оказва съществено влияние върху ежедневните Ви задачи, концентрация, сън или настроение. Вашата нервна система вече е изградила висока степен на естествена хабитуация — мозъкът Ви до голяма степен филтрира фантомния сигнал като маловажен фон.\n\nВ клиничен модел това състояние отразява запазен инхибиторен контрол в централните слухови пътища и адекватно функциониране на лимбичните оценъчни структури — те не приписват \"заплаха\" на сигнала.\n\nЦелта на звуковата терапия при този профил не е активно потискане на тинитуса (тъй като той не Ви натоварва), а превенция — поддържане на лек звуков фон, който предотвратява засилване на сетивния контраст в моментите на абсолютна тишина.",
-    "why": "Адаптираният профил често се асоциира с по-късна или по-малко травматична поява на тинитуса, с устойчива личностна структура без тенденция към тревожност, с активен и социален начин на живот, или с предишен успешен индивидуален опит за справяне с подобен стимул.\n\nЗасилващи фактори, които могат временно да дестабилизират HB_M: тежък нелекуван период на стрес, продължителна болест, нощно бдение, акутна слухова експозиция (концерт без защита), или нов медицински проблем (ототоксичен медикамент).",
-    "strategyReasoning": "- Препоръчителен носещ звук: ултра-меки природни звуци — шепот на листа, тих летен дъжд, лек вятър, рaйн зад прозорец.\n\n- Препоръчителен `recommended_noise` в библиотеката: `brown_lowpass_500` (минимално, само за фоново обогатяване) или `none` — често само природният звук без допълнителен шум е достатъчен.\n\n- Препоръчително съотношение: 0.85/0.15 или дори 0.95/0.05 — звукът трябва да е едва доловим.\n\n- Препоръчителна продължителност: 30–60 минути в моменти на абсолютна тишина (вечер преди сън, ранно утро, продължителна работа в тиха стая).\n\n- Топ use cases по приоритет: `relaxation` → `falling_asleep` → `daily`.",
+    "shortName": "Adattato / Lieve",
+    "fullName": "Adattato / Lieve",
+    "description": "Profilo \"Adattato / Lieve\". Una descrizione dettagliata sarà presto aggiunta in questa app.",
+    "expectations": "Aspettative dettagliate per questo profilo saranno presto aggiunte.",
+    "meaning": "Hai l'acufene, ma ti disturba soprattutto in condizioni di silenzio assoluto e non ha un'influenza significativa sulle tue attività quotidiane, sulla concentrazione, sul sonno o sull'umore. Il tuo sistema nervoso ha già costruito un alto grado di abituazione naturale — il tuo cervello filtra in larga parte il segnale fantasma come uno sfondo irrilevante.\n\nNel modello clinico questa condizione riflette un controllo inibitorio preservato nelle vie uditive centrali e un funzionamento adeguato delle strutture limbiche di valutazione — non attribuiscono una \"minaccia\" al segnale.\n\nL'obiettivo della terapia del suono in questo profilo non è la soppressione attiva dell'acufene (dato che non ti pesa), ma la prevenzione — mantenere un leggero sfondo sonoro che impedisce l'aumento del contrasto sensoriale nei momenti di silenzio assoluto.",
+    "why": "Il profilo adattato si associa spesso a una comparsa dell'acufene più tardiva o meno traumatica, a una struttura di personalità stabile senza tendenza all'ansia, a uno stile di vita attivo e sociale, o a una precedente esperienza individuale di successo nel gestire uno stimolo simile.\n\nFattori aggravanti che possono destabilizzare temporaneamente HB_M: un periodo di stress grave e non gestito, una malattia prolungata, una veglia notturna, un'esposizione uditiva acuta (concerto senza protezione) o un nuovo problema medico (farmaco ototossico).",
+    "strategyReasoning": "- Suono portante consigliato: suoni naturali ultra-morbidi — fruscio di foglie, pioggia estiva leggera, vento lieve, pioggia dietro la finestra.\n\n- `recommended_noise` consigliato nella libreria: `brown_lowpass_500` (al minimo, solo per arricchimento di sottofondo) o `none` — spesso basta il solo suono naturale senza rumore aggiuntivo.\n\n- Rapporto consigliato: 0,85/0,15 o persino 0,95/0,05 — il suono deve essere appena percepibile.\n\n- Durata consigliata: 30-60 minuti nei momenti di silenzio assoluto (la sera prima di dormire, al mattino presto, durante il lavoro prolungato in una stanza silenziosa).\n\n- Use case principali per priorità: `relaxation` → `falling_asleep` → `daily`.",
     "timeline": [
      {
-      "period": "Кратки периоди (дни до седмици)",
-      "expectation": "при HB_M профила обикновено не очаквайте драматични промени в усещането, защото базовото състояние вече е добро. Целта е поддръжка, не подобрение."
+      "period": "Brevi periodi (giorni-settimane)",
+      "expectation": "nel profilo HB_M di solito non aspettarti cambiamenti drastici nella percezione, perché lo stato di base è già buono. L'obiettivo è il mantenimento, non il miglioramento."
      },
      {
-      "period": "Месец 1–3",
-      "expectation": "очаквайте, че по-меките вечери в тишина стават по-приятни. Емоционалната неутралност спрямо тинитуса се запазва или леко се укрепва."
+      "period": "Mese 1-3",
+      "expectation": "aspettati che le serate più tranquille in silenzio diventino più piacevoli. La neutralità emotiva verso l'acufene si mantiene o si rafforza leggermente."
      },
      {
-      "period": "Дългосрочно (6+ месеца)",
-      "expectation": "профилактичното звуково обогатяване намалява вероятността от епизоди на дестабилизация при бъдещ стрес."
+      "period": "Lungo termine (6+ mesi)",
+      "expectation": "l'arricchimento sonoro preventivo riduce la probabilità di episodi di destabilizzazione in caso di stress futuro."
      },
      {
-      "period": "При дестабилизация",
-      "expectation": "ако забелязвате, че тинитусът внезапно стане по-натрапчив за повече от 2 седмици, преоценете профила си през quiz-а — възможно е преминаване към друг профил (например DN_S при нов сън-проблем или SS_R при нов стрес)."
+      "period": "In caso di destabilizzazione",
+      "expectation": "se noti che l'acufene diventa improvvisamente più invadente per più di 2 settimane, rivaluta il tuo profilo tramite il quiz — è possibile un passaggio a un altro profilo (per esempio DN_S in caso di un nuovo problema di sonno o SS_R in caso di nuovo stress)."
      }
     ],
-    "additional": "- Поддържайте това, което работи: активен начин на живот, социална среда, физическа активност, добър сън. Тези фактори са най-силната защита срещу прогресия.\n\n- Слухова защита: при концерти, тенис-турнири, ловно оръжие или високи звуци в работна среда — носете слухови защитни тапи. Една акутна експозиция може да дестабилизира профила за месеци.\n\n- Звукова среда: избягвайте дълго слушане на музика с високи нива на слушалки — при тинитус общата препоръка е <60% от макс. ниво за <60 минути.\n\n- Поведенческа поддръжка: активна реалистична оценка — не превръщайте тинитуса в \"проблем\", който още не съществува. Това запазва положителната емоционална оценъчност на лимбичната система.\n\n- Допълнителни техники: не са необходими активни CBT/ACT интервенции при този профил, но добра обща хигиена на съня и стрес-мениджмънт остават полезни.",
-    "medicalFlags": "- При промяна в характера: ако тинитусът внезапно стане едностранен, пулсиращ, или съпроводен от загуба на слуха — незабавно към УНГ.\n\n- При продължителна дестабилизация: ако базовото състояние се влоши и остане влошено >2 седмици — преоценете през quiz-а и потърсете консултация (одиолог или УНГ).\n\n- Превантивно: едно изходно аудиологично изследване (audiogram) е препоръчително, ако не сте правили такова — то осигурява базова линия за бъдещо сравнение, ако нещо се промени.",
+    "additional": "- Mantieni ciò che funziona: uno stile di vita attivo, un ambiente sociale, l'attività fisica, un buon sonno. Questi fattori sono la difesa più forte contro la progressione.\n\n- Protezione uditiva: ai concerti, ai tornei di tennis, con armi da caccia o suoni forti in ambiente di lavoro — indossa tappi protettivi per le orecchie. Una sola esposizione acuta può destabilizzare il profilo per mesi.\n\n- Ambiente sonoro: evita l'ascolto prolungato di musica ad alto volume con le cuffie — per l'acufene la raccomandazione generale è <60% del livello max per <60 minuti.\n\n- Supporto comportamentale: una valutazione realistica e attiva — non trasformare l'acufene in un \"problema\" che ancora non esiste. Questo preserva la valutazione emotiva positiva del sistema limbico.\n\n- Tecniche aggiuntive: in questo profilo non servono interventi attivi di CBT/ACT, ma una buona igiene generale del sonno e la gestione dello stress restano utili.",
+    "medicalFlags": "- In caso di cambiamento di carattere: se l'acufene diventa improvvisamente unilaterale, pulsante o accompagnato da perdita uditiva — subito da un ORL.\n\n- In caso di destabilizzazione prolungata: se lo stato di base peggiora e resta peggiorato per >2 settimane — rivaluta tramite il quiz e cerca una consulenza (audiologo o ORL).\n\n- A scopo preventivo: un esame audiologico di base (audiogramma) è consigliato se non ne hai mai fatto uno — fornisce una linea di base per un confronto futuro, se qualcosa cambia.",
     "reasons": {
-     "daily": "Лек звуков фон за поддръжка на адаптацията",
-     "falling_asleep": "Тихи природни звуци за вечерта"
+     "daily": "Leggero sfondo sonoro per sostenere l'adattamento",
+     "falling_asleep": "Suoni naturali tranquilli per la sera"
     }
    }
   },
