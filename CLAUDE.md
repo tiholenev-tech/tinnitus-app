@@ -59,6 +59,7 @@
 
 ## Карта на документите
 - `docs/AURALIS_STRATEGIA_FINAL_20260605.md` — **№0, чети пръв** (стратегия).
+- `docs/I18N_PIPELINE.md` — как добавяме език (конвейер app+сайт, гейтове).
 - `docs/GO_LIVE.md` — какво остава до пълен старт (статуси по маркери).
 - `docs/00-START-HERE.md` — по-стар entry point (карта на research/, правила).
 - `docs/research/` — научни доклади (Gemini Deep Research).
