@@ -2434,43 +2434,43 @@
    "why_no_medical_advice": {
     "title": "De ce nu recomandăm medicamente sau suplimente?",
     "micro": "AURALIS este un instrument de wellness, nu un produs medical. Medicamentele și suplimentele sunt recomandate de un medic, nu de o aplicație.",
-    "full": "📊 КАКВО Е AURALIS:\n\nAURALIS е приложение за УЕЛНЕС. Помагаме с:\n✅ Звуково обогатяване\n✅ Психологически техники (CBT, mindfulness)\n✅ Образование за тинитуса\n✅ Проследяване на прогрес\n\n🚨 КАКВО AURALIS НЕ Е:\n\nAURALIS НЕ е:\n❌ Медицински продукт\n❌ Лекар\n❌ Замяна на медицинска консултация\n❌ Източник на лекарствени препоръки\n\n🎯 ЗАЩО НЕ ДАВАМЕ МЕДИЦИНСКИ СЪВЕТИ:\n\n1. Безопасност - всеки човек е различен. Какво работи за един може да навреди на друг.\n2. Регулация - регулаторите изискват медицински продукти да преминат строга сертификация. Ние сме wellness, не medical.\n3. Доверие - истинският лекар Ви познава лично. Ние не.\n\n💡 КОГА ДА ОТИДЕТЕ ПРИ ЛЕКАР:\n\n✅ Първи път с тинитус (за изключване на болести)\n✅ Тинитус само в едно ухо\n✅ Тинитус с виене на свят\n✅ Тинитус с загуба на слуха\n✅ Тинитус след травма\n✅ Тинитус с депресия или мисли за самоунищожение\n\n📈 КАКВО ПРЕПОРЪЧВАМЕ:\n\nНамерете специалист:\n• ОТО-РИНО-ЛАРИНГОЛОГ (УНГ лекар)\n• АУДИОЛОГ\n• ПСИХОЛОГ (при тежък стрес)\n\n⚠ ВАЖНО ЗАКЛЮЧЕНИЕ:\n\nAURALIS работи НАЙ-ДОБРЕ когато се комбинира с медицинска грижа. Лекарят се грижи за тялото. Ние помагаме с ежедневното справяне.\n\n📚 ПРОУЧВАНЕ:\n\nРегулаторен анализ (2024): wellness продукти БЕЗ медицински твърдения имат по-добра дългосрочна приемливост и доверие от потребителите.",
-    "source": "Regulatory analysis for digital tinnitus tools, 2024. Виж docs/research/16."
+    "full": "📊 CE ESTE AURALIS:\n\nAURALIS este o aplicație de WELLNESS. Ajutăm cu:\n✅ Îmbogățire sonoră\n✅ Tehnici psihologice (CBT, mindfulness)\n✅ Educație despre tinitus\n✅ Urmărirea progresului\n\n🚨 CE NU ESTE AURALIS:\n\nAURALIS NU este:\n❌ Un produs medical\n❌ Un medic\n❌ Un înlocuitor al unei consultații medicale\n❌ O sursă de recomandări medicamentoase\n\n🎯 DE CE NU OFERIM SFATURI MEDICALE:\n\n1. Siguranță - fiecare persoană este diferită. Ceea ce funcționează pentru unul poate dăuna altuia.\n2. Reglementare - autoritățile de reglementare cer ca produsele medicale să treacă printr-o certificare strictă. Noi suntem wellness, nu medical.\n3. Încredere - un medic adevărat vă cunoaște personal. Noi nu.\n\n💡 CÂND SĂ MERGEȚI LA MEDIC:\n\n✅ Prima dată cu tinitus (pentru a exclude bolile)\n✅ Tinitus doar într-o ureche\n✅ Tinitus cu amețeli\n✅ Tinitus cu pierdere de auz\n✅ Tinitus după un traumatism\n✅ Tinitus cu depresie sau gânduri de autovătămare\n\n📈 CE RECOMANDĂM:\n\nGăsiți un specialist:\n• OTO-RINO-LARINGOLOG (medic ORL)\n• AUDIOLOG\n• PSIHOLOG (în caz de stres sever)\n\n⚠ CONCLUZIE IMPORTANTĂ:\n\nAURALIS funcționează CEL MAI BINE când este combinat cu îngrijirea medicală. Medicul are grijă de corp. Noi ajutăm cu gestionarea de zi cu zi.\n\n📚 STUDIU:\n\nO analiză de reglementare (2024): produsele de wellness FĂRĂ afirmații medicale au o acceptabilitate pe termen lung și o încredere mai bune din partea utilizatorilor.",
+    "source": "Regulatory analysis for digital tinnitus tools, 2024. Vezi docs/research/16."
    }
   }
  },
  "noises": {
   "none": {
    "title": "Fără fundal",
-   "description": "Само главният звук, без фонов шум. Подходящо за медитативни мелодии."
+   "description": "Doar sunetul principal, fără zgomot de fundal. Potrivit pentru melodii meditative."
   },
   "pink_pure": {
-   "title": "Ясен розов шум",
-   "description": "Най-широкоспектърният равномерен шум. Прилича на постоянен дъжд върху листа. Подходящ за концентрация и широко маскиране."
+   "title": "Zgomot roz clar",
+   "description": "Cel mai larg spectru de zgomot uniform. Seamănă cu o ploaie constantă pe frunze. Potrivit pentru concentrare și mascare amplă."
   },
   "pink_lp2000": {
-   "title": "Приглушен розов шум",
-   "description": "Розов шум с приглушени високи честоти. По-меко звучене, подходящо при чувствителност към ярки звуци."
+   "title": "Zgomot roz estompat",
+   "description": "Zgomot roz cu frecvențe înalte estompate. O sonoritate mai blândă, potrivită în caz de sensibilitate la sunete stridente."
   },
   "pink_lp4000": {
-   "title": "Мек розов шум",
-   "description": "Леко филтриран розов шум. Научно потвърден като оптимален за маскиране на високочестотен тинитус."
+   "title": "Zgomot roz blând",
+   "description": "Zgomot roz ușor filtrat. Confirmat științific ca fiind optim pentru mascarea tinitusului de înaltă frecvență."
   },
   "brown_pure": {
-   "title": "Плътен кафяв шум",
-   "description": "Богат, басов шум с пълен спектър. Прилича на далечен водопад или океан. Силно маскира."
+   "title": "Zgomot maro dens",
+   "description": "Un zgomot bogat, cu bas, cu spectru complet. Seamănă cu o cascadă îndepărtată sau cu oceanul. Maschează puternic."
   },
   "brown_lp1000": {
-   "title": "Топъл кафяв шум",
-   "description": "Меко филтриран кафяв шум. Топло и обгръщащо звучене, подходящо за релакс и заспиване."
+   "title": "Zgomot maro cald",
+   "description": "Zgomot maro filtrat blând. O sonoritate caldă și învăluitoare, potrivită pentru relaxare și adormire."
   },
   "brown_lp500": {
-   "title": "Дълбок кафяв шум",
-   "description": "Най-дълбокият вариант, само ниски честоти. Идеален за дълбок сън и SOS моменти на тревожност."
+   "title": "Zgomot maro profund",
+   "description": "Cea mai profundă variantă, doar frecvențe joase. Ideal pentru somn profund și momente SOS de anxietate."
   },
   "green_noise": {
-   "title": "Зелен шум",
-   "description": "Центриран в средни честоти, подобен на природна среда. Подходящ при стрес и за дневен фон."
+   "title": "Zgomot verde",
+   "description": "Centrat pe frecvențe medii, similar cu un mediu natural. Potrivit în caz de stres și ca fundal diurn."
   }
  },
  "components": {
@@ -2480,25 +2480,25 @@
    "infoAria": "Informații despre: {name}",
    "options": {
     "none": "Fără fundal",
-    "pink_pure": "Ясен розов шум",
-    "pink_lp2000": "Приглушен розов шум",
-    "pink_lp4000": "Мек розов шум",
-    "brown_pure": "Плътен кафяв шум",
-    "brown_lp1000": "Топъл кафяв шум",
-    "brown_lp500": "Дълбок кафяв шум",
-    "green_noise": "Зелен шум"
+    "pink_pure": "Zgomot roz clar",
+    "pink_lp2000": "Zgomot roz estompat",
+    "pink_lp4000": "Zgomot roz blând",
+    "brown_pure": "Zgomot maro dens",
+    "brown_lp1000": "Zgomot maro cald",
+    "brown_lp500": "Zgomot maro profund",
+    "green_noise": "Zgomot verde"
    }
   }
  },
  "progress": {
-  "title": "Вашата 14-дневна програма",
-  "day_of": "Ден {n} от 14",
-  "day_n": "Ден {n}",
-  "completed": "Завършен ден",
-  "partial": "Частичен ден",
-  "empty": "Празен ден",
-  "frozen": "Замразен ден",
-  "today": "Днес",
+  "title": "Programul dvs. de 14 zile",
+  "day_of": "Ziua {n} din 14",
+  "day_n": "Ziua {n}",
+  "completed": "Zi finalizată",
+  "partial": "Zi parțială",
+  "empty": "Zi goală",
+  "frozen": "Zi înghețată",
+  "today": "Astăzi",
   "freeze_use": "Използвайте freeze",
   "freeze_remaining": "{count} оставащи freeze-а",
   "freeze": {
