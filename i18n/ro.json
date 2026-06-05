@@ -1345,16 +1345,16 @@
      "a": "Nu forțați. Ridicați-vă și mergeți într-o cameră alăturată (living) cu un zgomot roz de fundal ușor, cu 3–5 dB mai liniștit decât nivelul nocturn, și o lumină caldă și difuză. Citiți o carte pe hârtie, beți o ceașcă de apă caldă sau mâncați o gustare ușoară cu carbohidrați. Întoarceți-vă în pat doar când simțiți o somnolență reală (pleoape grele, căscaturi repetate). Nu vă uitați la ceas sau la telefon — lumina și conștientizarea orei activează axa HPA și blochează adormirea."
     },
     {
-     "q": "Може ли с дихателно упражнение?",
-     "a": "Да, силно препоръчително. Техниката 4-7-8 (вдишване 4 сек, задържане 7 сек, издишване 8 сек) активира парасимпатиковите влакна на блуждаещия нерв, забавя сърдечния ритъм и потиска амигдалата. Може и прогресивна мускулна релаксация (PMR) 15 мин с фонов розов шум — изгражда условна асоциация звук → отпускане."
+     "q": "Pot folosi un exercițiu de respirație?",
+     "a": "Da, puternic recomandat. Tehnica 4-7-8 (inspirați 4 sec, țineți 7 sec, expirați 8 sec) activează fibrele parasimpatice ale nervului vag, încetinește ritmul cardiac și inhibă amigdala. Se poate și relaxare musculară progresivă (PMR) 15 min cu zgomot roz de fundal — construiește o asociere condiționată sunet → relaxare."
     },
     {
-     "q": "Кога ще усетя ефект на скъсена латентност на заспиване?",
-     "a": "При системно ежедневно прилагане — обикновено в първите 1–2 седмици, заедно с другите компоненти на терапията. Точното намаляване на латентността е индивидуално; следете го с дневник на съня (час на лягане, време за заспиване, среднощни събуждания). Целта е седмична ефективност на съня (SE) ≥85%."
+     "q": "Când voi simți efectul de scurtare a latenței de adormire?",
+     "a": "La aplicarea sistematică zilnică — de obicei în primele 1–2 săptămâni, împreună cu celelalte componente ale terapiei. Reducerea exactă a latenței este individuală; urmăriți-o cu un jurnal de somn (ora de culcare, timpul de adormire, treziri nocturne). Obiectivul este o eficiență săptămânală a somnului (SE) ≥85%."
     },
     {
-     "q": "Какво ако режимът ме разбуди вместо да ме приспи?",
-     "a": "Звукът е твърде силен — намалете с 3–5 dB. Или съдържанието е твърде стимулиращо — заменете музика с глас, природа, или фрактален розов шум сам (без Layer 1). Избягвайте нови или експериментални звуци преди сън — мозъкът се нуждае от позната, стабилна акустична сигнатура."
+     "q": "Ce se întâmplă dacă modul mă trezește în loc să mă adoarmă?",
+     "a": "Sunetul este prea puternic — reduceți cu 3–5 dB. Sau conținutul este prea stimulant — înlocuiți muzica cu voce, natură sau zgomot roz fractal singur (fără Layer 1). Evitați sunetele noi sau experimentale înainte de somn — creierul are nevoie de o semnătură acustică familiară și stabilă."
     }
    ],
    "scientificBasis": [
@@ -1364,46 +1364,46 @@
    ]
   },
   "relaxation": {
-   "title": "Релаксация",
-   "subtitle": "Преди сън, четене",
-   "definition": "Режим за пасивна релаксация през деня или вечерта — четене на хартиена книга, лек разговор, чаша топла вода или чай, ниско-енергийни занимания. Целта е общо понижение на психофизиологичния тонус, не подготовка за сън. Може да се ползва и при среднощно събуждане, когато се напуска леглото временно (Night Wake Protocol).",
+   "title": "Relaxare",
+   "subtitle": "Înainte de somn, citit",
+   "definition": "Un mod pentru relaxare pasivă în timpul zilei sau seara — cititul unei cărți pe hârtie, o conversație ușoară, o ceașcă de apă caldă sau ceai, activități cu energie scăzută. Scopul este o reducere generală a tonusului psihofiziologic, nu pregătirea pentru somn. Se poate folosi și la trezirea nocturnă, când se părăsește patul temporar (Night Wake Protocol).",
    "whenUsed": {
-    "timeOfDay": "Следобед или ранна вечер; също като част от Night Wake Protocol след среднощно събуждане.",
-    "context": "Всекидневна стая (НЕ легло), приглушена топла светлина, удобна позиция.",
-    "duration": "20–60 мин, гъвкаво според нуждата. 60 мин е консервативна горна граница спрямо общото правило 60/60."
+    "timeOfDay": "După-amiaza sau seara devreme; de asemenea ca parte din Night Wake Protocol după o trezire nocturnă.",
+    "context": "Cameră de zi (NU patul), lumină caldă și difuză, o poziție confortabilă.",
+    "duration": "20–60 min, flexibil în funcție de nevoie. 60 min este o limită superioară conservatoare în raport cu regula generală 60/60."
    },
    "whenNotUsed": [
-    "Като заместител на сън (за това използвайте режим „Сън дълбок“).",
-    "В самото легло през деня — леглото трябва да остане свързано с асоциация „сън + релакс“, не с дневна активност.",
-    "При шофиране или работа с машини — режимът цели понижение на сърдечния ритъм и съзнателната активност."
+    "Ca înlocuitor al somnului (pentru aceasta folosiți modul „Somn profund“).",
+    "Chiar în pat în timpul zilei — patul trebuie să rămână legat de asocierea „somn + relaxare“, nu de activitatea diurnă.",
+    "La condus sau la lucrul cu utilaje — modul urmărește reducerea ritmului cardiac și a activității conștiente."
    ],
    "recommendedNoise": {
     "type": "pink_pure",
-    "description": "Мек, непрекъснат неутрален звук — розов шум или фрактални природни тонове, настроени под субективната точка на смесване (mixing point), за да се намали акустичният контраст без да привлича вниманието. При нощно ползване (Night Wake) — същият розов шум, но 3–5 dB по-тих от дневното ниво."
+    "description": "Sunet blând, continuu și neutru — zgomot roz sau tonuri naturale fractale, reglate sub punctul subiectiv de amestec (mixing point), pentru a reduce contrastul acustic fără a atrage atenția. La utilizare nocturnă (Night Wake) — același zgomot roz, dar cu 3–5 dB mai liniștit decât nivelul diurn."
    },
    "mixRatio": {
     "layer1": 45,
     "layer2": 55,
-    "reasoning": "Layer 1 (главен звук — природа, лека инструментална музика): 40–50%. Layer 2 (фонов розов шум): 50–60%. Подобно на „Заспиване“ — Layer 1 може да е по-разнообразен (музика, природа), Layer 2 остава доминантен за маскираща функция."
+    "reasoning": "Layer 1 (sunet principal — natură, muzică instrumentală ușoară): 40–50%. Layer 2 (zgomot roz de fundal): 50–60%. Similar cu „Adormire“ — Layer 1 poate fi mai variat (muzică, natură), Layer 2 rămâne dominant pentru funcția de mascare."
    },
-   "expectedEffect": "Намаляване на психофизиологичния тонус; снижаване на сърдечния ритъм; парасимпатикова доминация. При нощно ползване (Night Wake) — улеснение на връщането към сън без задействане на условна връзка „легло = тревога“.",
+   "expectedEffect": "Reducerea tonusului psihofiziologic; scăderea ritmului cardiac; dominanță parasimpatică. La utilizare nocturnă (Night Wake) — facilitarea revenirii la somn fără declanșarea unei legături condiționate „pat = anxietate“.",
    "safety": [
-    "Максимум 70 dBA за неограничено време (WHO/NIOSH lifetime safe).",
-    "Правило 60/60 (60% volume / 60 мин) с 10–15 мин пълна тишина след.",
-    "Без бял шум.",
+    "Maximum 70 dBA pentru un timp nelimitat (WHO/NIOSH lifetime safe).",
+    "Regula 60/60 (60% volume / 60 min) cu 10–15 min de liniște completă după.",
+    "Fără zgomot alb.",
     "Disclaimer wellness obligatoriu."
    ],
    "faq": [
     {
      "q": "Cât de tare?",
-     "a": "Под точката на смесване на тинитуса — мек, непрекъснат неутрален звук. За дневна релаксация: 50–65 dBA общо в стаята. За Night Wake (среднощна релаксация в съседна стая): 3–5 dB по-тих от дневното ниво."
+     "a": "Sub punctul de amestec al tinitusului — sunet blând, continuu și neutru. Pentru relaxare diurnă: 50–65 dBA în total în cameră. Pentru Night Wake (relaxare nocturnă într-o cameră alăturată): cu 3–5 dB mai liniștit decât nivelul diurn."
     },
     {
-     "q": "Колко дълго мога да го пускам?",
-     "a": "20–60 мин типична сесия. При по-дълго слушане спазвайте правилото 60/60 (60% volume / 60 мин), последвано от 10–15 мин пълна тишина за защита от слухова умора. При нива под 70 dBA няма дневен лимит (WHO/NIOSH lifetime safe)."
+     "q": "Cât timp îl pot reda?",
+     "a": "20–60 min sesiune tipică. La o ascultare mai îndelungată respectați regula 60/60 (60% volume / 60 min), urmată de 10–15 min de liniște completă pentru protecție împotriva oboselii auditive. La niveluri sub 70 dBA nu există o limită zilnică (WHO/NIOSH lifetime safe)."
     },
     {
-     "q": "Може ли в леглото?",
+     "q": "Pot folosi în pat?",
      "a": "Не препоръчваме дневна релаксация в леглото — леглото трябва да остане свързано с асоциация „сън“, не с дневен релакс. Това е ключово правило за хора с тинитус-индуцирана инсомния. За дневна релаксация: всекидневна стая, удобен фотьойл, не легло."
     },
     {
@@ -2040,8 +2040,8 @@
     "subtitle": "30–90 min înainte de somn"
    },
    "relaxation": {
-    "name": "Релаксация",
-    "subtitle": "Преди сън, четене"
+    "name": "Relaxare",
+    "subtitle": "Înainte de somn, citit"
    },
    "daily": {
     "name": "Ежедневие",
