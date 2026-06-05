@@ -919,38 +919,38 @@
   }
  },
  "voice": {
-  "startAria": "Започни диктовка",
-  "stopAria": "Спри диктовката",
-  "listening": "Слушам…",
+  "startAria": "Inizia la dettatura",
+  "stopAria": "Ferma la dettatura",
+  "listening": "Ascolto…",
   "privacy": {
-   "title": "Гласовата диктовка",
-   "body": "При натискане на микрофона, гласът Ви се обработва от браузъра Ви. Браузърът използва безплатна услуга на Google (Chrome) или Apple (Safari), което изисква интернет връзка.\n\nТекстът остава САМО на телефона Ви — AURALIS не пази и не изпраща Вашите записи.\n\nМожете да изключите гласовата диктовка по всяко време чрез настройките на телефона.",
-   "acknowledge": "Разбирам, продължи",
-   "cancel": "Отмени"
+   "title": "La dettatura vocale",
+   "body": "Premendo il microfono, la tua voce viene elaborata dal tuo browser. Il browser usa un servizio gratuito di Google (Chrome) o Apple (Safari), che richiede una connessione internet.\n\nIl testo resta SOLO sul tuo telefono — AURALIS non conserva né invia le tue registrazioni.\n\nPuoi disattivare la dettatura vocale in qualsiasi momento dalle impostazioni del telefono.",
+   "acknowledge": "Ho capito, continua",
+   "cancel": "Annulla"
   },
   "error": {
-   "noSpeech": "Не чух нищо. Опитайте отново.",
-   "mic": "Не намирам микрофон.",
-   "permission": "Разрешете достъп до микрофона в настройките на браузъра.",
-   "offline": "Гласовата диктовка изисква интернет. Опитайте отново когато сте online.",
-   "lang": "Българският не се поддържа от браузъра Ви.",
-   "generic": "Възникна грешка при гласовото въвеждане."
+   "noSpeech": "Non ho sentito nulla. Riprova.",
+   "mic": "Non trovo il microfono.",
+   "permission": "Consenti l'accesso al microfono nelle impostazioni del browser.",
+   "offline": "La dettatura vocale richiede internet. Riprova quando sei online.",
+   "lang": "L'italiano non è supportato dal tuo browser.",
+   "generic": "Si è verificato un errore durante l'inserimento vocale."
   },
   "settings": {
-   "section": "Поверителност",
-   "resetPrivacy": "Покажи отново инфото за диктовка",
-   "resetDoneToast": "Готово. При следваща употреба ще видите инфото отново."
+   "section": "Privacy",
+   "resetPrivacy": "Mostra di nuovo le info sulla dettatura",
+   "resetDoneToast": "Fatto. Al prossimo utilizzo vedrai di nuovo le info."
   },
   "overlay": {
-   "recording": "ЗАПИСВАНЕ",
-   "ready": "ГОТОВО",
-   "hintRecording": "Говорете на български. Спрете и ще видите текста.",
-   "hintReady": "Натиснете „Запиши\" за да добавите, или текста за нов запис.",
-   "hintEmpty": "Не чух нищо. Натиснете текста за нов опит.",
-   "placeholder": "Текстът ще се появи тук…",
-   "save": "Запиши",
-   "cancel": "Отмени",
-   "closeAria": "Затвори диктовката"
+   "recording": "REGISTRAZIONE",
+   "ready": "PRONTO",
+   "hintRecording": "Parla in italiano. Fermati e vedrai il testo.",
+   "hintReady": "Premi „Salva\" per aggiungere, o il testo per una nuova registrazione.",
+   "hintEmpty": "Non ho sentito nulla. Premi il testo per riprovare.",
+   "placeholder": "Il testo apparirà qui…",
+   "save": "Salva",
+   "cancel": "Annulla",
+   "closeAria": "Chiudi la dettatura"
   }
  },
  "profile_results": {
@@ -2080,21 +2080,21 @@
   }
  },
  "categoryView": {
-  "backAria": "Назад към началото",
-  "soundsCount": "Звуци ({n})",
-  "noSounds": "Скоро ще има звуци в тази категория.",
-  "description": "За какво е",
-  "faqLabel": "Чести въпроси"
+  "backAria": "Torna all'inizio",
+  "soundsCount": "Suoni ({n})",
+  "noSounds": "Presto ci saranno suoni in questa categoria.",
+  "description": "A cosa serve",
+  "faqLabel": "Domande frequenti"
  },
  "soundDetail": {
-  "backAria": "Назад към категорията",
-  "playCta": "Слушай",
-  "description": "Описание",
-  "recommendedNoise": "Препоръчителен фон",
-  "recommendedMix": "Препоръчителен микс: {ratio}",
-  "noRecommendation": "Без препоръка за фон",
-  "why": "Защо точно този звук",
-  "faqLabel": "Чести въпроси"
+  "backAria": "Torna alla categoria",
+  "playCta": "Ascolta",
+  "description": "Descrizione",
+  "recommendedNoise": "Sfondo consigliato",
+  "recommendedMix": "Mix consigliato: {ratio}",
+  "noRecommendation": "Nessun consiglio di sfondo",
+  "why": "Perché proprio questo suono",
+  "faqLabel": "Domande frequenti"
  },
  "quiz": {
   "questions": {
@@ -2441,93 +2441,93 @@
  },
  "noises": {
   "none": {
-   "title": "Без фон",
-   "description": "Само главният звук, без фонов шум. Подходящо за медитативни мелодии."
+   "title": "Senza sfondo",
+   "description": "Solo il suono principale, senza rumore di fondo. Adatto a melodie meditative."
   },
   "pink_pure": {
-   "title": "Ясен розов шум",
-   "description": "Най-широкоспектърният равномерен шум. Прилича на постоянен дъжд върху листа. Подходящ за концентрация и широко маскиране."
+   "title": "Rumore rosa puro",
+   "description": "Il rumore uniforme a spettro più ampio. Simile a pioggia costante sulle foglie. Adatto alla concentrazione e al mascheramento ampio."
   },
   "pink_lp2000": {
-   "title": "Приглушен розов шум",
-   "description": "Розов шум с приглушени високи честоти. По-меко звучене, подходящо при чувствителност към ярки звуци."
+   "title": "Rumore rosa attenuato",
+   "description": "Rumore rosa con alte frequenze attenuate. Suono più morbido, adatto in caso di sensibilità ai suoni acuti."
   },
   "pink_lp4000": {
-   "title": "Мек розов шум",
-   "description": "Леко филтриран розов шум. Научно потвърден като оптимален за маскиране на високочестотен тинитус."
+   "title": "Rumore rosa morbido",
+   "description": "Rumore rosa leggermente filtrato. Scientificamente confermato come ottimale per mascherare l'acufene ad alta frequenza."
   },
   "brown_pure": {
-   "title": "Плътен кафяв шум",
-   "description": "Богат, басов шум с пълен спектър. Прилича на далечен водопад или океан. Силно маскира."
+   "title": "Rumore marrone pieno",
+   "description": "Rumore ricco e basso a spettro pieno. Simile a una cascata lontana o all'oceano. Maschera fortemente."
   },
   "brown_lp1000": {
-   "title": "Топъл кафяв шум",
-   "description": "Меко филтриран кафяв шум. Топло и обгръщащо звучене, подходящо за релакс и заспиване."
+   "title": "Rumore marrone caldo",
+   "description": "Rumore marrone filtrato delicatamente. Suono caldo e avvolgente, adatto al relax e all'addormentamento."
   },
   "brown_lp500": {
-   "title": "Дълбок кафяв шум",
-   "description": "Най-дълбокият вариант, само ниски честоти. Идеален за дълбок сън и SOS моменти на тревожност."
+   "title": "Rumore marrone profondo",
+   "description": "La variante più profonda, solo basse frequenze. Ideale per il sonno profondo e i momenti SOS d'ansia."
   },
   "green_noise": {
-   "title": "Зелен шум",
-   "description": "Центриран в средни честоти, подобен на природна среда. Подходящ при стрес и за дневен фон."
+   "title": "Rumore verde",
+   "description": "Centrato sulle medie frequenze, simile a un ambiente naturale. Adatto allo stress e come sfondo diurno."
   }
  },
  "components": {
   "noisePicker": {
-   "title": "Изберете фонов шум",
-   "close": "Затвори",
-   "infoAria": "Информация за: {name}",
+   "title": "Scegli il rumore di fondo",
+   "close": "Chiudi",
+   "infoAria": "Informazioni su: {name}",
    "options": {
-    "none": "Без фон",
-    "pink_pure": "Ясен розов шум",
-    "pink_lp2000": "Приглушен розов шум",
-    "pink_lp4000": "Мек розов шум",
-    "brown_pure": "Плътен кафяв шум",
-    "brown_lp1000": "Топъл кафяв шум",
-    "brown_lp500": "Дълбок кафяв шум",
-    "green_noise": "Зелен шум"
+    "none": "Senza sfondo",
+    "pink_pure": "Rumore rosa puro",
+    "pink_lp2000": "Rumore rosa attenuato",
+    "pink_lp4000": "Rumore rosa morbido",
+    "brown_pure": "Rumore marrone pieno",
+    "brown_lp1000": "Rumore marrone caldo",
+    "brown_lp500": "Rumore marrone profondo",
+    "green_noise": "Rumore verde"
    }
   }
  },
  "progress": {
-  "title": "Вашата 14-дневна програма",
-  "day_of": "Ден {n} от 14",
-  "day_n": "Ден {n}",
-  "completed": "Завършен ден",
-  "partial": "Частичен ден",
-  "empty": "Празен ден",
-  "frozen": "Замразен ден",
-  "today": "Днес",
-  "freeze_use": "Използвайте freeze",
-  "freeze_remaining": "{count} оставащи freeze-а",
+  "title": "Il tuo programma di 14 giorni",
+  "day_of": "Giorno {n} di 14",
+  "day_n": "Giorno {n}",
+  "completed": "Giorno completato",
+  "partial": "Giorno parziale",
+  "empty": "Giorno vuoto",
+  "frozen": "Giorno congelato",
+  "today": "Oggi",
+  "freeze_use": "Usa un congelamento",
+  "freeze_remaining": "{count} congelamenti rimasti",
   "freeze": {
-   "banner_title": "Замразете ден {n}",
-   "banner_body": "Streak-ът Ви се запазва. Имате {count} оставащ(и) freeze.",
-   "success_toast": "Ден {n} е замразен",
-   "failed": "Замразяването не успя"
+   "banner_title": "Congela il giorno {n}",
+   "banner_body": "La tua streak si conserva. Hai {count} congelamento/i rimasto/i.",
+   "success_toast": "Il giorno {n} è congelato",
+   "failed": "Congelamento non riuscito"
   },
   "legend": {
-   "completed": "завършени",
-   "partial": "частични",
-   "frozen": "замразени"
+   "completed": "completati",
+   "partial": "parziali",
+   "frozen": "congelati"
   }
  },
  "settings": {
-  "pitchRetest": "Направи звуков тест отново",
+  "pitchRetest": "Rifai il test del suono",
   "notch": {
-   "title": "Лична честотна терапия",
-   "on": "Активна",
-   "off": "Спряна",
-   "descActive": "Премахваме Вашата тинитус честота ({freq}) от всички звуци за подобрена терапия.",
-   "descInactive": "Терапията е спряна. Звуците се възпроизвеждат без личен филтър.",
-   "toastOn": "Личната терапия е активирана",
-   "toastOff": "Личната терапия е спряна. Звуците ще се възпроизвеждат без notch филтър."
+   "title": "Terapia di frequenza personale",
+   "on": "Attiva",
+   "off": "Disattivata",
+   "descActive": "Rimuoviamo la tua frequenza di acufene ({freq}) da tutti i suoni per una terapia migliore.",
+   "descInactive": "La terapia è disattivata. I suoni vengono riprodotti senza filtro personale.",
+   "toastOn": "Terapia personale attivata",
+   "toastOff": "Terapia personale disattivata. I suoni verranno riprodotti senza filtro notch."
   }
  },
  "player": {
   "notch": {
-   "aria": "Лична честотна терапия активна — {freq} премахната"
+   "aria": "Terapia di frequenza personale attiva — {freq} rimossa"
   }
  }
 }
