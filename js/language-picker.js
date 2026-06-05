@@ -17,7 +17,8 @@ window.LanguagePicker = (function () {
   // Play submission. Когато EN е production-ready → добави entry ТУК +
   // extend SUPPORTED в i18n.js едновременно.
   var LANGUAGES = [
-    { code: 'bg', name: 'Български', native: 'Български', flag: '🇧🇬' }
+    { code: 'bg', name: 'Български', native: 'Български', flag: '🇧🇬' },
+    { code: 'it', name: 'Italian', native: 'Italiano', flag: '🇮🇹' }
   ];
 
   function t(key, fallback) {
