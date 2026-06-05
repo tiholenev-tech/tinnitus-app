@@ -2099,182 +2099,182 @@
  "quiz": {
   "questions": {
    "q1": {
-    "text": "Какъв звук чувате?",
+    "text": "Che suono senti?",
     "options": {
-     "a": "Звънене (висок тон)",
-     "b": "Бръмчене (нисък тон)",
-     "c": "Съскане (като пара)",
-     "d": "Пулсиращ",
-     "e": "Друг / не съм сигурен/а"
+     "a": "Fischio (tono alto)",
+     "b": "Ronzio (tono basso)",
+     "c": "Sibilo (come vapore)",
+     "d": "Pulsante",
+     "e": "Altro / non sono sicuro/a"
     }
    },
    "q2": {
-    "text": "Каква е височината на звука?",
+    "text": "Qual è l'altezza del suono?",
     "options": {
-     "a": "Висок (като свирка)",
-     "b": "Среден (като комар)",
-     "c": "Нисък (като бучене)",
-     "d": "Не съм сигурен/а"
+     "a": "Alto (come un fischietto)",
+     "b": "Medio (come una zanzara)",
+     "c": "Basso (come un rombo)",
+     "d": "Non sono sicuro/a"
     }
    },
    "q3": {
-    "text": "В кое ухо го чувате?",
+    "text": "In quale orecchio lo senti?",
     "options": {
-     "a": "Само в лявото",
-     "b": "Само в дясното",
-     "c": "И в двете",
-     "d": "В главата (не от ушите)"
+     "a": "Solo nel sinistro",
+     "b": "Solo nel destro",
+     "c": "In entrambi",
+     "d": "Nella testa (non dalle orecchie)"
     }
    },
    "q4": {
-    "text": "Кога чувате звука?",
+    "text": "Quando senti il suono?",
     "options": {
-     "a": "Постоянно",
-     "b": "Идва и си отива",
-     "c": "Само в тишина",
-     "d": "Само вечер"
+     "a": "Costantemente",
+     "b": "Va e viene",
+     "c": "Solo nel silenzio",
+     "d": "Solo la sera"
     }
    },
    "q5": {
-    "text": "Кога е НАЙ-СИЛЕН?",
+    "text": "Quando è PIÙ FORTE?",
     "options": {
-     "a": "Сутрин",
-     "b": "През деня",
-     "c": "Вечер",
-     "d": "През нощта",
-     "e": "Без значение"
+     "a": "Al mattino",
+     "b": "Durante il giorno",
+     "c": "La sera",
+     "d": "Di notte",
+     "e": "Indifferente"
     }
    },
    "q6": {
-    "text": "Откога имате тинитус?",
+    "text": "Da quanto tempo hai l'acufene?",
     "options": {
-     "a": "По-малко от 6 месеца",
-     "b": "6 месеца – 2 години",
-     "c": "2 – 5 години",
-     "d": "Повече от 5 години"
+     "a": "Meno di 6 mesi",
+     "b": "6 mesi – 2 anni",
+     "c": "2 – 5 anni",
+     "d": "Più di 5 anni"
     }
    },
    "q7": {
-    "text": "Имало ли е силен звук преди появата?",
+    "text": "C'è stato un suono forte prima della comparsa?",
     "options": {
-     "a": "Концерт / силна музика",
-     "b": "Експлозия / стрелба",
-     "c": "Работа в шумна среда",
-     "d": "Не помня нищо специално"
+     "a": "Concerto / musica alta",
+     "b": "Esplosione / sparo",
+     "c": "Lavoro in ambiente rumoroso",
+     "d": "Non ricordo nulla di particolare"
     }
    },
    "q8": {
-    "text": "Имате ли загуба на слуха?",
+    "text": "Hai una perdita dell'udito?",
     "options": {
-     "a": "Да, явно",
-     "b": "Може би леко",
-     "c": "Не",
-     "d": "Не съм проверявал/а"
+     "a": "Sì, evidente",
+     "b": "Forse lieve",
+     "c": "No",
+     "d": "Non ho controllato"
     }
    },
    "q9": {
-    "text": "Имате ли други състояния? (само информативно)",
+    "text": "Hai altre condizioni? (solo informativo)",
     "options": {
-     "a": "Високо кръвно",
-     "b": "Диабет",
-     "c": "Тревожност / стрес",
-     "d": "Нищо особено",
-     "e": "Не искам да отговарям"
+     "a": "Pressione alta",
+     "b": "Diabete",
+     "c": "Ansia / stress",
+     "d": "Niente di particolare",
+     "e": "Preferisco non rispondere"
     }
    },
    "q10": {
-    "text": "Колко силно тинитусът влияе на съня Ви?",
+    "text": "Quanto l'acufene influisce sul tuo sonno?",
     "options": {
-     "a": "Изобщо",
-     "b": "Малко",
-     "c": "Доста",
-     "d": "Не мога да спя"
+     "a": "Per niente",
+     "b": "Poco",
+     "c": "Parecchio",
+     "d": "Non riesco a dormire"
     }
    },
    "q11": {
-    "text": "Колко силно влияе на концентрацията Ви?",
+    "text": "Quanto influisce sulla tua concentrazione?",
     "options": {
-     "a": "Изобщо",
-     "b": "Малко",
-     "c": "Доста",
-     "d": "Не мога да се фокусирам"
+     "a": "Per niente",
+     "b": "Poco",
+     "c": "Parecchio",
+     "d": "Non riesco a concentrarmi"
     }
    },
    "q12": {
-    "text": "Колко е стресиращ за Вас (0-10)?",
+    "text": "Quanto è stressante per te (0-10)?",
     "options": {
-     "a": "0 – 2 (минимален стрес)",
-     "b": "3 – 5 (лек до умерен стрес)",
-     "c": "6 – 8 (силен стрес)",
-     "d": "9 – 10 (непоносим стрес)"
+     "a": "0 – 2 (stress minimo)",
+     "b": "3 – 5 (stress lieve-moderato)",
+     "c": "6 – 8 (stress forte)",
+     "d": "9 – 10 (stress insopportabile)"
     }
    },
    "q13": {
-    "text": "Какво сте опитвали досега?",
+    "text": "Cosa hai provato finora?",
     "options": {
-     "a": "Лекарства",
-     "b": "Слухови апарати",
-     "c": "Звукова терапия",
-     "d": "Медитация",
-     "e": "Нищо още"
+     "a": "Farmaci",
+     "b": "Apparecchi acustici",
+     "c": "Terapia del suono",
+     "d": "Meditazione",
+     "e": "Ancora niente"
     }
    },
    "q14": {
-    "text": "Какво Ви помага най-много?",
+    "text": "Cosa ti aiuta di più?",
     "options": {
-     "a": "Тишина",
-     "b": "Слаб шум",
-     "c": "Силен шум",
-     "d": "Природа",
-     "e": "Нищо не помага"
+     "a": "Il silenzio",
+     "b": "Rumore debole",
+     "c": "Rumore forte",
+     "d": "La natura",
+     "e": "Niente aiuta"
     }
    },
    "q15": {
-    "text": "Какво очаквате от приложението?",
+    "text": "Cosa ti aspetti dall'app?",
     "options": {
-     "a": "По-добър сън",
-     "b": "Маскиране на шума",
-     "c": "По-малко стрес",
-     "d": "Дълготрайна промяна"
+     "a": "Dormire meglio",
+     "b": "Mascherare il rumore",
+     "c": "Meno stress",
+     "d": "Un cambiamento duraturo"
     }
    }
   },
   "profiles": {
    "TH_C": {
-    "shortName": "Тонален високочестотен",
-    "fullName": "Тонален високочестотен / Когнитивен",
-    "description": "Този профил включва субективно усещане за висок, пищящ и тонален тинитус, който оказва сериозно влияние върху когнитивните процеси и ежедневната концентрация. При него се препоръчват високочестотни звуци като филтриран дъжд и балансиран розов шум, настроени близо до точката на смесване, за да улеснят хабитуацията на ниво мозъчна кора."
+    "shortName": "Tonale ad alta frequenza",
+    "fullName": "Tonale ad alta frequenza / Cognitivo",
+    "description": "Questo profilo comprende una percezione soggettiva di acufene acuto, fischiante e tonale, con un impatto notevole sui processi cognitivi e sulla concentrazione quotidiana. Sono consigliati suoni ad alta frequenza come pioggia filtrata e rumore rosa bilanciato, regolati vicino al punto di mescolamento, per favorire l'abituazione a livello della corteccia cerebrale."
    },
    "DN_S": {
-    "shortName": "Шумов нискочестотен",
-    "fullName": "Шумов нискочестотен / Сън",
-    "description": "Профил, дефиниран от наличието на плътни, нискочестотни звуци и сериозни проблеми със заспиването или поддържането на съня. При него водещи са по-дълбоките акустични среди (кафяв шум, плътни водопади), които силно маскират субективното бучене и успокояват ума вечер, подпомагайки плавния и здравословен преход към сън."
+    "shortName": "Rumoroso a bassa frequenza",
+    "fullName": "Rumoroso a bassa frequenza / Sonno",
+    "description": "Profilo definito dalla presenza di suoni densi e a bassa frequenza e da seri problemi di addormentamento o mantenimento del sonno. Predominano gli ambienti acustici più profondi (rumore marrone, cascate dense), che mascherano fortemente il rombo soggettivo e calmano la mente la sera, favorendo una transizione graduale e sana verso il sonno."
    },
    "SS_R": {
-    "shortName": "Стрес-чувствителен",
-    "fullName": "Стрес-чувствителен / Реактивен",
-    "description": "При този профил възприятието на тинитус е силно свързано с активността на вегетативната нервна система и лимбичната структура. Дори леки звукови дразнители или ежедневен стрес засилват усещането за шум. Акустичният отговор изисква зелен шум за облекчение и изключително нежни природни блендове за намаляване на кортикалната възбудимост."
+    "shortName": "Sensibile allo stress",
+    "fullName": "Sensibile allo stress / Reattivo",
+    "description": "In questo profilo la percezione dell'acufene è strettamente legata all'attività del sistema nervoso autonomo e alle strutture limbiche. Anche lievi stimoli sonori o lo stress quotidiano intensificano la sensazione di rumore. La risposta acustica richiede rumore verde per il sollievo e miscele naturali estremamente delicate per ridurre l'eccitabilità corticale."
    },
    "SM_F": {
-    "shortName": "Соматичен / Флуктуиращ",
-    "fullName": "Соматичен / Флуктуиращ",
-    "description": "Профил, съответстващ на тинитус с променлива сила и честота, често проявяващ се на цикли или силно свързан с физическо напрежение във врата и челюстта. Използват се силно динамични и непериодични природни среди, като океански приливи и отливи, които ангажират слуховия апарат без риск от привикване към статичен сигнал."
+    "shortName": "Somatico / Fluttuante",
+    "fullName": "Somatico / Fluttuante",
+    "description": "Profilo corrispondente a un acufene di intensità e frequenza variabili, spesso ciclico o fortemente legato a tensione fisica del collo e della mandibola. Si usano ambienti naturali molto dinamici e non periodici, come le maree dell'oceano, che impegnano l'apparato uditivo senza rischio di assuefazione a un segnale statico."
    },
    "HB_M": {
-    "shortName": "Адаптиран / Лек",
-    "fullName": "Адаптиран / Лек",
-    "description": "Този профил показва високо ниво на естествено привикване. Шумът се чува предимно в условия на абсолютна тишина и няма съществено влияние върху качеството на живот. Акустичната препоръка цели единствено обогатяване на тихата среда с минимални природни звуци за дългосрочно предотвратяване на сензорния контраст."
+    "shortName": "Adattato / Lieve",
+    "fullName": "Adattato / Lieve",
+    "description": "Questo profilo mostra un alto livello di abituazione naturale. Il rumore si sente soprattutto in condizioni di silenzio assoluto e non incide in modo significativo sulla qualità della vita. La raccomandazione acustica mira solo ad arricchire l'ambiente silenzioso con suoni naturali minimi per prevenire a lungo termine il contrasto sensoriale."
    }
   },
   "diLevels": {
-   "low": "Лек",
-   "medium": "Умерен",
-   "high": "Тежък"
+   "low": "Lieve",
+   "medium": "Moderato",
+   "high": "Grave"
   },
   "intensity": {
-   "low": "Изключително тих, едва доловим фон",
-   "medium": "Равен на точката на смесване (Mixing Point)",
-   "high": "Малко под нивото на тинитуса; мек тембър"
+   "low": "Estremamente basso, sfondo appena percettibile",
+   "medium": "Pari al punto di mescolamento (Mixing Point)",
+   "high": "Poco sotto il livello dell'acufene; timbro morbido"
   }
  },
  "content": {
