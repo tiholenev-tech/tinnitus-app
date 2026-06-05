@@ -19,8 +19,8 @@ $s    = stripe_cfg();
 
 $params = [
     'mode'                  => 'payment',
-    'success_url'           => $base . '/?paid=ok',
-    'cancel_url'            => $base . '/?paid=cancel',
+    'success_url'           => $base . '/app.html?paid=ok',
+    'cancel_url'            => $base . '/app.html?paid=cancel',
     'customer_email'        => $u['email'],
     'client_reference_id'   => (string) $u['id'],
     'allow_promotion_codes' => 'true',
