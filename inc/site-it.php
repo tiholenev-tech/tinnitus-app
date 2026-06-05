@@ -25,6 +25,16 @@ $SECTIONS_IT = [
     'lead'  => "Di notte il fischio si sente di più, perché manca il rumore di fondo. Perché accade e cosa aiuta ad addormentarsi.",
     'blurb' => "Addormentarsi più facilmente quando le orecchie fischiano.",
   ],
+  'serenita' => [
+    'title' => 'Serenità', 'short' => 'Serenità', 'icon' => 'heart',
+    'lead'  => "L'ansia intorno al rumore lo amplifica. Quali approcci calmi ed esercizi aiutano a spezzare il circolo vizioso.",
+    'blurb' => "Respiro ed esercizi che calmano il fischio.",
+  ],
+  'stile-di-vita' => [
+    'title' => 'Stile di vita', 'short' => 'Stile di vita', 'icon' => 'leaf',
+    'lead'  => "Caffè, integratori, sale, abitudini — cosa influenza davvero il fischio nelle orecchie e cosa è un mito. Con onestà e prove.",
+    'blurb' => "Caffè, integratori e abitudini: cosa conta e cosa è mito.",
+  ],
 ];
 
 /* ── Articoli (статии IT). „section" сочи към ключ от $SECTIONS_IT. ── */
@@ -48,6 +58,31 @@ $ARTICLES_IT = [
     'title' => "Acufene di notte: perché peggiora e come addormentarsi",
     'desc'  => "Perché il fischio si intensifica la sera e cosa aiuta davvero a dormire — suono, routine, calma.",
     'section' => 'sonno', 'date' => '2026-06-05', 'reading' => '6 min', 'tag' => 'Sonno',
+  ],
+  'orecchie-ovattate' => [
+    'title' => "Orecchie ovattate, come sott'acqua: è acufene?",
+    'desc'  => "La sensazione di orecchie „tappate\" di solito non è acufene, ma altro. Quando è innocua e quando è un segnale d'allarme.",
+    'section' => 'sull-acufene', 'date' => '2026-06-05', 'reading' => '6 min', 'tag' => 'Orecchio pieno',
+  ],
+  'acufene-e-cervicale' => [
+    'title' => "Acufene e cervicale: il fischio viene dal collo?",
+    'desc'  => "„Cervicale\", „cattiva circolazione\" — cosa è vero e cosa è mito, e quando il collo influenza davvero il fischio.",
+    'section' => 'sull-acufene', 'date' => '2026-06-05', 'reading' => '7 min', 'tag' => 'Cervicale',
+  ],
+  'ansia-e-acufene' => [
+    'title' => "Ansia e acufene: il circolo vizioso e come spezzarlo",
+    'desc'  => "Perché la paura amplifica il fischio e quali approcci psicologici (CBT, ACT) hanno le prove più solide.",
+    'section' => 'serenita', 'date' => '2026-06-05', 'reading' => '8 min', 'tag' => 'Ansia',
+  ],
+  'magnesio-ginkgo-zinco-acufene' => [
+    'title' => "Magnesio, ginkgo e zinco contro l'acufene: funzionano davvero?",
+    'desc'  => "Gli integratori più venduti al vaglio delle revisioni Cochrane: cosa dicono le prove (e cosa no).",
+    'section' => 'stile-di-vita', 'date' => '2026-06-05', 'reading' => '7 min', 'tag' => 'Integratori',
+  ],
+  'mascheramento-vs-notched' => [
+    'title' => "Mascheramento o terapia notched: cosa è meglio contro l'acufene?",
+    'desc'  => "I due approcci sonori in parole semplici: quale dà sollievo rapido e quale agisce sulla causa nel tempo.",
+    'section' => 'terapia-del-suono', 'date' => '2026-06-05', 'reading' => '7 min', 'tag' => 'Confronto',
   ],
 ];
 
