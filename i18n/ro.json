@@ -1669,41 +1669,41 @@
   "q16": "Tinitusul vă supără?",
   "q17": "Simțiți că problema tinitusului vă încarcă relațiile cu membrii familiei și cu prietenii?",
   "q18": "Vă este greu să vă îndreptați atenția în afara tinitusului, către alte lucruri?",
-  "q19": "Имате ли усещането, че нямате никакъв контрол над тинитуса си?",
-  "q20": "Поради тинитуса си, често ли се чувствате уморен?",
-  "q21": "Поради тинитуса си, чувствате ли се в подтиснато настроение?",
-  "q22": "Тинитусът Ви предизвиква ли тревожност?",
-  "q23": "Имате ли усещането, че повече не можете да се справите с тинитуса си?",
-  "q24": "Тинитусът Ви се влошава ли, когато сте под стрес?",
-  "q25": "Поради тинитуса си, чувствате ли се несигурен?",
+  "q19": "Aveți senzația că nu aveți niciun control asupra tinitusului dvs.?",
+  "q20": "Din cauza tinitusului, vă simțiți des obosit?",
+  "q21": "Din cauza tinitusului, vă simțiți într-o dispoziție deprimată?",
+  "q22": "Tinitusul vă provoacă anxietate?",
+  "q23": "Aveți senzația că nu mai puteți face față tinitusului dvs.?",
+  "q24": "Tinitusul se înrăutățește când sunteți sub stres?",
+  "q25": "Din cauza tinitusului, vă simțiți nesigur?",
   "badge": {
    "label": "THI",
-   "goal": "цел < {goal}",
-   "tapHint": "Натиснете за подробности"
+   "goal": "obiectiv < {goal}",
+   "tapHint": "Apăsați pentru detalii"
   },
   "detail": {
-   "title": "Резултат от THI теста",
-   "subscoresTitle": "По категории",
-   "functional": "Функционален",
-   "emotional": "Емоционален",
-   "catastrophic": "Катастрофичен",
-   "retest_label": "Тест отново на ден 14",
-   "retest_countdown": "Тест отново след {days} дни",
-   "retest_ready": "Време е за нов тест",
-   "retest_button": "Направи тест отново",
-   "compareTitle": "Сравнение Ден 1 → Ден 14",
-   "compareDay1": "Ден 1",
-   "compareDay14": "Ден 14",
-   "compareChange": "Промяна",
+   "title": "Rezultatul testului THI",
+   "subscoresTitle": "Pe categorii",
+   "functional": "Funcțional",
+   "emotional": "Emoțional",
+   "catastrophic": "Catastrofic",
+   "retest_label": "Test din nou în ziua 14",
+   "retest_countdown": "Test din nou după {days} zile",
+   "retest_ready": "Este timpul pentru un nou test",
+   "retest_button": "Fă testul din nou",
+   "compareTitle": "Comparație Ziua 1 → Ziua 14",
+   "compareDay1": "Ziua 1",
+   "compareDay14": "Ziua 14",
+   "compareChange": "Modificare",
    "close": "Închide"
   },
   "insights": {
    "functional": {
-    "title": "Преобладават практически затруднения",
-    "body": "Тинитусът Ви създава най-вече практически проблеми (концентрация, сън, работа). Препоръчваме фокус върху сценариите „Заспиване“ и „Дневна работа“ в програмата."
+    "title": "Predomină dificultățile practice",
+    "body": "Tinitusul vă creează în principal probleme practice (concentrare, somn, muncă). Recomandăm să vă concentrați pe scenariile „Adormire“ și „Muncă diurnă“ din program."
    },
    "emotional": {
-    "title": "Преобладава емоционалното натоварване",
+    "title": "Predomină încărcătura emoțională",
     "body": "Тинитусът Ви създава най-вече емоционално натоварване (тревожност, раздразнение). CBT упражненията във Вашата 14-дневна програма ще са особено полезни."
    },
    "catastrophic": {
