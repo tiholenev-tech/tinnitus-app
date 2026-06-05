@@ -8,8 +8,8 @@
 - **Машина (DeepL — Тихол пуска → Claude монтира):** всички останали Stripe езици (Пласт 1, пасивен доход).
 
 ## ГЕЙТОВЕ (важат за ВСЕКИ език, без изключение)
-1. **`python3 tools/check_claims.py <lang>` = 0 BLOCK** — медико-правна защита (никъде „лекува/cura/diagnostica" като твърдение на продукта). ℹ️ review = образователно, ОК.
-2. **`i18n/<lang>.json` = ПЪЛНА структура-копие на `bg.json`** (1543 низа). Липсващ ключ → `t()` пада на ключа на екрана.
+1. **`python3 tools/i18n_validate.py <lang>` = 0 проблема** — структурен mount-гейт: пълна 1:1 структура с `bg.json`, без липсващи ключове, без изпуснати плейсхолдъри `{n}` / backtick-ID-та / emoji, без Cyrillic-leak. (Хваща типичните грешки на DeepL.)
+2. **`python3 tools/check_claims.py <lang>` = 0 BLOCK** — медико-правна защита (никъде „лекува/cura/diagnostica" като твърдение на продукта). ℹ️ review = образователно, ОК.
 3. **Version bump** при пипане на app-shell JS (виж А4).
 4. **Не чупи бащата** — paywall стои дормантен, заварените grandfather-нати.
 
@@ -27,9 +27,9 @@
 2. `js/i18n.js` → добави `'xx'` в `var SUPPORTED`.
 3. `js/language-picker.js` → добави `{ code:'xx', name, native, flag }` в `LANGUAGES`.
 4. **VERSION BUMP** (стъпки 2–3 пипат кеширани shell файлове): бъмпни `VERSION` (`service-worker.js`) **И** `CODE_VERSION` (`app.html`). `i18n/xx.json` сам по себе си е staleWhileRevalidate (без bump) — bump-ът е заради `SUPPORTED`/`LANGUAGES`.
-5. `python3 tools/check_claims.py xx` → 0 BLOCK.
+5. **Двата гейта:** `python3 tools/i18n_validate.py xx` (0 проблема) **И** `python3 tools/check_claims.py xx` (0 BLOCK).
 
-> Разделение: **Тихол** дава `xx.json` от DeepL; **Claude** прави 2–5 + bump + lint. (RO/GR ги превежда Claude на ръка за качество.)
+> Разделение: **Тихол** дава `xx.json` от DeepL; **Claude** прави 2–5 + bump + двата гейта. (RO/GR ги превежда Claude на ръка за качество.)
 
 ---
 
