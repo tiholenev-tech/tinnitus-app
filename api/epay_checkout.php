@@ -34,7 +34,7 @@ json_out(200, [
         'PAGE'       => 'paylogin',
         'ENCODED'    => $encoded,
         'CHECKSUM'   => $checksum,
-        'URL_OK'     => $base . '/?paid=ok',
-        'URL_CANCEL' => $base . '/?paid=cancel',
+        'URL_OK'     => $base . '/app.html?paid=ok',
+        'URL_CANCEL' => $base . '/app.html?paid=cancel',
     ],
 ]);

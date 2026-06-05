@@ -11,7 +11,7 @@ $token = (string)($_GET['token'] ?? '');
 $email = strtolower(trim((string)($_GET['email'] ?? '')));
 
 function back(string $base, string $status): never {
-    header('Location: ' . $base . '/?login=' . $status);
+    header('Location: ' . $base . '/app.html?login=' . $status);
     exit;
 }
 
