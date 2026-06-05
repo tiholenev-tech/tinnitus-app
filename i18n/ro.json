@@ -1195,59 +1195,59 @@
    "rec": {
     "low": "Sunete recomandate cu un spectru mediu și înalt bogat pentru mascare — recomandăm categoria „Pădure“ și „Ploaie“.",
     "mid": "Sunete recomandate cu un spectru echilibrat — recomandăm „Ocean“ și „Râu“.",
-    "high": "Препоръчителни звуци с акцент върху ниски и средни честоти — препоръчваме „Подводен“ и „Кафяв шум“.",
-    "veryHigh": "Препоръчителни наситено basov звук за оптимална маска — препоръчваме „Дълбок кафяв шум“ или „Подводна тишина“.",
-    "extreme": "Препоръчителни наситено basov звук за оптимална маска — препоръчваме „Дълбок кафяв шум“ или „Подводна тишина“."
+    "high": "Sunete recomandate cu accent pe frecvențele joase și medii — recomandăm „Subacvatic“ și „Zgomot maro“.",
+    "veryHigh": "Sunet recomandat bogat în bas pentru o mască optimă — recomandăm „Zgomot maro profund“ sau „Liniște subacvatică“.",
+    "extreme": "Sunet recomandat bogat în bas pentru o mască optimă — recomandăm „Zgomot maro profund“ sau „Liniște subacvatică“."
    },
-   "notchActive": "✓ Активна лична терапия на {freq}"
+   "notchActive": "✓ Terapie personală activă la {freq}"
   }
  },
  "categoryInfo": {
   "sectionTitles": {
-   "definition": "За какво е този режим",
-   "whenUsed": "Кога се ползва",
-   "whenNotUsed": "Кога НЕ се ползва",
+   "definition": "Pentru ce este acest mod",
+   "whenUsed": "Când se folosește",
+   "whenNotUsed": "Când NU se folosește",
    "recommendedNoise": "Zgomot de fundal recomandat",
    "mixRatio": "Raport recomandat",
-   "expectedEffect": "Очакван ефект",
+   "expectedEffect": "Efect așteptat",
    "safety": "Siguranță",
-   "faq": "Чести въпроси",
+   "faq": "Întrebări frecvente",
    "scientificBasis": "Bază științifică"
   },
   "whenUsedLabels": {
-   "timeOfDay": "Час от деня",
-   "context": "Контекст",
-   "duration": "Продължителност"
+   "timeOfDay": "Ora din zi",
+   "context": "Context",
+   "duration": "Durată"
   },
   "mixRatioLabels": {
-   "layer1": "Layer 1 (главен звук)",
-   "layer2": "Layer 2 (фон шум)"
+   "layer1": "Layer 1 (sunet principal)",
+   "layer2": "Layer 2 (zgomot de fundal)"
   },
-  "previewCta": "Опитайте сега",
+  "previewCta": "Încercați acum",
   "closeAria": "Închide",
   "placeholder": "Acest conținut este pregătit de echipa științifică.",
   "sleep_deep": {
-   "title": "Сън дълбок",
-   "subtitle": "Цяла нощ",
-   "definition": "Звуков режим за нощно ползване по време на естествения сън, с цел намаляване на акустичния контраст между фантомния тинитусен сигнал и тихата спалня, понижаване на реактивността на амигдалата при преходите между сънни цикли, и защита на REM/N3 архитектурата. Не цели пълно маскиране, а смесване с тинитуса на „точката на смесване“ на Jastreboff.",
+   "title": "Somn profund",
+   "subtitle": "Toată noaptea",
+   "definition": "Un mod sonor pentru utilizare nocturnă în timpul somnului natural, cu scopul de a reduce contrastul acustic dintre semnalul fantomă al tinitusului și dormitorul liniștit, de a scădea reactivitatea amigdalei la tranzițiile dintre ciclurile de somn și de a proteja arhitectura REM/N3. Nu urmărește o mascare completă, ci amestecarea cu tinitusul la „punctul de amestec“ al lui Jastreboff.",
    "whenUsed": {
-    "timeOfDay": "Старт 5–10 мин преди заспиване, продължава през цялата нощ.",
-    "context": "Тиха тъмна спалня; температура 15.5–20°C; без екрани и синя светлина 1 час преди сън.",
-    "duration": "Препоръчително непрекъснато през 8-часовия сънен прозорец. Потребителят може да зададе sleep timer (30/60/90/120 мин) в настройките, ако предпочита автоматично изключване."
+    "timeOfDay": "Start cu 5–10 min înainte de adormire, continuă pe tot parcursul nopții.",
+    "context": "Dormitor liniștit și întunecat; temperatură 15.5–20°C; fără ecrane și lumină albastră cu 1 oră înainte de somn.",
+    "duration": "Recomandat continuu pe parcursul ferestrei de somn de 8 ore. Utilizatorul poate seta un sleep timer (30/60/90/120 min) în setări, dacă preferă oprirea automată."
    },
    "whenNotUsed": [
-    "При коморбидна обструктивна сънна апнея (OSA) без консултация с лекар — повтарящите се десатурации засилват симпатиковата активация.",
-    "При епилепсия или тежки психиатрични разстройства, ако сесията включва бинаурални вълни.",
-    "При остра ушна болка или необяснимо едностранен тинитус без преглед."
+    "În cazul unei apnei obstructive de somn comorbide (OSA) fără o consultație medicală — desaturările repetate intensifică activarea simpatică.",
+    "În caz de epilepsie sau tulburări psihiatrice grave, dacă sesiunea include unde binaurale.",
+    "În caz de durere acută de ureche sau de tinitus unilateral inexplicabil fără un consult."
    ],
    "recommendedNoise": {
     "type": "pink_lp2000",
-    "description": "Розов шум с фрактален характер, спектрален наклон −3 dB/октава. Съответства на логаритмичната подредба на космените клетки в кохлеата; вълновата форма симулира естествени среди (водопад, дъжд, вятър). При хиперакузис: low-pass над 5 kHz, или преминаване към кафяв шум (−6 dB/октава)."
+    "description": "Zgomot roz cu un caracter fractal, pantă spectrală −3 dB/octavă. Corespunde aranjării logaritmice a celulelor ciliate din cohlee; forma de undă simulează medii naturale (cascadă, ploaie, vânt). În caz de hiperacuzie: low-pass peste 5 kHz sau trecere la zgomot maro (−6 dB/octavă)."
    },
    "mixRatio": {
     "layer1": 35,
     "layer2": 65,
-    "reasoning": "Layer 1 (главен звук — природа/мелодия): 30–40%. Layer 2 (фонов розов или кафяв шум): 60–70%. Research дава абсолютни параметри (розов шум 2–3 dB под прага на тинитуса; общо 45–55 dBA за възрастни, <50 dBA за деца), но не дава процентен X/Y. Доминирането на Layer 2 следва от логиката, че фоновата маска е терапевтично активният елемент."
+    "reasoning": "Layer 1 (sunet principal — natură/melodie): 30–40%. Layer 2 (zgomot roz sau maro de fundal): 60–70%. Research-ul oferă parametri absoluți (zgomot roz cu 2–3 dB sub pragul tinitusului; în total 45–55 dBA pentru adulți, <50 dBA pentru copii), dar nu oferă un procent X/Y. Dominarea Layer 2 rezultă din logica potrivit căreia masca de fundal este elementul activ terapeutic."
    },
    "expectedEffect": "Понижена реактивност на амигдалата при нощни преходи между сънни цикли; защита на REM и N3 (дълбок бавновълнов) сън; при продължителна употреба — стимулиране на невропластичност и постепенна когнитивна хабитуация към тинитуса. Терапевтична цел: седмична ефективност на съня (SE) ≥85%.",
    "safety": [
@@ -2032,8 +2032,8 @@
   },
   "cat": {
    "sleep_deep": {
-    "name": "Сън дълбок",
-    "subtitle": "Цяла нощ"
+    "name": "Somn profund",
+    "subtitle": "Toată noaptea"
    },
    "falling_asleep": {
     "name": "Заспиване",
@@ -2084,7 +2084,7 @@
   "soundsCount": "Звуци ({n})",
   "noSounds": "Скоро ще има звуци в тази категория.",
   "description": "За какво е",
-  "faqLabel": "Чести въпроси"
+  "faqLabel": "Întrebări frecvente"
  },
  "soundDetail": {
   "backAria": "Назад към категорията",
@@ -2094,7 +2094,7 @@
   "recommendedMix": "Препоръчителен микс: {ratio}",
   "noRecommendation": "Без препоръка за фон",
   "why": "Защо точно този звук",
-  "faqLabel": "Чести въпроси"
+  "faqLabel": "Întrebări frecvente"
  },
  "quiz": {
   "questions": {
