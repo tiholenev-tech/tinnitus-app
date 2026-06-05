@@ -1461,32 +1461,32 @@
    ],
    "faq": [
     {
-     "q": "Колко силно по време на работа?",
-     "a": "Под 70 dBA — това е WHO/NIOSH lifetime safe лимит за 24/7 експозиция. Реално: 50–65 dBA в работната среда е достатъчно за маскиращ ефект, без да пречи на концентрацията. За деца — строго под 50 dBA."
+     "q": "Cât de tare în timpul muncii?",
+     "a": "Sub 70 dBA — aceasta este limita WHO/NIOSH lifetime safe pentru o expunere 24/7. Realist: 50–65 dBA în mediul de lucru este suficient pentru un efect de mascare, fără a împiedica concentrarea. Pentru copii — strict sub 50 dBA."
     },
     {
-     "q": "Колко дълго на ден?",
-     "a": "1–2 часа активно при будни сесии — посочено в research за розов шум. При нива под 70 dBA може и по-дълго. Спазвайте правилото 60/60 (60% volume / 60 мин активно слушане), последвано от 10–15 мин тишина за защита от слухова умора."
+     "q": "Cât timp pe zi?",
+     "a": "1–2 ore activ în timpul sesiunilor de veghe — indicat în research pentru zgomotul roz. La niveluri sub 70 dBA se poate și mai mult. Respectați regula 60/60 (60% volume / 60 min de ascultare activă), urmată de 10–15 min de liniște pentru protecție împotriva oboselii auditive."
     },
     {
-     "q": "Може ли с музика с вокали?",
-     "a": "Не препоръчителен Layer 1 с вокали за дневен режим — вокалите конкурират за когнитивни ресурси по време на работа. Препоръчват се: инструментална музика без вокали, природни звуци (вятър, далечен дъжд), или само фрактален розов шум."
+     "q": "Pot folosi muzică cu voce?",
+     "a": "Nu este recomandat un Layer 1 cu voce pentru modul diurn — vocea concurează pentru resurse cognitive în timpul muncii. Se recomandă: muzică instrumentală fără voce, sunete naturale (vânt, ploaie îndepărtată) sau doar zgomot roz fractal."
     },
     {
-     "q": "Слушалки за работа?",
-     "a": "Костно-проводими (bone conduction) са най-добрият избор за дълъг работен ден — оставят ушния канал свободен и не предизвикват оклузивен ефект. Открити on-ear слушалки също са приемливи. Избягвайте in-ear „тапи“ за 4+ часа дневно."
+     "q": "Căști pentru muncă?",
+     "a": "Cele cu conducere osoasă (bone conduction) sunt cea mai bună alegere pentru o zi lungă de lucru — lasă canalul auditiv liber și nu provoacă un efect de ocluzie. Căștile on-ear deschise sunt și ele acceptabile. Evitați căștile in-ear de tip „dopuri“ pentru 4+ ore pe zi."
     },
     {
-     "q": "Пречи ли на концентрация?",
-     "a": "Не — целта на дневния режим е обратното: да поддържа тинитуса извън фокуса на съзнателното внимание, освобождавайки префронталния кортекс за работата. Ако усещате, че Layer 1 (мелодия/природа) Ви разсейва — премахнете го и оставете само Layer 2 (розов шум)."
+     "q": "Împiedică concentrarea?",
+     "a": "Nu — scopul modului diurn este invers: să mențină tinitusul în afara focusului atenției conștiente, eliberând cortexul prefrontal pentru muncă. Dacă simțiți că Layer 1 (melodie/natură) vă distrage — eliminați-l și lăsați doar Layer 2 (zgomot roz)."
     },
     {
-     "q": "Кофеин и звукова терапия?",
-     "a": "Кофеинът действа като вазоконстриктор и централен стимулант — засилва тревожността и кортикалната сетивност, влошава тинитуса. Звуковата терапия не неутрализира този ефект. Препоръка: спрете кофеина след 12:00 ч. Алкохол вечер също — нарушава перфузията на вътрешното ухо."
+     "q": "Cofeina și terapia sonoră?",
+     "a": "Cofeina acționează ca un vasoconstrictor și un stimulant central — intensifică anxietatea și sensibilitatea corticală, agravează tinitusul. Terapia sonoră nu neutralizează acest efect. Recomandare: opriți cofeina după ora 12:00. La fel și alcoolul seara — perturbă perfuzia urechii interne."
     },
     {
-     "q": "Кога ще усетя ефект върху дневния тинитус?",
-     "a": "Кратки ежедневни 5-минутни сесии са по-ефективни от една дълга сесия — research посочва, че 3 кратки тренировки по 3 минути дневно са по-ефективни за невропластична консолидация от еднократна 60-минутна практика седмично. Първи признаци за намалена дневна осведоменост за тинитуса — обикновено 2–4 седмици при системна употреба."
+     "q": "Când voi simți un efect asupra tinitusului diurn?",
+     "a": "Sesiunile zilnice scurte de 5 minute sunt mai eficiente decât o singură sesiune lungă — research-ul indică faptul că 3 antrenamente scurte de 3 minute pe zi sunt mai eficiente pentru consolidarea neuroplastică decât o singură practică de 60 de minute pe săptămână. Primele semne ale unei conștientizări diurne reduse a tinitusului — de obicei 2–4 săptămâni la utilizare sistematică."
     }
    ],
    "scientificBasis": [
@@ -1494,30 +1494,30 @@
     "Fișier 'Eficacitatea clinică și neurobiologică a terapiei sonore în tinitusul cronic'",
     "Fișier 'Analiza eficacității clinice, a spectrelor de frecvență și a mecanismelor neurobiologice ale terapiei sonore în tinitusul subiectiv (perioada 2020-2026)'",
     "Fișier 'Principii fizice, psihoacustice și fiziologice pentru o amestecare sigură și estetică a straturilor sonore'",
-    "Файл 'Оптимизирана двуседмична когнитивно-поведенческа програма за първоначално справяне с хроничен тинитус'"
+    "Fișier 'Program cognitiv-comportamental optimizat de două săptămâni pentru gestionarea inițială a tinitusului cronic'"
    ]
   },
   "anxiety": {
-   "title": "Тревожност",
-   "subtitle": "SOS, паник атака",
-   "definition": "Кратък аварен режим за остра тинитус-индуцирана тревожна криза или паник атака — типично при среднощно събуждане в 3:00 ч., но и при дневен пик. Целта е незабавна стабилизация чрез поведенчески и акустичен алгоритъм: вагусово активиране, понижение на симпатиковата хиперактивност и когнитивно неутрализиране на сигнала.",
+   "title": "Anxietate",
+   "subtitle": "SOS, atac de panică",
+   "definition": "Un mod de urgență scurt pentru o criză anxioasă acută indusă de tinitus sau un atac de panică — tipic la o trezire nocturnă la ora 3:00, dar și la un vârf diurn. Scopul este o stabilizare imediată printr-un algoritm comportamental și acustic: activare vagală, reducerea hiperactivității simpatice și neutralizarea cognitivă a semnalului.",
    "whenUsed": {
-    "timeOfDay": "При остра нужда — нощем (среднощно събуждане), денем (тревожен пик).",
-    "context": "Дръжте очите си затворени или гледайте към тъмен сектор. Избягвайте часовника и екрана на телефона — светлината и осъзнаването на часа задействат HPA-оста.",
-    "duration": "Първи 30 секунди — лимбична стабилизация; минути 1–15 — продължено дишане; ако сънят не се възстанови след 15–20 мин нощем → ставане и преминаване към „Релаксация“ в съседна стая."
+    "timeOfDay": "La nevoie acută — noaptea (trezire nocturnă), ziua (vârf anxios).",
+    "context": "Țineți ochii închiși sau priviți către un sector întunecat. Evitați ceasul și ecranul telefonului — lumina și conștientizarea orei activează axa HPA.",
+    "duration": "Primele 30 de secunde — stabilizare limbică; minutele 1–15 — respirație continuă; dacă somnul nu revine după 15–20 min noaptea → ridicați-vă și treceți la „Relaxare“ într-o cameră alăturată."
    },
    "whenNotUsed": [
-    "За дълготрайно ежедневно слушане — режимът е SOS, не дневна терапия.",
-    "Като заместител на психиатрична помощ при тежки или продължителни паник атаки — wellness disclaimer."
+    "Pentru o ascultare zilnică de lungă durată — modul este SOS, nu o terapie diurnă.",
+    "Ca înlocuitor al ajutorului psihiatric în cazul atacurilor de panică grave sau prelungite — disclaimer wellness."
    ],
    "recommendedNoise": {
     "type": "pink_lp2000",
-    "description": "Същият розов шум, който се ползва нощем — мозъкът се нуждае от позната, стабилна акустична сигнатура. Не нов или експериментален звук. Хардуерно/софтуерно пренастроен 3–5 dB по-тих от стандартното дневно ниво."
+    "description": "Același zgomot roz folosit noaptea — creierul are nevoie de o semnătură acustică familiară și stabilă. Nu un sunet nou sau experimental. Reglat hardware/software cu 3–5 dB mai liniștit decât nivelul diurn standard."
    },
    "mixRatio": {
     "layer1": 55,
     "layer2": 45,
-    "reasoning": "Layer 1 (гласово водене — 4-7-8 дишане voice guide, котва-фраза): 50–60%. Layer 2 (фонов розов шум): 40–50%. Layer 1 (водещ глас) е по-доминантен, защото структурираното дишане е активният терапевтичен елемент, а фоновият шум е поддържащ."
+    "reasoning": "Layer 1 (ghidare vocală — 4-7-8 respirație voice guide, frază-ancoră): 50–60%. Layer 2 (zgomot roz de fundal): 40–50%. Layer 1 (vocea principală) este mai dominant, deoarece respirația structurată este elementul terapeutic activ, iar zgomotul de fundal este de susținere."
    },
    "expectedEffect": "Стимулиране на парасимпатиковите влакна на блуждаещия нерв; принудително забавяне на сърдечния ритъм; понижение на кръвното налягане; постепенно потискане на хиперактивността на амигдалата; прекъсване на адреналиновия/кортизолов пик. Техника 4-7-8: вдишване през носа за 4 секунди, задържане на дъха за 7 секунди, издишване през устата за 8 секунди.",
    "safety": [
@@ -1624,7 +1624,7 @@
     }
    ],
    "scientificBasis": [
-    "Файл 'Оптимизирана двуседмична когнитивно-поведенческа програма за първоначално справяне с хроничен тинитус'",
+    "Fișier 'Program cognitiv-comportamental optimizat de două săptămâni pentru gestionarea inițială a tinitusului cronic'",
     "Fișier 'Analiza eficacității clinice, a spectrelor de frecvență și a mecanismelor neurobiologice ale terapiei sonore în tinitusul subiectiv (perioada 2020-2026)'",
     "Файл 'Клиничен доклад за прилагане на Терапия за приемане и обвързване (ACT) при пациенти над 50-годишна възраст с хроничен субективен тинитус'",
     "Fișier 'Neurobiologia detaliată și terapia insomniei la pacienții cu tinitus cronic'"
@@ -2048,8 +2048,8 @@
     "subtitle": "Muncă, concentrare"
    },
    "anxiety": {
-    "name": "Тревожност",
-    "subtitle": "SOS, паник атака"
+    "name": "Anxietate",
+    "subtitle": "SOS, atac de panică"
    },
    "meditation": {
     "name": "Meditație",
