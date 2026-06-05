@@ -1732,122 +1732,122 @@
   }
  },
  "faq": {
-  "title": "Често задавани въпроси",
-  "openLabel": "Често задавани въпроси",
-  "closeAria": "Затвори въпроси и отговори",
-  "searchPlaceholder": "Търси въпрос…",
-  "searchAria": "Търси въпрос",
-  "noResults": "Няма намерени въпроси по тази дума.",
-  "supportHint": "Не намерихте отговор? Свържете се с support чрез email.",
-  "supportButton": "Свържи се със support",
+  "title": "Domande frequenti",
+  "openLabel": "Domande frequenti",
+  "closeAria": "Chiudi domande e risposte",
+  "searchPlaceholder": "Cerca una domanda…",
+  "searchAria": "Cerca una domanda",
+  "noResults": "Nessuna domanda trovata per questa parola.",
+  "supportHint": "Non hai trovato la risposta? Contatta il supporto via email.",
+  "supportButton": "Contatta il supporto",
   "supportEmail": "support@auralis.app",
-  "supportSubject": "AURALIS въпрос",
+  "supportSubject": "Domanda AURALIS",
   "categories": {
-   "safety": "Безопасност",
-   "technical": "Технически",
-   "therapeutic": "Терапевтични",
-   "program": "Програма"
+   "safety": "Sicurezza",
+   "technical": "Tecnico",
+   "therapeutic": "Terapeutico",
+   "program": "Programma"
   },
   "items": [
    {
     "cat": "safety",
-    "q": "Опасно ли е да слушам звуци дълго време всеки ден?",
-    "a": "Не е опасно при правилни нива. WHO и NIOSH определят 70 dBA като лимит за неограничено време на ден — това е по-силно от тиха разговорна реч. AURALIS препоръчва 50–65 dBA за дневна употреба и 45–55 dBA нощем. Опасност има само ако надвишите тези нива — над 80 dBA има ограничение от 40 часа седмично. Спазвайте правилото 60/60 — 60% от силата на устройството, не повече от 60 минути активно слушане, последвани от 10–15 минути тишина. При тези параметри, цял живот на ежедневно слушане е безопасен."
+    "q": "È pericoloso ascoltare suoni a lungo ogni giorno?",
+    "a": "Non è pericoloso a livelli corretti. OMS e NIOSH fissano 70 dBA come limite per un tempo illimitato al giorno — più forte di una conversazione tranquilla. AURALIS consiglia 50–65 dBA di giorno e 45–55 dBA di notte. Il pericolo c'è solo se superi questi livelli: oltre 80 dBA il limite è 40 ore a settimana. Segui la regola 60/60 — 60% del volume del dispositivo, non più di 60 minuti di ascolto attivo, seguiti da 10–15 minuti di silenzio. A questi parametri, un'intera vita di ascolto quotidiano è sicura."
    },
    {
     "cat": "safety",
-    "q": "Мога ли да пускам приложението в самолет?",
-    "a": "Да, напълно. AURALIS работи изцяло без интернет — всички звуци, въпросници и CBT текстове са локални на телефона Ви. Активирайте Airplane mode и приложението ще функционира както обикновено. Това е удобно и за спестяване на батерия по време на дълъг полет. На борда на самолет: фоновото шумоиздаване обикновено е около 75–85 dB — препоръчваме да слушате с костно-проводими слушалки или висококачествени отворени слушалки, а не с in-ear „тапи\". Те създават оклузивен ефект, който прави тинитуса по-силен."
+    "q": "Posso usare l'app in aereo?",
+    "a": "Sì, senza problemi. AURALIS funziona completamente senza internet — tutti i suoni, i questionari e i testi CBT sono locali sul tuo telefono. Attiva la modalità aereo e l'app funzionerà normalmente. È utile anche per risparmiare batteria nei voli lunghi. A bordo: il rumore di fondo è di solito 75–85 dB — meglio ascoltare con cuffie a conduzione ossea o cuffie aperte di qualità, non con auricolari in-ear. Questi creano un effetto di occlusione che rende l'acufene più forte."
    },
    {
     "cat": "safety",
-    "q": "Да слушам ли със слушалки или говорител?",
-    "a": "Предпочитайте говорител или костно-проводими слушалки. Стандартните in-ear „тапи\" не са препоръчителни за дълга употреба — те блокират ушния канал и създават оклузивен ефект, който всъщност прави вътрешния тинитус по-силен. Освен това при дълги часове ежедневно слушане се повишава рискът от запушване с ушна кал и външен отит. За нощно слушане: отворени говорители в спалнята са най-добрият избор. За работа или разходка: костно-проводими слушалки оставят ушния канал свободен и не предизвикват оклузия. Бутонни слушалки on-ear също са приемливи."
+    "q": "Meglio le cuffie o l'altoparlante?",
+    "a": "Preferisci l'altoparlante o le cuffie a conduzione ossea. Gli auricolari in-ear standard non sono consigliati per un uso prolungato — bloccano il canale uditivo e creano un effetto di occlusione che rende l'acufene interno più forte. Inoltre, molte ore di ascolto quotidiano aumentano il rischio di tappo di cerume e di otite esterna. Per la notte: altoparlanti aperti in camera sono la scelta migliore. Per il lavoro o una passeggiata: le cuffie a conduzione ossea lasciano libero il canale uditivo. Anche le cuffie on-ear sono accettabili."
    },
    {
     "cat": "safety",
-    "q": "Какво е максималното време на ден за слушане?",
-    "a": "Няма строг лимит при правилни нива. При 50–65 dBA няма дневен лимит — WHO определя 70 dBA като безопасен за 24/7. На практика: 4–6 часа разпределени през деня е терапевтично оптимално, плюс 8 часа за нощно непрекъснато ползване. Важно е разнообразието на ушите — не дръжте едни и същи слушалки или ракурс часове наред. Правете кратки паузи на всеки час (правилото 60/60). При признаци на слухова умора — звън, чувствителност към звук, тъпота — спрете за 2–3 часа и продължете на по-ниско ниво."
+    "q": "Qual è il tempo massimo di ascolto al giorno?",
+    "a": "Nessun limite rigido a livelli corretti. A 50–65 dBA non c'è un limite giornaliero — l'OMS indica 70 dBA come sicuro 24/7. In pratica: 4–6 ore distribuite nella giornata sono terapeuticamente ottimali, più 8 ore di uso notturno continuo. È importante variare per le orecchie — non tenere le stesse cuffie per ore. Fai brevi pause ogni ora (regola 60/60). Ai primi segni di affaticamento uditivo — fischio, sensibilità ai suoni, ovattamento — fermati per 2–3 ore e riprendi a volume più basso."
    },
    {
     "cat": "safety",
-    "q": "Какво да правя ако усетя влошаване след слушане?",
-    "a": "Спрете първо, не паникьосвайте. Леко временно влошаване след слушане е възможно при три причини: твърде силно ниво (намалете с 5–10 dB при следваща сесия), грешен тип звук за профила Ви (TH_C изисква pink и филтриран дъжд, не белия шум), или соматично напрежение от деня (опитайте Day 8 упражнение за мускулна релаксация). Ако влошаването продължи повече от 48 часа след спиране, консултирайте се с УНГ. Червен флаг: ако шумът стане едностранен, пулсиращ или придружен от загуба на слух — незабавно потърсете лекар."
+    "q": "Cosa faccio se sento un peggioramento dopo l'ascolto?",
+    "a": "Prima fermati, niente panico. Un lieve peggioramento temporaneo dopo l'ascolto può avere tre cause: volume troppo alto (abbassa di 5–10 dB alla sessione successiva), tipo di suono sbagliato per il tuo profilo (TH_C richiede rosa e pioggia filtrata, non rumore bianco), o tensione somatica della giornata (prova l'esercizio del Giorno 8 di rilassamento muscolare). Se il peggioramento dura più di 48 ore dopo aver smesso, consulta un ORL. Campanello d'allarme: se il rumore diventa unilaterale, pulsante o con perdita dell'udito — cerca subito un medico."
    },
    {
     "cat": "technical",
-    "q": "Защо звукът се чува със закъснение след натискане на бутона?",
-    "a": "Това е нормално явление при PWA приложения. Браузърът или Capacitor обвивката декодира MP3 файла, преди да го пусне — обикновено забавянето е 100–500 ms. AURALIS използва кеширане в Service Worker, така че втория път звукът пуска незабавно. Ако забавянето е по-голямо от 2 секунди, проверете: 1) има ли достатъчно памет на телефона, 2) затворете други приложения работещи на фон, 3) рестартирайте AURALIS. На по-стари телефони (Android 8–9) забавянето може да е малко по-голямо."
+    "q": "Perché il suono parte in ritardo dopo aver premuto il pulsante?",
+    "a": "È normale nelle app PWA. Il browser o l'involucro Capacitor decodifica il file MP3 prima di riprodurlo — di solito il ritardo è 100–500 ms. AURALIS usa la cache nel Service Worker, così la seconda volta il suono parte subito. Se il ritardo supera i 2 secondi, controlla: 1) c'è abbastanza memoria sul telefono, 2) chiudi le altre app in background, 3) riavvia AURALIS. Su telefoni più vecchi (Android 8–9) il ritardo può essere un po' maggiore."
    },
    {
     "cat": "technical",
-    "q": "Работи ли AURALIS без интернет?",
-    "a": "Да, напълно. AURALIS е offline-first приложение — Bible v3 ЗАКОН №6. Всички звуци (250 файла) са свалени на Вашия телефон при инсталиране. Всички въпросници (THI, дневник), CBT текстове и настройки се пазят в локалното хранилище на телефона. AURALIS не изпраща никакви данни на сървър — Вашите отговори и прогрес остават единствено на Вашия телефон. Това отговаря на най-строгите GDPR изисквания за чувствителни здравни данни. Изключение: единствено при покупка през Google Play или App Store, плащането се обработва от платформата, не от нас."
+    "q": "AURALIS funziona senza internet?",
+    "a": "Sì, completamente. AURALIS è un'app offline-first. Tutti i suoni sono scaricati sul tuo telefono all'installazione. Tutti i questionari (THI, diario), i testi CBT e le impostazioni restano nella memoria locale del telefono. AURALIS non invia alcun dato a un server — le tue risposte e i tuoi progressi restano solo sul tuo telefono. Questo soddisfa i requisiti GDPR più severi per i dati sanitari sensibili. Eccezione: solo in caso di acquisto tramite Google Play o App Store, il pagamento è gestito dalla piattaforma, non da noi."
    },
    {
     "cat": "technical",
-    "q": "Защо приложението не се отваря?",
-    "a": "Най-чести причини: 1) Първото отваряне след инсталация — изчакайте 10–20 секунди, защото системата подготвя 100–150 MB звукови файлове. 2) Малко памет на устройството — освободете 200 MB на телефона. 3) Стара версия на Android (под 8.0) — приложението изисква Android 8.0+. 4) Бавна първа графика — обновете до последната версия от Google Play. Ако проблемът продължи, опитайте: затворете приложението от менюто за активни приложения и го отворете отново. При повторно невъзможност за стартиране — преинсталирайте от Google Play (Вашите данни се пазят в Profile → Експорт, ако сте го направили)."
+    "q": "Perché l'app non si apre?",
+    "a": "Cause più comuni: 1) Prima apertura dopo l'installazione — attendi 10–20 secondi, il sistema prepara i file audio. 2) Poca memoria — libera 200 MB sul telefono. 3) Versione di Android vecchia (sotto 8.0) — serve Android 8.0+. 4) Aggiorna all'ultima versione da Google Play. Se il problema persiste: chiudi l'app dal menu delle app attive e riaprila. Se ancora non parte — reinstalla da Google Play (i tuoi dati si conservano in Profilo → Esporta, se l'hai fatto)."
    },
    {
     "cat": "technical",
-    "q": "Защо батерията се изтощава бързо?",
-    "a": "Не би трябвало. AURALIS използва оптимизиран AudioBufferSourceNode (не AudioWorklet), system sample rate, и suspend при пауза — Bible v3 ЗАКОН №4. Цяла нощ слушане (8 часа) трябва да изтощи 3–8% от батерията. Ако виждате по-голяма консумация: 1) Изключете „Wi-Fi\" и „Bluetooth\" нощем — те източват повече от самото звуково възпроизвеждане. 2) Активирайте „Не безпокой\" режим за нощта. 3) Намалете яркостта на екрана преди заспиване. 4) Проверете в Settings → Battery дали друго приложение работи на фон. Ако AURALIS наистина изтощава много — съобщете на support, това е технически бъг."
+    "q": "Perché la batteria si scarica in fretta?",
+    "a": "Non dovrebbe. AURALIS usa un audio ottimizzato e la sospensione in pausa. Un'intera notte di ascolto (8 ore) dovrebbe consumare il 3–8% della batteria. Se vedi un consumo maggiore: 1) Spegni Wi-Fi e Bluetooth di notte — consumano più della riproduzione audio. 2) Attiva la modalità „Non disturbare\" per la notte. 3) Abbassa la luminosità prima di dormire. 4) Controlla in Impostazioni → Batteria se un'altra app gira in background. Se AURALIS consuma davvero molto — segnalalo al supporto, è un bug tecnico."
    },
    {
     "cat": "technical",
-    "q": "Какво се случва ако телефонът се изключи нощем?",
-    "a": "Звукът спира и сесията се запазва. Когато стартирате AURALIS отново, приложението ви предлага да продължите от мястото, на което спряхте. Всички записи в дневника, THI отговори и CBT прогрес се записват веднага в localStorage — не се губят при внезапно изключване. Ако телефонът се изключи поради изтощаване на батерията: преди заспиване включете го в зарядно или активирайте „Battery saver\" режим. Ако звукът внезапно изчезне посред нощ при работещ телефон — амигдалата ще го регистрира като преход. Препоръчваме непрекъсната нощна сесия, не sleep timer."
+    "q": "Cosa succede se il telefono si spegne di notte?",
+    "a": "Il suono si ferma e la sessione viene salvata. Quando riavvii AURALIS, l'app ti propone di riprendere da dove eri. Tutte le voci del diario, le risposte THI e i progressi CBT si salvano subito in locale — non si perdono in caso di spegnimento improvviso. Se il telefono si spegne per batteria scarica: prima di dormire mettilo in carica. Se il suono sparisce all'improvviso nel cuore della notte con il telefono acceso — l'amigdala lo registra come un cambiamento. Consigliamo una sessione notturna continua, non il timer di spegnimento."
    },
    {
     "cat": "therapeutic",
-    "q": "Кога ще усетя първи ефект?",
-    "a": "Различно за всеки. Първите признаци на по-малко натрапчив шум могат да се появят още в първите 1–2 седмици — особено усещане за по-лесно заспиване и кратки моменти, в които не забелязвате тинитуса. Клинично значим резултат (спад на THI с 7 или повече точки) обикновено идва за 3 месеца при последователно прилагане. По-сериозен ефект (−24 точки THI) се регистрира при 6 месеца. Реалното привикване (хабитуация), при което мозъкът престава да третира шума като заплаха, е процес от 9 до 18 месеца. AURALIS не лекува тинитус — той помага за хабитуация и по-добро качество на живот."
+    "q": "Quando sentirò il primo effetto?",
+    "a": "Diverso per ognuno. I primi segni di un rumore meno invadente possono comparire già nelle prime 1–2 settimane — soprattutto un addormentamento più facile e brevi momenti in cui non noti l'acufene. Un risultato clinicamente significativo (calo del THI di 7 o più punti) di solito arriva in 3 mesi con un uso costante. Un effetto più marcato (−24 punti THI) si registra a 6 mesi. La vera abituazione, in cui il cervello smette di trattare il rumore come una minaccia, è un processo di 9–18 mesi. AURALIS non cura l'acufene — aiuta l'abituazione e una migliore qualità di vita."
    },
    {
     "cat": "therapeutic",
-    "q": "Какво да правя ако усещам, че се влошава?",
-    "a": "Първо — не правете заключения от един или два дни. Тинитусът има добри и лоши периоди, които не отразяват цялостен тренд. Прегледайте записите си в дневника за последните 7 дни — често „по-зле днес\" не е тенденция. Втора стъпка: помислете за външни фактори — стрес, кофеин след 14:00, безсънна нощ, остра шумова експозиция. Тези често засилват тинитуса временно. Ако наистина усещате трайно влошаване (над 2 седмици), консултирайте се с УНГ. Червен флаг: ако шумът стане едностранен, пулсиращ, придружен от замайване или загуба на слух — незабавно търсете лекар."
+    "q": "Cosa faccio se mi sembra che peggiori?",
+    "a": "Prima — non trarre conclusioni da uno o due giorni. L'acufene ha periodi buoni e cattivi che non riflettono una tendenza generale. Rivedi le voci del diario degli ultimi 7 giorni — spesso „peggio oggi\" non è una tendenza. Secondo passo: pensa ai fattori esterni — stress, caffeina dopo le 14:00, notte insonne, esposizione a rumore forte. Spesso intensificano l'acufene temporaneamente. Se senti davvero un peggioramento duraturo (oltre 2 settimane), consulta un ORL. Campanello d'allarme: se il rumore diventa unilaterale, pulsante, con vertigini o perdita dell'udito — cerca subito un medico."
    },
    {
     "cat": "therapeutic",
-    "q": "Колко часа на ден трябва да слушам?",
-    "a": "За Вашия профил TH_C — минимум 2 часа дневно за устойчива хабитуация; идеално 4–6 часа разпределени през деня. Не е необходимо да слушате непрекъснато — кратки сесии от 30 минути няколко пъти на ден работят по-добре от една дълга сесия. По време на нощта — непрекъснат фонов звук през целия 8-часов сън (изследванията показват, че sleep timer може да задейства амигдалата при преходи между сънни цикли). Това е препоръка, не задължение. Дори 1 час на ден с правилен звук работи по-добре от нищо. Слушайте, когато е удобно за Вас."
+    "q": "Quante ore al giorno devo ascoltare?",
+    "a": "Per il tuo profilo TH_C — minimo 2 ore al giorno per un'abituazione stabile; idealmente 4–6 ore distribuite. Non serve ascoltare ininterrottamente — brevi sessioni di 30 minuti più volte al giorno funzionano meglio di una sola lunga. Di notte — suono di fondo continuo per tutte le 8 ore di sonno (gli studi mostrano che il timer di spegnimento può attivare l'amigdala ai passaggi tra i cicli del sonno). È un consiglio, non un obbligo. Anche 1 ora al giorno con il suono giusto funziona meglio di niente. Ascolta quando ti è comodo."
    },
    {
     "cat": "therapeutic",
-    "q": "Трябва ли да се откажа от кафето?",
-    "a": "Не напълно, но ограничете го. Кофеинът е централен стимулант — увеличава кортикалната чувствителност и може да засили тинитуса. Препоръка: 1 чаша сутрин (до 10:00), без кафе след 14:00. Това дава достатъчно време на тялото да изчисти кофеина преди сън (полу-разпадане ~5 часа). При Вашия TH_C профил кофеинът има особено силен ефект върху високочестотния звън. Алкохол вечер също влошава — нарушава перфузията на вътрешното ухо и фрагментира съня. Сол вечер — задържа течности, влошава ниските честоти. Опитайте 2 седмици без кофеин след 14:00 и наблюдавайте."
+    "q": "Devo rinunciare al caffè?",
+    "a": "Non del tutto, ma limitalo. La caffeina è uno stimolante centrale — aumenta la sensibilità corticale e può intensificare l'acufene. Consiglio: 1 tazza al mattino (entro le 10:00), niente caffè dopo le 14:00. Così il corpo ha il tempo di smaltire la caffeina prima di dormire (emivita ~5 ore). Con il profilo TH_C la caffeina ha un effetto particolarmente forte sul fischio acuto. Anche l'alcol la sera peggiora — altera la perfusione dell'orecchio interno e frammenta il sonno. Il sale la sera trattiene liquidi e peggiora le basse frequenze. Prova 2 settimane senza caffeina dopo le 14:00 e osserva."
    },
    {
     "cat": "therapeutic",
-    "q": "Помагат ли витамините или добавките?",
-    "a": "AURALIS не дава медицински препоръки за добавки. Това попада извън нашата компетентност (Bible §1 — ЗАКОН №2: NO MEDICAL ADVICE). Има научни проучвания за магнезий и тинитус — те показват смесени резултати; не препоръчвайте сами без консултация с лекар. Витамин B12 дефицит може да влоши тинитуса — кръвен тест ще покаже дали имате нужда. Гинко билоба — клиничните доказателства са слаби. Никога не започвайте добавки без консултация с Вашия лекар, особено ако приемате други медикаменти. AURALIS се фокусира на това, което сме доказали — звукова терапия и CBT практики."
+    "q": "Servono le vitamine o gli integratori?",
+    "a": "AURALIS non dà raccomandazioni mediche sugli integratori: è fuori dalla nostra competenza. Esistono studi su magnesio e acufene — con risultati contrastanti; non assumerli da solo senza consultare un medico. Una carenza di vitamina B12 può peggiorare l'acufene — un esame del sangue dirà se ne hai bisogno. Per il ginkgo biloba le prove cliniche sono deboli. Non iniziare mai integratori senza consultare il tuo medico, soprattutto se prendi altri farmaci. AURALIS si concentra su ciò che è dimostrato — terapia del suono e pratiche CBT."
    },
    {
     "cat": "program",
-    "q": "Какво е THI и защо го попълвам?",
-    "a": "THI (Tinnitus Handicap Inventory) е стандартизиран въпросник от 25 въпроса, разработен от Newman и колеги през 1996 г. Той измерва не силата на шума, а колко той Ви безпокои в ежедневието. Резултатът варира от 0 (без увреждане) до 100 (катастрофално). Попълвате го на Ден 1 за изходна линия и на Ден 14 за сравнение — така виждате конкретен числов прогрес. Спад от 7 или повече точки между двата теста се счита за клинично значим. Това е публичен медицински инструмент, използван по целия свят. Резултатите остават единствено на Вашия телефон."
+    "q": "Cos'è il THI e perché lo compilo?",
+    "a": "Il THI (Tinnitus Handicap Inventory) è un questionario standardizzato di 25 domande, sviluppato da Newman e colleghi nel 1996. Misura non l'intensità del rumore, ma quanto ti disturba nella vita quotidiana. Il punteggio va da 0 (nessun handicap) a 100 (catastrofico). Lo compili il Giorno 1 come riferimento e il Giorno 14 per il confronto — così vedi un progresso numerico concreto. Un calo di 7 o più punti tra i due test è considerato clinicamente significativo. È uno strumento medico pubblico, usato in tutto il mondo. I risultati restano solo sul tuo telefono."
    },
    {
     "cat": "program",
-    "q": "Защо 14 дни? Защо не по-кратко или по-дълго?",
-    "a": "14 дни е оптимизиран „субакутен\" интервал, доказан в клиничните проучвания. По-кратко (1–7 дни) — твърде малко за да усетите промяна и за да може мозъкът да започне привикване. По-дълго (3–6 месеца) — голяма част от потребителите отпадат преди завършване. Класическата програма Kalmeda има 9–12-месечен курс, но 60% от пациентите я прекратяват в първите 3 месеца. 14-дневният модул на AURALIS включва критичните CBT елементи: демистификация, преструктуриране на мисли, релаксация и приемане. След тези 2 седмици можете да продължите с поддържащ режим — слушане на звуци и кратки практики."
+    "q": "Perché 14 giorni? Perché non più corto o più lungo?",
+    "a": "14 giorni è un intervallo „subacuto\" ottimizzato, validato negli studi clinici. Più corto (1–7 giorni) — troppo poco per sentire un cambiamento e per avviare l'abituazione. Più lungo (3–6 mesi) — molti utenti abbandonano prima di finire. Il programma classico Kalmeda dura 9–12 mesi, ma il 60% dei pazienti lo interrompe nei primi 3 mesi. Il modulo di 14 giorni di AURALIS include gli elementi CBT critici: demistificazione, ristrutturazione dei pensieri, rilassamento e accettazione. Dopo queste 2 settimane puoi continuare con un regime di mantenimento — ascolto dei suoni e brevi pratiche."
    },
    {
     "cat": "program",
-    "q": "Какво да правя след Ден 14?",
-    "a": "14-дневният модул не приключва тинитуса — той е начало. След Ден 14 продължете със следното: 1) Слушане на звуковата библиотека всеки ден (минимум 2 часа). 2) Повторете най-полезните CBT упражнения 2–3 пъти седмично. 3) Попълвайте вечерен дневник без натиск — кратко самонаблюдение. 4) Преоценка на THI след 30 дни и 90 дни (Profile → Повторен тест). За реално привикване (хабитуация) клиничните проучвания препоръчват минимум 9–18 месеца последователно ползване. AURALIS остава на телефона Ви като дългосрочен инструмент за поддръжка, не за интензивно лечение."
+    "q": "Cosa faccio dopo il Giorno 14?",
+    "a": "Il modulo di 14 giorni non chiude l'acufene — è un inizio. Dopo il Giorno 14 continua così: 1) Ascolta la libreria di suoni ogni giorno (minimo 2 ore). 2) Ripeti gli esercizi CBT più utili 2–3 volte a settimana. 3) Compila il diario serale senza pressione — una breve auto-osservazione. 4) Rivaluta il THI dopo 30 e 90 giorni (Profilo → Ripeti il test). Per una vera abituazione gli studi consigliano un uso costante di almeno 9–18 mesi. AURALIS resta sul tuo telefono come strumento di supporto a lungo termine, non per un trattamento intensivo."
    },
    {
     "cat": "program",
-    "q": "Какво ако пропусна ден?",
-    "a": "Нищо не е загубено. AURALIS не наказва за пропуски — Bible §1 е wellness, не дисциплинарен инструмент. Имате 2 „дни почивка\" (freeze days) на разположение за 14-те дни — стрик броячът не пада на 0. На сутринта на следващия ден ще видите тих съобщение, че можете да попълните пропуснатия ден със закъснение или просто да продължите към следващия. При 2 поредни дни пропуск — системата автоматично намалява задачата за следващия ден до 2-минутна микро-доза (само 3 дълбоки вдишвания). Звуковата библиотека и Sleep mode остават напълно достъпни при всеки сценарий."
+    "q": "Cosa succede se salto un giorno?",
+    "a": "Non perdi nulla. AURALIS non punisce per i salti — è benessere, non uno strumento disciplinare. Hai 2 „giorni di riposo\" (freeze) disponibili nei 14 giorni — il contatore della streak non si azzera. Il mattino dopo vedrai un messaggio discreto che puoi compilare il giorno saltato in ritardo o semplicemente proseguire. Con 2 giorni di salto consecutivi — il sistema riduce automaticamente il compito del giorno dopo a una micro-dose di 2 minuti (solo 3 respiri profondi). La libreria di suoni e la modalità Sleep restano sempre accessibili."
    },
    {
     "cat": "program",
-    "q": "Мога ли да попълня дневника за пропуснат предишен ден?",
-    "a": "Да. В дневния hub ще видите бутон „Попълни Ден X със закъснение\" за всеки пропуснат ден. Това отваря същите въпроси, но с пометка „попълнен на: <текуща дата>\" — за да виждате честно кога е било. Бележете: при попълване със закъснение точността на спомена за деня намалява, особено за плъзгачи 1–5. Препоръчваме да попълвате дневника в денят му (вечерта за вечерен, сутринта за сутрешен). При повече от 3 дни закъснение — по-добре е да го прескочите, отколкото да попълните неточно. Записът остава в експорта Ви като референция."
+    "q": "Posso compilare il diario per un giorno precedente saltato?",
+    "a": "Sì. Nell'hub giornaliero vedrai un pulsante „Compila il Giorno X in ritardo\" per ogni giorno saltato. Apre le stesse domande, ma con la nota „compilato il: <data attuale>\" — per vedere onestamente quando è stato. Nota: compilando in ritardo, la precisione del ricordo cala, soprattutto per i cursori 1–5. Consigliamo di compilare il diario nel suo giorno (la sera per quello serale, il mattino per quello mattutino). Con più di 3 giorni di ritardo — meglio saltarlo che compilarlo in modo impreciso. La voce resta nel tuo export come riferimento."
    }
   ]
  },
