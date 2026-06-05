@@ -1075,7 +1075,7 @@
      }
     ],
     "additional": "- Igiena somnului: păstrați un orar consecvent de culcare și trezire ±30 de minute.\n\n- Scenariul „trezire la ora 3:00\": dacă după 15–20 de minute nu v-ați întors la somn, ridicați-vă încet și mergeți în altă cameră cu un zgomot roz continuu pornit, puțin sub intensitatea tinitusului. Efectuați o sesiune de 5 minute de respirație 4-7-8. Întoarceți-vă în pat când apare somnolența naturală.\n\n- Cafea, sare, alcool: limitați cofeina după ora 14:00; reduceți sodiul seara (retenția de lichide agravează frecvențele joase ale tinitusului); evitați alcoolul ca „somnifer\" — el fragmentează somnul.\n\n- Nu folosiți zgomot alb. La ascultarea nocturnă prelungită, zgomotul alb duce la dediferențiere corticală și la o înrăutățire paradoxală — acest efect este cunoscut sub numele de „efectul cobrei\".\n\n- Tehnici suplimentare: CBT-I modificat (terapia cognitiv-comportamentală pentru insomnie) este standardul de aur. Protocolul clasic SCT necesită modificare — nu rămâneți niciodată într-o cameră complet liniștită.",
-    "medicalFlags": "- Към УНГ: ако тинитусът е едностранен или пулсиращ; ако забелязвате замайвания, вертиго или чувство за пълнота в ухото (възможен болест на Мениер).\n\n- Към сомнолог: ако имате силно хъркане, спирания на дишането през нощта, дневна сънливост — може да е обструктивна сънна апнея, която изисква PSG изследване.\n\n- Към общопрактикуващ: ако приемате диуретици, високи дози NSAID или антибиотици и забелязвате влошаване — някои медикаменти са ототоксични.",
+    "medicalFlags": "- La medicul ORL: dacă tinitusul este unilateral sau pulsatil; dacă observați amețeli, vertij sau o senzație de plenitudine în ureche (posibilă boală Ménière).\n\n- La somnolog: dacă aveți sforăit puternic, opriri ale respirației în timpul nopții, somnolență diurnă — poate fi o apnee obstructivă de somn, care necesită o investigație PSG.\n\n- La medicul de familie: dacă luați diuretice, doze mari de AINS sau antibiotice și observați o înrăutățire — unele medicamente sunt ototoxice.",
     "reasons": {
      "relaxation": "Sunete naturale echilibrate pentru reducerea bâzâitului",
      "daily": "Sunete de fundal blânde pentru muncă"
@@ -1084,31 +1084,31 @@
    "SS_R": {
     "shortName": "Sensibil la stres",
     "fullName": "Sensibil la stres / Reactiv",
-    "description": "Профил \"Стрес-чувствителен\". Подробно описание скоро ще бъде добавено в това приложение.",
+    "description": "Profil \"Sensibil la stres\". O descriere detaliată va fi adăugată în curând în această aplicație.",
     "expectations": "Așteptările detaliate pentru acest profil vor fi adăugate în curând.",
-    "meaning": "Вашият тинитус е силно свързан със състоянието на нервната Ви система — той се засилва при стрес, тревожност, конфликти и емоционално натоварване, а при спокойствие отслабва. Леки външни звуци или ежедневни събития могат временно да усилят възприятието на вътрешния шум.\n\nТова състояние се медиира от висока лабилност на автономната нервна система и лимбичната структура — амигдалата и предният cingulate отговарят за свръхреактивната оценка на сигнала като \"заплаха\". При типична ситуация мозъкът на хора с устойчив тинитус навлиза в защитен режим, при който вътрешният шум поддържа активна симпатиковата ос.\n\nПри част от хората с този профил се наблюдава реактивен тинитус — вътрешният шум парадоксално се засилва временно в отговор на нови външни звуци. В такъв случай агресивното широколентово маскиране е противопоказано.",
-    "why": "Този профил често се асоциира с предхождаща тревожна симптоматика, перфекционистки тип личност, постоянен професионален или семеен стрес, и понякога — с обща хиперсензитивност (или хиперакузис — повишена чувствителност към нормални звуци).\n\nЗасилващи фактори: ранен следобед след кофе, конфликтни ситуации, последователни нощи с недостатъчен сън, новинарска информационна претовареност, и социална изолация в тиха среда.",
-    "strategyReasoning": "- Препоръчителен носещ звук: изключително нежни природни блендове и зелен шум (центриран около средните честоти).\n\n- Препоръчителен `recommended_noise` в библиотеката: зеленият шум засега не е наличен в библиотеката — като временен fallback използваме `brown_lowpass_500` за дълбоко успокоение и нежни meditation треки (`grounded`, `inner_balance`).\n\n- Препоръчително съотношение: при остра тревожност → 0.30/0.70 (noise dominant) за бързо потискане на сетивния контраст; при ежедневно слушане → 0.50/0.50.\n\n- Препоръчителна продължителност: използвайте SOS режим (3–10 мин noise-dominant) при остри пикове; ежедневно фоново слушане 2–4 часа разпределени през деня.\n\n- Топ use cases по приоритет: `anxiety` → `relaxation` → `meditation`.",
+    "meaning": "Tinitusul dvs. este strâns legat de starea sistemului dvs. nervos — se intensifică la stres, anxietate, conflicte și încărcătură emoțională, iar la liniște slăbește. Sunete externe ușoare sau evenimente cotidiene pot amplifica temporar percepția zgomotului intern.\n\nAceastă stare este mediată de o labilitate ridicată a sistemului nervos autonom și de structura limbică — amigdala și cortexul cingulat anterior răspund de evaluarea suprareactivă a semnalului ca „amenințare\". Într-o situație tipică, creierul persoanelor cu tinitus persistent intră într-un mod de protecție, în care zgomotul intern menține activă axa simpatică.\n\nLa o parte dintre persoanele cu acest profil se observă un tinitus reactiv — zgomotul intern se intensifică paradoxal temporar ca răspuns la sunete externe noi. Într-un astfel de caz, mascarea agresivă de bandă largă este contraindicată.",
+    "why": "Acest profil se asociază adesea cu o simptomatologie anxioasă preexistentă, un tip de personalitate perfecționist, stres profesional sau familial constant și, uneori, cu o hipersensibilitate generală (sau hiperacuzie — sensibilitate crescută la sunete normale).\n\nFactori care intensifică: după-amiaza devreme după cafea, situații conflictuale, nopți consecutive cu somn insuficient, supraîncărcare informațională din știri și izolare socială într-un mediu liniștit.",
+    "strategyReasoning": "- Sunet purtător recomandat: blenduri naturale extrem de blânde și zgomot verde (centrat în jurul frecvențelor medii).\n\n- `recommended_noise` recomandat din bibliotecă: zgomotul verde nu este deocamdată disponibil în bibliotecă — ca fallback temporar folosim `brown_lowpass_500` pentru o liniștire profundă și piese de meditation blânde (`grounded`, `inner_balance`).\n\n- Raport recomandat: la anxietate acută → 0.30/0.70 (noise dominant) pentru o suprimare rapidă a contrastului senzorial; la ascultarea zilnică → 0.50/0.50.\n\n- Durată recomandată: folosiți modul SOS (3–10 min noise-dominant) la vârfurile acute; ascultare zilnică de fundal 2–4 ore distribuite pe parcursul zilei.\n\n- Top use cases după prioritate: `anxiety` → `relaxation` → `meditation`.",
     "timeline": [
      {
       "period": "Prima sesiune (minute)",
-      "expectation": "при правилно избран зелен шум или меки природни звуци, повечето хора усещат намаляване на остротата на ситуацията в рамките на 5–15 минути. Това е незабавният anxiolytic ефект на средночестотната звукова обертурата."
+      "expectation": "cu un zgomot verde bine ales sau cu sunete naturale blânde, majoritatea oamenilor simt o reducere a intensității situației în decurs de 5–15 minute. Acesta este efectul anxiolitic imediat al texturii sonore de frecvență medie."
      },
      {
       "period": "Săptămâna 1–2",
-      "expectation": "при последователно ежедневно прилагане намалява базовата реактивност — амплитудата на пиковете в стресовия отговор спада."
+      "expectation": "la aplicarea consecventă zilnică scade reactivitatea de bază — amplitudinea vârfurilor din răspunsul la stres se reduce."
      },
      {
       "period": "Luna 1–3",
-      "expectation": "очаквайте намаление по емоционалните под-скали на THI/TFI; пълната хабитуация и пренастройване на оценъчния процес изискват по-дълго време."
+      "expectation": "așteptați-vă la o reducere pe subscalele emoționale ale THI/TFI; habituarea completă și reajustarea procesului de evaluare necesită mai mult timp."
      },
      {
       "period": "Luna 6+",
-      "expectation": "при комбинирана интервенция (звук + структуриран CBT курс) клинично значимо подобрение се постига от мнозинството пациенти."
+      "expectation": "în cazul unei intervenții combinate (sunet + un curs structurat de CBT), o îmbunătățire semnificativă clinic este atinsă de majoritatea pacienților."
      }
     ],
-    "additional": "- Дихателни техники: 4-7-8 дишане при остри пикове (вдишване 4 сек, задържане 7, издишване 8). Това активира блуждаещия нерв и сваля симпатиковия тонус.\n\n- Информационна хигиена: ограничете социални мрежи и новини в първите 30 минути след събуждане и последните 60 минути преди сън.\n\n- Кофеин: при този профил кофеинът има особено силен ефект — обмислете преминаване към 1 чаша сутрин или decaf.\n\n- Слухова среда: избягвайте слушалки с активно шумоподтискане (active noise cancelling) — при някои хора с реактивен тинитус те усилват възприятието на вътрешния шум поради създаване на абсолютна тишина.\n\n- Допълнителни техники: Терапия за приемане и обвързване (ACT), mindfulness-базирани практики и структуриран CBT курс са особено подходящи за този профил.",
-    "medicalFlags": "- Към психиатър или психотерапевт: ако имате персистираща тревожност, панически атаки, обсесивни мисли за тинитуса, или симптоми на депресия в продължение на повече от 2 седмици.\n\n- Към УНГ: ако забелязвате хиперакузис (нормални звуци стават болезнено силни) — необходимо е аудиологично изследване с тимпанометрия и стапедиален рефлекс.\n\n- Към общопрактикуващ: при чести епизоди на сърцебиене, изпотяване, замайване, треперене — за изключване на ендокринни (щитовидна жлеза) или сърдечно-съдови причини, които могат да наподобяват тревожност.",
+    "additional": "- Tehnici de respirație: respirația 4-7-8 la vârfurile acute (inspirați 4 sec, țineți 7, expirați 8). Aceasta activează nervul vag și reduce tonusul simpatic.\n\n- Igiena informațională: limitați rețelele sociale și știrile în primele 30 de minute după trezire și în ultimele 60 de minute înainte de somn.\n\n- Cofeină: la acest profil cofeina are un efect deosebit de puternic — luați în considerare trecerea la 1 ceașcă dimineața sau la decaf.\n\n- Mediu auditiv: evitați căștile cu anularea activă a zgomotului (active noise cancelling) — la unele persoane cu tinitus reactiv acestea amplifică percepția zgomotului intern din cauza creării unei liniști absolute.\n\n- Tehnici suplimentare: Terapia de acceptare și angajament (ACT), practicile bazate pe mindfulness și un curs structurat de CBT sunt deosebit de potrivite pentru acest profil.",
+    "medicalFlags": "- La psihiatru sau psihoterapeut: dacă aveți anxietate persistentă, atacuri de panică, gânduri obsesive legate de tinitus sau simptome de depresie pe parcursul a mai mult de 2 săptămâni.\n\n- La medicul ORL: dacă observați hiperacuzie (sunetele normale devin dureros de puternice) — este necesară o investigație audiologică cu timpanometrie și reflex stapedian.\n\n- La medicul de familie: în caz de episoade frecvente de palpitații, transpirație, amețeli, tremurături — pentru a exclude cauze endocrine (glanda tiroidă) sau cardiovasculare, care pot semăna cu anxietatea.",
     "reasons": {
      "anxiety": "Respirație SOS + sunete liniștitoare în momente de criză",
      "falling_asleep": "Reducerea treptată a stresului înainte de somn"
@@ -1117,39 +1117,39 @@
    "SM_F": {
     "shortName": "Somatic / Fluctuant",
     "fullName": "Somatic / Fluctuant",
-    "description": "Профил \"Соматичен / Флуктуиращ\". Подробно описание скоро ще бъде добавено в това приложение.",
+    "description": "Profil \"Somatic / Fluctuant\". O descriere detaliată va fi adăugată în curând în această aplicație.",
     "expectations": "Așteptările detaliate pentru acest profil vor fi adăugate în curând.",
-    "meaning": "Вашият тинитус има променлив характер — силата му се променя през деня, понякога значително, и често е свързан с физическо напрежение във врата, челюстта или раменете. Можете да забележите, че при определени движения, позиции на главата или стискане на челюстите шумът се променя — това е \"соматичен модулиращ\" феномен.\n\nТози тип се медиира от взаимовръзка между тригеминалната и соматосензорната система (врат, темпоромандибуларна става) и слуховите пътища. Абнормни сигнали от напрегнати или дисфункционални тъкани (TMD — темпоромандибуларна дисфункция, цервикална дисфункция) се \"пренасочват\" към слуховата кора и модулират фантомния звук.\n\nКлинично проучване на orofacial терапия показва, че намаляването на болката в темпоромандибуларната става обяснява около 35% от спада в индекса TFI при този подтип.",
-    "why": "Този профил често се асоциира с brux (стискане или скърцане на зъби — нощно или дневно), forward-head posture (придвижена напред глава, особено при дълга работа на екран), травма на врата (whiplash), или предишен спортен/професионален стрес върху шийния отдел.\n\nЗасилващи фактори: продължителни часове на компютъра без почивки, носене на тежки чанти на едно рамо, спане на корем, и стрес-индуцирано стискане на челюстите.",
-    "strategyReasoning": "- Препоръчителен носещ звук: силно динамични и непериодични природни среди — океански приливи и отливи, modulated wave swells, binaural ambient.\n\n- Препоръчителен `recommended_noise` в библиотеката: `brown_lowpass_1000` за равномерно тяло на звука; mix с natural дунамични файлове (например `water_wave_ocean_wave_swells`, ocean swells, дишащи waves).\n\n- Препоръчително съотношение: 0.85/0.15 (sound dominant) — динамиката на природния звук ангажира вниманието и пречи на кортикалната адаптация.\n\n- Препоръчителна продължителност: 2–4 часа дневно, с акцент върху периоди на физическо ангажиране — разходка, рутинни задачи. Това комбинира моторно разсейване със звуково обогатяване.\n\n- Топ use cases по приоритет: `relaxation` → `daily` → `meditation`.",
+    "meaning": "Tinitusul dvs. are un caracter variabil — intensitatea sa se schimbă pe parcursul zilei, uneori semnificativ, și este adesea legat de tensiunea fizică din gât, maxilar sau umeri. Puteți observa că la anumite mișcări, poziții ale capului sau la încleștarea maxilarelor zgomotul se modifică — acesta este fenomenul „de modulare somatică\".\n\nAcest tip este mediat de interconexiunea dintre sistemul trigeminal și cel somatosenzorial (gât, articulația temporomandibulară) și căile auditive. Semnale anormale de la țesuturi tensionate sau disfuncționale (TMD — disfuncție temporomandibulară, disfuncție cervicală) sunt „redirecționate\" către cortexul auditiv și modulează sunetul fantomă.\n\nUn studiu clinic privind terapia orofacială arată că reducerea durerii din articulația temporomandibulară explică aproximativ 35% din scăderea indicelui TFI la acest subtip.",
+    "why": "Acest profil se asociază adesea cu bruxism (încleștarea sau scrâșnirea dinților — nocturnă sau diurnă), forward-head posture (capul împins înainte, mai ales la munca prelungită la ecran), traumatism al gâtului (whiplash) sau un stres sportiv/profesional anterior asupra regiunii cervicale.\n\nFactori care intensifică: ore prelungite la computer fără pauze, purtarea unor genți grele pe un singur umăr, dormitul pe burtă și încleștarea maxilarelor indusă de stres.",
+    "strategyReasoning": "- Sunet purtător recomandat: medii naturale puternic dinamice și neperiodice — flux și reflux oceanic, modulated wave swells, binaural ambient.\n\n- `recommended_noise` recomandat din bibliotecă: `brown_lowpass_1000` pentru un corp uniform al sunetului; mix cu fișiere naturale dinamice (de exemplu `water_wave_ocean_wave_swells`, ocean swells, valuri care „respiră\").\n\n- Raport recomandat: 0.85/0.15 (sound dominant) — dinamica sunetului natural angajează atenția și împiedică adaptarea corticală.\n\n- Durată recomandată: 2–4 ore pe zi, cu accent pe perioadele de angajare fizică — plimbare, sarcini de rutină. Aceasta combină distragerea motorie cu îmbogățirea sonoră.\n\n- Top use cases după prioritate: `relaxation` → `daily` → `meditation`.",
     "timeline": [
      {
       "period": "Săptămâna 1–2",
-      "expectation": "при паралелна orofacial физиотерапия можете да забележите бързи флуктуации — добри и лоши дни. Това не означава, че процесът не работи; означава, че се отнема пресъхналата тъканна тяга."
+      "expectation": "în paralel cu fizioterapia orofacială puteți observa fluctuații rapide — zile bune și zile rele. Acest lucru nu înseamnă că procesul nu funcționează; înseamnă că tensiunea tisulară este eliberată treptat."
      },
      {
-      "period": "Седмица 9 (директна orofacial група)",
-      "expectation": "клинично проучване с 9-седмичен orofacial курс регистрира средно намаление на TFI с −13.8 точки, докато групата с отложена терапия показва само −5.0 точки. MCID на TFI е 13 точки."
+      "period": "Săptămâna 9 (grupul orofacial direct)",
+      "expectation": "un studiu clinic cu un curs orofacial de 9 săptămâni înregistrează o reducere medie a TFI de −13.8 puncte, în timp ce grupul cu terapie amânată arată doar −5.0 puncte. MCID al TFI este de 13 puncte."
      },
      {
       "period": "Luna 3–6",
-      "expectation": "при последователно прилагане на звук + физиотерапия + ограничаване на bruxism: средни намаления THI в диапазона −8.6 до −24.6 точки."
+      "expectation": "la aplicarea consecventă de sunet + fizioterapie + limitarea bruxismului: reduceri medii THI în intervalul −8.6 până la −24.6 puncte."
      },
      {
       "period": "Luna 6+",
-      "expectation": "при този профил особено важна е дългосрочната последователност — пренастройването на cross-modal interactions изисква поне 9–18 месеца."
+      "expectation": "la acest profil este deosebit de importantă consecvența pe termen lung — reajustarea cross-modal interactions necesită cel puțin 9–18 luni."
      }
     ],
-    "additional": "- Постура: при работа на компютър — екран на нивото на очите, ходила на пода, ушите подравнени над раменете. Микро-почивки на всеки 30–45 минути с леки flexion-extension движения на врата.\n\n- Челюст: ако забелязвате стискане на зъбите през деня — поставете малък напомнящ стикер на компютъра; вечер обмислете oклузална шинa след преглед при стоматолог.\n\n- Прогресивна мускулна релаксация (ПМР): 10-минутна вечерна сесия с фокус върху врата, челюстта и раменете е особено подходяща.\n\n- Слухова среда: избягвайте дълго слушане с in-ear слушалки — те могат да създадат TMJ натоварване при някои хора; предпочитайте open-back или говорители.\n\n- Допълнителни техники: orofacial физиотерапия и при необходимост консултация със стоматолог-специалист по TMD са доказано ефективни като комплемент към звуковата терапия.",
-    "medicalFlags": "- Към орален хирург или специалист по TMD: ако имате болка при отваряне на устата, щракане в челюстната става, ограничено отваряне (<35 mm), или сутрешно главоболие в слепоочията — възможна е темпоромандибуларна дисфункция.\n\n- Към физиотерапевт (специалност шиен отдел): ако забелязвате болка в шията, ограничена ротация, или връзка между шийни движения и интензитета на тинитуса.\n\n- Към УНГ: ако модулацията не се ограничава до врата/челюстта и тинитусът става пулсиращ, или ако се появят епизоди на вертиго.",
+    "additional": "- Postură: la munca la computer — ecran la nivelul ochilor, tălpile pe podea, urechile aliniate deasupra umerilor. Micro-pauze la fiecare 30–45 de minute cu mișcări ușoare de flexion-extension ale gâtului.\n\n- Maxilar: dacă observați încleștarea dinților în timpul zilei — puneți un mic autocolant de reamintire pe computer; seara luați în considerare o gutieră ocluzală după un consult la stomatolog.\n\n- Relaxarea musculară progresivă (RMP): o sesiune de seară de 10 minute cu accent pe gât, maxilar și umeri este deosebit de potrivită.\n\n- Mediu auditiv: evitați ascultarea îndelungată cu căști in-ear — acestea pot crea o solicitare TMJ la unele persoane; preferați open-back sau difuzoare.\n\n- Tehnici suplimentare: fizioterapia orofacială și, dacă este necesar, o consultație cu un stomatolog specializat în TMD sunt dovedite eficiente ca un complement la terapia sonoră.",
+    "medicalFlags": "- La un chirurg oral sau un specialist în TMD: dacă aveți durere la deschiderea gurii, clicuri în articulația maxilară, o deschidere limitată (<35 mm) sau dureri de cap matinale în tâmple — este posibilă o disfuncție temporomandibulară.\n\n- La un fizioterapeut (specializat pe regiunea cervicală): dacă observați durere în gât, rotație limitată sau o legătură între mișcările cervicale și intensitatea tinitusului.\n\n- La medicul ORL: dacă modularea nu se limitează la gât/maxilar și tinitusul devine pulsatil sau dacă apar episoade de vertij.",
     "reasons": {
-     "meditation": "Водени сесии за намаляване на физическо напрежение",
-     "relaxation": "Динамични природни звуци срещу циклите"
+     "meditation": "Sesiuni ghidate pentru reducerea tensiunii fizice",
+     "relaxation": "Sunete naturale dinamice împotriva ciclurilor"
     }
    },
    "HB_M": {
-    "shortName": "Адаптиран / Лек",
-    "fullName": "Адаптиран / Лек",
+    "shortName": "Adaptat / Ușor",
+    "fullName": "Adaptat / Ușor",
     "description": "Профил \"Адаптиран / Лек\". Подробно описание скоро ще бъде добавено в това приложение.",
     "expectations": "Așteptările detaliate pentru acest profil vor fi adăugate în curând.",
     "meaning": "Вие имате тинитус, но той Ви безпокои предимно в условия на абсолютна тишина и не оказва съществено влияние върху ежедневните Ви задачи, концентрация, сън или настроение. Вашата нервна система вече е изградила висока степен на естествена хабитуация — мозъкът Ви до голяма степен филтрира фантомния сигнал като маловажен фон.\n\nВ клиничен модел това състояние отразява запазен инхибиторен контрол в централните слухови пътища и адекватно функциониране на лимбичните оценъчни структури — те не приписват \"заплаха\" на сигнала.\n\nЦелта на звуковата терапия при този профил не е активно потискане на тинитуса (тъй като той не Ви натоварва), а превенция — поддържане на лек звуков фон, който предотвратява засилване на сетивния контраст в моментите на абсолютна тишина.",
@@ -2261,8 +2261,8 @@
     "description": "Профил, съответстващ на тинитус с променлива сила и честота, често проявяващ се на цикли или силно свързан с физическо напрежение във врата и челюстта. Използват се силно динамични и непериодични природни среди, като океански приливи и отливи, които ангажират слуховия апарат без риск от привикване към статичен сигнал."
    },
    "HB_M": {
-    "shortName": "Адаптиран / Лек",
-    "fullName": "Адаптиран / Лек",
+    "shortName": "Adaptat / Ușor",
+    "fullName": "Adaptat / Ușor",
     "description": "Този профил показва високо ниво на естествено привикване. Шумът се чува предимно в условия на абсолютна тишина и няма съществено влияние върху качеството на живот. Акустичната препоръка цели единствено обогатяване на тихата среда с минимални природни звуци за дългосрочно предотвратяване на сензорния контраст."
    }
   },
