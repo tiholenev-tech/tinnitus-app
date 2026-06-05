@@ -1,53 +1,56 @@
 <?php
-/**
- * AURALIS — всички статии, групирани по раздели. Светъл Bichromatic.
- */
+/** AURALIS — всички статии, групирани по раздели. Дизайн: auralis.css. */
 require __DIR__ . '/../inc/site.php';
-$CANON = $SITE_URL . '/articles/';
-?><!DOCTYPE html>
-<html lang="bg" data-theme="light">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#e0e5ec">
-<title>Статии за шум в ушите (тинитус) — AURALIS</title>
-<meta name="description" content="Ясни, проверени статии за тинитус: причини, звукова терапия, сън и как да намалите тревожността около шума. Подредени по теми.">
-<link rel="canonical" href="<?= $CANON ?>">
-<meta name="robots" content="index,follow">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Статии за шум в ушите (тинитус) — AURALIS">
-<meta property="og:url" content="<?= $CANON ?>">
-<meta property="og:image" content="<?= $SITE_URL ?>/app-icons/icon-512.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/app-icons/icon-192.png">
-<?php site_head_assets(); ?>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"CollectionPage","name":"Статии за шум в ушите (тинитус)","url":"<?= $CANON ?>","inLanguage":"bg","isPartOf":{"@type":"WebSite","name":"AURALIS","url":"<?= $SITE_URL ?>/"}}
-</script>
-</head>
-<body>
-<?php site_nav('articles'); ?>
-<div class="wrap">
-  <main>
-    <nav class="crumb"><a href="/lp/">Начало</a> · Статии</nav>
-    <h1>Статии за шум в ушите</h1>
-    <p class="lead">Ясно и проверено — причини, звукова терапия, сън и как да намалите тревожността около шума. Подредени по теми.</p>
+$URL = $SITE_URL . '/articles/';
+$TITLE = 'Всички статии за шум в ушите (тинитус) — AURALIS';
+$DESC  = 'Спокоен справочник за тинитус: причини, звукова терапия, сън и как да намалите тревожността. Подредени по теми.';
+$JSONLD = '{"@context":"https://schema.org","@type":"CollectionPage","name":"Всички статии за шум в ушите","url":"' . $URL . '","inLanguage":"bg","isPartOf":{"@type":"WebSite","name":"AURALIS","url":"' . $SITE_URL . '/"}}';
+auralis_head(['title' => $TITLE, 'desc' => $DESC, 'url' => $URL, 'jsonld' => $JSONLD]);
+auralis_masthead('articles');
+?>
+<main id="main">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Път"><a href="/lp/">Начало</a><span aria-hidden="true">›</span><b>Всички статии</b></nav>
+    <header class="pagehead">
+      <div class="pagehead__icon"><?= site_icon('list', 38, 1.6) ?></div>
+      <h1>Всички статии</h1>
+      <p class="lead">Спокоен справочник за шума в ушите — причини, звукова терапия, сън и спокойствие. Подредени по теми.</p>
+    </header>
 
     <?php foreach ($SECTIONS as $slug => $s): $items = site_articles_in($slug); if (!$items) continue; ?>
-    <section class="home-block" style="margin-top:26px;">
-      <div class="home-block__h" style="text-align:left;display:flex;align-items:center;gap:9px;">
-        <span style="color:var(--accent);display:inline-flex;"><?= site_icon($s['icon']) ?></span>
-        <a href="/temi/<?= $slug ?>/" style="color:var(--accent);text-decoration:none;"><?= htmlspecialchars($s['title']) ?> →</a>
-      </div>
-      <?php foreach ($items as $a): ?>
-      <a class="acard" href="/articles/<?= htmlspecialchars($a['slug']) ?>.php">
-        <h2><?= htmlspecialchars($a['title']) ?></h2>
-        <p><?= htmlspecialchars($a['desc']) ?></p>
+    <div class="hubgroup">
+      <a class="hubgroup__head" href="/temi/<?= $slug ?>/">
+        <span class="hubgroup__icon"><?= site_icon($s['icon'], 24, 1.6) ?></span>
+        <h2><?= htmlspecialchars($s['title']) ?> →</h2>
       </a>
-      <?php endforeach; ?>
-    </section>
+      <div class="articles">
+        <?php foreach ($items as $a): ?>
+        <a class="article article--row reveal" href="/articles/<?= htmlspecialchars($a['slug']) ?>.php">
+          <div>
+            <div class="article__tag"><?= htmlspecialchars($a['tag']) ?></div>
+            <h3><?= htmlspecialchars($a['title']) ?></h3>
+            <p><?= htmlspecialchars($a['desc']) ?></p>
+            <span class="article__meta">Обновено юни 2026 · <?= htmlspecialchars($a['reading']) ?> четене</span>
+          </div>
+          <span class="article__more">Чети →</span>
+        </a>
+        <?php endforeach; ?>
+      </div>
+    </div>
     <?php endforeach; ?>
-  </main>
-</div>
-<?php site_footer(); ?>
-</body>
-</html>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="card ctabox">
+        <p class="eyebrow">Готови за по-тиха вечер?</p>
+        <h2>Дайте на ушите си почивка</h2>
+        <p>Намерете тона си тази вечер и оставете AURALIS да поеме останалото.</p>
+        <a class="btn btn--primary btn--lg" href="/lp/#test">Пробвайте теста</a>
+      </div>
+    </div>
+  </section>
+</main>
+<?php
+auralis_footer();
+auralis_foot();

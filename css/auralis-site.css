@@ -1,0 +1,58 @@
+/* ============================================================
+   AURALIS · site additions — стъпва върху auralis.css (дословен).
+   Тук държим само нашите неща: бранд (shimmer вариант), no-JS
+   защита за reveal, активно състояние на звуковите бутони, дребни.
+   ============================================================ */
+
+/* ---------- Бранд (нашия вариант: shimmer wordmark) ---------- */
+.brand { display:flex; flex-direction:column; gap:1px; line-height:1.05; text-decoration:none; }
+.brand__mark { display:inline-flex; align-items:baseline; font-size:21px; letter-spacing:-0.01em; }
+.header-brand { display:inline-flex; align-items:baseline; font-weight:900; }
+.header-brand .brand-1 {
+  font-weight:900;
+  background:linear-gradient(90deg,#4F46E5,#7C3AED,#22B8CF,#7C3AED,#4F46E5);
+  background-size:200% auto;
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+  animation:auralisShimmer 4.5s linear infinite;
+  will-change:background-position;
+}
+.header-brand .brand-2 { font-weight:600; color:var(--violet); }
+.brand__tld { font-family:var(--font-mono); font-size:13px; font-weight:500; color:var(--faint); margin-left:1px; }
+.footer__brand .brand__mark { font-size:19px; }
+@keyframes auralisShimmer { to { background-position:200% center; } }
+@media (prefers-reduced-motion: reduce) { .header-brand .brand-1 { animation:none; } }
+
+/* ---------- No-JS защита: reveal съдържанието е видимо без JS ----------
+   auralis.css крие .reveal (opacity:0). Показваме всичко, ако няма JS,
+   за да не скрием съдържание от crawler/без-JS (SEO/прогресивно подобрение). */
+html:not(.js) .reveal { opacity:1 !important; transform:none !important; }
+
+/* ---------- Активно (свири) състояние на звуковите бутони ---------- */
+.btn[data-sound][data-playing="true"] {
+  box-shadow:var(--concave-sm);
+  filter:none;
+}
+.btn--primary[data-sound][data-playing="true"] {
+  background:var(--bg);
+  color:var(--indigo);
+  box-shadow:var(--concave-sm);
+}
+
+/* ---------- Слушалки подсказка ---------- */
+.headphones {
+  display:flex; align-items:center; gap:10px; justify-content:center;
+  margin:0 auto 18px; padding:10px 16px; max-width:max-content;
+  border-radius:var(--r-pill); background:var(--bg); box-shadow:var(--concave-sm);
+  font-size:12.5px; color:var(--muted);
+}
+.headphones svg { color:var(--indigo); flex:0 0 auto; }
+
+/* ---------- Достъпност: видим фокус пръстен ---------- */
+:focus-visible { outline:2px solid var(--indigo); outline-offset:3px; border-radius:6px; }
+.btn:focus-visible, .pill:focus-visible { outline-offset:4px; }
+
+/* ---------- Skip link ---------- */
+.skip { position:absolute; left:-9999px; top:0; background:var(--bg); color:var(--indigo);
+  padding:12px 18px; border-radius:0 0 var(--r-sm) 0; box-shadow:var(--convex-sm); z-index:100; font-weight:700; }
+.skip:focus { left:0; }
