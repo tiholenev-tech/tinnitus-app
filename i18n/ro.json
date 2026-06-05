@@ -2206,70 +2206,70 @@
      "a": "0 – 2 (stres minim)",
      "b": "3 – 5 (stres ușor până la moderat)",
      "c": "6 – 8 (stres puternic)",
-     "d": "9 – 10 (непоносим стрес)"
+     "d": "9 – 10 (stres insuportabil)"
     }
    },
    "q13": {
-    "text": "Какво сте опитвали досега?",
+    "text": "Ce ați încercat până acum?",
     "options": {
-     "a": "Лекарства",
-     "b": "Слухови апарати",
+     "a": "Medicamente",
+     "b": "Aparate auditive",
      "c": "Terapie sonoră",
      "d": "Meditație",
-     "e": "Нищо още"
+     "e": "Nimic încă"
     }
    },
    "q14": {
-    "text": "Какво Ви помага най-много?",
+    "text": "Ce vă ajută cel mai mult?",
     "options": {
-     "a": "Тишина",
-     "b": "Слаб шум",
-     "c": "Силен шум",
-     "d": "Природа",
-     "e": "Нищо не помага"
+     "a": "Liniștea",
+     "b": "Zgomot slab",
+     "c": "Zgomot puternic",
+     "d": "Natura",
+     "e": "Nimic nu ajută"
     }
    },
    "q15": {
-    "text": "Какво очаквате от приложението?",
+    "text": "Ce așteptați de la aplicație?",
     "options": {
-     "a": "По-добър сън",
-     "b": "Маскиране на шума",
-     "c": "По-малко стрес",
-     "d": "Дълготрайна промяна"
+     "a": "Un somn mai bun",
+     "b": "Mascarea zgomotului",
+     "c": "Mai puțin stres",
+     "d": "O schimbare de durată"
     }
    }
   },
   "profiles": {
    "TH_C": {
     "shortName": "Tonal de înaltă frecvență",
-    "fullName": "Тонален високочестотен / Когнитивен",
-    "description": "Този профил включва субективно усещане за висок, пищящ и тонален тинитус, който оказва сериозно влияние върху когнитивните процеси и ежедневната концентрация. При него се препоръчват високочестотни звуци като филтриран дъжд и балансиран розов шум, настроени близо до точката на смесване, за да улеснят хабитуацията на ниво мозъчна кора."
+    "fullName": "Tonal de înaltă frecvență / Cognitiv",
+    "description": "Acest profil include o senzație subiectivă de tinitus înalt, țiuitor și tonal, care are un impact serios asupra proceselor cognitive și a concentrării zilnice. La el se recomandă sunete de înaltă frecvență precum ploaia filtrată și zgomotul roz echilibrat, reglate aproape de punctul de amestec, pentru a facilita habituarea la nivelul cortexului cerebral."
    },
    "DN_S": {
     "shortName": "De zgomot, joasă frecvență",
     "fullName": "De zgomot, joasă frecvență / Somn",
-    "description": "Профил, дефиниран от наличието на плътни, нискочестотни звуци и сериозни проблеми със заспиването или поддържането на съня. При него водещи са по-дълбоките акустични среди (кафяв шум, плътни водопади), които силно маскират субективното бучене и успокояват ума вечер, подпомагайки плавния и здравословен преход към сън."
+    "description": "Un profil definit de prezența unor sunete dense, de joasă frecvență, și de probleme serioase cu adormirea sau menținerea somnului. La el sunt principale mediile acustice mai profunde (zgomot maro, cascade dense), care maschează puternic bubuitul subiectiv și liniștesc mintea seara, susținând tranziția lină și sănătoasă către somn."
    },
    "SS_R": {
     "shortName": "Sensibil la stres",
     "fullName": "Sensibil la stres / Reactiv",
-    "description": "При този профил възприятието на тинитус е силно свързано с активността на вегетативната нервна система и лимбичната структура. Дори леки звукови дразнители или ежедневен стрес засилват усещането за шум. Акустичният отговор изисква зелен шум за облекчение и изключително нежни природни блендове за намаляване на кортикалната възбудимост."
+    "description": "La acest profil, percepția tinitusului este strâns legată de activitatea sistemului nervos vegetativ și de structura limbică. Chiar și stimuli sonori ușori sau stresul cotidian intensifică senzația de zgomot. Răspunsul acustic necesită zgomot verde pentru ușurare și blenduri naturale extrem de blânde pentru a reduce excitabilitatea corticală."
    },
    "SM_F": {
     "shortName": "Somatic / Fluctuant",
     "fullName": "Somatic / Fluctuant",
-    "description": "Профил, съответстващ на тинитус с променлива сила и честота, често проявяващ се на цикли или силно свързан с физическо напрежение във врата и челюстта. Използват се силно динамични и непериодични природни среди, като океански приливи и отливи, които ангажират слуховия апарат без риск от привикване към статичен сигнал."
+    "description": "Un profil corespunzător unui tinitus cu intensitate și frecvență variabile, care se manifestă adesea în cicluri sau este strâns legat de tensiunea fizică din gât și maxilar. Se folosesc medii naturale puternic dinamice și neperiodice, precum fluxul și refluxul oceanic, care angajează aparatul auditiv fără riscul obișnuirii cu un semnal static."
    },
    "HB_M": {
     "shortName": "Adaptat / Ușor",
     "fullName": "Adaptat / Ușor",
-    "description": "Този профил показва високо ниво на естествено привикване. Шумът се чува предимно в условия на абсолютна тишина и няма съществено влияние върху качеството на живот. Акустичната препоръка цели единствено обогатяване на тихата среда с минимални природни звуци за дългосрочно предотвратяване на сензорния контраст."
+    "description": "Acest profil indică un nivel ridicat de obișnuire naturală. Zgomotul se aude în principal în condiții de liniște absolută și nu are un impact semnificativ asupra calității vieții. Recomandarea acustică urmărește exclusiv îmbogățirea mediului liniștit cu sunete naturale minime, pentru prevenirea pe termen lung a contrastului senzorial."
    }
   },
   "diLevels": {
-   "low": "Лек",
-   "medium": "Умерен",
-   "high": "Тежък"
+   "low": "Ușor",
+   "medium": "Moderat",
+   "high": "Sever"
   },
   "intensity": {
    "low": "Изключително тих, едва доловим фон",
