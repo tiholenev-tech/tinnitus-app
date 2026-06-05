@@ -618,148 +618,148 @@
    "edge": {
     "nightHintTitle": "Nu reușiți să adormiți?",
     "nightHintBody": "Este un moment frecvent în cazul tinitusului. Puteți completa jurnalul acum sau, în schimb, puteți alege o sesiune sonoră liniștită.",
-    "confirmAllMaxTitle": "Точно ли е?",
-    "confirmAllMaxBody": "Отбелязахте най-високата стойност на всички въпроси. Сигурни ли сте, че така са били усещанията Ви днес?",
-    "confirmYes": "Да, запиши",
-    "confirmFix": "Поправи",
-    "resumeDraftTitle": "Имате незавършен запис",
-    "resumeDraftBody": "Желаете ли да продължите от там, където спряхте?",
-    "resumeYes": "Продължи",
+    "confirmAllMaxTitle": "Este corect?",
+    "confirmAllMaxBody": "Ați marcat valoarea maximă la toate întrebările. Sigur acestea au fost senzațiile dvs. astăzi?",
+    "confirmYes": "Da, salvează",
+    "confirmFix": "Corectează",
+    "resumeDraftTitle": "Aveți o înregistrare neterminată",
+    "resumeDraftBody": "Doriți să continuați de unde ați rămas?",
+    "resumeYes": "Continuă",
     "resumeStartOver": "Începe de la capăt",
-    "highDistress3d": "През последните 3 дни сте отчели висок дистрес. AURALIS е wellness инструмент, не медицински. Ако се чувствате претоварен, можете да обмислите консултация със специалист.",
-    "multiEntryHint": "Виждаме, че днес попълвате и сутрешния, и вечерния запис заедно. Това е окей. Обикновено вечерният се прави след 20:00.",
-    "saveDraftFailed": "Не успяхме да запазим автоматично. Натиснете „Запиши\" преди да затворите."
+    "highDistress3d": "În ultimele 3 zile ați raportat un nivel ridicat de stres. AURALIS este un instrument de wellness, nu unul medical. Dacă vă simțiți copleșit, puteți lua în considerare o consultație cu un specialist.",
+    "multiEntryHint": "Observăm că astăzi completați împreună atât înregistrarea de dimineață, cât și cea de seară. Este în regulă. De obicei, cea de seară se face după ora 20:00.",
+    "saveDraftFailed": "Nu am putut salva automat. Apăsați „Salvează\" înainte de a închide."
    }
   }
  },
  "science": {
-  "title": "Научна основа",
-  "subtitle": "AURALIS — защо работи",
-  "openLabel": "Научна основа",
-  "closeAria": "Затвори научната основа",
-  "pillsAria": "Секции",
+  "title": "Bază științifică",
+  "subtitle": "AURALIS — de ce funcționează",
+  "openLabel": "Bază științifică",
+  "closeAria": "Închide baza științifică",
+  "pillsAria": "Secțiuni",
   "pills": {
-   "s1": "Общо",
+   "s1": "General",
    "s2": "THI",
    "s3": "Pitch",
    "s4": "Notch ★",
-   "s5": "Звук",
-   "s6": "Безопасност",
+   "s5": "Sunet",
+   "s6": "Siguranță",
    "s7": "Surse"
   },
   "s1": {
-   "title": "Защо AURALIS работи",
-   "subtitle": "Научна основа на терапията",
-   "intro": "AURALIS е дигитално приложение за управление на хроничен субективен тинитус. Не е лекарство. Не замества медицински преглед. Но методите вътре са базирани на 14 рандомизирани клинични изпитвания (RCT) и одобрени от FDA устройства.",
-   "doTitle": "Какво правим:",
-   "do1": "Измерваме тежестта на тинитуса Ви с THI — клинично валидирана скала от 1996.",
-   "do2": "Намираме точната Ви тинитус честота с pitch matching тест (двоично търсене).",
-   "do3": "Премахваме точно тази честота от всичките терапевтични звуци — нарича се „Notched Sound Therapy\".",
-   "do4": "Слушате тези звуци по 30–60 минути на ден.",
-   "expectTitle": "Какво очаквате:",
-   "stat1": "−8.6 точки THI",
-   "stat1Label": "На 3-тия месец (14-RCT meta-analysis)",
-   "stat2": "−24.6 точки THI",
-   "stat2Label": "На 6-тия месец (същата meta-analysis)",
-   "stat3": "−28 точки THI",
-   "stat3Label": "Lenire FDA-одобрено устройство, 12 седмици (real-world 2025–2026)",
-   "ctaSources": "Виж научните източници"
+   "title": "De ce funcționează AURALIS",
+   "subtitle": "Baza științifică a terapiei",
+   "intro": "AURALIS este o aplicație digitală pentru gestionarea tinitusului subiectiv cronic. Nu este un medicament. Nu înlocuiește un consult medical. Dar metodele din interior se bazează pe 14 studii clinice randomizate (RCT) și pe dispozitive aprobate de FDA.",
+   "doTitle": "Ce facem:",
+   "do1": "Măsurăm severitatea tinitusului dvs. cu THI — o scală validată clinic din 1996.",
+   "do2": "Găsim frecvența exactă a tinitusului dvs. cu un test de pitch matching (căutare binară).",
+   "do3": "Eliminăm exact această frecvență din toate sunetele terapeutice — se numește „Notched Sound Therapy\".",
+   "do4": "Ascultați aceste sunete 30–60 de minute pe zi.",
+   "expectTitle": "La ce să vă așteptați:",
+   "stat1": "−8.6 puncte THI",
+   "stat1Label": "În luna a 3-a (meta-analiză a 14 RCT)",
+   "stat2": "−24.6 puncte THI",
+   "stat2Label": "În luna a 6-a (aceeași meta-analiză)",
+   "stat3": "−28 puncte THI",
+   "stat3Label": "Lenire dispozitiv aprobat de FDA, 12 săptămâni (real-world 2025–2026)",
+   "ctaSources": "Vezi sursele științifice"
   },
   "s2": {
-   "title": "THI: какво мерим",
+   "title": "THI: ce măsurăm",
    "subtitle": "Tinnitus Handicap Inventory (Newman et al., 1996)",
    "paragraphs": [
-    "Tinnitus Handicap Inventory (THI) е създаден през 1996 г. от Newman, Jacobson и Spitzer — психометрично валидиран въпросник за оценка на тежестта на тинитуса.",
+    "Tinnitus Handicap Inventory (THI) a fost creat în 1996 de Newman, Jacobson și Spitzer — un chestionar validat psihometric pentru evaluarea severității tinitusului.",
     {
      "type": "h3",
-     "text": "25 въпроса, разделени в 3 категории:"
+     "text": "25 de întrebări, împărțite în 3 categorii:"
     },
     {
      "type": "list",
      "items": [
-      "Функционални (11 въпр.): концентрация, сън, работа",
-      "Емоционални (9 въпр.): тревожност, гняв, фрустрация",
-      "Катастрофизиращи (5 въпр.): чувство за безнадеждност"
+      "Funcționale (11 întreb.): concentrare, somn, muncă",
+      "Emoționale (9 întreb.): anxietate, furie, frustrare",
+      "Catastrofice (5 întreb.): sentiment de deznădejde"
      ]
     },
-    "Точки: Да = 4, Понякога = 2, Не = 0. Общ резултат: 0–100.",
+    "Puncte: Da = 4, Uneori = 2, Nu = 0. Scor total: 0–100.",
     {
      "type": "h3",
-     "text": "Класификация (British Association of Otolaryngologists):"
+     "text": "Clasificare (British Association of Otolaryngologists):"
     },
     {
      "type": "list",
      "items": [
-      "0–16: Слабо",
-      "18–36: Леко",
-      "38–56: Умерено",
-      "58–76: Тежко",
-      "78–100: Катастрофично"
+      "0–16: Neglijabil",
+      "18–36: Ușor",
+      "38–56: Moderat",
+      "58–76: Sever",
+      "78–100: Catastrofic"
      ]
     },
     {
      "type": "note",
-     "text": "Клинично значимо подобрение (MCID): минимум 7 точки спад. Това е установеният праг за реална промяна."
+     "text": "Îmbunătățire semnificativă clinic (MCID): scădere de minimum 7 puncte. Acesta este pragul stabilit pentru o schimbare reală."
     },
-    "Защо го правим: измерване ПРЕДИ терапия + ПОВТАРЯНЕ след 14 дни — за да виждате обективен прогрес, не само субективно усещане."
+    "De ce o facem: măsurare ÎNAINTE de terapie + REPETARE după 14 zile — pentru a vedea un progres obiectiv, nu doar o senzație subiectivă."
    ]
   },
   "s3": {
    "title": "Pitch Matching",
-   "subtitle": "Намиране на Вашата тинитус честота",
+   "subtitle": "Găsirea frecvenței tinitusului dvs.",
    "paragraphs": [
-    "Тинитусът има „тон\" — една или няколко основни честоти. За повечето хора с тонален тинитус това е между 1000 и 12000 Hz (обикновено в средно-високите честоти).",
+    "Tinitusul are un „ton\" — una sau câteva frecvențe principale. Pentru majoritatea persoanelor cu tinitus tonal, acesta este între 1000 și 12000 Hz (de obicei în frecvențele medii-înalte).",
     {
      "type": "h3",
-     "text": "Нашият метод: 2AFC binary search"
+     "text": "Metoda noastră: 2AFC binary search"
     },
-    "Two-Alternative Forced Choice — стандартен психофизичен метод за определяне на прагови честоти.",
+    "Two-Alternative Forced Choice — metodă psihofizică standard pentru determinarea frecvențelor de prag.",
     {
      "type": "h3",
-     "text": "Как работи:"
+     "text": "Cum funcționează:"
     },
     {
      "type": "ol",
      "items": [
-      "Чувате Тон А и Тон Б (две различни честоти).",
-      "Избирате кой е по-близо до Вашия тинитус.",
-      "Системата стеснява диапазона по двоична логика.",
-      "След 3–4 итерации намираме честотата с точност ±1/4 octave."
+      "Auziți Tonul A și Tonul B (două frecvențe diferite).",
+      "Alegeți care este mai aproape de tinitusul dvs.",
+      "Sistemul restrânge intervalul după o logică binară.",
+      "După 3–4 iterații găsim frecvența cu o precizie de ±1/4 octavă."
      ]
     },
     {
      "type": "note",
-     "text": "Защо binary search: log₂(12 възможни честоти) ≈ 3–4 итерации. Минимум tap-ове, максимум точност."
+     "text": "De ce binary search: log₂(12 frecvențe posibile) ≈ 3–4 iterații. Minimum de atingeri, maximum de precizie."
     }
    ]
   },
   "s4": {
    "title": "Notched Therapy",
-   "subtitle": "Терапевтичното сърце на AURALIS",
+   "subtitle": "Inima terapeutică a AURALIS",
    "paragraphs": [
     {
      "type": "h3",
-     "text": "Принцип"
+     "text": "Principiu"
     },
-    "При продължително слушане на звук с премахната Ваша тинитус честота, мозъкът прави „re-mapping\" на слуховия кортекс. Невроните, отговорни за phantom тон, постепенно намаляват активността си.",
+    "La ascultarea prelungită a unui sunet din care a fost eliminată frecvența tinitusului dvs., creierul realizează un „re-mapping\" al cortexului auditiv. Neuronii responsabili de tonul phantom își reduc treptat activitatea.",
     {
      "type": "h3",
-     "text": "Технически"
+     "text": "Tehnic"
     },
     {
      "type": "list",
      "items": [
-      "Notch филтър (Web Audio BiquadFilterNode тип „notch\")",
-      "Q фактор = 2.871 (стандарт за 1/2 octave bandwidth)",
-      "Центриран точно на Вашата pitch честота"
+      "Filtru notch (Web Audio BiquadFilterNode tip „notch\")",
+      "Factor Q = 2.871 (standard pentru 1/2 octave bandwidth)",
+      "Centrat exact pe frecvența dvs. de pitch"
      ]
     },
     {
      "type": "h3",
-     "text": "Валидиран в:"
+     "text": "Validat în:"
     },
-    "Pantev et al. (2012) — „Tailor-made notched music training for tinnitus\", Frontiers in Systems Neuroscience. Първото RCT, показало значимо намаление при 6 месеца ежедневно слушане.",
-    "Stein et al. (2015) — Repeated follow-up. Потвърждава дългосрочни ефекти.",
+    "Pantev et al. (2012) — „Tailor-made notched music training for tinnitus\", Frontiers in Systems Neuroscience. Primul RCT care a arătat o reducere semnificativă după 6 luni de ascultare zilnică.",
+    "Stein et al. (2015) — Repeated follow-up. Confirmă efecte pe termen lung.",
     {
      "type": "h3",
      "text": "Notched Therapy Meta-analysis (2025):"
@@ -767,194 +767,194 @@
     {
      "type": "list",
      "items": [
-      "14 RCT, общо 793 пациенти",
-      "3 месец: −8.6 THI точки (95% CI)",
-      "6 месец: −24.6 THI точки",
-      "Терапевтичният ефект НАРАСТВА с дългосрочна употреба",
-      "По-добра поносимост от TRT (Tinnitus Retraining Therapy)"
+      "14 RCT, în total 793 de pacienți",
+      "Luna 3: −8.6 puncte THI (95% CI)",
+      "Luna 6: −24.6 puncte THI",
+      "Efectul terapeutic CREȘTE cu utilizarea pe termen lung",
+      "Tolerabilitate mai bună decât TRT (Tinnitus Retraining Therapy)"
      ]
     }
    ]
   },
   "s5": {
-   "title": "Звукова терапия",
-   "subtitle": "256 проби, 10 категории, 2 layer-а",
+   "title": "Terapie sonoră",
+   "subtitle": "256 de mostre, 10 categorii, 2 layere",
    "paragraphs": [
-    "AURALIS използва 256 терапевтични звукови проби, организирани в 10 категории: Океан, Дъжд, Река, Подводен, Вятър, Медитация, Гора, Огън, Околни, Шум.",
+    "AURALIS folosește 256 de mostre sonore terapeutice, organizate în 10 categorii: Ocean, Ploaie, Râu, Subacvatic, Vânt, Meditație, Pădure, Foc, Ambientale, Zgomot.",
     {
      "type": "h3",
-     "text": "Всеки звук:"
+     "text": "Fiecare sunet:"
     },
     {
      "type": "list",
      "items": [
-      "Преминава през notch филтър (премахва Вашата честота)",
-      "Loop-friendly (без crossfade артефакти)",
-      "Нормализиран по LUFS (постоянна сила)"
+      "Trece printr-un filtru notch (elimină frecvența dvs.)",
+      "Loop-friendly (fără artefacte de crossfade)",
+      "Normalizat după LUFS (volum constant)"
      ]
     },
     {
      "type": "h3",
-     "text": "Два слоя:"
+     "text": "Două straturi:"
     },
     {
      "type": "list",
      "items": [
-      "Layer 1 (основен звук): природа, музика, медитация",
-      "Layer 2 (фонов шум): розов или кафяв (генерира се в реално време)"
+      "Layer 1 (sunet principal): natură, muzică, meditație",
+      "Layer 2 (zgomot de fundal): roz sau maro (generat în timp real)"
      ]
     },
-    "Защо двата слоя: розов/кафяв шум осигурява постоянна „маскираща\" основа. Природните звуци дават емоционално приятно преживяване. Комбинацията увеличава compliance (продължителното слушане).",
+    "De ce două straturi: zgomotul roz/maro oferă o bază „de mascare\" constantă. Sunetele naturii oferă o experiență plăcută emoțional. Combinația crește compliance (ascultarea îndelungată).",
     {
      "type": "h3",
-     "text": "Препоръчителна продължителност:"
+     "text": "Durată recomandată:"
     },
     {
      "type": "list",
      "items": [
-      "Минимум 30 минути на ден",
-      "Идеално 60–120 минути",
-      "14 дни въвеждаща програма",
-      "12 седмици пълен курс за измерим резултат"
+      "Minimum 30 de minute pe zi",
+      "Ideal 60–120 de minute",
+      "14 zile program introductiv",
+      "12 săptămâni curs complet pentru un rezultat măsurabil"
      ]
     }
    ]
   },
   "s6": {
-   "title": "Безопасност и поверителност",
-   "subtitle": "Какво остава на телефона Ви",
+   "title": "Siguranță și confidențialitate",
+   "subtitle": "Ce rămâne pe telefonul dvs.",
    "paragraphs": [
     {
      "type": "h3",
-     "text": "Безопасност"
+     "text": "Siguranță"
     },
     {
      "type": "list",
      "items": [
-      "Всички звуци са нормализирани под 70 dB SPL (безопасно ниво)",
-      "Препоръчваме затворени слушалки за чистота",
-      "Спрете слушане ако чувствате неудобство"
+      "Toate sunetele sunt normalizate sub 70 dB SPL (nivel sigur)",
+      "Recomandăm căști închise pentru claritate",
+      "Opriți ascultarea dacă simțiți disconfort"
      ]
     },
     {
      "type": "h3",
-     "text": "Поверителност"
+     "text": "Confidențialitate"
     },
     {
      "type": "list",
      "items": [
-      "Всички Ваши данни остават на устройството Ви (localStorage)",
-      "AURALIS не изпраща нищо към сървъри",
-      "THI отговори, pitch резултати, дневник — само локално"
+      "Toate datele dvs. rămân pe dispozitivul dvs. (localStorage)",
+      "AURALIS nu trimite nimic către servere",
+      "Răspunsuri THI, rezultate pitch, jurnal — doar local"
      ]
     },
     {
      "type": "h3",
-     "text": "Регулаторен статус"
+     "text": "Statut de reglementare"
     },
     {
      "type": "list",
      "items": [
-      "AURALIS е дигитална wellness платформа, не медицинско устройство",
-      "Не замества преглед от УНГ лекар",
-      "За тежки случаи (THI > 78) препоръчваме консултация"
+      "AURALIS este o platformă digitală de wellness, nu un dispozitiv medical",
+      "Nu înlocuiește un consult la medicul ORL",
+      "Pentru cazuri severe (THI > 78) recomandăm o consultație"
      ]
     },
     {
      "type": "note",
-     "text": "При въпроси: tinnitus-app.help/contact"
+     "text": "Pentru întrebări: tinnitus-app.help/contact"
     }
    ]
   },
   "s7": {
-   "title": "Научни източници",
-   "subtitle": "Студии, на които се базира AURALIS"
+   "title": "Surse științifice",
+   "subtitle": "Studii pe care se bazează AURALIS"
   },
   "sources": {
    "src1": {
     "title": "Development of the Tinnitus Handicap Inventory",
-    "contrib": "Създаване на THI скалата — основа на нашата оценка."
+    "contrib": "Crearea scalei THI — baza evaluării noastre."
    },
    "src2": {
     "title": "Tinnitus: the dark side of the auditory cortex plasticity",
-    "contrib": "Доказва невропластичния ефект на notched терапия."
+    "contrib": "Demonstrează efectul neuroplastic al terapiei notched."
    },
    "src3": {
     "title": "Clinical trial on tonal tinnitus with tailor-made notched music training",
-    "contrib": "6-месечно RCT с дълготрайни ефекти."
+    "contrib": "RCT pe 6 luni cu efecte de durată."
    },
    "src4": {
-    "title": "14 RCT, общо 793 пациенти",
-    "contrib": "−24.6 точки THI на 6 месец; ефектът нараства с продължителна употреба."
+    "title": "14 RCT, în total 793 de pacienți",
+    "contrib": "−24.6 puncte THI la 6 luni; efectul crește cu utilizarea prelungită."
    },
    "src5": {
-    "title": "FDA-одобрена бимодална стимулация",
-    "contrib": "−28 точки THI за 12 седмици в real-world practice."
+    "title": "Stimulare bimodală aprobată de FDA",
+    "contrib": "−28 puncte THI în 12 săptămâni în real-world practice."
    },
    "src6": {
-    "title": "THI grading system — 5 категории на тежест",
-    "contrib": "Клиничната класификация Слабо/Леко/Умерено/Тежко/Катастрофично."
+    "title": "THI grading system — 5 categorii de severitate",
+    "contrib": "Clasificarea clinică Neglijabil/Ușor/Moderat/Sever/Catastrofic."
    },
    "src7": {
     "title": "Multicenter, double-blind, n=440",
-    "contrib": "9 месеца проследяване — потвърждава дългосрочни ефекти."
+    "contrib": "9 luni de monitorizare — confirmă efecte pe termen lung."
    }
   },
   "reminders": {
    "pitch": {
-    "body": "Notch филтър активиран на {freq} Hz. От сега всичките звуци премахват Вашата тинитус честота — клинично доказана терапия (Pantev 2012, Stein 2015).",
-    "cta": "Научи повече"
+    "body": "Filtru notch activat la {freq} Hz. De acum, toate sunetele elimină frecvența tinitusului dvs. — terapie dovedită clinic (Pantev 2012, Stein 2015).",
+    "cta": "Află mai mult"
    },
    "day7": {
-    "title": "Поздравления — половината е зад Вас",
-    "body": "Notched therapy показва ефекти от 3-тия месец и нараства до 6-тия. Продължавайте.",
-    "cta": "Виж научните данни"
+    "title": "Felicitări — jumătatea drumului a rămas în urmă",
+    "body": "Terapia notched arată efecte din luna a 3-a și crește până în a 6-a. Continuați.",
+    "cta": "Vezi datele științifice"
    },
    "day14": {
-    "mcid": "MCID (Minimal Clinically Important Difference) за THI = 7 точки.",
-    "delta": "Вашата промяна: {delta} точки.",
-    "significant": "Това е клинично значимо подобрение.",
-    "partial": "Дайте на терапията време — пълен ефект се вижда от 3-тия до 6-тия месец."
+    "mcid": "MCID (Minimal Clinically Important Difference) pentru THI = 7 puncte.",
+    "delta": "Schimbarea dvs.: {delta} puncte.",
+    "significant": "Aceasta este o îmbunătățire semnificativă clinic.",
+    "partial": "Acordați timp terapiei — efectul complet se vede din luna a 3-a până în a 6-a."
    }
   }
  },
  "voice": {
-  "startAria": "Започни диктовка",
-  "stopAria": "Спри диктовката",
-  "listening": "Слушам…",
+  "startAria": "Începe dictarea",
+  "stopAria": "Oprește dictarea",
+  "listening": "Ascult…",
   "privacy": {
-   "title": "Гласовата диктовка",
-   "body": "При натискане на микрофона, гласът Ви се обработва от браузъра Ви. Браузърът използва безплатна услуга на Google (Chrome) или Apple (Safari), което изисква интернет връзка.\n\nТекстът остава САМО на телефона Ви — AURALIS не пази и не изпраща Вашите записи.\n\nМожете да изключите гласовата диктовка по всяко време чрез настройките на телефона.",
-   "acknowledge": "Разбирам, продължи",
-   "cancel": "Отмени"
+   "title": "Dictarea vocală",
+   "body": "La apăsarea microfonului, vocea dvs. este procesată de browserul dvs. Browserul folosește un serviciu gratuit de la Google (Chrome) sau Apple (Safari), care necesită conexiune la internet.\n\nTextul rămâne DOAR pe telefonul dvs. — AURALIS nu păstrează și nu trimite înregistrările dvs.\n\nPuteți dezactiva dictarea vocală oricând din setările telefonului.",
+   "acknowledge": "Am înțeles, continuă",
+   "cancel": "Anulează"
   },
   "error": {
-   "noSpeech": "Не чух нищо. Опитайте отново.",
-   "mic": "Не намирам микрофон.",
-   "permission": "Разрешете достъп до микрофона в настройките на браузъра.",
-   "offline": "Гласовата диктовка изисква интернет. Опитайте отново когато сте online.",
-   "lang": "Българският не се поддържа от браузъра Ви.",
-   "generic": "Възникна грешка при гласовото въвеждане."
+   "noSpeech": "Nu am auzit nimic. Încercați din nou.",
+   "mic": "Nu găsesc niciun microfon.",
+   "permission": "Permiteți accesul la microfon în setările browserului.",
+   "offline": "Dictarea vocală necesită internet. Încercați din nou când sunteți online.",
+   "lang": "Limba română nu este acceptată de browserul dvs.",
+   "generic": "A apărut o eroare la introducerea vocală."
   },
   "settings": {
-   "section": "Поверителност",
-   "resetPrivacy": "Покажи отново инфото за диктовка",
-   "resetDoneToast": "Готово. При следваща употреба ще видите инфото отново."
+   "section": "Confidențialitate",
+   "resetPrivacy": "Arată din nou informațiile despre dictare",
+   "resetDoneToast": "Gata. La următoarea utilizare veți vedea din nou informațiile."
   },
   "overlay": {
-   "recording": "ЗАПИСВАНЕ",
-   "ready": "ГОТОВО",
-   "hintRecording": "Говорете на български. Спрете и ще видите текста.",
-   "hintReady": "Натиснете „Запиши\" за да добавите, или текста за нов запис.",
-   "hintEmpty": "Не чух нищо. Натиснете текста за нов опит.",
-   "placeholder": "Текстът ще се появи тук…",
+   "recording": "ÎNREGISTRARE",
+   "ready": "GATA",
+   "hintRecording": "Vorbiți în română. Opriți-vă și veți vedea textul.",
+   "hintReady": "Apăsați „Salvează\" pentru a adăuga, sau textul pentru o înregistrare nouă.",
+   "hintEmpty": "Nu am auzit nimic. Apăsați textul pentru o nouă încercare.",
+   "placeholder": "Textul va apărea aici…",
    "save": "Salvează",
-   "cancel": "Отмени",
-   "closeAria": "Затвори диктовката"
+   "cancel": "Anulează",
+   "closeAria": "Închide dictarea"
   }
  },
  "profile_results": {
-  "title": "Вашата оценка",
+  "title": "Evaluarea dvs.",
   "welcomes": {
    "TH_C": "Вие чувате високочестотен, постоянен пищящ или звънящ тон, който се натрапва особено в тиха среда и при умствена работа. Това е чест профил при хора, които са били излагани на високи звуци или забелязват промени в слуха с възрастта — мозъкът компенсира липсващите сигнали със собствена активност. AURALIS ще Ви предложи филтрирани природни звуци и розов шум за маскиране, заедно с кратки CBT практики, които насочват вниманието далеч от пищенето.",
    "DN_S": "Вие чувате плътен, нискочестотен, понякога бучащ или тътнещ шум, който е особено натрапчив вечер и нарушава качеството на Вашия сън. Това е чест профил при хора, които прекарват време в тихи спални — без външен звук мозъкът усилва вътрешния шум. AURALIS ще Ви предложи дълбоки кафяви звуци, които смесват тинитуса с фон, без да го заглушават напълно — тази стратегия се нарича „точка на смесване\" и помага за по-добър сън без внезапна тишина.",
@@ -962,62 +962,62 @@
    "SM_F": "Вашият тинитус има променлив характер — силата му се променя през деня, понякога значително, и често е свързан с физическо напрежение във врата, челюстта или раменете. Това е соматичен тип тинитус: мускулите около ухото и тригеминалният нерв могат да модулират шума. AURALIS ще Ви предложи динамични природни звуци като океански вълни (които ангажират мозъка по-силно), упражнение за отпускане на челюстта и нежен масаж — телесните практики имат измерим ефект при този профил.",
    "HB_M": "Вие имате тинитус, но той Ви безпокои предимно в условия на абсолютна тишина и не оказва съществено влияние върху ежедневните Ви задачи, концентрация, сън или настроение. Вашата нервна система вече е изградила висока степен на естествена адаптация — мозъкът Ви до голяма степен филтрира фантомния сигнал като маловажен фон. AURALIS ще Ви предложи ултра-меки природни звуци за моментите на пълна тишина и насоки как да поддържате тази устойчивост и в стресови периоди."
   },
-  "welcomeAria": "Персонално приветствие за профил {code}",
+  "welcomeAria": "Salut personalizat pentru profilul {code}",
   "code": {
-   "label": "Код на профил"
+   "label": "Cod de profil"
   },
   "di": {
-   "label": "DI скор",
-   "low": "Слаб интензитет",
-   "medium": "Умерен интензитет",
-   "high": "Висок интензитет"
+   "label": "Scor DI",
+   "low": "Intensitate scăzută",
+   "medium": "Intensitate moderată",
+   "high": "Intensitate ridicată"
   },
   "sections": {
-   "meaning": "Какво означава за вас",
-   "why": "Защо имате този тип",
-   "strategy": "Препоръчителна стратегия",
-   "recommended": "Препоръчителни режими",
-   "topSounds": "Топ препоръчителни звуци",
-   "timeline": "Очаквания във времето",
-   "additional": "Допълнителни препоръки",
-   "medical": "Кога към лекар"
+   "meaning": "Ce înseamnă pentru dvs.",
+   "why": "De ce aveți acest tip",
+   "strategy": "Strategie recomandată",
+   "recommended": "Moduri recomandate",
+   "topSounds": "Top sunete recomandate",
+   "timeline": "Așteptări în timp",
+   "additional": "Recomandări suplimentare",
+   "medical": "Când să mergeți la medic"
   },
   "strategy": {
-   "noiseLabel": "Препоръчителен фонов шум",
-   "mixRatioLabel": "Препоръчително съотношение",
+   "noiseLabel": "Zgomot de fundal recomandat",
+   "mixRatioLabel": "Raport recomandat",
    "mixRatioFmt": "{l1}/{l2}",
-   "durationLabel": "Препоръчителна продължителност",
-   "reasoningLabel": "Защо тази стратегия"
+   "durationLabel": "Durată recomandată",
+   "reasoningLabel": "De ce această strategie"
   },
   "topSounds": {
-   "loading": "Зареждане на препоръки...",
-   "empty": "Препоръките се подготвят...",
-   "viewAll": "Виж всички препоръчителни"
+   "loading": "Se încarcă recomandările...",
+   "empty": "Recomandările se pregătesc...",
+   "viewAll": "Vezi toate recomandările"
   },
   "timeline": {
-   "loading": "Прогнозата се подготвя..."
+   "loading": "Prognoza se pregătește..."
   },
-  "placeholder": "Това съдържание се подготвя от научния екип.",
-  "descriptionTitle": "Какво означава това",
+  "placeholder": "Acest conținut este pregătit de echipa științifică.",
+  "descriptionTitle": "Ce înseamnă aceasta",
   "expectationsTitle": "La ce să vă așteptați",
-  "recommendedTitle": "Препоръчителни режими",
-  "recommendedBadge": "За Вас",
+  "recommendedTitle": "Moduri recomandate",
+  "recommendedBadge": "Pentru dvs.",
   "duration": {
-   "title": "Препоръчителна продължителност",
-   "firstTwoWeeks": "Първи 2 седмици",
-   "firstTwoWeeksText": "2–3 часа на ден",
-   "afterTitle": "След това",
-   "afterText": "Цяла нощ (с sleep timer)"
+   "title": "Durată recomandată",
+   "firstTwoWeeks": "Primele 2 săptămâni",
+   "firstTwoWeeksText": "2–3 ore pe zi",
+   "afterTitle": "După aceea",
+   "afterText": "Toată noaptea (cu sleep timer)"
   },
   "disclaimer": {
-   "title": "Важно — научни ограничения",
-   "text": "AURALIS е инструмент за wellness support, не заменя медицинска диагноза или лечение. Препоръките се базират на агрегирани изследвания и общи модели, не на личен медицински преглед. При тежки симптоми или нарастващо влошаване — консултирайте се със специалист (УНГ лекар или аудиолог)."
+   "title": "Important — limitări științifice",
+   "text": "AURALIS este un instrument de wellness support, nu înlocuiește un diagnostic sau un tratament medical. Recomandările se bazează pe studii agregate și modele generale, nu pe un consult medical personal. În caz de simptome severe sau agravare — consultați un specialist (medic ORL sau audiolog)."
   },
-  "continue": "Към звуците",
+  "continue": "Către sunete",
   "profiles": {
    "TH_C": {
-    "shortName": "Тонален висок",
-    "fullName": "Тонален високочестотен",
+    "shortName": "Tonal înalt",
+    "fullName": "Tonal de înaltă frecvență",
     "description": "Профил \"Тонален висок\". Подробно описание скоро ще бъде добавено в това приложение.",
     "expectations": "Подробни очаквания за този профил скоро ще бъдат добавени.",
     "meaning": "Вие чувате високочестотен, постоянен пищящ или звънящ тон, който се натрапва особено в тиха среда и при умствена работа. Този тип тинитус се възприема като еднoтонен звук, концентриран във високия край на чуваемия спектър.\n\nВ клиничния модел това състояние се обяснява чрез \"ефекта на засилване на контраста\": в абсолютна тишина мозъкът насочва максимално когнитивно внимание към вътрешния сигнал, който се превръща в доминиращ — подобно на запалена свещ в тъмна стая.\n\nНа клетъчно ниво се наблюдава отслабване на инхибиторния тонус в централната слухова система — понижена GABA активност и засилена глутаматергична възбуда, което създава абнормна синхронизация в слуховата кора. Висшите когнитивни центрове интерпретират тази синхронизация като устойчив фантомен звук.",
@@ -1029,28 +1029,28 @@
       "expectation": "обикновено се появява първо усещане за \"по-малко натрапчив\" звук в момента на слушане. Веднага след спиране на звука тинитусът се възприема в първоначалната си сила. Това е напълно нормално и не означава, че процесът не работи."
      },
      {
-      "period": "Месец 1",
+      "period": "Luna 1",
       "expectation": "проучвания регистрират средно намаление от около 17.6% по въпросника за здраве при тинитус на четвъртата седмица."
      },
      {
-      "period": "Месец 3",
+      "period": "Luna 3",
       "expectation": "мета-анализ на 14 RCT показва средно подобрение от −8.6 точки по скалата THI на третия месец. MCID (минимално клинично значима разлика) на THI е 7 точки — т.е. на 3 месец много хора пресичат прагa на \"усетима\" промяна."
      },
      {
-      "period": "Месец 6 и след",
+      "period": "Luna 6 și după",
       "expectation": "същият мета-анализ регистрира средно подобрение от −24.6 точки по THI на 6 месец, което е почти 3-кратно над MCID. Минималният терапевтичен прозорец за устойчиво пренастройване е 9–18 месеца."
      }
     ],
     "additional": "- Слуховa среда: предпочитайте отворени говорители или костна проводимост пред затворени слушалки — оклузивният ефект може да усили вътрешния звук.\n\n- Хигиенa на съня: избягвайте абсолютна тишина в спалнята; контраст между тинитуса и тишината е най-силен именно вечер.\n\n- Кофеин и алкохол: ограничете кофеин след 14:00 ч. и алкохол вечер. Кофеинът е централен стимулант, който засилва кортикалната чувствителност; алкохолът променя архитектурата на съня.\n\n- Когнитивна работа: при концентрация използвайте `focus_brown_noise`-стил mix — кафяв шум блокира високочестотния писък без претоварване на средните честоти, важни за реч.\n\n- Допълнителни техники: Когнитивно-поведенческо консултиране (CBT) се препоръчва като комплемент към звуковата терапия — то прекъсва \"когнитивния цикъл на дистрес\".",
     "medicalFlags": "- Незабавно към УНГ: ако тинитусът е едностранен (само в едното ухо), пулсиращ (синхронизиран със сърдечен ритъм), внезапно появил се през последните дни, или съпроводен от рязка загуба на слуха.\n\n- Към одиолог: ако забелязвате влошаване на разбираемостта на речта в шумна среда (ресторант, парти) — възможна е скрита загуба на слуха, която изисква обективен слухов тест.\n\n- Към психолог / психотерапевт: ако тинитусът Ви води до устойчиви мисли от типа \"няма да издържа\" или \"винаги ще е така\" — структуриран CBT курс е доказано ефективен.",
     "reasons": {
-     "sleep_deep": "Дълбоки честоти срещу високия тон преди сън",
-     "relaxation": "Тихи природни звуци за вечерно успокояване"
+     "sleep_deep": "Frecvențe joase împotriva tonului înalt înainte de somn",
+     "relaxation": "Sunete naturale liniștite pentru calmarea de seară"
     }
    },
    "DN_S": {
-    "shortName": "Шумов нискочестотен",
-    "fullName": "Шумов нискочестотен / Сън",
+    "shortName": "De zgomot, joasă frecvență",
+    "fullName": "De zgomot, joasă frecvență / Somn",
     "description": "Профил \"Шумов нискочестотен\". Подробно описание скоро ще бъде добавено в това приложение.",
     "expectations": "Подробни очаквания за този профил скоро ще бъдат добавени.",
     "meaning": "Вие чувате плътен, нискочестотен, понякога бучащ или тътнещ шум, който е особено натрапчив вечер и нарушава качеството на Вашия сън. Вашите оплаквания най-често се концентрират около заспиване и поддържане на съня — събуждания през нощта, чувство за \"недостатъчно почивка\" сутрин.\n\nВ клиничен модел тинитусът и инсомнията формират двупосочен затворен цикъл — всяко състояние подхранва другото. Лимбичната система интерпретира тинитуса като заплаха, активира ХХН-оста (хипоталамус-хипофиза-надбъбречни), което води до повишен кортизол в късния следобед и предсънния период, поддържайки нервната система в хипервъзбудимост.\n\nПолисомнографските проучвания показват, че при този профил архитектурата на съня е тежко нарушена — средно 85% от нощта се прекарва в повърхностни стадии 1–2, а дълбокият бавновълнов сън и REM спадат до ~6.4% (при здрави контроли — 21.5%).",
@@ -1058,32 +1058,32 @@
     "strategyReasoning": "- Препоръчителен носещ звук: дълбок кафяв шум, плътни водопади, планински поток с филтриран розов слой.\n\n- Препоръчителен `recommended_noise` в библиотеката: `brown_lowpass_500` (най-deep) или `brown_pure`.\n\n- Препоръчително съотношение: 0.50/0.50 (равно) до 0.30/0.70 (noise-dominant) при акутно безсъние.\n\n- Препоръчителна продължителност: непрекъснато през целия 8-часов сънен прозорец. Не използвайте sleep таймер — внезапната тишина в средата на нощта моментално задейства амигдалата при първия лек преход между сънните цикли.\n\n- Топ use cases по приоритет: `sleep_deep` → `falling_asleep` → `relaxation` (вечерно сваляне на тонуса).",
     "timeline": [
      {
-      "period": "Нощ 1–7",
+      "period": "Noaptea 1–7",
       "expectation": "обикновено се появява първо леко съкращаване на латентността на заспиване (време от лягането до първия сън). Шумът остава, но контрастът с тишината намалява, което прекъсва верижната реакция \"тинитус → паника → пик на кортизол\"."
      },
      {
-      "period": "Седмица 2–4",
+      "period": "Săptămâna 2–4",
       "expectation": "проучвания регистрират подобрение по THI скалата от около 11.8% (седмица 2) до 17.6% (седмица 4) при последователно прилагане на звукова терапия."
      },
      {
-      "period": "Месец 3–6",
+      "period": "Luna 3–6",
       "expectation": "при последователно прилагане се възстановява част от дълбокия бавновълнов сън — pink/brown noise има потвърден положителен ефект върху SWS (stage 3) консолидация. THI спадане в диапазона −13 до −25 точки."
      },
      {
-      "period": "Месец 6+",
+      "period": "Luna 6+",
       "expectation": "при 6-месечен курс на бимодална + звукова терапия 73.4% от пациенти достигат клинично значимо подобрение по TFI (≥13 точки спад). Минималният терапевтичен прозорец е 9–18 месеца."
      }
     ],
     "additional": "- Хигиена на съня: запазете последователно време за лягане и ставане ±30 минути.\n\n- Сценарий \"събуждане в 3:00 ч.\": ако след 15–20 минути не сте се върнали в съня, плавно станете и отидете в друга стая с пуснат непрекъснат розов шум малко под силата на тинитуса. Извършете 5-минутна сесия на 4-7-8 дишане. Върнете се в леглото когато се появи естествена сънливост.\n\n- Кафе, сол, алкохол: ограничете кофеин след 14:00 ч.; намалете натрий вечер (задържане на течности влошава ниските честоти на тинитуса); избягвайте алкохол като \"приспивателно\" — той фрагментира съня.\n\n- Не използвайте бял шум. При продължително нощно слушане белият шум води до кортикална дедиференциация и парадоксално влошаване — този ефект е известен като \"ефект на кобрата\".\n\n- Допълнителни техники: модифициран CBT-I (когнитивно-поведенческа терапия за инсомния) е златен стандарт. Класическият SCT протокол изисква модификация — никога не оставайте в напълно тиха стая.",
     "medicalFlags": "- Към УНГ: ако тинитусът е едностранен или пулсиращ; ако забелязвате замайвания, вертиго или чувство за пълнота в ухото (възможен болест на Мениер).\n\n- Към сомнолог: ако имате силно хъркане, спирания на дишането през нощта, дневна сънливост — може да е обструктивна сънна апнея, която изисква PSG изследване.\n\n- Към общопрактикуващ: ако приемате диуретици, високи дози NSAID или антибиотици и забелязвате влошаване — някои медикаменти са ототоксични.",
     "reasons": {
-     "relaxation": "Балансирани природни звуци за намаляване на бученето",
-     "daily": "Меки фонови звуци за работа"
+     "relaxation": "Sunete naturale echilibrate pentru reducerea bâzâitului",
+     "daily": "Sunete de fundal blânde pentru muncă"
     }
    },
    "SS_R": {
-    "shortName": "Стрес-чувствителен",
-    "fullName": "Стрес-чувствителен / Реактивен",
+    "shortName": "Sensibil la stres",
+    "fullName": "Sensibil la stres / Reactiv",
     "description": "Профил \"Стрес-чувствителен\". Подробно описание скоро ще бъде добавено в това приложение.",
     "expectations": "Подробни очаквания за този профил скоро ще бъдат добавени.",
     "meaning": "Вашият тинитус е силно свързан със състоянието на нервната Ви система — той се засилва при стрес, тревожност, конфликти и емоционално натоварване, а при спокойствие отслабва. Леки външни звуци или ежедневни събития могат временно да усилят възприятието на вътрешния шум.\n\nТова състояние се медиира от висока лабилност на автономната нервна система и лимбичната структура — амигдалата и предният cingulate отговарят за свръхреактивната оценка на сигнала като \"заплаха\". При типична ситуация мозъкът на хора с устойчив тинитус навлиза в защитен режим, при който вътрешният шум поддържа активна симпатиковата ос.\n\nПри част от хората с този профил се наблюдава реактивен тинитус — вътрешният шум парадоксално се засилва временно в отговор на нови външни звуци. В такъв случай агресивното широколентово маскиране е противопоказано.",
@@ -1091,7 +1091,7 @@
     "strategyReasoning": "- Препоръчителен носещ звук: изключително нежни природни блендове и зелен шум (центриран около средните честоти).\n\n- Препоръчителен `recommended_noise` в библиотеката: зеленият шум засега не е наличен в библиотеката — като временен fallback използваме `brown_lowpass_500` за дълбоко успокоение и нежни meditation треки (`grounded`, `inner_balance`).\n\n- Препоръчително съотношение: при остра тревожност → 0.30/0.70 (noise dominant) за бързо потискане на сетивния контраст; при ежедневно слушане → 0.50/0.50.\n\n- Препоръчителна продължителност: използвайте SOS режим (3–10 мин noise-dominant) при остри пикове; ежедневно фоново слушане 2–4 часа разпределени през деня.\n\n- Топ use cases по приоритет: `anxiety` → `relaxation` → `meditation`.",
     "timeline": [
      {
-      "period": "Първа сесия (минути)",
+      "period": "Prima sesiune (minute)",
       "expectation": "при правилно избран зелен шум или меки природни звуци, повечето хора усещат намаляване на остротата на ситуацията в рамките на 5–15 минути. Това е незабавният anxiolytic ефект на средночестотната звукова обертурата."
      },
      {
@@ -1099,24 +1099,24 @@
       "expectation": "при последователно ежедневно прилагане намалява базовата реактивност — амплитудата на пиковете в стресовия отговор спада."
      },
      {
-      "period": "Месец 1–3",
+      "period": "Luna 1–3",
       "expectation": "очаквайте намаление по емоционалните под-скали на THI/TFI; пълната хабитуация и пренастройване на оценъчния процес изискват по-дълго време."
      },
      {
-      "period": "Месец 6+",
+      "period": "Luna 6+",
       "expectation": "при комбинирана интервенция (звук + структуриран CBT курс) клинично значимо подобрение се постига от мнозинството пациенти."
      }
     ],
     "additional": "- Дихателни техники: 4-7-8 дишане при остри пикове (вдишване 4 сек, задържане 7, издишване 8). Това активира блуждаещия нерв и сваля симпатиковия тонус.\n\n- Информационна хигиена: ограничете социални мрежи и новини в първите 30 минути след събуждане и последните 60 минути преди сън.\n\n- Кофеин: при този профил кофеинът има особено силен ефект — обмислете преминаване към 1 чаша сутрин или decaf.\n\n- Слухова среда: избягвайте слушалки с активно шумоподтискане (active noise cancelling) — при някои хора с реактивен тинитус те усилват възприятието на вътрешния шум поради създаване на абсолютна тишина.\n\n- Допълнителни техники: Терапия за приемане и обвързване (ACT), mindfulness-базирани практики и структуриран CBT курс са особено подходящи за този профил.",
     "medicalFlags": "- Към психиатър или психотерапевт: ако имате персистираща тревожност, панически атаки, обсесивни мисли за тинитуса, или симптоми на депресия в продължение на повече от 2 седмици.\n\n- Към УНГ: ако забелязвате хиперакузис (нормални звуци стават болезнено силни) — необходимо е аудиологично изследване с тимпанометрия и стапедиален рефлекс.\n\n- Към общопрактикуващ: при чести епизоди на сърцебиене, изпотяване, замайване, треперене — за изключване на ендокринни (щитовидна жлеза) или сърдечно-съдови причини, които могат да наподобяват тревожност.",
     "reasons": {
-     "anxiety": "SOS дишане + успокояващи звуци при кризи",
-     "falling_asleep": "Постепенно понижаване на стреса преди сън"
+     "anxiety": "Respirație SOS + sunete liniștitoare în momente de criză",
+     "falling_asleep": "Reducerea treptată a stresului înainte de somn"
     }
    },
    "SM_F": {
-    "shortName": "Соматичен / Флуктуиращ",
-    "fullName": "Соматичен / Флуктуиращ",
+    "shortName": "Somatic / Fluctuant",
+    "fullName": "Somatic / Fluctuant",
     "description": "Профил \"Соматичен / Флуктуиращ\". Подробно описание скоро ще бъде добавено в това приложение.",
     "expectations": "Подробни очаквания за този профил скоро ще бъдат добавени.",
     "meaning": "Вашият тинитус има променлив характер — силата му се променя през деня, понякога значително, и често е свързан с физическо напрежение във врата, челюстта или раменете. Можете да забележите, че при определени движения, позиции на главата или стискане на челюстите шумът се променя — това е \"соматичен модулиращ\" феномен.\n\nТози тип се медиира от взаимовръзка между тригеминалната и соматосензорната система (врат, темпоромандибуларна става) и слуховите пътища. Абнормни сигнали от напрегнати или дисфункционални тъкани (TMD — темпоромандибуларна дисфункция, цервикална дисфункция) се \"пренасочват\" към слуховата кора и модулират фантомния звук.\n\nКлинично проучване на orofacial терапия показва, че намаляването на болката в темпоромандибуларната става обяснява около 35% от спада в индекса TFI при този подтип.",
@@ -1132,11 +1132,11 @@
       "expectation": "клинично проучване с 9-седмичен orofacial курс регистрира средно намаление на TFI с −13.8 точки, докато групата с отложена терапия показва само −5.0 точки. MCID на TFI е 13 точки."
      },
      {
-      "period": "Месец 3–6",
+      "period": "Luna 3–6",
       "expectation": "при последователно прилагане на звук + физиотерапия + ограничаване на bruxism: средни намаления THI в диапазона −8.6 до −24.6 точки."
      },
      {
-      "period": "Месец 6+",
+      "period": "Luna 6+",
       "expectation": "при този профил особено важна е дългосрочната последователност — пренастройването на cross-modal interactions изисква поне 9–18 месеца."
      }
     ],
@@ -1161,7 +1161,7 @@
       "expectation": "при HB_M профила обикновено не очаквайте драматични промени в усещането, защото базовото състояние вече е добро. Целта е поддръжка, не подобрение."
      },
      {
-      "period": "Месец 1–3",
+      "period": "Luna 1–3",
       "expectation": "очаквайте, че по-меките вечери в тишина стават по-приятни. Емоционалната неутралност спрямо тинитуса се запазва или леко се укрепва."
      },
      {
@@ -1207,12 +1207,12 @@
    "definition": "За какво е този режим",
    "whenUsed": "Кога се ползва",
    "whenNotUsed": "Кога НЕ се ползва",
-   "recommendedNoise": "Препоръчителен фонов шум",
-   "mixRatio": "Препоръчително съотношение",
+   "recommendedNoise": "Zgomot de fundal recomandat",
+   "mixRatio": "Raport recomandat",
    "expectedEffect": "Очакван ефект",
-   "safety": "Безопасност",
+   "safety": "Siguranță",
    "faq": "Чести въпроси",
-   "scientificBasis": "Научна основа"
+   "scientificBasis": "Bază științifică"
   },
   "whenUsedLabels": {
    "timeOfDay": "Час от деня",
@@ -1225,7 +1225,7 @@
   },
   "previewCta": "Опитайте сега",
   "closeAria": "Închide",
-  "placeholder": "Това съдържание се подготвя от научния екип.",
+  "placeholder": "Acest conținut este pregătit de echipa științifică.",
   "sleep_deep": {
    "title": "Сън дълбок",
    "subtitle": "Цяла нощ",
@@ -1643,7 +1643,7 @@
    "prev": "Înapoi",
    "next": "Следващ",
    "finish": "Завърши",
-   "continue": "Продължи"
+   "continue": "Continuă"
   },
   "result": {
    "done": "Готово",
@@ -1743,8 +1743,8 @@
   "supportEmail": "support@auralis.app",
   "supportSubject": "AURALIS въпрос",
   "categories": {
-   "safety": "Безопасност",
-   "technical": "Технически",
+   "safety": "Siguranță",
+   "technical": "Tehnic",
    "therapeutic": "Терапевтични",
    "program": "Програма"
   },
@@ -2214,7 +2214,7 @@
     "options": {
      "a": "Лекарства",
      "b": "Слухови апарати",
-     "c": "Звукова терапия",
+     "c": "Terapie sonoră",
      "d": "Meditație",
      "e": "Нищо още"
     }
@@ -2241,23 +2241,23 @@
   },
   "profiles": {
    "TH_C": {
-    "shortName": "Тонален високочестотен",
+    "shortName": "Tonal de înaltă frecvență",
     "fullName": "Тонален високочестотен / Когнитивен",
     "description": "Този профил включва субективно усещане за висок, пищящ и тонален тинитус, който оказва сериозно влияние върху когнитивните процеси и ежедневната концентрация. При него се препоръчват високочестотни звуци като филтриран дъжд и балансиран розов шум, настроени близо до точката на смесване, за да улеснят хабитуацията на ниво мозъчна кора."
    },
    "DN_S": {
-    "shortName": "Шумов нискочестотен",
-    "fullName": "Шумов нискочестотен / Сън",
+    "shortName": "De zgomot, joasă frecvență",
+    "fullName": "De zgomot, joasă frecvență / Somn",
     "description": "Профил, дефиниран от наличието на плътни, нискочестотни звуци и сериозни проблеми със заспиването или поддържането на съня. При него водещи са по-дълбоките акустични среди (кафяв шум, плътни водопади), които силно маскират субективното бучене и успокояват ума вечер, подпомагайки плавния и здравословен преход към сън."
    },
    "SS_R": {
-    "shortName": "Стрес-чувствителен",
-    "fullName": "Стрес-чувствителен / Реактивен",
+    "shortName": "Sensibil la stres",
+    "fullName": "Sensibil la stres / Reactiv",
     "description": "При този профил възприятието на тинитус е силно свързано с активността на вегетативната нервна система и лимбичната структура. Дори леки звукови дразнители или ежедневен стрес засилват усещането за шум. Акустичният отговор изисква зелен шум за облекчение и изключително нежни природни блендове за намаляване на кортикалната възбудимост."
    },
    "SM_F": {
-    "shortName": "Соматичен / Флуктуиращ",
-    "fullName": "Соматичен / Флуктуиращ",
+    "shortName": "Somatic / Fluctuant",
+    "fullName": "Somatic / Fluctuant",
     "description": "Профил, съответстващ на тинитус с променлива сила и честота, често проявяващ се на цикли или силно свързан с физическо напрежение във врата и челюстта. Използват се силно динамични и непериодични природни среди, като океански приливи и отливи, които ангажират слуховия апарат без риск от привикване към статичен сигнал."
    },
    "HB_M": {
