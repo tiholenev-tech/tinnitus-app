@@ -2157,55 +2157,55 @@
    "q7": {
     "text": "A existat un sunet puternic înainte de apariție?",
     "options": {
-     "a": "Концерт / силна музика",
-     "b": "Експлозия / стрелба",
-     "c": "Работа в шумна среда",
-     "d": "Не помня нищо специално"
+     "a": "Concert / muzică puternică",
+     "b": "Explozie / împușcături",
+     "c": "Muncă într-un mediu zgomotos",
+     "d": "Nu-mi amintesc nimic special"
     }
    },
    "q8": {
-    "text": "Имате ли загуба на слуха?",
+    "text": "Aveți o pierdere de auz?",
     "options": {
-     "a": "Да, явно",
-     "b": "Може би леко",
+     "a": "Da, evident",
+     "b": "Poate ușor",
      "c": "Nu",
-     "d": "Не съм проверявал/а"
+     "d": "Nu am verificat"
     }
    },
    "q9": {
-    "text": "Имате ли други състояния? (само информативно)",
+    "text": "Aveți alte afecțiuni? (doar informativ)",
     "options": {
-     "a": "Високо кръвно",
-     "b": "Диабет",
-     "c": "Тревожност / стрес",
-     "d": "Нищо особено",
-     "e": "Не искам да отговарям"
+     "a": "Tensiune arterială ridicată",
+     "b": "Diabet",
+     "c": "Anxietate / stres",
+     "d": "Nimic deosebit",
+     "e": "Nu doresc să răspund"
     }
    },
    "q10": {
-    "text": "Колко силно тинитусът влияе на съня Ви?",
+    "text": "Cât de mult afectează tinitusul somnul dvs.?",
     "options": {
-     "a": "Изобщо",
-     "b": "Малко",
-     "c": "Доста",
-     "d": "Не мога да спя"
+     "a": "Deloc",
+     "b": "Puțin",
+     "c": "Destul de mult",
+     "d": "Nu pot dormi"
     }
    },
    "q11": {
-    "text": "Колко силно влияе на концентрацията Ви?",
+    "text": "Cât de mult afectează concentrarea dvs.?",
     "options": {
-     "a": "Изобщо",
-     "b": "Малко",
-     "c": "Доста",
-     "d": "Не мога да се фокусирам"
+     "a": "Deloc",
+     "b": "Puțin",
+     "c": "Destul de mult",
+     "d": "Nu mă pot concentra"
     }
    },
    "q12": {
-    "text": "Колко е стресиращ за Вас (0-10)?",
+    "text": "Cât de stresant este pentru dvs. (0-10)?",
     "options": {
-     "a": "0 – 2 (минимален стрес)",
-     "b": "3 – 5 (лек до умерен стрес)",
-     "c": "6 – 8 (силен стрес)",
+     "a": "0 – 2 (stres minim)",
+     "b": "3 – 5 (stres ușor până la moderat)",
+     "c": "6 – 8 (stres puternic)",
      "d": "9 – 10 (непоносим стрес)"
     }
    },
