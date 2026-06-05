@@ -1852,20 +1852,20 @@
   ]
  },
  "cbt": {
-  "dayTitleFmt": "Ден {n} — {title}",
+  "dayTitleFmt": "Giorno {n} — {title}",
   "sections": {
-   "theme": "Тема на деня",
-   "description": "Описание",
-   "exercise": "Упражнение",
-   "reflection": "Рефлексия"
+   "theme": "Tema del giorno",
+   "description": "Descrizione",
+   "exercise": "Esercizio",
+   "reflection": "Riflessione"
   },
-  "reflectionPlaceholder": "Запишете отговора си тук (по избор)…",
-  "alreadyDone": "Тази практика вече е записана за днес. Можете да я обновите.",
+  "reflectionPlaceholder": "Scrivi qui la tua risposta (facoltativo)…",
+  "alreadyDone": "Questa pratica è già stata registrata per oggi. Puoi aggiornarla.",
   "actions": {
-   "save": "Запиши",
-   "cancel": "Откажи"
+   "save": "Salva",
+   "cancel": "Annulla"
   },
-  "savedToast": "Записано",
+  "savedToast": "Salvato",
   "day_1": {
    "title": "Сензорна демистификация",
    "theme": "Тинитусът е звук, който мозъкът създава сам — не е увреждане на ухото и не е предупреждение за опасност.",
