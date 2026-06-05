@@ -1293,56 +1293,56 @@
     "Fișier 'Eficacitatea clinică și neurobiologică a terapiei sonore în tinitusul cronic'",
     "Fișier 'Analiza eficacității clinice, a spectrelor de frecvență și a mecanismelor neurobiologice ale terapiei sonore în tinitusul subiectiv (perioada 2020-2026)'",
     "Fișier 'Principii fizice, psihoacustice și fiziologice pentru o amestecare sigură și estetică a straturilor sonore'",
-    "Файл 'AURALIS_BIBLE_v3_PIVOT.md'"
+    "Fișier 'AURALIS_BIBLE_v3_PIVOT.md'"
    ]
   },
   "falling_asleep": {
-   "title": "Заспиване",
-   "subtitle": "30–90 мин преди сън",
-   "definition": "Режим за последните 30–90 минути преди лягане, с цел плавно понижаване на симпатиковата активация, активиране на парасимпатиковата нервна система и съкращаване на латентността на заспиване (SOL). Изгражда условна асоциация между конкретен звук и мускулната релаксация, която впоследствие подпомага по-бързо заспиване.",
+   "title": "Adormire",
+   "subtitle": "30–90 min înainte de somn",
+   "definition": "Un mod pentru ultimele 30–90 de minute înainte de culcare, cu scopul de a reduce treptat activarea simpatică, de a activa sistemul nervos parasimpatic și de a scurta latența de adormire (SOL). Construiește o asociere condiționată între un anumit sunet și relaxarea musculară, care ulterior favorizează o adormire mai rapidă.",
    "whenUsed": {
-    "timeOfDay": "Последните 30–90 мин преди установения час за лягане.",
-    "context": "Легло или удобно кресло; приглушена топла светлина без сини дължини; без екрани.",
-    "duration": "15–30 мин активна релаксационна сесия (например прогресивна мускулна релаксация с фонов звук). След тази сесия можете да преминете към режим „Сън дълбок“."
+    "timeOfDay": "Ultimele 30–90 de minute înainte de ora stabilită de culcare.",
+    "context": "Pat sau un fotoliu confortabil; lumină caldă și difuză, fără lungimi de undă albastre; fără ecrane.",
+    "duration": "15–30 min de sesiune activă de relaxare (de exemplu, relaxare musculară progresivă cu sunet de fundal). După această sesiune puteți trece la modul „Somn profund“."
    },
    "whenNotUsed": [
-    "Веднага след тежко хранене или прием на кофеин/алкохол (кофеин се спира след 12:00 ч., алкохол — вечер).",
-    "При остра паник атака — там първо приложете режим „Тревожност“.",
-    "В легло през деня — леглото трябва да остане свързано с асоциация „сън + релакс“, не с дневна активност."
+    "Imediat după o masă copioasă sau după consum de cofeină/alcool (cofeina se oprește după ora 12:00, alcoolul — seara).",
+    "În caz de atac de panică acut — acolo aplicați mai întâi modul „Anxietate“.",
+    "În pat în timpul zilei — patul trebuie să rămână legat de asocierea „somn + relaxare“, nu de activitatea diurnă."
    ],
    "recommendedNoise": {
     "type": "pink_lp2000",
-    "description": "Същият фрактален розов шум, който се ползва нощем — за изграждане на условна асоциация звук → отпускане. По време на 15-минутна прогресивна мускулна релаксация (PMR) се пуска „същият фрактален розов шум“. Алтернативно: фрактални природни тонове (водопад, лек дъжд) на ниско ниво."
+    "description": "Același zgomot roz fractal folosit noaptea — pentru a construi o asociere condiționată sunet → relaxare. În timpul unei relaxări musculare progresive de 15 minute (PMR) se redă „același zgomot roz fractal“. Alternativ: tonuri naturale fractale (cascadă, ploaie ușoară) la un nivel scăzut."
    },
    "mixRatio": {
     "layer1": 45,
     "layer2": 55,
-    "reasoning": "Layer 1 (водеща релаксация — дихателно упражнение, PMR voice guide, или мелодия): 40–50%. Layer 2 (фонов розов шум): 50–60%. Layer 1 има малко по-голяма тежест отколкото в режим „Сън дълбок“, защото релаксационното съдържание е активно фокусирано; Layer 2 пак е доминантен."
+    "reasoning": "Layer 1 (relaxare principală — exercițiu de respirație, PMR voice guide sau melodie): 40–50%. Layer 2 (zgomot roz de fundal): 50–60%. Layer 1 are o pondere puțin mai mare decât în modul „Somn profund“, deoarece conținutul de relaxare este focalizat activ; Layer 2 rămâne dominant."
    },
-   "expectedEffect": "Скъсяване на латентността на заспиване (SOL); активиране на вагусовия тонус; понижение на сърдечния ритъм и кръвното налягане; плавен преход към N1/N2 фази на съня. При продължителна употреба — изграждане на устойчива условна връзка „звук = отпускане“.",
+   "expectedEffect": "Scurtarea latenței de adormire (SOL); activarea tonusului vagal; scăderea ritmului cardiac și a tensiunii arteriale; tranziție lină către fazele N1/N2 ale somnului. La utilizare prelungită — construirea unei legături condiționate durabile „sunet = relaxare“.",
    "safety": [
-    "Същите ограничения като „Сън дълбок“ — максимум 50 dBA.",
-    "Без бял шум, без резки transients.",
-    "Ако сесията не води до сънливост след 20 мин, не насилвайте — изправете се и преминете към тиха активност в съседна стая с лек фонов розов шум до появата на естествена сомнолентност.",
+    "Aceleași limitări ca la „Somn profund“ — maximum 50 dBA.",
+    "Fără zgomot alb, fără transients bruște.",
+    "Dacă sesiunea nu duce la somnolență după 20 de minute, nu forțați — ridicați-vă și treceți la o activitate liniștită într-o cameră alăturată, cu un zgomot roz de fundal ușor, până la apariția unei somnolențe naturale.",
     "Standard loudness: −23 LUFS integrated, True peak ≤ −1 dBTP.",
-    "Wellness disclaimer задължителен."
+    "Disclaimer wellness obligatoriu."
    ],
    "faq": [
     {
-     "q": "Колко силно?",
-     "a": "По време на 15–30 мин активна релаксационна сесия преди сън, фоновият звук трябва да е сходен или малко по-висок от планираното нощно ниво (45–55 dBA за възрастни). За децата под 50 dBA. Същата препоръка като за режим „Сън дълбок“ — точка на смесване, не пълно заглушаване."
+     "q": "Cât de tare?",
+     "a": "În timpul sesiunii active de relaxare de 15–30 min înainte de somn, sunetul de fundal trebuie să fie similar sau puțin mai ridicat decât nivelul nocturn planificat (45–55 dBA pentru adulți). Pentru copii, sub 50 dBA. Aceeași recomandare ca pentru modul „Somn profund“ — punct de amestec, nu mascare completă."
     },
     {
-     "q": "Колко минути преди да заспя?",
-     "a": "30–90 мин преди установения час за лягане. Активната релаксационна сесия (например прогресивна мускулна релаксация с фрактален розов шум) е 15–30 мин. След нея — преминете към режим „Сън дълбок“, не изключвайте звука."
+     "q": "Cu câte minute înainte să adorm?",
+     "a": "30–90 min înainte de ora stabilită de culcare. Sesiunea activă de relaxare (de exemplu, relaxare musculară progresivă cu zgomot roz fractal) durează 15–30 min. După ea — treceți la modul „Somn profund“, nu opriți sunetul."
     },
     {
-     "q": "Кое е по-добре — слушалки или говорител?",
-     "a": "Отворени говорители в спалнята или костно-проводими слушалки. Стандартни in-ear „тапи“ не са препоръчителни — оклузивен ефект прави тинитуса по-силен; риск от ушна кал и инфекции при дълга употреба."
+     "q": "Ce este mai bine — căști sau difuzor?",
+     "a": "Difuzoare deschise în dormitor sau căști cu conducere osoasă. Căștile in-ear standard de tip „dopuri“ nu sunt recomandate — efectul de ocluzie face tinitusul mai puternic; risc de cerumen și infecții la utilizare îndelungată."
     },
     {
-     "q": "Какво ако не заспя след 20 мин?",
-     "a": "Не насилвайте. Изправете се и преминете в съседна стая (всекидневна) с лек фонов розов шум 3–5 dB по-тих от нощното ниво и приглушена топла светлина. Прочетете книга на хартия, изпийте чаша топла вода или хапнете лек въглехидратен снакс. Върнете се в леглото само когато усетите истинска сомнолентност (натежали клепачи, повтарящи се прозявки). Не гледайте часовник или телефон — светлината и осъзнаването на часа задействат HPA-оста и блокират заспиването."
+     "q": "Ce se întâmplă dacă nu adorm după 20 de minute?",
+     "a": "Nu forțați. Ridicați-vă și mergeți într-o cameră alăturată (living) cu un zgomot roz de fundal ușor, cu 3–5 dB mai liniștit decât nivelul nocturn, și o lumină caldă și difuză. Citiți o carte pe hârtie, beți o ceașcă de apă caldă sau mâncați o gustare ușoară cu carbohidrați. Întoarceți-vă în pat doar când simțiți o somnolență reală (pleoape grele, căscaturi repetate). Nu vă uitați la ceas sau la telefon — lumina și conștientizarea orei activează axa HPA și blochează adormirea."
     },
     {
      "q": "Може ли с дихателно упражнение?",
@@ -1360,7 +1360,7 @@
    "scientificBasis": [
     "Fișier 'Neurobiologia detaliată și terapia insomniei la pacienții cu tinitus cronic'",
     "Fișier 'Eficacitatea clinică și neurobiologică a terapiei sonore în tinitusul cronic'",
-    "Файл 'AURALIS_BIBLE_v3_PIVOT.md'"
+    "Fișier 'AURALIS_BIBLE_v3_PIVOT.md'"
    ]
   },
   "relaxation": {
@@ -1391,11 +1391,11 @@
     "Максимум 70 dBA за неограничено време (WHO/NIOSH lifetime safe).",
     "Правило 60/60 (60% volume / 60 мин) с 10–15 мин пълна тишина след.",
     "Без бял шум.",
-    "Wellness disclaimer задължителен."
+    "Disclaimer wellness obligatoriu."
    ],
    "faq": [
     {
-     "q": "Колко силно?",
+     "q": "Cât de tare?",
      "a": "Под точката на смесване на тинитуса — мек, непрекъснат неутрален звук. За дневна релаксация: 50–65 dBA общо в стаята. За Night Wake (среднощна релаксация в съседна стая): 3–5 dB по-тих от дневното ниво."
     },
     {
@@ -1423,7 +1423,7 @@
     "Fișier 'Neurobiologia detaliată și terapia insomniei la pacienții cu tinitus cronic'",
     "Fișier 'Eficacitatea clinică și neurobiologică a terapiei sonore în tinitusul cronic'",
     "Fișier 'Principii fizice, psihoacustice și fiziologice pentru o amestecare sigură și estetică a straturilor sonore'",
-    "Файл 'AURALIS_BIBLE_v3_PIVOT.md'"
+    "Fișier 'AURALIS_BIBLE_v3_PIVOT.md'"
    ]
   },
   "daily": {
@@ -1457,7 +1457,7 @@
     "Правило 60/60 (60% volume на устройството, не повече от 60 мин, после 10–15 мин тишина).",
     "Внимание: емоционално харесвани звуци се възприемат субективно като по-тихи, отколкото са физически — използвайте обективен SPL meter (или dB measurement app) при настройка.",
     "За деца — строго под 50 dBA.",
-    "Wellness disclaimer задължителен."
+    "Disclaimer wellness obligatoriu."
    ],
    "faq": [
     {
@@ -1558,7 +1558,7 @@
    "scientificBasis": [
     "Fișier 'Neurobiologia detaliată și terapia insomniei la pacienții cu tinitus cronic'",
     "Fișier 'Eficacitatea clinică și neurobiologică a terapiei sonore în tinitusul cronic'",
-    "Файл 'AURALIS_BIBLE_v3_PIVOT.md'"
+    "Fișier 'AURALIS_BIBLE_v3_PIVOT.md'"
    ]
   },
   "meditation": {
@@ -1591,7 +1591,7 @@
     "Бинаурални вълни — абсолютно противопоказани при епилепсия или тежки психиатрични разстройства.",
     "За бинаурални — задължително стерео слушалки.",
     "Микропрактики: избягвайте едночасови сесии — продължителното фокусиране върху упражнение може парадоксално да увеличи соматичния фокус върху тинитуса и да засили таламо-кортикалната възбуда (exposure fatigue).",
-    "Wellness disclaimer задължителен."
+    "Disclaimer wellness obligatoriu."
    ],
    "faq": [
     {
@@ -2036,8 +2036,8 @@
     "subtitle": "Toată noaptea"
    },
    "falling_asleep": {
-    "name": "Заспиване",
-    "subtitle": "30–90 мин преди сън"
+    "name": "Adormire",
+    "subtitle": "30–90 min înainte de somn"
    },
    "relaxation": {
     "name": "Релаксация",
