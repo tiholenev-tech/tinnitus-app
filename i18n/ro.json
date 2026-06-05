@@ -2063,55 +2063,55 @@
   },
   "pitch": {
    "new_title": "Tonul tinitusului",
-   "new_body": "Открийте честотата на вашия тинитус за персонализиран notch филтър.",
+   "new_body": "Descoperiți frecvența tinitusului dvs. pentru un filtru notch personalizat.",
    "new_cta": "Fă testul",
    "done_title": "Tonul tinitusului",
-   "done_body": "Текущ профил: {hz} Hz. Можете да повторите теста при нужда.",
-   "done_cta": "Повтори теста",
+   "done_body": "Profil curent: {hz} Hz. Puteți repeta testul la nevoie.",
+   "done_cta": "Repetă testul",
    "skipped_title": "Tonul tinitusului",
-   "skipped_body": "Тестът беше пропуснат. Направете го за персонализиран филтър.",
+   "skipped_body": "Testul a fost omis. Faceți-l pentru un filtru personalizat.",
    "skipped_cta": "Fă testul",
-   "caution": "Не е нужно да тествате често — резултатите са най-надеждни при няколко дни между измерванията.",
-   "infoAria": "Научна информация за теста"
+   "caution": "Nu este nevoie să testați des — rezultatele sunt cele mai fiabile la câteva zile între măsurători.",
+   "infoAria": "Informații științifice despre test"
   },
   "volume": {
    "label": "Volum",
-   "aria": "Сила на звука 0-100"
+   "aria": "Intensitatea sunetului 0-100"
   }
  },
  "categoryView": {
-  "backAria": "Назад към началото",
-  "soundsCount": "Звуци ({n})",
-  "noSounds": "Скоро ще има звуци в тази категория.",
-  "description": "За какво е",
+  "backAria": "Înapoi la început",
+  "soundsCount": "Sunete ({n})",
+  "noSounds": "În curând vor exista sunete în această categorie.",
+  "description": "Pentru ce este",
   "faqLabel": "Întrebări frecvente"
  },
  "soundDetail": {
-  "backAria": "Назад към категорията",
-  "playCta": "Слушай",
+  "backAria": "Înapoi la categorie",
+  "playCta": "Ascultă",
   "description": "Descriere",
-  "recommendedNoise": "Препоръчителен фон",
-  "recommendedMix": "Препоръчителен микс: {ratio}",
-  "noRecommendation": "Без препоръка за фон",
-  "why": "Защо точно този звук",
+  "recommendedNoise": "Fundal recomandat",
+  "recommendedMix": "Mix recomandat: {ratio}",
+  "noRecommendation": "Fără recomandare de fundal",
+  "why": "De ce tocmai acest sunet",
   "faqLabel": "Întrebări frecvente"
  },
  "quiz": {
   "questions": {
    "q1": {
-    "text": "Какъв звук чувате?",
+    "text": "Ce sunet auziți?",
     "options": {
-     "a": "Звънене (висок тон)",
-     "b": "Бръмчене (нисък тон)",
-     "c": "Съскане (като пара)",
-     "d": "Пулсиращ",
-     "e": "Друг / не съм сигурен/а"
+     "a": "Țiuit (ton înalt)",
+     "b": "Bâzâit (ton jos)",
+     "c": "Șuierat (ca aburul)",
+     "d": "Pulsatil",
+     "e": "Altul / nu sunt sigur(ă)"
     }
    },
    "q2": {
-    "text": "Каква е височината на звука?",
+    "text": "Care este înălțimea sunetului?",
     "options": {
-     "a": "Висок (като свирка)",
+     "a": "Înalt (ca un fluier)",
      "b": "Среден (като комар)",
      "c": "Нисък (като бучене)",
      "d": "Не съм сигурен/а"
