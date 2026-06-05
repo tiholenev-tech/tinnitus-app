@@ -84,6 +84,61 @@ $ARTICLES_IT = [
     'desc'  => "I due approcci sonori in parole semplici: quale dà sollievo rapido e quale agisce sulla causa nel tempo.",
     'section' => 'terapia-del-suono', 'date' => '2026-06-05', 'reading' => '7 min', 'tag' => 'Confronto',
   ],
+  'diventero-sordo-acufene' => [
+    'title' => "Diventerò sordo per l'acufene? Cosa dice davvero la scienza",
+    'desc'  => "L'acufene non rende sordi: è un sintomo, non una malattia che divora l'udito. Perché la paura è quasi sempre infondata.",
+    'section' => 'sull-acufene', 'date' => '2026-06-05', 'reading' => '6 min', 'tag' => 'Paure',
+  ],
+  'il-rumore-mi-danneggia-udito' => [
+    'title' => "Il fischio nelle orecchie è pericoloso? Cosa danneggia l'udito",
+    'desc'  => "L'acufene non danneggia l'udito — è il cervello a generarlo. Pericoloso è il rumore esterno forte. E i pochi campanelli d'allarme.",
+    'section' => 'sull-acufene', 'date' => '2026-06-05', 'reading' => '6 min', 'tag' => 'Sicurezza',
+  ],
+  'acufene-e-depressione' => [
+    'title' => "Acufene e depressione: spezzare il legame tra fischio e umore",
+    'desc'  => "Nei casi gravi il 48–60% vive ansia o depressione. Cosa aiuta davvero (CBT, sonno) e quando chiedere aiuto subito.",
+    'section' => 'serenita', 'date' => '2026-06-05', 'reading' => '7 min', 'tag' => 'Umore',
+  ],
+  'mindfulness-acufene' => [
+    'title' => "Mindfulness e acufene: smettere di combattere il fischio",
+    'desc'  => "La mindfulness non spegne l'acufene, cambia il rapporto con esso. Cosa dicono gli studi e una pratica di pochi minuti al giorno.",
+    'section' => 'serenita', 'date' => '2026-06-05', 'reading' => '6 min', 'tag' => 'Mindfulness',
+  ],
+  'apparecchi-acustici-acufene' => [
+    'title' => "Apparecchi acustici e acufene: aiutano contro il fischio?",
+    'desc'  => "Con una perdita uditiva l'apparecchio può ridurre l'acufene riportando i suoni del mondo. Quando ha senso e quando no.",
+    'section' => 'terapia-del-suono', 'date' => '2026-06-05', 'reading' => '6 min', 'tag' => 'Apparecchi',
+  ],
+  'neuromodulazione-bimodale-acufene' => [
+    'title' => "Neuromodulazione bimodale (Lenire): funziona contro l'acufene?",
+    'desc'  => "Suono nelle orecchie + impulsi sulla lingua per riallenare il cervello. Gli studi più ampi e cosa aspettarsi davvero.",
+    'section' => 'terapia-del-suono', 'date' => '2026-06-05', 'reading' => '7 min', 'tag' => 'Neuromodulazione',
+  ],
+  'quali-suoni-per-acufene' => [
+    'title' => "Quali suoni aiutano l'acufene (e quali evitare)",
+    'desc'  => "Rumore rosa, marrone, suoni naturali, notched: cosa dà sollievo davvero e perché il rumore bianco spesso peggiora.",
+    'section' => 'terapia-del-suono', 'date' => '2026-06-05', 'reading' => '6 min', 'tag' => 'Suoni',
+  ],
+  'farmaci-che-causano-acufene' => [
+    'title' => "Farmaci che causano o peggiorano l'acufene",
+    'desc'  => "Aspirina ad alte dosi, alcuni antibiotici e diuretici: quali farmaci c'entrano, quando è reversibile e cosa fare.",
+    'section' => 'stile-di-vita', 'date' => '2026-06-05', 'reading' => '7 min', 'tag' => 'Farmaci',
+  ],
+  'caffe-alcol-acufene' => [
+    'title' => "Caffè e alcol con l'acufene: cosa è vero e cosa è mito",
+    'desc'  => "Il caffè non peggiora l'acufene (anzi). L'alcol è personale e disturba il sonno. Cosa conta davvero, con le prove.",
+    'section' => 'stile-di-vita', 'date' => '2026-06-05', 'reading' => '6 min', 'tag' => 'Abitudini',
+  ],
+  'non-riesco-a-dormire-acufene' => [
+    'title' => "Non riesco a dormire con l'acufene: come spezzare il circolo",
+    'desc'  => "Il piano concreto contro l'insonnia da acufene: suono, orari, la regola dei 20 minuti e la CBT-I, la più efficace.",
+    'section' => 'sonno', 'date' => '2026-06-05', 'reading' => '7 min', 'tag' => 'Insonnia',
+  ],
+  'diario-sonno-acufene' => [
+    'title' => "Diario del sonno e dell'acufene: vedere i progressi nei numeri",
+    'desc'  => "Pochi secondi al giorno per rendere visibile un miglioramento lento. Cosa annotare e come leggere la media settimanale.",
+    'section' => 'sonno', 'date' => '2026-06-05', 'reading' => '5 min', 'tag' => 'Monitoraggio',
+  ],
 ];
 
 /* ── Помощни (IT) ──────────────────────────────────────────────────── */
