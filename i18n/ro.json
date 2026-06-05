@@ -1756,67 +1756,67 @@
    },
    {
     "cat": "safety",
-    "q": "Мога ли да пускам приложението в самолет?",
-    "a": "Да, напълно. AURALIS работи изцяло без интернет — всички звуци, въпросници и CBT текстове са локални на телефона Ви. Активирайте Airplane mode и приложението ще функционира както обикновено. Това е удобно и за спестяване на батерия по време на дълъг полет. На борда на самолет: фоновото шумоиздаване обикновено е около 75–85 dB — препоръчваме да слушате с костно-проводими слушалки или висококачествени отворени слушалки, а не с in-ear „тапи\". Те създават оклузивен ефект, който прави тинитуса по-силен."
+    "q": "Pot folosi aplicația în avion?",
+    "a": "Da, complet. AURALIS funcționează în întregime fără internet — toate sunetele, chestionarele și textele CBT sunt locale pe telefonul dvs. Activați Airplane mode și aplicația va funcționa ca de obicei. Acest lucru este convenabil și pentru economisirea bateriei în timpul unui zbor lung. La bordul unui avion: zgomotul de fundal este de obicei în jur de 75–85 dB — recomandăm să ascultați cu căști cu conducere osoasă sau cu căști deschise de înaltă calitate, nu cu căști in-ear de tip „dopuri\". Acestea creează un efect de ocluzie, care face tinitusul mai puternic."
    },
    {
     "cat": "safety",
-    "q": "Да слушам ли със слушалки или говорител?",
-    "a": "Предпочитайте говорител или костно-проводими слушалки. Стандартните in-ear „тапи\" не са препоръчителни за дълга употреба — те блокират ушния канал и създават оклузивен ефект, който всъщност прави вътрешния тинитус по-силен. Освен това при дълги часове ежедневно слушане се повишава рискът от запушване с ушна кал и външен отит. За нощно слушане: отворени говорители в спалнята са най-добрият избор. За работа или разходка: костно-проводими слушалки оставят ушния канал свободен и не предизвикват оклузия. Бутонни слушалки on-ear също са приемливи."
+    "q": "Să ascult cu căști sau cu difuzor?",
+    "a": "Preferați un difuzor sau căști cu conducere osoasă. Căștile in-ear standard de tip „dopuri\" nu sunt recomandate pentru o utilizare îndelungată — ele blochează canalul auditiv și creează un efect de ocluzie, care de fapt face tinitusul intern mai puternic. În plus, la multe ore de ascultare zilnică crește riscul de blocare cu cerumen și de otită externă. Pentru ascultarea nocturnă: difuzoarele deschise în dormitor sunt cea mai bună alegere. Pentru muncă sau plimbare: căștile cu conducere osoasă lasă canalul auditiv liber și nu provoacă ocluzie. Căștile on-ear sunt și ele acceptabile."
    },
    {
     "cat": "safety",
-    "q": "Какво е максималното време на ден за слушане?",
-    "a": "Няма строг лимит при правилни нива. При 50–65 dBA няма дневен лимит — WHO определя 70 dBA като безопасен за 24/7. На практика: 4–6 часа разпределени през деня е терапевтично оптимално, плюс 8 часа за нощно непрекъснато ползване. Важно е разнообразието на ушите — не дръжте едни и същи слушалки или ракурс часове наред. Правете кратки паузи на всеки час (правилото 60/60). При признаци на слухова умора — звън, чувствителност към звук, тъпота — спрете за 2–3 часа и продължете на по-ниско ниво."
+    "q": "Care este timpul maxim de ascultare pe zi?",
+    "a": "Nu există o limită strictă la niveluri corecte. La 50–65 dBA nu există o limită zilnică — WHO definește 70 dBA ca fiind sigur pentru 24/7. În practică: 4–6 ore distribuite pe parcursul zilei este optim terapeutic, plus 8 ore pentru utilizarea continuă nocturnă. Este importantă varietatea pentru urechi — nu țineți aceleași căști sau aceeași poziție ore în șir. Faceți pauze scurte în fiecare oră (regula 60/60). La semne de oboseală auditivă — țiuit, sensibilitate la sunet, senzație de înfundare — opriți-vă pentru 2–3 ore și continuați la un nivel mai scăzut."
    },
    {
     "cat": "safety",
-    "q": "Какво да правя ако усетя влошаване след слушане?",
-    "a": "Спрете първо, не паникьосвайте. Леко временно влошаване след слушане е възможно при три причини: твърде силно ниво (намалете с 5–10 dB при следваща сесия), грешен тип звук за профила Ви (TH_C изисква pink и филтриран дъжд, не белия шум), или соматично напрежение от деня (опитайте Day 8 упражнение за мускулна релаксация). Ако влошаването продължи повече от 48 часа след спиране, консултирайте се с УНГ. Червен флаг: ако шумът стане едностранен, пулсиращ или придружен от загуба на слух — незабавно потърсете лекар."
+    "q": "Ce să fac dacă simt o înrăutățire după ascultare?",
+    "a": "Opriți-vă mai întâi, nu intrați în panică. O ușoară înrăutățire temporară după ascultare este posibilă din trei cauze: un nivel prea puternic (reduceți cu 5–10 dB la următoarea sesiune), un tip greșit de sunet pentru profilul dvs. (TH_C necesită pink și ploaie filtrată, nu zgomot alb) sau tensiune somatică din timpul zilei (încercați exercițiul de relaxare musculară din Day 8). Dacă înrăutățirea persistă mai mult de 48 de ore după oprire, consultați un medic ORL. Steag roșu: dacă zgomotul devine unilateral, pulsatil sau însoțit de o pierdere a auzului — căutați imediat un medic."
    },
    {
     "cat": "technical",
-    "q": "Защо звукът се чува със закъснение след натискане на бутона?",
-    "a": "Това е нормално явление при PWA приложения. Браузърът или Capacitor обвивката декодира MP3 файла, преди да го пусне — обикновено забавянето е 100–500 ms. AURALIS използва кеширане в Service Worker, така че втория път звукът пуска незабавно. Ако забавянето е по-голямо от 2 секунди, проверете: 1) има ли достатъчно памет на телефона, 2) затворете други приложения работещи на фон, 3) рестартирайте AURALIS. На по-стари телефони (Android 8–9) забавянето може да е малко по-голямо."
+    "q": "De ce sunetul se aude cu întârziere după apăsarea butonului?",
+    "a": "Acesta este un fenomen normal la aplicațiile PWA. Browserul sau învelișul Capacitor decodează fișierul MP3 înainte de a-l reda — de obicei întârzierea este de 100–500 ms. AURALIS folosește cache în Service Worker, astfel încât a doua oară sunetul pornește instantaneu. Dacă întârzierea este mai mare de 2 secunde, verificați: 1) dacă există suficientă memorie pe telefon, 2) închideți alte aplicații care rulează în fundal, 3) reporniți AURALIS. Pe telefoanele mai vechi (Android 8–9) întârzierea poate fi puțin mai mare."
    },
    {
     "cat": "technical",
-    "q": "Работи ли AURALIS без интернет?",
-    "a": "Да, напълно. AURALIS е offline-first приложение — Bible v3 ЗАКОН №6. Всички звуци (250 файла) са свалени на Вашия телефон при инсталиране. Всички въпросници (THI, дневник), CBT текстове и настройки се пазят в локалното хранилище на телефона. AURALIS не изпраща никакви данни на сървър — Вашите отговори и прогрес остават единствено на Вашия телефон. Това отговаря на най-строгите GDPR изисквания за чувствителни здравни данни. Изключение: единствено при покупка през Google Play или App Store, плащането се обработва от платформата, не от нас."
+    "q": "Funcționează AURALIS fără internet?",
+    "a": "Da, complet. AURALIS este o aplicație offline-first — Bible v3 LEGEA №6. Toate sunetele (250 de fișiere) sunt descărcate pe telefonul dvs. la instalare. Toate chestionarele (THI, jurnalul), textele CBT și setările sunt păstrate în stocarea locală a telefonului. AURALIS nu trimite niciun fel de date către un server — răspunsurile și progresul dvs. rămân exclusiv pe telefonul dvs. Acest lucru respectă cele mai stricte cerințe GDPR pentru date de sănătate sensibile. Excepție: doar la achiziția prin Google Play sau App Store, plata este procesată de platformă, nu de noi."
    },
    {
     "cat": "technical",
-    "q": "Защо приложението не се отваря?",
-    "a": "Най-чести причини: 1) Първото отваряне след инсталация — изчакайте 10–20 секунди, защото системата подготвя 100–150 MB звукови файлове. 2) Малко памет на устройството — освободете 200 MB на телефона. 3) Стара версия на Android (под 8.0) — приложението изисква Android 8.0+. 4) Бавна първа графика — обновете до последната версия от Google Play. Ако проблемът продължи, опитайте: затворете приложението от менюто за активни приложения и го отворете отново. При повторно невъзможност за стартиране — преинсталирайте от Google Play (Вашите данни се пазят в Profile → Експорт, ако сте го направили)."
+    "q": "De ce nu se deschide aplicația?",
+    "a": "Cele mai frecvente cauze: 1) Prima deschidere după instalare — așteptați 10–20 de secunde, deoarece sistemul pregătește 100–150 MB de fișiere audio. 2) Memorie redusă pe dispozitiv — eliberați 200 MB pe telefon. 3) O versiune veche de Android (sub 8.0) — aplicația necesită Android 8.0+. 4) Prima redare grafică lentă — actualizați la ultima versiune din Google Play. Dacă problema persistă, încercați: închideți aplicația din meniul de aplicații active și deschideți-o din nou. Dacă pornirea rămâne imposibilă — reinstalați din Google Play (datele dvs. sunt păstrate în Profile → Export, dacă l-ați făcut)."
    },
    {
     "cat": "technical",
-    "q": "Защо батерията се изтощава бързо?",
-    "a": "Не би трябвало. AURALIS използва оптимизиран AudioBufferSourceNode (не AudioWorklet), system sample rate, и suspend при пауза — Bible v3 ЗАКОН №4. Цяла нощ слушане (8 часа) трябва да изтощи 3–8% от батерията. Ако виждате по-голяма консумация: 1) Изключете „Wi-Fi\" и „Bluetooth\" нощем — те източват повече от самото звуково възпроизвеждане. 2) Активирайте „Не безпокой\" режим за нощта. 3) Намалете яркостта на екрана преди заспиване. 4) Проверете в Settings → Battery дали друго приложение работи на фон. Ако AURALIS наистина изтощава много — съобщете на support, това е технически бъг."
+    "q": "De ce se descarcă bateria repede?",
+    "a": "Nu ar trebui. AURALIS folosește un AudioBufferSourceNode optimizat (nu AudioWorklet), system sample rate și suspend la pauză — Bible v3 LEGEA №4. O noapte întreagă de ascultare (8 ore) ar trebui să consume 3–8% din baterie. Dacă vedeți un consum mai mare: 1) Opriți „Wi-Fi\" și „Bluetooth\" noaptea — acestea consumă mai mult decât redarea sunetului în sine. 2) Activați modul „Nu deranja\" pentru noapte. 3) Reduceți luminozitatea ecranului înainte de culcare. 4) Verificați în Settings → Battery dacă o altă aplicație rulează în fundal. Dacă AURALIS chiar consumă mult — anunțați support, este un bug tehnic."
    },
    {
     "cat": "technical",
-    "q": "Какво се случва ако телефонът се изключи нощем?",
-    "a": "Звукът спира и сесията се запазва. Когато стартирате AURALIS отново, приложението ви предлага да продължите от мястото, на което спряхте. Всички записи в дневника, THI отговори и CBT прогрес се записват веднага в localStorage — не се губят при внезапно изключване. Ако телефонът се изключи поради изтощаване на батерията: преди заспиване включете го в зарядно или активирайте „Battery saver\" режим. Ако звукът внезапно изчезне посред нощ при работещ телефон — амигдалата ще го регистрира като преход. Препоръчваме непрекъсната нощна сесия, не sleep timer."
+    "q": "Ce se întâmplă dacă telefonul se oprește în timpul nopții?",
+    "a": "Sunetul se oprește și sesiunea se salvează. Când porniți AURALIS din nou, aplicația vă propune să continuați din locul în care v-ați oprit. Toate înregistrările din jurnal, răspunsurile THI și progresul CBT se salvează imediat în localStorage — nu se pierd la o oprire bruscă. Dacă telefonul se oprește din cauza descărcării bateriei: înainte de culcare conectați-l la încărcător sau activați modul „Battery saver\". Dacă sunetul dispare brusc în miezul nopții cu telefonul pornit — amigdala îl va înregistra ca pe o tranziție. Recomandăm o sesiune nocturnă continuă, nu un sleep timer."
    },
    {
     "cat": "therapeutic",
-    "q": "Кога ще усетя първи ефект?",
-    "a": "Различно за всеки. Първите признаци на по-малко натрапчив шум могат да се появят още в първите 1–2 седмици — особено усещане за по-лесно заспиване и кратки моменти, в които не забелязвате тинитуса. Клинично значим резултат (спад на THI с 7 или повече точки) обикновено идва за 3 месеца при последователно прилагане. По-сериозен ефект (−24 точки THI) се регистрира при 6 месеца. Реалното привикване (хабитуация), при което мозъкът престава да третира шума като заплаха, е процес от 9 до 18 месеца. AURALIS не лекува тинитус — той помага за хабитуация и по-добро качество на живот."
+    "q": "Când voi simți primul efect?",
+    "a": "Diferit pentru fiecare. Primele semne ale unui zgomot mai puțin supărător pot apărea încă din primele 1–2 săptămâni — în special o senzație de adormire mai ușoară și scurte momente în care nu observați tinitusul. Un rezultat semnificativ clinic (o scădere a THI cu 7 sau mai multe puncte) vine de obicei în 3 luni la aplicarea consecventă. Un efect mai serios (−24 de puncte THI) se înregistrează la 6 luni. Obișnuirea reală (habituarea), în care creierul încetează să trateze zgomotul ca pe o amenințare, este un proces de la 9 la 18 luni. AURALIS nu vindecă tinitusul — el ajută la habituare și la o mai bună calitate a vieții."
    },
    {
     "cat": "therapeutic",
-    "q": "Какво да правя ако усещам, че се влошава?",
-    "a": "Първо — не правете заключения от един или два дни. Тинитусът има добри и лоши периоди, които не отразяват цялостен тренд. Прегледайте записите си в дневника за последните 7 дни — често „по-зле днес\" не е тенденция. Втора стъпка: помислете за външни фактори — стрес, кофеин след 14:00, безсънна нощ, остра шумова експозиция. Тези често засилват тинитуса временно. Ако наистина усещате трайно влошаване (над 2 седмици), консултирайте се с УНГ. Червен флаг: ако шумът стане едностранен, пулсиращ, придружен от замайване или загуба на слух — незабавно търсете лекар."
+    "q": "Ce să fac dacă simt că se înrăutățește?",
+    "a": "Mai întâi — nu trageți concluzii dintr-o zi sau două. Tinitusul are perioade bune și rele, care nu reflectă o tendință de ansamblu. Examinați-vă înregistrările din jurnal pentru ultimele 7 zile — adesea „mai rău azi\" nu este o tendință. Al doilea pas: gândiți-vă la factorii externi — stres, cofeină după ora 14:00, o noapte nedormită, o expunere acută la zgomot. Aceștia intensifică adesea tinitusul temporar. Dacă simțiți într-adevăr o înrăutățire durabilă (peste 2 săptămâni), consultați un medic ORL. Steag roșu: dacă zgomotul devine unilateral, pulsatil, însoțit de amețeli sau de o pierdere a auzului — căutați imediat un medic."
    },
    {
     "cat": "therapeutic",
-    "q": "Колко часа на ден трябва да слушам?",
-    "a": "За Вашия профил TH_C — минимум 2 часа дневно за устойчива хабитуация; идеално 4–6 часа разпределени през деня. Не е необходимо да слушате непрекъснато — кратки сесии от 30 минути няколко пъти на ден работят по-добре от една дълга сесия. По време на нощта — непрекъснат фонов звук през целия 8-часов сън (изследванията показват, че sleep timer може да задейства амигдалата при преходи между сънни цикли). Това е препоръка, не задължение. Дори 1 час на ден с правилен звук работи по-добре от нищо. Слушайте, когато е удобно за Вас."
+    "q": "Câte ore pe zi trebuie să ascult?",
+    "a": "Pentru profilul dvs. TH_C — minimum 2 ore pe zi pentru o habituare durabilă; ideal 4–6 ore distribuite pe parcursul zilei. Nu este necesar să ascultați continuu — sesiuni scurte de 30 de minute de câteva ori pe zi funcționează mai bine decât o singură sesiune lungă. În timpul nopții — un sunet de fundal continuu pe tot parcursul somnului de 8 ore (studiile arată că un sleep timer poate activa amigdala la tranzițiile dintre ciclurile de somn). Aceasta este o recomandare, nu o obligație. Chiar și 1 oră pe zi cu sunetul potrivit funcționează mai bine decât nimic. Ascultați când vă este convenabil."
    },
    {
     "cat": "therapeutic",
-    "q": "Трябва ли да се откажа от кафето?",
+    "q": "Trebuie să renunț la cafea?",
     "a": "Не напълно, но ограничете го. Кофеинът е централен стимулант — увеличава кортикалната чувствителност и може да засили тинитуса. Препоръка: 1 чаша сутрин (до 10:00), без кафе след 14:00. Това дава достатъчно време на тялото да изчисти кофеина преди сън (полу-разпадане ~5 часа). При Вашия TH_C профил кофеинът има особено силен ефект върху високочестотния звън. Алкохол вечер също влошава — нарушава перфузията на вътрешното ухо и фрагментира съня. Сол вечер — задържа течности, влошава ниските честоти. Опитайте 2 седмици без кофеин след 14:00 и наблюдавайте."
    },
    {
