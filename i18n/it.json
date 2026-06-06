@@ -756,6 +756,124 @@
     "body": "Hai fermato il test. Puoi farlo più tardi, quando ti è comodo — richiede solo un minuto.",
     "toStart": "All'inizio"
    }
+  },
+  "account": {
+   "loginOk": "Accesso riuscito ✓",
+   "loginFail": "Accesso non riuscito. Riprova.",
+   "payCancelled": "Pagamento annullato.",
+   "linkExpired": "Il link è scaduto o non valido.",
+   "loggedOut": "Sei uscito dal profilo.",
+   "alreadyPaid": "Hai già l'accesso completo ✓",
+   "payThanks": "Grazie! L'accesso completo è sbloccato ✓",
+   "payProcessing": "Il pagamento è in elaborazione… può richiedere un minuto.",
+   "fullAccess": "Accesso completo ✓",
+   "trialLeftFmt": "Periodo di prova: ancora {n} giorni",
+   "trial": "Periodo di prova",
+   "profileTitle": "Il tuo profilo",
+   "loggedInAs": "Hai effettuato l'accesso come <b>{email}</b>",
+   "unlock": "Sblocca l'accesso completo — €19.99",
+   "loading": "Caricamento…",
+   "payNotReady": "Il pagamento è ancora in fase di configurazione. Riprova più tardi.",
+   "epay": "Paga con ePay / EasyPay (Bulgaria)",
+   "epayNotReady": "ePay è ancora in fase di configurazione. Riprova più tardi.",
+   "syncNow": "Sincronizza ora",
+   "syncing": "Sincronizzazione…",
+   "synced": "Sincronizzato ✓",
+   "logout": "Esci",
+   "close": "Chiudi",
+   "loginTitle": "Accesso / Recupero",
+   "loginSub": "Inserisci l'email e riceverai un link per accedere — senza password. Così i tuoi dati sono al sicuro e tornano quando cambi telefono.",
+   "emailPlaceholder": "tua@email.it",
+   "sendLink": "Invia il link",
+   "invalidEmail": "Inserisci un'email valida.",
+   "sending": "Invio…",
+   "linkSent": "Abbiamo inviato un link a <b>{email}</b>.<br>Aprilo dallo <b>stesso telefono</b> per accedere.",
+   "done": "Fatto ✓",
+   "serviceNotReady": "Il servizio è ancora in fase di configurazione. Riprova più tardi.",
+   "genericError": "Si è verificato un errore. Riprova."
+  },
+  "analytics": {
+   "hoursSessionsFmt": "{h}h / {s}x"
+  },
+  "categoryView": {
+   "loading": "Caricamento…",
+   "notFound": "Categoria non trovata."
+  },
+  "diaryHub": {
+   "title": "Diario",
+   "notStarted": "Non hai ancora iniziato il programma di 14 giorni.",
+   "notStartedSub": "Quando inizi, qui vedrai a che punto sei e cosa hai registrato.",
+   "statCurrentDay": "giorno attuale del programma",
+   "statCompleted": "giorni completati",
+   "statEntries": "voci nel diario",
+   "statStreak": "giorni attivi consecutivi",
+   "statFreezes": "«salti» rimasti"
+  },
+  "favorites": {
+   "loadingSkeleton": "Caricamento…"
+  },
+  "headphones": {
+   "l1": "Gli auricolari (in-ear) PEGGIORANO l'acufene. Creano un effetto di occlusione — il rumore interno si sente più forte.",
+   "l2": "Consigliamo:",
+   "l3": "✓ Altoparlanti esterni (60–90 cm dalla testa)",
+   "l4": "✓ Conduzione ossea (bone conduction)",
+   "l5": "✓ Cuffie open-back",
+   "l6": "Il volume NON deve coprire l'acufene. I due suoni devono sentirsi insieme (il cosiddetto «punto di miscelazione»).",
+   "l7": "Di notte — massimo 8 ore ininterrotte. Non impostare un timer di spegnimento di notte.",
+   "title": "IMPORTANTE — prima di iniziare",
+   "cta": "Ho capito — continua"
+  },
+  "player": {
+   "masterAria": "Volume generale",
+   "masterAriaFull": "Volume generale 0-100",
+   "sosTitle": "In caso di attacco di panico · SOS",
+   "sosSub": "Esercizio di respirazione, 60 sec",
+   "favRemove": "Rimuovi dai preferiti",
+   "favAdd": "Aggiungi ai preferiti",
+   "sleepManual": "Manuale:",
+   "minShort": "min.",
+   "sleepManualAria": "Durata manuale in minuti (1 a 480)",
+   "sleepCancel": "Annulla timer",
+   "sleepSave": "Salva",
+   "infoAbout": "Sul suono",
+   "infoNoise": "Sfondo consigliato per il tuo profilo",
+   "infoWhy": "Perché questo suono fa bene a te",
+   "hintAria": "Consiglio sul volume",
+   "close": "Chiudi",
+   "hintTitle": "Un piccolo consiglio per te",
+   "hintBody1": "Regola il volume e il mix come preferisci — <b>decidi tu</b>.",
+   "hintBody2": "Per il massimo effetto e perché il rumore si attenui col tempo, lascia che il suono <b>non copra del tutto</b> il tuo acufene — è bene sentirlo un po' sotto il suono.",
+   "hintOk": "Ho capito",
+   "hintNever": "Non mostrare più"
+  },
+  "profileResults": {
+   "spectrumAria": "Spettro delle frequenze da 250 Hz a 16 kHz, marcatore su {f}"
+  },
+  "soundDetail": {
+   "loading": "Caricamento…",
+   "notFound": "Suono non trovato."
+  },
+  "volumeCalib": {
+   "testStop": "Ferma",
+   "testPlay": "Avvia il suono di prova",
+   "testStopAria": "Ferma il suono di prova",
+   "testPlayAria": "Avvia il suono di prova",
+   "title": "Regolazione del volume",
+   "subtitle": "Trova il livello che funziona per te.",
+   "explain": "La terapia del suono funziona meglio quando il suono di sfondo è un po' più basso del tuo acufene — i due suoni si mescolano parzialmente, senza coprirsi. Si chiama «punto di miscelazione» ed è il principio che permette al cervello di abituarsi gradualmente.",
+   "stepsTitle": "Tre passi",
+   "step1": "<strong>Siediti in una stanza silenziosa.</strong> Assicurati che non ci siano TV, conversazioni o rumore del traffico.",
+   "step2": "<strong>Avvia il suono di prova.</strong> Ascolta a basso volume per 20 secondi.",
+   "step3": "<strong>Abbassa il volume gradualmente.</strong> Fermati nel momento in cui senti contemporaneamente sia l'acufene sia il suono di sfondo. Devono coesistere.",
+   "sliderLabel": "Volume",
+   "sliderAria": "Volume da 0 a {max} percento",
+   "sliderValuetext": "{v} di {max}",
+   "sliderHint": "Regola a un livello che senti comodamente.",
+   "warnTitle": "Cosa NON fare",
+   "warnBody": "Non aumentare fino a coprire del tutto l'acufene. Questo affatica l'udito e allena il cervello ad aspettarsi il silenzio totale — il contrario del nostro obiettivo.",
+   "confirm": "Va bene",
+   "later": "Più tardi",
+   "disclaimer": "AURALIS è uno strumento di benessere generale, non un prodotto medico."
   }
  },
  "science": {

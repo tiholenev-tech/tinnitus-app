@@ -182,8 +182,7 @@ window.Onboarding = (function () {
         '<div class="ob-illustration ob-welcome-aurora">' + SVG.wave + '</div>' +
 
         '<h1 class="ob-title ob-welcome-logo">' +
-          t('ui.onboarding.welcome.title',
-            'Контролирайте шума.<br>Възстановете покоя.') +
+          t('ui.onboarding.welcome.title', 'Контролирайте шума.<br>Възстановете покоя.') +
         '</h1>' +
         '<p class="ob-subtitle ob-welcome-subtitle">' +
           t('ui.onboarding.welcome.subtitle',

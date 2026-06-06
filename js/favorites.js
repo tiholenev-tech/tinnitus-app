@@ -439,7 +439,7 @@ window.Favorites = (function () {
     app.parentNode.replaceChild(fresh, app);
     app = fresh;
     // Skeleton while manifest loads.
-    app.innerHTML = '<div class="cv-loading" style="padding:24px;text-align:center;color:var(--text-muted);">Зарежда се...</div>';
+    app.innerHTML = '<div class="cv-loading" style="padding:24px;text-align:center;color:var(--text-muted);">' + escapeHtml(t('ui.favorites.loadingSkeleton','Зарежда се...')) + '</div>';
 
     history.pushState({ phase: 'favorites' }, '');
 

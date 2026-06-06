@@ -300,7 +300,7 @@ window.DiaryHub = (function () {
     return (
       '<div class="dh-screen" data-screen="diary_hub">' +
         '<div class="dh-header-row">' +
-          '<h1 class="dh-title">Дневник</h1>' +
+          '<h1 class="dh-title">' + escapeHtml(t('ui.diaryHub.title','Дневник')) + '</h1>' +
           '<div class="dh-streak-slot" data-streak-slot></div>' +
         '</div>' +
 
@@ -708,32 +708,32 @@ window.DiaryHub = (function () {
     var content;
     if (!s.programStartDate) {
       content = '<div class="dh-progress-sheet">' +
-        '<p>Все още не сте започнали 14-дневната програма.</p>' +
+        '<p>' + escapeHtml(t('ui.diaryHub.notStarted','Все още не сте започнали 14-дневната програма.')) + '</p>' +
         '<p style="margin-top:12px;color:var(--text-muted);font-size:14px;">' +
-          'Когато стартирате, тук ще виждате докъде сте и какво сте записали.' +
+          escapeHtml(t('ui.diaryHub.notStartedSub','Когато стартирате, тук ще виждате докъде сте и какво сте записали.')) +
         '</p>' +
       '</div>';
     } else {
       content = '<div class="dh-progress-sheet">' +
         '<div class="dh-prog-stat">' +
           '<span class="dh-prog-stat-num">' + currentDay + ' / 14</span>' +
-          '<span class="dh-prog-stat-label">текущ ден от програмата</span>' +
+          '<span class="dh-prog-stat-label">' + escapeHtml(t('ui.diaryHub.statCurrentDay','текущ ден от програмата')) + '</span>' +
         '</div>' +
         '<div class="dh-prog-stat">' +
           '<span class="dh-prog-stat-num">' + completed.length + '</span>' +
-          '<span class="dh-prog-stat-label">завършени дни</span>' +
+          '<span class="dh-prog-stat-label">' + escapeHtml(t('ui.diaryHub.statCompleted','завършени дни')) + '</span>' +
         '</div>' +
         '<div class="dh-prog-stat">' +
           '<span class="dh-prog-stat-num">' + totalEntries + '</span>' +
-          '<span class="dh-prog-stat-label">записа в дневника</span>' +
+          '<span class="dh-prog-stat-label">' + escapeHtml(t('ui.diaryHub.statEntries','записа в дневника')) + '</span>' +
         '</div>' +
         '<div class="dh-prog-stat">' +
           '<span class="dh-prog-stat-num">' + streak + '</span>' +
-          '<span class="dh-prog-stat-label">последователни активни дни</span>' +
+          '<span class="dh-prog-stat-label">' + escapeHtml(t('ui.diaryHub.statStreak','последователни активни дни')) + '</span>' +
         '</div>' +
         '<div class="dh-prog-stat">' +
           '<span class="dh-prog-stat-num">' + freezes + ' / 2</span>' +
-          '<span class="dh-prog-stat-label">останали "пропуски"</span>' +
+          '<span class="dh-prog-stat-label">' + escapeHtml(t('ui.diaryHub.statFreezes','останали „пропуски"')) + '</span>' +
         '</div>' +
         '<p style="margin-top:16px;color:var(--text-muted);font-size:13px;line-height:1.5;">' +
           'Един "пропуск" Ви позволява да изтървете ден без да губите серията.' +

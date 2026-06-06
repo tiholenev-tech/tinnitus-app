@@ -49,16 +49,16 @@ window.HeadphonesWarning = (function () {
 
   function buildContent() {
     var lines = [
-      'Слушалките-тапи (in-ear) ВЛОШАВАТ тинитуса. Те създават оклузивен ефект — вътрешният шум се чува по-силно.',
+      t('ui.headphones.l1', 'Слушалките-тапи (in-ear) ВЛОШАВАТ тинитуса. Те създават оклузивен ефект — вътрешният шум се чува по-силно.'),
       '',
-      'Препоръчваме:',
-      '✓ Външни говорители (60–90 см от главата)',
-      '✓ Костна проводимост (bone conduction)',
-      '✓ Open-back слушалки',
+      t('ui.headphones.l2', 'Препоръчваме:'),
+      t('ui.headphones.l3', '✓ Външни говорители (60–90 см от главата)'),
+      t('ui.headphones.l4', '✓ Костна проводимост (bone conduction)'),
+      t('ui.headphones.l5', '✓ Open-back слушалки'),
       '',
-      'Силата НЕ трябва да заглушава тинитуса. Двата звука трябва да се чуват заедно (т.нар. „точка на смесване").',
+      t('ui.headphones.l6', 'Силата НЕ трябва да заглушава тинитуса. Двата звука трябва да се чуват заедно (т.нар. „точка на смесване").'),
       '',
-      'Нощем — максимум 8 часа без прекъсване. Не настройвайте таймер за изключване нощем.'
+      t('ui.headphones.l7', 'Нощем — максимум 8 часа без прекъсване. Не настройвайте таймер за изключване нощем.')
     ];
     return '<div class="hw-content">' +
       lines.map(function (line) {
@@ -87,14 +87,14 @@ window.HeadphonesWarning = (function () {
 
     if (window.BottomSheet && window.BottomSheet.open) {
       window.BottomSheet.open({
-        title: 'ВАЖНО — преди да започнете',
+        title: t('ui.headphones.title', 'ВАЖНО — преди да започнете'),
         content: buildContent(),
         height: 'auto',
         showGrip: true,
         closeOnBackdrop: false,
         actions: [
           {
-            label: 'Разбрах — продължи',
+            label: t('ui.headphones.cta', 'Разбрах — продължи'),
             variant: 'primary',
             onClick: function () {
               if (window.BottomSheet.closeAll) window.BottomSheet.closeAll();
@@ -112,9 +112,9 @@ window.HeadphonesWarning = (function () {
     overlay.className = 'hw-fallback-overlay';
     overlay.innerHTML =
       '<div class="hw-fallback-sheet">' +
-        '<h2 class="hw-fallback-title">ВАЖНО — преди да започнете</h2>' +
+        '<h2 class="hw-fallback-title">' + escapeHtml(t('ui.headphones.title', 'ВАЖНО — преди да започнете')) + '</h2>' +
         buildContent() +
-        '<button class="hw-fallback-cta" type="button">Разбрах — продължи</button>' +
+        '<button class="hw-fallback-cta" type="button">' + escapeHtml(t('ui.headphones.cta', 'Разбрах — продължи')) + '</button>' +
       '</div>';
     document.body.appendChild(overlay);
     overlay.querySelector('.hw-fallback-cta').addEventListener('click', function () {

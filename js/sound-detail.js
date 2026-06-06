@@ -364,11 +364,11 @@ window.SoundDetail = (function () {
     var fresh = app.cloneNode(false);
     app.parentNode.replaceChild(fresh, app);
     app = fresh;
-    app.innerHTML = '<div class="sd-loading">Зарежда се...</div>';
+    app.innerHTML = '<div class="sd-loading">' + escapeHtml(t('ui.soundDetail.loading','Зарежда се...')) + '</div>';
     ensureManifest().then(function () {
       var sound = findSound(activeSoundId);
       if (!sound) {
-        app.innerHTML = '<div class="sd-loading">Звукът не е намерен.</div>';
+        app.innerHTML = '<div class="sd-loading">' + escapeHtml(t('ui.soundDetail.notFound','Звукът не е намерен.')) + '</div>';
         return;
       }
       app.innerHTML = buildScreenHtml(sound);
