@@ -103,6 +103,11 @@ window.PitchTest = (function () {
   // ============================================================
 
   function el(id) { return document.getElementById(id); }
+  // i18n: делегира на глобалния речник; fallback е български (валиден при липса).
+  function t(key, fallback, params) {
+    if (window.i18n && window.i18n.t) return window.i18n.t(key, fallback, params);
+    return fallback != null ? fallback : key;
+  }
   function escapeHtml(s) {
     return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
       .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
@@ -332,18 +337,18 @@ window.PitchTest = (function () {
     return (
       '<div class="pt-screen" data-screen="pitch_test">' +
         '<header class="pt-header">' +
-          '<h1 class="pt-title">Какво чувате най-точно?</h1>' +
-          '<p class="pt-subtitle">Това определя как ще намерим Вашата честота.</p>' +
+          '<h1 class="pt-title">' + escapeHtml(t('ui.pitchTest.pretest.title', 'Какво чувате най-точно?')) + '</h1>' +
+          '<p class="pt-subtitle">' + escapeHtml(t('ui.pitchTest.pretest.subtitle', 'Това определя как ще намерим Вашата честота.')) + '</p>' +
         '</header>' +
         '<div class="pt-pretest-options">' +
-          ptOption('pretest', 'tonal', 'Чист тон / пищене',
-            'Като „и-и-и" — постоянна височина') +
-          ptOption('pretest', 'noise', 'Съскане / шум',
-            'Като „ш-ш-ш", пара, вода') +
-          ptOption('pretest', 'pulsing', 'Пулсиране',
-            'В ритъм със сърдечния пулс') +
-          ptOption('pretest', 'other', 'Друго / Не съм сигурен',
-            'Не съответства на горните') +
+          ptOption('pretest', 'tonal', t('ui.pitchTest.pretest.tonal.label', 'Чист тон / пищене'),
+            t('ui.pitchTest.pretest.tonal.desc', 'Като „и-и-и" — постоянна височина')) +
+          ptOption('pretest', 'noise', t('ui.pitchTest.pretest.noise.label', 'Съскане / шум'),
+            t('ui.pitchTest.pretest.noise.desc', 'Като „ш-ш-ш", пара, вода')) +
+          ptOption('pretest', 'pulsing', t('ui.pitchTest.pretest.pulsing.label', 'Пулсиране'),
+            t('ui.pitchTest.pretest.pulsing.desc', 'В ритъм със сърдечния пулс')) +
+          ptOption('pretest', 'other', t('ui.pitchTest.pretest.other.label', 'Друго / Не съм сигурен'),
+            t('ui.pitchTest.pretest.other.desc', 'Не съответства на горните')) +
         '</div>' +
       '</div>'
     );
@@ -364,10 +369,8 @@ window.PitchTest = (function () {
       if (s && s.setPitchSkip) s.setPitchSkip('pulsing');
       clearPitchActive();
       phase = 'done';
-      renderSkip('Препоръчваме преглед при УНГ специалист',
-        'Пулсиращ тинитус (в ритъм със сърдечния пулс) изисква медицинска ' +
-        'консултация — може да има съдов произход. Препоръчваме посещение ' +
-        'преди да продължите.');
+      renderSkip(t('ui.pitchTest.pulsingSkip.title', 'Препоръчваме преглед при УНГ специалист'),
+        t('ui.pitchTest.pulsingSkip.body', 'Пулсиращ тинитус (в ритъм със сърдечния пулс) изисква медицинска консултация — може да има съдов произход. Препоръчваме посещение преди да продължите.'));
       return;
     }
     // СТИМУЛ ПО ТИП (поправя октавно объркване): тонален → чист ТОН (ясна
@@ -387,16 +390,14 @@ window.PitchTest = (function () {
     app.innerHTML = (
       '<div class="pt-screen" data-screen="pitch_test">' +
         '<header class="pt-header">' +
-          '<h1 class="pt-title">Сложете слушалки</h1>' +
-          '<p class="pt-subtitle">Тестът покрива високи честоти, които ' +
-            'високоговорителят на телефона не възпроизвежда точно. ' +
-            'Кои да е слушалки (тапи или други) дават много по-верен резултат.</p>' +
+          '<h1 class="pt-title">' + escapeHtml(t('ui.pitchTest.device.title', 'Сложете слушалки')) + '</h1>' +
+          '<p class="pt-subtitle">' + escapeHtml(t('ui.pitchTest.device.subtitle', 'Тестът покрива високи честоти, които високоговорителят на телефона не възпроизвежда точно. Кои да е слушалки (тапи или други) дават много по-верен резултат.')) + '</p>' +
         '</header>' +
         '<div class="pt-pretest-options">' +
-          ptOption('device', 'headphones', 'Готово, със слушалки съм',
-            'Тапи, безжични или кабелни — всякакви') +
-          ptOption('device', 'speakers', 'Нямам — ще ползвам телефона',
-            'Високоговорител (по-малко точно на високите)') +
+          ptOption('device', 'headphones', t('ui.pitchTest.device.headphones.label', 'Готово, със слушалки съм'),
+            t('ui.pitchTest.device.headphones.desc', 'Тапи, безжични или кабелни — всякакви')) +
+          ptOption('device', 'speakers', t('ui.pitchTest.device.speakers.label', 'Нямам — ще ползвам телефона'),
+            t('ui.pitchTest.device.speakers.desc', 'Високоговорител (по-малко точно на високите)')) +
         '</div>' +
       '</div>'
     );
@@ -429,14 +430,14 @@ window.PitchTest = (function () {
     app.innerHTML = (
       '<div class="pt-screen" data-screen="pitch_test">' +
         '<header class="pt-header">' +
-          '<h1 class="pt-title">Чувате ли звука?</h1>' +
-          '<p class="pt-subtitle">Звукът бавно се усилва.<br>Натиснете <b>СПРИ</b>, щом го чувате удобно.</p>' +
+          '<h1 class="pt-title">' + escapeHtml(t('ui.pitchTest.calib.title', 'Чувате ли звука?')) + '</h1>' +
+          '<p class="pt-subtitle">' + t('ui.pitchTest.calib.subtitle', 'Звукът бавно се усилва.<br>Натиснете <b>СПРИ</b>, щом го чувате удобно.') + '</p>' +
         '</header>' +
         '<div class="pt-calib-wrap">' +
           '<button class="pt-calib-stop" type="button" data-action="calib-stop"' +
-            ' aria-label="Спри — силата е удобна">' +
+            ' aria-label="' + escapeHtml(t('ui.pitchTest.calib.stopAria', 'Спри — силата е удобна')) + '">' +
             '<span class="pt-calib-pulse" aria-hidden="true"></span>' +
-            '<span class="pt-calib-stop-label">СПРИ</span>' +
+            '<span class="pt-calib-stop-label">' + escapeHtml(t('ui.pitchTest.calib.stop', 'СПРИ')) + '</span>' +
           '</button>' +
         '</div>' +
       '</div>'
@@ -569,10 +570,10 @@ window.PitchTest = (function () {
     stopCurrentTone();
     var doneN = bayes.n;
     var msg = isLast
-      ? 'Чудесно! Почти готово…'
+      ? t('ui.pitchTest.bravo.almost', 'Чудесно! Почти готово…')
       : (testMode === 'quick'
-          ? ('Браво! ' + doneN + ' от ' + QUICK_MEAS + ' готови')
-          : ('Браво! Замерване ' + doneN + ' готово'));
+          ? t('ui.pitchTest.bravo.quickFmt', 'Браво! {done} от {total} готови', { done: doneN, total: QUICK_MEAS })
+          : t('ui.pitchTest.bravo.preciseFmt', 'Браво! Замерване {done} готово', { done: doneN }));
     app.innerHTML = (
       '<div class="pt-screen" data-screen="pitch_test">' +
         '<div class="pt-bravo">' +
@@ -587,16 +588,16 @@ window.PitchTest = (function () {
   function measureMeta() {
     if (testMode === 'quick') {
       return {
-        progressLabel: 'Замерване ' + (bayes.n + 1) + ' от ' + QUICK_MEAS,
+        progressLabel: t('ui.pitchTest.measure.ofFmt', 'Замерване {n} от {total}', { n: bayes.n + 1, total: QUICK_MEAS }),
         sub: '',
         pct: Math.round((bayes.n / QUICK_MEAS) * 100)
       };
     }
     var ci = bayesCIHalfOct();
-    var ciTxt = (bayes.n < 2 || !isFinite(ci)) ? '—' : ('±' + ci.toFixed(2) + ' окт');
+    var ciTxt = (bayes.n < 2 || !isFinite(ci)) ? '—' : ('±' + ci.toFixed(2) + ' ' + t('ui.pitchTest.measure.octSuffix', 'окт'));
     return {
-      progressLabel: 'Замерване ' + (bayes.n + 1),
-      sub: 'точност: ' + ciTxt + ' (цел ±' + CI_TARGET_OCT + ')',
+      progressLabel: t('ui.pitchTest.measure.nFmt', 'Замерване {n}', { n: bayes.n + 1 }),
+      sub: t('ui.pitchTest.measure.accuracyFmt', 'точност: {ci} (цел ±{target})', { ci: ciTxt, target: CI_TARGET_OCT }),
       pct: Math.min(100, Math.round((bayes.n / MIN_MEAS) * 100))
     };
   }
@@ -624,7 +625,7 @@ window.PitchTest = (function () {
     app.innerHTML = (
       '<div class="pt-screen pt-screen--trial" data-screen="pitch_test">' +
         '<header class="pt-header">' +
-          '<h1 class="pt-title">Намиране на Вашата честота</h1>' +
+          '<h1 class="pt-title">' + escapeHtml(t('ui.pitchTest.trial.title', 'Намиране на Вашата честота')) + '</h1>' +
           '<div class="pt-progress-row">' +
             '<div class="pt-progress">' + escapeHtml(meta.progressLabel || '') + '</div>' +
             '<div class="pt-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + pct + '">' +
@@ -633,7 +634,7 @@ window.PitchTest = (function () {
           '</div>' +
           (meta.sub ? '<p class="pt-progress-sub">' + escapeHtml(meta.sub) + '</p>' : '') +
         '</header>' +
-        '<p class="pt-help-one">Чуйте двата звука. Изберете кой е по-близо до Вашия.</p>' +
+        '<p class="pt-help-one">' + escapeHtml(t('ui.pitchTest.trial.help', 'Чуйте двата звука. Изберете кой е по-близо до Вашия.')) + '</p>' +
         '<section class="pt-tones">' +
           toneCardHtml('A') + toneCardHtml('B') +
         '</section>' +
@@ -643,7 +644,7 @@ window.PitchTest = (function () {
               '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"' +
               ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
               '<polyline points="15 18 9 12 15 6"/></svg>' +
-              'Назад към предишния' +
+              escapeHtml(t('ui.pitchTest.trial.back', 'Назад към предишния')) +
             '</button>'
           : '') +
         '<button class="pt-quit" type="button" data-action="quit">' +
@@ -651,9 +652,9 @@ window.PitchTest = (function () {
             '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
               '<rect x="6" y="5" width="4" height="14" rx="1"/>' +
               '<rect x="14" y="5" width="4" height="14" rx="1"/></svg>' +
-            'Спри засега' +
+            escapeHtml(t('ui.pitchTest.trial.quit', 'Спри засега')) +
           '</span>' +
-          '<span class="pt-quit-sub">Запазваме докъде стигнахте</span>' +
+          '<span class="pt-quit-sub">' + escapeHtml(t('ui.pitchTest.trial.quitSub', 'Запазваме докъде стигнахте')) + '</span>' +
         '</button>' +
       '</div>'
     );
@@ -680,16 +681,16 @@ window.PitchTest = (function () {
     return (
       '<div class="pt-tone-card" data-tone-card="' + letter + '">' +
         '<button class="pt-tone-btn" type="button" data-action="hear" data-tone="' + letter + '"' +
-          ' aria-label="Звук ' + letter + ' — натиснете, за да чуете">' +
+          ' aria-label="' + escapeHtml(t('ui.pitchTest.tone.aria', 'Звук {letter} — натиснете, за да чуете', { letter: letter })) + '">' +
           '<span class="pt-tone-icon" aria-hidden="true">' + SVG_SPEAKER + '</span>' +
-          '<span class="pt-tone-label">Звук ' + letter + '</span>' +
-          '<span class="pt-tone-hint" data-tone-hint="' + letter + '">Натиснете, за да чуете</span>' +
+          '<span class="pt-tone-label">' + escapeHtml(t('ui.pitchTest.tone.label', 'Звук {letter}', { letter: letter })) + '</span>' +
+          '<span class="pt-tone-hint" data-tone-hint="' + letter + '">' + escapeHtml(t('ui.pitchTest.tone.hint', 'Натиснете, за да чуете')) + '</span>' +
         '</button>' +
         '<div class="pt-tone-actions" data-tone-actions="' + letter + '">' +
           '<button class="pt-tone-replay" type="button" data-action="replay" data-tone="' + letter + '">' +
-            SVG_REPLAY + '<span>Чуй пак</span></button>' +
+            SVG_REPLAY + '<span>' + escapeHtml(t('ui.pitchTest.tone.replay', 'Чуй пак')) + '</span></button>' +
           '<button class="pt-tone-choose" type="button" data-action="choose" data-tone="' + letter + '">' +
-            SVG_CHECK + '<span>Това е моят</span></button>' +
+            SVG_CHECK + '<span>' + escapeHtml(t('ui.pitchTest.tone.choose', 'Това е моят')) + '</span></button>' +
         '</div>' +
       '</div>'
     );
@@ -785,7 +786,7 @@ window.PitchTest = (function () {
     var ring = btn.querySelector('.pt-hold-ring');
     holdState = { letter: letter, btn: btn, ring: ring, start: now(), raf: null, timer: null };
     btn.classList.add('pt-tone-btn--holding');
-    setHint(letter, 'Задръж…');
+    setHint(letter, t('ui.pitchTest.hold.holding', 'Задръж…'));
     // Завършването е през setTimeout (надеждно), НЕ през rAF — за да работи
     // и когато rAF е throttled (фон/енергоспестяване). rAF само за визуалния пълнеж.
     holdState.timer = setTimeout(completeHold, HOLD_MS);
@@ -805,7 +806,7 @@ window.PitchTest = (function () {
     if (holdState.timer) clearTimeout(holdState.timer);
     if (holdState.btn) holdState.btn.classList.remove('pt-tone-btn--holding');
     if (holdState.ring) holdState.ring.style.setProperty('--fill', '0');
-    setHint(holdState.letter, 'Натисни = чуй<br>Задръж = избери');
+    setHint(holdState.letter, t('ui.pitchTest.hold.hint', 'Натисни = чуй<br>Задръж = избери'));
     holdState = null;
   }
 
@@ -866,7 +867,7 @@ window.PitchTest = (function () {
     if (octaveState.step === 1) {
       var halfF = F / 2;
       if (halfF < F_MIN) { return nextOctaveStep(); }
-      presentPair(halfF, F, { progressLabel: 'Проверка на октава', sub: 'долна октава', pct: 100 }, function (which) {
+      presentPair(halfF, F, { progressLabel: t('ui.pitchTest.octave.title', 'Проверка на октава'), sub: t('ui.pitchTest.octave.lower', 'долна октава'), pct: 100 }, function (which) {
         octaveState.trials.push({ pair: 'F_vs_halfF', choice: which });
         if (which === 'lower' && octaveState.shifts < 3) {   // избрал 0.5F → надолу
           octaveState.base = halfF; octaveState.shifts += 1; octaveState.step = 0;
@@ -876,7 +877,7 @@ window.PitchTest = (function () {
     } else if (octaveState.step === 2) {
       var dblF = octaveState.base * 2;
       if (dblF > F_MAX) { return nextOctaveStep(); }
-      presentPair(octaveState.base, dblF, { progressLabel: 'Проверка на октава', sub: 'горна октава', pct: 100 }, function (which) {
+      presentPair(octaveState.base, dblF, { progressLabel: t('ui.pitchTest.octave.title', 'Проверка на октава'), sub: t('ui.pitchTest.octave.upper', 'горна октава'), pct: 100 }, function (which) {
         octaveState.trials.push({ pair: 'F_vs_2F', choice: which });
         if (which === 'higher' && octaveState.shifts < 3) {  // избрал 2F → нагоре
           octaveState.base = dblF; octaveState.shifts += 1; octaveState.step = 0;
@@ -911,17 +912,17 @@ window.PitchTest = (function () {
     app.innerHTML = (
       '<div class="pt-screen" data-screen="pitch_test">' +
         '<header class="pt-header">' +
-          '<h1 class="pt-title">Нагласи точно своя тон</h1>' +
-          '<p class="pt-subtitle">Плъзгай бавно, докато звукът стане<br>точно като твоя тинитус.</p>' +
+          '<h1 class="pt-title">' + escapeHtml(t('ui.pitchTest.finetune.title', 'Нагласи точно своя тон')) + '</h1>' +
+          '<p class="pt-subtitle">' + t('ui.pitchTest.finetune.subtitle', 'Плъзгай бавно, докато звукът стане<br>точно като твоя тинитус.') + '</p>' +
         '</header>' +
         '<div class="pt-finetune">' +
           '<div class="pt-finetune-val" id="ptFineVal">' + escapeHtml(fmtFreq(f0)) + '</div>' +
           '<input type="range" class="pt-finetune-slider" id="ptFineSlider" min="0" max="100" step="1"' +
-            ' value="' + pct + '" aria-label="Фина настройка на честотата">' +
-          '<div class="pt-finetune-hint"><span>по-ниско</span><span>по-високо</span></div>' +
+            ' value="' + pct + '" aria-label="' + escapeHtml(t('ui.pitchTest.finetune.aria', 'Фина настройка на честотата')) + '">' +
+          '<div class="pt-finetune-hint"><span>' + escapeHtml(t('ui.pitchTest.finetune.lower', 'по-ниско')) + '</span><span>' + escapeHtml(t('ui.pitchTest.finetune.higher', 'по-високо')) + '</span></div>' +
         '</div>' +
         '<div class="pt-actions">' +
-          '<button class="pt-btn pt-btn--primary" type="button" data-action="finetune-done">Това е моят тон</button>' +
+          '<button class="pt-btn pt-btn--primary" type="button" data-action="finetune-done">' + escapeHtml(t('ui.pitchTest.finetune.done', 'Това е моят тон')) + '</button>' +
         '</div>' +
       '</div>'
     );
@@ -1052,15 +1053,15 @@ window.PitchTest = (function () {
     app.innerHTML = (
       '<div class="pt-screen" data-screen="pitch_test">' +
         '<header class="pt-header">' +
-          '<h1 class="pt-title">Намерихме Вашата честота</h1>' +
-          '<p class="pt-subtitle">Слушайте спокойно — звукът е настроен за Вас.<br>Дишайте бавно.</p>' +
+          '<h1 class="pt-title">' + escapeHtml(t('ui.pitchTest.reward.title', 'Намерихме Вашата честота')) + '</h1>' +
+          '<p class="pt-subtitle">' + t('ui.pitchTest.reward.subtitle', 'Слушайте спокойно — звукът е настроен за Вас.<br>Дишайте бавно.') + '</p>' +
         '</header>' +
         '<div class="pt-reward">' +
           '<div class="pt-breathe" aria-hidden="true"><span></span></div>' +
           '<div class="pt-reward-freq">' + escapeHtml(fmtFreq(freq)) + '</div>' +
         '</div>' +
         '<div class="pt-actions">' +
-          '<button class="pt-btn pt-btn--ghost" type="button" data-action="reward-done">Готово</button>' +
+          '<button class="pt-btn pt-btn--ghost" type="button" data-action="reward-done">' + escapeHtml(t('ui.pitchTest.reward.done', 'Готово')) + '</button>' +
         '</div>' +
       '</div>'
     );
@@ -1125,17 +1126,16 @@ window.PitchTest = (function () {
     app.innerHTML = (
       '<div class="pt-screen" data-screen="pitch_test">' +
         '<header class="pt-header">' +
-          '<h1 class="pt-title">Усетихте ли разлика?</h1>' +
-          '<p class="pt-subtitle">При мнозина писъкът утихва за няколко минути след това.</p>' +
+          '<h1 class="pt-title">' + escapeHtml(t('ui.pitchTest.rewardAsk.title', 'Усетихте ли разлика?')) + '</h1>' +
+          '<p class="pt-subtitle">' + escapeHtml(t('ui.pitchTest.rewardAsk.subtitle', 'При мнозина писъкът утихва за няколко минути след това.')) + '</p>' +
         '</header>' +
         '<div class="pt-pretest-options">' +
-          ptOption('reward-felt', 'yes', 'Да, по-тихо е', 'Писъкът намаля') +
-          ptOption('reward-felt', 'little', 'Малко', 'Лека промяна') +
-          ptOption('reward-felt', 'no', 'Не усетих', 'Няма промяна сега') +
+          ptOption('reward-felt', 'yes', t('ui.pitchTest.rewardAsk.yes.label', 'Да, по-тихо е'), t('ui.pitchTest.rewardAsk.yes.desc', 'Писъкът намаля')) +
+          ptOption('reward-felt', 'little', t('ui.pitchTest.rewardAsk.little.label', 'Малко'), t('ui.pitchTest.rewardAsk.little.desc', 'Лека промяна')) +
+          ptOption('reward-felt', 'no', t('ui.pitchTest.rewardAsk.no.label', 'Не усетих'), t('ui.pitchTest.rewardAsk.no.desc', 'Няма промяна сега')) +
         '</div>' +
         (testMode === 'quick'
-          ? '<p class="pt-finish-note">За още по-точна честота можете да ' +
-            'довършите теста по-късно — когато Ви е удобно.</p>'
+          ? '<p class="pt-finish-note">' + escapeHtml(t('ui.pitchTest.rewardAsk.note', 'За още по-точна честота можете да довършите теста по-късно — когато Ви е удобно.')) + '</p>'
           : '') +
       '</div>'
     );
@@ -1157,27 +1157,24 @@ window.PitchTest = (function () {
     if (isFinite(ciOct) && ciOct > 0) {
       var lo = Math.round(freq * Math.pow(2, -ciOct));
       var hi = Math.round(freq * Math.pow(2, ciOct));
-      rangeTxt = 'Диапазон на надеждност: ' + fmtFreq(lo) + ' – ' + fmtFreq(hi) +
-                 ' (±' + ciOct.toFixed(2) + ' октава).';
+      rangeTxt = t('ui.pitchTest.result.rangeFmt', 'Диапазон на надеждност: {lo} – {hi} (±{ci} октава).', { lo: fmtFreq(lo), hi: fmtFreq(hi), ci: ciOct.toFixed(2) });
     }
     app.innerHTML = (
       '<div class="pt-screen" data-screen="pitch_test">' +
         '<header class="pt-header">' +
-          '<h1 class="pt-title">Готово</h1>' +
-          '<p class="pt-subtitle">Намерихме приблизителната честота на Вашия тинитус.</p>' +
+          '<h1 class="pt-title">' + escapeHtml(t('ui.pitchTest.result.title', 'Готово')) + '</h1>' +
+          '<p class="pt-subtitle">' + escapeHtml(t('ui.pitchTest.result.subtitle', 'Намерихме приблизителната честота на Вашия тинитус.')) + '</p>' +
         '</header>' +
         '<section class="pt-result">' +
           '<div class="pt-result-freq">' + escapeHtml(fmtFreq(freq)) + '</div>' +
           '<p class="pt-result-note">' +
             (rangeTxt ? escapeHtml(rangeTxt) + ' ' : '') +
-            'Това е приблизителна оценка, не клинично измерване — честотата на ' +
-            'тинитуса естествено се променя. Затова звуковият подход използва ' +
-            'широка лента около нея.' +
+            escapeHtml(t('ui.pitchTest.result.note', 'Това е приблизителна оценка, не клинично измерване — честотата на тинитуса естествено се променя. Затова звуковият подход използва широка лента около нея.')) +
           '</p>' +
         '</section>' +
         '<div class="pt-actions">' +
-          '<button class="pt-btn pt-btn--primary" type="button" data-action="skip-continue">Продължете</button>' +
-          '<button class="pt-btn pt-btn--ghost" type="button" data-action="retest">Повторете теста</button>' +
+          '<button class="pt-btn pt-btn--primary" type="button" data-action="skip-continue">' + escapeHtml(t('ui.pitchTest.result.continue', 'Продължете')) + '</button>' +
+          '<button class="pt-btn pt-btn--ghost" type="button" data-action="retest">' + escapeHtml(t('ui.pitchTest.result.retest', 'Повторете теста')) + '</button>' +
         '</div>' +
       '</div>'
     );
@@ -1192,7 +1189,7 @@ window.PitchTest = (function () {
         '<header class="pt-header"><h1 class="pt-title">' + escapeHtml(title) + '</h1></header>' +
         '<section class="pt-skip-body"><p>' + escapeHtml(body) + '</p></section>' +
         '<div class="pt-actions">' +
-          '<button class="pt-btn pt-btn--primary" type="button" data-action="skip-continue">Продължете</button>' +
+          '<button class="pt-btn pt-btn--primary" type="button" data-action="skip-continue">' + escapeHtml(t('ui.pitchTest.result.continue', 'Продължете')) + '</button>' +
         '</div>' +
       '</div>'
     );
@@ -1242,12 +1239,11 @@ window.PitchTest = (function () {
     app.innerHTML = (
       '<div class="pt-screen" data-screen="pitch_test">' +
         '<header class="pt-header">' +
-          '<h1 class="pt-title">Няма проблем 🙂</h1>' +
-          '<p class="pt-subtitle">Спряхте теста. Можете да го направите по-късно, ' +
-            'когато Ви е удобно — отнема само минута.</p>' +
+          '<h1 class="pt-title">' + escapeHtml(t('ui.pitchTest.quit.title', 'Няма проблем 🙂')) + '</h1>' +
+          '<p class="pt-subtitle">' + escapeHtml(t('ui.pitchTest.quit.body', 'Спряхте теста. Можете да го направите по-късно, когато Ви е удобно — отнема само минута.')) + '</p>' +
         '</header>' +
         '<div class="pt-actions">' +
-          '<button class="pt-btn pt-btn--primary" type="button" data-action="skip-continue">Към началото</button>' +
+          '<button class="pt-btn pt-btn--primary" type="button" data-action="skip-continue">' + escapeHtml(t('ui.pitchTest.quit.toStart', 'Към началото')) + '</button>' +
         '</div>' +
       '</div>'
     );
