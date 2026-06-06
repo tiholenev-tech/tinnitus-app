@@ -171,6 +171,7 @@ function it_head(array $o) {
   echo '<link rel="canonical" href="'.$url.'">'."\n";
   echo '<link rel="alternate" hreflang="it" href="'.$url.'">'."\n";
   echo '<link rel="alternate" hreflang="bg" href="'.$altBg.'">'."\n";
+  if (!empty($o['alt_ro'])) echo '<link rel="alternate" hreflang="ro" href="'.$o['alt_ro'].'">'."\n";
   echo '<link rel="alternate" hreflang="x-default" href="'.$altBg.'">'."\n";
   echo '<meta name="robots" content="'.$robots.'">'."\n";
   echo '<meta property="og:type" content="'.$ogType.'">'."\n";

@@ -18,7 +18,8 @@ window.LanguagePicker = (function () {
   // extend SUPPORTED в i18n.js едновременно.
   var LANGUAGES = [
     { code: 'bg', name: 'Български', native: 'Български', flag: '🇧🇬' },
-    { code: 'it', name: 'Italian', native: 'Italiano', flag: '🇮🇹' }
+    { code: 'it', name: 'Italian', native: 'Italiano', flag: '🇮🇹' },
+    { code: 'ro', name: 'Romanian', native: 'Română', flag: '🇷🇴' }
   ];
 
   function t(key, fallback) {

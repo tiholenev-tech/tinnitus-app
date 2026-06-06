@@ -1,0 +1,2534 @@
+{
+ "_meta": {
+  "locale": "ro",
+  "name": "Română",
+  "rtl": false,
+  "version": "1.0.0",
+  "status": "complete (beta)",
+  "note": "BG е reference complete за beta. Други езици се generate-ват от bg.json чрез DeepL Pro в Phase 2."
+ },
+ "ui": {
+  "meta": {
+   "title": "tinnitus-app",
+   "description": "Instrument de relaxare auditivă pentru tinitus"
+  },
+  "header": {
+   "brandHomeAria": "Către pagina de start",
+   "themeToggleAria": "Schimbă tema",
+   "settingsAria": "Setări"
+  },
+  "onboarding": {
+   "back": "Înapoi",
+   "progressLabel": "Pasul {step} din 3",
+   "welcome": {
+    "title": "Controlați zgomotul.<br>Redobândiți liniștea.",
+    "subtitle": "Bibliotecă de sunete, selectată special pentru persoanele cu țiuit în urechi.<br>Versiune beta gratuită — fără reclame, fără abonament.",
+    "cta": "Începeți"
+   },
+   "value": {
+    "title": "Ce veți primi",
+    "beta": {
+     "title": "Aceasta este o versiune beta",
+     "text": "Sunteți printre primii testeri. Feedbackul dvs. va ajuta la îmbunătățirea aplicației."
+    },
+    "cards": {
+     "mixer": {
+      "heading": "Mix de sunet personalizat",
+      "body": "În funcție de profilul dvs. de tinitus."
+     },
+     "chart": {
+      "heading": "Jurnal de progres",
+      "body": "Vă vedeți progresul în cifre."
+     },
+     "voice": {
+      "heading": "Asistent vocal",
+      "body": "Fără scris, fără complicații."
+     }
+    },
+    "timeline": {
+     "relief": {
+      "label": "Primele semne de ușurare:",
+      "value": "14–21 zile"
+     },
+     "habituation": {
+      "label": "Habituare completă:",
+      "value": "8–12 săptămâni"
+     }
+    },
+    "disclaimerSoft": "Nu promitem minuni. Antrenăm creierul să ignore sunetul.",
+    "cta": "Continuați"
+   },
+   "consent": {
+    "title": "Important înainte de a continua",
+    "intro": "tinnitus-app este un instrument de relaxare auditivă.",
+    "lines": {
+     "noReplaceConsult": "Nu înlocuiește consultația medicală",
+     "noTreatment": "Nu vindecă tinitusul",
+     "helpsHabituation": "Ajută la habituare și relaxare",
+     "resultsVary": "Rezultatele variază individual"
+    },
+    "footer": "În caz de simptome acute, consultați un medic.",
+    "checkboxLabel": "Înțeleg și sunt de acord",
+    "cta": "Continuați către evaluare"
+   }
+  },
+  "mixer": {
+   "tabs": {
+    "recommended": "Recomandate",
+    "all": "Toate sunetele"
+   },
+   "profilePillPrefix": "Pentru profilul dvs.: ",
+   "starTag": "Cel mai bun pentru dvs.",
+   "volumeAria": "Volum de la 0 la 100",
+   "playAria": "Redă {title}",
+   "playGenericAria": "Redă",
+   "infoAria": "Informații",
+   "infoLoadingMissing": "Informația se încarcă... (intrarea \"{key}\" nu a fost găsită).",
+   "categoriesLoading": "Se încarcă...",
+   "categoryCountSuffix": "{n} fișiere",
+   "sleepBtn": "Temporizator de somn",
+   "sleepBtnAria": "Temporizator de somn",
+   "sleepCurrentSuffix": "· {n} min",
+   "sourcePrefix": "Sursă: ",
+   "infoToggle": "Doriți să aflați mai multe?",
+   "sleepOverlay": {
+    "title": "Temporizator de somn",
+    "sub": "Sunetul se va opri lin după timpul ales",
+    "chip15": "15 minute",
+    "chip30": "30 minute",
+    "chip60": "60 minute",
+    "chip120": "120 minute",
+    "cancel": "Anulează temporizatorul"
+   },
+   "infoExpand": {
+    "whyForYou": {
+     "title": "De ce aceste mixuri pentru dvs.",
+     "body": "Profilul dvs. ({code} — {name}) răspunde cel mai bine la sunete cu un spectru care se suprapune parțial cu tinitusul. Scopul este habituarea treptată — creierul să se obișnuiască să îl audă mai puțin cu timpul."
+    },
+    "expectations": {
+     "title": "La ce să vă așteptați",
+     "weeks1_2": {
+      "label": "Săptămâna 1–2",
+      "text": "Adormire mai ușoară. Tinitusul este încă prezent, dar mai puțin supărător."
+     },
+     "weeks3_4": {
+      "label": "Săptămâna 3–4",
+      "text": "Începeți să uitați de tinitus în timpul muncii liniștite. Concentrare mai bună."
+     },
+     "months2_3": {
+      "label": "Luna 2–3",
+      "text": "Habituare — tinitusul se îndepărtează de atenția conștientă pentru perioade lungi."
+     }
+    },
+    "disclaimer": [
+     "AURALIS este un instrument de wellness, nu un produs medical.",
+     "În caz de simptome acute (pierdere bruscă a auzului, amețeli) consultați un medic ORL.",
+     "Ascultați la un volum moderat — sunetul nu trebuie niciodată să acopere complet tinitusul."
+    ]
+   },
+   "cards": {
+    "underwater": {
+     "title": "Liniște subacvatică",
+     "subtitle": "Frecvențe joase · 60–120 Hz"
+    },
+    "deep_calm": {
+     "title": "Somn profund",
+     "subtitle": "60% zgomot maro · 30% valuri · 10% delta"
+    },
+    "sea_shore": {
+     "title": "Țărm marin",
+     "subtitle": "Valuri lente în depărtare"
+    },
+    "pink_rain": {
+     "title": "Ploaie liniștită",
+     "subtitle": "Ploaie de primăvară în pădure"
+    },
+    "brown_noise": {
+     "title": "Zgomot roz",
+     "subtitle": "Zgomot terapeutic de bază"
+    }
+   }
+  },
+  "quiz": {
+   "back": "Înapoi",
+   "progressText": "Întrebarea {n} din {total}",
+   "progressAria": "Progres {n} din {total}",
+   "errorQuestionMissing": "Eroare: întrebarea {n} nu există.",
+   "confirmRestart": "Sigur? Aceasta va șterge toate răspunsurile și va începe de la capăt.",
+   "results": {
+    "computing": "Se calculează...",
+    "notComputed": "Profilul nu a fost încă calculat.",
+    "startOver": "Începe de la capăt",
+    "eyebrow": "Profilul dvs.",
+    "diEyebrow": "Nivel de disconfort",
+    "diSuffix": "/ 20",
+    "intensityLabel": "Intensitate recomandată:",
+    "mixesTitle": "Mixuri recomandate",
+    "disclaimer": "Acest profil se bazează pe răspunsurile dvs. Îl puteți modifica mai târziu în setări.",
+    "continueToMixer": "Continuă către Mixer",
+    "restart": "Începe evaluarea de la capăt"
+   },
+   "mixerPlaceholder": {
+    "title": "Mixer urmează",
+    "body": "Web Audio engine + 5 canale + Sleep Mode urmează într-o sarcină viitoare.",
+    "reset": "Resetează tot"
+   }
+  },
+  "settings": {
+   "title": "Setări",
+   "openAria": "Deschide setările",
+   "closeAria": "Închide setările",
+   "back": "Înapoi",
+   "lang": {
+    "label": "Limbă",
+    "active": "activ",
+    "preview": "preview",
+    "todo": "traducere în curs",
+    "names": {
+     "bg": "Български",
+     "en": "English",
+     "it": "Italiano",
+     "ro": "Română",
+     "zh": "中文 (简体)",
+     "hi": "हिन्दी",
+     "es": "Español",
+     "ar": "العربية",
+     "pt": "Português",
+     "ru": "Русский",
+     "fr": "Français",
+     "de": "Deutsch",
+     "ja": "日本語",
+     "ko": "한국어"
+    }
+   },
+   "theme": {
+    "label": "Temă",
+    "light": "Luminoasă",
+    "dark": "Întunecată",
+    "auto": "Automată"
+   },
+   "volume": {
+    "label": "Volum",
+    "aria": "Volum de la 0 la 100"
+   },
+   "data": {
+    "label": "Datele mele",
+    "export": "Descarcă tot (JSON)",
+    "exportFilename": "auralis-data-{date}.json",
+    "delete": "Șterge toate datele",
+    "deleteConfirm": "Sigur? Aceasta va șterge testul, favoritele, jurnalul și toate setările. Acțiunea este ireversibilă.",
+    "debugResetTrial": "Reset trial period (debug)",
+    "debugResetDone": "Trial reset ✓",
+    "debugSkipOnboarding": "Skip onboarding → Library (debug)",
+    "debugResetOnboarding": "Reset onboarding (debug)",
+    "debugMockQuiz": "Mock quiz: TH_C profile → Library (debug)"
+   },
+   "about": {
+    "label": "Despre aplicație",
+    "version": "AURALIS · versiunea {v} (beta) · 2026",
+    "disclaimer": "Instrument de wellness, nu un înlocuitor al medicului.",
+    "privacyLink": "Politica de confidențialitate",
+    "termsLink": "Termeni de utilizare"
+   }
+  },
+  "trial": {},
+  "audio": {
+   "error": {
+    "notFound": "Sunetul nu poate fi încărcat",
+    "network": "Verificați conexiunea la internet",
+    "decode": "Fișierul nu poate fi redat"
+   }
+  },
+  "components": {
+   "infoPanel": {
+    "readMore": "Citește mai mult",
+    "readLess": "Arată mai puțin",
+    "citationsLabel": "Surse",
+    "faqLabel": "Întrebări frecvente",
+    "expandQuestionAria": "Arată răspunsul la: {question}",
+    "collapseQuestionAria": "Ascunde răspunsul la: {question}"
+   },
+   "noisePicker": {
+    "title": "Alegeți zgomotul de fundal",
+    "close": "Închide",
+    "infoAria": "Informații despre: {name}",
+    "options": {
+     "none": "Fără fundal",
+     "brown_pure": "Maro (pur)",
+     "brown_lp1000": "Maro · filtru 1000 Hz",
+     "brown_lp500": "Maro · filtru 500 Hz",
+     "pink_pure": "Roz (pur)",
+     "pink_lp2000": "Roz · filtru 2000 Hz",
+     "pink_lp4000": "Roz · filtru 4000 Hz"
+    }
+   },
+   "player": {
+    "backAria": "Înapoi la bibliotecă",
+    "layer1Label": "Sunet principal",
+    "layer2Label": "Zgomot de fundal",
+    "noiseChange": "Schimbă fundalul",
+    "pauseAria": "Pauză",
+    "playAria": "Redă",
+    "sleepAria": "Mod nocturn",
+    "sosAria": "Respirație SOS",
+    "noLayer2": "Fără fundal"
+   }
+  },
+  "noises": {
+   "none": {
+    "title": "Fără fundal",
+    "description": "Fără al doilea strat sonor."
+   },
+   "brown_pure": {
+    "title": "Brown noise (pur)",
+    "description": "Zgomot blând, profund, cu accent pe frecvențele joase (1/f²). Potrivit pentru relaxare și adormire. Folosit adesea de persoanele cu tinitus de tonalitate înaltă."
+   },
+   "brown_lp1000": {
+    "title": "Brown lowpass 1000 Hz",
+    "description": "Brown noise filtrat — frecvențele peste 1000 Hz au fost eliminate. Sonoritate mai blândă, mai discretă. Bun pentru concentrare îndelungată."
+   },
+   "brown_lp500": {
+    "title": "Brown lowpass 500 Hz",
+    "description": "Brown noise filtrat până la frecvențe foarte joase (sub 500 Hz). Se simte mai mult ca un huruit profund decât ca un zgomot."
+   },
+   "pink_pure": {
+    "title": "Pink noise (pur)",
+    "description": "Zgomot natural (1/f). Asemănător cu o ploaie ușoară sau cu vântul. Unul dintre cele mai studiate tipuri de zgomot pentru somn."
+   },
+   "pink_lp2000": {
+    "title": "Pink lowpass 2000 Hz",
+    "description": "Pink noise cu filtru — fără șuieratul frecvențelor înalte. Mai blând, mai plăcut pentru ascultare îndelungată."
+   },
+   "pink_lp4000": {
+    "title": "Pink lowpass 4000 Hz",
+    "description": "Pink noise cu frecvențele înalte ușor atenuate. Păstrează textura ploii, dar fără asprime."
+   }
+  },
+  "library": {
+   "title": "Bibliotecă de sunete",
+   "cat_audio": {
+    "ocean": "Valuri",
+    "rain": "Ploaie",
+    "river": "Râu",
+    "underwater": "Subacvatic",
+    "wind": "Vânt",
+    "forest": "Pădure",
+    "fire": "Foc",
+    "meditation": "Meditație",
+    "noise": "Zgomot",
+    "ambient": "Atmosferă",
+    "waves": "Valuri",
+    "waterfall": "Cascadă",
+    "music": "Meditație"
+   },
+   "loading": "Se încarcă...",
+   "empty": "În curând vor fi mai multe sunete",
+   "errorManifest": "Eroare la încărcarea bibliotecii.",
+   "search": {
+    "placeholder": "Căutați un sunet...",
+    "noResults": "Niciun sunet găsit pentru \"{query}\"",
+    "clearAria": "Șterge căutarea"
+   },
+   "favorites": {
+    "label": "Favorite",
+    "count": "{n}",
+    "empty": "Apăsați ♡ pe un sunet pentru a-l salva aici"
+   },
+   "cat": {
+    "all": "Toate",
+    "ocean": "Ocean",
+    "rain": "Ploaie",
+    "river": "Râu",
+    "underwater": "Sub apă",
+    "wind": "Vânt",
+    "forest": "Pădure",
+    "fire": "Foc",
+    "meditation": "Meditație",
+    "noise": "Zgomote",
+    "ambient": "Ambient"
+   },
+   "card": {
+    "durationFmt": "{m}:{s}",
+    "playAria": "Redă {title}",
+    "favoriteAddAria": "Adaugă {title} la favorite",
+    "favoriteRemoveAria": "Elimină {title} din favorite"
+   },
+   "player": {
+    "playing": "Se redă",
+    "paused": "În pauză",
+    "playAria": "Redă",
+    "pauseAria": "Pauză",
+    "nextAria": "Sunetul următor",
+    "expandAria": "Extinde playerul"
+   },
+   "sounds": {
+    "sample_ocean_01": {
+     "title": "Mare îndepărtată",
+     "subtitle": "Valuri liniștite în depărtare"
+    },
+    "sample_rain_01": {
+     "title": "Ploaie blândă",
+     "subtitle": "Ploaie de primăvară constantă"
+    },
+    "sample_underwater_01": {
+     "title": "Liniște subacvatică",
+     "subtitle": "Frecvențe joase · 60–120 Hz"
+    },
+    "sample_deep_01": {
+     "title": "Ambient profund",
+     "subtitle": "Fundal de bas liniștit"
+    },
+    "sample_pink_01": {
+     "title": "Zgomot roz",
+     "subtitle": "Generat în timp real"
+    },
+    "sample_river_01": {
+     "title": "Pârâu de munte",
+     "subtitle": "Placeholder (audio în așteptare)"
+    },
+    "sample_forest_01": {
+     "title": "Dimineață în pădure",
+     "subtitle": "Placeholder (audio în așteptare)"
+    },
+    "sample_meditation_01": {
+     "title": "Subconștient",
+     "subtitle": "Somn profund · meditație ghidată",
+     "author": "Anna Landström"
+    },
+    "sample_meditation_02": {
+     "title": "Boluri tibetane",
+     "subtitle": "Relaxare · armonice",
+     "author": "Luba Hillman"
+    },
+    "sample_meditation_03": {
+     "title": "Body scan",
+     "subtitle": "Relaxare progresivă",
+     "author": "Hanna Lindgren"
+    },
+    "sample_meditation_04": {
+     "title": "Respirație 4-7-8",
+     "subtitle": "Meditație scurtă înainte de culcare",
+     "author": "AURALIS"
+    },
+    "sample_meditation_05": {
+     "title": "Pădure dimineața",
+     "subtitle": "Natură · 30 min",
+     "author": "Joseph Beg"
+    }
+   }
+  },
+  "sleep": {
+   "title": "Mod nocturn",
+   "closeAria": "Ieșire din modul nocturn",
+   "nothingPlaying": "Alegeți un sunet din bibliotecă",
+   "openLibrary": "Către bibliotecă",
+   "timer": {
+    "label": "Temporizator de oprire",
+    "off": "Fără temporizator",
+    "min15": "15 min",
+    "min30": "30 min",
+    "min60": "1 oră",
+    "min90": "1,5 h",
+    "min120": "2 ore",
+    "stopTime": "Oprire: {time}"
+   },
+   "sos": {
+    "button": "Respirație în caz de panică",
+    "subtitle": "Apăsați în caz de anxietate"
+   }
+  },
+  "sos": {
+   "openAria": "Deschide respirația SOS",
+   "closeAria": "Opriți exercițiul",
+   "inhale": "INSPIRAȚI",
+   "hold": "REȚINEȚI",
+   "exhale": "EXPIRAȚI",
+   "pause": "—",
+   "cycle": "Ciclul {n} din {total}",
+   "stop": "Opriți exercițiul",
+   "instructionsTop": "Respirați lent pe nas",
+   "end": {
+    "title": "Vă simțiți mai bine?",
+    "yes": "Da, mulțumesc",
+    "again": "Încă un ciclu"
+   }
+  },
+  "privacy": {
+   "title": "Politica de confidențialitate",
+   "lastUpdated": "Ultima actualizare: 24 mai 2026",
+   "intro": "AURALIS respectă confidențialitatea dvs. Acest document explică pe scurt ce (NU) colectăm și ce se întâmplă cu datele dvs.",
+   "collection": {
+    "title": "Ce colectăm",
+    "text": "AURALIS NU colectează date personale. Totul funcționează pe dispozitivul dvs. Fără înregistrare de cont, fără email, fără telefon."
+   },
+   "storage": {
+    "title": "Unde sunt păstrate datele",
+    "text": "Toate datele (răspunsurile la test, jurnalul, favoritele, istoricul de ascultare) sunt păstrate doar în browserul sau aplicația de pe dispozitivul dvs. (localStorage / app sandbox). Când ștergeți aplicația — datele dispar odată cu ea."
+   },
+   "sharing": {
+    "title": "Partajare",
+    "text": "Noi NU partajăm date cu terți. Fără analytics, fără advertising trackers, fără cookie-uri de la terți. Fără server în cloud către care să trimitem ceva."
+   },
+   "gdpr": {
+    "title": "Drepturile dvs. (GDPR)",
+    "text": "Puteți descărca toate datele dvs. ca JSON oricând (Setări → Datele mele → Descarcă tot). Puteți șterge toate datele cu un singur buton. Deoarece nu păstrăm nimic pe server, nu există nimic de solicitat separat."
+   },
+   "platform": {
+    "title": "Google Play / App Store",
+    "text": "La instalarea din Google Play sau App Store, platforma poate prelucra emailul și informațiile de plată — aceasta este responsabilitatea lor, nu a noastră. Citiți politicile lor separat."
+   },
+   "contact": {
+    "title": "Contact",
+    "email": "tiholenev@gmail.com"
+   },
+   "body": "AURALIS este un instrument de relaxare auditivă. Nu vindecă tinitusul și nu înlocuiește consultația medicală.\n\nToate datele dvs. (răspunsurile la test, jurnalul, favoritele, istoricul de ascultare) sunt păstrate local pe dispozitivul dvs.\n\nNoi nu colectăm nimic. Nu trimitem niciun fel de date către server. Fără tracking, fără analytics, fără cookie-uri de la terți.\n\nPuteți șterge toate datele dvs. oricând din Setări → Datele mele → Șterge toate datele.\n\nLa instalarea din Google Play / App Store, platforma poate prelucra emailul și informațiile de plată — aceasta este responsabilitatea lor, nu a noastră.\n\nPentru întrebări: tiholenev@gmail.com"
+  },
+  "terms": {
+   "title": "Termeni de utilizare",
+   "lastUpdated": "Ultima actualizare: 24 mai 2026",
+   "intro": "Prin deschiderea AURALIS acceptați acești termeni. Sunt scurți și simpli.",
+   "wellness": {
+    "title": "Wellness, nu o aplicație medicală",
+    "text": "AURALIS este un instrument de relaxare auditivă. Ajută la habituare (obișnuire) cu tinitusul prin îmbogățire sonoră, respirație și meditații ghidate. NU este un dispozitiv medical. NU înlocuiește medicul; nu pune diagnostic și nu prescrie terapie."
+   },
+   "disclaimer": {
+    "title": "Declinare de responsabilitate privind sănătatea",
+    "text": "În caz de tinitus intens sau brusc (mai ales într-o singură ureche, cu amețeli sau pierderea auzului) consultați un specialist ORL (urechi-nas-gât). În caz de gânduri de autovătămare sau depresie severă — căutați imediat ajutor profesional."
+   },
+   "volume": {
+    "title": "Volum",
+    "text": "Ascultați la un volum moderat. Nu lăsați sunetul să acopere complet tinitusul (ar fi dăunător la utilizare îndelungată). Volum recomandat: la căști aproximativ 30–40 % din max."
+   },
+   "noWarranty": {
+    "title": "Fără garanția unui rezultat",
+    "text": "AURALIS NU garantează reducerea tinitusului. Rezultatele variază individual. Studiile citate sunt o referință, nu o promisiune."
+   },
+   "license": {
+    "title": "Licență de utilizare",
+    "text": "Prin plată primiți dreptul personal de a utiliza AURALIS pe dispozitivele dvs. Nu puteți revinde, decompila sau redistribui aplicația."
+   },
+   "changes": {
+    "title": "Modificări",
+    "text": "Putem actualiza aplicația cu sunete noi, remedieri și funcționalități. Acești Termeni se pot modifica — veți vedea data de mai sus la fiecare versiune nouă."
+   }
+  },
+  "calm": {
+   "categoryLabel": "Meditație",
+   "playerAria": "Player de meditație",
+   "closeAria": "Închide playerul",
+   "playAria": "Redă",
+   "pauseAria": "Pauză",
+   "missingFile": "Fișierul audio lipsește (placeholder pentru UI development).",
+   "ended": "Finalizată",
+   "endedSub": "Revenire la bibliotecă..."
+  },
+  "diary": {
+   "title": "Jurnal",
+   "openAria": "Deschide jurnalul",
+   "closeAria": "Închide jurnalul",
+   "today": "Astăzi, {date}",
+   "q": {
+    "sleep": "Câte ore ați dormit?",
+    "sleepHoursSuffix": "{n} h",
+    "tinnitus": "Tinitusul astăzi:",
+    "tinnitusLow": "Slab",
+    "tinnitusHigh": "Puternic",
+    "stress": "Stresul astăzi:",
+    "stressLow": "Calm",
+    "stressHigh": "Anxios"
+   },
+   "save": "Salvează înregistrarea de azi",
+   "saveUpdate": "Actualizează înregistrarea de azi",
+   "saved": "Salvat",
+   "history": {
+    "label": "Istoric",
+    "range7": "7 zile",
+    "range30": "30 zile",
+    "range90": "90 zile"
+   },
+   "chart": {
+    "sleep": "Somn (ore)",
+    "tinnitus": "Tinitus (0-10)",
+    "stress": "Stres (0-10)",
+    "avg": "Media: {n}",
+    "noData": "Nicio înregistrare în această perioadă"
+   },
+   "insights": {
+    "title": "Ce observăm",
+    "betterWithSleep": "Când dormiți mai mult de 7 ore, tinitusul este în medie cu {delta} puncte mai scăzut.",
+    "moreStressMoreTinnitus": "Când stresul este peste 6, tinitusul este în medie cu {delta} puncte mai ridicat.",
+    "needMoreData": "Înregistrați cel puțin 7 zile pentru a vedea tendințe."
+   },
+   "empty": "Începeți să înregistrați astăzi — doar 3 întrebări, 30 de secunde.",
+   "export": "Descarcă istoricul (JSON)",
+   "exportFilename": "auralis-diary-{date}.json",
+   "evening": {
+    "title": "Jurnal de seară",
+    "questionIndexFmt": "{n} / {total}",
+    "save": "Salvează",
+    "cancel": "Anulează",
+    "savedToast": "Salvat",
+    "questions": {
+     "noise_intensity": "Cât de puternic a fost zgomotul astăzi?",
+     "noise_distress": "Cât de mult v-a deranjat zgomotul?",
+     "calm": "Cât de calm v-ați simțit?",
+     "mood": "Cum a fost starea dvs. de spirit?",
+     "sleep_last_night": "Cum a fost somnul azi-noapte?"
+    },
+    "noteLabel": "Notă pentru ziua de azi (opțional)",
+    "notePlaceholder": "Un gând scurt despre ziua de azi — de exemplu „variabil: dimineața 4, seara 2\"."
+   },
+   "validation": {
+    "fillAllHint": "Completați toate glisoarele pentru a continua.",
+    "incomplete": "Încă nu ați completat toate întrebările."
+   },
+   "import": {
+    "button": "Import jurnal (JSON)",
+    "fileAria": "Alegeți un fișier JSON pentru import",
+    "successFmt": "{imported} înregistrări importate ({skipped} omise).",
+    "errorEmpty": "Fișierul este gol sau nevalid.",
+    "errorParse": "Fișierul nu este un JSON valid. Verificați formatul și încercați din nou.",
+    "errorFormat": "Fișierul nu conține formatul de jurnal așteptat.",
+    "confirmReplace": "Aveți {n} înregistrări. Importul le va îmbina cu fișierul (se păstrează cele mai noi). Continuați?"
+   },
+   "hub": {
+    "cbtLocked24hToast": "Ziua {n} va fi disponibilă mâine. Acest material funcționează cel mai bine când lăsați timp între zile.",
+    "timezoneChangedBanner": "Fusul orar s-a schimbat în {tz}. Următoarele înregistrări vor folosi noul fus.",
+    "timezoneDismissAria": "Închide mesajul despre fusul orar",
+    "listenNudgeTitle": "Nu ați ascultat încă niciun sunet",
+    "listenNudgeBody": "Îmbogățirea sonoră este unul dintre pilonii modulului de 14 zile. Puteți încerca o sesiune scurtă acum — doar 5 minute.",
+    "listenNudgeCta": "Încearcă 5 minute",
+    "listenNudgeSkip": "Mai târziu",
+    "missedYesterday": "Ieri nu ați reușit să completați jurnalul. Este absolut normal. Ziua {n} vă așteaptă — o puteți face astăzi sau pur și simplu continuați.",
+    "missedYesterdayCta": "Completează Ziua {n} cu întârziere",
+    "missedYesterdaySkip": "Sari la ziua de azi",
+    "microDoseTitle": "Suntem aici.",
+    "microDoseBody": "Începeți din nou — cu 2 minute. Doar 3 respirații calme sau un rând în jurnal.",
+    "microDoseCta": "Începe o doză de 2 minute",
+    "softCheckTitle": "Ce s-a întâmplat?",
+    "softCheckBody": "Observăm că lipsiți de câteva zile. Nu sunteți obligat să răspundeți, dar ne va ajuta să vă fim utili.",
+    "softCheckOpt1": "Am fost ocupat",
+    "softCheckOpt2": "M-am simțit mai rău",
+    "softCheckOpt3": "Problemă tehnică",
+    "softCheckOpt4": "Nu a fost pentru mine",
+    "softCheckSkip": "Sari peste",
+    "softCheckSavedToast": "Mulțumim pentru răspuns. AURALIS rămâne alături de dvs.",
+    "softCheckWorseAdvice": "Sentimentele dvs. contează. Ar putea fi o idee bună să vorbiți cu un medic sau un specialist.",
+    "lateEntrySavedToast": "Înregistrat cu întârziere"
+   },
+   "edge": {
+    "nightHintTitle": "Nu reușiți să adormiți?",
+    "nightHintBody": "Este un moment frecvent în cazul tinitusului. Puteți completa jurnalul acum sau, în schimb, puteți alege o sesiune sonoră liniștită.",
+    "confirmAllMaxTitle": "Este corect?",
+    "confirmAllMaxBody": "Ați marcat valoarea maximă la toate întrebările. Sigur acestea au fost senzațiile dvs. astăzi?",
+    "confirmYes": "Da, salvează",
+    "confirmFix": "Corectează",
+    "resumeDraftTitle": "Aveți o înregistrare neterminată",
+    "resumeDraftBody": "Doriți să continuați de unde ați rămas?",
+    "resumeYes": "Continuă",
+    "resumeStartOver": "Începe de la capăt",
+    "highDistress3d": "În ultimele 3 zile ați raportat un nivel ridicat de stres. AURALIS este un instrument de wellness, nu unul medical. Dacă vă simțiți copleșit, puteți lua în considerare o consultație cu un specialist.",
+    "multiEntryHint": "Observăm că astăzi completați împreună atât înregistrarea de dimineață, cât și cea de seară. Este în regulă. De obicei, cea de seară se face după ora 20:00.",
+    "saveDraftFailed": "Nu am putut salva automat. Apăsați „Salvează\" înainte de a închide."
+   }
+  }
+ },
+ "science": {
+  "title": "Bază științifică",
+  "subtitle": "AURALIS — de ce funcționează",
+  "openLabel": "Bază științifică",
+  "closeAria": "Închide baza științifică",
+  "pillsAria": "Secțiuni",
+  "pills": {
+   "s1": "General",
+   "s2": "THI",
+   "s3": "Pitch",
+   "s4": "Notch ★",
+   "s5": "Sunet",
+   "s6": "Siguranță",
+   "s7": "Surse"
+  },
+  "s1": {
+   "title": "De ce funcționează AURALIS",
+   "subtitle": "Baza științifică a terapiei",
+   "intro": "AURALIS este o aplicație digitală pentru gestionarea tinitusului subiectiv cronic. Nu este un medicament. Nu înlocuiește un consult medical. Dar metodele din interior se bazează pe 14 studii clinice randomizate (RCT) și pe dispozitive aprobate de FDA.",
+   "doTitle": "Ce facem:",
+   "do1": "Măsurăm severitatea tinitusului dvs. cu THI — o scală validată clinic din 1996.",
+   "do2": "Găsim frecvența exactă a tinitusului dvs. cu un test de pitch matching (căutare binară).",
+   "do3": "Eliminăm exact această frecvență din toate sunetele terapeutice — se numește „Notched Sound Therapy\".",
+   "do4": "Ascultați aceste sunete 30–60 de minute pe zi.",
+   "expectTitle": "La ce să vă așteptați:",
+   "stat1": "−8.6 puncte THI",
+   "stat1Label": "În luna a 3-a (meta-analiză a 14 RCT)",
+   "stat2": "−24.6 puncte THI",
+   "stat2Label": "În luna a 6-a (aceeași meta-analiză)",
+   "stat3": "−28 puncte THI",
+   "stat3Label": "Lenire dispozitiv aprobat de FDA, 12 săptămâni (real-world 2025–2026)",
+   "ctaSources": "Vezi sursele științifice"
+  },
+  "s2": {
+   "title": "THI: ce măsurăm",
+   "subtitle": "Tinnitus Handicap Inventory (Newman et al., 1996)",
+   "paragraphs": [
+    "Tinnitus Handicap Inventory (THI) a fost creat în 1996 de Newman, Jacobson și Spitzer — un chestionar validat psihometric pentru evaluarea severității tinitusului.",
+    {
+     "type": "h3",
+     "text": "25 de întrebări, împărțite în 3 categorii:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Funcționale (11 întreb.): concentrare, somn, muncă",
+      "Emoționale (9 întreb.): anxietate, furie, frustrare",
+      "Catastrofice (5 întreb.): sentiment de deznădejde"
+     ]
+    },
+    "Puncte: Da = 4, Uneori = 2, Nu = 0. Scor total: 0–100.",
+    {
+     "type": "h3",
+     "text": "Clasificare (British Association of Otolaryngologists):"
+    },
+    {
+     "type": "list",
+     "items": [
+      "0–16: Neglijabil",
+      "18–36: Ușor",
+      "38–56: Moderat",
+      "58–76: Sever",
+      "78–100: Catastrofic"
+     ]
+    },
+    {
+     "type": "note",
+     "text": "Îmbunătățire semnificativă clinic (MCID): scădere de minimum 7 puncte. Acesta este pragul stabilit pentru o schimbare reală."
+    },
+    "De ce o facem: măsurare ÎNAINTE de terapie + REPETARE după 14 zile — pentru a vedea un progres obiectiv, nu doar o senzație subiectivă."
+   ]
+  },
+  "s3": {
+   "title": "Pitch Matching",
+   "subtitle": "Găsirea frecvenței tinitusului dvs.",
+   "paragraphs": [
+    "Tinitusul are un „ton\" — una sau câteva frecvențe principale. Pentru majoritatea persoanelor cu tinitus tonal, acesta este între 1000 și 12000 Hz (de obicei în frecvențele medii-înalte).",
+    {
+     "type": "h3",
+     "text": "Metoda noastră: 2AFC binary search"
+    },
+    "Two-Alternative Forced Choice — metodă psihofizică standard pentru determinarea frecvențelor de prag.",
+    {
+     "type": "h3",
+     "text": "Cum funcționează:"
+    },
+    {
+     "type": "ol",
+     "items": [
+      "Auziți Tonul A și Tonul B (două frecvențe diferite).",
+      "Alegeți care este mai aproape de tinitusul dvs.",
+      "Sistemul restrânge intervalul după o logică binară.",
+      "După 3–4 iterații găsim frecvența cu o precizie de ±1/4 octavă."
+     ]
+    },
+    {
+     "type": "note",
+     "text": "De ce binary search: log₂(12 frecvențe posibile) ≈ 3–4 iterații. Minimum de atingeri, maximum de precizie."
+    }
+   ]
+  },
+  "s4": {
+   "title": "Notched Therapy",
+   "subtitle": "Inima terapeutică a AURALIS",
+   "paragraphs": [
+    {
+     "type": "h3",
+     "text": "Principiu"
+    },
+    "La ascultarea prelungită a unui sunet din care a fost eliminată frecvența tinitusului dvs., creierul realizează un „re-mapping\" al cortexului auditiv. Neuronii responsabili de tonul phantom își reduc treptat activitatea.",
+    {
+     "type": "h3",
+     "text": "Tehnic"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Filtru notch (Web Audio BiquadFilterNode tip „notch\")",
+      "Factor Q = 2.871 (standard pentru 1/2 octave bandwidth)",
+      "Centrat exact pe frecvența dvs. de pitch"
+     ]
+    },
+    {
+     "type": "h3",
+     "text": "Validat în:"
+    },
+    "Pantev et al. (2012) — „Tailor-made notched music training for tinnitus\", Frontiers in Systems Neuroscience. Primul RCT care a arătat o reducere semnificativă după 6 luni de ascultare zilnică.",
+    "Stein et al. (2015) — Repeated follow-up. Confirmă efecte pe termen lung.",
+    {
+     "type": "h3",
+     "text": "Notched Therapy Meta-analysis (2025):"
+    },
+    {
+     "type": "list",
+     "items": [
+      "14 RCT, în total 793 de pacienți",
+      "Luna 3: −8.6 puncte THI (95% CI)",
+      "Luna 6: −24.6 puncte THI",
+      "Efectul terapeutic CREȘTE cu utilizarea pe termen lung",
+      "Tolerabilitate mai bună decât TRT (Tinnitus Retraining Therapy)"
+     ]
+    }
+   ]
+  },
+  "s5": {
+   "title": "Terapie sonoră",
+   "subtitle": "256 de mostre, 10 categorii, 2 layere",
+   "paragraphs": [
+    "AURALIS folosește 256 de mostre sonore terapeutice, organizate în 10 categorii: Ocean, Ploaie, Râu, Subacvatic, Vânt, Meditație, Pădure, Foc, Ambientale, Zgomot.",
+    {
+     "type": "h3",
+     "text": "Fiecare sunet:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Trece printr-un filtru notch (elimină frecvența dvs.)",
+      "Loop-friendly (fără artefacte de crossfade)",
+      "Normalizat după LUFS (volum constant)"
+     ]
+    },
+    {
+     "type": "h3",
+     "text": "Două straturi:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Layer 1 (sunet principal): natură, muzică, meditație",
+      "Layer 2 (zgomot de fundal): roz sau maro (generat în timp real)"
+     ]
+    },
+    "De ce două straturi: zgomotul roz/maro oferă o bază „de mascare\" constantă. Sunetele naturii oferă o experiență plăcută emoțional. Combinația crește compliance (ascultarea îndelungată).",
+    {
+     "type": "h3",
+     "text": "Durată recomandată:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Minimum 30 de minute pe zi",
+      "Ideal 60–120 de minute",
+      "14 zile program introductiv",
+      "12 săptămâni curs complet pentru un rezultat măsurabil"
+     ]
+    }
+   ]
+  },
+  "s6": {
+   "title": "Siguranță și confidențialitate",
+   "subtitle": "Ce rămâne pe telefonul dvs.",
+   "paragraphs": [
+    {
+     "type": "h3",
+     "text": "Siguranță"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Toate sunetele sunt normalizate sub 70 dB SPL (nivel sigur)",
+      "Recomandăm căști închise pentru claritate",
+      "Opriți ascultarea dacă simțiți disconfort"
+     ]
+    },
+    {
+     "type": "h3",
+     "text": "Confidențialitate"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Toate datele dvs. rămân pe dispozitivul dvs. (localStorage)",
+      "AURALIS nu trimite nimic către servere",
+      "Răspunsuri THI, rezultate pitch, jurnal — doar local"
+     ]
+    },
+    {
+     "type": "h3",
+     "text": "Statut de reglementare"
+    },
+    {
+     "type": "list",
+     "items": [
+      "AURALIS este o platformă digitală de wellness, nu un dispozitiv medical",
+      "Nu înlocuiește un consult la medicul ORL",
+      "Pentru cazuri severe (THI > 78) recomandăm o consultație"
+     ]
+    },
+    {
+     "type": "note",
+     "text": "Pentru întrebări: tinnitus-app.help/contact"
+    }
+   ]
+  },
+  "s7": {
+   "title": "Surse științifice",
+   "subtitle": "Studii pe care se bazează AURALIS"
+  },
+  "sources": {
+   "src1": {
+    "title": "Development of the Tinnitus Handicap Inventory",
+    "contrib": "Crearea scalei THI — baza evaluării noastre."
+   },
+   "src2": {
+    "title": "Tinnitus: the dark side of the auditory cortex plasticity",
+    "contrib": "Demonstrează efectul neuroplastic al terapiei notched."
+   },
+   "src3": {
+    "title": "Clinical trial on tonal tinnitus with tailor-made notched music training",
+    "contrib": "RCT pe 6 luni cu efecte de durată."
+   },
+   "src4": {
+    "title": "14 RCT, în total 793 de pacienți",
+    "contrib": "−24.6 puncte THI la 6 luni; efectul crește cu utilizarea prelungită."
+   },
+   "src5": {
+    "title": "Stimulare bimodală aprobată de FDA",
+    "contrib": "−28 puncte THI în 12 săptămâni în real-world practice."
+   },
+   "src6": {
+    "title": "THI grading system — 5 categorii de severitate",
+    "contrib": "Clasificarea clinică Neglijabil/Ușor/Moderat/Sever/Catastrofic."
+   },
+   "src7": {
+    "title": "Multicenter, double-blind, n=440",
+    "contrib": "9 luni de monitorizare — confirmă efecte pe termen lung."
+   }
+  },
+  "reminders": {
+   "pitch": {
+    "body": "Filtru notch activat la {freq} Hz. De acum, toate sunetele elimină frecvența tinitusului dvs. — terapie dovedită clinic (Pantev 2012, Stein 2015).",
+    "cta": "Află mai mult"
+   },
+   "day7": {
+    "title": "Felicitări — jumătatea drumului a rămas în urmă",
+    "body": "Terapia notched arată efecte din luna a 3-a și crește până în a 6-a. Continuați.",
+    "cta": "Vezi datele științifice"
+   },
+   "day14": {
+    "mcid": "MCID (Minimal Clinically Important Difference) pentru THI = 7 puncte.",
+    "delta": "Schimbarea dvs.: {delta} puncte.",
+    "significant": "Aceasta este o îmbunătățire semnificativă clinic.",
+    "partial": "Acordați timp terapiei — efectul complet se vede din luna a 3-a până în a 6-a."
+   }
+  }
+ },
+ "voice": {
+  "startAria": "Începe dictarea",
+  "stopAria": "Oprește dictarea",
+  "listening": "Ascult…",
+  "privacy": {
+   "title": "Dictarea vocală",
+   "body": "La apăsarea microfonului, vocea dvs. este procesată de browserul dvs. Browserul folosește un serviciu gratuit de la Google (Chrome) sau Apple (Safari), care necesită conexiune la internet.\n\nTextul rămâne DOAR pe telefonul dvs. — AURALIS nu păstrează și nu trimite înregistrările dvs.\n\nPuteți dezactiva dictarea vocală oricând din setările telefonului.",
+   "acknowledge": "Am înțeles, continuă",
+   "cancel": "Anulează"
+  },
+  "error": {
+   "noSpeech": "Nu am auzit nimic. Încercați din nou.",
+   "mic": "Nu găsesc niciun microfon.",
+   "permission": "Permiteți accesul la microfon în setările browserului.",
+   "offline": "Dictarea vocală necesită internet. Încercați din nou când sunteți online.",
+   "lang": "Limba română nu este acceptată de browserul dvs.",
+   "generic": "A apărut o eroare la introducerea vocală."
+  },
+  "settings": {
+   "section": "Confidențialitate",
+   "resetPrivacy": "Arată din nou informațiile despre dictare",
+   "resetDoneToast": "Gata. La următoarea utilizare veți vedea din nou informațiile."
+  },
+  "overlay": {
+   "recording": "ÎNREGISTRARE",
+   "ready": "GATA",
+   "hintRecording": "Vorbiți în română. Opriți-vă și veți vedea textul.",
+   "hintReady": "Apăsați „Salvează\" pentru a adăuga, sau textul pentru o înregistrare nouă.",
+   "hintEmpty": "Nu am auzit nimic. Apăsați textul pentru o nouă încercare.",
+   "placeholder": "Textul va apărea aici…",
+   "save": "Salvează",
+   "cancel": "Anulează",
+   "closeAria": "Închide dictarea"
+  }
+ },
+ "profile_results": {
+  "title": "Evaluarea dvs.",
+  "welcomes": {
+   "TH_C": "Auziți un ton de înaltă frecvență, constant, care țiuie sau sună și care devine deosebit de supărător într-un mediu liniștit și în timpul muncii intelectuale. Este un profil frecvent la persoanele care au fost expuse la sunete puternice sau care observă modificări ale auzului odată cu vârsta — creierul compensează semnalele lipsă cu propria activitate. AURALIS vă va oferi sunete naturale filtrate și zgomot roz pentru mascare, împreună cu scurte practici CBT care direcționează atenția departe de țiuit.",
+   "DN_S": "Auziți un zgomot dens, de joasă frecvență, uneori bubuitor sau huruitor, care devine deosebit de supărător seara și afectează calitatea somnului dvs. Este un profil frecvent la persoanele care petrec timp în dormitoare liniștite — fără sunet extern, creierul amplifică zgomotul intern. AURALIS vă va oferi sunete maro profunde, care amestecă tinitusul cu fundalul, fără a-l masca complet — această strategie se numește „punctul de amestec\" și ajută la un somn mai bun, fără liniște bruscă.",
+   "SS_R": "Tinitusul dvs. este strâns legat de starea sistemului dvs. nervos — se intensifică la stres, anxietate și încărcătură emoțională, iar la liniște slăbește. Acest lucru reflectă o sensibilitate ridicată a corpului la semnale — sistemul dvs. limbic reacționează rapid la schimbări. AURALIS vă va oferi sunete naturale blânde, exercițiul de respirație 4-7-8 pentru momentele acute și scurte practici de acceptare, care întrerup cercul vicios dintre zgomot și anxietate.",
+   "SM_F": "Tinitusul dvs. are un caracter variabil — intensitatea sa se schimbă pe parcursul zilei, uneori semnificativ, și este adesea legat de tensiunea fizică din gât, maxilar sau umeri. Este un tip de tinitus somatic: mușchii din jurul urechii și nervul trigemen pot modula zgomotul. AURALIS vă va oferi sunete naturale dinamice precum valurile oceanului (care implică creierul mai puternic), un exercițiu de relaxare a maxilarului și un masaj blând — practicile corporale au un efect măsurabil la acest profil.",
+   "HB_M": "Aveți tinitus, dar acesta vă deranjează în principal în condiții de liniște absolută și nu are un impact semnificativ asupra sarcinilor dvs. zilnice, concentrării, somnului sau dispoziției. Sistemul dvs. nervos a dezvoltat deja un grad ridicat de adaptare naturală — creierul dvs. filtrează în mare măsură semnalul fantomă ca pe un fundal lipsit de importanță. AURALIS vă va oferi sunete naturale ultra-blânde pentru momentele de liniște deplină și îndrumări despre cum să mențineți această rezistență și în perioadele de stres."
+  },
+  "welcomeAria": "Salut personalizat pentru profilul {code}",
+  "code": {
+   "label": "Cod de profil"
+  },
+  "di": {
+   "label": "Scor DI",
+   "low": "Intensitate scăzută",
+   "medium": "Intensitate moderată",
+   "high": "Intensitate ridicată"
+  },
+  "sections": {
+   "meaning": "Ce înseamnă pentru dvs.",
+   "why": "De ce aveți acest tip",
+   "strategy": "Strategie recomandată",
+   "recommended": "Moduri recomandate",
+   "topSounds": "Top sunete recomandate",
+   "timeline": "Așteptări în timp",
+   "additional": "Recomandări suplimentare",
+   "medical": "Când să mergeți la medic"
+  },
+  "strategy": {
+   "noiseLabel": "Zgomot de fundal recomandat",
+   "mixRatioLabel": "Raport recomandat",
+   "mixRatioFmt": "{l1}/{l2}",
+   "durationLabel": "Durată recomandată",
+   "reasoningLabel": "De ce această strategie"
+  },
+  "topSounds": {
+   "loading": "Se încarcă recomandările...",
+   "empty": "Recomandările se pregătesc...",
+   "viewAll": "Vezi toate recomandările"
+  },
+  "timeline": {
+   "loading": "Prognoza se pregătește..."
+  },
+  "placeholder": "Acest conținut este pregătit de echipa științifică.",
+  "descriptionTitle": "Ce înseamnă aceasta",
+  "expectationsTitle": "La ce să vă așteptați",
+  "recommendedTitle": "Moduri recomandate",
+  "recommendedBadge": "Pentru dvs.",
+  "duration": {
+   "title": "Durată recomandată",
+   "firstTwoWeeks": "Primele 2 săptămâni",
+   "firstTwoWeeksText": "2–3 ore pe zi",
+   "afterTitle": "După aceea",
+   "afterText": "Toată noaptea (cu sleep timer)"
+  },
+  "disclaimer": {
+   "title": "Important — limitări științifice",
+   "text": "AURALIS este un instrument de wellness support, nu înlocuiește un diagnostic sau un tratament medical. Recomandările se bazează pe studii agregate și modele generale, nu pe un consult medical personal. În caz de simptome severe sau agravare — consultați un specialist (medic ORL sau audiolog)."
+  },
+  "continue": "Către sunete",
+  "profiles": {
+   "TH_C": {
+    "shortName": "Tonal înalt",
+    "fullName": "Tonal de înaltă frecvență",
+    "description": "Profil \"Tonal înalt\". O descriere detaliată va fi adăugată în curând în această aplicație.",
+    "expectations": "Așteptările detaliate pentru acest profil vor fi adăugate în curând.",
+    "meaning": "Auziți un ton de înaltă frecvență, constant, care țiuie sau sună și care devine deosebit de supărător într-un mediu liniștit și în timpul muncii intelectuale. Acest tip de tinitus este perceput ca un sunet monoton, concentrat în partea înaltă a spectrului auditiv.\n\nÎn modelul clinic, această stare se explică prin „efectul de amplificare a contrastului\": în liniște absolută, creierul direcționează atenția cognitivă maximă către semnalul intern, care devine dominant — asemenea unei lumânări aprinse într-o cameră întunecată.\n\nLa nivel celular se observă o slăbire a tonusului inhibitor în sistemul auditiv central — o activitate GABA redusă și o excitație glutamatergică intensificată, ceea ce creează o sincronizare anormală în cortexul auditiv. Centrele cognitive superioare interpretează această sincronizare ca un sunet fantomă persistent.",
+    "why": "Cei mai frecvenți factori sunt expunerea prelungită la niveluri sonore ridicate în trecut (concerte, muncă industrială, arme de vânătoare) și deteriorarea legată de vârstă a celulelor ciliate de înaltă frecvență din cohlee (presbycusis). Factori care contribuie și intensifică percepția: mediu liniștit seara, somn insuficient, niveluri ridicate de stres, deshidratare și cofeină.",
+    "strategyReasoning": "- Sunet purtător recomandat: ploaie filtrată sau zgomot roz echilibrat.\n\n- `recommended_noise` recomandat din bibliotecă: `pink_lowpass_4000` sau `brown_lowpass_1000`.\n\n- Raport sound/noise recomandat: 0.70/0.30 (ușor sound-dominant). Principiul „punctului de amestec\" — sunetul trebuie să fie puțin sub intensitatea tinitusului, nu să-l mascheze complet.\n\n- Durată recomandată: minimum 2 ore pe zi pentru o habituare durabilă; ideal 4–6 ore distribuite pe parcursul zilei.\n\n- Top use cases după prioritate: `daily` (muncă intelectuală) → `relaxation` → `falling_asleep`.",
+    "timeline": [
+     {
+      "period": "Săptămâna 1–2",
+      "expectation": "apare de obicei mai întâi senzația unui sunet „mai puțin supărător\" în momentul ascultării. Imediat după oprirea sunetului, tinitusul este perceput la intensitatea sa inițială. Acest lucru este complet normal și nu înseamnă că procesul nu funcționează."
+     },
+     {
+      "period": "Luna 1",
+      "expectation": "studiile înregistrează o reducere medie de aproximativ 17.6% la chestionarul de sănătate pentru tinitus în a patra săptămână."
+     },
+     {
+      "period": "Luna 3",
+      "expectation": "o meta-analiză a 14 RCT arată o îmbunătățire medie de −8.6 puncte pe scala THI în luna a treia. MCID (diferența minimă semnificativă clinic) a THI este de 7 puncte — adică în luna a 3-a mulți oameni trec pragul unei schimbări „perceptibile\"."
+     },
+     {
+      "period": "Luna 6 și după",
+      "expectation": "aceeași meta-analiză înregistrează o îmbunătățire medie de −24.6 puncte pe THI în luna a 6-a, ceea ce este de aproape 3 ori peste MCID. Fereastra terapeutică minimă pentru o reajustare durabilă este de 9–18 luni."
+     }
+    ],
+    "additional": "- Mediu auditiv: preferați difuzoare deschise sau conducere osoasă în locul căștilor închise — efectul de ocluzie poate amplifica sunetul intern.\n\n- Igiena somnului: evitați liniștea absolută în dormitor; contrastul dintre tinitus și liniște este cel mai puternic tocmai seara.\n\n- Cofeină și alcool: limitați cofeina după ora 14:00 și alcoolul seara. Cofeina este un stimulant central care intensifică sensibilitatea corticală; alcoolul modifică arhitectura somnului.\n\n- Muncă cognitivă: pentru concentrare folosiți un mix în stil `focus_brown_noise` — zgomotul maro blochează țiuitul de înaltă frecvență fără a supraîncărca frecvențele medii, importante pentru vorbire.\n\n- Tehnici suplimentare: Consilierea cognitiv-comportamentală (CBT) este recomandată ca un complement la terapia sonoră — întrerupe „ciclul cognitiv al distresului\".",
+    "medicalFlags": "- Imediat la medicul ORL: dacă tinitusul este unilateral (doar într-o ureche), pulsatil (sincronizat cu ritmul cardiac), apărut brusc în ultimele zile sau însoțit de o pierdere bruscă a auzului.\n\n- La audiolog: dacă observați o înrăutățire a inteligibilității vorbirii într-un mediu zgomotos (restaurant, petrecere) — este posibilă o pierdere ascunsă a auzului, care necesită un test auditiv obiectiv.\n\n- La psiholog / psihoterapeut: dacă tinitusul vă duce la gânduri persistente de tipul „nu voi rezista\" sau „va fi mereu așa\" — un curs structurat de CBT este dovedit eficient.",
+    "reasons": {
+     "sleep_deep": "Frecvențe joase împotriva tonului înalt înainte de somn",
+     "relaxation": "Sunete naturale liniștite pentru calmarea de seară"
+    }
+   },
+   "DN_S": {
+    "shortName": "De zgomot, joasă frecvență",
+    "fullName": "De zgomot, joasă frecvență / Somn",
+    "description": "Profil \"Zgomot de joasă frecvență\". O descriere detaliată va fi adăugată în curând în această aplicație.",
+    "expectations": "Așteptările detaliate pentru acest profil vor fi adăugate în curând.",
+    "meaning": "Auziți un zgomot dens, de joasă frecvență, uneori bubuitor sau huruitor, care devine deosebit de supărător seara și afectează calitatea somnului dvs. Plângerile dvs. se concentrează cel mai adesea în jurul adormirii și menținerii somnului — treziri în timpul nopții, senzația de „odihnă insuficientă\" dimineața.\n\nÎn modelul clinic, tinitusul și insomnia formează un ciclu închis bidirecțional — fiecare stare o alimentează pe cealaltă. Sistemul limbic interpretează tinitusul ca pe o amenințare, activează axa HHS (hipotalamus-hipofiză-suprarenale), ceea ce duce la un cortizol crescut la sfârșitul după-amiezii și în perioada dinaintea somnului, menținând sistemul nervos în hiperexcitabilitate.\n\nStudiile polisomnografice arată că la acest profil arhitectura somnului este grav perturbată — în medie 85% din noapte se petrece în stadiile superficiale 1–2, iar somnul profund cu unde lente și REM scad până la ~6.4% (la subiecții de control sănătoși — 21.5%).",
+    "why": "Acest profil se asociază adesea cu o componentă hidropică sau vasculară de joasă frecvență (de exemplu, un zgomot pulsatil unilateral la fluctuații ale tensiunii arteriale), cu o expunere prelungită, casnică sau profesională, la zgomote joase (ventilații, utilaje) sau cu o deaferentare a frecvențelor joase legată de vârstă.\n\nFactori care intensifică: liniștea de seară în dormitor (amplifică zgomotul intern în absența unui mascant), stresul și anxietatea înainte de somn, o curbă circadiană perturbată a cortizolului și apneea obstructivă de somn, dacă este prezentă.",
+    "strategyReasoning": "- Sunet purtător recomandat: zgomot maro profund, cascade dense, pârâu de munte cu un strat roz filtrat.\n\n- `recommended_noise` recomandat din bibliotecă: `brown_lowpass_500` (cel mai deep) sau `brown_pure`.\n\n- Raport recomandat: 0.50/0.50 (egal) până la 0.30/0.70 (noise-dominant) în caz de insomnie acută.\n\n- Durată recomandată: continuu pe parcursul întregii ferestre de somn de 8 ore. Nu folosiți un timer de sleep — liniștea bruscă din miezul nopții activează instantaneu amigdala la prima tranziție ușoară între ciclurile de somn.\n\n- Top use cases după prioritate: `sleep_deep` → `falling_asleep` → `relaxation` (reducerea tonusului seara).",
+    "timeline": [
+     {
+      "period": "Noaptea 1–7",
+      "expectation": "apare de obicei mai întâi o ușoară scurtare a latenței de adormire (timpul de la culcare până la primul somn). Zgomotul rămâne, dar contrastul cu liniștea scade, ceea ce întrerupe reacția în lanț „tinitus → panică → vârf de cortizol\"."
+     },
+     {
+      "period": "Săptămâna 2–4",
+      "expectation": "studiile înregistrează o îmbunătățire pe scala THI de aproximativ 11.8% (săptămâna 2) până la 17.6% (săptămâna 4) la aplicarea consecventă a terapiei sonore."
+     },
+     {
+      "period": "Luna 3–6",
+      "expectation": "la aplicarea consecventă se recuperează o parte din somnul profund cu unde lente — pink/brown noise are un efect pozitiv confirmat asupra consolidării SWS (stage 3). Scădere THI în intervalul −13 până la −25 puncte."
+     },
+     {
+      "period": "Luna 6+",
+      "expectation": "la un curs de 6 luni de terapie bimodală + sonoră, 73.4% dintre pacienți ating o îmbunătățire semnificativă clinic pe TFI (scădere ≥13 puncte). Fereastra terapeutică minimă este de 9–18 luni."
+     }
+    ],
+    "additional": "- Igiena somnului: păstrați un orar consecvent de culcare și trezire ±30 de minute.\n\n- Scenariul „trezire la ora 3:00\": dacă după 15–20 de minute nu v-ați întors la somn, ridicați-vă încet și mergeți în altă cameră cu un zgomot roz continuu pornit, puțin sub intensitatea tinitusului. Efectuați o sesiune de 5 minute de respirație 4-7-8. Întoarceți-vă în pat când apare somnolența naturală.\n\n- Cafea, sare, alcool: limitați cofeina după ora 14:00; reduceți sodiul seara (retenția de lichide agravează frecvențele joase ale tinitusului); evitați alcoolul ca „somnifer\" — el fragmentează somnul.\n\n- Nu folosiți zgomot alb. La ascultarea nocturnă prelungită, zgomotul alb duce la dediferențiere corticală și la o înrăutățire paradoxală — acest efect este cunoscut sub numele de „efectul cobrei\".\n\n- Tehnici suplimentare: CBT-I modificat (terapia cognitiv-comportamentală pentru insomnie) este standardul de aur. Protocolul clasic SCT necesită modificare — nu rămâneți niciodată într-o cameră complet liniștită.",
+    "medicalFlags": "- La medicul ORL: dacă tinitusul este unilateral sau pulsatil; dacă observați amețeli, vertij sau o senzație de plenitudine în ureche (posibilă boală Ménière).\n\n- La somnolog: dacă aveți sforăit puternic, opriri ale respirației în timpul nopții, somnolență diurnă — poate fi o apnee obstructivă de somn, care necesită o investigație PSG.\n\n- La medicul de familie: dacă luați diuretice, doze mari de AINS sau antibiotice și observați o înrăutățire — unele medicamente sunt ototoxice.",
+    "reasons": {
+     "relaxation": "Sunete naturale echilibrate pentru reducerea bâzâitului",
+     "daily": "Sunete de fundal blânde pentru muncă"
+    }
+   },
+   "SS_R": {
+    "shortName": "Sensibil la stres",
+    "fullName": "Sensibil la stres / Reactiv",
+    "description": "Profil \"Sensibil la stres\". O descriere detaliată va fi adăugată în curând în această aplicație.",
+    "expectations": "Așteptările detaliate pentru acest profil vor fi adăugate în curând.",
+    "meaning": "Tinitusul dvs. este strâns legat de starea sistemului dvs. nervos — se intensifică la stres, anxietate, conflicte și încărcătură emoțională, iar la liniște slăbește. Sunete externe ușoare sau evenimente cotidiene pot amplifica temporar percepția zgomotului intern.\n\nAceastă stare este mediată de o labilitate ridicată a sistemului nervos autonom și de structura limbică — amigdala și cortexul cingulat anterior răspund de evaluarea suprareactivă a semnalului ca „amenințare\". Într-o situație tipică, creierul persoanelor cu tinitus persistent intră într-un mod de protecție, în care zgomotul intern menține activă axa simpatică.\n\nLa o parte dintre persoanele cu acest profil se observă un tinitus reactiv — zgomotul intern se intensifică paradoxal temporar ca răspuns la sunete externe noi. Într-un astfel de caz, mascarea agresivă de bandă largă este contraindicată.",
+    "why": "Acest profil se asociază adesea cu o simptomatologie anxioasă preexistentă, un tip de personalitate perfecționist, stres profesional sau familial constant și, uneori, cu o hipersensibilitate generală (sau hiperacuzie — sensibilitate crescută la sunete normale).\n\nFactori care intensifică: după-amiaza devreme după cafea, situații conflictuale, nopți consecutive cu somn insuficient, supraîncărcare informațională din știri și izolare socială într-un mediu liniștit.",
+    "strategyReasoning": "- Sunet purtător recomandat: blenduri naturale extrem de blânde și zgomot verde (centrat în jurul frecvențelor medii).\n\n- `recommended_noise` recomandat din bibliotecă: zgomotul verde nu este deocamdată disponibil în bibliotecă — ca fallback temporar folosim `brown_lowpass_500` pentru o liniștire profundă și piese de meditation blânde (`grounded`, `inner_balance`).\n\n- Raport recomandat: la anxietate acută → 0.30/0.70 (noise dominant) pentru o suprimare rapidă a contrastului senzorial; la ascultarea zilnică → 0.50/0.50.\n\n- Durată recomandată: folosiți modul SOS (3–10 min noise-dominant) la vârfurile acute; ascultare zilnică de fundal 2–4 ore distribuite pe parcursul zilei.\n\n- Top use cases după prioritate: `anxiety` → `relaxation` → `meditation`.",
+    "timeline": [
+     {
+      "period": "Prima sesiune (minute)",
+      "expectation": "cu un zgomot verde bine ales sau cu sunete naturale blânde, majoritatea oamenilor simt o reducere a intensității situației în decurs de 5–15 minute. Acesta este efectul anxiolitic imediat al texturii sonore de frecvență medie."
+     },
+     {
+      "period": "Săptămâna 1–2",
+      "expectation": "la aplicarea consecventă zilnică scade reactivitatea de bază — amplitudinea vârfurilor din răspunsul la stres se reduce."
+     },
+     {
+      "period": "Luna 1–3",
+      "expectation": "așteptați-vă la o reducere pe subscalele emoționale ale THI/TFI; habituarea completă și reajustarea procesului de evaluare necesită mai mult timp."
+     },
+     {
+      "period": "Luna 6+",
+      "expectation": "în cazul unei intervenții combinate (sunet + un curs structurat de CBT), o îmbunătățire semnificativă clinic este atinsă de majoritatea pacienților."
+     }
+    ],
+    "additional": "- Tehnici de respirație: respirația 4-7-8 la vârfurile acute (inspirați 4 sec, țineți 7, expirați 8). Aceasta activează nervul vag și reduce tonusul simpatic.\n\n- Igiena informațională: limitați rețelele sociale și știrile în primele 30 de minute după trezire și în ultimele 60 de minute înainte de somn.\n\n- Cofeină: la acest profil cofeina are un efect deosebit de puternic — luați în considerare trecerea la 1 ceașcă dimineața sau la decaf.\n\n- Mediu auditiv: evitați căștile cu anularea activă a zgomotului (active noise cancelling) — la unele persoane cu tinitus reactiv acestea amplifică percepția zgomotului intern din cauza creării unei liniști absolute.\n\n- Tehnici suplimentare: Terapia de acceptare și angajament (ACT), practicile bazate pe mindfulness și un curs structurat de CBT sunt deosebit de potrivite pentru acest profil.",
+    "medicalFlags": "- La psihiatru sau psihoterapeut: dacă aveți anxietate persistentă, atacuri de panică, gânduri obsesive legate de tinitus sau simptome de depresie pe parcursul a mai mult de 2 săptămâni.\n\n- La medicul ORL: dacă observați hiperacuzie (sunetele normale devin dureros de puternice) — este necesară o investigație audiologică cu timpanometrie și reflex stapedian.\n\n- La medicul de familie: în caz de episoade frecvente de palpitații, transpirație, amețeli, tremurături — pentru a exclude cauze endocrine (glanda tiroidă) sau cardiovasculare, care pot semăna cu anxietatea.",
+    "reasons": {
+     "anxiety": "Respirație SOS + sunete liniștitoare în momente de criză",
+     "falling_asleep": "Reducerea treptată a stresului înainte de somn"
+    }
+   },
+   "SM_F": {
+    "shortName": "Somatic / Fluctuant",
+    "fullName": "Somatic / Fluctuant",
+    "description": "Profil \"Somatic / Fluctuant\". O descriere detaliată va fi adăugată în curând în această aplicație.",
+    "expectations": "Așteptările detaliate pentru acest profil vor fi adăugate în curând.",
+    "meaning": "Tinitusul dvs. are un caracter variabil — intensitatea sa se schimbă pe parcursul zilei, uneori semnificativ, și este adesea legat de tensiunea fizică din gât, maxilar sau umeri. Puteți observa că la anumite mișcări, poziții ale capului sau la încleștarea maxilarelor zgomotul se modifică — acesta este fenomenul „de modulare somatică\".\n\nAcest tip este mediat de interconexiunea dintre sistemul trigeminal și cel somatosenzorial (gât, articulația temporomandibulară) și căile auditive. Semnale anormale de la țesuturi tensionate sau disfuncționale (TMD — disfuncție temporomandibulară, disfuncție cervicală) sunt „redirecționate\" către cortexul auditiv și modulează sunetul fantomă.\n\nUn studiu clinic privind terapia orofacială arată că reducerea durerii din articulația temporomandibulară explică aproximativ 35% din scăderea indicelui TFI la acest subtip.",
+    "why": "Acest profil se asociază adesea cu bruxism (încleștarea sau scrâșnirea dinților — nocturnă sau diurnă), forward-head posture (capul împins înainte, mai ales la munca prelungită la ecran), traumatism al gâtului (whiplash) sau un stres sportiv/profesional anterior asupra regiunii cervicale.\n\nFactori care intensifică: ore prelungite la computer fără pauze, purtarea unor genți grele pe un singur umăr, dormitul pe burtă și încleștarea maxilarelor indusă de stres.",
+    "strategyReasoning": "- Sunet purtător recomandat: medii naturale puternic dinamice și neperiodice — flux și reflux oceanic, modulated wave swells, binaural ambient.\n\n- `recommended_noise` recomandat din bibliotecă: `brown_lowpass_1000` pentru un corp uniform al sunetului; mix cu fișiere naturale dinamice (de exemplu `water_wave_ocean_wave_swells`, ocean swells, valuri care „respiră\").\n\n- Raport recomandat: 0.85/0.15 (sound dominant) — dinamica sunetului natural angajează atenția și împiedică adaptarea corticală.\n\n- Durată recomandată: 2–4 ore pe zi, cu accent pe perioadele de angajare fizică — plimbare, sarcini de rutină. Aceasta combină distragerea motorie cu îmbogățirea sonoră.\n\n- Top use cases după prioritate: `relaxation` → `daily` → `meditation`.",
+    "timeline": [
+     {
+      "period": "Săptămâna 1–2",
+      "expectation": "în paralel cu fizioterapia orofacială puteți observa fluctuații rapide — zile bune și zile rele. Acest lucru nu înseamnă că procesul nu funcționează; înseamnă că tensiunea tisulară este eliberată treptat."
+     },
+     {
+      "period": "Săptămâna 9 (grupul orofacial direct)",
+      "expectation": "un studiu clinic cu un curs orofacial de 9 săptămâni înregistrează o reducere medie a TFI de −13.8 puncte, în timp ce grupul cu terapie amânată arată doar −5.0 puncte. MCID al TFI este de 13 puncte."
+     },
+     {
+      "period": "Luna 3–6",
+      "expectation": "la aplicarea consecventă de sunet + fizioterapie + limitarea bruxismului: reduceri medii THI în intervalul −8.6 până la −24.6 puncte."
+     },
+     {
+      "period": "Luna 6+",
+      "expectation": "la acest profil este deosebit de importantă consecvența pe termen lung — reajustarea cross-modal interactions necesită cel puțin 9–18 luni."
+     }
+    ],
+    "additional": "- Postură: la munca la computer — ecran la nivelul ochilor, tălpile pe podea, urechile aliniate deasupra umerilor. Micro-pauze la fiecare 30–45 de minute cu mișcări ușoare de flexion-extension ale gâtului.\n\n- Maxilar: dacă observați încleștarea dinților în timpul zilei — puneți un mic autocolant de reamintire pe computer; seara luați în considerare o gutieră ocluzală după un consult la stomatolog.\n\n- Relaxarea musculară progresivă (RMP): o sesiune de seară de 10 minute cu accent pe gât, maxilar și umeri este deosebit de potrivită.\n\n- Mediu auditiv: evitați ascultarea îndelungată cu căști in-ear — acestea pot crea o solicitare TMJ la unele persoane; preferați open-back sau difuzoare.\n\n- Tehnici suplimentare: fizioterapia orofacială și, dacă este necesar, o consultație cu un stomatolog specializat în TMD sunt dovedite eficiente ca un complement la terapia sonoră.",
+    "medicalFlags": "- La un chirurg oral sau un specialist în TMD: dacă aveți durere la deschiderea gurii, clicuri în articulația maxilară, o deschidere limitată (<35 mm) sau dureri de cap matinale în tâmple — este posibilă o disfuncție temporomandibulară.\n\n- La un fizioterapeut (specializat pe regiunea cervicală): dacă observați durere în gât, rotație limitată sau o legătură între mișcările cervicale și intensitatea tinitusului.\n\n- La medicul ORL: dacă modularea nu se limitează la gât/maxilar și tinitusul devine pulsatil sau dacă apar episoade de vertij.",
+    "reasons": {
+     "meditation": "Sesiuni ghidate pentru reducerea tensiunii fizice",
+     "relaxation": "Sunete naturale dinamice împotriva ciclurilor"
+    }
+   },
+   "HB_M": {
+    "shortName": "Adaptat / Ușor",
+    "fullName": "Adaptat / Ușor",
+    "description": "Profil \"Adaptat / Ușor\". O descriere detaliată va fi adăugată în curând în această aplicație.",
+    "expectations": "Așteptările detaliate pentru acest profil vor fi adăugate în curând.",
+    "meaning": "Aveți tinitus, dar acesta vă deranjează în principal în condiții de liniște absolută și nu are un impact semnificativ asupra sarcinilor dvs. zilnice, concentrării, somnului sau dispoziției. Sistemul dvs. nervos a dezvoltat deja un grad ridicat de habituare naturală — creierul dvs. filtrează în mare măsură semnalul fantomă ca pe un fundal lipsit de importanță.\n\nÎn modelul clinic, această stare reflectă un control inhibitor păstrat în căile auditive centrale și o funcționare adecvată a structurilor limbice de evaluare — acestea nu atribuie semnalului o „amenințare\".\n\nScopul terapiei sonore la acest profil nu este suprimarea activă a tinitusului (deoarece acesta nu vă împovărează), ci prevenția — menținerea unui fundal sonor ușor, care previne intensificarea contrastului senzorial în momentele de liniște absolută.",
+    "why": "Profilul adaptat se asociază adesea cu o apariție mai târzie sau mai puțin traumatică a tinitusului, cu o structură de personalitate stabilă, fără tendință spre anxietate, cu un stil de viață activ și social sau cu o experiență individuală anterioară de succes în gestionarea unui stimul similar.\n\nFactori care intensifică și pot destabiliza temporar HB_M: o perioadă grea de stres netratat, o boală prelungită, o noapte de veghe, o expunere auditivă acută (un concert fără protecție) sau o nouă problemă medicală (un medicament ototoxic).",
+    "strategyReasoning": "- Sunet purtător recomandat: sunete naturale ultra-blânde — foșnet de frunze, ploaie liniștită de vară, vânt ușor, ploaie în spatele geamului.\n\n- `recommended_noise` recomandat din bibliotecă: `brown_lowpass_500` (minim, doar pentru îmbogățire de fundal) sau `none` — adesea doar sunetul natural, fără zgomot suplimentar, este suficient.\n\n- Raport recomandat: 0.85/0.15 sau chiar 0.95/0.05 — sunetul trebuie să fie abia perceptibil.\n\n- Durată recomandată: 30–60 de minute în momentele de liniște absolută (seara înainte de somn, dimineața devreme, muncă prelungită într-o cameră liniștită).\n\n- Top use cases după prioritate: `relaxation` → `falling_asleep` → `daily`.",
+    "timeline": [
+     {
+      "period": "Perioade scurte (de la zile la săptămâni)",
+      "expectation": "la profilul HB_M de obicei nu vă așteptați la schimbări dramatice ale senzației, deoarece starea de bază este deja bună. Scopul este menținerea, nu îmbunătățirea."
+     },
+     {
+      "period": "Luna 1–3",
+      "expectation": "așteptați-vă ca serile mai blânde în liniște să devină mai plăcute. Neutralitatea emoțională față de tinitus se păstrează sau se întărește ușor."
+     },
+     {
+      "period": "Pe termen lung (6+ luni)",
+      "expectation": "îmbogățirea sonoră profilactică reduce probabilitatea episoadelor de destabilizare în caz de stres viitor."
+     },
+     {
+      "period": "În caz de destabilizare",
+      "expectation": "dacă observați că tinitusul devine brusc mai supărător timp de mai mult de 2 săptămâni, reevaluați-vă profilul prin quiz — este posibilă o trecere către un alt profil (de exemplu DN_S în cazul unei noi probleme de somn sau SS_R în cazul unui nou stres)."
+     }
+    ],
+    "additional": "- Mențineți ceea ce funcționează: un stil de viață activ, mediu social, activitate fizică, somn bun. Acești factori sunt cea mai puternică protecție împotriva progresiei.\n\n- Protecție auditivă: la concerte, turnee de tenis, arme de vânătoare sau sunete puternice în mediul de lucru — purtați dopuri de protecție auditivă. O singură expunere acută poate destabiliza profilul pentru luni întregi.\n\n- Mediu sonor: evitați ascultarea îndelungată a muzicii la niveluri ridicate în căști — în caz de tinitus, recomandarea generală este <60% din nivelul maxim pentru <60 de minute.\n\n- Sprijin comportamental: o evaluare activă și realistă — nu transformați tinitusul într-o „problemă\" care încă nu există. Acest lucru păstrează evaluarea emoțională pozitivă a sistemului limbic.\n\n- Tehnici suplimentare: nu sunt necesare intervenții active CBT/ACT la acest profil, dar o bună igienă generală a somnului și gestionarea stresului rămân utile.",
+    "medicalFlags": "- La o schimbare a caracterului: dacă tinitusul devine brusc unilateral, pulsatil sau însoțit de o pierdere a auzului — imediat la medicul ORL.\n\n- La o destabilizare prelungită: dacă starea de bază se înrăutățește și rămâne înrăutățită >2 săptămâni — reevaluați prin quiz și căutați o consultație (audiolog sau ORL).\n\n- Preventiv: o investigație audiologică inițială (audiogramă) este recomandată dacă nu ați făcut una — aceasta oferă o linie de bază pentru o comparație viitoare, în cazul în care ceva se modifică.",
+    "reasons": {
+     "daily": "Fundal sonor ușor pentru susținerea adaptării",
+     "falling_asleep": "Sunete naturale liniștite pentru seară"
+    }
+   }
+  },
+  "pitch": {
+   "title": "Frecvența tinitusului dvs.",
+   "intro": "Frecvența dvs.: {freq}",
+   "skipped": "Nu ați finalizat testul de frecvență. Îl puteți face mai târziu din Setări.",
+   "cat": {
+    "low": "Tinitus de joasă frecvență",
+    "mid": "Tinitus de frecvență medie",
+    "high": "Tinitus de înaltă frecvență",
+    "veryHigh": "Tinitus de frecvență foarte înaltă",
+    "extreme": "Tinitus extrem de înalt"
+   },
+   "rec": {
+    "low": "Sunete recomandate cu un spectru mediu și înalt bogat pentru mascare — recomandăm categoria „Pădure“ și „Ploaie“.",
+    "mid": "Sunete recomandate cu un spectru echilibrat — recomandăm „Ocean“ și „Râu“.",
+    "high": "Sunete recomandate cu accent pe frecvențele joase și medii — recomandăm „Subacvatic“ și „Zgomot maro“.",
+    "veryHigh": "Sunet recomandat bogat în bas pentru o mască optimă — recomandăm „Zgomot maro profund“ sau „Liniște subacvatică“.",
+    "extreme": "Sunet recomandat bogat în bas pentru o mască optimă — recomandăm „Zgomot maro profund“ sau „Liniște subacvatică“."
+   },
+   "notchActive": "✓ Terapie personală activă la {freq}"
+  }
+ },
+ "categoryInfo": {
+  "sectionTitles": {
+   "definition": "Pentru ce este acest mod",
+   "whenUsed": "Când se folosește",
+   "whenNotUsed": "Când NU se folosește",
+   "recommendedNoise": "Zgomot de fundal recomandat",
+   "mixRatio": "Raport recomandat",
+   "expectedEffect": "Efect așteptat",
+   "safety": "Siguranță",
+   "faq": "Întrebări frecvente",
+   "scientificBasis": "Bază științifică"
+  },
+  "whenUsedLabels": {
+   "timeOfDay": "Ora din zi",
+   "context": "Context",
+   "duration": "Durată"
+  },
+  "mixRatioLabels": {
+   "layer1": "Layer 1 (sunet principal)",
+   "layer2": "Layer 2 (zgomot de fundal)"
+  },
+  "previewCta": "Încercați acum",
+  "closeAria": "Închide",
+  "placeholder": "Acest conținut este pregătit de echipa științifică.",
+  "sleep_deep": {
+   "title": "Somn profund",
+   "subtitle": "Toată noaptea",
+   "definition": "Un mod sonor pentru utilizare nocturnă în timpul somnului natural, cu scopul de a reduce contrastul acustic dintre semnalul fantomă al tinitusului și dormitorul liniștit, de a scădea reactivitatea amigdalei la tranzițiile dintre ciclurile de somn și de a proteja arhitectura REM/N3. Nu urmărește o mascare completă, ci amestecarea cu tinitusul la „punctul de amestec“ al lui Jastreboff.",
+   "whenUsed": {
+    "timeOfDay": "Start cu 5–10 min înainte de adormire, continuă pe tot parcursul nopții.",
+    "context": "Dormitor liniștit și întunecat; temperatură 15.5–20°C; fără ecrane și lumină albastră cu 1 oră înainte de somn.",
+    "duration": "Recomandat continuu pe parcursul ferestrei de somn de 8 ore. Utilizatorul poate seta un sleep timer (30/60/90/120 min) în setări, dacă preferă oprirea automată."
+   },
+   "whenNotUsed": [
+    "În cazul unei apnei obstructive de somn comorbide (OSA) fără o consultație medicală — desaturările repetate intensifică activarea simpatică.",
+    "În caz de epilepsie sau tulburări psihiatrice grave, dacă sesiunea include unde binaurale.",
+    "În caz de durere acută de ureche sau de tinitus unilateral inexplicabil fără un consult."
+   ],
+   "recommendedNoise": {
+    "type": "pink_lp2000",
+    "description": "Zgomot roz cu un caracter fractal, pantă spectrală −3 dB/octavă. Corespunde aranjării logaritmice a celulelor ciliate din cohlee; forma de undă simulează medii naturale (cascadă, ploaie, vânt). În caz de hiperacuzie: low-pass peste 5 kHz sau trecere la zgomot maro (−6 dB/octavă)."
+   },
+   "mixRatio": {
+    "layer1": 35,
+    "layer2": 65,
+    "reasoning": "Layer 1 (sunet principal — natură/melodie): 30–40%. Layer 2 (zgomot roz sau maro de fundal): 60–70%. Research-ul oferă parametri absoluți (zgomot roz cu 2–3 dB sub pragul tinitusului; în total 45–55 dBA pentru adulți, <50 dBA pentru copii), dar nu oferă un procent X/Y. Dominarea Layer 2 rezultă din logica potrivit căreia masca de fundal este elementul activ terapeutic."
+   },
+   "expectedEffect": "Reactivitate redusă a amigdalei la tranzițiile nocturne dintre ciclurile de somn; protecția somnului REM și N3 (somn profund cu unde lente); la utilizare prelungită — stimularea neuroplasticității și o habituare cognitivă treptată la tinitus. Obiectiv terapeutic: eficiența săptămânală a somnului (SE) ≥85%.",
+   "safety": [
+    "Maximum 50 dBA noaptea (pentru copii strict <50 dBA).",
+    "Nivelurile peste 50 dBA încep o deteriorare subclinică a auzului și perturbă homeostazia somnului.",
+    "Expunerea nocturnă sistematică >50 dB este asociată cu un risc de demență (atrofia cortexului, proteine tau).",
+    "Fără zgomot alb, fără vârfuri >8 kHz, fără transients bruște.",
+    "Standard loudness: −23 LUFS integrated, True peak ≤ −1 dBTP.",
+    "Disclaimer wellness obligatoriu — produsul nu este un dispozitiv medical."
+   ],
+   "faq": [
+    {
+     "q": "Cât de tare să pun sunetul noaptea?",
+     "a": "Între 45 și 55 dBA pentru adulți; strict sub 50 dBA pentru copii și sugari. Zgomotul roz trebuie reglat cu 2–3 dB sub pragul tinitusului dvs. subiectiv — cele două sunete trebuie să se amestece parțial (punctul de amestec al lui Jastreboff), nu să-l mascheze complet."
+    },
+    {
+     "q": "Cât timp îl pot reda în timpul nopții? Toată noaptea?",
+     "a": "Recomandat continuu pe parcursul ferestrei de somn de 8 ore. În literatura științifică există două puncte de vedere contradictorii: unele studii indică faptul că timerele de oprire după 30–60 min sunt „o greșeală terapeutică serioasă“, deoarece liniștea bruscă activează amigdala la tranzițiile dintre ciclurile de somn; altele recomandă un timer de 30–40 min sau 60–90 min pentru protecția REM. În AURALIS: implicit este continuu; utilizatorul poate seta un sleep timer (30/60/90/120 min) în setări, dacă preferă oprirea automată."
+    },
+    {
+     "q": "Îl pot asculta cu dopuri de protecție sau cu căști in-ear?",
+     "a": "Nu recomandăm blocarea pe termen lung a canalului auditiv cu căști in-ear standard de tip „dopuri“ — provoacă un efect de ocluzie, care face tinitusul intern mai puternic, împiedică migrarea naturală a cerumenului și creează condiții pentru infecții bacteriene (otită externă). Se recomandă difuzoare deschise în dormitor sau căști de înaltă calitate cu conducere osoasă (bone conduction), care lasă canalul auditiv liber."
+    },
+    {
+     "q": "Când voi simți un efect?",
+     "a": "Un prim răspuns terapeutic este posibil încă din primele 2 săptămâni (interval subacut 11–31 de zile) — o scădere de ≥10 puncte pe scala THI. Efect real, semnificativ clinic, al terapiei sonore cu filtru de frecvență notch: −8.6 puncte THI după 3 luni, −24.6 puncte după 6 luni. Într-un RCT amplu de 9 luni, THI median scade de la 50 la 35. Nu vă așteptați la o dispariție completă a tinitusului — scopul este habituarea (creierul să nu-l mai trateze ca pe o amenințare), nu eliminarea."
+    },
+    {
+     "q": "Este periculoasă ascultarea îndelungată în fiecare noapte?",
+     "a": "Este periculoasă doar dacă nivelul depășește 50 dBA — peste acest prag începe o deteriorare subclinică a auzului, o perturbare a homeostaziei somnului, iar la o expunere nocturnă cronică peste 50 dB este documentat un risc pe termen lung (atrofia cortexului, proteine tau, îmbătrânire cognitivă accelerată). Cu respectarea a 45–55 dBA noaptea (pentru copii <50 dBA), ciclul de 8 ore este sigur pe termen lung. Limita WHO/NIOSH lifetime safe este de 70 dBA pentru 24/7 — recomandarea nocturnă este semnificativ sub acest prag."
+    },
+    {
+     "q": "Pot asculta în timpul tratamentului cu medicamente pentru somn sau antidepresive?",
+     "a": "Terapia sonoră nu interacționează farmacologic cu medicamentele. Dar atenție: unele clase de antidepresive (precum și aspirina în doze mari, ibuprofenul, anumite antibiotice, diureticele) pot influența singure tinitusul — nivelurile lor plasmatice fluctuează pe parcursul zilei. Dacă observați o înrăutățire a tinitusului la un anumit medicament, consultați-vă medicul. AURALIS este o aplicație de wellness, nu înlocuiește o consultație medicală."
+    },
+    {
+     "q": "Ce se întâmplă dacă nu funcționează după câteva săptămâni?",
+     "a": "Mai întâi: verificați dacă respectați regulile — 45–55 dBA, fundal continuu (nu un timer de oprire, dacă sunteți pe modul implicit), fără zgomot alb, noaptea într-un dormitor întunecat fără ecrane. În al doilea rând: adăugați o practică zilnică CBT-I/ACT (categoria meditație) — terapia sonoră este mai eficientă în combinație cu un element cognitiv-comportamental. În al treilea rând: dacă după 6 luni nu există nicio schimbare în scorul THI — recomandăm o consultație cu un audiolog sau un specialist în tinitus. AURALIS nu vindecă tinitusul, ci ajută la habituare."
+    }
+   ],
+   "scientificBasis": [
+    "Fișier 'Neurobiologia detaliată și terapia insomniei la pacienții cu tinitus cronic'",
+    "Fișier 'Eficacitatea clinică și neurobiologică a terapiei sonore în tinitusul cronic'",
+    "Fișier 'Analiza eficacității clinice, a spectrelor de frecvență și a mecanismelor neurobiologice ale terapiei sonore în tinitusul subiectiv (perioada 2020-2026)'",
+    "Fișier 'Principii fizice, psihoacustice și fiziologice pentru o amestecare sigură și estetică a straturilor sonore'",
+    "Fișier 'AURALIS_BIBLE_v3_PIVOT.md'"
+   ]
+  },
+  "falling_asleep": {
+   "title": "Adormire",
+   "subtitle": "30–90 min înainte de somn",
+   "definition": "Un mod pentru ultimele 30–90 de minute înainte de culcare, cu scopul de a reduce treptat activarea simpatică, de a activa sistemul nervos parasimpatic și de a scurta latența de adormire (SOL). Construiește o asociere condiționată între un anumit sunet și relaxarea musculară, care ulterior favorizează o adormire mai rapidă.",
+   "whenUsed": {
+    "timeOfDay": "Ultimele 30–90 de minute înainte de ora stabilită de culcare.",
+    "context": "Pat sau un fotoliu confortabil; lumină caldă și difuză, fără lungimi de undă albastre; fără ecrane.",
+    "duration": "15–30 min de sesiune activă de relaxare (de exemplu, relaxare musculară progresivă cu sunet de fundal). După această sesiune puteți trece la modul „Somn profund“."
+   },
+   "whenNotUsed": [
+    "Imediat după o masă copioasă sau după consum de cofeină/alcool (cofeina se oprește după ora 12:00, alcoolul — seara).",
+    "În caz de atac de panică acut — acolo aplicați mai întâi modul „Anxietate“.",
+    "În pat în timpul zilei — patul trebuie să rămână legat de asocierea „somn + relaxare“, nu de activitatea diurnă."
+   ],
+   "recommendedNoise": {
+    "type": "pink_lp2000",
+    "description": "Același zgomot roz fractal folosit noaptea — pentru a construi o asociere condiționată sunet → relaxare. În timpul unei relaxări musculare progresive de 15 minute (PMR) se redă „același zgomot roz fractal“. Alternativ: tonuri naturale fractale (cascadă, ploaie ușoară) la un nivel scăzut."
+   },
+   "mixRatio": {
+    "layer1": 45,
+    "layer2": 55,
+    "reasoning": "Layer 1 (relaxare principală — exercițiu de respirație, PMR voice guide sau melodie): 40–50%. Layer 2 (zgomot roz de fundal): 50–60%. Layer 1 are o pondere puțin mai mare decât în modul „Somn profund“, deoarece conținutul de relaxare este focalizat activ; Layer 2 rămâne dominant."
+   },
+   "expectedEffect": "Scurtarea latenței de adormire (SOL); activarea tonusului vagal; scăderea ritmului cardiac și a tensiunii arteriale; tranziție lină către fazele N1/N2 ale somnului. La utilizare prelungită — construirea unei legături condiționate durabile „sunet = relaxare“.",
+   "safety": [
+    "Aceleași limitări ca la „Somn profund“ — maximum 50 dBA.",
+    "Fără zgomot alb, fără transients bruște.",
+    "Dacă sesiunea nu duce la somnolență după 20 de minute, nu forțați — ridicați-vă și treceți la o activitate liniștită într-o cameră alăturată, cu un zgomot roz de fundal ușor, până la apariția unei somnolențe naturale.",
+    "Standard loudness: −23 LUFS integrated, True peak ≤ −1 dBTP.",
+    "Disclaimer wellness obligatoriu."
+   ],
+   "faq": [
+    {
+     "q": "Cât de tare?",
+     "a": "În timpul sesiunii active de relaxare de 15–30 min înainte de somn, sunetul de fundal trebuie să fie similar sau puțin mai ridicat decât nivelul nocturn planificat (45–55 dBA pentru adulți). Pentru copii, sub 50 dBA. Aceeași recomandare ca pentru modul „Somn profund“ — punct de amestec, nu mascare completă."
+    },
+    {
+     "q": "Cu câte minute înainte să adorm?",
+     "a": "30–90 min înainte de ora stabilită de culcare. Sesiunea activă de relaxare (de exemplu, relaxare musculară progresivă cu zgomot roz fractal) durează 15–30 min. După ea — treceți la modul „Somn profund“, nu opriți sunetul."
+    },
+    {
+     "q": "Ce este mai bine — căști sau difuzor?",
+     "a": "Difuzoare deschise în dormitor sau căști cu conducere osoasă. Căștile in-ear standard de tip „dopuri“ nu sunt recomandate — efectul de ocluzie face tinitusul mai puternic; risc de cerumen și infecții la utilizare îndelungată."
+    },
+    {
+     "q": "Ce se întâmplă dacă nu adorm după 20 de minute?",
+     "a": "Nu forțați. Ridicați-vă și mergeți într-o cameră alăturată (living) cu un zgomot roz de fundal ușor, cu 3–5 dB mai liniștit decât nivelul nocturn, și o lumină caldă și difuză. Citiți o carte pe hârtie, beți o ceașcă de apă caldă sau mâncați o gustare ușoară cu carbohidrați. Întoarceți-vă în pat doar când simțiți o somnolență reală (pleoape grele, căscaturi repetate). Nu vă uitați la ceas sau la telefon — lumina și conștientizarea orei activează axa HPA și blochează adormirea."
+    },
+    {
+     "q": "Pot folosi un exercițiu de respirație?",
+     "a": "Da, puternic recomandat. Tehnica 4-7-8 (inspirați 4 sec, țineți 7 sec, expirați 8 sec) activează fibrele parasimpatice ale nervului vag, încetinește ritmul cardiac și inhibă amigdala. Se poate și relaxare musculară progresivă (PMR) 15 min cu zgomot roz de fundal — construiește o asociere condiționată sunet → relaxare."
+    },
+    {
+     "q": "Când voi simți efectul de scurtare a latenței de adormire?",
+     "a": "La aplicarea sistematică zilnică — de obicei în primele 1–2 săptămâni, împreună cu celelalte componente ale terapiei. Reducerea exactă a latenței este individuală; urmăriți-o cu un jurnal de somn (ora de culcare, timpul de adormire, treziri nocturne). Obiectivul este o eficiență săptămânală a somnului (SE) ≥85%."
+    },
+    {
+     "q": "Ce se întâmplă dacă modul mă trezește în loc să mă adoarmă?",
+     "a": "Sunetul este prea puternic — reduceți cu 3–5 dB. Sau conținutul este prea stimulant — înlocuiți muzica cu voce, natură sau zgomot roz fractal singur (fără Layer 1). Evitați sunetele noi sau experimentale înainte de somn — creierul are nevoie de o semnătură acustică familiară și stabilă."
+    }
+   ],
+   "scientificBasis": [
+    "Fișier 'Neurobiologia detaliată și terapia insomniei la pacienții cu tinitus cronic'",
+    "Fișier 'Eficacitatea clinică și neurobiologică a terapiei sonore în tinitusul cronic'",
+    "Fișier 'AURALIS_BIBLE_v3_PIVOT.md'"
+   ]
+  },
+  "relaxation": {
+   "title": "Relaxare",
+   "subtitle": "Înainte de somn, citit",
+   "definition": "Un mod pentru relaxare pasivă în timpul zilei sau seara — cititul unei cărți pe hârtie, o conversație ușoară, o ceașcă de apă caldă sau ceai, activități cu energie scăzută. Scopul este o reducere generală a tonusului psihofiziologic, nu pregătirea pentru somn. Se poate folosi și la trezirea nocturnă, când se părăsește patul temporar (Night Wake Protocol).",
+   "whenUsed": {
+    "timeOfDay": "După-amiaza sau seara devreme; de asemenea ca parte din Night Wake Protocol după o trezire nocturnă.",
+    "context": "Cameră de zi (NU patul), lumină caldă și difuză, o poziție confortabilă.",
+    "duration": "20–60 min, flexibil în funcție de nevoie. 60 min este o limită superioară conservatoare în raport cu regula generală 60/60."
+   },
+   "whenNotUsed": [
+    "Ca înlocuitor al somnului (pentru aceasta folosiți modul „Somn profund“).",
+    "Chiar în pat în timpul zilei — patul trebuie să rămână legat de asocierea „somn + relaxare“, nu de activitatea diurnă.",
+    "La condus sau la lucrul cu utilaje — modul urmărește reducerea ritmului cardiac și a activității conștiente."
+   ],
+   "recommendedNoise": {
+    "type": "pink_pure",
+    "description": "Sunet blând, continuu și neutru — zgomot roz sau tonuri naturale fractale, reglate sub punctul subiectiv de amestec (mixing point), pentru a reduce contrastul acustic fără a atrage atenția. La utilizare nocturnă (Night Wake) — același zgomot roz, dar cu 3–5 dB mai liniștit decât nivelul diurn."
+   },
+   "mixRatio": {
+    "layer1": 45,
+    "layer2": 55,
+    "reasoning": "Layer 1 (sunet principal — natură, muzică instrumentală ușoară): 40–50%. Layer 2 (zgomot roz de fundal): 50–60%. Similar cu „Adormire“ — Layer 1 poate fi mai variat (muzică, natură), Layer 2 rămâne dominant pentru funcția de mascare."
+   },
+   "expectedEffect": "Reducerea tonusului psihofiziologic; scăderea ritmului cardiac; dominanță parasimpatică. La utilizare nocturnă (Night Wake) — facilitarea revenirii la somn fără declanșarea unei legături condiționate „pat = anxietate“.",
+   "safety": [
+    "Maximum 70 dBA pentru un timp nelimitat (WHO/NIOSH lifetime safe).",
+    "Regula 60/60 (60% volume / 60 min) cu 10–15 min de liniște completă după.",
+    "Fără zgomot alb.",
+    "Disclaimer wellness obligatoriu."
+   ],
+   "faq": [
+    {
+     "q": "Cât de tare?",
+     "a": "Sub punctul de amestec al tinitusului — sunet blând, continuu și neutru. Pentru relaxare diurnă: 50–65 dBA în total în cameră. Pentru Night Wake (relaxare nocturnă într-o cameră alăturată): cu 3–5 dB mai liniștit decât nivelul diurn."
+    },
+    {
+     "q": "Cât timp îl pot reda?",
+     "a": "20–60 min sesiune tipică. La o ascultare mai îndelungată respectați regula 60/60 (60% volume / 60 min), urmată de 10–15 min de liniște completă pentru protecție împotriva oboselii auditive. La niveluri sub 70 dBA nu există o limită zilnică (WHO/NIOSH lifetime safe)."
+    },
+    {
+     "q": "Pot folosi în pat?",
+     "a": "Nu recomandăm relaxarea diurnă în pat — patul trebuie să rămână legat de asocierea „somn“, nu de relaxarea diurnă. Aceasta este o regulă cheie pentru persoanele cu insomnie indusă de tinitus. Pentru relaxare diurnă: cameră de zi, un fotoliu confortabil, nu patul."
+    },
+    {
+     "q": "Este potrivit în caz de anxietate?",
+     "a": "Relaxarea nu este un înlocuitor al modului „Anxietate“ (SOS). În caz de atac de panică acut — mai întâi modul „Anxietate“ (respirație 4-7-8, frază-ancoră, zgomot roz familiar cu 3–5 dB mai liniștit). După stabilizare → relaxarea poate menține dominanța parasimpatică. Relaxare ≠ criză."
+    },
+    {
+     "q": "Dopuri sau difuzor?",
+     "a": "Aceeași recomandare ca la „Somn profund“ — difuzoare deschise sau căști cu conducere osoasă; nu căști in-ear de tip „dopuri“ pentru sesiuni lungi."
+    },
+    {
+     "q": "Este periculos dacă adorm cu o sesiune de relaxare?",
+     "a": "Nu — dar dacă adormiți în mod regulat cu relaxarea, treceți la modul „Somn profund“ în schimb. „Somn profund“ este special reglat pentru un somn de 8 ore și un punct de amestec mai liniștit decât relaxarea. Nivelul diurn de relaxare, menținut toată noaptea, poate fragmenta somnul."
+    }
+   ],
+   "scientificBasis": [
+    "Fișier 'Neurobiologia detaliată și terapia insomniei la pacienții cu tinitus cronic'",
+    "Fișier 'Eficacitatea clinică și neurobiologică a terapiei sonore în tinitusul cronic'",
+    "Fișier 'Principii fizice, psihoacustice și fiziologice pentru o amestecare sigură și estetică a straturilor sonore'",
+    "Fișier 'AURALIS_BIBLE_v3_PIVOT.md'"
+   ]
+  },
+  "daily": {
+   "title": "Zilnic",
+   "subtitle": "Muncă, concentrare",
+   "definition": "Un mod pentru utilizare diurnă în timpul muncii sau al concentrării, cu scopul de a asigura o îmbogățire acustică ușoară, de mascare, a mediului de lucru, care menține tinitusul în afara focusului atenției conștiente și stimulează habituarea corticală. Simulează mascarea naturală pe care o asigură sursele sonore ecologice și industriale în timpul zilei.",
+   "whenUsed": {
+    "timeOfDay": "Program de lucru, ideal înainte de ora 12:00; după-amiaza la sarcini de concentrare.",
+    "context": "Birou, birou de acasă, citit, învățat — activitate sedentară cu focus.",
+    "duration": "1–2 ore în timpul sesiunilor de veghe; se poate și mai mult la niveluri scăzute (sub 70 dBA)."
+   },
+   "whenNotUsed": [
+    "La condus sau la lucrul cu utilaje grele — distrage atenția; consecințe cognitive ridicate ale unei greșeli.",
+    "La întâlniri, apeluri, conversații — sunetul principal împiedică comunicarea.",
+    "În caz de atac de panică acut — folosiți modul „Anxietate“.",
+    "Pentru copii — doar sub 50 dBA."
+   ],
+   "recommendedNoise": {
+    "type": "pink_pure",
+    "description": "Zgomot roz ușor, de mascare — creierul are nevoie de o semnătură acustică familiară și stabilă, la care a început deja să se habitueze. Nivelul diurn este cu 3–5 dB mai ridicat decât cel nocturn (din cauza pragului auditiv diurn mai ridicat). Alternativ: tonuri naturale fractale (vânt, ploaie îndepărtată)."
+   },
+   "mixRatio": {
+    "layer1": 25,
+    "layer2": 75,
+    "reasoning": "Layer 1 (opțional, sunet principal blând — natură, muzică instrumentală fără voce): 20–30%. Layer 2 (zgomot roz de fundal): 70–80%. Modul diurn este mai mult de fundal decât „Somn profund“ — Layer 1 este minim sau lipsește; Layer 2 domină, deoarece scopul este îmbogățirea acustică, nu ascultarea activă. Muzica cu voce este exclusă, deoarece vocea concurează cu resursele cognitive pentru muncă."
+   },
+   "expectedEffect": "Menținerea tinitusului în afara focusului atenției conștiente prin mascare ecologică parțială; stimularea habituării corticale în timpul zilei; reducerea oboselii somatice diurne, cauzate de insomnia indusă de tinitus.",
+   "safety": [
+    "70 dBA maximum pentru un timp nelimitat (WHO/NIOSH lifetime safe).",
+    "80 dBA = maximum 40 de ore pe săptămână.",
+    "Regula 60/60 (60% volume al dispozitivului, nu mai mult de 60 min, apoi 10–15 min de liniște).",
+    "Atenție: sunetele plăcute emoțional sunt percepute subiectiv ca fiind mai liniștite decât sunt fizic — folosiți un SPL meter obiectiv (sau o aplicație de dB measurement) la reglare.",
+    "Pentru copii — strict sub 50 dBA.",
+    "Disclaimer wellness obligatoriu."
+   ],
+   "faq": [
+    {
+     "q": "Cât de tare în timpul muncii?",
+     "a": "Sub 70 dBA — aceasta este limita WHO/NIOSH lifetime safe pentru o expunere 24/7. Realist: 50–65 dBA în mediul de lucru este suficient pentru un efect de mascare, fără a împiedica concentrarea. Pentru copii — strict sub 50 dBA."
+    },
+    {
+     "q": "Cât timp pe zi?",
+     "a": "1–2 ore activ în timpul sesiunilor de veghe — indicat în research pentru zgomotul roz. La niveluri sub 70 dBA se poate și mai mult. Respectați regula 60/60 (60% volume / 60 min de ascultare activă), urmată de 10–15 min de liniște pentru protecție împotriva oboselii auditive."
+    },
+    {
+     "q": "Pot folosi muzică cu voce?",
+     "a": "Nu este recomandat un Layer 1 cu voce pentru modul diurn — vocea concurează pentru resurse cognitive în timpul muncii. Se recomandă: muzică instrumentală fără voce, sunete naturale (vânt, ploaie îndepărtată) sau doar zgomot roz fractal."
+    },
+    {
+     "q": "Căști pentru muncă?",
+     "a": "Cele cu conducere osoasă (bone conduction) sunt cea mai bună alegere pentru o zi lungă de lucru — lasă canalul auditiv liber și nu provoacă un efect de ocluzie. Căștile on-ear deschise sunt și ele acceptabile. Evitați căștile in-ear de tip „dopuri“ pentru 4+ ore pe zi."
+    },
+    {
+     "q": "Împiedică concentrarea?",
+     "a": "Nu — scopul modului diurn este invers: să mențină tinitusul în afara focusului atenției conștiente, eliberând cortexul prefrontal pentru muncă. Dacă simțiți că Layer 1 (melodie/natură) vă distrage — eliminați-l și lăsați doar Layer 2 (zgomot roz)."
+    },
+    {
+     "q": "Cofeina și terapia sonoră?",
+     "a": "Cofeina acționează ca un vasoconstrictor și un stimulant central — intensifică anxietatea și sensibilitatea corticală, agravează tinitusul. Terapia sonoră nu neutralizează acest efect. Recomandare: opriți cofeina după ora 12:00. La fel și alcoolul seara — perturbă perfuzia urechii interne."
+    },
+    {
+     "q": "Când voi simți un efect asupra tinitusului diurn?",
+     "a": "Sesiunile zilnice scurte de 5 minute sunt mai eficiente decât o singură sesiune lungă — research-ul indică faptul că 3 antrenamente scurte de 3 minute pe zi sunt mai eficiente pentru consolidarea neuroplastică decât o singură practică de 60 de minute pe săptămână. Primele semne ale unei conștientizări diurne reduse a tinitusului — de obicei 2–4 săptămâni la utilizare sistematică."
+    }
+   ],
+   "scientificBasis": [
+    "Fișier 'Neurobiologia detaliată și terapia insomniei la pacienții cu tinitus cronic'",
+    "Fișier 'Eficacitatea clinică și neurobiologică a terapiei sonore în tinitusul cronic'",
+    "Fișier 'Analiza eficacității clinice, a spectrelor de frecvență și a mecanismelor neurobiologice ale terapiei sonore în tinitusul subiectiv (perioada 2020-2026)'",
+    "Fișier 'Principii fizice, psihoacustice și fiziologice pentru o amestecare sigură și estetică a straturilor sonore'",
+    "Fișier 'Program cognitiv-comportamental optimizat de două săptămâni pentru gestionarea inițială a tinitusului cronic'"
+   ]
+  },
+  "anxiety": {
+   "title": "Anxietate",
+   "subtitle": "SOS, atac de panică",
+   "definition": "Un mod de urgență scurt pentru o criză anxioasă acută indusă de tinitus sau un atac de panică — tipic la o trezire nocturnă la ora 3:00, dar și la un vârf diurn. Scopul este o stabilizare imediată printr-un algoritm comportamental și acustic: activare vagală, reducerea hiperactivității simpatice și neutralizarea cognitivă a semnalului.",
+   "whenUsed": {
+    "timeOfDay": "La nevoie acută — noaptea (trezire nocturnă), ziua (vârf anxios).",
+    "context": "Țineți ochii închiși sau priviți către un sector întunecat. Evitați ceasul și ecranul telefonului — lumina și conștientizarea orei activează axa HPA.",
+    "duration": "Primele 30 de secunde — stabilizare limbică; minutele 1–15 — respirație continuă; dacă somnul nu revine după 15–20 min noaptea → ridicați-vă și treceți la „Relaxare“ într-o cameră alăturată."
+   },
+   "whenNotUsed": [
+    "Pentru o ascultare zilnică de lungă durată — modul este SOS, nu o terapie diurnă.",
+    "Ca înlocuitor al ajutorului psihiatric în cazul atacurilor de panică grave sau prelungite — disclaimer wellness."
+   ],
+   "recommendedNoise": {
+    "type": "pink_lp2000",
+    "description": "Același zgomot roz folosit noaptea — creierul are nevoie de o semnătură acustică familiară și stabilă. Nu un sunet nou sau experimental. Reglat hardware/software cu 3–5 dB mai liniștit decât nivelul diurn standard."
+   },
+   "mixRatio": {
+    "layer1": 55,
+    "layer2": 45,
+    "reasoning": "Layer 1 (ghidare vocală — 4-7-8 respirație voice guide, frază-ancoră): 50–60%. Layer 2 (zgomot roz de fundal): 40–50%. Layer 1 (vocea principală) este mai dominant, deoarece respirația structurată este elementul terapeutic activ, iar zgomotul de fundal este de susținere."
+   },
+   "expectedEffect": "Stimularea fibrelor parasimpatice ale nervului vag; încetinirea forțată a ritmului cardiac; scăderea tensiunii arteriale; suprimarea treptată a hiperactivității amigdalei; întreruperea vârfului de adrenalină/cortizol. Tehnica 4-7-8: inspirați pe nas timp de 4 secunde, țineți respirația 7 secunde, expirați pe gură timp de 8 secunde.",
+   "safety": [
+    "NU creșteți intensitatea în timpul panicii — „mascarea de panică“ (creșterea până la mascarea completă a tinitusului) antrenează amigdala să perceapă tinitusul ca pe o amenințare critică, înrăutățește prognosticul pe termen lung.",
+    "Rămâneți la nivelul normal nocturn/diurn (3–5 dB sub pragul tinitusului).",
+    "Disclaimer wellness obligatoriu — produsul nu înlocuiește îngrijirea psihiatrică în cazul atacurilor de panică grave sau recurente."
+   ],
+   "faq": [
+    {
+     "q": "Ce să fac în primele 30 de secunde în timpul unui atac de panică?",
+     "a": "Trei pași: (1) Blocaj vizual — închideți ochii sau priviți către un sector întunecat. NU vă uitați la ceas sau la ecran (lumina și conștientizarea orei activează axa HPA). (2) Respirație 4-7-8 — inspirați pe nas timp de 4 secunde, țineți 7 secunde, expirați pe gură timp de 8 secunde. Stimulează nervul vag. (3) Frază-ancoră cognitivă — repetați în gând: „Aceasta este doar o activitate electrică inofensivă în nervul meu auditiv. Corpul meu este în siguranță și acum se va relaxa.“"
+    },
+    {
+     "q": "Cât de tare să pun sunetul în timpul unui atac de panică?",
+     "a": "Același nivel normal ca în modul nocturn — cu 3–5 dB mai liniștit decât nivelul diurn al tinitusului. NU creșteți intensitatea pentru mascare — aceasta este „mascarea de panică“ și antrenează amigdala să perceapă tinitusul ca pe o amenințare critică, înrăutățește prognosticul pe termen lung."
+    },
+    {
+     "q": "Cât de des îl pot folosi?",
+     "a": "Modul „Anxietate“ este SOS — pentru crize acute, nu pentru utilizare zilnică. Dacă folosiți protocolul mai mult de 2–3 ori pe săptămână, acesta este un semnal pentru o consultație cu un medic sau un psihoterapeut. AURALIS nu înlocuiește îngrijirea psihiatrică. Pentru un efect de susținere diurn folosiți „Zilnic“ și „Meditație“."
+    },
+    {
+     "q": "Ce se întâmplă dacă respirația nu ajută?",
+     "a": "Dacă după 15–20 min de respirație 4-7-8 și frază-ancoră nu apare o stabilizare (noaptea — readormirea), ridicați-vă și mergeți într-o cameră alăturată (living) cu un zgomot roz de fundal ușor. Nu rămâneți în pat într-o stare de anxietate — răsucitul prelungit construiește o legătură condiționată „pat = anxietate + zgomot“. Întoarceți-vă în pat doar la o somnolență reală."
+    },
+    {
+     "q": "Sunetul mă sperie mai mult, nu ajută. De ce?",
+     "a": "Cauze posibile: (1) Intensitatea este prea ridicată — reduceți la 3–5 dB sub pragul tinitusului. (2) Sunetul este nou sau necunoscut — research-ul recomandă o semnătură acustică familiară (același zgomot roz pe care îl folosiți noaptea); nu un sunet nou, experimental, într-un moment de criză. (3) Conținutul este prea stimulant — înlocuiți muzica cu voce (4-7-8 voice guide) sau doar cu zgomot roz."
+    },
+    {
+     "q": "Pot folosi în caz de anxietate diurnă (nu noaptea)?",
+     "a": "Da, modul funcționează și ziua. Respirația 4-7-8 este valabilă întotdeauna. Versiunea diurnă este mai scurtă — de obicei 2–5 min până la stabilizare. După aceea puteți continua cu „Zilnic“ sau „Relaxare“ pentru un efect de susținere."
+    },
+    {
+     "q": "Când ar trebui să caut ajutor profesional?",
+     "a": "Imediat dacă: atacurile de panică au o frecvență de peste 2–3 ori pe săptămână; apar gânduri suicidare; tinitusul a apărut recent într-o ureche fără explicație; aveți durere acută de ureche sau pierdere de auz împreună cu tinitusul. AURALIS este o aplicație de wellness, nu un dispozitiv medical. În caz de simptome grave — psihiatru, audiolog sau specialist ORL."
+    }
+   ],
+   "scientificBasis": [
+    "Fișier 'Neurobiologia detaliată și terapia insomniei la pacienții cu tinitus cronic'",
+    "Fișier 'Eficacitatea clinică și neurobiologică a terapiei sonore în tinitusul cronic'",
+    "Fișier 'AURALIS_BIBLE_v3_PIVOT.md'"
+   ]
+  },
+  "meditation": {
+   "title": "Meditație",
+   "subtitle": "Sesiuni ghidate",
+   "definition": "Un mod pentru o practică activă, ghidată — exerciții zilnice scurte de 5–10 min după principiile CBT-I și ACT (Acceptance and Commitment Therapy): externalizarea atenției, defuzie cognitivă, body scan, acceptare radicală. Nu este o ascultare pasivă — necesită un angajament conștient.",
+   "whenUsed": {
+    "timeOfDay": "Se recomandă 3 sesiuni scurte de 3 minute pe parcursul zilei în loc de una lungă de 60 de minute — consolidare neuroplastică printr-o frecvență ridicată de activare, nu prin durată.",
+    "context": "O poziție confortabilă și liniștită; nu în timpul muncii, al condusului sau al unei activități care necesită concentrare.",
+    "duration": "5–10 min per sesiune (micropractici); pentru sesiunile binaural-audio — 15–30 min, de 1–2 ori pe zi."
+   },
+   "whenNotUsed": [
+    "În caz de atac de panică acut — mai întâi modul „Anxietate“, apoi meditație după stabilizare.",
+    "Sesiunile cu unde binaurale — absolut contraindicate în caz de epilepsie sau tulburări psihiatrice grave.",
+    "Fără căști stereo de calitate pentru binaurale — la o sursă mono efectul binaural dispare complet.",
+    "În caz de neaderență gravă (3+ zile de sesiuni ratate) — sistemul aplică Adaptive Micro-Dosing (micro-doze de 2 minute), nu pedepsește pacientul."
+   ],
+   "recommendedNoise": {
+    "type": "pink_pure",
+    "description": "Depinde puternic de tipul sesiunii. Pentru body scan / defuzie / acceptare: zgomot roz fractal la un nivel scăzut sau tonuri naturale fractale (pentru asocierea cu relaxarea). Pentru unde binaurale (alfa 8 Hz): un carrier de bandă îngustă cu binaural beat — obligatoriu căști stereo, fără un zgomot de fundal de spectru larg, care ar masca efectul binaural."
+   },
+   "mixRatio": {
+    "layer1": 65,
+    "layer2": 35,
+    "reasoning": "Layer 1 (voce principală / binaural beat / meditație ghidată): 60–70%. Layer 2 (zgomot roz de fundal sau natură): 30–40%. Layer 1 (elementul principal) este dominant, deoarece conținutul activ (voce, binaural beat) este cel terapeutic activ — invers față de „Somn profund“, unde fundalul este cel activ."
+   },
+   "expectedEffect": "Practici CBT-I/ACT: eliminarea rezistenței emoționale față de tinitus (care menține activitatea talamo-corticală); reducerea hiperfocusului asupra analizatorului auditiv. Unde binaurale (alfa 8 Hz): un scor THI statistic mai scăzut (Δ=17.33 pentru TMNMT+BBS vs Δ=9.00 pentru TMNMT singur într-un RCT 2025); un efect mai mare asupra simptomelor depresive. ACT ca terapie: 54.5% dintre pacienți mențin o îmbunătățire durabilă la o urmărire de 6 luni (față de 20% la TRT); o reducere medie a THI cu 17.67 puncte (meta-analiză).",
+   "safety": [
+    "Undele binaurale pot provoca o creștere de scurtă durată a iritabilității, anxietății sau a durerii de cap la o diferență de frecvență nepotrivită — reduceți frecvența sau încheiați sesiunea.",
+    "Unde binaurale — absolut contraindicate în caz de epilepsie sau tulburări psihiatrice grave.",
+    "Pentru binaurale — obligatoriu căști stereo.",
+    "Micropractici: evitați sesiunile de o oră — focalizarea prelungită asupra unui exercițiu poate crește paradoxal focusul somatic asupra tinitusului și poate intensifica excitația talamo-corticală (exposure fatigue).",
+    "Disclaimer wellness obligatoriu."
+   ],
+   "faq": [
+    {
+     "q": "Cât timp trebuie să meditez?",
+     "a": "5–10 min per sesiune este optim pentru micropracticile CBT-I/ACT. Research-ul arată că 3 antrenamente scurte de 3 minute pe parcursul zilei sunt mai eficiente decât o singură sesiune de 60 de minute pe săptămână — pentru consolidarea neuroplastică este critică frecvența de activare, nu durata unei singure sesiuni. Sesiunile mai lungi pot crește paradoxal focusul somatic asupra tinitusului (exposure fatigue). Pentru sesiunile binaural-audio: 15–30 min, de 1–2 ori pe zi."
+    },
+    {
+     "q": "Sunt necesare căști speciale?",
+     "a": "Pentru undele binaurale — DA, obligatoriu căști stereo de înaltă calitate. La o sursă mono efectul binaural dispare complet. Pentru meditațiile vocale CBT-I/ACT (body scan, defuzie, acceptare) — difuzoarele deschise sau căștile cu conducere osoasă funcționează și ele."
+    },
+    {
+     "q": "Când este periculoasă meditația binaurală?",
+     "a": "Absolut contraindicată în caz de epilepsie sau tulburări psihiatrice grave. Poate provoca, la o diferență de frecvență nepotrivită: o creștere de scurtă durată a iritabilității, anxietate, dureri de cap. Dacă simțiți oricare dintre acestea → încheiați și treceți la un alt tip de meditație (body scan, defuzie). AURALIS este o aplicație de wellness, nu medicală."
+    },
+    {
+     "q": "Când voi simți un efect?",
+     "a": "Diferit în funcție de tipul sesiunii. Micropractici CBT-I/ACT (5-10 min pe zi): primul răspuns terapeutic în intervalul subacut (11–31 de zile) — o scădere a THI cu ≥10 puncte la aplicarea sistematică. Unde binaurale 8 Hz + terapie sonoră: un efect statistic mai mare decât terapia sonoră singură într-un RCT 2025 (Δ=17.33 puncte THI pentru grupul combinat față de Δ=9.00 pentru TMNMT singur). ACT ca terapie complexă timp de 6 luni: 54.5% dintre pacienți mențin o îmbunătățire durabilă (față de 20% la TRT); meta-analiză — o reducere medie a THI cu 17.67 puncte."
+    },
+    {
+     "q": "Ce se întâmplă dacă ratez câteva zile?",
+     "a": "Nu intrați în panică. Adaptive Micro-Dosing — continuați cu micropractici scurtate de 2 minute (de exemplu, 3 respirații profunde sau doar relaxarea maxilarului). Sistemul nu pedepsește ratările — scopul este menținerea obiceiului, nu o aderență perfectă. După 4+ zile fără sesiune — concentrați-vă doar pe biblioteca sonoră pasivă („Somn profund“, „Zilnic“), până când vă simțiți gata să reluați practicile active."
+    },
+    {
+     "q": "Pot folosi în timpul tratamentului medicamentos?",
+     "a": "Meditația nu are interacțiune farmacologică. Dar în cazul administrării de antidepresive, benzodiazepine sau sedative — consultați-vă medicul pentru o combinație optimă. ACT este dovedit eficientă chiar și la pacienții care nu au răspuns la 6+ luni de terapie TRT — practicile meditative completează, nu înlocuiesc un tratament medical."
+    },
+    {
+     "q": "Care tehnici sunt cele mai importante?",
+     "a": "Conform research-ului, componentele de bază ACT/CBT-I pentru tinitus sunt: (1) Acceptare radicală — încetarea luptei cu zgomotul; „Îți permit să fii prezent aici în acest moment“. (2) Defuzie cognitivă — restructurarea metaforelor („țiuit“ → „vânt prin crengi“). (3) Body scan — reducerea hiperfocusului asupra analizatorului auditiv. (4) Externalizarea atenției — redirecționarea de la stimuli interni către cei externi. (5) Reducerea comportamentului de evitare — efectuarea unor activități pe care le-ați evitat de frica intensificării tinitusului."
+    }
+   ],
+   "scientificBasis": [
+    "Fișier 'Program cognitiv-comportamental optimizat de două săptămâni pentru gestionarea inițială a tinitusului cronic'",
+    "Fișier 'Analiza eficacității clinice, a spectrelor de frecvență și a mecanismelor neurobiologice ale terapiei sonore în tinitusul subiectiv (perioada 2020-2026)'",
+    "Fișier 'Raport clinic privind aplicarea Terapiei de acceptare și angajament (ACT) la pacienții cu vârsta de peste 50 de ani cu tinitus subiectiv cronic'",
+    "Fișier 'Neurobiologia detaliată și terapia insomniei la pacienții cu tinitus cronic'"
+   ]
+  }
+ },
+ "thi": {
+  "title": "Evaluare THI",
+  "progressFmt": "Întrebarea {n} din {total}",
+  "options": {
+   "yes": "Da",
+   "sometimes": "Uneori",
+   "no": "Nu"
+  },
+  "actions": {
+   "prev": "Înapoi",
+   "next": "Următorul",
+   "finish": "Finalizează",
+   "continue": "Continuă"
+  },
+  "result": {
+   "done": "Gata",
+   "baseline": "Baseline THI score",
+   "day14": "Scor THI final (Ziua 14)",
+   "completed": "Am înregistrat noul rezultat"
+  },
+  "q1": "Din cauza tinitusului, vă este greu să vă concentrați?",
+  "q2": "Intensitatea tinitusului vă împiedică să auziți alte persoane?",
+  "q3": "Tinitusul vă enervează?",
+  "q4": "Tinitusul vă provoacă o senzație de confuzie?",
+  "q5": "Din cauza tinitusului, vă simțiți disperat?",
+  "q6": "Vă plângeți des de tinitusul dvs.?",
+  "q7": "Din cauza tinitusului, vă este greu să adormiți seara?",
+  "q8": "Aveți senzația că nu puteți scăpa de tinitusul dvs.?",
+  "q9": "Tinitusul vă împiedică să vă bucurați de activități sociale (de exemplu, ieșitul la cină sau la cinema)?",
+  "q10": "Din cauza tinitusului, vă simțiți frustrat?",
+  "q11": "Din cauza tinitusului, aveți senzația că suferiți de o boală gravă?",
+  "q12": "Tinitusul vă împiedică să vă bucurați de viață?",
+  "q13": "Tinitusul vă împiedică la muncă sau la îndatoririle casnice?",
+  "q14": "Din cauza tinitusului, observați că sunteți adesea iritabil?",
+  "q15": "Din cauza tinitusului, vă este greu să citiți?",
+  "q16": "Tinitusul vă supără?",
+  "q17": "Simțiți că problema tinitusului vă încarcă relațiile cu membrii familiei și cu prietenii?",
+  "q18": "Vă este greu să vă îndreptați atenția în afara tinitusului, către alte lucruri?",
+  "q19": "Aveți senzația că nu aveți niciun control asupra tinitusului dvs.?",
+  "q20": "Din cauza tinitusului, vă simțiți des obosit?",
+  "q21": "Din cauza tinitusului, vă simțiți într-o dispoziție deprimată?",
+  "q22": "Tinitusul vă provoacă anxietate?",
+  "q23": "Aveți senzația că nu mai puteți face față tinitusului dvs.?",
+  "q24": "Tinitusul se înrăutățește când sunteți sub stres?",
+  "q25": "Din cauza tinitusului, vă simțiți nesigur?",
+  "badge": {
+   "label": "THI",
+   "goal": "obiectiv < {goal}",
+   "tapHint": "Apăsați pentru detalii"
+  },
+  "detail": {
+   "title": "Rezultatul testului THI",
+   "subscoresTitle": "Pe categorii",
+   "functional": "Funcțional",
+   "emotional": "Emoțional",
+   "catastrophic": "Catastrofic",
+   "retest_label": "Test din nou în ziua 14",
+   "retest_countdown": "Test din nou după {days} zile",
+   "retest_ready": "Este timpul pentru un nou test",
+   "retest_button": "Fă testul din nou",
+   "compareTitle": "Comparație Ziua 1 → Ziua 14",
+   "compareDay1": "Ziua 1",
+   "compareDay14": "Ziua 14",
+   "compareChange": "Modificare",
+   "close": "Închide"
+  },
+  "insights": {
+   "functional": {
+    "title": "Predomină dificultățile practice",
+    "body": "Tinitusul vă creează în principal probleme practice (concentrare, somn, muncă). Recomandăm să vă concentrați pe scenariile „Adormire“ și „Muncă diurnă“ din program."
+   },
+   "emotional": {
+    "title": "Predomină încărcătura emoțională",
+    "body": "Tinitusul vă creează în principal o încărcătură emoțională (anxietate, iritare). Exercițiile CBT din programul dvs. de 14 zile vor fi deosebit de utile."
+   },
+   "catastrophic": {
+    "title": "Gânduri catastrofice despre tinitus",
+    "body": "Aveți o tendință către gânduri catastrofice despre tinitus („nu va dispărea niciodată“, „viața mea este distrusă“). Acest lucru este frecvent și se poate gestiona. Este recomandat să discutați cu un profesionist (psihoterapeut sau specialist în tinitus) dacă senzațiile dvs. se intensifică."
+   },
+   "balanced": {
+    "title": "Manifestare uniformă",
+    "body": "Tinitusul dvs. se manifestă uniform în toate aspectele. Este recomandat întregul program de 14 zile, fără un focus special."
+   },
+   "unknown": {
+    "title": "Rezultat",
+    "body": "Nu există date suficiente pentru o interpretare."
+   }
+  },
+  "compare": {
+   "clinicalImprovement": "Ați redus THI cu {n} puncte în 14 zile — o îmbunătățire semnificativă clinic. Continuați programul.",
+   "mildImprovement": "THI a fost redus cu {n} puncte. Este un pas înainte — continuați cu programul pentru o îmbunătățire mai durabilă.",
+   "unchanged": "THI nu s-a modificat. Continuați programul — schimbările durabile apar de obicei în decurs de 3–6 luni.",
+   "increased": "THI a crescut cu {n} puncte. Acest lucru se poate datora unor factori periodici (stres, somn prost). Recomandăm să continuați regulat cu programul."
+  },
+  "homeBanner": {
+   "retest_title": "Este timpul pentru o a doua măsurare THI",
+   "retest_body": "Ați finalizat 13 zile din program. Faceți al doilea test pentru comparație.",
+   "retest_cta": "Fă testul"
+  }
+ },
+ "faq": {
+  "title": "Întrebări frecvente",
+  "openLabel": "Întrebări frecvente",
+  "closeAria": "Închide întrebările și răspunsurile",
+  "searchPlaceholder": "Caută o întrebare…",
+  "searchAria": "Caută o întrebare",
+  "noResults": "Nu s-au găsit întrebări după acest cuvânt.",
+  "supportHint": "Nu ați găsit un răspuns? Contactați support prin email.",
+  "supportButton": "Contactează support",
+  "supportEmail": "support@auralis.app",
+  "supportSubject": "Întrebare AURALIS",
+  "categories": {
+   "safety": "Siguranță",
+   "technical": "Tehnic",
+   "therapeutic": "Terapeutice",
+   "program": "Program"
+  },
+  "items": [
+   {
+    "cat": "safety",
+    "q": "Este periculos să ascult sunete mult timp în fiecare zi?",
+    "a": "Nu este periculos la niveluri corecte. WHO și NIOSH definesc 70 dBA ca limită pentru un timp nelimitat pe zi — aceasta este mai puternic decât vorbirea liniștită într-o conversație. AURALIS recomandă 50–65 dBA pentru utilizare diurnă și 45–55 dBA noaptea. Există pericol doar dacă depășiți aceste niveluri — peste 80 dBA există o limitare de 40 de ore pe săptămână. Respectați regula 60/60 — 60% din intensitatea dispozitivului, nu mai mult de 60 de minute de ascultare activă, urmate de 10–15 minute de liniște. La acești parametri, o viață întreagă de ascultare zilnică este sigură."
+   },
+   {
+    "cat": "safety",
+    "q": "Pot folosi aplicația în avion?",
+    "a": "Da, complet. AURALIS funcționează în întregime fără internet — toate sunetele, chestionarele și textele CBT sunt locale pe telefonul dvs. Activați Airplane mode și aplicația va funcționa ca de obicei. Acest lucru este convenabil și pentru economisirea bateriei în timpul unui zbor lung. La bordul unui avion: zgomotul de fundal este de obicei în jur de 75–85 dB — recomandăm să ascultați cu căști cu conducere osoasă sau cu căști deschise de înaltă calitate, nu cu căști in-ear de tip „dopuri\". Acestea creează un efect de ocluzie, care face tinitusul mai puternic."
+   },
+   {
+    "cat": "safety",
+    "q": "Să ascult cu căști sau cu difuzor?",
+    "a": "Preferați un difuzor sau căști cu conducere osoasă. Căștile in-ear standard de tip „dopuri\" nu sunt recomandate pentru o utilizare îndelungată — ele blochează canalul auditiv și creează un efect de ocluzie, care de fapt face tinitusul intern mai puternic. În plus, la multe ore de ascultare zilnică crește riscul de blocare cu cerumen și de otită externă. Pentru ascultarea nocturnă: difuzoarele deschise în dormitor sunt cea mai bună alegere. Pentru muncă sau plimbare: căștile cu conducere osoasă lasă canalul auditiv liber și nu provoacă ocluzie. Căștile on-ear sunt și ele acceptabile."
+   },
+   {
+    "cat": "safety",
+    "q": "Care este timpul maxim de ascultare pe zi?",
+    "a": "Nu există o limită strictă la niveluri corecte. La 50–65 dBA nu există o limită zilnică — WHO definește 70 dBA ca fiind sigur pentru 24/7. În practică: 4–6 ore distribuite pe parcursul zilei este optim terapeutic, plus 8 ore pentru utilizarea continuă nocturnă. Este importantă varietatea pentru urechi — nu țineți aceleași căști sau aceeași poziție ore în șir. Faceți pauze scurte în fiecare oră (regula 60/60). La semne de oboseală auditivă — țiuit, sensibilitate la sunet, senzație de înfundare — opriți-vă pentru 2–3 ore și continuați la un nivel mai scăzut."
+   },
+   {
+    "cat": "safety",
+    "q": "Ce să fac dacă simt o înrăutățire după ascultare?",
+    "a": "Opriți-vă mai întâi, nu intrați în panică. O ușoară înrăutățire temporară după ascultare este posibilă din trei cauze: un nivel prea puternic (reduceți cu 5–10 dB la următoarea sesiune), un tip greșit de sunet pentru profilul dvs. (TH_C necesită pink și ploaie filtrată, nu zgomot alb) sau tensiune somatică din timpul zilei (încercați exercițiul de relaxare musculară din Day 8). Dacă înrăutățirea persistă mai mult de 48 de ore după oprire, consultați un medic ORL. Steag roșu: dacă zgomotul devine unilateral, pulsatil sau însoțit de o pierdere a auzului — căutați imediat un medic."
+   },
+   {
+    "cat": "technical",
+    "q": "De ce sunetul se aude cu întârziere după apăsarea butonului?",
+    "a": "Acesta este un fenomen normal la aplicațiile PWA. Browserul sau învelișul Capacitor decodează fișierul MP3 înainte de a-l reda — de obicei întârzierea este de 100–500 ms. AURALIS folosește cache în Service Worker, astfel încât a doua oară sunetul pornește instantaneu. Dacă întârzierea este mai mare de 2 secunde, verificați: 1) dacă există suficientă memorie pe telefon, 2) închideți alte aplicații care rulează în fundal, 3) reporniți AURALIS. Pe telefoanele mai vechi (Android 8–9) întârzierea poate fi puțin mai mare."
+   },
+   {
+    "cat": "technical",
+    "q": "Funcționează AURALIS fără internet?",
+    "a": "Da, complet. AURALIS este o aplicație offline-first — Bible v3 LEGEA №6. Toate sunetele (250 de fișiere) sunt descărcate pe telefonul dvs. la instalare. Toate chestionarele (THI, jurnalul), textele CBT și setările sunt păstrate în stocarea locală a telefonului. AURALIS nu trimite niciun fel de date către un server — răspunsurile și progresul dvs. rămân exclusiv pe telefonul dvs. Acest lucru respectă cele mai stricte cerințe GDPR pentru date de sănătate sensibile. Excepție: doar la achiziția prin Google Play sau App Store, plata este procesată de platformă, nu de noi."
+   },
+   {
+    "cat": "technical",
+    "q": "De ce nu se deschide aplicația?",
+    "a": "Cele mai frecvente cauze: 1) Prima deschidere după instalare — așteptați 10–20 de secunde, deoarece sistemul pregătește 100–150 MB de fișiere audio. 2) Memorie redusă pe dispozitiv — eliberați 200 MB pe telefon. 3) O versiune veche de Android (sub 8.0) — aplicația necesită Android 8.0+. 4) Prima redare grafică lentă — actualizați la ultima versiune din Google Play. Dacă problema persistă, încercați: închideți aplicația din meniul de aplicații active și deschideți-o din nou. Dacă pornirea rămâne imposibilă — reinstalați din Google Play (datele dvs. sunt păstrate în Profile → Export, dacă l-ați făcut)."
+   },
+   {
+    "cat": "technical",
+    "q": "De ce se descarcă bateria repede?",
+    "a": "Nu ar trebui. AURALIS folosește un AudioBufferSourceNode optimizat (nu AudioWorklet), system sample rate și suspend la pauză — Bible v3 LEGEA №4. O noapte întreagă de ascultare (8 ore) ar trebui să consume 3–8% din baterie. Dacă vedeți un consum mai mare: 1) Opriți „Wi-Fi\" și „Bluetooth\" noaptea — acestea consumă mai mult decât redarea sunetului în sine. 2) Activați modul „Nu deranja\" pentru noapte. 3) Reduceți luminozitatea ecranului înainte de culcare. 4) Verificați în Settings → Battery dacă o altă aplicație rulează în fundal. Dacă AURALIS chiar consumă mult — anunțați support, este un bug tehnic."
+   },
+   {
+    "cat": "technical",
+    "q": "Ce se întâmplă dacă telefonul se oprește în timpul nopții?",
+    "a": "Sunetul se oprește și sesiunea se salvează. Când porniți AURALIS din nou, aplicația vă propune să continuați din locul în care v-ați oprit. Toate înregistrările din jurnal, răspunsurile THI și progresul CBT se salvează imediat în localStorage — nu se pierd la o oprire bruscă. Dacă telefonul se oprește din cauza descărcării bateriei: înainte de culcare conectați-l la încărcător sau activați modul „Battery saver\". Dacă sunetul dispare brusc în miezul nopții cu telefonul pornit — amigdala îl va înregistra ca pe o tranziție. Recomandăm o sesiune nocturnă continuă, nu un sleep timer."
+   },
+   {
+    "cat": "therapeutic",
+    "q": "Când voi simți primul efect?",
+    "a": "Diferit pentru fiecare. Primele semne ale unui zgomot mai puțin supărător pot apărea încă din primele 1–2 săptămâni — în special o senzație de adormire mai ușoară și scurte momente în care nu observați tinitusul. Un rezultat semnificativ clinic (o scădere a THI cu 7 sau mai multe puncte) vine de obicei în 3 luni la aplicarea consecventă. Un efect mai serios (−24 de puncte THI) se înregistrează la 6 luni. Obișnuirea reală (habituarea), în care creierul încetează să trateze zgomotul ca pe o amenințare, este un proces de la 9 la 18 luni. AURALIS nu vindecă tinitusul — el ajută la habituare și la o mai bună calitate a vieții."
+   },
+   {
+    "cat": "therapeutic",
+    "q": "Ce să fac dacă simt că se înrăutățește?",
+    "a": "Mai întâi — nu trageți concluzii dintr-o zi sau două. Tinitusul are perioade bune și rele, care nu reflectă o tendință de ansamblu. Examinați-vă înregistrările din jurnal pentru ultimele 7 zile — adesea „mai rău azi\" nu este o tendință. Al doilea pas: gândiți-vă la factorii externi — stres, cofeină după ora 14:00, o noapte nedormită, o expunere acută la zgomot. Aceștia intensifică adesea tinitusul temporar. Dacă simțiți într-adevăr o înrăutățire durabilă (peste 2 săptămâni), consultați un medic ORL. Steag roșu: dacă zgomotul devine unilateral, pulsatil, însoțit de amețeli sau de o pierdere a auzului — căutați imediat un medic."
+   },
+   {
+    "cat": "therapeutic",
+    "q": "Câte ore pe zi trebuie să ascult?",
+    "a": "Pentru profilul dvs. TH_C — minimum 2 ore pe zi pentru o habituare durabilă; ideal 4–6 ore distribuite pe parcursul zilei. Nu este necesar să ascultați continuu — sesiuni scurte de 30 de minute de câteva ori pe zi funcționează mai bine decât o singură sesiune lungă. În timpul nopții — un sunet de fundal continuu pe tot parcursul somnului de 8 ore (studiile arată că un sleep timer poate activa amigdala la tranzițiile dintre ciclurile de somn). Aceasta este o recomandare, nu o obligație. Chiar și 1 oră pe zi cu sunetul potrivit funcționează mai bine decât nimic. Ascultați când vă este convenabil."
+   },
+   {
+    "cat": "therapeutic",
+    "q": "Trebuie să renunț la cafea?",
+    "a": "Nu complet, dar limitați-o. Cofeina este un stimulant central — crește sensibilitatea corticală și poate intensifica tinitusul. Recomandare: 1 ceașcă dimineața (până la ora 10:00), fără cafea după ora 14:00. Acest lucru oferă corpului suficient timp să elimine cofeina înainte de somn (timp de înjumătățire ~5 ore). La profilul dvs. TH_C, cofeina are un efect deosebit de puternic asupra țiuitului de înaltă frecvență. Alcoolul seara agravează și el — perturbă perfuzia urechii interne și fragmentează somnul. Sarea seara — reține lichide, agravează frecvențele joase. Încercați 2 săptămâni fără cofeină după ora 14:00 și observați."
+   },
+   {
+    "cat": "therapeutic",
+    "q": "Ajută vitaminele sau suplimentele?",
+    "a": "AURALIS nu oferă recomandări medicale pentru suplimente. Acest lucru depășește competența noastră (Bible §1 — LEGEA №2: NO MEDICAL ADVICE). Există studii științifice privind magneziul și tinitusul — acestea arată rezultate mixte; nu vi le recomandați singur fără o consultație cu un medic. Deficitul de vitamina B12 poate agrava tinitusul — un test de sânge va arăta dacă aveți nevoie. Ginkgo biloba — dovezile clinice sunt slabe. Nu începeți niciodată suplimente fără o consultație cu medicul dvs., mai ales dacă luați alte medicamente. AURALIS se concentrează pe ceea ce am dovedit — terapia sonoră și practicile CBT."
+   },
+   {
+    "cat": "program",
+    "q": "Ce este THI și de ce îl completez?",
+    "a": "THI (Tinnitus Handicap Inventory) este un chestionar standardizat de 25 de întrebări, dezvoltat de Newman și colegii în 1996. El măsoară nu intensitatea zgomotului, ci cât de mult vă deranjează în viața de zi cu zi. Rezultatul variază de la 0 (fără handicap) la 100 (catastrofal). Îl completați în Ziua 1 pentru o linie de bază și în Ziua 14 pentru comparație — astfel vedeți un progres numeric concret. O scădere de 7 sau mai multe puncte între cele două teste este considerată semnificativă clinic. Acesta este un instrument medical public, folosit în toată lumea. Rezultatele rămân exclusiv pe telefonul dvs."
+   },
+   {
+    "cat": "program",
+    "q": "De ce 14 zile? De ce nu mai scurt sau mai lung?",
+    "a": "14 zile este un interval „subacut\" optimizat, dovedit în studiile clinice. Mai scurt (1–7 zile) — prea puțin pentru a simți o schimbare și pentru ca creierul să înceapă obișnuirea. Mai lung (3–6 luni) — o mare parte dintre utilizatori renunță înainte de finalizare. Programul clasic Kalmeda are un curs de 9–12 luni, dar 60% dintre pacienți îl întrerup în primele 3 luni. Modulul de 14 zile al AURALIS include elementele CBT critice: demistificare, restructurarea gândurilor, relaxare și acceptare. După aceste 2 săptămâni puteți continua cu un mod de întreținere — ascultarea sunetelor și practici scurte."
+   },
+   {
+    "cat": "program",
+    "q": "Ce să fac după Ziua 14?",
+    "a": "Modulul de 14 zile nu pune capăt tinitusului — este un început. După Ziua 14 continuați cu următoarele: 1) Ascultarea bibliotecii sonore în fiecare zi (minimum 2 ore). 2) Repetați cele mai utile exerciții CBT de 2–3 ori pe săptămână. 3) Completați un jurnal de seară fără presiune — o scurtă auto-observare. 4) Reevaluarea THI după 30 de zile și 90 de zile (Profile → Test repetat). Pentru o obișnuire reală (habituare), studiile clinice recomandă minimum 9–18 luni de utilizare consecventă. AURALIS rămâne pe telefonul dvs. ca un instrument de susținere pe termen lung, nu pentru un tratament intensiv."
+   },
+   {
+    "cat": "program",
+    "q": "Ce se întâmplă dacă ratez o zi?",
+    "a": "Nu se pierde nimic. AURALIS nu pedepsește ratările — Bible §1 este wellness, nu un instrument disciplinar. Aveți la dispoziție 2 „zile de odihnă\" (freeze days) pentru cele 14 zile — contorul de streak nu cade la 0. În dimineața zilei următoare veți vedea un mesaj discret că puteți completa ziua ratată cu întârziere sau pur și simplu continua către următoarea. La 2 zile consecutive ratate — sistemul reduce automat sarcina pentru ziua următoare la o micro-doză de 2 minute (doar 3 respirații profunde). Biblioteca sonoră și Sleep mode rămân complet accesibile în orice scenariu."
+   },
+   {
+    "cat": "program",
+    "q": "Pot completa jurnalul pentru o zi anterioară ratată?",
+    "a": "Da. În hub-ul zilnic veți vedea un buton „Completează Ziua X cu întârziere\" pentru fiecare zi ratată. Acesta deschide aceleași întrebări, dar cu mențiunea „completat la: <data curentă>\" — pentru a vedea cinstit când a fost. Rețineți: la completarea cu întârziere, acuratețea amintirii zilei scade, mai ales pentru glisoarele 1–5. Recomandăm să completați jurnalul în ziua respectivă (seara pentru cel de seară, dimineața pentru cel de dimineață). La o întârziere mai mare de 3 zile — este mai bine să o săriți decât să o completați inexact. Înregistrarea rămâne în exportul dvs. ca referință."
+   }
+  ]
+ },
+ "cbt": {
+  "dayTitleFmt": "Ziua {n} — {title}",
+  "sections": {
+   "theme": "Tema zilei",
+   "description": "Descriere",
+   "exercise": "Exercițiu",
+   "reflection": "Reflecție"
+  },
+  "reflectionPlaceholder": "Scrieți răspunsul dvs. aici (opțional)…",
+  "alreadyDone": "Această practică este deja înregistrată pentru azi. O puteți actualiza.",
+  "actions": {
+   "save": "Salvează",
+   "cancel": "Anulează"
+  },
+  "savedToast": "Salvat",
+  "day_1": {
+   "title": "Demistificare senzorială",
+   "theme": "Tinitusul este un sunet pe care creierul îl creează singur — nu este o deteriorare a urechii și nu este un avertisment de pericol.",
+   "explanation": "Zgomotul pe care îl auziți vine din creier, nu din ureche. Când calea auditivă primește mai puține semnale din lumea înconjurătoare, creierul compensează cu propria activitate — exact așa cum ochii „desenează\" puncte de lumină în întuneric deplin. Acesta nu este o tumoare, nu este nebunie și nu este un semn al ceva periculos. Este o reacție pe care creierul dvs. o poate obișnui (habitua) treptat să o ignore.",
+   "exercise": [
+    "Așezați-vă liniștit și timp de 1 minut ascultați-vă tinitusul — fără a-l evalua, fără a vă lupta cu el.",
+    "Apoi spuneți-vă cu voce tare sau în gând: „Acesta este un sunet pe care creierul meu îl produce. Nu sunt în pericol.\"",
+    "Scrieți într-o singură propoziție ce ați simțit când ați încetat să vă luptați cu sunetul."
+   ],
+   "reflection": "Care dintre aceste afirmații v-a fost cel mai greu să o acceptați astăzi — că zgomotul vine din creier, că nu este periculos sau că poate slăbi?"
+  },
+  "day_2": {
+   "title": "Cercul vicios al distresului",
+   "theme": "Cu cât vă faceți mai multe griji pentru zgomot, cu atât devine mai puternic — și invers.",
+   "explanation": "Când simțiți tinitusul și vă gândiți imediat „a început din nou\", corpul dvs. se încordează, inima începe să bată mai repede, iar creierul dvs. îndreaptă și mai multă atenție către sunet. Atunci sunetul este într-adevăr perceput mai puternic. Acesta este un cerc închis: zgomot → anxietate → tensiune → zgomot mai puternic. Întreruperea lui nu se face cu forța, ci cu înțelegere și cu un răspuns calm.",
+   "exercise": [
+    "Amintiți-vă un moment de astăzi când tinitusul dvs. s-a intensificat.",
+    "Scrieți trei lucruri: ce se întâmpla în jurul dvs., ce ați gândit imediat, cum v-ați simțit în corp.",
+    "Citiți ce ați scris și observați legătura dintre cele trei — gând, corp, sunet."
+   ],
+   "reflection": "În ce moment al zilei tinitusul a fost cel mai puternic și ce se întâmpla cu dvs. exact înainte de asta?"
+  },
+  "day_3": {
+   "title": "Surprinderea gândurilor automate",
+   "theme": "Primul gând care apare la zgomot este adesea înspăimântător — și nu întotdeauna adevărat.",
+   "explanation": "Când tinitusul apare, prin minte vă trec gânduri într-o secundă — atât de repede încât abia le observați. De exemplu: „Asta nu se va opri niciodată\" sau „Mă va distruge\". Aceste gânduri automate nu sunt fapte. Sunt un obicei al minții, construit din frică. Primul pas către schimbare este pur și simplu să le observați și să le notați, fără a le evalua.",
+   "exercise": [
+    "Purtați cu dvs. un carnețel sau folosiți notițele din telefon.",
+    "De fiecare dată când tinitusul se intensifică, notați gândul exact care v-a apărut în minte (cu cuvintele dvs.).",
+    "Până seara adunați cel puțin 3 astfel de gânduri."
+   ],
+   "reflection": "Care dintre gândurile pe care le-ați notat astăzi se repetă cel mai des în mintea dvs.?"
+  },
+  "day_4": {
+   "title": "Frază-ancoră personală",
+   "theme": "O frază scurtă, aleasă personal, poate opri anxietatea în momentul în care apare.",
+   "explanation": "Când repetați un gând înspăimântător, creierul dvs. îl învață. Același lucru este valabil și pentru gândul calm. Alegeți-vă o frază proprie care vă aduce un sentiment de calm și de stabilitate — de exemplu „Zgomotul curge ca un râu, eu stau liniștit pe mal\" sau „Acest sunet poate rămâne, eu îmi voi trăi viața\". Această frază-ancoră o veți folosi de fiecare dată când tinitusul devine supărător.",
+   "exercise": [
+    "Scrieți 3 variante de frază personală, de câte 5–8 cuvinte fiecare.",
+    "Citiți-le rar cu voce tare și alegeți-o pe cea care vă liniștește cel mai mult.",
+    "Repetați-o rar de 10 ori, cu o respirație calmă între repetări."
+   ],
+   "reflection": "Ce frază ați ales și ce ați simțit când ați repetat-o?"
+  },
+  "day_5": {
+   "title": "Direcționarea atenției în afară",
+   "theme": "Cu cât ascultați mai mult zgomotul, cu atât devine mai puternic — de aceea mintea va învăța să se întoarcă în afară.",
+   "explanation": "Când sunteți concentrat pe tinitus, creierul funcționează la sensibilitate maximă tocmai față de el. Dacă vă antrenați mintea să se întoarcă către simțurile externe — priveliște, alte sunete, atingere — ea va învăța că lumea este mai mare decât zgomotul din mintea dvs. Această abilitate se construiește cu practică, exact ca un mușchi.",
+   "exercise": [
+    "Așezați-vă într-o cameră pe care o iubiți. Numiți cu voce tare 3 lucruri pe care le vedeți în jurul dvs.",
+    "Apoi 3 sunete diferite pe care le auziți în jur (nu tinitusul).",
+    "La final 3 senzații fizice pe piele (scaunul de sub dvs., hainele, aerul pe brațe)."
+   ],
+   "reflection": "Care simț — văzul, auzul sau atingerea — v-a fost cel mai ușor să-l observați astăzi?"
+  },
+  "day_6": {
+   "title": "Îmbogățire sonoră blândă",
+   "theme": "Un sunet de fundal ușor reduce contrastul dintre tinitus și liniște.",
+   "explanation": "În liniște deplină, creierul dvs. amplifică zgomotul intern, deoarece nu are cu ce să-l compare. Când adăugați un sunet de fundal liniștit — ploaie ușoară, susurul unui râu, zgomot roz blând — zgomotul din mintea dvs. își pierde exclusivitatea. Intensitatea sunetului de fundal este întotdeauna puțin sub intensitatea tinitusului. Scopul nu este să-l mascați, ci să-l „amestecați\" ușor cu lumea exterioară.",
+   "exercise": [
+    "Deschideți secțiunea „Recomandate\" din aplicație și redați un sunet care vă este plăcut.",
+    "Reglați intensitatea astfel încât să-l auziți clar, dar zgomotul din mintea dvs. să rămână perceptibil.",
+    "Ascultați 10 minute, fără a face altceva. Pur și simplu observați cum cele două sunete există simultan."
+   ],
+   "reflection": "Ce s-a schimbat în percepția dvs. asupra tinitusului în timpul acestor 10 minute?"
+  },
+  "day_7": {
+   "title": "Recapitularea primei săptămâni",
+   "theme": "O săptămână în urmă — ce ați învățat despre dvs.",
+   "explanation": "Nu vă așteptați ca zgomotul să fi dispărut. Scopul primei săptămâni nu este liniștea, ci o nouă înțelegere: că tinitusul își are originea în creier, că gândurile și corpul îl intensifică și că dvs. aveți instrumente pentru a răspunde. Săptămâna aceasta ați semănat semințele. Obișnuirea (habituarea) vine cu repetiția, nu în zile — în luni.",
+   "exercise": [
+    "Răsfoiți notițele dvs. din Zilele 1–6.",
+    "Scrieți un moment din săptămână în care fraza-ancoră sau un exercițiu v-a ajutat.",
+    "Scrieți un lucru care v-a fost cel mai greu — și nu vă reproșați pentru el."
+   ],
+   "reflection": "Care zi din această săptămână a fost cea mai utilă pentru dvs. și de ce?"
+  },
+  "day_8": {
+   "title": "Relaxare musculară progresivă",
+   "theme": "Când corpul este încordat, zgomotul se simte mai puternic — de aceea veți învăța să-l relaxați în mod intenționat.",
+   "explanation": "Stresul contractă mușchii gâtului, ai umerilor și ai maxilarului. Acești mușchi sunt legați de sistemul auditiv — tensiunea lor se „aude\" literalmente în mintea dvs. ca un tinitus mai puternic. Când încordați conștient și apoi relaxați un mușchi, corpul reține diferența și începe să trăiască într-o stare mai calmă.",
+   "exercise": [
+    "Așezați-vă confortabil. Strângeți pumnii puternic timp de 5 secunde, apoi relaxați-i și observați senzația timp de 15 secunde.",
+    "Repetați același lucru cu umerii (ridicați-i către urechi, apoi relaxați-i).",
+    "La final cu gâtul (înclinați ușor capul înainte, apoi relaxați-l). Simțiți greutatea capului dvs."
+   ],
+   "reflection": "Care dintre cei trei mușchi a fost cel mai încordat când ați început exercițiul?"
+  },
+  "day_9": {
+   "title": "Relaxarea maxilarului",
+   "theme": "Maxilarul se încleștează adesea fără să simțiți — și tinitusul se intensifică.",
+   "explanation": "Mulți oameni cu zgomot în urechi strâng din dinți în timpul zilei, fără să observe. Mușchii maxilarului sunt legați de nervul auditiv — când sunt încordați, creierul îi interpretează ca pe un semnal și intensifică tinitusul. Dacă învățați să vă simțiți maxilarul și să-l relaxați, veți întrerupe una dintre cauzele ascunse ale unui zgomot mai puternic.",
+   "exercise": [
+    "Așezați vârfurile degetelor pe mușchii din fața urechilor (acolo unde se deschide maxilarul).",
+    "Faceți mișcări circulare lente timp de 1 minut, cu o apăsare ușoară.",
+    "La final, relaxați intenționat buza inferioară și lăsați maxilarul inferior să atârne ușor timp de 30 de secunde."
+   ],
+   "reflection": "De câte ori v-ați surprins astăzi încleștând maxilarul?"
+  },
+  "day_10": {
+   "title": "Respirație pentru calmare",
+   "theme": "Expirația lungă activează frâna sistemului nervos.",
+   "explanation": "Când expirați mai lung decât inspirați, se activează nervul vag. Aceasta este frâna naturală a corpului — încetinește inima, relaxează mușchii și îi spune creierului că sunteți în siguranță. După câteva minute de o astfel de respirație, „alarma\" simpatică se domolește și tinitusul se îndepărtează de centrul atenției.",
+   "exercise": [
+    "Așezați-vă drept, o mână pe piept, cealaltă pe abdomen.",
+    "Inspirați lent pe nas timp de 4 secunde, astfel încât să se ridice abdomenul, nu pieptul.",
+    "Expirați lent pe gură timp de 6 secunde. Repetați ciclul de 10 ori."
+   ],
+   "reflection": "Cât de calm v-ați simțit în corp după cele 10 cicluri, în comparație cu înainte?"
+  },
+  "day_11": {
+   "title": "Gândurile ca niște nori",
+   "theme": "Gândul nu este un fapt — este un eveniment în minte, care vine și pleacă.",
+   "explanation": "Când apare un gând precum „a început din nou, mă va distruge\", nu sunteți obligat să-l credeți. Puteți pur și simplu să-l observați — așa cum ați observa un nor pe cer. Nu-l alungați, nu vă luptați cu el, nu-l alimentați. Priviți-l cum trece. Această abilitate se numește distanțare și este una dintre cele mai puternice în lucrul cu tinitusul.",
+   "exercise": [
+    "Așezați-vă liniștit cu ochii ușor închiși.",
+    "Când apare un gând despre tinitus, spuneți-vă în gând: „Am gândul că…\", după care completați gândul.",
+    "Lăsați gândul să treacă, fără a reacționa la el. Faceți acest lucru 5 minute."
+   ],
+   "reflection": "V-a fost mai ușor să vă priviți gândurile din afară sau să le credeți ca de obicei?"
+  },
+  "day_12": {
+   "title": "Trei momente plăcute",
+   "theme": "Ziua dvs. conține mai multe momente bune decât observă creierul dvs.",
+   "explanation": "Când aveți tinitus, mintea dvs. este învățată să observe mai ales lucrurile neplăcute. Acest lucru nu este o slăbiciune a dvs. — este o reacție de protecție. Dar există un antidot: în fiecare zi să vă faceți o listă scurtă cu trei momente senzoriale plăcute — un gust, o aromă, o priveliște, o atingere, un sunet liniștit. Cu timpul, creierul dvs. va începe să le caute singur.",
+   "exercise": [
+    "Înainte de a adormi, amintiți-vă ziua.",
+    "Scrieți trei lucruri pe care le-ați simțit astăzi și care v-au fost plăcute (de exemplu, aroma de cafea, o lumină caldă, o conversație).",
+    "Lângă fiecare scrieți un cuvânt pentru sentimentul pe care vi l-a dat."
+   ],
+   "reflection": "Care dintre cele trei momente a fost cel mai neașteptat pentru dvs.?"
+  },
+  "day_13": {
+   "title": "Sunet și respirație împreună",
+   "theme": "Când natura calmă și respirația calmă se întâlnesc, tinitusul își pierde puterea.",
+   "explanation": "Până acum ați folosit respirația și sunetul de fundal separat. Astăzi le veți combina. Creierul leagă cele două experiențe — sunetul devine un semnal de relaxare, relaxarea intensifică efectul sunetului. Treptat construiți o asociere nouă, neutră: tinitusul nu este singur în conștiința dvs. — în jurul lui există un mediu calm și un corp calm.",
+   "exercise": [
+    "Redați o sesiune sonoră naturală de 10 minute din aplicație (valuri, pârâu sau ploaie).",
+    "Tot timpul respirați lent: 4 secunde inspirație, 6 secunde expirație.",
+    "Când tinitusul se face simțit, nu reacționați — continuați sunetul și respirația."
+   ],
+   "reflection": "A fost tinitusul la fel în aceste 10 minute sau s-a schimbat ceva în percepție?"
+  },
+  "day_14": {
+   "title": "Privire înapoi și înainte",
+   "theme": "Două săptămâni în urmă — ce funcționează pentru dvs. și ce veți duce mai departe.",
+   "explanation": "Două săptămâni sunt suficiente pentru a simți o schimbare în atitudinea dvs. față de zgomot, dar nu și pentru o obișnuire completă. Habituarea este un proces de luni, nu de zile. Ceea ce veți lua cu dvs. astăzi nu este un „tratament\", ci o hartă personală a instrumentelor care funcționează pentru dvs. Această hartă o veți folosi de acum înainte — în zilele bune și în cele grele.",
+   "exercise": [
+    "Răsfoiți toate notițele și reflecțiile din Zilele 1–13.",
+    "Scrieți trei lucruri pe care veți continua să le faceți în fiecare zi (exerciții, frază, sunet).",
+    "Completați al doilea chestionar THI — el va arăta cum vă simțiți acum, în comparație cu prima zi."
+   ],
+   "reflection": "Care dintre lucrurile învățate în aceste 14 zile a fost cel mai important pentru dvs. personal?"
+  }
+ },
+ "home": {
+  "infoAria": "Informații despre categorie",
+  "title": "Alegeți un mod",
+  "openLibraryAll": "Toate sunetele",
+  "openDiary": "Jurnal",
+  "soundCountFmt": "{n} sunete",
+  "favoritesBtn": {
+   "aria": "Favorite"
+  },
+  "cat": {
+   "sleep_deep": {
+    "name": "Somn profund",
+    "subtitle": "Toată noaptea"
+   },
+   "falling_asleep": {
+    "name": "Adormire",
+    "subtitle": "30–90 min înainte de somn"
+   },
+   "relaxation": {
+    "name": "Relaxare",
+    "subtitle": "Înainte de somn, citit"
+   },
+   "daily": {
+    "name": "Zilnic",
+    "subtitle": "Muncă, concentrare"
+   },
+   "anxiety": {
+    "name": "Anxietate",
+    "subtitle": "SOS, atac de panică"
+   },
+   "meditation": {
+    "name": "Meditație",
+    "subtitle": "Sesiuni ghidate"
+   }
+  },
+  "thiCta": {
+   "title": "Finalizați evaluarea științifică",
+   "body": "Completați testul THI (5 minute) pentru un plan personalizat",
+   "button": "Începeți testul"
+  },
+  "pitch": {
+   "new_title": "Tonul tinitusului",
+   "new_body": "Descoperiți frecvența tinitusului dvs. pentru un filtru notch personalizat.",
+   "new_cta": "Fă testul",
+   "done_title": "Tonul tinitusului",
+   "done_body": "Profil curent: {hz} Hz. Puteți repeta testul la nevoie.",
+   "done_cta": "Repetă testul",
+   "skipped_title": "Tonul tinitusului",
+   "skipped_body": "Testul a fost omis. Faceți-l pentru un filtru personalizat.",
+   "skipped_cta": "Fă testul",
+   "caution": "Nu este nevoie să testați des — rezultatele sunt cele mai fiabile la câteva zile între măsurători.",
+   "infoAria": "Informații științifice despre test"
+  },
+  "volume": {
+   "label": "Volum",
+   "aria": "Intensitatea sunetului 0-100"
+  }
+ },
+ "categoryView": {
+  "backAria": "Înapoi la început",
+  "soundsCount": "Sunete ({n})",
+  "noSounds": "În curând vor exista sunete în această categorie.",
+  "description": "Pentru ce este",
+  "faqLabel": "Întrebări frecvente"
+ },
+ "soundDetail": {
+  "backAria": "Înapoi la categorie",
+  "playCta": "Ascultă",
+  "description": "Descriere",
+  "recommendedNoise": "Fundal recomandat",
+  "recommendedMix": "Mix recomandat: {ratio}",
+  "noRecommendation": "Fără recomandare de fundal",
+  "why": "De ce tocmai acest sunet",
+  "faqLabel": "Întrebări frecvente"
+ },
+ "quiz": {
+  "questions": {
+   "q1": {
+    "text": "Ce sunet auziți?",
+    "options": {
+     "a": "Țiuit (ton înalt)",
+     "b": "Bâzâit (ton jos)",
+     "c": "Șuierat (ca aburul)",
+     "d": "Pulsatil",
+     "e": "Altul / nu sunt sigur(ă)"
+    }
+   },
+   "q2": {
+    "text": "Care este înălțimea sunetului?",
+    "options": {
+     "a": "Înalt (ca un fluier)",
+     "b": "Mediu (ca un țânțar)",
+     "c": "Jos (ca un bubuit)",
+     "d": "Nu sunt sigur(ă)"
+    }
+   },
+   "q3": {
+    "text": "În care ureche îl auziți?",
+    "options": {
+     "a": "Doar în stânga",
+     "b": "Doar în dreapta",
+     "c": "În ambele",
+     "d": "În cap (nu din urechi)"
+    }
+   },
+   "q4": {
+    "text": "Când auziți sunetul?",
+    "options": {
+     "a": "Constant",
+     "b": "Vine și pleacă",
+     "c": "Doar în liniște",
+     "d": "Doar seara"
+    }
+   },
+   "q5": {
+    "text": "Când este CEL MAI PUTERNIC?",
+    "options": {
+     "a": "Dimineața",
+     "b": "În timpul zilei",
+     "c": "Seara",
+     "d": "Noaptea",
+     "e": "Indiferent"
+    }
+   },
+   "q6": {
+    "text": "De când aveți tinitus?",
+    "options": {
+     "a": "Mai puțin de 6 luni",
+     "b": "6 luni – 2 ani",
+     "c": "2 – 5 ani",
+     "d": "Mai mult de 5 ani"
+    }
+   },
+   "q7": {
+    "text": "A existat un sunet puternic înainte de apariție?",
+    "options": {
+     "a": "Concert / muzică puternică",
+     "b": "Explozie / împușcături",
+     "c": "Muncă într-un mediu zgomotos",
+     "d": "Nu-mi amintesc nimic special"
+    }
+   },
+   "q8": {
+    "text": "Aveți o pierdere de auz?",
+    "options": {
+     "a": "Da, evident",
+     "b": "Poate ușor",
+     "c": "Nu",
+     "d": "Nu am verificat"
+    }
+   },
+   "q9": {
+    "text": "Aveți alte afecțiuni? (doar informativ)",
+    "options": {
+     "a": "Tensiune arterială ridicată",
+     "b": "Diabet",
+     "c": "Anxietate / stres",
+     "d": "Nimic deosebit",
+     "e": "Nu doresc să răspund"
+    }
+   },
+   "q10": {
+    "text": "Cât de mult afectează tinitusul somnul dvs.?",
+    "options": {
+     "a": "Deloc",
+     "b": "Puțin",
+     "c": "Destul de mult",
+     "d": "Nu pot dormi"
+    }
+   },
+   "q11": {
+    "text": "Cât de mult afectează concentrarea dvs.?",
+    "options": {
+     "a": "Deloc",
+     "b": "Puțin",
+     "c": "Destul de mult",
+     "d": "Nu mă pot concentra"
+    }
+   },
+   "q12": {
+    "text": "Cât de stresant este pentru dvs. (0-10)?",
+    "options": {
+     "a": "0 – 2 (stres minim)",
+     "b": "3 – 5 (stres ușor până la moderat)",
+     "c": "6 – 8 (stres puternic)",
+     "d": "9 – 10 (stres insuportabil)"
+    }
+   },
+   "q13": {
+    "text": "Ce ați încercat până acum?",
+    "options": {
+     "a": "Medicamente",
+     "b": "Aparate auditive",
+     "c": "Terapie sonoră",
+     "d": "Meditație",
+     "e": "Nimic încă"
+    }
+   },
+   "q14": {
+    "text": "Ce vă ajută cel mai mult?",
+    "options": {
+     "a": "Liniștea",
+     "b": "Zgomot slab",
+     "c": "Zgomot puternic",
+     "d": "Natura",
+     "e": "Nimic nu ajută"
+    }
+   },
+   "q15": {
+    "text": "Ce așteptați de la aplicație?",
+    "options": {
+     "a": "Un somn mai bun",
+     "b": "Mascarea zgomotului",
+     "c": "Mai puțin stres",
+     "d": "O schimbare de durată"
+    }
+   }
+  },
+  "profiles": {
+   "TH_C": {
+    "shortName": "Tonal de înaltă frecvență",
+    "fullName": "Tonal de înaltă frecvență / Cognitiv",
+    "description": "Acest profil include o senzație subiectivă de tinitus înalt, țiuitor și tonal, care are un impact serios asupra proceselor cognitive și a concentrării zilnice. La el se recomandă sunete de înaltă frecvență precum ploaia filtrată și zgomotul roz echilibrat, reglate aproape de punctul de amestec, pentru a facilita habituarea la nivelul cortexului cerebral."
+   },
+   "DN_S": {
+    "shortName": "De zgomot, joasă frecvență",
+    "fullName": "De zgomot, joasă frecvență / Somn",
+    "description": "Un profil definit de prezența unor sunete dense, de joasă frecvență, și de probleme serioase cu adormirea sau menținerea somnului. La el sunt principale mediile acustice mai profunde (zgomot maro, cascade dense), care maschează puternic bubuitul subiectiv și liniștesc mintea seara, susținând tranziția lină și sănătoasă către somn."
+   },
+   "SS_R": {
+    "shortName": "Sensibil la stres",
+    "fullName": "Sensibil la stres / Reactiv",
+    "description": "La acest profil, percepția tinitusului este strâns legată de activitatea sistemului nervos vegetativ și de structura limbică. Chiar și stimuli sonori ușori sau stresul cotidian intensifică senzația de zgomot. Răspunsul acustic necesită zgomot verde pentru ușurare și blenduri naturale extrem de blânde pentru a reduce excitabilitatea corticală."
+   },
+   "SM_F": {
+    "shortName": "Somatic / Fluctuant",
+    "fullName": "Somatic / Fluctuant",
+    "description": "Un profil corespunzător unui tinitus cu intensitate și frecvență variabile, care se manifestă adesea în cicluri sau este strâns legat de tensiunea fizică din gât și maxilar. Se folosesc medii naturale puternic dinamice și neperiodice, precum fluxul și refluxul oceanic, care angajează aparatul auditiv fără riscul obișnuirii cu un semnal static."
+   },
+   "HB_M": {
+    "shortName": "Adaptat / Ușor",
+    "fullName": "Adaptat / Ușor",
+    "description": "Acest profil indică un nivel ridicat de obișnuire naturală. Zgomotul se aude în principal în condiții de liniște absolută și nu are un impact semnificativ asupra calității vieții. Recomandarea acustică urmărește exclusiv îmbogățirea mediului liniștit cu sunete naturale minime, pentru prevenirea pe termen lung a contrastului senzorial."
+   }
+  },
+  "diLevels": {
+   "low": "Ușor",
+   "medium": "Moderat",
+   "high": "Sever"
+  },
+  "intensity": {
+   "low": "Fundal extrem de liniștit, abia perceptibil",
+   "medium": "Egal cu punctul de amestec (Mixing Point)",
+   "high": "Puțin sub nivelul tinitusului; timbru blând"
+  }
+ },
+ "content": {
+  "mixer": {
+   "preset_deep_calm": {
+    "title": "De ce \"Liniște profundă\"?",
+    "micro": "Sunete profunde, cu bas, care ajută corpul să se liniștească. Un mix universal — potrivit pentru majoritatea persoanelor cu tinitus.",
+    "full": "📊 CUM ESTE SUNETUL:\n\nUn bâzâit calm cu bas, similar cu zgomotul profund al unui frigider sau al unui aer condiționat îndepărtat. Fără sunete înalte, fără schimbări bruște.\n\n🎯 PENTRU CINE ESTE:\n✅ Universal — potrivit pentru toate profilurile\n✅ Deosebit de bun pentru persoanele cu tinitus înalt, țiuitor\n✅ Ajută în caz de stres sau anxietate\n⚠ Dacă aveți un tinitus jos, cu bas — testați mai întâi 5 minute\n\n💡 CÂND SĂ-L REDAȚI:\n• Înainte de somn (30-60 de minute)\n• În timpul muncii, pentru concentrare\n• În momentele de stres din timpul zilei\n• Durată recomandată: 30-60 de minute\n\n📈 LA CE SĂ VĂ AȘTEPTAȚI:\n\nDacă ascultați 30-60 de minute pe zi:\n\nSăptămâna 1-2:\nO ușoară ușurare. Puteți observa un somn mai liniștit.\n\nSăptămâna 3-4:\nTinitusul devine \"mai liniștit\" când ascultați. Mai puține gânduri despre el.\n\nLuna 2-3:\nÎncepeți să nu-l mai observați atât de des. Acesta este primul semn de habituare (obișnuire).\n\n⚠ IMPORTANT:\n• Rezultatele variază\n• NU promitem o vindecare\n• Tinitusul nu dispare, dar creierul învață să-l ignore\n\n🧠 DE CE FUNCȚIONEAZĂ:\n\nSunetele profunde nu activează partea \"de alarmă\" a creierului (amigdala). Acest lucru rupe cercul vicios dintre tinitus și stres. Când stresul scade, tinitusul sună mai liniștit.\n\n📚 STUDIU:\n\nO meta-analiză a 14 studii (793 de pacienți, 2024): după 6 luni de ascultare regulată, îmbunătățirea medie pe scala THI este de 24.6 puncte. Îmbunătățirea minimă semnificativă este de 7 puncte — pacienții obțin de peste 3 ori mai mult.",
+    "source": "Meta-analiză a 14 RCT (n=793), 2024. Vezi docs/research/11."
+   },
+   "preset_underwater": {
+    "title": "De ce \"Relaxare subacvatică\"?",
+    "micro": "Sunete ca sub apă — frecvențe foarte joase sub 200Hz. Similar cu ceea ce auziți când sunteți într-o piscină, sub suprafață.",
+    "full": "📊 CUM ESTE SUNETUL:\n\nUn zgomot foarte profund și uniform — ca și cum ai fi sub apă într-o piscină. Fără sunete înalte, fără valuri, fără tranziții. Amintește de felul în care bebelușii aud sunetele în uter.\n\n🎯 PENTRU CINE ESTE:\n✅ Persoanele cu tinitus înalt, țiuitor (ca un fluier sau un țârâit)\n✅ Profilul sensibil la stres\n✅ Mai ales pentru orele de noapte și adormire\n⚠ Nu pentru persoanele care au tinitusul tocmai în gama de bas\n\n💡 CÂND SĂ-L REDAȚI:\n• Înainte de somn (puternic recomandat)\n• Noaptea, în caz de insomnie\n• În caz de atac de panică sau anxietate puternică\n• Durată recomandată: până la 2 ore la rând\n\n📈 LA CE SĂ VĂ AȘTEPTAȚI:\n\nDacă ascultați 60 de minute pe zi (seara):\n\nSăptămâna 1-2:\nO adormire mai rapidă. Vă poate lua cu 10-15 minute mai puțin să adormiți.\n\nSăptămâna 3-4:\nMai puține treziri în timpul nopții. Un somn mai profund.\n\nLuna 2-3:\nTinitusul de dimineață se simte mai liniștit. Acesta este un semn că creierul se calmează.\n\n⚠ IMPORTANT:\n• Rezultatele variază\n• NU promitem o vindecare\n• Tinitusul nu dispare, dar creierul învață să-l ignore\n\n🧠 DE CE FUNCȚIONEAZĂ:\n\nSunetele subacvatice profunde (60-200Hz) maschează tonurile înalte ale tinitusului. În același mod în care, într-o cameră zgomotoasă, auziți greu o conversație liniștită. În plus, aceste frecvențe activează sistemul nervos calmant (parasimpatic).\n\n📚 STUDIU:\n\nUn studiu din 2024 (studiile TENT-A1/A2, peste 200 de pacienți): după 12 săptămâni de utilizare a sunetelor tonale profunde, 73% dintre pacienți obțin o îmbunătățire semnificativă a calității vieții (scala TFI, îmbunătățire de ≥13 puncte).",
+    "source": "TENT-A1/A2 RCT, 2024. Vezi docs/research/11."
+   },
+   "preset_sea_shore": {
+    "title": "De ce \"Țărm de mare\"?",
+    "micro": "Zgomotul îndepărtat al valurilor mării plus un fundal profund cu bas. O scenă naturală pentru relaxare.",
+    "full": "📊 CUM ESTE SUNETUL:\n\nUn zgomot calm de valuri în depărtare (aproximativ 100 de metri), amestecat cu un fundal profund cu bas. Auziți oceanul, dar fără un val puternic care se sparge. Ca și cum ați sta pe o terasă într-o stațiune.\n\n🎯 PENTRU CINE ESTE:\n✅ Profilul sensibil la stres (SS_R)\n✅ Profilul somatic/fluctuant (SM_F)\n✅ Persoanele care iubesc natura\n⚠ Nu pentru persoanele cu frică de apă sau cu traume legate de mare\n\n💡 CÂND SĂ-L REDAȚI:\n• Dimineața la trezire (15-30 de minute)\n• După muncă, pentru relaxare\n• Înainte de somn (cu o intensitate mai scăzută a sunetului)\n• Durată recomandată: 30-90 de minute\n\n📈 LA CE SĂ VĂ AȘTEPTAȚI:\n\nDacă ascultați 30-60 de minute pe zi:\n\nSăptămâna 1-2:\nO senzație de vacanță și de liniște. Mai puțină tensiune în umeri.\n\nSăptămâna 3-4:\nÎncepeți să asociați sunetul cu relaxarea. Corpul se calmează încă înainte de a auzi sunetul.\n\nLuna 2-3:\nCreierul leagă tinitusul de o amintire plăcută (marea), nu de anxietate. Aceasta este cheia către habituare.\n\n⚠ IMPORTANT:\n• Rezultatele variază\n• NU promitem o vindecare\n• Tinitusul nu dispare, dar creierul învață să-l ignore\n\n🧠 DE CE FUNCȚIONEAZĂ:\n\nSunetele naturale ale apei activează zone cerebrale legate de emoții pozitive. Tinitusul devine \"o parte din natură\" în loc de \"un dușman\". Aceasta este o tehnică cunoscută din Tinnitus Retraining Therapy (TRT) — cercetătorii o folosesc de 30 de ani.\n\n📚 STUDIU:\n\nUn studiu comparativ din 2023 (Tong et al., 120 de pacienți): sunetele naturale personalizate arată rezultate mai bune decât terapia sonoră tradițională, cu de 2 ori mai puține abandonuri ale tratamentului (16% vs 36% la zgomotul alb).",
+    "source": "Tong et al. (2023). 120 de pacienți. Vezi docs/research/11."
+   },
+   "preset_forest_stream": {
+    "title": "De ce \"Curent subacvatic\"?",
+    "micro": "Sunete dintr-un curent subacvatic de râu — frecvențe medii în jur de 1500Hz. Un sunet bogat, \"plin\".",
+    "full": "📊 CUM ESTE SUNETUL:\n\nSimilar cu ceea ce auziți când sunteți sub apă într-un râu. Auziți cum apa trece pe lângă pietre. Un sunet plin, de frecvență medie — nici prea profund, nici prea strălucitor.\n\n🎯 PENTRU CINE ESTE:\n✅ Tinitus de joasă frecvență, de tip zgomot (DN_S)\n✅ Tinitus adaptat/ușor (HB_M)\n✅ Persoanele care folosesc terapia sonoră de mult timp\n⚠ Nu pentru persoanele cu tinitus în frecvențele medii\n\n💡 CÂND SĂ-L REDAȚI:\n• În timpul muncii sau al cititului\n• La concentrare\n• După o zi stresantă\n• Durată recomandată: 30-120 de minute\n\n📈 LA CE SĂ VĂ AȘTEPTAȚI:\n\nDacă ascultați 60 de minute pe zi:\n\nSăptămâna 1-2:\nO concentrare îmbunătățită. Mai puțină distragere de la tinitus în timpul muncii.\n\nSăptămâna 3-4:\nMai puțină \"hărmălaie\" în minte. O gândire mai clară.\n\nLuna 2-3:\nTinitusul încetează să fie în centrul atenției dvs. Începe să devină \"fundal\" în loc de \"prim-plan\".\n\n⚠ IMPORTANT:\n• Rezultatele variază\n• NU promitem o vindecare\n• Tinitusul nu dispare, dar creierul învață să-l ignore\n\n🧠 DE CE FUNCȚIONEAZĂ:\n\nSunetele de frecvență medie (1000-2000Hz) \"se suprapun\" perfect peste zona în care trăiesc multe tinitusuri. În plus, sunetele apei au variații naturale, care nu obosesc creierul așa cum o face zgomotul alb constant.\n\n📚 STUDIU:\n\nUn studiu al mediilor acustice (2024, urmărire de 4 luni): sunetele naturale îmbogățite arată o aderență la tratament cu 84% mai bună din partea pacienților, în comparație cu zgomotul alb tradițional.",
+    "source": "EAEGT vs WN study, 2024. Vezi docs/research/11."
+   },
+   "preset_pink_pure": {
+    "title": "De ce \"Zgomot roz\"?",
+    "micro": "Un sunet de bază clasic pentru ușurarea tinitusului. Un sunet uniform de \"ploaie\", folosit în studii clinice de peste 30 de ani.",
+    "full": "📊 CUM ESTE SUNETUL:\n\nSimilar cu o ploaie ușoară și uniformă pe frunze. Un sunet constant, \"pufos\", fără vârfuri înalte sau joase. Cercetătorii îl numesc \"roz\" deoarece are mai multe frecvențe joase decât înalte (ca lumina roz).\n\n🎯 PENTRU CINE ESTE:\n✅ Universal — funcționează pentru toate profilurile\n✅ Alegerea clasică pentru ușurarea tinitusului\n✅ Bun pentru persoanele care vor să înceapă cu o opțiune verificată\n⚠ Uneori poate părea monoton — de aceea îl combinăm cu alte sunete\n\n💡 CÂND SĂ-L REDAȚI:\n• Când vreți ceva simplu și previzibil\n• Ca fundal în timpul somnului\n• Când alte mixuri nu funcționează pentru dvs.\n• Durată recomandată: de la 30 de minute la toată noaptea\n\n📈 LA CE SĂ VĂ AȘTEPTAȚI:\n\nDacă ascultați 60 de minute pe zi:\n\nSăptămâna 1-2:\nTinitusul este mai puțin perceptibil în timp ce ascultați. Puteți observa o adormire mai bună.\n\nSăptămâna 3-4:\nMai puține gânduri despre tinitus în timpul zilei. Mai puțin stres.\n\nLuna 2-3:\nÎncepeți să ascultați zgomotul roz din obișnuință. Creierul îl asociază cu relaxarea.\n\n⚠ IMPORTANT:\n• Rezultatele variază\n• NU promitem o vindecare\n• Tinitusul nu dispare, dar creierul învață să-l ignore\n\n🧠 DE CE FUNCȚIONEAZĂ:\n\nZgomotul roz conține toate frecvențele simultan, în mod echilibrat. Acest lucru îi oferă creierului un \"meniu uniform\" de sunete, care maschează tinitusul mai bine decât liniștea. Nu activează sistemul de stres, deoarece nu are schimbări bruște.\n\n📚 STUDIU:\n\nZgomotul roz a fost studiat în zeci de studii RCT începând din anii '90. În practica clinică (terapia TRT) este folosit ca bază pentru peste 100.000 de pacienți, cu rezultate semnificative în calitatea somnului.",
+    "source": "Tinnitus Retraining Therapy (TRT) clinical practice, 30+ ani. Vezi docs/research/02."
+   },
+   "preset_brown_pure": {
+    "title": "De ce \"Zgomot maro\"?",
+    "micro": "Mai profund decât cel roz — sună ca o ploaie puternică sau o cascadă în depărtare. Ideal pentru adormire.",
+    "full": "📊 CUM ESTE SUNETUL:\n\nMai mult cu bas decât cel roz. Similar cu o ploaie puternică pe acoperiș sau cu o cascadă îndepărtată. Profund și învăluitor — multor oameni li se pare confortabil.\n\n🎯 PENTRU CINE ESTE:\n✅ Pentru adormire — deosebit de bun\n✅ Pentru persoanele cu tinitus înalt, țiuitor\n✅ În caz de anxietate\n⚠ Nu pentru persoanele cu tinitus jos, cu bas (riscați să-l intensificați)\n\n💡 CÂND SĂ-L REDAȚI:\n• Înainte de somn (puternic recomandat)\n• Noaptea, ca fundal\n• În caz de atac de panică\n• Durată recomandată: toată noaptea este sigur\n\n📈 LA CE SĂ VĂ AȘTEPTAȚI:\n\nDacă ascultați 8 ore în timpul nopții:\n\nSăptămâna 1-2:\nMai puține treziri. Dimineața vă simțiți mai odihnit.\n\nSăptămâna 3-4:\nUn ritm al somnului mai stabil. Un sunet \"de tinitus\" mai redus la trezire.\n\nLuna 2-3:\nCalitatea somnului semnificativ mai bună. Aceasta este o îmbunătățire indirectă cunoscută — un somn bun reduce tinitusul.\n\n⚠ IMPORTANT:\n• Rezultatele variază\n• NU promitem o vindecare\n• Tinitusul nu dispare, dar creierul învață să-l ignore\n\n🧠 DE CE FUNCȚIONEAZĂ:\n\nZgomotul maro are cele mai multe frecvențe joase. Acest lucru activează sistemul nervos calmant (parasimpatic) chiar și când dormiți. În plus, maschează zgomotele mici din casă (șemineu, aer condiționat, scârțâituri) care v-ar putea trezi.\n\n📚 STUDIU:\n\nMascanții de zgomot profund sunt baza terapiei TRT. Datele clinice din 2024 arată: calitatea somnului este cel mai puternic predictor pentru ușurarea tinitusului — pacienții cu 7+ ore de somn au o îmbunătățire de 2 ori mai rapidă pe scala THI.",
+    "source": "TRT clinical practice + Sleep research 2024. Vezi docs/research/09 + docs/research/11."
+   }
+  },
+  "general": {
+   "why_no_white_noise": {
+    "title": "De ce nu avem zgomot alb?",
+    "micro": "Zgomotul alb este rău pentru tinitus. Îl face mai puternic, nu mai liniștit. Acest lucru este dovedit științific.",
+    "full": "📊 CE ESTE ZGOMOTUL ALB:\n\nUn sunet \"gri\", similar cu un televizor vechi fără semnal. Conține toate frecvențele în mod uniform, inclusiv pe cele înalte. Adesea promovat ca un \"ajutor pentru somn\".\n\n🚨 DE CE NU ÎL FOLOSIM:\n\nZgomotul alb activează structura cerebrală a anxietății (amigdala). La persoanele cu tinitus, acesta creează așa-numitul \"efect de cobră\" — când zgomotul alb se oprește, tinitusul sună MULT mai puternic decât înainte.\n\n📈 CE SE ÎNTÂMPLĂ DACĂ ÎL FOLOSIȚI:\n\nPrimele zile: Pare că ajută (maschează tinitusul)\nSăptămâna 1-2: Obișnuire — zgomotul alb ajută tot mai puțin\nSăptămâna 3-4: Tinitusul devine MAI PUTERNIC în momentele când nu ascultați\nLuna 2+: Dependență — nu puteți adormi fără el\n\n⚠ IMPORTANT:\n\nAceasta NU este teoria noastră. Este un consens științific. De aceea alternativele noastre (roz, maro, naturale) sunt mai bune.\n\n🧠 DE CE ALTERNATIVELE SUNT MAI BUNE:\n\n• Zgomotul roz — mai puține frecvențe înalte, nu activează alarma\n• Zgomotul maro — calmant, profund\n• Sunetele naturale — asociate cu emoții pozitive\n\n📚 STUDIU:\n\nUn studiu comparativ din 2023 (urmărire de 4 luni): pacienții pe zgomot alb au 36% abandon al tratamentului, în timp ce la sunetele naturale personalizate abandonul este de doar 16%. Pacienții, literalmente, nu suportă zgomotul alb pentru mult timp.",
+    "source": "Comparison of Enriched Acoustic Environment and White Noise study, 2024. Vezi docs/research/11."
+   },
+   "why_habituation": {
+    "title": "De ce \"habituare\" și nu vindecare?",
+    "micro": "Tinitusul nu poate fi vindecat — este un semnal în creier. Dar creierul poate învăța să-l ignore. Acest lucru se numește habituare.",
+    "full": "📊 CE ESTE TINITUSUL ÎN REALITATE:\n\nTinitusul NU este un sunet în urechi. Este un semnal electric în creier, pe care creierul îl procesează ca pe un sunet. De aceea o operație la urechi nu ajută.\n\n🎯 DE CE NU ÎL PUTEM VINDECA:\n\nÎn 95% din cazuri tinitusul este cauzat de:\n• Pierderea auzului (cu vârsta sau după o expunere la zgomot)\n• Stres și anxietate\n• Schimbări în sistemul nervos\n\nAceste schimbări nu sunt reversibile — creierul nu poate uita semnalul greșit.\n\n✅ CE FUNCȚIONEAZĂ DE FAPT:\n\nCreierul poate învăța să IGNORE tinitusul. În același mod în care, după un timp, nu mai observați:\n• Un ceas pe perete (ticăitul)\n• Frigiderul din bucătărie\n• Curelele din mașină\n\nAcest lucru se numește HABITUARE.\n\n📈 LA CE SĂ VĂ AȘTEPTAȚI DE LA HABITUARE:\n\nTinitusul va RĂMÂNE, dar:\n\nLuna 1-2:\nMai puțin stres din cauza lui. Mai puține gânduri \"de ce eu?\".\n\nLuna 3-6:\nMinute pe zi când nu-l observați.\n\nLuna 6-12:\nOre pe zi când nu-l observați. Tinitusul devine ca un zgomot de fundal.\n\n⚠ IMPORTANT:\n\n• Tinitusul nu va dispărea\n• Dar creierul va învăța să nu reacționeze\n• Acest lucru eliberează de stres și de suferință\n\n🧠 DE CE AJUTĂ O APLICAȚIE CA AURALIS:\n\nAjutăm creierul să se \"reajusteze\". Îmbogățirea sonoră + gândurile corecte (CBT) învață creierul că tinitusul NU ESTE PERICULOS.\n\n📚 STUDIU:\n\nTRT (Tinnitus Retraining Therapy) — o metodologie folosită din 1990 de Pawel Jastreboff. Peste 80.000 de pacienți în lume. Rezultate: 75-85% obțin habituarea în 12-18 luni, cu un protocol corect.",
+    "source": "Jastreboff TRT model, 1990+. Vezi docs/research/11."
+   },
+   "what_is_di_score": {
+    "title": "Ce este DI (Indicele de Stres)?",
+    "micro": "DI măsoară cât stres vă provoacă tinitusul acum. O scală de la 0 la 20. Cu cât este mai mic, cu atât mai bine.",
+    "full": "📊 CE ESTE DI:\n\nDI = Distress Index (Indicele de Stres). O scală de la 0 la 20.\n\nDI se calculează din 3 întrebări din testul nostru:\n1. Cât de des vă gândiți la tinitus?\n2. Cât de mult vă deranjează în viața de zi cu zi?\n3. Care este nivelul subiectiv (0-10)?\n\n🎯 DE CE ESTE IMPORTANT:\n\nDI ne spune două lucruri:\n1. Cât de mult vă deranjează tinitusul DVS.\n2. Care mix sonor este potrivit pentru dvs.\n\nNu toate tinitusurile sunt la fel. Un DI ridicat necesită o abordare sonoră diferită de un DI scăzut.\n\n📈 CE ÎNSEAMNĂ NIVELURILE:\n\nDI 0-5: Ușor\n• Tinitusul este acolo, dar rareori deranjează\n• Recomandare: sunete slabe, doar la nevoie\n\nDI 6-12: Moderat\n• Tinitusul deranjează în momentele liniștite\n• Recomandare: sunete de intensitate medie, zilnic\n\nDI 13-20: Puternic\n• Tinitusul deranjează în fiecare zi\n• Recomandare: sunete de mascare puternice, sesiuni lungi\n\n📊 CUM SĂ URMĂRIȚI:\n\nDI se măsoară din nou în fiecare lună. Așteptați-vă:\n\nLuna 1: DI scade cu 1-2 puncte\nLuna 3: DI scade cu 3-5 puncte\nLuna 6: DI scade cu 5-10 puncte\n\nAceasta este o progresie realistă conform datelor clinice.\n\n⚠ IMPORTANT:\n\n• DI nu este \"gravitatea\" bolii — el măsoară IMPACTUL asupra vieții dvs.\n• Reducerea DI = mai puțină suferință (chiar dacă sunetul rămâne același)\n\n🧠 DE CE FOLOSIM DI:\n\nDI se bazează pe scale internaționale validate (THI și TFI), dar este simplificat pentru un daily tracking rapid. Îmbunătățirea minimă semnificativă clinic pe THI este de 7 puncte — scala noastră DI reflectă acest lucru.\n\n📚 SURSĂ:\n\nScala DI dezvoltată pe baza Tinnitus Handicap Inventory (THI, Newman et al., 1996) — standardul de aur în practica clinică, folosit din 1996 în peste 50 de țări.",
+    "source": "Newman, C.W. et al. (1996). THI. Vezi docs/research/18."
+   },
+   "how_long_to_listen": {
+    "title": "Cât timp să ascult în fiecare zi?",
+    "micro": "Minimum 30 de minute pe zi. Ideal 60-90 de minute. Mai puțin = îmbunătățire slabă. Mai mult = bine, dar nu obligatoriu.",
+    "full": "📊 DURATĂ RECOMANDATĂ:\n\nPentru rezultate semnificative:\n• MINIMUM: 30 de minute pe zi\n• IDEAL: 60-90 de minute pe zi\n• MAXIMUM: toată noaptea (pentru adormire) este sigur\n\n🎯 DE CE EXISTĂ UN MINIM:\n\nCreierul are nevoie de timp pentru a \"învăța\" noul mediu sonor. Sub 30 de minute pe zi — efectul este minim.\n\nEste ca un antrenament fizic: 5 minute la sală nu construiesc mușchi.\n\n📈 EFECTUL DIFERITELOR DURATE:\n\n15 minute pe zi:\nEfect mic. Îmbunătățire pe DI: 1-2 puncte pe lună.\n\n30 de minute pe zi:\nEfect moderat. Îmbunătățire pe DI: 3-5 puncte pe lună.\n\n60 de minute pe zi:\nEfect puternic. Îmbunătățire pe DI: 5-8 puncte pe lună.\n\n90+ minute pe zi:\nEfect maxim. Îmbunătățire pe DI: 7-10 puncte pe lună.\n\n⚠ CÂND ESTE PREA MULT SAU PREA PUȚIN:\n\n• Mai puțin de 15 minute → pierdeți timpul\n• Mai mult de 4 ore la rând → faceți o pauză (10-15 minute)\n• Toată noaptea pentru somn → sigur\n\n💡 SFATURI PRACTICE:\n\n• Dimineața (15 min) + Înainte de somn (30 min) = o combinație bună\n• În timpul muncii (60 min fundal) — foarte eficient\n• Noaptea ca fundal — sigur pentru sesiuni lungi\n\n🧠 DE CE ESTE CHEIE REGULARITATEA ZILNICĂ:\n\nHabituarea creierului este ca învățarea unui cuvânt nou — necesită repetiție. O zi intensivă este mai puțin eficientă decât sesiuni zilnice scurte.\n\n📚 STUDIU:\n\nUn studiu multicentric (2024, 793 de pacienți): pacienții cu 60+ minute de utilizare zilnică obțin o îmbunătățire de -24.6 puncte pe scala THI în 6 luni. Acesta este de 3.5 ori mai mult decât îmbunătățirea minimă semnificativă clinic (7 puncte).",
+    "source": "Meta-analiză a 14 RCT (n=793), 2024. Vezi docs/research/11."
+   },
+   "why_no_volume_max": {
+    "title": "De ce este importantă intensitatea sunetului?",
+    "micro": "Nu redați la maximum! Intensitatea recomandată este aceea la care ABIA maschează tinitusul. Tare = dăunător pentru auz.",
+    "full": "📊 NIVELUL CORECT AL SUNETULUI:\n\nSunetul trebuie să fie:\n✅ Suficient de puternic ca să-l auziți confortabil\n✅ Atât cât să MASCHEZE, dar să nu ÎNĂBUȘE tinitusul\n❌ NU atât de puternic încât să acopere totul în jurul dvs.\n\n🎯 DE CE UN ECHILIBRU ATÂT DE EXACT:\n\nUn sunet prea puternic:\n1. Vă poate afecta auzul (mai ales peste 60 dB)\n2. Nu ajută mai mult decât un sunet de intensitate medie\n3. Obosește creierul după ore întregi\n4. Poate face tinitusul MAI PUTERNIC pe termen lung\n\nUn sunet prea liniștit:\n1. Nu maschează tinitusul\n2. Auziți tinitusul mai puternic\n3. Stres\n\n📈 \"MIXING POINT\" — NIVELUL IDEAL:\n\nÎn practica clinică se folosește conceptul de \"mixing point\" — punctul în care auziți ȘI sunetul ȘI tinitusul, dar sunetul predomină.\n\nCum să-l găsiți:\n1. Începeți încet\n2. Creșteți treptat intensitatea\n3. Opriți-vă când tinitusul devine \"plăcut acoperit\", dar NU complet înăbușit\n\n⚠ IMPORTANT:\n\n• NU creșteți intensitatea pentru a opri complet tinitusul\n• Acest lucru activează o reacție de protecție a creierului\n• Tinitusul se va întoarce mai puternic când vă opriți\n\n💡 SFAT PRACTIC:\n\nIntensitatea recomandată a telefonului: 30-40% (nu mai mult de 50%).\n\nLa căști: ÎNTOTDEAUNA mai liniștit decât fără căști — sunetul merge direct în ureche.\n\n🧠 DE CE ACEASTĂ TEHNICĂ:\n\nScopul îmbogățirii sonore NU este să înăbușe tinitusul. Scopul este să-i ofere creierului un sunet ALTERNATIV, asupra căruia să se concentreze. Acest lucru permite habituarea.\n\n📚 STUDIU:\n\nStudiul Phase II LINTS (2023): cele mai bune rezultate au fost obținute cu sunete ABIA perceptibile (la pragul de auz) — pacienții adesea nici nu își dau seama că sună, dar creierul se reajustează.\n\nATENȚIE: Expunerea pe termen lung peste 70 dB poate afecta auzul. Intensitatea maximă recomandată la căști: 60% din maximul dispozitivului.",
+    "source": "Phase II LINTS, 2023 + WHO Safe Listening Guidelines. Vezi docs/research/11 + docs/research/13."
+   }
+  },
+  "categories": {
+   "cat_underwater": {
+    "title": "Sunete subacvatice",
+    "micro": "Sunete profunde și învăluitoare, ca și cum ai fi sub apă. Între 60 și 300 de herți. Cele mai sigure pentru persoanele cu tinitus înalt.",
+    "full": "📊 CE SUNT:\n\nSunete care amintesc de felul în care auziți când sunteți sub apă într-o piscină sau într-un lac. Frecvențe foarte joase (60-300 de herți) fără tonuri înalte \"țiuitoare\".\n\n🎯 PENTRU CINE:\n✅ Tinitus înalt, țiuitor (TH_C) — cea mai bună acoperire\n✅ Persoanele sensibile la stres\n✅ Pentru adormire (în special)\n✅ Pentru persoanele care iubesc liniștea\n⚠ Nu pentru persoanele cu tinitusul tocmai în gama de bas\n\n💡 CÂND:\n• Înainte de somn (puternic recomandat)\n• Noaptea, ca fundal\n• În caz de anxietate sau atac de panică\n• La muncă liniștită sau la citit\n\n📈 DE CE AU FOST ALESE ACESTE SUNETE:\n\nFiecare dintre sunetele noastre subacvatice este testat cu o analiză științifică:\n• Spectral centroid sub 350 de herți\n• Fără vârfuri înalte peste 4000 de herți\n• Loop-friendly (liniștit la margini pentru o tranziție fără zgomot)\n• Score 100/100 conform algoritmului nostru de siguranță pentru tinitus\n\n🧠 DE CE FUNCȚIONEAZĂ:\n\nFrecvențele joase sub 300Hz activează sistemul nervos calmant. Ele \"se suprapun\" peste tonurile înalte ale tinitusului (care sunt de obicei 4000-8000Hz). Acest lucru rupe legătura \"tinitus → stres\".\n\n📚 STUDIU:\n\nUn studiu al mediilor acustice (EAE vs WN, 2024): sunetele profunde îmbogățite arată cu 50% mai puține abandonuri ale tratamentului în comparație cu zgomotul alb tradițional (16% vs 36% drop-out în 4 luni).",
+    "source": "EAE vs White Noise 4-Month Feasibility Study, 2024. Vezi docs/research/11."
+   },
+   "cat_ocean": {
+    "title": "Ocean și sunete marine",
+    "micro": "Zgomotul valurilor și scene marine îndepărtate. Sunete naturale, asociate cu odihna și liniștea.",
+    "full": "📊 CE SUNT:\n\nÎnregistrări reale de pe țărmuri de mare — valuri îndepărtate, val liniștit care se sparge, atmosferă de vacanță la mare. Nu o \"furtună în ocean\", ci o mare liniștită.\n\n🎯 PENTRU CINE:\n✅ Profilul sensibil la stres (SS_R)\n✅ Profilul somatic/fluctuant (SM_F)\n✅ Persoanele cu asocieri pozitive legate de mare\n⚠ Nu pentru persoanele cu frică de apă sau cu traume legate de mare\n\n💡 CÂND:\n• Dimineața la trezire (15-30 min)\n• După muncă, pentru relaxare\n• În timpul zilei, ca fundal ambient\n• Când aveți nevoie de o \"vacanță mentală\"\n\n📈 DE CE ACESTE SUNETE:\n\nNu toate sunetele oceanului sunt la fel. Ale noastre sunt special alese:\n• Fără valuri puternice sau val care se sparge (transients bruște)\n• Fără pescăruși sau păsări (vârfuri înalte)\n• Fără oameni sau utilaje\n• O scenă pur naturală\n\n🧠 DE CE FUNCȚIONEAZĂ:\n\nSunetele naturale ale apei activează zone cerebrale legate de emoții și amintiri pozitive. Aceasta este o formă de habituare emoțională — creierul leagă tinitusul de o amintire plăcută, nu de anxietate.\n\n📚 STUDIU:\n\nUn studiu comparativ (Tong et al., 2023, 120 de pacienți): sunetele naturale personalizate arată de 2 ori mai puține abandonuri decât terapia sonoră tradițională. 73% dintre pacienți, după 12 săptămâni, obțin o îmbunătățire semnificativă clinic.",
+    "source": "Tong et al. (2023) + TENT-A1/A2 trials, 2024. Vezi docs/research/11."
+   },
+   "cat_river": {
+    "title": "Râuri și pâraie",
+    "micro": "Sunete subacvatice și de suprafață din râuri. De frecvență medie (1000-2000Hz). Ideale pentru concentrare și muncă.",
+    "full": "📊 CE SUNT:\n\nÎnregistrări de râuri de munte, pârâiașe și torente — dintr-o perspectivă subacvatică (mai blânde) și de suprafață (cu mai multe detalii). Între sunete moderat de blânde și moderat de strălucitoare.\n\n🎯 PENTRU CINE:\n✅ Tinitus de joasă frecvență, de tip zgomot (DN_S)\n✅ Profilul adaptat/ușor (HB_M)\n✅ Persoanele care folosesc terapia sonoră de mult timp\n✅ Pentru concentrare și muncă\n⚠ Nu pentru persoanele cu tinitus în frecvențele medii (1000-3000Hz)\n\n💡 CÂND:\n• În timpul muncii (60-120 min)\n• La învățat sau la citit\n• După o zi stresantă\n• Mai puțin potrivite pentru ascultarea nocturnă\n\n📈 DE CE ACESTE SUNETE:\n\nRâurile sunt în gama de frecvență medie, care \"se suprapune\" perfect peste zona în care trăiesc multe tinitusuri. În plus, au variații naturale, care nu obosesc creierul așa cum o face zgomotul alb constant.\n\n🧠 DE CE FUNCȚIONEAZĂ:\n\nSunetele de frecvență medie (1000-2000Hz) maschează direct cele mai răspândite frecvențe de tinitus. Fluctuațiile naturale ale curentului creează o \"textură sonoră\" pe care creierul o găsește plăcută.\n\n📚 STUDIU:\n\nUn studiu multicentric (2024, n=793): sunetele naturale îmbogățite (inclusiv râurile) arată o aderență la tratament cu 84% mai bună din partea pacienților în comparație cu zgomotul alb tradițional.",
+    "source": "Meta-analiză a 14 RCT, 2024. Vezi docs/research/11."
+   },
+   "cat_meditation": {
+    "title": "Compoziții meditative",
+    "micro": "Lucrări ambient lungi, special concepute. Între 5 și 15 minute fiecare. Pentru relaxare profundă și meditație.",
+    "full": "📊 CE SUNT:\n\nCompoziții atent alese, de la artiști profesioniști. Fără cuvinte, fără ritm, fără melodie în sensul tradițional — doar un peisaj sonor lung, care se schimbă lent.\n\n🎯 PENTRU CINE:\n✅ Pentru sesiuni meditative lungi (5-15 min)\n✅ Pentru persoanele care practică deja meditația\n✅ Pentru relaxare profundă în caz de stres\n✅ Universal — majoritatea profilurilor\n⚠ Pot fi \"prea profunde\" pentru momentele active din zi\n\n💡 CÂND:\n• Înainte de somn (în special Aquatic Meditation de 15 minute)\n• Pentru sesiuni meditative structurate\n• În caz de stres puternic sau episoade de panică\n• NU recomandăm ca fundal pentru muncă (prea captivante)\n\n📈 DE CE ACESTE COMPOZIȚII:\n\nFiecare compoziție este testată:\n• Fără tranziții bruște\n• Fără vârfuri înalte (>4kHz)\n• Suficient de lungă pentru o relaxare completă\n• Score 80-100 conform algoritmului nostru\n\n🧠 DE CE FUNCȚIONEAZĂ:\n\nCompozițiile lungi permit creierului să intre într-o stare mai profundă. După 7-10 minute încep schimbări în undele cerebrale (alpha și theta), care reprezintă starea de relaxare profundă.\n\n📚 STUDIU:\n\nStudii privind terapia prin muzică și tinitusul (2020-2024): compozițiile ambient lungi arată rezultate mai bune pentru calitatea somnului decât sunetele scurte. În special când sunt folosite ca parte dintr-un ritual de seară.",
+    "source": "Music therapy for tinnitus review, 2020-2024. Vezi docs/research/11 + docs/research/09."
+   },
+   "cat_forest": {
+    "title": "Sunete de pădure",
+    "micro": "Pădure de iarnă, frunze ude, ploaie îndepărtată în pădure. Atent alese FĂRĂ păsări (care pot declanșa tinitusul).",
+    "full": "📊 CE SUNT:\n\nScene naturale din păduri — condiții de iarnă cu zăpadă blândă, frunze ude, sunete murmurânde îndepărtate. Liniștite, fără elemente dramatice.\n\n🎯 PENTRU CINE:\n✅ Profilul adaptat/ușor (HB_M)\n✅ Sensibil la stres (SS_R)\n✅ Persoanele care iubesc natura\n✅ Pentru un repaus psihologic\n⚠ Nu pentru persoanele cu fobie de păduri sau de natură\n\n💡 CÂND:\n• În timpul zilei, ca fundal ambient\n• La munca la computer\n• După tensiunea urbană\n• Mai puțin potrivite pentru ascultarea nocturnă\n\n📈 DE CE ACESTE SUNETE SPECIFICE:\n\nATENȚIE: Majoritatea înregistrărilor \"forest\" au păsări. Trilurile păsărilor sunt în frecvențele ÎNALTE (3000-8000Hz) — exact acolo unde se află tinitusul multor oameni. Acest lucru poate agrava problema.\n\nSunetele noastre de pădure sunt:\n• Condiții de iarnă (mai puține păsări)\n• Wetlands (păduri umede, mai estompate)\n• Fără birdsong ca element principal\n• Testate pentru siguranță\n\n🧠 DE CE FUNCȚIONEAZĂ:\n\nSunetele naturale activează cortexul prefrontal — partea din creier legată de emoții pozitive și de liniște. Acesta este opusul direct al anxietății, care întreține tinitusul.\n\n📚 STUDIU:\n\nSound therapy research review (2024): sunetele naturale arată o compensare mai bună și mai puține abandonuri decât cele artificiale (zgomotul alb). O aderență la tratament cu 84% mai bună după 3 luni.",
+    "source": "Sound therapy meta-review, 2024. Vezi docs/research/11."
+   },
+   "cat_base_noise": {
+    "title": "Zgomote de bază (Pink, Brown, Green)",
+    "micro": "Zgomote generate matematic — clasica în îmbogățirea sonoră pentru tinitus. Roz, maro, verde — fiecare cu un profil spectral diferit.",
+    "full": "📊 CE SUNT:\n\nZgomote pure, \"tehnice\", calculate cu formule matematice. Ele nu vin din lumea reală — sunt generate în timp real de telefonul dvs.\n\n🎯 CELE TREI TIPURI:\n\nPINK NOISE (Roz):\n• Echilibrat — mai multe joase decât înalte\n• Similar cu o ploaie uniformă\n• Alegere universală\n• Clasic, de 30+ ani în terapia TRT\n\nBROWN NOISE (Maro):\n• Mai mult cu bas decât cel roz\n• Similar cu o ploaie puternică sau o cascadă în depărtare\n• Ideal pentru adormire\n• Recomandat în caz de tinitus înalt, țiuitor\n\nGREEN NOISE (Verde):\n• Filtrat pe frecvențe medii\n• Focalizat în jur de 500Hz\n• Mai focalizat decât cel roz\n• Bun la concentrare\n\n💡 CÂND ȘI CARE:\n\n• Pink — pentru început, universal\n• Brown — pentru adormire, noapte\n• Green — pentru muncă, concentrare\n\n📈 DE CE ACESTE SUNETE SUNT ÎNCĂ DE ACTUALITATE:\n\nDeși avem sunete naturale, zgomotele de bază rămân utile:\n• Previzibilitate constantă (fără variații)\n• Un spectru perfect uniform\n• Nu obosesc atenția\n• Nu conțin informație semantică (precum păsările sau oamenii)\n\n🧠 DE CE FUNCȚIONEAZĂ:\n\nZgomotele de bază sunt studiate din anii '70. Pink și Brown sunt baza Tinnitus Retraining Therapy (TRT) — o metodologie folosită din 1990 de Pawel Jastreboff.\n\n📚 STUDIU:\n\nPractica clinică TRT de peste 30 de ani, 80.000+ pacienți în lume. 75-85% obțin habituarea la o aplicare corectă. Pink și Brown noise sunt recomandate ca bază pentru orice protocol sonor.",
+    "source": "Jastreboff TRT model, 1990+ + Web Audio API research. Vezi docs/research/02 + docs/research/11."
+   }
+  },
+  "navigation": {
+   "nav_mixer_intro": {
+    "title": "Ce este \"Mixul\"?",
+    "micro": "Inima AURALIS. Aici redați sunete care ajută în caz de tinitus — separat sau combinate în mixuri recomandate.",
+    "full": "📊 CE ESTE MIXER:\n\nMixer (mixul) este instrumentul principal din AURALIS. Aici:\n• Ascultați mixuri recomandate (combinații gata făcute de sunete)\n• Găsiți sunete individuale pe categorii\n• Controlați intensitatea sunetului\n• Setați un timer pentru adormire\n\n🎯 CUM SĂ ÎNCEPEȚI:\n\nPrimii pași:\n1. Intrați în \"Recomandate\" — acolo sunt mixuri alese special pentru profilul dvs.\n2. Apăsați steaua ⭐ — acesta este cel mai recomandat pentru dvs.\n3. Ascultați 30-60 de minute\n4. Salvați-le pe cele preferate\n\n📈 ÎMPĂRȚIRE:\n\nTab 1 \"Recomandate\" (3-5 mixuri):\n• Bazate pe răspunsurile dvs. din Quiz\n• ⭐ înseamnă \"cel mai potrivit pentru profilul dvs.\"\n• Începeți cu acestea\n\nTab 2 \"Toate sunetele\":\n• 30+ sunete individuale pe categorii\n• Subacvatice, ocean, râuri, meditații, de pădure, de bază\n• Pentru explorare și experimentare\n\n💡 SFATURI PRACTICE:\n\n• Nu schimbați mixul prea des (minimum 10 min)\n• Dați creierului timp să accepte sunetul\n• Experimentați cu diferite mixuri în momente diferite ale zilei\n\n⚠ IMPORTANT:\n\nMixer funcționează cel mai bine la o utilizare regulată. 30 de minute pe zi este minimul pentru rezultate semnificative.\n\n📚 STUDIU:\n\nDatele clinice arată: utilizarea zilnică a îmbogățirii sonore (minimum 30 min) timp de 3 luni obține o îmbunătățire medie de 8.6 puncte pe scala THI.",
+    "source": "Sound therapy duration studies, 2020-2024. Vezi docs/research/11."
+   },
+   "nav_calm_intro": {
+    "title": "Ce este \"Liniștea\"?",
+    "micro": "Exerciții de relaxare ghidate audio. Respirație, relaxare musculară și acceptarea tinitusului.",
+    "full": "📊 CE ESTE CALM:\n\nSecțiunea Calm este partea \"psihologică\" a AURALIS. În timp ce Mixer-ul lucrează cu îmbogățirea sonoră, Calm lucrează cu tehnici psihologice.\n\n🎯 CE ESTE INCLUS (beta 1.0):\n\nTrei exerciții scurte:\n\n1. Respirație 4-7-8 (3 minute)\n• Inspirație 4 secunde\n• Ținere 7 secunde\n• Expirație 8 secunde\n• Reduce stresul instantaneu\n\n2. Relaxare musculară progresivă (5 minute)\n• Relaxare sistematică a mușchilor\n• De la tălpi până la cap\n• Deosebit de bună înainte de somn\n\n3. Acceptarea zgomotului (4 minute)\n• Bazată pe terapia ACT (Acceptance and Commitment Therapy)\n• Învață creierul că tinitusul NU ESTE o amenințare\n• Reduce stresul pe termen lung\n\n💡 CUM SĂ LE FOLOSIȚI:\n\n• Un exercițiu pe zi este suficient\n• Un exercițiu diferit în momente diferite:\n  - Respirație → în caz de stres în timpul zilei\n  - PMR → înainte de somn\n  - Acceptare → când tinitusul vă neliniștește\n\n📈 LA CE SĂ VĂ AȘTEPTAȚI:\n\nSăptămâna 1-2: Mai puțin stres instantaneu\nSăptămâna 3-4: Mai puține gânduri negative despre tinitus\nLuna 2-3: O acceptare psihologică mai mare\n\n⚠ IMPORTANT:\n\nAceste tehnici NU vor elimina tinitusul. Ele vă vor schimba atitudinea față de el.\n\n📚 STUDIU:\n\nO recenzie sistematică a CBT (terapia cognitiv-comportamentală) în tinitus: 65-75% dintre pacienți raportează o îmbunătățire semnificativă a calității vieții, chiar și când intensitatea tinitusului rămâne aceeași.",
+    "source": "CBT for tinnitus systematic review, 2024. Vezi docs/research/07 + docs/research/08 + docs/research/21."
+   },
+   "nav_diary_intro": {
+    "title": "Ce este \"Jurnalul\"?",
+    "micro": "O înregistrare zilnică a somnului și a nivelului tinitusului. Vă ajută să vă vedeți progresul în cifre.",
+    "full": "📊 CE ESTE DIARY:\n\nO înregistrare zilnică scurtă (1 minut pe zi). Notați:\n• Câte ore ați dormit\n• Cât de bine ați dormit (1-5)\n• Nivelul tinitusului (0-10)\n• O scurtă notă, dacă doriți\n\n🎯 DE CE ESTE IMPORTANT:\n\nFără cifre nu puteți vedea progresul. Persoanele cu tinitus adesea nu observă micile îmbunătățiri — acestea se întâmplă lent (în luni).\n\nJurnalul vă ajută să:\n• Vedeți tendința (cu un grafic)\n• Găsiți tipare (când este mai rău, când mai bine)\n• Corelați cu vizitele medicale\n\n💡 CUM SĂ-L FOLOSIȚI:\n\n• Dimineața (după trezire) — pentru noapte\n• Înregistrare în mai puțin de un minut\n• Fără scris — doar butoane\n\n📈 LA CE SĂ VĂ AȘTEPTAȚI:\n\nDupă 14 zile veți avea suficiente date pentru primele grafice.\nDupă 30 de zile veți vedea tipare clare.\nDupă 60 de zile veți vedea tendința pe termen lung.\n\n⚠ IMPORTANT:\n\nTinitusul variază în mod natural. O zi proastă nu înseamnă că nimic nu funcționează. Priviți media pe 7 zile, nu zilele individuale.\n\n📚 STUDIU:\n\nEvaluarea clinică a calității somnului (Consensus Sleep Diary) este standardul de aur în cercetările privind tinitusul. Urmărirea zilnică permite surprinderea unei îmbunătățiri de 7+ puncte pe THI, care este minimă semnificativă clinic.",
+    "source": "Consensus Sleep Diary methodology + THI MCID studies. Vezi docs/research/10 + docs/research/18."
+   }
+  },
+  "mechanics": {
+   "sleep_timer_explained": {
+    "title": "Ce este \"Sleep timer\"?",
+    "micro": "Oprește automat sunetul după un timp ales. Sigur pentru toată noaptea — sunetul se estompează lin în ultimele 5 secunde.",
+    "full": "📊 CE FACE:\n\nSetați un timp (15, 30, 60, 90, 120 de minute) → sunetul se oprește automat → telefonul economisește bateria.\n\n🎯 DE CE ESTE IMPORTANT:\n\n• Siguranță — nu sună toată noaptea dacă nu ați vrut\n• Baterie — economisește energie\n• Auz — reduce expunerea totală\n\n💡 SFATURI PRACTICE:\n\nPentru adormire:\n• Alegeți 30-60 de minute\n• Este suficient pentru adormire\n• Dacă vă treziți — porniți din nou\n\nPentru toată noaptea:\n• Alegeți 120 de minute SAU\n• Opriți timerul (riscant pentru baterie)\n\n📈 DETALII TEHNICE:\n\nSunetul nu se oprește brusc. Ultimele 5 secunde:\n• O intensitate care scade treptat\n• Fără întrerupere bruscă\n• Creierul nu primește un semnal de \"shock\"\n\n⚠ IMPORTANT:\n\nOprirea bruscă a îmbogățirii sonore poate provoca un \"rebound effect\" — tinitusul să sune mai puternic decât era înainte de ascultare. De aceea fade-out-ul este critic.\n\n📚 STUDIU:\n\nSleep research arată: pacienții cu tinitus care folosesc un timer pentru adormire (vs toată noaptea) raportează o calitate a somnului mai bună. O expunere nocturnă prea lungă poate duce la dependență.",
+    "source": "Sleep + sound therapy research. Vezi docs/research/09."
+   },
+   "theme_toggle_explained": {
+    "title": "De ce două teme (întunecată și luminoasă)?",
+    "micro": "Cea întunecată este pentru seară și noapte (mai puțină solicitare pentru ochi). Cea luminoasă este pentru zi. Puteți comuta oricând.",
+    "full": "📊 CE FACE:\n\nButonul din dreapta sus comută între:\n• Tema întunecată — pentru seară, noapte, muncă liniștită\n• Tema luminoasă — pentru zi, lumină puternică\n\n🎯 DE CE AVEȚI O ALEGERE:\n\nTema întunecată (seară/noapte):\n• Mai puțină lumină albastră (perturbă somnul)\n• Mai puțină solicitare pentru ochi\n• Mai puțină \"trezire\" înainte de somn\n\nTema luminoasă (zi):\n• O lizibilitate mai bună la lumină puternică\n• Mai naturală pentru orele de zi\n• O atmosferă mai puțin \"somnoroasă\"\n\n💡 RECOMANDARE:\n\n• Dimineața și în timpul zilei → Luminoasă\n• După apus → Întunecată\n• Înainte de somn → Întunecată (obligatoriu)\n\n📈 DE CE ESTE IMPORTANT PENTRU TINITUS:\n\nUn somn prost agravează tinitusul. Lumina albastră de la ecrane (mai ales seara) perturbă melatonina și somnul.\n\nTema întunecată reduce lumina albastră și ajută corpul să se pregătească pentru somn. Acest lucru îmbunătățește calitatea somnului → reduce tinitusul.\n\n📚 STUDIU:\n\nUn studiu despre lumina albastră și somn: expunerea la lumină albastră cu 2 ore înainte de somn reduce producția de melatonină cu 23%. La pacienții cu tinitus, un somn prost este direct legat de un scor THI mai ridicat.",
+    "source": "Blue light + sleep research + tinnitus sleep studies. Vezi docs/research/09."
+   },
+   "profile_recommendation_explained": {
+    "title": "De ce sunt recomandate aceste mixuri?",
+    "micro": "Sunt bazate pe răspunsurile dvs. din Quiz. Tinitusuri diferite necesită sunete diferite. Recomandările noastre sunt personalizate.",
+    "full": "📊 CUM FUNCȚIONEAZĂ RECOMANDAREA:\n\nÎn Quiz ați răspuns la 15 întrebări. Sistemul calculează:\n1. Tipul tinitusului dvs. (5 profiluri posibile)\n2. Indicele de stres (0-20)\n3. Sunetele recomandate\n\n🎯 CELE CINCI PROFILURI:\n\nTH_C - Tonal de înaltă frecvență:\n• Sunet țiuitor sau țârâitor\n• Frecvență înaltă (8000Hz+)\n• Recomandare: sunete de mascare profunde\n\nDN_S - Zgomot de joasă frecvență:\n• Bubuit sau huruit\n• Frecvență joasă\n• Recomandare: sunete de frecvență medie\n\nSS_R - Sensibil la stres:\n• Reacționează puternic la stres\n• Variabil în timp\n• Recomandare: sunete naturale relaxante\n\nSM_F - Somatic/Fluctuant:\n• Legat de corp (gât, maxilar)\n• Se schimbă cu poziția\n• Recomandare: sunete variate\n\nHB_M - Adaptat/Ușor:\n• Deja mai puțin neliniștit\n• Un control mai mare\n• Recomandare: experimentarea cu diferite sunete\n\n💡 DE CE ESTE IMPORTANT:\n\nUn mix greșit = pierdeți timpul. Un mix corect = o îmbunătățire mai rapidă.\n\nDe exemplu:\n• Tinitus înalt + sunet profund = mascare EXCELENTĂ\n• Tinitus înalt + sunet înalt = GREȘIT (intensifică tinitusul)\n\n📈 CE ÎNSEAMNĂ ⭐:\n\nSteaua marchează un mix FOARTE potrivit pentru profilul dvs. Recomandăm să începeți cu el.\n\n⚠ IMPORTANT:\n\nRecomandarea se bazează pe date medii din studii. Fiecare persoană este individuală. Experimentați — puteți descoperi că un alt mix funcționează mai bine pentru dvs.\n\n📚 STUDIU:\n\nUn studiu (Tong et al., 2023): recomandările personalizate bazate pe caracteristicile tinitusului duc la o aderență la tratament de 2 ori mai bună decât recomandările standard.",
+    "source": "Tong et al. (2023) + Quiz validation studies. Vezi docs/research/01 + docs/research/11."
+   },
+   "star_icon_explained": {
+    "title": "Ce înseamnă steaua?",
+    "micro": "Steaua marchează cel mai potrivit mix pentru profilul dvs. Se bazează pe răspunsurile dvs. din Quiz.",
+    "full": "📊 CE ÎNSEAMNĂ:\n\nSteaua = \"Cel mai recomandat pentru dvs.\"\n\nNu toate cele 5 mixuri recomandate sunt echivalente. Steaua marchează TOP-1 conform profilului dvs.\n\n🎯 CUM ESTE ALEASĂ:\n\nUn algoritm ia în considerare:\n• Tipul tinitusului (din Quiz)\n• Intensitatea tinitusului (din DI)\n• Sensibilitatea la stres\n• Preferințele de durată\n\nApoi prioritizează mixul cu cea mai puternică suprapunere cu nevoile dvs.\n\n💡 SEMNIFICAȚIE PRACTICĂ:\n\nVă recomand să:\n1. Începeți cu mixul cu stea (primele 7 zile)\n2. Apoi încercați-le pe celelalte recomandate\n3. Vedeți care funcționează cel mai bine pentru DVS.\n\n⚠ IMPORTANT:\n\nSteaua este o recomandare, nu o lege. Dacă sunetul nu vă place sau nu ajută după 7 zile — încercați altul.\n\n📚 STUDIU:\n\nRecomandările personalizate în terapia sonoră arată o eficacitate de 2x mai bună decât cele standard (Tong et al., 2023, 120 de pacienți).",
+    "source": "Tong et al. (2023) + personalization studies. Vezi docs/research/01 + docs/research/05."
+   },
+   "why_no_medical_advice": {
+    "title": "De ce nu recomandăm medicamente sau suplimente?",
+    "micro": "AURALIS este un instrument de wellness, nu un produs medical. Medicamentele și suplimentele sunt recomandate de un medic, nu de o aplicație.",
+    "full": "📊 CE ESTE AURALIS:\n\nAURALIS este o aplicație de WELLNESS. Ajutăm cu:\n✅ Îmbogățire sonoră\n✅ Tehnici psihologice (CBT, mindfulness)\n✅ Educație despre tinitus\n✅ Urmărirea progresului\n\n🚨 CE NU ESTE AURALIS:\n\nAURALIS NU este:\n❌ Un produs medical\n❌ Un medic\n❌ Un înlocuitor al unei consultații medicale\n❌ O sursă de recomandări medicamentoase\n\n🎯 DE CE NU OFERIM SFATURI MEDICALE:\n\n1. Siguranță - fiecare persoană este diferită. Ceea ce funcționează pentru unul poate dăuna altuia.\n2. Reglementare - autoritățile de reglementare cer ca produsele medicale să treacă printr-o certificare strictă. Noi suntem wellness, nu medical.\n3. Încredere - un medic adevărat vă cunoaște personal. Noi nu.\n\n💡 CÂND SĂ MERGEȚI LA MEDIC:\n\n✅ Prima dată cu tinitus (pentru a exclude bolile)\n✅ Tinitus doar într-o ureche\n✅ Tinitus cu amețeli\n✅ Tinitus cu pierdere de auz\n✅ Tinitus după un traumatism\n✅ Tinitus cu depresie sau gânduri de autovătămare\n\n📈 CE RECOMANDĂM:\n\nGăsiți un specialist:\n• OTO-RINO-LARINGOLOG (medic ORL)\n• AUDIOLOG\n• PSIHOLOG (în caz de stres sever)\n\n⚠ CONCLUZIE IMPORTANTĂ:\n\nAURALIS funcționează CEL MAI BINE când este combinat cu îngrijirea medicală. Medicul are grijă de corp. Noi ajutăm cu gestionarea de zi cu zi.\n\n📚 STUDIU:\n\nO analiză de reglementare (2024): produsele de wellness FĂRĂ afirmații medicale au o acceptabilitate pe termen lung și o încredere mai bune din partea utilizatorilor.",
+    "source": "Regulatory analysis for digital tinnitus tools, 2024. Vezi docs/research/16."
+   }
+  }
+ },
+ "noises": {
+  "none": {
+   "title": "Fără fundal",
+   "description": "Doar sunetul principal, fără zgomot de fundal. Potrivit pentru melodii meditative."
+  },
+  "pink_pure": {
+   "title": "Zgomot roz clar",
+   "description": "Cel mai larg spectru de zgomot uniform. Seamănă cu o ploaie constantă pe frunze. Potrivit pentru concentrare și mascare amplă."
+  },
+  "pink_lp2000": {
+   "title": "Zgomot roz estompat",
+   "description": "Zgomot roz cu frecvențe înalte estompate. O sonoritate mai blândă, potrivită în caz de sensibilitate la sunete stridente."
+  },
+  "pink_lp4000": {
+   "title": "Zgomot roz blând",
+   "description": "Zgomot roz ușor filtrat. Confirmat științific ca fiind optim pentru mascarea tinitusului de înaltă frecvență."
+  },
+  "brown_pure": {
+   "title": "Zgomot maro dens",
+   "description": "Un zgomot bogat, cu bas, cu spectru complet. Seamănă cu o cascadă îndepărtată sau cu oceanul. Maschează puternic."
+  },
+  "brown_lp1000": {
+   "title": "Zgomot maro cald",
+   "description": "Zgomot maro filtrat blând. O sonoritate caldă și învăluitoare, potrivită pentru relaxare și adormire."
+  },
+  "brown_lp500": {
+   "title": "Zgomot maro profund",
+   "description": "Cea mai profundă variantă, doar frecvențe joase. Ideal pentru somn profund și momente SOS de anxietate."
+  },
+  "green_noise": {
+   "title": "Zgomot verde",
+   "description": "Centrat pe frecvențe medii, similar cu un mediu natural. Potrivit în caz de stres și ca fundal diurn."
+  }
+ },
+ "components": {
+  "noisePicker": {
+   "title": "Alegeți zgomotul de fundal",
+   "close": "Închide",
+   "infoAria": "Informații despre: {name}",
+   "options": {
+    "none": "Fără fundal",
+    "pink_pure": "Zgomot roz clar",
+    "pink_lp2000": "Zgomot roz estompat",
+    "pink_lp4000": "Zgomot roz blând",
+    "brown_pure": "Zgomot maro dens",
+    "brown_lp1000": "Zgomot maro cald",
+    "brown_lp500": "Zgomot maro profund",
+    "green_noise": "Zgomot verde"
+   }
+  }
+ },
+ "progress": {
+  "title": "Programul dvs. de 14 zile",
+  "day_of": "Ziua {n} din 14",
+  "day_n": "Ziua {n}",
+  "completed": "Zi finalizată",
+  "partial": "Zi parțială",
+  "empty": "Zi goală",
+  "frozen": "Zi înghețată",
+  "today": "Astăzi",
+  "freeze_use": "Folosiți freeze",
+  "freeze_remaining": "{count} freeze rămase",
+  "freeze": {
+   "banner_title": "Înghețați ziua {n}",
+   "banner_body": "Streak-ul dvs. se păstrează. Aveți {count} freeze rămase.",
+   "success_toast": "Ziua {n} este înghețată",
+   "failed": "Înghețarea nu a reușit"
+  },
+  "legend": {
+   "completed": "finalizate",
+   "partial": "parțiale",
+   "frozen": "înghețate"
+  }
+ },
+ "settings": {
+  "pitchRetest": "Fă din nou testul sonor",
+  "notch": {
+   "title": "Terapie de frecvență personală",
+   "on": "Activă",
+   "off": "Oprită",
+   "descActive": "Eliminăm frecvența tinitusului dvs. ({freq}) din toate sunetele pentru o terapie îmbunătățită.",
+   "descInactive": "Terapia este oprită. Sunetele se redau fără un filtru personal.",
+   "toastOn": "Terapia personală a fost activată",
+   "toastOff": "Terapia personală a fost oprită. Sunetele se vor reda fără filtru notch."
+  }
+ },
+ "player": {
+  "notch": {
+   "aria": "Terapie de frecvență personală activă — {freq} eliminată"
+  }
+ }
+}
