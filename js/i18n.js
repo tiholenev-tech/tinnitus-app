@@ -39,6 +39,24 @@ window.i18n = (function () {
   // ============================================================
 
   function detectInitial() {
+    // 0. URL ?lang= override — сайтът подава езика на апа при вход (/it/ → ?lang=it).
+    //    Печели над запазения избор И го записва, за да остане при следващи отваряния.
+    //    Без параметър (напр. инсталираният ап на заварен потребител) — стъпка 1 пази избора му.
+    try {
+      var qp = (new URLSearchParams(window.location.search)).get('lang');
+      if (qp) qp = qp.toLowerCase();
+      if (qp && SUPPORTED.indexOf(qp) !== -1) {
+        try { localStorage.setItem(STORAGE_KEY, qp); } catch (e) { /* ignore */ }
+        // изчистваме параметъра от URL, за да не „залепне" при reload/споделяне
+        try {
+          if (window.history && history.replaceState) {
+            history.replaceState(null, '', window.location.pathname + window.location.hash);
+          }
+        } catch (e) { /* ignore */ }
+        return qp;
+      }
+    } catch (e) { /* ignore */ }
+
     // 1. localStorage override
     try {
       var saved = localStorage.getItem(STORAGE_KEY);

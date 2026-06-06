@@ -21,13 +21,13 @@ auralis_masthead();
         <p class="pricecol__tier">Пробен период</p>
         <div class="pricecol__price"><span class="free">14 дни</span></div>
         <p class="pricecol__note">Пълен достъп. Без карта. Без задължение.</p>
-        <a class="btn btn--ghost btn--block" href="/app.html">Започнете безплатно</a>
+        <a class="btn btn--ghost btn--block" href="/app.html?lang=bg">Започнете безплатно</a>
       </div>
       <div class="card pricecol card--pad">
         <p class="pricecol__tier">Пълен достъп</p>
         <div class="pricecol__price"><small>€</small>19<small>.99</small></div>
         <p class="pricecol__note">Еднократно · без абонамент · завинаги ваше.</p>
-        <a class="btn btn--primary btn--block" href="/app.html">Вземете AURALIS</a>
+        <a class="btn btn--primary btn--block" href="/app.html?lang=bg">Вземете AURALIS</a>
       </div>
     </div>
 
@@ -55,7 +55,7 @@ auralis_masthead();
         <p class="eyebrow">Опитайте спокойно</p>
         <h2>Започнете 14 дни безплатно</h2>
         <p>Без карта за пробния период. Откажете по всяко време.</p>
-        <a class="btn btn--primary btn--lg" href="/app.html">Започнете безплатно</a>
+        <a class="btn btn--primary btn--lg" href="/app.html?lang=bg">Започнете безплатно</a>
       </div>
     </div>
   </section>

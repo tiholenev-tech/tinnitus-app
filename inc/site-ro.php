@@ -240,7 +240,7 @@ function ro_footer() {
         <h4>Altele</h4>
         <ul>
           <li><a href="/ro/articole/">Toate articolele</a></li>
-          <li><a href="/app.html">Aplicația</a></li>
+          <li><a href="/app.html?lang=ro">Aplicația</a></li>
           <li><a href="/" lang="bg" hreflang="bg">Български (BG)</a></li>
         </ul>
       </div>
