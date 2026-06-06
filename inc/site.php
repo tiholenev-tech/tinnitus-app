@@ -297,7 +297,12 @@ function auralis_foot($scripts = []) {
   var btn = mh.querySelector('.masthead__menu');
   var t = false;
   function u(){
-    var sc = (window.scrollY || window.pageYOffset) > 48;
+    // Хистерезис (две прагови стойности) — спира трептенето: свиването на менюто
+    // скъсява документа и при единичен праг scrollY подскача около него в цикъл.
+    var y = window.scrollY || window.pageYOffset;
+    var sc = mh.classList.contains('is-scrolled');
+    if (!sc && y > 80) sc = true;          // влиза в компактен режим чак на 80px
+    else if (sc && y < 40) sc = false;     // излиза чак под 40px — мъртвата зона спира цикъла
     mh.classList.toggle('is-scrolled', sc);
     if (!sc) mh.classList.remove('nav-open');            // в горната част менюто е винаги отворено
     if (btn) btn.setAttribute('aria-expanded', (!sc || mh.classList.contains('nav-open')) ? 'true' : 'false');
