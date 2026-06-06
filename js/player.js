@@ -274,15 +274,15 @@ window.Player = (function () {
     // NO-TIMER: премахнат progress bar — всички звуци са infinite loop,
     // duration няма смисъл за UI. Запазен duration_sec в manifest за
     // future analytics, но не се показва.
-    var backAria = t('components.player.backAria', 'Назад към библиотеката');
-    var l1Label = t('components.player.layer1Label', 'Основен звук');
-    var l2Label = t('components.player.layer2Label', 'Фонов шум');
-    var noiseChangeLabel = t('components.player.noiseChange', 'Смени фон');
+    var backAria = t('ui.components.player.backAria', 'Назад към библиотеката');
+    var l1Label = t('ui.components.player.layer1Label', 'Основен звук');
+    var l2Label = t('ui.components.player.layer2Label', 'Фонов шум');
+    var noiseChangeLabel = t('ui.components.player.noiseChange', 'Смени фон');
     var playAria = isPlaying
-      ? t('components.player.pauseAria', 'Пауза')
-      : t('components.player.playAria', 'Пусни');
-    var sleepAria = t('components.player.sleepAria', 'Нощен режим');
-    var sosAria = t('components.player.sosAria', 'SOS дишане');
+      ? t('ui.components.player.pauseAria', 'Пауза')
+      : t('ui.components.player.playAria', 'Пусни');
+    var sleepAria = t('ui.components.player.sleepAria', 'Нощен режим');
+    var sosAria = t('ui.components.player.sosAria', 'SOS дишане');
     // PACK A change 1: favorite state определя heart icon variant + aria.
     var isFav = !!(window.Favorites && window.Favorites.has &&
       sound && window.Favorites.has(sound.id));
@@ -799,8 +799,8 @@ window.Player = (function () {
     if (!btn) return;
     btn.innerHTML = isPlaying ? SVG.pause : SVG.play;
     btn.setAttribute('aria-label',
-      isPlaying ? t('components.player.pauseAria', 'Пауза')
-                : t('components.player.playAria', 'Пусни'));
+      isPlaying ? t('ui.components.player.pauseAria', 'Пауза')
+                : t('ui.components.player.playAria', 'Пусни'));
   }
 
   function updatePlayButtonState() {

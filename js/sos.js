@@ -71,12 +71,12 @@ window.SOS = (function () {
   function buildExerciseHtml() {
     return (
       '<button class="sos-close" type="button" data-action="close"' +
-        ' aria-label="' + escapeHtml(t('sos.closeAria', 'Спрете упражнението')) + '">' +
+        ' aria-label="' + escapeHtml(t('ui.sos.closeAria', 'Спрете упражнението')) + '">' +
         svgClose() +
       '</button>' +
 
       '<div class="sos-instructions-top">' +
-        escapeHtml(t('sos.instructionsTop', 'Дишайте бавно през носа')) +
+        escapeHtml(t('ui.sos.instructionsTop', 'Дишайте бавно през носа')) +
       '</div>' +
 
       '<div class="sos-stage">' +
@@ -86,18 +86,18 @@ window.SOS = (function () {
         '</div>' +
         '<div class="sos-text-overlay">' +
           '<div class="sos-phase" id="sosPhase">' +
-            escapeHtml(t('sos.inhale', 'ВДИШАЙТЕ')) +
+            escapeHtml(t('ui.sos.inhale', 'ВДИШАЙТЕ')) +
           '</div>' +
           '<div class="sos-countdown" id="sosCountdown">' + INHALE_SEC + '</div>' +
         '</div>' +
       '</div>' +
 
       '<div class="sos-cycle" id="sosCycle">' +
-        escapeHtml(t('sos.cycle', 'Цикъл 1 от 4', { n: 1, total: TOTAL_CYCLES })) +
+        escapeHtml(t('ui.sos.cycle', 'Цикъл 1 от 4', { n: 1, total: TOTAL_CYCLES })) +
       '</div>' +
 
       '<button class="sos-stop-btn" type="button" data-action="close">' +
-        escapeHtml(t('sos.stop', 'Спрете упражнението')) +
+        escapeHtml(t('ui.sos.stop', 'Спрете упражнението')) +
       '</button>'
     );
   }
@@ -105,21 +105,21 @@ window.SOS = (function () {
   function buildEndHtml() {
     return (
       '<button class="sos-close" type="button" data-action="close"' +
-        ' aria-label="' + escapeHtml(t('sos.closeAria', 'Спрете упражнението')) + '">' +
+        ' aria-label="' + escapeHtml(t('ui.sos.closeAria', 'Спрете упражнението')) + '">' +
         svgClose() +
       '</button>' +
 
       '<div class="sos-end">' +
         '<div class="sos-end-circle" aria-hidden="true"></div>' +
         '<h1 class="sos-end-title">' +
-          escapeHtml(t('sos.end.title', 'По-добре ли сте?')) +
+          escapeHtml(t('ui.sos.end.title', 'По-добре ли сте?')) +
         '</h1>' +
         '<div class="sos-end-actions">' +
           '<button class="sos-btn sos-btn--primary" type="button" data-action="close">' +
-            escapeHtml(t('sos.end.yes', 'Да, благодаря')) +
+            escapeHtml(t('ui.sos.end.yes', 'Да, благодаря')) +
           '</button>' +
           '<button class="sos-btn sos-btn--ghost" type="button" data-action="restart">' +
-            escapeHtml(t('sos.end.again', 'Още един цикъл')) +
+            escapeHtml(t('ui.sos.end.again', 'Още един цикъл')) +
           '</button>' +
         '</div>' +
       '</div>'
@@ -177,7 +177,7 @@ window.SOS = (function () {
     var cycleEl = document.getElementById('sosCycle');
 
     if (phaseEl) {
-      var phaseLabel = t('sos.' + phaseKey, phaseKey.toUpperCase());
+      var phaseLabel = t('ui.sos.' + phaseKey, phaseKey.toUpperCase());
       if (phaseEl.textContent !== phaseLabel) phaseEl.textContent = phaseLabel;
     }
     if (countEl) {
@@ -185,7 +185,7 @@ window.SOS = (function () {
       if (countEl.textContent !== countText) countEl.textContent = countText;
     }
     if (cycleEl) {
-      var cycleText = t('sos.cycle', 'Цикъл ' + (cycleIdx + 1) + ' от ' + TOTAL_CYCLES,
+      var cycleText = t('ui.sos.cycle', 'Цикъл ' + (cycleIdx + 1) + ' от ' + TOTAL_CYCLES,
         { n: cycleIdx + 1, total: TOTAL_CYCLES });
       if (cycleEl.textContent !== cycleText) cycleEl.textContent = cycleText;
     }
@@ -212,7 +212,7 @@ window.SOS = (function () {
     overlay.className = 'sos-overlay';
     overlay.setAttribute('role', 'dialog');
     overlay.setAttribute('aria-modal', 'true');
-    overlay.setAttribute('aria-label', t('sos.openAria', 'SOS дишане'));
+    overlay.setAttribute('aria-label', t('ui.sos.openAria', 'SOS дишане'));
     overlay.innerHTML = buildExerciseHtml();
 
     document.body.appendChild(overlay);

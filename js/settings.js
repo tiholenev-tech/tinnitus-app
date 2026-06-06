@@ -191,9 +191,9 @@ window.Settings = (function () {
              PREVIEW_LOCALES.indexOf(code) !== -1;
     });
     var options = activeLocales.map(function (code) {
-      var name = t('settings.lang.names.' + code, code.toUpperCase());
+      var name = t('ui.settings.lang.names.' + code, code.toUpperCase());
       var badge = (PREVIEW_LOCALES.indexOf(code) !== -1)
-        ? ' (' + t('settings.lang.preview', 'preview') + ')' : '';
+        ? ' (' + t('ui.settings.lang.preview', 'preview') + ')' : '';
       return '<option value="' + escapeHtml(code) + '"' +
         (code === currentLocale ? ' selected' : '') + '>' +
         escapeHtml(name) + escapeHtml(badge) +
@@ -205,11 +205,11 @@ window.Settings = (function () {
         '<div class="set-section-head">' +
           '<span class="set-section-icon" aria-hidden="true">' + svgGlobe() + '</span>' +
           '<h3 class="set-section-title">' +
-            escapeHtml(t('settings.lang.label', 'Език')) +
+            escapeHtml(t('ui.settings.lang.label', 'Език')) +
           '</h3>' +
         '</div>' +
         '<select class="set-select" id="setLangSelect" aria-label="' +
-          escapeHtml(t('settings.lang.label', 'Език')) + '">' +
+          escapeHtml(t('ui.settings.lang.label', 'Език')) + '">' +
           options +
         '</select>' +
       '</section>'
@@ -219,20 +219,20 @@ window.Settings = (function () {
   function buildThemeSection() {
     var current = getCurrentTheme();
     var opts = [
-      { id: 'light', label: t('settings.theme.light', 'Светла') },
-      { id: 'dark',  label: t('settings.theme.dark',  'Тъмна') },
-      { id: 'auto',  label: t('settings.theme.auto',  'Автоматична') }
+      { id: 'light', label: t('ui.settings.theme.light', 'Светла') },
+      { id: 'dark',  label: t('ui.settings.theme.dark',  'Тъмна') },
+      { id: 'auto',  label: t('ui.settings.theme.auto',  'Автоматична') }
     ];
     return (
       '<section class="set-section">' +
         '<div class="set-section-head">' +
           '<span class="set-section-icon" aria-hidden="true">' + svgMoon() + '</span>' +
           '<h3 class="set-section-title">' +
-            escapeHtml(t('settings.theme.label', 'Тема')) +
+            escapeHtml(t('ui.settings.theme.label', 'Тема')) +
           '</h3>' +
         '</div>' +
         '<div class="set-segmented" role="radiogroup"' +
-          ' aria-label="' + escapeHtml(t('settings.theme.label', 'Тема')) + '">' +
+          ' aria-label="' + escapeHtml(t('ui.settings.theme.label', 'Тема')) + '">' +
           opts.map(function (o) {
             var isActive = o.id === current;
             return (
@@ -255,13 +255,13 @@ window.Settings = (function () {
         '<div class="set-section-head">' +
           '<span class="set-section-icon" aria-hidden="true">' + svgSpeaker() + '</span>' +
           '<h3 class="set-section-title">' +
-            escapeHtml(t('settings.volume.label', 'Сила на звука')) +
+            escapeHtml(t('ui.settings.volume.label', 'Сила на звука')) +
           '</h3>' +
           '<span class="set-volume-value" id="setVolValue">' + vol + '%</span>' +
         '</div>' +
         '<input type="range" class="set-volume-slider" id="setVolSlider"' +
           ' min="0" max="100" step="1" value="' + vol + '"' +
-          ' aria-label="' + escapeHtml(t('settings.volume.aria', 'Сила на звука 0-100')) + '">' +
+          ' aria-label="' + escapeHtml(t('ui.settings.volume.aria', 'Сила на звука 0-100')) + '">' +
       '</section>'
     );
   }
@@ -273,16 +273,16 @@ window.Settings = (function () {
       debugHtml =
         '<div class="set-debug-divider" aria-hidden="true">— DEBUG —</div>' +
         '<button class="set-action set-action--debug" type="button" data-action="data-debug-trial">' +
-          escapeHtml(t('settings.data.debugResetTrial', 'Reset trial period (debug)')) +
+          escapeHtml(t('ui.settings.data.debugResetTrial', 'Reset trial period (debug)')) +
         '</button>' +
         '<button class="set-action set-action--debug" type="button" data-action="data-debug-skip-onboarding">' +
-          escapeHtml(t('settings.data.debugSkipOnboarding', 'Skip onboarding → Library (debug)')) +
+          escapeHtml(t('ui.settings.data.debugSkipOnboarding', 'Skip onboarding → Library (debug)')) +
         '</button>' +
         '<button class="set-action set-action--debug" type="button" data-action="data-debug-reset-onboarding">' +
-          escapeHtml(t('settings.data.debugResetOnboarding', 'Reset onboarding (debug)')) +
+          escapeHtml(t('ui.settings.data.debugResetOnboarding', 'Reset onboarding (debug)')) +
         '</button>' +
         '<button class="set-action set-action--debug" type="button" data-action="data-debug-mock-quiz">' +
-          escapeHtml(t('settings.data.debugMockQuiz', 'Mock quiz: TH_C → Library (debug)')) +
+          escapeHtml(t('ui.settings.data.debugMockQuiz', 'Mock quiz: TH_C → Library (debug)')) +
         '</button>' +
         '<button class="set-action set-action--debug" type="button" data-action="data-debug-show-analytics">' +
           'Show raw analytics JSON (debug)' +
@@ -299,18 +299,18 @@ window.Settings = (function () {
         '<div class="set-section-head">' +
           '<span class="set-section-icon" aria-hidden="true">' + svgChart() + '</span>' +
           '<h3 class="set-section-title">' +
-            escapeHtml(t('settings.data.label', 'Моите данни')) +
+            escapeHtml(t('ui.settings.data.label', 'Моите данни')) +
           '</h3>' +
         '</div>' +
         '<div class="set-data-actions">' +
           '<button class="set-action" type="button" data-action="data-export">' +
-            escapeHtml(t('settings.data.export', 'Изтегли всичко (JSON)')) +
+            escapeHtml(t('ui.settings.data.export', 'Изтегли всичко (JSON)')) +
           '</button>' +
           // „Импорт на дневник" СКРИТ (audit 1.0.105): importFromJson пише в
           // мъртвия legacy '_' store (не в реалния дневник) → нищо не се появява.
           // „Изтегли всичко (JSON)" пак прави backup. Връща се след пренапис.
           '<button class="set-action set-action--danger" type="button" data-action="data-delete">' +
-            escapeHtml(t('settings.data.delete', 'Изтрий всички данни')) +
+            escapeHtml(t('ui.settings.data.delete', 'Изтрий всички данни')) +
           '</button>' +
           debugHtml +
           (trialResetMessage
@@ -327,20 +327,20 @@ window.Settings = (function () {
         '<div class="set-section-head">' +
           '<span class="set-section-icon" aria-hidden="true">' + svgInfo() + '</span>' +
           '<h3 class="set-section-title">' +
-            escapeHtml(t('settings.about.label', 'За приложението')) +
+            escapeHtml(t('ui.settings.about.label', 'За приложението')) +
           '</h3>' +
         '</div>' +
         '<div class="set-about-version">' +
-          escapeHtml(t('settings.about.version',
+          escapeHtml(t('ui.settings.about.version',
             'AURALIS · версия ' + APP_VERSION + ' (beta) · 2026', { v: APP_VERSION })) +
         '</div>' +
         '<div class="set-about-disclaimer">' +
-          escapeHtml(t('settings.about.disclaimer',
+          escapeHtml(t('ui.settings.about.disclaimer',
             'Wellness инструмент, не заместител на лекар.')) +
         '</div>' +
         '<div class="set-about-links">' +
           '<button class="set-link" type="button" data-action="open-privacy">' +
-            escapeHtml(t('settings.about.privacyLink', 'Политика за поверителност')) +
+            escapeHtml(t('ui.settings.about.privacyLink', 'Политика за поверителност')) +
           '</button>' +
           /* P0 LAUNCH 2026-05-28: terms бутон скрит — content съществува в
              bg.json под ui.terms.* но buildTermsViewHtml търси по path
@@ -770,8 +770,8 @@ window.Settings = (function () {
   }
 
   function buildMainViewHtml() {
-    var closeAria = t('settings.closeAria', 'Затвори настройки');
-    var title = t('settings.title', 'Настройки');
+    var closeAria = t('ui.settings.closeAria', 'Затвори настройки');
+    var title = t('ui.settings.title', 'Настройки');
     // Phone test cleanup: преструктурирано за яснота. Премахнати:
     // - Advanced Audio (експертно, объркваше end-user)
     // - Phase 2 placeholders (Audio output, Equalizer)
@@ -827,11 +827,11 @@ window.Settings = (function () {
   }
 
   function buildPrivacyViewHtml() {
-    var closeAria = t('settings.closeAria', 'Затвори настройки');
-    var backLabel = t('settings.back', 'Назад');
-    var title = t('privacy.title', 'Политика за поверителност');
-    var lastUpdated = t('privacy.lastUpdated', '');
-    var intro = t('privacy.intro', '');
+    var closeAria = t('ui.settings.closeAria', 'Затвори настройки');
+    var backLabel = t('ui.settings.back', 'Назад');
+    var title = t('ui.privacy.title', 'Политика за поверителност');
+    var lastUpdated = t('ui.privacy.lastUpdated', '');
+    var intro = t('ui.privacy.intro', '');
 
     var sections = [
       ['privacy.collection.title', 'privacy.collection.text'],
@@ -844,8 +844,8 @@ window.Settings = (function () {
       return buildDocSection(t(pair[0], ''), t(pair[1], ''));
     }).join('');
 
-    var contactTitle = t('privacy.contact.title', 'Контакт');
-    var contactEmail = t('privacy.contact.email', '');
+    var contactTitle = t('ui.privacy.contact.title', 'Контакт');
+    var contactEmail = t('ui.privacy.contact.email', '');
     var contactHtml = contactEmail
       ? '<section class="set-doc-section">' +
           '<h3 class="set-doc-title">' + escapeHtml(contactTitle) + '</h3>' +
@@ -876,11 +876,11 @@ window.Settings = (function () {
   }
 
   function buildTermsViewHtml() {
-    var closeAria = t('settings.closeAria', 'Затвори настройки');
-    var backLabel = t('settings.back', 'Назад');
-    var title = t('terms.title', 'Условия за ползване');
-    var lastUpdated = t('terms.lastUpdated', '');
-    var intro = t('terms.intro', '');
+    var closeAria = t('ui.settings.closeAria', 'Затвори настройки');
+    var backLabel = t('ui.settings.back', 'Назад');
+    var title = t('ui.terms.title', 'Условия за ползване');
+    var lastUpdated = t('ui.terms.lastUpdated', '');
+    var intro = t('ui.terms.intro', '');
 
     var sections = [
       ['terms.wellness.title',     'terms.wellness.text'],
@@ -971,7 +971,7 @@ window.Settings = (function () {
     };
     var blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
     var url = URL.createObjectURL(blob);
-    var filename = t('settings.data.exportFilename',
+    var filename = t('ui.settings.data.exportFilename',
       'auralis-data-' + todayKey() + '.json', { date: todayKey() });
     var a = document.createElement('a');
     a.href = url;
@@ -1043,7 +1043,7 @@ window.Settings = (function () {
 
   function deleteAllData() {
     var ok = window.confirm(
-      t('settings.data.deleteConfirm',
+      t('ui.settings.data.deleteConfirm',
         'Сигурни ли сте? Това ще изтрие всичко. Действието е необратимо.')
     );
     if (!ok) return;
@@ -1072,7 +1072,7 @@ window.Settings = (function () {
       localStorage.removeItem('auralis_trial_start');
       localStorage.removeItem('auralis_unlocked');
     } catch (e) {}
-    trialResetMessage = t('settings.data.debugResetDone', 'Trial reset ✓');
+    trialResetMessage = t('ui.settings.data.debugResetDone', 'Trial reset ✓');
     refresh();
   }
 

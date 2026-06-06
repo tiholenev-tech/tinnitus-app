@@ -196,7 +196,7 @@ window.Diary = (function () {
   function buildLineChartSvg(values, yMax, color, height) {
     if (!values || values.length === 0) {
       return '<div class="diary-chart-empty">' +
-        escapeHtml(t('diary.chart.noData', 'Няма записи в този период')) +
+        escapeHtml(t('ui.diary.chart.noData', 'Няма записи в този период')) +
         '</div>';
     }
     height = height || 100;
@@ -253,7 +253,7 @@ window.Diary = (function () {
             escapeHtml(t(titleKey, defaultTitle)) +
           '</h3>' +
           '<span class="diary-chart-avg">' +
-            escapeHtml(t('diary.chart.avg', 'Средно: ' + avg, { n: avg })) +
+            escapeHtml(t('ui.diary.chart.avg', 'Средно: ' + avg, { n: avg })) +
           '</span>' +
         '</div>' +
         buildLineChartSvg(values, yMax, color) +
@@ -269,7 +269,7 @@ window.Diary = (function () {
     if (entries.length < 7) {
       return [{
         type: 'needMore',
-        text: t('diary.insights.needMoreData', 'Запишете поне 7 дни за да видите тенденции.')
+        text: t('ui.diary.insights.needMoreData', 'Запишете поне 7 дни за да видите тенденции.')
       }];
     }
 
@@ -285,7 +285,7 @@ window.Diary = (function () {
       if (parseFloat(delta) >= 0.5) {
         insights.push({
           type: 'sleep',
-          text: t('diary.insights.betterWithSleep',
+          text: t('ui.diary.insights.betterWithSleep',
             'Когато спите повече от 7 часа, тинитусът е средно с ' + delta + ' точки по-нисък.',
             { delta: delta })
         });
@@ -302,7 +302,7 @@ window.Diary = (function () {
       if (parseFloat(d2) >= 0.5) {
         insights.push({
           type: 'stress',
-          text: t('diary.insights.moreStressMoreTinnitus',
+          text: t('ui.diary.insights.moreStressMoreTinnitus',
             'Когато стресът е над 6, тинитусът е средно с ' + d2 + ' точки по-висок.',
             { delta: d2 })
         });
@@ -365,41 +365,41 @@ window.Diary = (function () {
       };
     }
     var saveLabel = existing
-      ? t('diary.saveUpdate', 'Обнови днешния запис')
-      : t('diary.save', 'Запиши днешния запис');
-    var savedLabel = t('diary.saved', 'Записано');
+      ? t('ui.diary.saveUpdate', 'Обнови днешния запис')
+      : t('ui.diary.save', 'Запиши днешния запис');
+    var savedLabel = t('ui.diary.saved', 'Записано');
 
     return (
       '<section class="diary-today">' +
         '<div class="diary-today-date">' +
-          escapeHtml(t('diary.today', 'Днес, ' + humanDate, { date: humanDate })) +
+          escapeHtml(t('ui.diary.today', 'Днес, ' + humanDate, { date: humanDate })) +
         '</div>' +
 
         '<div class="diary-q">' +
           '<label class="diary-q-label" for="diarySleep">' +
-            escapeHtml(t('diary.q.sleep', 'Колко часа спахте?')) +
+            escapeHtml(t('ui.diary.q.sleep', 'Колко часа спахте?')) +
           '</label>' +
           buildSliderHtml('diarySleep', 0, 12, draft.sleep_hours,
             '0', '12',
-            function (v) { return t('diary.q.sleepHoursSuffix', v + ' ч', { n: v }); }) +
+            function (v) { return t('ui.diary.q.sleepHoursSuffix', v + ' ч', { n: v }); }) +
         '</div>' +
 
         '<div class="diary-q">' +
           '<label class="diary-q-label" for="diaryTinnitus">' +
-            escapeHtml(t('diary.q.tinnitus', 'Тинитусът днес:')) +
+            escapeHtml(t('ui.diary.q.tinnitus', 'Тинитусът днес:')) +
           '</label>' +
           buildSliderHtml('diaryTinnitus', 0, 10, draft.tinnitus,
-            t('diary.q.tinnitusLow', 'Тих'),
-            t('diary.q.tinnitusHigh', 'Силен')) +
+            t('ui.diary.q.tinnitusLow', 'Тих'),
+            t('ui.diary.q.tinnitusHigh', 'Силен')) +
         '</div>' +
 
         '<div class="diary-q">' +
           '<label class="diary-q-label" for="diaryStress">' +
-            escapeHtml(t('diary.q.stress', 'Стресът днес:')) +
+            escapeHtml(t('ui.diary.q.stress', 'Стресът днес:')) +
           '</label>' +
           buildSliderHtml('diaryStress', 0, 10, draft.stress,
-            t('diary.q.stressLow', 'Спокоен'),
-            t('diary.q.stressHigh', 'Тревожен')) +
+            t('ui.diary.q.stressLow', 'Спокоен'),
+            t('ui.diary.q.stressHigh', 'Тревожен')) +
         '</div>' +
 
         '<button class="diary-save-btn" type="button" data-action="save"' +
@@ -420,7 +420,7 @@ window.Diary = (function () {
       return (
         '<section class="diary-history">' +
           '<div class="diary-empty">' +
-            escapeHtml(t('diary.empty', 'Започнете да записвате днес — само 3 въпроса, 30 секунди.')) +
+            escapeHtml(t('ui.diary.empty', 'Започнете да записвате днес — само 3 въпроса, 30 секунди.')) +
           '</div>' +
         '</section>'
       );
@@ -442,7 +442,7 @@ window.Diary = (function () {
     var insightsHtml = insights.length === 0 ? '' :
       '<section class="diary-insights">' +
         '<h3 class="diary-insights-title">' +
-          escapeHtml(t('diary.insights.title', 'Какво забелязваме')) +
+          escapeHtml(t('ui.diary.insights.title', 'Какво забелязваме')) +
         '</h3>' +
         '<ul class="diary-insights-list">' +
           insights.map(function (ins) {
@@ -457,7 +457,7 @@ window.Diary = (function () {
       '<section class="diary-history">' +
         '<div class="diary-history-head">' +
           '<h2 class="diary-history-title">' +
-            escapeHtml(t('diary.history.label', 'История')) +
+            escapeHtml(t('ui.diary.history.label', 'История')) +
           '</h2>' +
           '<div class="diary-ranges" role="radiogroup">' + rangeButtons + '</div>' +
         '</div>' +
@@ -472,14 +472,14 @@ window.Diary = (function () {
           stressVals, 10, 'hsl(38 80% 55%)') +
 
         '<button class="diary-export-btn" type="button" data-action="export">' +
-          escapeHtml(t('diary.export', 'Изтегли история (JSON)')) +
+          escapeHtml(t('ui.diary.export', 'Изтегли история (JSON)')) +
         '</button>' +
       '</section>'
     );
   }
 
   function buildDiaryHtml() {
-    var closeAria = t('diary.closeAria', 'Затвори дневника');
+    var closeAria = t('ui.diary.closeAria', 'Затвори дневника');
     return (
       '<div class="diary-screen" data-screen="diary">' +
         '<button class="diary-close" type="button" data-action="close"' +
@@ -488,7 +488,7 @@ window.Diary = (function () {
         '<div class="diary-header">' +
           '<span class="diary-icon" aria-hidden="true">' + svgBook() + '</span>' +
           '<h1 class="diary-title">' +
-            escapeHtml(t('diary.title', 'Дневник')) +
+            escapeHtml(t('ui.diary.title', 'Дневник')) +
           '</h1>' +
         '</div>' +
 
@@ -510,7 +510,7 @@ window.Diary = (function () {
     var valueEl = el(id + 'Value');
     if (id === 'diarySleep') {
       draft.sleep_hours = val;
-      if (valueEl) valueEl.textContent = t('diary.q.sleepHoursSuffix', val + ' ч', { n: val });
+      if (valueEl) valueEl.textContent = t('ui.diary.q.sleepHoursSuffix', val + ' ч', { n: val });
     } else if (id === 'diaryTinnitus') {
       draft.tinnitus = val;
       if (valueEl) valueEl.textContent = String(val);
@@ -526,8 +526,8 @@ window.Diary = (function () {
         btn.removeAttribute('disabled');
         var existing = getTodayEntry();
         btn.textContent = existing
-          ? t('diary.saveUpdate', 'Обнови днешния запис')
-          : t('diary.save', 'Запиши днешния запис');
+          ? t('ui.diary.saveUpdate', 'Обнови днешния запис')
+          : t('ui.diary.save', 'Запиши днешния запис');
       }
     }
   }
@@ -556,7 +556,7 @@ window.Diary = (function () {
     };
     var blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
     var url = URL.createObjectURL(blob);
-    var filename = t('diary.exportFilename', 'auralis-diary-' + todayKey() + '.json',
+    var filename = t('ui.diary.exportFilename', 'auralis-diary-' + todayKey() + '.json',
       { date: todayKey() });
     var a = document.createElement('a');
     a.href = url;

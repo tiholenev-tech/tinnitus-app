@@ -120,10 +120,10 @@ window.Sleep = (function () {
       return (
         '<div class="sleep-no-sound">' +
           '<p class="sleep-no-sound-text">' +
-            escapeHtml(t('sleep.nothingPlaying', 'Изберете звук от библиотеката')) +
+            escapeHtml(t('ui.sleep.nothingPlaying', 'Изберете звук от библиотеката')) +
           '</p>' +
           '<button class="sleep-open-library" type="button" data-action="close">' +
-            escapeHtml(t('sleep.openLibrary', 'Към библиотеката')) +
+            escapeHtml(t('ui.sleep.openLibrary', 'Към библиотеката')) +
           '</button>' +
         '</div>'
       );
@@ -140,10 +140,10 @@ window.Sleep = (function () {
     return (
       '<div class="sleep-timer-section">' +
         '<div class="sleep-timer-label">' +
-          escapeHtml(t('sleep.timer.label', 'Таймер за приключване')) +
+          escapeHtml(t('ui.sleep.timer.label', 'Таймер за приключване')) +
         '</div>' +
         '<div class="sleep-timer-chips" role="radiogroup"' +
-          ' aria-label="' + escapeHtml(t('sleep.timer.label', 'Таймер')) + '">' +
+          ' aria-label="' + escapeHtml(t('ui.sleep.timer.label', 'Таймер')) + '">' +
           TIMER_OPTIONS.map(function (opt) {
             var isActive = opt.min === selectedMinutes;
             return (
@@ -165,7 +165,7 @@ window.Sleep = (function () {
     if (!stopAt) return '<div class="sleep-stop-time" id="sleepStopTime">&nbsp;</div>';
     return (
       '<div class="sleep-stop-time" id="sleepStopTime">' +
-        escapeHtml(t('sleep.timer.stopTime', 'Изключване: ' + stopAt, { time: stopAt })) +
+        escapeHtml(t('ui.sleep.timer.stopTime', 'Изключване: ' + stopAt, { time: stopAt })) +
       '</div>'
     );
   }
@@ -173,14 +173,14 @@ window.Sleep = (function () {
   function buildSosButton() {
     return (
       '<button class="sleep-sos-btn" type="button" data-action="sos"' +
-        ' aria-label="' + escapeHtml(t('sleep.sos.button', 'Дишане при паника')) + '">' +
+        ' aria-label="' + escapeHtml(t('ui.sleep.sos.button', 'Дишане при паника')) + '">' +
         '<span class="sleep-sos-icon" aria-hidden="true">' + svgHeart() + '</span>' +
         '<span class="sleep-sos-text">' +
           '<span class="sleep-sos-title">' +
-            escapeHtml(t('sleep.sos.button', 'Дишане при паника')) +
+            escapeHtml(t('ui.sleep.sos.button', 'Дишане при паника')) +
           '</span>' +
           '<span class="sleep-sos-sub">' +
-            escapeHtml(t('sleep.sos.subtitle', 'Натиснете при тревога')) +
+            escapeHtml(t('ui.sleep.sos.subtitle', 'Натиснете при тревога')) +
           '</span>' +
         '</span>' +
       '</button>'
@@ -189,7 +189,7 @@ window.Sleep = (function () {
 
   function buildSleepHtml() {
     var sound = getCurrentSound();
-    var closeAria = t('sleep.closeAria', 'Изход от нощен режим');
+    var closeAria = t('ui.sleep.closeAria', 'Изход от нощен режим');
     return (
       '<div class="sleep-screen" data-screen="sleep">' +
         '<button class="sleep-close" type="button" data-action="close"' +
@@ -198,7 +198,7 @@ window.Sleep = (function () {
         '<div class="sleep-header">' +
           '<span class="sleep-moon" aria-hidden="true">' + svgMoon() + '</span>' +
           '<h1 class="sleep-title">' +
-            escapeHtml(t('sleep.title', 'Нощен режим')) +
+            escapeHtml(t('ui.sleep.title', 'Нощен режим')) +
           '</h1>' +
         '</div>' +
 

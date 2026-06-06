@@ -100,15 +100,15 @@ window.Calm = (function () {
     var subtitle = soundSubtitle(sound);
     var author = soundAuthor(sound);
     var duration = (sound && sound.duration_sec) ? sound.duration_sec : 0;
-    var categoryLabel = t('calm.categoryLabel', 'Медитация');
-    var closeAria = t('calm.closeAria', 'Затвори плеъра');
+    var categoryLabel = t('ui.calm.categoryLabel', 'Медитация');
+    var closeAria = t('ui.calm.closeAria', 'Затвори плеъра');
     var playAria = isPlaying
-      ? t('calm.pauseAria', 'Пауза')
-      : t('calm.playAria', 'Пусни');
+      ? t('ui.calm.pauseAria', 'Пауза')
+      : t('ui.calm.playAria', 'Пусни');
 
     return (
       '<div class="calm-screen" data-screen="calm"' +
-        ' role="region" aria-label="' + escapeHtml(t('calm.playerAria', 'Плеър за медитация')) + '">' +
+        ' role="region" aria-label="' + escapeHtml(t('ui.calm.playerAria', 'Плеър за медитация')) + '">' +
 
         '<button class="calm-close" type="button" data-action="close"' +
           ' aria-label="' + escapeHtml(closeAria) + '">' + svgClose() + '</button>' +
@@ -149,10 +149,10 @@ window.Calm = (function () {
       '<div class="calm-screen calm-screen--ended" data-screen="calm-ended">' +
         '<div class="calm-ended-orb" aria-hidden="true"></div>' +
         '<h1 class="calm-ended-title">' +
-          escapeHtml(t('calm.ended', 'Завършена')) +
+          escapeHtml(t('ui.calm.ended', 'Завършена')) +
         '</h1>' +
         '<div class="calm-ended-sub">' +
-          escapeHtml(t('calm.endedSub', 'Връщане към библиотеката...')) +
+          escapeHtml(t('ui.calm.endedSub', 'Връщане към библиотеката...')) +
         '</div>' +
       '</div>'
     );
@@ -259,17 +259,17 @@ window.Calm = (function () {
     stopProgressTick();
     var app = el('app');
     if (!app) return;
-    var msg = t('calm.missingFile',
+    var msg = t('ui.calm.missingFile',
       'Аудио файлът липсва (placeholder за UI development).');
     var sound = findSound(activeSoundId);
     app.innerHTML = (
       '<div class="calm-screen" data-screen="calm-missing">' +
         '<button class="calm-close" type="button" data-action="close"' +
-          ' aria-label="' + escapeHtml(t('calm.closeAria', 'Затвори')) + '">' +
+          ' aria-label="' + escapeHtml(t('ui.calm.closeAria', 'Затвори')) + '">' +
           svgClose() +
         '</button>' +
         '<div class="calm-category">' +
-          escapeHtml(t('calm.categoryLabel', 'Медитация')) +
+          escapeHtml(t('ui.calm.categoryLabel', 'Медитация')) +
         '</div>' +
         '<div class="calm-art" aria-hidden="true"><div class="calm-art-orb"></div></div>' +
         '<div class="calm-info">' +
@@ -347,7 +347,7 @@ window.Calm = (function () {
         var btn = container.querySelector('.calm-play-btn');
         if (btn) {
           btn.innerHTML = svgPlay();
-          btn.setAttribute('aria-label', t('calm.playAria', 'Пусни'));
+          btn.setAttribute('aria-label', t('ui.calm.playAria', 'Пусни'));
         }
       } else {
         // Restart playback

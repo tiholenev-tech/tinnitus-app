@@ -278,7 +278,7 @@ window.Home = (function () {
   function buildCategoryCard(cat, recommended) {
     var bgFallback = CAT_FALLBACK_BG[cat.id] || { name: cat.id, subtitle: '' };
     // Името по елемент идва от library.cat_audio.<id> (Вълни, Дъжд…).
-    var name = t('library.cat_audio.' + cat.id, bgFallback.name);
+    var name = t('ui.library.cat_audio.' + cat.id, bgFallback.name);
     var subtitle = t('home.cat.' + cat.id + '.subtitle', bgFallback.subtitle);
     // Strip TODO: prefix ако EN stub дойде като резултат (fallback към БГ)
     if (name && name.indexOf('TODO:') === 0) name = bgFallback.name;
