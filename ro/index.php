@@ -19,7 +19,7 @@ $JSONLD = <<<JSON
 ]}
 JSON;
 
-ro_head(['title' => $TITLE, 'desc' => $DESC, 'url' => $URL, 'alt_bg' => $SITE_URL . '/', 'jsonld' => $JSONLD]);
+ro_head(['title' => $TITLE, 'desc' => $DESC, 'url' => $URL, 'alt_bg' => $SITE_URL . '/', 'alt_it' => $SITE_URL . '/it/', 'jsonld' => $JSONLD]);
 ro_masthead('home');
 ?>
 <main id="main">

@@ -171,6 +171,7 @@ function ro_head(array $o) {
   echo '<link rel="canonical" href="'.$url.'">'."\n";
   echo '<link rel="alternate" hreflang="ro" href="'.$url.'">'."\n";
   echo '<link rel="alternate" hreflang="bg" href="'.$altBg.'">'."\n";
+  if (!empty($o['alt_it'])) echo '<link rel="alternate" hreflang="it" href="'.$o['alt_it'].'">'."\n";
   echo '<link rel="alternate" hreflang="x-default" href="'.$altBg.'">'."\n";
   echo '<meta name="robots" content="'.$robots.'">'."\n";
   echo '<meta property="og:type" content="'.$ogType.'">'."\n";

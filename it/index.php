@@ -19,7 +19,7 @@ $JSONLD = <<<JSON
 ]}
 JSON;
 
-it_head(['title' => $TITLE, 'desc' => $DESC, 'url' => $URL, 'alt_bg' => $SITE_URL . '/', 'jsonld' => $JSONLD]);
+it_head(['title' => $TITLE, 'desc' => $DESC, 'url' => $URL, 'alt_bg' => $SITE_URL . '/', 'alt_ro' => $SITE_URL . '/ro/', 'jsonld' => $JSONLD]);
 it_masthead('home');
 ?>
 <main id="main">

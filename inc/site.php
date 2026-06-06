@@ -195,9 +195,10 @@ function auralis_head(array $o) {
   echo '<title>'.htmlspecialchars($title).'</title>'."\n";
   echo '<meta name="description" content="'.htmlspecialchars($desc).'">'."\n";
   echo '<link rel="canonical" href="'.$url.'">'."\n";
-  if (!empty($o['alt_it'])) {
+  if (!empty($o['alt_it']) || !empty($o['alt_ro'])) {
     echo '<link rel="alternate" hreflang="bg" href="'.$url.'">'."\n";
-    echo '<link rel="alternate" hreflang="it" href="'.$o['alt_it'].'">'."\n";
+    if (!empty($o['alt_it'])) echo '<link rel="alternate" hreflang="it" href="'.$o['alt_it'].'">'."\n";
+    if (!empty($o['alt_ro'])) echo '<link rel="alternate" hreflang="ro" href="'.$o['alt_ro'].'">'."\n";
     echo '<link rel="alternate" hreflang="x-default" href="'.$url.'">'."\n";
   }
   echo '<meta name="robots" content="'.$robots.'">'."\n";
