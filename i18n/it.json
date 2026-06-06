@@ -23,7 +23,11 @@
    "welcome": {
     "title": "Controlla il rumore.<br>Ritrova la calma.",
     "subtitle": "Una libreria di suoni scelta apposta per chi ha il fischio nelle orecchie.<br>Versione beta gratuita — senza pubblicità, senza abbonamento.",
-    "cta": "Inizia"
+    "cta": "Inizia",
+    "video": "Video di 30 secondi su cos'è AURALIS",
+    "videoTitle": "Video",
+    "videoSoon": "Video presto",
+    "videoDesc": "Presentazione di 30 secondi (Fase 2)"
    },
    "value": {
     "title": "Cosa otterrai",
@@ -631,6 +635,245 @@
     "multiEntryHint": "Vediamo che oggi compili insieme la voce del mattino e quella della sera. Va bene. Di solito quella serale si fa dopo le 20:00.",
     "saveDraftFailed": "Non siamo riusciti a salvare automaticamente. Premi „Salva\" prima di chiudere."
    }
+  },
+  "pitchTest": {
+   "pretest": {
+    "title": "Cosa senti più precisamente?",
+    "subtitle": "Questo determina come troveremo la tua frequenza.",
+    "tonal": {
+     "label": "Tono puro / fischio",
+     "desc": "Come «iiii» — altezza costante"
+    },
+    "noise": {
+     "label": "Sibilo / rumore",
+     "desc": "Come «shhh», vapore, acqua"
+    },
+    "pulsing": {
+     "label": "Pulsazione",
+     "desc": "A ritmo con il battito cardiaco"
+    },
+    "other": {
+     "label": "Altro / Non sono sicuro",
+     "desc": "Non corrisponde a quelli sopra"
+    }
+   },
+   "pulsingSkip": {
+    "title": "Consigliamo una visita da uno specialista ORL",
+    "body": "L'acufene pulsante (a ritmo con il battito cardiaco) richiede una consulenza medica — può avere origine vascolare. Consigliamo una visita prima di continuare."
+   },
+   "device": {
+    "title": "Indossa le cuffie",
+    "subtitle": "Il test copre frequenze alte che l'altoparlante del telefono non riproduce con precisione. Qualsiasi cuffia (auricolari o altre) dà un risultato molto più fedele.",
+    "headphones": {
+     "label": "Fatto, ho le cuffie",
+     "desc": "Auricolari, wireless o con cavo — qualsiasi"
+    },
+    "speakers": {
+     "label": "Non le ho — userò il telefono",
+     "desc": "Altoparlante (meno preciso sugli acuti)"
+    }
+   },
+   "calib": {
+    "title": "Senti il suono?",
+    "subtitle": "Il suono aumenta lentamente.<br>Premi <b>STOP</b> appena lo senti comodamente.",
+    "stopAria": "Stop — il volume è comodo",
+    "stop": "STOP"
+   },
+   "bravo": {
+    "almost": "Ottimo! Quasi finito…",
+    "quickFmt": "Bravo! {done} di {total} pronti",
+    "preciseFmt": "Bravo! Misurazione {done} pronta"
+   },
+   "measure": {
+    "ofFmt": "Misurazione {n} di {total}",
+    "nFmt": "Misurazione {n}",
+    "octSuffix": "ott",
+    "accuracyFmt": "precisione: {ci} (obiettivo ±{target})"
+   },
+   "trial": {
+    "title": "Troviamo la tua frequenza",
+    "help": "Ascolta i due suoni. Scegli quale è più vicino al tuo.",
+    "back": "Torna al precedente",
+    "quit": "Ferma per ora",
+    "quitSub": "Salviamo il punto in cui sei arrivato"
+   },
+   "tone": {
+    "aria": "Suono {letter} — premi per ascoltare",
+    "label": "Suono {letter}",
+    "hint": "Premi per ascoltare",
+    "replay": "Riascolta",
+    "choose": "È il mio"
+   },
+   "hold": {
+    "holding": "Tieni premuto…",
+    "hint": "Premi = ascolta<br>Tieni = scegli"
+   },
+   "octave": {
+    "title": "Controllo dell'ottava",
+    "lower": "ottava inferiore",
+    "upper": "ottava superiore"
+   },
+   "finetune": {
+    "title": "Regola con precisione il tuo tono",
+    "subtitle": "Scorri lentamente finché il suono diventa<br>esattamente come il tuo acufene.",
+    "aria": "Regolazione fine della frequenza",
+    "lower": "più basso",
+    "higher": "più alto",
+    "done": "È il mio tono"
+   },
+   "reward": {
+    "title": "Abbiamo trovato la tua frequenza",
+    "subtitle": "Ascolta con calma — il suono è regolato per te.<br>Respira lentamente.",
+    "done": "Fatto"
+   },
+   "rewardAsk": {
+    "title": "Hai sentito una differenza?",
+    "subtitle": "In molti il fischio si attenua per qualche minuto dopo.",
+    "yes": {
+     "label": "Sì, è più silenzioso",
+     "desc": "Il fischio è diminuito"
+    },
+    "little": {
+     "label": "Un po'",
+     "desc": "Lieve cambiamento"
+    },
+    "no": {
+     "label": "Non ho sentito",
+     "desc": "Nessun cambiamento ora"
+    },
+    "note": "Per una frequenza ancora più precisa puoi completare il test più tardi — quando ti è comodo."
+   },
+   "result": {
+    "rangeFmt": "Intervallo di affidabilità: {lo} – {hi} (±{ci} ottava).",
+    "title": "Fatto",
+    "subtitle": "Abbiamo trovato la frequenza approssimativa del tuo acufene.",
+    "note": "È una stima approssimativa, non una misurazione clinica — la frequenza dell'acufene cambia naturalmente. Per questo l'approccio sonoro usa una banda ampia attorno ad essa.",
+    "continue": "Continua",
+    "retest": "Ripeti il test"
+   },
+   "quit": {
+    "title": "Nessun problema 🙂",
+    "body": "Hai fermato il test. Puoi farlo più tardi, quando ti è comodo — richiede solo un minuto.",
+    "toStart": "All'inizio"
+   }
+  },
+  "account": {
+   "loginOk": "Accesso riuscito ✓",
+   "loginFail": "Accesso non riuscito. Riprova.",
+   "payCancelled": "Pagamento annullato.",
+   "linkExpired": "Il link è scaduto o non valido.",
+   "loggedOut": "Sei uscito dal profilo.",
+   "alreadyPaid": "Hai già l'accesso completo ✓",
+   "payThanks": "Grazie! L'accesso completo è sbloccato ✓",
+   "payProcessing": "Il pagamento è in elaborazione… può richiedere un minuto.",
+   "fullAccess": "Accesso completo ✓",
+   "trialLeftFmt": "Periodo di prova: ancora {n} giorni",
+   "trial": "Periodo di prova",
+   "profileTitle": "Il tuo profilo",
+   "loggedInAs": "Hai effettuato l'accesso come <b>{email}</b>",
+   "unlock": "Sblocca l'accesso completo — €19.99",
+   "loading": "Caricamento…",
+   "payNotReady": "Il pagamento è ancora in fase di configurazione. Riprova più tardi.",
+   "epay": "Paga con ePay / EasyPay (Bulgaria)",
+   "epayNotReady": "ePay è ancora in fase di configurazione. Riprova più tardi.",
+   "syncNow": "Sincronizza ora",
+   "syncing": "Sincronizzazione…",
+   "synced": "Sincronizzato ✓",
+   "logout": "Esci",
+   "close": "Chiudi",
+   "loginTitle": "Accesso / Recupero",
+   "loginSub": "Inserisci l'email e riceverai un link per accedere — senza password. Così i tuoi dati sono al sicuro e tornano quando cambi telefono.",
+   "emailPlaceholder": "tua@email.it",
+   "sendLink": "Invia il link",
+   "invalidEmail": "Inserisci un'email valida.",
+   "sending": "Invio…",
+   "linkSent": "Abbiamo inviato un link a <b>{email}</b>.<br>Aprilo dallo <b>stesso telefono</b> per accedere.",
+   "done": "Fatto ✓",
+   "serviceNotReady": "Il servizio è ancora in fase di configurazione. Riprova più tardi.",
+   "genericError": "Si è verificato un errore. Riprova."
+  },
+  "analytics": {
+   "hoursSessionsFmt": "{h}h / {s}x"
+  },
+  "categoryView": {
+   "loading": "Caricamento…",
+   "notFound": "Categoria non trovata."
+  },
+  "diaryHub": {
+   "title": "Diario",
+   "notStarted": "Non hai ancora iniziato il programma di 14 giorni.",
+   "notStartedSub": "Quando inizi, qui vedrai a che punto sei e cosa hai registrato.",
+   "statCurrentDay": "giorno attuale del programma",
+   "statCompleted": "giorni completati",
+   "statEntries": "voci nel diario",
+   "statStreak": "giorni attivi consecutivi",
+   "statFreezes": "«salti» rimasti"
+  },
+  "favorites": {
+   "loadingSkeleton": "Caricamento…"
+  },
+  "headphones": {
+   "l1": "Gli auricolari (in-ear) PEGGIORANO l'acufene. Creano un effetto di occlusione — il rumore interno si sente più forte.",
+   "l2": "Consigliamo:",
+   "l3": "✓ Altoparlanti esterni (60–90 cm dalla testa)",
+   "l4": "✓ Conduzione ossea (bone conduction)",
+   "l5": "✓ Cuffie open-back",
+   "l6": "Il volume NON deve coprire l'acufene. I due suoni devono sentirsi insieme (il cosiddetto «punto di miscelazione»).",
+   "l7": "Di notte — massimo 8 ore ininterrotte. Non impostare un timer di spegnimento di notte.",
+   "title": "IMPORTANTE — prima di iniziare",
+   "cta": "Ho capito — continua"
+  },
+  "player": {
+   "masterAria": "Volume generale",
+   "masterAriaFull": "Volume generale 0-100",
+   "sosTitle": "In caso di attacco di panico · SOS",
+   "sosSub": "Esercizio di respirazione, 60 sec",
+   "favRemove": "Rimuovi dai preferiti",
+   "favAdd": "Aggiungi ai preferiti",
+   "sleepManual": "Manuale:",
+   "minShort": "min.",
+   "sleepManualAria": "Durata manuale in minuti (1 a 480)",
+   "sleepCancel": "Annulla timer",
+   "sleepSave": "Salva",
+   "infoAbout": "Sul suono",
+   "infoNoise": "Sfondo consigliato per il tuo profilo",
+   "infoWhy": "Perché questo suono fa bene a te",
+   "hintAria": "Consiglio sul volume",
+   "close": "Chiudi",
+   "hintTitle": "Un piccolo consiglio per te",
+   "hintBody1": "Regola il volume e il mix come preferisci — <b>decidi tu</b>.",
+   "hintBody2": "Per il massimo effetto e perché il rumore si attenui col tempo, lascia che il suono <b>non copra del tutto</b> il tuo acufene — è bene sentirlo un po' sotto il suono.",
+   "hintOk": "Ho capito",
+   "hintNever": "Non mostrare più"
+  },
+  "profileResults": {
+   "spectrumAria": "Spettro delle frequenze da 250 Hz a 16 kHz, marcatore su {f}"
+  },
+  "soundDetail": {
+   "loading": "Caricamento…",
+   "notFound": "Suono non trovato."
+  },
+  "volumeCalib": {
+   "testStop": "Ferma",
+   "testPlay": "Avvia il suono di prova",
+   "testStopAria": "Ferma il suono di prova",
+   "testPlayAria": "Avvia il suono di prova",
+   "title": "Regolazione del volume",
+   "subtitle": "Trova il livello che funziona per te.",
+   "explain": "La terapia del suono funziona meglio quando il suono di sfondo è un po' più basso del tuo acufene — i due suoni si mescolano parzialmente, senza coprirsi. Si chiama «punto di miscelazione» ed è il principio che permette al cervello di abituarsi gradualmente.",
+   "stepsTitle": "Tre passi",
+   "step1": "<strong>Siediti in una stanza silenziosa.</strong> Assicurati che non ci siano TV, conversazioni o rumore del traffico.",
+   "step2": "<strong>Avvia il suono di prova.</strong> Ascolta a basso volume per 20 secondi.",
+   "step3": "<strong>Abbassa il volume gradualmente.</strong> Fermati nel momento in cui senti contemporaneamente sia l'acufene sia il suono di sfondo. Devono coesistere.",
+   "sliderLabel": "Volume",
+   "sliderAria": "Volume da 0 a {max} percento",
+   "sliderValuetext": "{v} di {max}",
+   "sliderHint": "Regola a un livello che senti comodamente.",
+   "warnTitle": "Cosa NON fare",
+   "warnBody": "Non aumentare fino a coprire del tutto l'acufene. Questo affatica l'udito e allena il cervello ad aspettarsi il silenzio totale — il contrario del nostro obiettivo.",
+   "confirm": "Va bene",
+   "later": "Più tardi",
+   "disclaimer": "AURALIS è uno strumento di benessere generale, non un prodotto medico."
   }
  },
  "science": {
@@ -1630,7 +1873,8 @@
     "File 'Relazione clinica sull'applicazione della Terapia di Accettazione e Impegno (ACT) in pazienti over 50 con acufene cronico soggettivo'",
     "File 'Neurobiologia dettagliata e terapia dell'insonnia nei pazienti con acufene cronico'"
    ]
-  }
+  },
+  "recommendedNoiseNote": "Ogni suono ha un rumore di fondo selezionato, ottimizzato per questo tipo di utilizzo. "
  },
  "thi": {
   "title": "Valutazione THI",
@@ -1729,7 +1973,10 @@
   "homeBanner": {
    "retest_title": "È ora della seconda misurazione THI",
    "retest_body": "Hai completato 13 giorni del programma. Fai il secondo test per il confronto.",
-   "retest_cta": "Fai il test"
+   "retest_cta": "Fai il test",
+   "baseline_title": "Breve valutazione dell'acufene",
+   "baseline_body": "Facoltativa — aiuta a seguire i tuoi progressi. Richiede 2–3 minuti.",
+   "baseline_cta": "Fai la valutazione"
   }
  },
  "faq": {
@@ -2073,11 +2320,61 @@
    "skipped_body": "Il test è stato saltato. Fallo per un filtro personalizzato.",
    "skipped_cta": "Fai il test",
    "caution": "Non serve testare spesso — i risultati sono più affidabili con qualche giorno tra le misurazioni.",
-   "infoAria": "Informazioni scientifiche sul test"
+   "infoAria": "Informazioni scientifiche sul test",
+   "refine_body": "Trovata: {hz} Hz. Vuoi affinarla con più precisione? Richiede 5 minuti.",
+   "refine_cta": "Affina la frequenza"
   },
   "volume": {
    "label": "Volume",
    "aria": "Volume 0-100"
+  },
+  "tests": {
+   "thi": {
+    "grade1": "Molto lieve",
+    "grade2": "Lieve",
+    "grade3": "Moderato",
+    "grade4": "Grave",
+    "grade5": "Molto grave",
+    "name": "Valutazione dell'acufene",
+    "resumeFmt": "C'è un test incompiuto · domanda {n} di {total}",
+    "compared": "Confronto pronto",
+    "comparedSub": "Giorno 1 → Giorno 14",
+    "due": "È ora di rivalutare",
+    "readySub": "valutazione pronta",
+    "todoMain": "Non fatta",
+    "todoSub": "25 domande · facoltativa"
+   },
+   "lastFmt": "Ultima: {v}",
+   "unfinishedF": "Valutazione incompiuta",
+   "continueBtn": "Continua",
+   "restartBtn": "Ricomincia",
+   "viewBtn": "Vedi",
+   "retestBtn": "Rifai",
+   "doBtn": "Fai",
+   "pitch": {
+    "name": "Tono dell'acufene",
+    "resumeOctave": "C'è un test incompiuto · controllo finale",
+    "resumeFmt": "C'è un test incompiuto · misurazione {n} di {total}",
+    "freqFmt": "Frequenza {hz}",
+    "readySub": "pronto",
+    "skippedMain": "Saltato",
+    "skippedSub": "fallo per un filtro personale",
+    "todoMain": "Non fatto",
+    "todoSub": "~5 minuti · facoltativo"
+   },
+   "unfinishedM": "Test incompiuto",
+   "refineBtn": "Affina",
+   "counterFmt": "{n} di {total} pronti",
+   "title": "I miei test"
+  },
+  "diary": {
+   "name": "Diario",
+   "todoMain": "Inizia a monitorare",
+   "todoSub": "Sonno e umore · 14 giorni",
+   "startBtn": "Inizia",
+   "dueFmt": "Giorno {n} di 14",
+   "dueSub": "Compila la voce di oggi",
+   "fillBtn": "Compila"
   }
  },
  "categoryView": {
@@ -2489,6 +2786,12 @@
     "brown_lp500": "Rumore marrone profondo",
     "green_noise": "Rumore verde"
    }
+  },
+  "bottomSheet": {
+   "close": "Chiudi"
+  },
+  "player": {
+   "infoAria": "Informazioni sul suono"
   }
  },
  "progress": {
@@ -2523,12 +2826,140 @@
    "descActive": "Rimuoviamo la tua frequenza di acufene ({freq}) da tutti i suoni per una terapia migliore.",
    "descInactive": "La terapia è disattivata. I suoni vengono riprodotti senza filtro personale.",
    "toastOn": "Terapia personale attivata",
-   "toastOff": "Terapia personale disattivata. I suoni verranno riprodotti senza filtro notch."
+   "toastOff": "Terapia personale disattivata. I suoni verranno riprodotti senza filtro notch.",
+   "what": "Da ogni suono rimuoviamo esattamente la tua frequenza dell'acufene (",
+   "keepOn": "Consigliamo di lasciarla attiva. Disattivala solo se il suono ti è sgradevole — altrimenti perdi il vantaggio principale della terapia.",
+   "offWarn": "La terapia è disattivata. I suoni vengono riprodotti senza il filtro personale — per il pieno effetto riattivala.",
+   "recommended": "Consigliato",
+   "confirmOff": "Sei sicuro? La terapia di frequenza personale è alla base del metodo. "
+  },
+  "data": {
+   "exportAll": "Esporta tutto",
+   "exported": "Esportato",
+   "deleteOnly": "Elimina solo",
+   "quizAnswers": "Risposte del quiz",
+   "diary": "Diario",
+   "favorites": "Preferiti",
+   "history": "Cronologia di ascolto",
+   "exportSection": "Sezione esportazione",
+   "deleteConfirmSection": "Elimina ",
+   "deletedSection": "Eliminato: "
+  },
+  "reminders": {
+   "intro": "Promemoria gentili che ti aiutano a mantenere l'abitudine quotidiana. ",
+   "dailyLabel": "Promemoria serale del diario",
+   "dailyHelp": "Una notifica ogni sera per annotare com'è andata la giornata. Il diario monitora i tuoi progressi.",
+   "weeklyLabel": "Riepilogo settimanale",
+   "weeklyHelp": "Una breve panoramica della tua settimana — inviata il lunedì mattina.",
+   "note": "Le notifiche richiedono l'autorizzazione e che l'app sia aggiunta alla schermata principale.",
+   "timeLabel": "Ora del promemoria",
+   "title": "Promemoria",
+   "unsupported": "Questo dispositivo non supporta le notifiche nel browser.",
+   "denied": "Le notifiche sono bloccate. Abilitale dalle impostazioni del dispositivo."
+  },
+  "volume": {
+   "quiet": "Modalità silenziosa",
+   "normal": "Normale",
+   "loud": "Alto",
+   "profile": "Profilo di volume"
+  },
+  "audio": {
+   "title": "Audio avanzato",
+   "crossfade": "Transizioni tra suoni",
+   "layer2Default": "Volume rumore di fondo (predefinito)",
+   "sleepFade": "Dissolvenza durante il sonno"
+  },
+  "stats": {
+   "desc": "Panoramica dei tuoi progressi: minuti di ascolto, suoni preferiti e la serie ",
+   "title": "Le tue statistiche",
+   "cta": "Mostra le statistiche"
   }
  },
  "player": {
   "notch": {
    "aria": "Terapia di frequenza personale attiva — {freq} rimossa"
   }
+ },
+ "a11y": {
+  "skipToContent": "Vai al contenuto principale",
+  "paused": "In pausa",
+  "playing": "In riproduzione",
+  "help": {
+   "esc": "Chiudi finestra",
+   "spaceKey": "Spazio",
+   "space": "Riproduci / Pausa",
+   "arrows": "Naviga tra le schede",
+   "enter": "Attiva l'elemento a fuoco",
+   "question": "Mostra questo aiuto",
+   "title": "Scorciatoie da tastiera"
+  }
+ },
+ "analytics": {
+  "listening": {
+   "section": "Ascolto",
+   "totalHours": "Ore totali",
+   "mostPlayed": "Più ascoltato",
+   "favoriteHour": "Ora preferita"
+  },
+  "diary": {
+   "section": "Diario",
+   "daysLogged": "Giorni registrati",
+   "avgTinnitus": "Acufene medio",
+   "avgSleep": "Sonno medio"
+  },
+  "other": {
+   "section": "Altro",
+   "sosUsed": "SOS usato",
+   "sleepMode": "Modalità Sonno"
+  },
+  "title": "Le tue statistiche",
+  "topPlayed": "Più ascoltati",
+  "noData": "Ancora nessun dato di ascolto."
+ },
+ "errors": {
+  "storageQuota": "La memoria del dispositivo è piena. Elimina dati vecchi.",
+  "network": "Nessuna connessione internet",
+  "reconnected": "Connessione ripristinata"
+ },
+ "favorites": {
+  "title": "I miei preferiti",
+  "empty": "Non hai ancora suoni preferiti.",
+  "sort": {
+   "recent": "Recenti",
+   "played": "Ascoltati",
+   "alpha": "A-Z"
+  },
+  "remove": "Rimuovi",
+  "removed": "Rimosso dai preferiti",
+  "pageSubtitle": "I tuoi suoni salvati",
+  "backAria": "Indietro",
+  "countFmt": "Suoni (",
+  "emptyHint": "Premi il cuore nel player per aggiungere un suono ai preferiti."
+ },
+ "languagePicker": {
+  "current": "Attuale:",
+  "search": "Cerca...",
+  "available": "Disponibili:",
+  "title": "Scegli la lingua"
+ },
+ "library": {
+  "player": {
+   "openAria": "Apri il player"
+  }
+ },
+ "notifications": {
+  "diary": "È ora di compilare il diario oggi",
+  "title": "Promemoria",
+  "goToDiary": "Registra ora",
+  "later": "Ricorda più tardi"
+ },
+ "tour": {
+  "skip": "Salta",
+  "next": "Capito",
+  "finish": "Fatto!"
+ },
+ "account": {
+  "profile": "Profilo",
+  "open": "Accesso e sincronizzazione"
  }
 }

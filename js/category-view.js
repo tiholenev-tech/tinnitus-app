@@ -561,12 +561,12 @@ window.CategoryView = (function () {
     app.parentNode.replaceChild(fresh, app);
     app = fresh;
     // Skeleton while manifest loads
-    app.innerHTML = '<div class="cv-loading">Зарежда се...</div>';
+    app.innerHTML = '<div class="cv-loading">' + escapeHtml(t('ui.categoryView.loading','Зарежда се...')) + '</div>';
 
     ensureManifest().then(function () {
       var cat = findUseCategory(activeCatId);
       if (!cat) {
-        app.innerHTML = '<div class="cv-loading">Категорията не е намерена.</div>';
+        app.innerHTML = '<div class="cv-loading">' + escapeHtml(t('ui.categoryView.notFound','Категорията не е намерена.')) + '</div>';
         return;
       }
       var sounds = getSoundsForCategory(activeCatId);
