@@ -1,59 +1,38 @@
 # HANDOFF — Румънски САЙТ (/ro/)
 
-> Статус към 2026-06-05. Клон: **`claude/zen-edison-X2rb1`** (същия като app превода).
->
-> ✅ **САЙТЪТ Е 100% ЗАВЪРШЕН.** Home + списък + 5 раздела + **20/20 статии** = 27 страници,
-> всички рендират HTTP 200 (тествано с `php -S`), 0 PHP грешки. Всичко push-нато, в sitemap.
-> Остава само (по избор) hreflang mesh + merge. Таблицата по-долу е реализирана.
+> Статус към 2026-06-06. **✅ ЗАВЪРШЕН, MERGED и LIVE.**
+> PR **#60** merged в `main` (squash `9458c3e`) → сървърът авто-дърпа → деплойнато.
+> Клонът `claude/zen-edison-X2rb1` вече е история; нищо повече за правене по сайта.
 
-## Какво е готово ✅
-- **Инфраструктура (chrome + шаблони):** `inc/site-ro.php` (5 раздела + 20 статии метаданни
-  + `ro_head`/`ro_masthead`/`ro_footer` + hreflang ro/bg), `inc/article-template-ro.php`,
-  `inc/section-template-ro.php`.
-- **Страници:** `ro/index.php` (home, пълен превод), `ro/articole/index.php` (списък),
-  `ro/subiecte/{despre-tinitus,terapia-sonora,somn,liniste,stil-de-viata}/index.php` (5 раздела).
-- **sitemap.xml:** добавени RO структурни URL-и (home, articole, 5 subiecte). Статиите се добавят при създаване.
-- **3/20 статии:** `tiuit-in-urechi`, `tinitus-pulsatil`, `terapia-sonora-notched`.
-- Всичко рендира HTTP 200 (тествано с `php -S`), 0 PHP грешки, `lang="ro"`, FAQ+Breadcrumb schema.
+## Какво е живо ✅ (27 страници)
+- **Инфраструктура (chrome + шаблони):** `inc/site-ro.php` (`ro_head`/`ro_masthead`/`ro_footer`
+  + метаданни за 5 раздела и 20 статии), `inc/article-template-ro.php`, `inc/section-template-ro.php`.
+- **Начална:** `ro/index.php` (пълен превод — hero, интерактивен тест, метафора, статистики,
+  оферта, FAQ, раздели).
+- **Списък + 5 раздела:** `ro/articole/index.php` + `ro/subiecte/{despre-tinitus,terapia-sonora,
+  somn,liniste,stil-de-viata}/index.php`.
+- **20/20 статии:** `ro/articole/*.php` — GEO стил, реални DOI/PMID, BLUF + FAQ +
+  Schema (Article/FAQPage/Breadcrumb/MedicalCondition), всяка с `$ALT_BG` към BG аналога.
+- **sitemap.xml:** +27 RO URL-а.
+- Всички 27 страници: HTTP 200, 0 PHP грешки, `lang="ro"`.
 
-## Конвейер за всяка статия (повтаряй до 20)
-Всеки `ro/articole/<ro-slug>.php`:
-1. Чети IT източника `it/articoli/<it-slug>.php` (структура: `$SLUG, $ALT_BG, $BLUF, $FAQ, $SOURCES, $BODY`).
-2. Преведи на румънски. Запази: `<span class="num">…</span>`, статистики, цитати/DOI/PMID, `<strong>/<h2>/<h3>/<ul>`, `→`.
-3. `$ALT_BG` = BG аналога (вземи го от IT файла — той вече сочи към BG slug).
-4. `require __DIR__ . '/../../inc/article-template-ro.php';`
-5. Кавички: румънски „ ” (curly, без escaping). `php -l` после.
-6. Добави URL в `sitemap.xml` (`<loc>…/ro/articole/<ro-slug>.php</loc> … priority 0.85`).
-7. `git add … && git commit && git push origin claude/zen-edison-X2rb1` (push след всяка партида).
+## hreflang mesh ✅ (готов)
+Включен в същия merge. Трите homepage-а (`/`, `/it/`, `/ro/`) сочат един към друг —
+`bg` ↔ `it` ↔ `ro` + `x-default`. Реализация: `inc/site*.php` приемат опц. `alt_ro`/`alt_it`,
+homepage-ите ги подават. Тествано с реален рендер.
+- **Обхват:** само homepage ниво (където беше и съществуващият BG↔IT mesh).
+  `article-template*.php` никога не са емитвали hreflang — ако се поиска mesh и на ниво статия,
+  трябва всяка статия да подава `alt_*` URL-и (по-голяма промяна, не направена нарочно).
 
-## ⚠️ MDR (медико-правно)
-В съдържанието на сайта избягвай claim-думи: НЕ „vindecă/cura/diagnostichează" като твърдение за продукта.
-Образователно (лекар поставя диагноза / „ако някой обещава vindecare, бъди скептичен") е ОК — слагай отрицател наблизо.
-Футърът вече е чист („nu pune diagnostic și nu vindecă boli").
+## ⚠️ MDR (медико-правно) — спазено
+Без claim-думи („vindecă/cura/diagnostichează") като твърдение за продукта.
+Образователната употреба (лекар поставя диагноза / „ако някой обещава vindecare, бъди скептичен")
+е ОК с отрицател наблизо. Футър: „nu pune diagnostic și nu vindecă boli". `check_claims.py` чисто.
 
-## Остават 17 статии (ro-slug ← it-slug, раздел)
-| # | ro-slug | it-slug източник | раздел |
-|---|---|---|---|
-| 4 | tinitus-noaptea | acufene-di-notte | somn |
-| 5 | urechi-infundate | orecchie-ovattate | despre-tinitus |
-| 6 | tinitus-si-cervicala | acufene-e-cervicale | despre-tinitus |
-| 7 | anxietate-si-tinitus | ansia-e-acufene | liniste |
-| 8 | magneziu-ginkgo-zinc-tinitus | magnesio-ginkgo-zinco-acufene | stil-de-viata |
-| 9 | mascare-vs-notched | mascheramento-vs-notched | terapia-sonora |
-| 10 | voi-surzi-din-tinitus | diventero-sordo-acufene | despre-tinitus |
-| 11 | tinitus-periculos-auz | il-rumore-mi-danneggia-udito | despre-tinitus |
-| 12 | tinitus-si-depresie | acufene-e-depressione | liniste |
-| 13 | mindfulness-tinitus | mindfulness-acufene | liniste |
-| 14 | aparate-auditive-tinitus | apparecchi-acustici-acufene | terapia-sonora |
-| 15 | neuromodulare-bimodala-tinitus | neuromodulazione-bimodale-acufene | terapia-sonora |
-| 16 | ce-sunete-pentru-tinitus | quali-suoni-per-acufene | terapia-sonora |
-| 17 | medicamente-care-cauzeaza-tinitus | farmaci-che-causano-acufene | stil-de-viata |
-| 18 | cafea-alcool-tinitus | caffe-alcol-acufene | stil-de-viata |
-| 19 | nu-pot-dormi-tinitus | non-riesco-a-dormire-acufene | somn |
-| 20 | jurnal-somn-tinitus | diario-sonno-acufene | somn |
+## Единственото оставащо (ръчно, на Тихол — нямам достъп)
+**Google Search Console** (https://search.google.com/search-console):
+1. Property `tinnitus-app.help` → меню **Sitemaps** → подай `sitemap.xml` → Submit.
+2. (по избор) **URL Inspection** на `https://tinnitus-app.help/ro/` → Request indexing.
 
-(ro-slug ↔ метаданните им вече са в `inc/site-ro.php` `$ARTICLES_RO`.)
-
-## Финал (след 20-те статии)
-- (по избор) Пълен hreflang mesh: добави RO `<link alternate>` в BG (`inc/site.php`) и IT (`inc/site-it.php`) head-овете.
-- Merge PR #60 (или отделен PR за сайта) → сървърът авто-дърпа → деплой ~1 мин.
+**Bing Webmaster** (по избор): Import from GSC (1 клик).
+Sitemap-ът съдържа всичките 27 RO URL-а → еднократно подаване, Google обхожда останалото сам.
