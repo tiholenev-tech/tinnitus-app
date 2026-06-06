@@ -23,7 +23,11 @@
    "welcome": {
     "title": "Controlla il rumore.<br>Ritrova la calma.",
     "subtitle": "Una libreria di suoni scelta apposta per chi ha il fischio nelle orecchie.<br>Versione beta gratuita — senza pubblicità, senza abbonamento.",
-    "cta": "Inizia"
+    "cta": "Inizia",
+    "video": "Video di 30 secondi su cos'è AURALIS",
+    "videoTitle": "Video",
+    "videoSoon": "Video presto",
+    "videoDesc": "Presentazione di 30 secondi (Fase 2)"
    },
    "value": {
     "title": "Cosa otterrai",
@@ -1751,7 +1755,8 @@
     "File 'Relazione clinica sull'applicazione della Terapia di Accettazione e Impegno (ACT) in pazienti over 50 con acufene cronico soggettivo'",
     "File 'Neurobiologia dettagliata e terapia dell'insonnia nei pazienti con acufene cronico'"
    ]
-  }
+  },
+  "recommendedNoiseNote": "Ogni suono ha un rumore di fondo selezionato, ottimizzato per questo tipo di utilizzo. "
  },
  "thi": {
   "title": "Valutazione THI",
@@ -1850,7 +1855,10 @@
   "homeBanner": {
    "retest_title": "È ora della seconda misurazione THI",
    "retest_body": "Hai completato 13 giorni del programma. Fai il secondo test per il confronto.",
-   "retest_cta": "Fai il test"
+   "retest_cta": "Fai il test",
+   "baseline_title": "Breve valutazione dell'acufene",
+   "baseline_body": "Facoltativa — aiuta a seguire i tuoi progressi. Richiede 2–3 minuti.",
+   "baseline_cta": "Fai la valutazione"
   }
  },
  "faq": {
@@ -2194,11 +2202,61 @@
    "skipped_body": "Il test è stato saltato. Fallo per un filtro personalizzato.",
    "skipped_cta": "Fai il test",
    "caution": "Non serve testare spesso — i risultati sono più affidabili con qualche giorno tra le misurazioni.",
-   "infoAria": "Informazioni scientifiche sul test"
+   "infoAria": "Informazioni scientifiche sul test",
+   "refine_body": "Trovata: {hz} Hz. Vuoi affinarla con più precisione? Richiede 5 minuti.",
+   "refine_cta": "Affina la frequenza"
   },
   "volume": {
    "label": "Volume",
    "aria": "Volume 0-100"
+  },
+  "tests": {
+   "thi": {
+    "grade1": "Molto lieve",
+    "grade2": "Lieve",
+    "grade3": "Moderato",
+    "grade4": "Grave",
+    "grade5": "Molto grave",
+    "name": "Valutazione dell'acufene",
+    "resumeFmt": "C'è un test incompiuto · domanda {n} di {total}",
+    "compared": "Confronto pronto",
+    "comparedSub": "Giorno 1 → Giorno 14",
+    "due": "È ora di rivalutare",
+    "readySub": "valutazione pronta",
+    "todoMain": "Non fatta",
+    "todoSub": "25 domande · facoltativa"
+   },
+   "lastFmt": "Ultima: {v}",
+   "unfinishedF": "Valutazione incompiuta",
+   "continueBtn": "Continua",
+   "restartBtn": "Ricomincia",
+   "viewBtn": "Vedi",
+   "retestBtn": "Rifai",
+   "doBtn": "Fai",
+   "pitch": {
+    "name": "Tono dell'acufene",
+    "resumeOctave": "C'è un test incompiuto · controllo finale",
+    "resumeFmt": "C'è un test incompiuto · misurazione {n} di {total}",
+    "freqFmt": "Frequenza {hz}",
+    "readySub": "pronto",
+    "skippedMain": "Saltato",
+    "skippedSub": "fallo per un filtro personale",
+    "todoMain": "Non fatto",
+    "todoSub": "~5 minuti · facoltativo"
+   },
+   "unfinishedM": "Test incompiuto",
+   "refineBtn": "Affina",
+   "counterFmt": "{n} di {total} pronti",
+   "title": "I miei test"
+  },
+  "diary": {
+   "name": "Diario",
+   "todoMain": "Inizia a monitorare",
+   "todoSub": "Sonno e umore · 14 giorni",
+   "startBtn": "Inizia",
+   "dueFmt": "Giorno {n} di 14",
+   "dueSub": "Compila la voce di oggi",
+   "fillBtn": "Compila"
   }
  },
  "categoryView": {
@@ -2610,6 +2668,12 @@
     "brown_lp500": "Rumore marrone profondo",
     "green_noise": "Rumore verde"
    }
+  },
+  "bottomSheet": {
+   "close": "Chiudi"
+  },
+  "player": {
+   "infoAria": "Informazioni sul suono"
   }
  },
  "progress": {
@@ -2644,12 +2708,140 @@
    "descActive": "Rimuoviamo la tua frequenza di acufene ({freq}) da tutti i suoni per una terapia migliore.",
    "descInactive": "La terapia è disattivata. I suoni vengono riprodotti senza filtro personale.",
    "toastOn": "Terapia personale attivata",
-   "toastOff": "Terapia personale disattivata. I suoni verranno riprodotti senza filtro notch."
+   "toastOff": "Terapia personale disattivata. I suoni verranno riprodotti senza filtro notch.",
+   "what": "Da ogni suono rimuoviamo esattamente la tua frequenza dell'acufene (",
+   "keepOn": "Consigliamo di lasciarla attiva. Disattivala solo se il suono ti è sgradevole — altrimenti perdi il vantaggio principale della terapia.",
+   "offWarn": "La terapia è disattivata. I suoni vengono riprodotti senza il filtro personale — per il pieno effetto riattivala.",
+   "recommended": "Consigliato",
+   "confirmOff": "Sei sicuro? La terapia di frequenza personale è alla base del metodo. "
+  },
+  "data": {
+   "exportAll": "Esporta tutto",
+   "exported": "Esportato",
+   "deleteOnly": "Elimina solo",
+   "quizAnswers": "Risposte del quiz",
+   "diary": "Diario",
+   "favorites": "Preferiti",
+   "history": "Cronologia di ascolto",
+   "exportSection": "Sezione esportazione",
+   "deleteConfirmSection": "Elimina ",
+   "deletedSection": "Eliminato: "
+  },
+  "reminders": {
+   "intro": "Promemoria gentili che ti aiutano a mantenere l'abitudine quotidiana. ",
+   "dailyLabel": "Promemoria serale del diario",
+   "dailyHelp": "Una notifica ogni sera per annotare com'è andata la giornata. Il diario monitora i tuoi progressi.",
+   "weeklyLabel": "Riepilogo settimanale",
+   "weeklyHelp": "Una breve panoramica della tua settimana — inviata il lunedì mattina.",
+   "note": "Le notifiche richiedono l'autorizzazione e che l'app sia aggiunta alla schermata principale.",
+   "timeLabel": "Ora del promemoria",
+   "title": "Promemoria",
+   "unsupported": "Questo dispositivo non supporta le notifiche nel browser.",
+   "denied": "Le notifiche sono bloccate. Abilitale dalle impostazioni del dispositivo."
+  },
+  "volume": {
+   "quiet": "Modalità silenziosa",
+   "normal": "Normale",
+   "loud": "Alto",
+   "profile": "Profilo di volume"
+  },
+  "audio": {
+   "title": "Audio avanzato",
+   "crossfade": "Transizioni tra suoni",
+   "layer2Default": "Volume rumore di fondo (predefinito)",
+   "sleepFade": "Dissolvenza durante il sonno"
+  },
+  "stats": {
+   "desc": "Panoramica dei tuoi progressi: minuti di ascolto, suoni preferiti e la serie ",
+   "title": "Le tue statistiche",
+   "cta": "Mostra le statistiche"
   }
  },
  "player": {
   "notch": {
    "aria": "Terapia di frequenza personale attiva — {freq} rimossa"
   }
+ },
+ "a11y": {
+  "skipToContent": "Vai al contenuto principale",
+  "paused": "In pausa",
+  "playing": "In riproduzione",
+  "help": {
+   "esc": "Chiudi finestra",
+   "spaceKey": "Spazio",
+   "space": "Riproduci / Pausa",
+   "arrows": "Naviga tra le schede",
+   "enter": "Attiva l'elemento a fuoco",
+   "question": "Mostra questo aiuto",
+   "title": "Scorciatoie da tastiera"
+  }
+ },
+ "analytics": {
+  "listening": {
+   "section": "Ascolto",
+   "totalHours": "Ore totali",
+   "mostPlayed": "Più ascoltato",
+   "favoriteHour": "Ora preferita"
+  },
+  "diary": {
+   "section": "Diario",
+   "daysLogged": "Giorni registrati",
+   "avgTinnitus": "Acufene medio",
+   "avgSleep": "Sonno medio"
+  },
+  "other": {
+   "section": "Altro",
+   "sosUsed": "SOS usato",
+   "sleepMode": "Modalità Sonno"
+  },
+  "title": "Le tue statistiche",
+  "topPlayed": "Più ascoltati",
+  "noData": "Ancora nessun dato di ascolto."
+ },
+ "errors": {
+  "storageQuota": "La memoria del dispositivo è piena. Elimina dati vecchi.",
+  "network": "Nessuna connessione internet",
+  "reconnected": "Connessione ripristinata"
+ },
+ "favorites": {
+  "title": "I miei preferiti",
+  "empty": "Non hai ancora suoni preferiti.",
+  "sort": {
+   "recent": "Recenti",
+   "played": "Ascoltati",
+   "alpha": "A-Z"
+  },
+  "remove": "Rimuovi",
+  "removed": "Rimosso dai preferiti",
+  "pageSubtitle": "I tuoi suoni salvati",
+  "backAria": "Indietro",
+  "countFmt": "Suoni (",
+  "emptyHint": "Premi il cuore nel player per aggiungere un suono ai preferiti."
+ },
+ "languagePicker": {
+  "current": "Attuale:",
+  "search": "Cerca...",
+  "available": "Disponibili:",
+  "title": "Scegli la lingua"
+ },
+ "library": {
+  "player": {
+   "openAria": "Apri il player"
+  }
+ },
+ "notifications": {
+  "diary": "È ora di compilare il diario oggi",
+  "title": "Promemoria",
+  "goToDiary": "Registra ora",
+  "later": "Ricorda più tardi"
+ },
+ "tour": {
+  "skip": "Salta",
+  "next": "Capito",
+  "finish": "Fatto!"
+ },
+ "account": {
+  "profile": "Profilo",
+  "open": "Accesso e sincronizzazione"
  }
 }

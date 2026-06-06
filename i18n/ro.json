@@ -23,7 +23,11 @@
    "welcome": {
     "title": "Controlați zgomotul.<br>Redobândiți liniștea.",
     "subtitle": "Bibliotecă de sunete, selectată special pentru persoanele cu țiuit în urechi.<br>Versiune beta gratuită — fără reclame, fără abonament.",
-    "cta": "Începeți"
+    "cta": "Începeți",
+    "video": "Videoclip de 30 de secunde despre ce este AURALIS",
+    "videoTitle": "Video",
+    "videoSoon": "Video în curând",
+    "videoDesc": "Prezentare de 30 de secunde (Faza 2)"
    },
    "value": {
     "title": "Ce veți primi",
@@ -1751,7 +1755,8 @@
     "Fișier 'Raport clinic privind aplicarea Terapiei de acceptare și angajament (ACT) la pacienții cu vârsta de peste 50 de ani cu tinitus subiectiv cronic'",
     "Fișier 'Neurobiologia detaliată și terapia insomniei la pacienții cu tinitus cronic'"
    ]
-  }
+  },
+  "recommendedNoiseNote": "Fiecare sunet are un zgomot de fundal selectat, optimizat pentru acest tip de utilizare. "
  },
  "thi": {
   "title": "Evaluare THI",
@@ -1850,7 +1855,10 @@
   "homeBanner": {
    "retest_title": "Este timpul pentru o a doua măsurare THI",
    "retest_body": "Ați finalizat 13 zile din program. Faceți al doilea test pentru comparație.",
-   "retest_cta": "Fă testul"
+   "retest_cta": "Fă testul",
+   "baseline_title": "Evaluare scurtă a tinitusului",
+   "baseline_body": "Opțională — ajută la urmărirea progresului tău. Durează 2–3 minute.",
+   "baseline_cta": "Fă evaluarea"
   }
  },
  "faq": {
@@ -2194,11 +2202,61 @@
    "skipped_body": "Testul a fost omis. Faceți-l pentru un filtru personalizat.",
    "skipped_cta": "Fă testul",
    "caution": "Nu este nevoie să testați des — rezultatele sunt cele mai fiabile la câteva zile între măsurători.",
-   "infoAria": "Informații științifice despre test"
+   "infoAria": "Informații științifice despre test",
+   "refine_body": "Găsită: {hz} Hz. Vrei să o precizăm mai exact? Durează 5 minute.",
+   "refine_cta": "Precizează frecvența"
   },
   "volume": {
    "label": "Volum",
    "aria": "Intensitatea sunetului 0-100"
+  },
+  "tests": {
+   "thi": {
+    "grade1": "Foarte ușor",
+    "grade2": "Ușor",
+    "grade3": "Moderat",
+    "grade4": "Sever",
+    "grade5": "Foarte sever",
+    "name": "Evaluarea tinitusului",
+    "resumeFmt": "Există un test neterminat · întrebarea {n} din {total}",
+    "compared": "Comparație gata",
+    "comparedSub": "Ziua 1 → Ziua 14",
+    "due": "E timpul pentru reevaluare",
+    "readySub": "evaluare gata",
+    "todoMain": "Nefăcută",
+    "todoSub": "25 de întrebări · opțional"
+   },
+   "lastFmt": "Ultima: {v}",
+   "unfinishedF": "Evaluare neterminată",
+   "continueBtn": "Continuă",
+   "restartBtn": "Începe din nou",
+   "viewBtn": "Vezi",
+   "retestBtn": "Refă",
+   "doBtn": "Fă",
+   "pitch": {
+    "name": "Tonul tinitusului",
+    "resumeOctave": "Există un test neterminat · verificare finală",
+    "resumeFmt": "Există un test neterminat · măsurătoarea {n} din {total}",
+    "freqFmt": "Frecvență {hz}",
+    "readySub": "gata",
+    "skippedMain": "Omis",
+    "skippedSub": "fă-l pentru un filtru personal",
+    "todoMain": "Nefăcut",
+    "todoSub": "~5 minute · opțional"
+   },
+   "unfinishedM": "Test neterminat",
+   "refineBtn": "Precizează",
+   "counterFmt": "{n} din {total} gata",
+   "title": "Testele mele"
+  },
+  "diary": {
+   "name": "Jurnal",
+   "todoMain": "Începe să urmărești",
+   "todoSub": "Somn și dispoziție · 14 zile",
+   "startBtn": "Începe",
+   "dueFmt": "Ziua {n} din 14",
+   "dueSub": "Completează înregistrarea de azi",
+   "fillBtn": "Completează"
   }
  },
  "categoryView": {
@@ -2610,6 +2668,12 @@
     "brown_lp500": "Zgomot maro profund",
     "green_noise": "Zgomot verde"
    }
+  },
+  "bottomSheet": {
+   "close": "Închide"
+  },
+  "player": {
+   "infoAria": "Informații despre sunet"
   }
  },
  "progress": {
@@ -2644,12 +2708,140 @@
    "descActive": "Eliminăm frecvența tinitusului dvs. ({freq}) din toate sunetele pentru o terapie îmbunătățită.",
    "descInactive": "Terapia este oprită. Sunetele se redau fără un filtru personal.",
    "toastOn": "Terapia personală a fost activată",
-   "toastOff": "Terapia personală a fost oprită. Sunetele se vor reda fără filtru notch."
+   "toastOff": "Terapia personală a fost oprită. Sunetele se vor reda fără filtru notch.",
+   "what": "Din fiecare sunet eliminăm exact frecvența ta de tinitus (",
+   "keepOn": "Recomandăm să rămână activată. Dezactiveaz-o doar dacă sunetul îți este neplăcut — altfel pierzi principalul avantaj al terapiei.",
+   "offWarn": "Terapia este oprită. Sunetele se redau fără filtrul personal — pentru efect complet reactiveaz-o.",
+   "recommended": "Recomandat",
+   "confirmOff": "Ești sigur? Terapia de frecvență personală este la baza metodei. "
+  },
+  "data": {
+   "exportAll": "Exportă tot",
+   "exported": "Exportat",
+   "deleteOnly": "Șterge doar",
+   "quizAnswers": "Răspunsuri quiz",
+   "diary": "Jurnal",
+   "favorites": "Favorite",
+   "history": "Istoric de ascultare",
+   "exportSection": "Secțiune export",
+   "deleteConfirmSection": "Șterge ",
+   "deletedSection": "Șters: "
+  },
+  "reminders": {
+   "intro": "Memento-uri blânde care te ajută să menții obiceiul zilnic. ",
+   "dailyLabel": "Memento de seară pentru jurnal",
+   "dailyHelp": "O notificare în fiecare seară pentru a nota cum a fost ziua. Jurnalul urmărește progresul tău.",
+   "weeklyLabel": "Rezumat săptămânal",
+   "weeklyHelp": "O scurtă privire de ansamblu asupra săptămânii tale — trimisă luni dimineața.",
+   "note": "Notificările necesită permisiune și ca aplicația să fie adăugată pe ecranul principal.",
+   "timeLabel": "Ora memento-ului",
+   "title": "Memento-uri",
+   "unsupported": "Acest dispozitiv nu acceptă notificări în browser.",
+   "denied": "Notificările sunt blocate. Activează-le din setările dispozitivului."
+  },
+  "volume": {
+   "quiet": "Mod silențios",
+   "normal": "Normal",
+   "loud": "Tare",
+   "profile": "Profil de volum"
+  },
+  "audio": {
+   "title": "Audio avansat",
+   "crossfade": "Tranziții între sunete",
+   "layer2Default": "Volum zgomot de fundal (implicit)",
+   "sleepFade": "Estompare la somn"
+  },
+  "stats": {
+   "desc": "Privire asupra progresului tău: minute de ascultare, sunete favorite și seria ",
+   "title": "Statisticile tale",
+   "cta": "Arată statisticile"
   }
  },
  "player": {
   "notch": {
    "aria": "Terapie de frecvență personală activă — {freq} eliminată"
   }
+ },
+ "a11y": {
+  "skipToContent": "Sari la conținutul principal",
+  "paused": "În pauză",
+  "playing": "În redare",
+  "help": {
+   "esc": "Închide fereastra",
+   "spaceKey": "Spațiu",
+   "space": "Redare / Pauză",
+   "arrows": "Navighează între carduri",
+   "enter": "Activează elementul focalizat",
+   "question": "Arată acest ajutor",
+   "title": "Scurtături de tastatură"
+  }
+ },
+ "analytics": {
+  "listening": {
+   "section": "Ascultare",
+   "totalHours": "Ore totale",
+   "mostPlayed": "Cel mai ascultat",
+   "favoriteHour": "Ora preferată"
+  },
+  "diary": {
+   "section": "Jurnal",
+   "daysLogged": "Zile înregistrate",
+   "avgTinnitus": "Tinitus mediu",
+   "avgSleep": "Somn mediu"
+  },
+  "other": {
+   "section": "Altele",
+   "sosUsed": "SOS folosit",
+   "sleepMode": "Mod Somn"
+  },
+  "title": "Statisticile tale",
+  "topPlayed": "Cele mai ascultate",
+  "noData": "Încă nu există date de ascultare."
+ },
+ "errors": {
+  "storageQuota": "Memoria dispozitivului este plină. Șterge date vechi.",
+  "network": "Fără conexiune la internet",
+  "reconnected": "Conexiunea a fost restabilită"
+ },
+ "favorites": {
+  "title": "Favoritele mele",
+  "empty": "Încă nu ai sunete favorite.",
+  "sort": {
+   "recent": "Recente",
+   "played": "Ascultate",
+   "alpha": "A-Z"
+  },
+  "remove": "Elimină",
+  "removed": "Eliminat din favorite",
+  "pageSubtitle": "Sunetele tale salvate",
+  "backAria": "Înapoi",
+  "countFmt": "Sunete (",
+  "emptyHint": "Apasă inima din player pentru a adăuga un sunet la favorite."
+ },
+ "languagePicker": {
+  "current": "Curent:",
+  "search": "Caută...",
+  "available": "Disponibile:",
+  "title": "Alege limba"
+ },
+ "library": {
+  "player": {
+   "openAria": "Deschide playerul"
+  }
+ },
+ "notifications": {
+  "diary": "E timpul să completezi jurnalul azi",
+  "title": "Memento",
+  "goToDiary": "Înregistrează acum",
+  "later": "Amintește mai târziu"
+ },
+ "tour": {
+  "skip": "Sari",
+  "next": "Am înțeles",
+  "finish": "Gata!"
+ },
+ "account": {
+  "profile": "Profil",
+  "open": "Autentificare și sincronizare"
  }
 }
