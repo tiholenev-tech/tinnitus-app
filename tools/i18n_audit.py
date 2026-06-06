@@ -27,8 +27,9 @@ import json, re, sys, os, glob
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CYR  = re.compile(r'[А-Яа-яЁё]')
-# t( / tArr( / tObj(  →  първи стрингов аргумент + дали следва конкатенация (+)
+# t( / tArr( / tObj(  →  вид + първи стрингов аргумент + дали следва конкатенация (+)
 CALL = re.compile(r'\bt(?:Arr|Obj)?\(\s*([\'"])(.*?)\1\s*(\+)?')
+CALLK = re.compile(r'\bt(Arr|Obj|)\(\s*([\'"])(.*?)\2\s*(\+)?')
 # стрингов литерал, съдържащ кирилица
 CYR_LIT = re.compile(r'([\'"])(?:(?!\1).)*[А-Яа-яЁё](?:(?!\1).)*\1')
 # индикатори, че редът строи видим UI (DOM sink) — кирилица тук = реален дефект
@@ -77,25 +78,42 @@ def main():
             continue
         src = open(path, encoding='utf-8').read()
 
-        # (A)+(B) ключове
-        calls = list(CALL.finditer(src))
-        t_count[rel] = len(calls)
-        for m in calls:
-            key, is_dyn = m.group(2), bool(m.group(3))
-            if not key:
+        # (A)+(B) ключове — по редове, пропускайки коментари; с тип според вида на t
+        ncalls = 0
+        in_block = False
+        for line in src.splitlines():
+            st = line.strip()
+            if st.startswith('/*'):
+                in_block = True
+            if in_block:
+                if '*/' in st:
+                    in_block = False
                 continue
-            if is_dyn:
-                parent = key.rstrip('.')
-                if '.' not in parent and parent == key.rstrip('.'):
-                    pass
-                node = resolve(parent) if parent else None
-                if not isinstance(node, (dict, list)):
-                    dynbad.setdefault(rel, []).append(key)
-            else:
+            if st.startswith('//') or st.startswith('*'):
+                continue
+            codeline = line.split('//')[0]
+            for m in CALLK.finditer(codeline):
+                ncalls += 1
+                kind, key, is_dyn = m.group(1), m.group(3), bool(m.group(4))
+                if not key:
+                    continue
+                if is_dyn:
+                    parent = key.rstrip('.')
+                    node = resolve(parent) if parent else None
+                    if not isinstance(node, (dict, list)):
+                        dynbad.setdefault(rel, []).append(key)
+                    continue
                 val = resolve(key)
-                if not isinstance(val, str):
-                    has_ui = isinstance(resolve('ui.' + key), str)
+                if kind == 'Arr':
+                    ok = isinstance(val, list)
+                elif kind == 'Obj':
+                    ok = isinstance(val, (dict, list))
+                else:
+                    ok = isinstance(val, str)
+                if not ok:
+                    has_ui = resolve('ui.' + key) is not None
                     missing.setdefault(rel, []).append((key, has_ui))
+        t_count[rel] = ncalls
 
         # (C) hardcoded кирилица на редове БЕЗ t(
         for i, line in enumerate(src.splitlines(), 1):
