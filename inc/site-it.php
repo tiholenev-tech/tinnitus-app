@@ -240,7 +240,7 @@ function it_footer() {
         <h4>Altro</h4>
         <ul>
           <li><a href="/it/articoli/">Tutti gli articoli</a></li>
-          <li><a href="/app.html">L'app</a></li>
+          <li><a href="/app.html?lang=it">L'app</a></li>
           <li><a href="/" lang="bg" hreflang="bg">Български (BG)</a></li>
         </ul>
       </div>

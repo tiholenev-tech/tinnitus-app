@@ -111,7 +111,7 @@ it_masthead('home');
           <div class="benefit"><span class="benefit__tick"><?= site_icon('check',16,2.4) ?></span><span>Esercizi di respirazione e rilassamento</span></div>
           <div class="benefit"><span class="benefit__tick"><?= site_icon('check',16,2.4) ?></span><span>Monitoraggio delle tue serate serene</span></div>
         </div>
-        <a class="btn btn--primary btn--lg btn--block" href="/app.html">Inizia 14 giorni gratis</a>
+        <a class="btn btn--primary btn--lg btn--block" href="/app.html?lang=it">Inizia 14 giorni gratis</a>
         <p class="test__note" style="margin-top:14px">Senza carta per il periodo di prova. Disdici quando vuoi.</p>
       </div>
     </div>
@@ -174,7 +174,7 @@ it_masthead('home');
         <p class="eyebrow">Pronto per una sera più tranquilla?</p>
         <h2>Dai una pausa alle tue orecchie</h2>
         <p>Inizia con calma — trova il tuo tono stasera e lascia che AURALIS faccia il resto.</p>
-        <a class="btn btn--primary btn--lg" href="/app.html">Inizia 14 giorni gratis</a>
+        <a class="btn btn--primary btn--lg" href="/app.html?lang=it">Inizia 14 giorni gratis</a>
       </div>
     </div>
   </section>

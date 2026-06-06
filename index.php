@@ -144,7 +144,7 @@ auralis_masthead('home');
           <div class="benefit"><span class="benefit__tick"><?= site_icon('check', 16, 2.4) ?></span><span>Дихателни и релаксиращи упражнения</span></div>
           <div class="benefit"><span class="benefit__tick"><?= site_icon('check', 16, 2.4) ?></span><span>Проследяване на спокойните ви вечери</span></div>
         </div>
-        <a class="btn btn--primary btn--lg btn--block" href="/app.html">Започнете 14 дни безплатно</a>
+        <a class="btn btn--primary btn--lg btn--block" href="/app.html?lang=bg">Започнете 14 дни безплатно</a>
         <p class="test__note" style="margin-top:14px">Без карта за пробния период. Откажете по всяко време.</p>
       </div>
     </div>
@@ -228,7 +228,7 @@ auralis_masthead('home');
         <p class="eyebrow">Готови за по-тиха вечер?</p>
         <h2>Дайте на ушите си почивка</h2>
         <p>Започнете спокойно — намерете тона си тази вечер и оставете AURALIS да поеме останалото.</p>
-        <a class="btn btn--primary btn--lg" href="/app.html">Започнете 14 дни безплатно</a>
+        <a class="btn btn--primary btn--lg" href="/app.html?lang=bg">Започнете 14 дни безплатно</a>
       </div>
     </div>
   </section>

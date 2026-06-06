@@ -23,7 +23,7 @@ auralis_masthead();
           <button class="btn btn--primary btn--block" type="submit">Изпрати ми връзка</button>
           <p class="field--hint" style="text-align:center">Ще получите имейл с връзка, валидна 15 минути.</p>
         </form>
-        <p style="margin-top:18px;font-size:14.5px"><a href="/app.html">Нямате акаунт? Започнете безплатно →</a></p>
+        <p style="margin-top:18px;font-size:14.5px"><a href="/app.html?lang=bg">Нямате акаунт? Започнете безплатно →</a></p>
       </div>
     </div>
   </div>

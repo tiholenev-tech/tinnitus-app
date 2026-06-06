@@ -111,7 +111,7 @@ ro_masthead('home');
           <div class="benefit"><span class="benefit__tick"><?= site_icon('check',16,2.4) ?></span><span>Exerciții de respirație și relaxare</span></div>
           <div class="benefit"><span class="benefit__tick"><?= site_icon('check',16,2.4) ?></span><span>Monitorizarea serilor tale liniștite</span></div>
         </div>
-        <a class="btn btn--primary btn--lg btn--block" href="/app.html">Începe 14 zile gratis</a>
+        <a class="btn btn--primary btn--lg btn--block" href="/app.html?lang=ro">Începe 14 zile gratis</a>
         <p class="test__note" style="margin-top:14px">Fără card pentru perioada de probă. Anulezi când vrei.</p>
       </div>
     </div>
@@ -174,7 +174,7 @@ ro_masthead('home');
         <p class="eyebrow">Gata pentru o seară mai liniștită?</p>
         <h2>Oferă-ți urechilor o pauză</h2>
         <p>Începe cu calm — găsește-ți tonul diseară și lasă AURALIS să facă restul.</p>
-        <a class="btn btn--primary btn--lg" href="/app.html">Începe 14 zile gratis</a>
+        <a class="btn btn--primary btn--lg" href="/app.html?lang=ro">Începe 14 zile gratis</a>
       </div>
     </div>
   </section>
