@@ -1954,334 +1954,334 @@
   "q15": "Because of your tinnitus, is it hard to read?",
   "q16": "Does your tinnitus upset you?",
   "q17": "Do you feel that the tinnitus problem strains your relationships with family members and friends?",
-  "q18": "Трудно ли Ви е да насочите вниманието си извън тинитуса и към други неща?",
-  "q19": "Имате ли усещането, че нямате никакъв контрол над тинитуса си?",
-  "q20": "Поради тинитуса си, често ли се чувствате уморен?",
-  "q21": "Поради тинитуса си, чувствате ли се в подтиснато настроение?",
-  "q22": "Тинитусът Ви предизвиква ли тревожност?",
-  "q23": "Имате ли усещането, че повече не можете да се справите с тинитуса си?",
-  "q24": "Тинитусът Ви се влошава ли, когато сте под стрес?",
-  "q25": "Поради тинитуса си, чувствате ли се несигурен?",
+  "q18": "Is it hard to direct your attention away from the tinnitus and toward other things?",
+  "q19": "Do you feel that you have no control over your tinnitus?",
+  "q20": "Because of your tinnitus, do you often feel tired?",
+  "q21": "Because of your tinnitus, do you feel in a depressed mood?",
+  "q22": "Does your tinnitus cause you anxiety?",
+  "q23": "Do you feel that you can no longer cope with your tinnitus?",
+  "q24": "Does your tinnitus get worse when you're under stress?",
+  "q25": "Because of your tinnitus, do you feel insecure?",
   "badge": {
    "label": "THI",
-   "goal": "цел < {goal}",
-   "tapHint": "Натиснете за подробности"
+   "goal": "goal < {goal}",
+   "tapHint": "Tap for details"
   },
   "detail": {
-   "title": "Резултат от THI теста",
-   "subscoresTitle": "По категории",
-   "functional": "Функционален",
-   "emotional": "Емоционален",
-   "catastrophic": "Катастрофичен",
-   "retest_label": "Тест отново на ден 14",
-   "retest_countdown": "Тест отново след {days} дни",
-   "retest_ready": "Време е за нов тест",
-   "retest_button": "Направи тест отново",
-   "compareTitle": "Сравнение Ден 1 → Ден 14",
-   "compareDay1": "Ден 1",
-   "compareDay14": "Ден 14",
-   "compareChange": "Промяна",
+   "title": "THI test result",
+   "subscoresTitle": "By category",
+   "functional": "Functional",
+   "emotional": "Emotional",
+   "catastrophic": "Catastrophic",
+   "retest_label": "Test again on day 14",
+   "retest_countdown": "Test again in {days} days",
+   "retest_ready": "It's time for a new test",
+   "retest_button": "Take the test again",
+   "compareTitle": "Comparison Day 1 → Day 14",
+   "compareDay1": "Day 1",
+   "compareDay14": "Day 14",
+   "compareChange": "Change",
    "close": "Close"
   },
   "insights": {
    "functional": {
-    "title": "Преобладават практически затруднения",
-    "body": "Тинитусът Ви създава най-вече практически проблеми (концентрация, сън, работа). Препоръчваме фокус върху сценариите „Заспиване“ и „Дневна работа“ в програмата."
+    "title": "Practical difficulties predominate",
+    "body": "Your tinnitus mainly creates practical problems (concentration, sleep, work). We recommend focusing on the \"Falling asleep\" and \"Daytime work\" scenarios in the program."
    },
    "emotional": {
-    "title": "Преобладава емоционалното натоварване",
-    "body": "Тинитусът Ви създава най-вече емоционално натоварване (тревожност, раздразнение). CBT упражненията във Вашата 14-дневна програма ще са особено полезни."
+    "title": "Emotional burden predominates",
+    "body": "Your tinnitus mainly creates an emotional burden (anxiety, irritation). The CBT exercises in your 14-day program will be especially helpful."
    },
    "catastrophic": {
-    "title": "Катастрофизиращи мисли за тинитуса",
-    "body": "Имате тенденция към катастрофизиращи мисли за тинитуса („никога няма да си тръгне“, „животът ми е разрушен“). Това е често срещано и поддаващо се на работа. Препоръчително е да говорите с професионалист (психотерапевт или специалист по тинитус), ако усещанията Ви се засилят."
+    "title": "Catastrophizing thoughts about the tinnitus",
+    "body": "You have a tendency toward catastrophizing thoughts about the tinnitus (\"it will never go away\", \"my life is ruined\"). This is common and workable. It's advisable to talk to a professional (psychotherapist or tinnitus specialist) if your feelings intensify."
    },
    "balanced": {
-    "title": "Равномерно проявление",
-    "body": "Тинитусът Ви се проявява във всички аспекти равномерно. Препоръчителна е цялата 14-дневна програма без специален фокус."
+    "title": "Even manifestation",
+    "body": "Your tinnitus manifests evenly across all aspects. The whole 14-day program is recommended without a special focus."
    },
    "unknown": {
-    "title": "Резултат",
-    "body": "Няма достатъчно данни за интерпретация."
+    "title": "Result",
+    "body": "Not enough data for interpretation."
    }
   },
   "compare": {
-   "clinicalImprovement": "Намалили сте THI с {n} точки за 14 дни — клинично значимо подобрение. Продължавайте програмата.",
-   "mildImprovement": "THI е намален с {n} точки. Това е стъпка напред — продължете с програмата за по-устойчиво подобрение.",
-   "unchanged": "THI не се е променил. Продължете програмата — устойчивите промени обикновено настъпват в рамките на 3–6 месеца.",
-   "increased": "THI е увеличен с {n} точки. Това може да се дължи на периодични фактори (стрес, лош сън). Препоръчваме да продължите редовно с програмата."
+   "clinicalImprovement": "You reduced your THI by {n} points in 14 days — a clinically significant improvement. Keep going with the program.",
+   "mildImprovement": "THI dropped by {n} points. This is a step forward — continue with the program for a more lasting improvement.",
+   "unchanged": "THI hasn't changed. Continue the program — lasting changes usually occur within 3–6 months.",
+   "increased": "THI increased by {n} points. This may be due to temporary factors (stress, poor sleep). We recommend continuing the program regularly."
   },
   "homeBanner": {
-   "retest_title": "Време е за вторично THI измерване",
-   "retest_body": "Изпълнихте 13 дни от програмата. Направете втория тест за сравнение.",
-   "retest_cta": "Направи тест",
-   "baseline_title": "Кратка оценка на тинитуса",
-   "baseline_body": "По желание — помага да следим напредъка Ви. Отнема 2–3 минути.",
-   "baseline_cta": "Направи оценка"
+   "retest_title": "It's time for a second THI measurement",
+   "retest_body": "You completed 13 days of the program. Take the second test for comparison.",
+   "retest_cta": "Take the test",
+   "baseline_title": "Quick tinnitus assessment",
+   "baseline_body": "Optional — it helps us track your progress. Takes 2–3 minutes.",
+   "baseline_cta": "Take the assessment"
   }
  },
  "faq": {
   "title": "Frequently asked questions",
   "openLabel": "Frequently asked questions",
-  "closeAria": "Затвори въпроси и отговори",
-  "searchPlaceholder": "Търси въпрос…",
-  "searchAria": "Търси въпрос",
-  "noResults": "Няма намерени въпроси по тази дума.",
-  "supportHint": "Не намерихте отговор? Свържете се с support чрез email.",
-  "supportButton": "Свържи се със support",
+  "closeAria": "Close questions and answers",
+  "searchPlaceholder": "Search a question…",
+  "searchAria": "Search a question",
+  "noResults": "No questions found for this word.",
+  "supportHint": "Didn't find an answer? Contact support by email.",
+  "supportButton": "Contact support",
   "supportEmail": "support@auralis.app",
-  "supportSubject": "AURALIS въпрос",
+  "supportSubject": "AURALIS question",
   "categories": {
    "safety": "Safety",
    "technical": "Technical",
-   "therapeutic": "Терапевтични",
-   "program": "Програма"
+   "therapeutic": "Therapeutic",
+   "program": "Program"
   },
   "items": [
    {
     "cat": "safety",
-    "q": "Опасно ли е да слушам звуци дълго време всеки ден?",
-    "a": "Не е опасно при правилни нива. WHO и NIOSH определят 70 dBA като лимит за неограничено време на ден — това е по-силно от тиха разговорна реч. AURALIS препоръчва 50–65 dBA за дневна употреба и 45–55 dBA нощем. Опасност има само ако надвишите тези нива — над 80 dBA има ограничение от 40 часа седмично. Спазвайте правилото 60/60 — 60% от силата на устройството, не повече от 60 минути активно слушане, последвани от 10–15 минути тишина. При тези параметри, цял живот на ежедневно слушане е безопасен."
+    "q": "Is it dangerous to listen to sounds for a long time every day?",
+    "a": "Not dangerous at the right levels. The WHO and NIOSH set 70 dBA as the limit for unlimited time per day — that's louder than quiet conversational speech. AURALIS recommends 50–65 dBA for daytime use and 45–55 dBA at night. There's danger only if you exceed these levels — above 80 dBA there's a limit of 40 hours per week. Follow the 60/60 rule — 60% of device volume, no more than 60 minutes of active listening, followed by 10–15 minutes of silence. With these parameters, a whole life of daily listening is safe."
    },
    {
     "cat": "safety",
-    "q": "Мога ли да пускам приложението в самолет?",
-    "a": "Да, напълно. AURALIS работи изцяло без интернет — всички звуци, въпросници и CBT текстове са локални на телефона Ви. Активирайте Airplane mode и приложението ще функционира както обикновено. Това е удобно и за спестяване на батерия по време на дълъг полет. На борда на самолет: фоновото шумоиздаване обикновено е около 75–85 dB — препоръчваме да слушате с костно-проводими слушалки или висококачествени отворени слушалки, а не с in-ear „тапи\". Те създават оклузивен ефект, който прави тинитуса по-силен."
+    "q": "Can I use the app on a plane?",
+    "a": "Yes, completely. AURALIS works entirely without internet — all sounds, questionnaires and CBT texts are local on your phone. Enable Airplane mode and the app will function as usual. This is also convenient for saving battery during a long flight. On board a plane: the background noise is usually around 75–85 dB — we recommend listening with bone-conduction headphones or high-quality open headphones, not with in-ear \"earbuds\". They create an occlusion effect that makes the tinnitus louder."
    },
    {
     "cat": "safety",
-    "q": "Да слушам ли със слушалки или говорител?",
-    "a": "Предпочитайте говорител или костно-проводими слушалки. Стандартните in-ear „тапи\" не са препоръчителни за дълга употреба — те блокират ушния канал и създават оклузивен ефект, който всъщност прави вътрешния тинитус по-силен. Освен това при дълги часове ежедневно слушане се повишава рискът от запушване с ушна кал и външен отит. За нощно слушане: отворени говорители в спалнята са най-добрият избор. За работа или разходка: костно-проводими слушалки оставят ушния канал свободен и не предизвикват оклузия. Бутонни слушалки on-ear също са приемливи."
+    "q": "Should I listen with headphones or a speaker?",
+    "a": "Prefer a speaker or bone-conduction headphones. Standard in-ear \"earbuds\" are not recommended for long use — they block the ear canal and create an occlusion effect that actually makes the internal tinnitus louder. Also, with long daily hours of listening the risk of earwax blockage and external otitis increases. For nighttime listening: open speakers in the bedroom are the best choice. For work or walking: bone-conduction headphones leave the ear canal free and don't cause occlusion. On-ear button headphones are also acceptable."
    },
    {
     "cat": "safety",
-    "q": "Какво е максималното време на ден за слушане?",
-    "a": "Няма строг лимит при правилни нива. При 50–65 dBA няма дневен лимит — WHO определя 70 dBA като безопасен за 24/7. На практика: 4–6 часа разпределени през деня е терапевтично оптимално, плюс 8 часа за нощно непрекъснато ползване. Важно е разнообразието на ушите — не дръжте едни и същи слушалки или ракурс часове наред. Правете кратки паузи на всеки час (правилото 60/60). При признаци на слухова умора — звън, чувствителност към звук, тъпота — спрете за 2–3 часа и продължете на по-ниско ниво."
+    "q": "What's the maximum listening time per day?",
+    "a": "There's no strict limit at the right levels. At 50–65 dBA there's no daily limit — the WHO sets 70 dBA as safe for 24/7. In practice: 4–6 hours spread throughout the day is therapeutically optimal, plus 8 hours for continuous nighttime use. Variety for the ears matters — don't keep the same headphones or angle for hours. Take short breaks every hour (the 60/60 rule). At signs of auditory fatigue — ringing, sound sensitivity, dullness — stop for 2–3 hours and continue at a lower level."
    },
    {
     "cat": "safety",
-    "q": "Какво да правя ако усетя влошаване след слушане?",
-    "a": "Спрете първо, не паникьосвайте. Леко временно влошаване след слушане е възможно при три причини: твърде силно ниво (намалете с 5–10 dB при следваща сесия), грешен тип звук за профила Ви (TH_C изисква pink и филтриран дъжд, не белия шум), или соматично напрежение от деня (опитайте Day 8 упражнение за мускулна релаксация). Ако влошаването продължи повече от 48 часа след спиране, консултирайте се с УНГ. Червен флаг: ако шумът стане едностранен, пулсиращ или придружен от загуба на слух — незабавно потърсете лекар."
+    "q": "What should I do if I feel worse after listening?",
+    "a": "Stop first, don't panic. Mild temporary worsening after listening is possible for three reasons: too high a level (lower it by 5–10 dB in the next session), the wrong type of sound for your profile (TH_C needs pink and filtered rain, not white noise), or somatic tension from the day (try the Day 8 muscle relaxation exercise). If the worsening lasts more than 48 hours after stopping, consult an ENT. Red flag: if the noise becomes one-sided, pulsatile or accompanied by hearing loss — seek a doctor immediately."
    },
    {
     "cat": "technical",
-    "q": "Защо звукът се чува със закъснение след натискане на бутона?",
-    "a": "Това е нормално явление при PWA приложения. Браузърът или Capacitor обвивката декодира MP3 файла, преди да го пусне — обикновено забавянето е 100–500 ms. AURALIS използва кеширане в Service Worker, така че втория път звукът пуска незабавно. Ако забавянето е по-голямо от 2 секунди, проверете: 1) има ли достатъчно памет на телефона, 2) затворете други приложения работещи на фон, 3) рестартирайте AURALIS. На по-стари телефони (Android 8–9) забавянето може да е малко по-голямо."
+    "q": "Why does the sound play with a delay after pressing the button?",
+    "a": "This is a normal phenomenon in PWA apps. The browser or the Capacitor wrapper decodes the MP3 file before playing it — the delay is usually 100–500 ms. AURALIS uses caching in the Service Worker, so the second time the sound plays immediately. If the delay is more than 2 seconds, check: 1) is there enough memory on the phone, 2) close other apps running in the background, 3) restart AURALIS. On older phones (Android 8–9) the delay may be a bit longer."
    },
    {
     "cat": "technical",
-    "q": "Работи ли AURALIS без интернет?",
-    "a": "Да, напълно. AURALIS е offline-first приложение — Bible v3 ЗАКОН №6. Всички звуци (250 файла) са свалени на Вашия телефон при инсталиране. Всички въпросници (THI, дневник), CBT текстове и настройки се пазят в локалното хранилище на телефона. AURALIS не изпраща никакви данни на сървър — Вашите отговори и прогрес остават единствено на Вашия телефон. Това отговаря на най-строгите GDPR изисквания за чувствителни здравни данни. Изключение: единствено при покупка през Google Play или App Store, плащането се обработва от платформата, не от нас."
+    "q": "Does AURALIS work without internet?",
+    "a": "Yes, completely. AURALIS is an offline-first app — Bible v3 LAW No.6. All sounds (250 files) are downloaded to your phone at installation. All questionnaires (THI, journal), CBT texts and settings are kept in the phone's local storage. AURALIS doesn't send any data to a server — your answers and progress stay solely on your phone. This meets the strictest GDPR requirements for sensitive health data. Exception: only with a purchase through Google Play or the App Store, the payment is processed by the platform, not by us."
    },
    {
     "cat": "technical",
-    "q": "Защо приложението не се отваря?",
-    "a": "Най-чести причини: 1) Първото отваряне след инсталация — изчакайте 10–20 секунди, защото системата подготвя 100–150 MB звукови файлове. 2) Малко памет на устройството — освободете 200 MB на телефона. 3) Стара версия на Android (под 8.0) — приложението изисква Android 8.0+. 4) Бавна първа графика — обновете до последната версия от Google Play. Ако проблемът продължи, опитайте: затворете приложението от менюто за активни приложения и го отворете отново. При повторно невъзможност за стартиране — преинсталирайте от Google Play (Вашите данни се пазят в Profile → Експорт, ако сте го направили)."
+    "q": "Why won't the app open?",
+    "a": "Most common reasons: 1) First opening after installation — wait 10–20 seconds, because the system is preparing 100–150 MB of sound files. 2) Low device memory — free up 200 MB on the phone. 3) Old Android version (below 8.0) — the app requires Android 8.0+. 4) Slow first render — update to the latest version from Google Play. If the problem persists, try: close the app from the active-apps menu and open it again. If it still won't start — reinstall from Google Play (your data is kept in Profile → Export, if you did it)."
    },
    {
     "cat": "technical",
-    "q": "Защо батерията се изтощава бързо?",
-    "a": "Не би трябвало. AURALIS използва оптимизиран AudioBufferSourceNode (не AudioWorklet), system sample rate, и suspend при пауза — Bible v3 ЗАКОН №4. Цяла нощ слушане (8 часа) трябва да изтощи 3–8% от батерията. Ако виждате по-голяма консумация: 1) Изключете „Wi-Fi\" и „Bluetooth\" нощем — те източват повече от самото звуково възпроизвеждане. 2) Активирайте „Не безпокой\" режим за нощта. 3) Намалете яркостта на екрана преди заспиване. 4) Проверете в Settings → Battery дали друго приложение работи на фон. Ако AURALIS наистина изтощава много — съобщете на support, това е технически бъг."
+    "q": "Why does the battery drain fast?",
+    "a": "It shouldn't. AURALIS uses an optimized AudioBufferSourceNode (not AudioWorklet), the system sample rate, and suspend on pause — Bible v3 LAW No.4. A whole night of listening (8 hours) should drain 3–8% of the battery. If you see higher consumption: 1) Turn off \"Wi-Fi\" and \"Bluetooth\" at night — they drain more than the audio playback itself. 2) Enable \"Do not disturb\" mode for the night. 3) Lower the screen brightness before sleep. 4) Check in Settings → Battery whether another app is running in the background. If AURALIS really drains a lot — report it to support, that's a technical bug."
    },
    {
     "cat": "technical",
-    "q": "Какво се случва ако телефонът се изключи нощем?",
-    "a": "Звукът спира и сесията се запазва. Когато стартирате AURALIS отново, приложението ви предлага да продължите от мястото, на което спряхте. Всички записи в дневника, THI отговори и CBT прогрес се записват веднага в localStorage — не се губят при внезапно изключване. Ако телефонът се изключи поради изтощаване на батерията: преди заспиване включете го в зарядно или активирайте „Battery saver\" режим. Ако звукът внезапно изчезне посред нощ при работещ телефон — амигдалата ще го регистрира като преход. Препоръчваме непрекъсната нощна сесия, не sleep timer."
+    "q": "What happens if the phone turns off at night?",
+    "a": "The sound stops and the session is saved. When you start AURALIS again, the app offers to continue from where you stopped. All journal entries, THI answers and CBT progress are saved immediately in localStorage — they're not lost in a sudden shutdown. If the phone turns off due to a drained battery: before sleep, plug it into a charger or enable \"Battery saver\" mode. If the sound suddenly disappears in the middle of the night with the phone working — the amygdala will register it as a transition. We recommend a continuous nighttime session, not a sleep timer."
    },
    {
     "cat": "therapeutic",
-    "q": "Кога ще усетя първи ефект?",
-    "a": "Различно за всеки. Първите признаци на по-малко натрапчив шум могат да се появят още в първите 1–2 седмици — особено усещане за по-лесно заспиване и кратки моменти, в които не забелязвате тинитуса. Клинично значим резултат (спад на THI с 7 или повече точки) обикновено идва за 3 месеца при последователно прилагане. По-сериозен ефект (−24 точки THI) се регистрира при 6 месеца. Реалното привикване (хабитуация), при което мозъкът престава да третира шума като заплаха, е процес от 9 до 18 месеца. AURALIS не лекува тинитус — той помага за хабитуация и по-добро качество на живот."
+    "q": "When will I feel the first effect?",
+    "a": "Different for everyone. The first signs of a less intrusive noise can appear as early as the first 1–2 weeks — especially a sense of easier falling asleep and brief moments when you don't notice the tinnitus. A clinically significant result (a THI drop of 7 or more points) usually comes within 3 months with consistent application. A more serious effect (−24 THI points) is recorded at 6 months. Real habituation, where the brain stops treating the noise as a threat, is a process of 9 to 18 months. AURALIS does not cure tinnitus — it helps with habituation and a better quality of life."
    },
    {
     "cat": "therapeutic",
-    "q": "Какво да правя ако усещам, че се влошава?",
-    "a": "Първо — не правете заключения от един или два дни. Тинитусът има добри и лоши периоди, които не отразяват цялостен тренд. Прегледайте записите си в дневника за последните 7 дни — често „по-зле днес\" не е тенденция. Втора стъпка: помислете за външни фактори — стрес, кофеин след 14:00, безсънна нощ, остра шумова експозиция. Тези често засилват тинитуса временно. Ако наистина усещате трайно влошаване (над 2 седмици), консултирайте се с УНГ. Червен флаг: ако шумът стане едностранен, пулсиращ, придружен от замайване или загуба на слух — незабавно търсете лекар."
+    "q": "What should I do if I feel it's getting worse?",
+    "a": "First — don't draw conclusions from one or two days. Tinnitus has good and bad periods that don't reflect an overall trend. Review your journal entries for the last 7 days — often \"worse today\" is not a trend. Second step: think about external factors — stress, caffeine after 2 PM, a sleepless night, acute noise exposure. These often intensify tinnitus temporarily. If you really feel a lasting worsening (over 2 weeks), consult an ENT. Red flag: if the noise becomes one-sided, pulsatile, accompanied by dizziness or hearing loss — seek a doctor immediately."
    },
    {
     "cat": "therapeutic",
-    "q": "Колко часа на ден трябва да слушам?",
-    "a": "За Вашия профил TH_C — минимум 2 часа дневно за устойчива хабитуация; идеално 4–6 часа разпределени през деня. Не е необходимо да слушате непрекъснато — кратки сесии от 30 минути няколко пъти на ден работят по-добре от една дълга сесия. По време на нощта — непрекъснат фонов звук през целия 8-часов сън (изследванията показват, че sleep timer може да задейства амигдалата при преходи между сънни цикли). Това е препоръка, не задължение. Дори 1 час на ден с правилен звук работи по-добре от нищо. Слушайте, когато е удобно за Вас."
+    "q": "How many hours a day should I listen?",
+    "a": "For your TH_C profile — at least 2 hours a day for stable habituation; ideally 4–6 hours spread throughout the day. You don't need to listen continuously — short 30-minute sessions several times a day work better than one long session. During the night — continuous background sound throughout the entire 8-hour sleep (studies show that a sleep timer can trigger the amygdala at transitions between sleep cycles). This is a recommendation, not an obligation. Even 1 hour a day with the right sound works better than nothing. Listen whenever it's convenient for you."
    },
    {
     "cat": "therapeutic",
-    "q": "Трябва ли да се откажа от кафето?",
-    "a": "Не напълно, но ограничете го. Кофеинът е централен стимулант — увеличава кортикалната чувствителност и може да засили тинитуса. Препоръка: 1 чаша сутрин (до 10:00), без кафе след 14:00. Това дава достатъчно време на тялото да изчисти кофеина преди сън (полу-разпадане ~5 часа). При Вашия TH_C профил кофеинът има особено силен ефект върху високочестотния звън. Алкохол вечер също влошава — нарушава перфузията на вътрешното ухо и фрагментира съня. Сол вечер — задържа течности, влошава ниските честоти. Опитайте 2 седмици без кофеин след 14:00 и наблюдавайте."
+    "q": "Should I give up coffee?",
+    "a": "Not completely, but limit it. Caffeine is a central stimulant — it increases cortical sensitivity and can intensify tinnitus. Recommendation: 1 cup in the morning (until 10:00), no coffee after 2 PM. This gives the body enough time to clear the caffeine before sleep (half-life ~5 hours). In your TH_C profile caffeine has a particularly strong effect on the high-frequency ringing. Alcohol in the evening also worsens it — it disrupts the perfusion of the inner ear and fragments sleep. Salt in the evening — it retains fluids, worsening the low frequencies. Try 2 weeks without caffeine after 2 PM and observe."
    },
    {
     "cat": "therapeutic",
-    "q": "Помагат ли витамините или добавките?",
-    "a": "AURALIS не дава медицински препоръки за добавки. Това попада извън нашата компетентност (Bible §1 — ЗАКОН №2: NO MEDICAL ADVICE). Има научни проучвания за магнезий и тинитус — те показват смесени резултати; не препоръчвайте сами без консултация с лекар. Витамин B12 дефицит може да влоши тинитуса — кръвен тест ще покаже дали имате нужда. Гинко билоба — клиничните доказателства са слаби. Никога не започвайте добавки без консултация с Вашия лекар, особено ако приемате други медикаменти. AURALIS се фокусира на това, което сме доказали — звукова терапия и CBT практики."
+    "q": "Do vitamins or supplements help?",
+    "a": "AURALIS does not give medical recommendations about supplements. This falls outside our competence (Bible §1 — LAW No.2: NO MEDICAL ADVICE). There are scientific studies on magnesium and tinnitus — they show mixed results; don't recommend them on your own without consulting a doctor. A vitamin B12 deficiency can worsen tinnitus — a blood test will show whether you need it. Ginkgo biloba — the clinical evidence is weak. Never start supplements without consulting your doctor, especially if you take other medications. AURALIS focuses on what we've proven — sound therapy and CBT practices."
    },
    {
     "cat": "program",
-    "q": "Какво е THI и защо го попълвам?",
-    "a": "THI (Tinnitus Handicap Inventory) е стандартизиран въпросник от 25 въпроса, разработен от Newman и колеги през 1996 г. Той измерва не силата на шума, а колко той Ви безпокои в ежедневието. Резултатът варира от 0 (без увреждане) до 100 (катастрофално). Попълвате го на Ден 1 за изходна линия и на Ден 14 за сравнение — така виждате конкретен числов прогрес. Спад от 7 или повече точки между двата теста се счита за клинично значим. Това е публичен медицински инструмент, използван по целия свят. Резултатите остават единствено на Вашия телефон."
+    "q": "What is the THI and why am I filling it in?",
+    "a": "The THI (Tinnitus Handicap Inventory) is a standardized 25-question questionnaire developed by Newman and colleagues in 1996. It measures not the loudness of the noise, but how much it bothers you in daily life. The score ranges from 0 (no handicap) to 100 (catastrophic). You fill it in on Day 1 for a baseline and on Day 14 for comparison — so you see concrete numerical progress. A drop of 7 or more points between the two tests is considered clinically significant. This is a public medical instrument used worldwide. The results stay solely on your phone."
    },
    {
     "cat": "program",
-    "q": "Защо 14 дни? Защо не по-кратко или по-дълго?",
-    "a": "14 дни е оптимизиран „субакутен\" интервал, доказан в клиничните проучвания. По-кратко (1–7 дни) — твърде малко за да усетите промяна и за да може мозъкът да започне привикване. По-дълго (3–6 месеца) — голяма част от потребителите отпадат преди завършване. Класическата програма Kalmeda има 9–12-месечен курс, но 60% от пациентите я прекратяват в първите 3 месеца. 14-дневният модул на AURALIS включва критичните CBT елементи: демистификация, преструктуриране на мисли, релаксация и приемане. След тези 2 седмици можете да продължите с поддържащ режим — слушане на звуци и кратки практики."
+    "q": "Why 14 days? Why not shorter or longer?",
+    "a": "14 days is an optimized \"subacute\" interval, proven in clinical studies. Shorter (1–7 days) — too little to feel a change and for the brain to start habituating. Longer (3–6 months) — a large portion of users drop out before finishing. The classic Kalmeda program has a 9–12-month course, but 60% of patients discontinue it in the first 3 months. The AURALIS 14-day module includes the critical CBT elements: demystification, thought restructuring, relaxation and acceptance. After these 2 weeks you can continue with a maintenance mode — listening to sounds and short practices."
    },
    {
     "cat": "program",
-    "q": "Какво да правя след Ден 14?",
-    "a": "14-дневният модул не приключва тинитуса — той е начало. След Ден 14 продължете със следното: 1) Слушане на звуковата библиотека всеки ден (минимум 2 часа). 2) Повторете най-полезните CBT упражнения 2–3 пъти седмично. 3) Попълвайте вечерен дневник без натиск — кратко самонаблюдение. 4) Преоценка на THI след 30 дни и 90 дни (Profile → Повторен тест). За реално привикване (хабитуация) клиничните проучвания препоръчват минимум 9–18 месеца последователно ползване. AURALIS остава на телефона Ви като дългосрочен инструмент за поддръжка, не за интензивно лечение."
+    "q": "What should I do after Day 14?",
+    "a": "The 14-day module doesn't end the tinnitus — it's a beginning. After Day 14 continue with the following: 1) Listen to the sound library every day (at least 2 hours). 2) Repeat the most helpful CBT exercises 2–3 times a week. 3) Fill in an evening journal without pressure — a short self-observation. 4) Reassess the THI after 30 days and 90 days (Profile → Repeat test). For real habituation, clinical studies recommend at least 9–18 months of consistent use. AURALIS stays on your phone as a long-term support tool, not for intensive treatment."
    },
    {
     "cat": "program",
-    "q": "Какво ако пропусна ден?",
-    "a": "Нищо не е загубено. AURALIS не наказва за пропуски — Bible §1 е wellness, не дисциплинарен инструмент. Имате 2 „дни почивка\" (freeze days) на разположение за 14-те дни — стрик броячът не пада на 0. На сутринта на следващия ден ще видите тих съобщение, че можете да попълните пропуснатия ден със закъснение или просто да продължите към следващия. При 2 поредни дни пропуск — системата автоматично намалява задачата за следващия ден до 2-минутна микро-доза (само 3 дълбоки вдишвания). Звуковата библиотека и Sleep mode остават напълно достъпни при всеки сценарий."
+    "q": "What if I miss a day?",
+    "a": "Nothing is lost. AURALIS doesn't punish you for missed days — Bible §1 is wellness, not a disciplinary tool. You have 2 \"rest days\" (freeze days) available for the 14 days — the streak counter doesn't drop to 0. On the morning of the next day you'll see a quiet message that you can fill in the missed day late or simply continue to the next one. With 2 consecutive missed days — the system automatically reduces the next day's task to a 2-minute micro-dose (just 3 deep breaths). The sound library and Sleep mode remain fully available in any scenario."
    },
    {
     "cat": "program",
-    "q": "Мога ли да попълня дневника за пропуснат предишен ден?",
-    "a": "Да. В дневния hub ще видите бутон „Попълни Ден X със закъснение\" за всеки пропуснат ден. Това отваря същите въпроси, но с пометка „попълнен на: <текуща дата>\" — за да виждате честно кога е било. Бележете: при попълване със закъснение точността на спомена за деня намалява, особено за плъзгачи 1–5. Препоръчваме да попълвате дневника в денят му (вечерта за вечерен, сутринта за сутрешен). При повече от 3 дни закъснение — по-добре е да го прескочите, отколкото да попълните неточно. Записът остава в експорта Ви като референция."
+    "q": "Can I fill in the journal for a missed previous day?",
+    "a": "Yes. In the daily hub you'll see a \"Fill in Day X late\" button for each missed day. This opens the same questions, but with a note \"filled in on: <current date>\" — so you honestly see when it was done. Note: with late filling, the accuracy of the day's recollection decreases, especially for sliders 1–5. We recommend filling in the journal on its own day (in the evening for the evening one, in the morning for the morning one). With more than 3 days' delay — it's better to skip it than to fill it in inaccurately. The entry stays in your export as a reference."
    }
   ]
  },
  "cbt": {
-  "dayTitleFmt": "Ден {n} — {title}",
+  "dayTitleFmt": "Day {n} — {title}",
   "sections": {
-   "theme": "Тема на деня",
-   "description": "Описание",
-   "exercise": "Упражнение",
-   "reflection": "Рефлексия"
+   "theme": "Theme of the day",
+   "description": "Description",
+   "exercise": "Exercise",
+   "reflection": "Reflection"
   },
-  "reflectionPlaceholder": "Запишете отговора си тук (по избор)…",
-  "alreadyDone": "Тази практика вече е записана за днес. Можете да я обновите.",
+  "reflectionPlaceholder": "Write your answer here (optional)…",
+  "alreadyDone": "This practice is already recorded for today. You can update it.",
   "actions": {
    "save": "Save",
    "cancel": "Cancel"
   },
   "savedToast": "Saved",
   "day_1": {
-   "title": "Сензорна демистификация",
-   "theme": "Тинитусът е звук, който мозъкът създава сам — не е увреждане на ухото и не е предупреждение за опасност.",
-   "explanation": "Шумът, който чувате, идва от мозъка, не от ухото. Когато слуховият път получава по-малко сигнали от обкръжаващия свят, мозъкът компенсира със собствена активност — точно както очите „рисуват\" светлинни точки в пълна тъмнина. Това не е тумор, не е лудост и не е знак за нещо опасно. Това е реакция, която Вашият мозък може постепенно да привикне (хабитуира) да пренебрегва.",
+   "title": "Sensory demystification",
+   "theme": "Tinnitus is a sound the brain creates on its own — it's not damage to the ear and not a warning of danger.",
+   "explanation": "The noise you hear comes from the brain, not the ear. When the auditory pathway receives fewer signals from the surrounding world, the brain compensates with its own activity — just as the eyes \"draw\" points of light in complete darkness. This is not a tumor, not madness and not a sign of anything dangerous. It's a reaction that your brain can gradually get used to (habituate) and ignore.",
    "exercise": [
-    "Седнете спокойно и за 1 минута слушайте тинитуса си — без да го оценявате, без да се борите с него.",
-    "След това си кажете на глас или наум: „Това е звук, който мозъкът ми произвежда. Не съм в опасност.\"",
-    "Запишете в едно изречение какво почувствахте, когато спряхте да се борите със звука."
+    "Sit calmly and for 1 minute listen to your tinnitus — without judging it, without fighting it.",
+    "Then say out loud or in your mind: \"This is a sound my brain produces. I am not in danger.\"",
+    "Write in one sentence what you felt when you stopped fighting the sound."
    ],
-   "reflection": "Кое от тези твърдения днес Ви беше най-трудно да приемете — че шумът идва от мозъка, че не е опасен, или че може да отслабне?"
+   "reflection": "Which of these statements was hardest for you to accept today — that the noise comes from the brain, that it's not dangerous, or that it can fade?"
   },
   "day_2": {
-   "title": "Порочният кръг на дистреса",
-   "theme": "Колкото повече се тревожите за шума, толкова по-силен става — и обратното.",
-   "explanation": "Когато усетите тинитуса и веднага си помислите „пак започна\", тялото Ви се напряга, сърцето започва да бие по-бързо, а мозъкът Ви насочва още повече внимание към звука. Тогава звукът наистина се възприема по-силно. Това е затворен кръг: шум → тревога → напрежение → по-силен шум. Прекъсването му не става със сила, а с разбиране и спокоен отговор.",
+   "title": "The vicious cycle of distress",
+   "theme": "The more you worry about the noise, the louder it becomes — and vice versa.",
+   "explanation": "When you feel the tinnitus and immediately think \"here it goes again\", your body tenses, the heart starts beating faster, and your brain directs even more attention to the sound. Then the sound really is perceived as louder. This is a closed loop: noise → worry → tension → louder noise. Breaking it doesn't happen with force, but with understanding and a calm response.",
    "exercise": [
-    "Спомнете си момент от днес, когато тинитусът Ви се засили.",
-    "Запишете три неща: какво се случваше около Вас, какво си помислихте веднага, как се почувствахте в тялото.",
-    "Прочетете записаното и забележете връзката между трите — мисъл, тяло, звук."
+    "Recall a moment from today when your tinnitus intensified.",
+    "Write three things: what was happening around you, what you thought immediately, how you felt in your body.",
+    "Read what you wrote and notice the connection between the three — thought, body, sound."
    ],
-   "reflection": "В кой момент днес тинитусът беше най-силен и какво се случваше с Вас точно преди това?"
+   "reflection": "At what moment today was the tinnitus loudest, and what was happening to you just before that?"
   },
   "day_3": {
-   "title": "Улавяне на автоматичните мисли",
-   "theme": "Първата мисъл, която идва при шума, често е плашеща — и не винаги вярна.",
-   "explanation": "Когато тинитусът се появи, в ума Ви за секунда минават мисли — толкова бързо, че едва ги забелязвате. Например: „Това никога няма да спре\" или „Ще ме съсипе\". Тези автоматични мисли не са факти. Те са навик на ума, изграден от страх. Първата стъпка към промяна е просто да ги забележите и запишете, без да ги оценявате.",
+   "title": "Catching automatic thoughts",
+   "theme": "The first thought that comes with the noise is often frightening — and not always true.",
+   "explanation": "When the tinnitus appears, thoughts flash through your mind for a second — so fast you barely notice them. For example: \"This will never stop\" or \"It will destroy me\". These automatic thoughts are not facts. They are a habit of the mind, built from fear. The first step toward change is simply to notice them and write them down, without judging them.",
    "exercise": [
-    "Носете със себе си тефтерче или използвайте бележки в телефона.",
-    "Всеки път, когато тинитусът Ви засили, запишете точната мисъл, която изскочи в ума Ви (с Вашите думи).",
-    "До вечерта съберете поне 3 такива мисли."
+    "Carry a notebook with you or use the notes on your phone.",
+    "Each time your tinnitus intensifies, write down the exact thought that popped into your mind (in your own words).",
+    "By the evening, collect at least 3 such thoughts."
    ],
-   "reflection": "Коя от мислите, които записахте днес, най-често се повтаря в главата Ви?"
+   "reflection": "Which of the thoughts you wrote down today repeats most often in your head?"
   },
   "day_4": {
-   "title": "Лична фраза-котва",
-   "theme": "Една кратка, лично избрана фраза може да спре тревогата в момента, в който се появи.",
-   "explanation": "Когато повтаряте плашеща мисъл, мозъкът Ви я заучава. Същото важи и за спокойната мисъл. Изберете собствена фраза, която Ви носи усещане за спокойствие и устойчивост — например „Шумът тече като река, аз стоя спокойно на брега\" или „Този звук може да остане, аз ще си живея живота\". Тази фраза-котва ще използвате всеки път, когато тинитусът се натрапи.",
+   "title": "Personal anchor phrase",
+   "theme": "A short, personally chosen phrase can stop the worry the moment it appears.",
+   "explanation": "When you repeat a frightening thought, your brain learns it. The same is true for a calm thought. Choose your own phrase that brings you a sense of calm and resilience — for example \"The noise flows like a river, I stand calmly on the bank\" or \"This sound can stay, I'll live my life\". You'll use this anchor phrase every time the tinnitus intrudes.",
    "exercise": [
-    "Напишете 3 варианта на лична фраза с по 5–8 думи.",
-    "Прочетете ги бавно на глас и изберете тази, която най-силно Ви успокоява.",
-    "Повторете я бавно 10 пъти, със спокойно дишане между повторенията."
+    "Write 3 variants of a personal phrase of 5–8 words each.",
+    "Read them slowly out loud and choose the one that calms you the most.",
+    "Repeat it slowly 10 times, with calm breathing between repetitions."
    ],
-   "reflection": "Коя фраза избрахте и какво почувствахте, когато я повторихте?"
+   "reflection": "Which phrase did you choose and what did you feel when you repeated it?"
   },
   "day_5": {
-   "title": "Извеждане на вниманието навън",
-   "theme": "Колкото повече се вслушвате в шума, толкова по-силен става — затова умът ще се учи да се обръща навън.",
-   "explanation": "Когато сте съсредоточен върху тинитуса, мозъкът работи на максимална чувствителност точно към него. Ако обучите ума си да се обръща към външните сетива — гледка, други звуци, докосване — той ще научи, че светът е по-голям от шума в главата Ви. Това умение се изгражда с практика, точно както мускул.",
+   "title": "Turning attention outward",
+   "theme": "The more you listen to the noise, the louder it becomes — so the mind will learn to turn outward.",
+   "explanation": "When you're focused on the tinnitus, the brain works at maximum sensitivity precisely toward it. If you train your mind to turn toward the external senses — sight, other sounds, touch — it will learn that the world is bigger than the noise in your head. This skill is built with practice, just like a muscle.",
    "exercise": [
-    "Седнете в стая, която обичате. Назовете на глас 3 неща, които виждате около себе си.",
-    "След това 3 различни звука, които чувате наоколо (не тинитуса).",
-    "Накрая 3 физически усещания по кожата си (стол под Вас, дрехи, въздух по ръцете)."
+    "Sit in a room you love. Name out loud 3 things you see around you.",
+    "Then 3 different sounds you hear around (not the tinnitus).",
+    "Finally 3 physical sensations on your skin (the chair under you, your clothes, the air on your arms)."
    ],
-   "reflection": "Кое сетиво — зрение, слух или допир — Ви беше най-лесно да го забележите днес?"
+   "reflection": "Which sense — sight, hearing or touch — was easiest for you to notice today?"
   },
   "day_6": {
-   "title": "Меко звуково обогатяване",
-   "theme": "Лек фонов звук намалява контраста между тинитуса и тишината.",
-   "explanation": "В пълна тишина мозъкът Ви усилва вътрешния шум, защото няма с какво да го сравни. Когато добавите тих фонов звук — лек дъжд, шум на река, мек розов шум — шумът в главата Ви губи своята изключителност. Силата на фоновия звук винаги е точно под силата на тинитуса. Целта не е да го заглушите, а леко да го „смесите\" с външния свят.",
+   "title": "Gentle sound enrichment",
+   "theme": "A light background sound reduces the contrast between the tinnitus and the silence.",
+   "explanation": "In complete silence your brain amplifies the internal noise, because it has nothing to compare it to. When you add a quiet background sound — light rain, the sound of a river, soft pink noise — the noise in your head loses its exclusivity. The volume of the background sound is always just below the volume of the tinnitus. The goal is not to drown it out, but to gently \"blend\" it with the outside world.",
    "exercise": [
-    "Отворете раздела „Препоръчани\" в приложението и пуснете звук, който Ви е приятен.",
-    "Настройте силата така, че да го чувате ясно, но шумът в главата Ви да остава доловим.",
-    "Слушайте 10 минути, без да правите нищо друго. Просто наблюдавайте как двата звука съществуват едновременно."
+    "Open the \"Recommended\" section in the app and play a sound that's pleasant to you.",
+    "Adjust the volume so that you hear it clearly, but the noise in your head stays perceptible.",
+    "Listen for 10 minutes, without doing anything else. Just observe how the two sounds exist at the same time."
    ],
-   "reflection": "Какво се промени във Вашето усещане за тинитуса по време на тези 10 минути?"
+   "reflection": "What changed in your perception of the tinnitus during these 10 minutes?"
   },
   "day_7": {
-   "title": "Преглед на първата седмица",
-   "theme": "Една седмица назад — какво научихте за себе си.",
-   "explanation": "Не очаквайте шумът да е изчезнал. Целта на първата седмица не е тишина, а ново разбиране: че тинитусът има произход в мозъка, че мислите и тялото го засилват и че Вие имате инструменти за отговор. Тази седмица сте посели семената. Привикването (хабитуацията) идва с повторение, не за дни — за месеци.",
+   "title": "Review of the first week",
+   "theme": "One week back — what you learned about yourself.",
+   "explanation": "Don't expect the noise to have disappeared. The goal of the first week is not silence, but a new understanding: that the tinnitus originates in the brain, that thoughts and the body intensify it, and that you have tools to respond. This week you've planted the seeds. Habituation comes with repetition, not in days — in months.",
    "exercise": [
-    "Прелистете записките си от Дни 1–6.",
-    "Напишете един момент от седмицата, в който фразата-котва или упражнение Ви помогна.",
-    "Напишете едно нещо, което Ви беше най-трудно — и не се укорявайте за него."
+    "Flip through your notes from Days 1–6.",
+    "Write one moment of the week when the anchor phrase or an exercise helped you.",
+    "Write one thing that was hardest for you — and don't blame yourself for it."
    ],
-   "reflection": "Кой ден от тази седмица беше най-полезен за Вас и защо?"
+   "reflection": "Which day of this week was most helpful for you and why?"
   },
   "day_8": {
-   "title": "Прогресивно мускулно отпускане",
-   "theme": "Когато тялото е напрегнато, шумът се усеща по-силно — затова ще се учите да го отпускате нарочно.",
-   "explanation": "Стресът свива мускулите на врата, раменете и челюстта. Тези мускули са свързани със слуховата система — напрежението им буквално се „чува\" в главата Ви като по-силен тинитус. Когато съзнателно стегнете и след това отпуснете един мускул, тялото запомня разликата и започва да живее в по-спокойно състояние.",
+   "title": "Progressive muscle relaxation",
+   "theme": "When the body is tense, the noise feels louder — so you'll learn to relax it deliberately.",
+   "explanation": "Stress contracts the muscles of the neck, shoulders and jaw. These muscles are connected to the auditory system — their tension is literally \"heard\" in your head as louder tinnitus. When you consciously tense and then relax a muscle, the body remembers the difference and starts to live in a calmer state.",
    "exercise": [
-    "Седнете удобно. Стиснете юмруци силно за 5 секунди, после ги отпуснете и забележете усещането за 15 секунди.",
-    "Повторете същото с раменете (вдигнете ги към ушите, после отпуснете).",
-    "Накрая с врата (леко наклонете глава напред, после я отпуснете). Усетете тежестта на главата си."
+    "Sit comfortably. Clench your fists hard for 5 seconds, then release them and notice the sensation for 15 seconds.",
+    "Repeat the same with the shoulders (raise them toward your ears, then release).",
+    "Finally with the neck (tilt your head slightly forward, then release it). Feel the weight of your head."
    ],
-   "reflection": "Кой от трите мускула беше най-стегнат, когато започнахте упражнението?"
+   "reflection": "Which of the three muscles was the tightest when you started the exercise?"
   },
   "day_9": {
-   "title": "Отпускане на челюстта",
-   "theme": "Челюстта често стиска без да усещате — и тинитусът се усилва.",
-   "explanation": "Много хора с шум в ушите стискат зъби през деня, без да забележат. Челюстните мускули са свързани със слуховия нерв — когато са стегнати, мозъкът ги тълкува като сигнал и засилва тинитуса. Ако се научите да усещате челюстта си и да я пускате, ще прекъснете една от скритите причини шумът да е по-силен.",
+   "title": "Jaw relaxation",
+   "theme": "The jaw often clenches without you noticing — and the tinnitus intensifies.",
+   "explanation": "Many people with ringing in the ears clench their teeth during the day without noticing. The jaw muscles are connected to the auditory nerve — when they're tense, the brain interprets them as a signal and intensifies the tinnitus. If you learn to feel your jaw and release it, you'll break one of the hidden causes of the noise being louder.",
    "exercise": [
-    "Поставете върховете на пръстите си върху мускулите пред ушите (там, където челюстта се отваря).",
-    "Правете бавни кръгови движения 1 минута, с лек натиск.",
-    "Накрая нарочно отпуснете долната устна и оставете долната челюст леко да увисне за 30 секунди."
+    "Place your fingertips on the muscles in front of your ears (where the jaw opens).",
+    "Make slow circular movements for 1 minute, with light pressure.",
+    "Finally, deliberately relax your lower lip and let the lower jaw hang slightly for 30 seconds."
    ],
-   "reflection": "Колко пъти днес се хванахте, че стискате челюст?"
+   "reflection": "How many times today did you catch yourself clenching your jaw?"
   },
   "day_10": {
-   "title": "Дишане за успокоение",
-   "theme": "Дългото издишване включва спирачката на нервната система.",
-   "explanation": "Когато издишвате по-дълго, отколкото вдишвате, активира се блуждаещият нерв. Това е естествената спирачка на тялото — тя забавя сърцето, отпуска мускулите и казва на мозъка, че сте в безопасност. След няколко минути такова дишане симпатиковата „тревога\" утихва и тинитусът се отдалечава от центъра на вниманието.",
+   "title": "Breathing to calm down",
+   "theme": "A long exhale switches on the brake of the nervous system.",
+   "explanation": "When you exhale longer than you inhale, the vagus nerve is activated. This is the body's natural brake — it slows the heart, relaxes the muscles and tells the brain you're safe. After a few minutes of such breathing, the sympathetic \"alarm\" subsides and the tinnitus moves away from the center of attention.",
    "exercise": [
-    "Седнете изправен, едната ръка на гърдите, другата на корема.",
-    "Вдишайте бавно през носа за 4 секунди, така че да се повдигне коремът, не гърдите.",
-    "Издишайте бавно през устата за 6 секунди. Повторете цикъла 10 пъти."
+    "Sit upright, one hand on your chest, the other on your belly.",
+    "Inhale slowly through the nose for 4 seconds, so that the belly rises, not the chest.",
+    "Exhale slowly through the mouth for 6 seconds. Repeat the cycle 10 times."
    ],
-   "reflection": "Колко спокойно се чувствахте в тялото си след 10-те цикъла, в сравнение с преди това?"
+   "reflection": "How calm did you feel in your body after the 10 cycles, compared to before?"
   },
   "day_11": {
-   "title": "Мислите като облаци",
-   "theme": "Мисълта не е факт — тя е събитие в ума, което идва и си отива.",
-   "explanation": "Когато мисъл като „пак започна, ще ме съсипе\" се появи, не сте длъжен да й вярвате. Можете просто да я забележите — както бихте забелязали облак в небето. Не я гонете, не се борете с нея, не я раздухвайте. Гледайте я как минава. Това умение се нарича дистанциране и е едно от най-силните при работа с тинитус.",
+   "title": "Thoughts like clouds",
+   "theme": "A thought is not a fact — it's an event in the mind that comes and goes.",
+   "explanation": "When a thought like \"here it goes again, it will destroy me\" appears, you don't have to believe it. You can simply notice it — as you would notice a cloud in the sky. Don't chase it, don't fight it, don't fan it. Watch it pass. This skill is called distancing and is one of the most powerful in dealing with tinnitus.",
    "exercise": [
-    "Седнете спокойно с леко затворени очи.",
-    "Когато се появи мисъл за тинитуса, кажете си наум: „Имам мисълта, че…\", след което допълнете мисълта.",
-    "Оставете мисълта да премине, без да реагирате на нея. Правете това 5 минути."
+    "Sit calmly with your eyes slightly closed.",
+    "When a thought about the tinnitus appears, say in your mind: \"I'm having the thought that…\", then complete the thought.",
+    "Let the thought pass without reacting to it. Do this for 5 minutes."
    ],
-   "reflection": "Беше ли Ви по-лесно да гледате мислите си отстрани, или да им вярвате както обикновено?"
+   "reflection": "Was it easier for you to watch your thoughts from the side, or to believe them as usual?"
   },
   "day_12": {
-   "title": "Три приятни мига",
-   "theme": "Денят Ви съдържа повече добри моменти, отколкото мозъкът Ви забелязва.",
-   "explanation": "Когато имате тинитус, умът Ви е научен да забелязва най-вече неприятното. Това не е Ваша слабост — това е защитна реакция. Но има противоотрова: всеки ден да си правите кратък списък от три приятни сетивни мига — вкус, аромат, гледка, докосване, тих звук. С времето мозъкът Ви ще започне сам да ги търси.",
+   "title": "Three pleasant moments",
+   "theme": "Your day contains more good moments than your brain notices.",
+   "explanation": "When you have tinnitus, your mind is trained to notice mostly the unpleasant. This is not your weakness — it's a defensive reaction. But there's an antidote: each day make a short list of three pleasant sensory moments — a taste, a scent, a sight, a touch, a quiet sound. Over time your brain will start to seek them out on its own.",
    "exercise": [
-    "Преди да заспите, спомнете си деня.",
+    "Before you fall asleep, recall the day.",
     "Запишете три неща, които сте усетили днес и са Ви били приятни (например аромат на кафе, топла светлина, разговор).",
     "До всяко напишете една дума за чувството, което Ви даде."
    ],
@@ -2353,13 +2353,13 @@
   "pitch": {
    "new_title": "Тон на тинитуса",
    "new_body": "Открийте честотата на вашия тинитус за персонализиран notch филтър.",
-   "new_cta": "Направи тест",
+   "new_cta": "Take the test",
    "done_title": "Тон на тинитуса",
    "done_body": "Текущ профил: {hz} Hz. Можете да повторите теста при нужда.",
    "done_cta": "Повтори теста",
    "skipped_title": "Тон на тинитуса",
    "skipped_body": "Тестът беше пропуснат. Направете го за персонализиран филтър.",
-   "skipped_cta": "Направи тест",
+   "skipped_cta": "Take the test",
    "caution": "Не е нужно да тествате често — резултатите са най-надеждни при няколко дни между измерванията.",
    "infoAria": "Научна информация за теста",
    "refine_body": "Намерена: {hz} Hz. Искате ли да я уточним по-точно? Отнема 5 минути.",
@@ -2428,7 +2428,7 @@
  "soundDetail": {
   "backAria": "Назад към категорията",
   "playCta": "Слушай",
-  "description": "Описание",
+  "description": "Description",
   "recommendedNoise": "Препоръчителен фон",
   "recommendedMix": "Препоръчителен микс: {ratio}",
   "noRecommendation": "Без препоръка за фон",
