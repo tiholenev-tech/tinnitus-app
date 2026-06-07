@@ -10,184 +10,184 @@
  "ui": {
   "meta": {
    "title": "tinnitus-app",
-   "description": "Инструмент за слухова релаксация при тинитус"
+   "description": "Herramienta de relajación auditiva para el tinnitus"
   },
   "header": {
-   "brandHomeAria": "Към началната страница",
-   "themeToggleAria": "Смяна на тема",
-   "settingsAria": "Настройки"
+   "brandHomeAria": "A la página de inicio",
+   "themeToggleAria": "Cambiar tema",
+   "settingsAria": "Ajustes"
   },
   "onboarding": {
-   "back": "Назад",
-   "progressLabel": "Стъпка {step} от 3",
+   "back": "Atrás",
+   "progressLabel": "Paso {step} de 3",
    "welcome": {
-    "title": "Контролирайте шума.<br>Възстановете покоя.",
-    "subtitle": "Звукова библиотека, специално избрана за хора с шум в ушите.<br>Безплатна beta версия — без реклами, без абонамент.",
-    "cta": "Започнете",
-    "video": "30-секундно видео какво е AURALIS",
-    "videoTitle": "Видео",
-    "videoSoon": "Видео скоро",
-    "videoDesc": "30-секундно представяне (Phase 2)"
+    "title": "Controle el ruido.<br>Recupere la calma.",
+    "subtitle": "Una biblioteca de sonidos especialmente seleccionada para personas con zumbido en los oídos.<br>Versión beta gratuita — sin anuncios, sin suscripción.",
+    "cta": "Empezar",
+    "video": "Vídeo de 30 segundos sobre AURALIS",
+    "videoTitle": "Vídeo",
+    "videoSoon": "Vídeo próximamente",
+    "videoDesc": "Presentación de 30 segundos (Phase 2)"
    },
    "value": {
-    "title": "Какво ще получите",
+    "title": "Qué obtendrá",
     "beta": {
-     "title": "Това е beta версия",
-     "text": "Вие сте сред първите тестери. Вашата обратна връзка ще помогне за подобряване на приложението."
+     "title": "Esta es una versión beta",
+     "text": "Está entre los primeros evaluadores. Sus comentarios ayudarán a mejorar la aplicación."
     },
     "cards": {
      "mixer": {
-      "heading": "Персонализиран звуков микс",
-      "body": "Според Вашия профил на тинитус."
+      "heading": "Mezcla de sonido personalizada",
+      "body": "Según su perfil de tinnitus."
      },
      "chart": {
-      "heading": "Дневник на прогреса",
-      "body": "Виждате подобрението си с числа."
+      "heading": "Diario de progreso",
+      "body": "Vea su mejora en números."
      },
      "voice": {
-      "heading": "Гласов асистент",
-      "body": "Без писане, без сложности."
+      "heading": "Asistente de voz",
+      "body": "Sin escribir, sin complicaciones."
      }
     },
     "timeline": {
      "relief": {
-      "label": "Първи признаци на облекчение:",
-      "value": "14–21 ден"
+      "label": "Primeros signos de alivio:",
+      "value": "Día 14–21"
      },
      "habituation": {
-      "label": "Пълна хабитуация:",
-      "value": "8–12 седмици"
+      "label": "Habituación completa:",
+      "value": "8–12 semanas"
      }
     },
-    "disclaimerSoft": "Не обещаваме чудеса. Тренираме мозъка да игнорира звука.",
-    "cta": "Продължете"
+    "disclaimerSoft": "No prometemos milagros. Entrenamos al cerebro para ignorar el sonido.",
+    "cta": "Continuar"
    },
    "consent": {
-    "title": "Важно преди да продължите",
-    "intro": "tinnitus-app е инструмент за слухова релаксация.",
+    "title": "Importante antes de continuar",
+    "intro": "tinnitus-app es una herramienta de relajación auditiva.",
     "lines": {
-     "noReplaceConsult": "Не заменя медицинска консултация",
-     "noTreatment": "Не лекува тинитус",
-     "helpsHabituation": "Помага за хабитуация и релаксация",
-     "resultsVary": "Резултатите варират индивидуално"
+     "noReplaceConsult": "No sustituye la consulta médica",
+     "noTreatment": "No cura el tinnitus",
+     "helpsHabituation": "Ayuda con la habituación y la relajación",
+     "resultsVary": "Los resultados varían según la persona"
     },
-    "footer": "При остри симптоми консултирайте се с лекар.",
-    "checkboxLabel": "Разбирам и съм съгласен / съгласна",
-    "cta": "Продължете към оценка"
+    "footer": "En caso de síntomas agudos, consulte a un médico.",
+    "checkboxLabel": "Entiendo y acepto",
+    "cta": "Continuar a la evaluación"
    }
   },
   "mixer": {
    "tabs": {
-    "recommended": "Препоръчани",
-    "all": "Всички звуци"
+    "recommended": "Recomendados",
+    "all": "Todos los sonidos"
    },
-   "profilePillPrefix": "За Вашия профил: ",
-   "starTag": "Най-добър за Вас",
-   "volumeAria": "Сила на звука 0 до 100",
-   "playAria": "Пусни {title}",
-   "playGenericAria": "Пусни",
-   "infoAria": "Информация",
-   "infoLoadingMissing": "Информацията се зарежда... (entry \"{key}\" не е намерен).",
-   "categoriesLoading": "Зарежда се...",
-   "categoryCountSuffix": "{n} файла",
-   "sleepBtn": "Sleep таймер",
-   "sleepBtnAria": "Sleep таймер",
-   "sleepCurrentSuffix": "· {n} мин",
-   "sourcePrefix": "Източник: ",
-   "infoToggle": "Искате ли да знаете повече?",
+   "profilePillPrefix": "Para su perfil: ",
+   "starTag": "El mejor para usted",
+   "volumeAria": "Volumen de 0 a 100",
+   "playAria": "Reproducir {title}",
+   "playGenericAria": "Reproducir",
+   "infoAria": "Información",
+   "infoLoadingMissing": "Cargando información... (entrada \"{key}\" no encontrada).",
+   "categoriesLoading": "Cargando...",
+   "categoryCountSuffix": "{n} archivos",
+   "sleepBtn": "Temporizador de sueño",
+   "sleepBtnAria": "Temporizador de sueño",
+   "sleepCurrentSuffix": "· {n} min",
+   "sourcePrefix": "Fuente: ",
+   "infoToggle": "¿Quiere saber más?",
    "sleepOverlay": {
-    "title": "Sleep таймер",
-    "sub": "Звукът ще спре плавно след избраното време",
-    "chip15": "15 минути",
-    "chip30": "30 минути",
-    "chip60": "60 минути",
-    "chip120": "120 минути",
-    "cancel": "Отмени таймера"
+    "title": "Temporizador de sueño",
+    "sub": "El sonido se detendrá suavemente tras el tiempo elegido",
+    "chip15": "15 minutos",
+    "chip30": "30 minutos",
+    "chip60": "60 minutos",
+    "chip120": "120 minutos",
+    "cancel": "Cancelar temporizador"
    },
    "infoExpand": {
     "whyForYou": {
-     "title": "Защо тези миксове за Вас",
-     "body": "Вашият профил ({code} — {name}) реагира най-добре на звуци със спектър, който частично припокрива тинитуса. Целта е постепенна хабитуация — мозъкът да го свикне да чува по-малко с времето."
+     "title": "Por qué estas mezclas para usted",
+     "body": "Su perfil ({code} — {name}) responde mejor a sonidos con un espectro que se solapa parcialmente con el tinnitus. El objetivo es una habituación gradual — que el cerebro aprenda a oírlo menos con el tiempo."
     },
     "expectations": {
-     "title": "Какво да очаквате",
+     "title": "Qué esperar",
      "weeks1_2": {
-      "label": "Седмица 1–2",
-      "text": "По-лесно заспиване. Тинитусът все още присъства, но е по-малко натрапчив."
+      "label": "Semana 1–2",
+      "text": "Más fácil conciliar el sueño. El tinnitus sigue presente, pero es menos molesto."
      },
      "weeks3_4": {
-      "label": "Седмица 3–4",
-      "text": "Започвате да забравяте за тинитуса по време на тиха работа. По-добра концентрация."
+      "label": "Semana 3–4",
+      "text": "Empieza a olvidar el tinnitus durante el trabajo tranquilo. Mejor concentración."
      },
      "months2_3": {
-      "label": "Месец 2–3",
-      "text": "Хабитуация — тинитусът се отдалечава от съзнателното внимание за дълги периоди."
+      "label": "Mes 2–3",
+      "text": "Habituación — el tinnitus se aleja de la atención consciente durante largos periodos."
      }
     },
     "disclaimer": [
-     "AURALIS е wellness инструмент, не медицински продукт.",
-     "При остри симптоми (внезапна загуба на слух, виене на свят) консултирайте се с УНГ лекар.",
-     "Слушайте на умерена сила — звукът никога не трябва да заглушава напълно тинитуса."
+     "AURALIS es una herramienta de bienestar, no un producto médico.",
+     "En caso de síntomas agudos (pérdida auditiva repentina, mareos), consulte a un otorrinolaringólogo.",
+     "Escuche a volumen moderado — el sonido nunca debe enmascarar por completo el tinnitus."
     ]
    },
    "cards": {
     "underwater": {
-     "title": "Подводна тишина",
-     "subtitle": "Дълбоки честоти · 60–120 Hz"
+     "title": "Silencio submarino",
+     "subtitle": "Frecuencias profundas · 60–120 Hz"
     },
     "deep_calm": {
-     "title": "Дълбок сън",
-     "subtitle": "60% кафяв шум · 30% вълни · 10% делта"
+     "title": "Sueño profundo",
+     "subtitle": "60% ruido marrón · 30% olas · 10% delta"
     },
     "sea_shore": {
-     "title": "Морски бряг",
-     "subtitle": "Бавни вълни на разстояние"
+     "title": "Orilla del mar",
+     "subtitle": "Olas lentas a lo lejos"
     },
     "pink_rain": {
-     "title": "Тих дъжд",
-     "subtitle": "Пролетен дъжд в гората"
+     "title": "Lluvia suave",
+     "subtitle": "Lluvia primaveral en el bosque"
     },
     "brown_noise": {
-     "title": "Розов шум",
-     "subtitle": "Базов терапевтичен шум"
+     "title": "Ruido rosa",
+     "subtitle": "Ruido terapéutico básico"
     }
    }
   },
   "quiz": {
-   "back": "Назад",
-   "progressText": "Въпрос {n} от {total}",
-   "progressAria": "Прогрес {n} от {total}",
-   "errorQuestionMissing": "Грешка: въпрос {n} не съществува.",
-   "confirmRestart": "Сигурни ли сте? Това ще изтрие всички отговори и ще започне отначало.",
+   "back": "Atrás",
+   "progressText": "Pregunta {n} de {total}",
+   "progressAria": "Progreso {n} de {total}",
+   "errorQuestionMissing": "Error: la pregunta {n} no existe.",
+   "confirmRestart": "¿Está seguro? Esto borrará todas las respuestas y empezará de nuevo.",
    "results": {
-    "computing": "Изчисляване...",
-    "notComputed": "Профилът все още не е изчислен.",
-    "startOver": "Започни отначало",
-    "eyebrow": "Вашият профил",
-    "diEyebrow": "Ниво на дискомфорт",
+    "computing": "Calculando...",
+    "notComputed": "El perfil aún no se ha calculado.",
+    "startOver": "Empezar de nuevo",
+    "eyebrow": "Su perfil",
+    "diEyebrow": "Nivel de malestar",
     "diSuffix": "/ 20",
-    "intensityLabel": "Препоръчителен интензитет:",
-    "mixesTitle": "Препоръчани миксове",
-    "disclaimer": "Този профил е базиран на Вашите отговори. Можете да го промените по-късно в настройките.",
-    "continueToMixer": "Продължи към Mixer",
-    "restart": "Започни оценката отначало"
+    "intensityLabel": "Intensidad recomendada:",
+    "mixesTitle": "Mezclas recomendadas",
+    "disclaimer": "Este perfil se basa en sus respuestas. Puede cambiarlo más tarde en los ajustes.",
+    "continueToMixer": "Continuar al Mixer",
+    "restart": "Reiniciar la evaluación"
    },
    "mixerPlaceholder": {
-    "title": "Mixer следва",
-    "body": "Web Audio engine + 5 канала + Sleep Mode идват в следваща задача.",
-    "reset": "Нулирай всичко"
+    "title": "Mixer a continuación",
+    "body": "El motor Web Audio + 5 canales + modo Sleep llegan en la próxima tarea.",
+    "reset": "Restablecer todo"
    }
   },
   "settings": {
-   "title": "Настройки",
-   "openAria": "Отвори настройки",
-   "closeAria": "Затвори настройки",
-   "back": "Назад",
+   "title": "Ajustes",
+   "openAria": "Abrir ajustes",
+   "closeAria": "Cerrar ajustes",
+   "back": "Atrás",
    "lang": {
-    "label": "Език",
-    "active": "активен",
+    "label": "Idioma",
+    "active": "activo",
     "preview": "preview",
-    "todo": "очаква се превод",
+    "todo": "traducción pendiente",
     "names": {
      "bg": "Български",
      "en": "English",
@@ -207,21 +207,21 @@
     }
    },
    "theme": {
-    "label": "Тема",
-    "light": "Светла",
-    "dark": "Тъмна",
-    "auto": "Автоматична"
+    "label": "Tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "auto": "Automático"
    },
    "volume": {
-    "label": "Сила на звука",
-    "aria": "Сила на звука 0 до 100"
+    "label": "Volumen",
+    "aria": "Volumen de 0 a 100"
    },
    "data": {
-    "label": "Моите данни",
-    "export": "Изтегли всичко (JSON)",
+    "label": "Mis datos",
+    "export": "Descargar todo (JSON)",
     "exportFilename": "auralis-data-{date}.json",
-    "delete": "Изтрий всички данни",
-    "deleteConfirm": "Сигурни ли сте? Това ще изтрие квиза, любимите, дневника и всички настройки. Действието е необратимо.",
+    "delete": "Eliminar todos los datos",
+    "deleteConfirm": "¿Está seguro? Esto eliminará el cuestionario, los favoritos, el diario y todos los ajustes. La acción es irreversible.",
     "debugResetTrial": "Reset trial period (debug)",
     "debugResetDone": "Trial reset ✓",
     "debugSkipOnboarding": "Skip onboarding → Library (debug)",
@@ -229,80 +229,80 @@
     "debugMockQuiz": "Mock quiz: TH_C profile → Library (debug)"
    },
    "about": {
-    "label": "За приложението",
-    "version": "AURALIS · версия {v} (beta) · 2026",
-    "disclaimer": "Wellness инструмент, не заместител на лекар.",
-    "privacyLink": "Политика за поверителност",
-    "termsLink": "Условия за ползване"
+    "label": "Acerca de la aplicación",
+    "version": "AURALIS · versión {v} (beta) · 2026",
+    "disclaimer": "Una herramienta de bienestar, no un sustituto del médico.",
+    "privacyLink": "Política de privacidad",
+    "termsLink": "Términos de uso"
    }
   },
   "trial": {},
   "audio": {
    "error": {
-    "notFound": "Звукът не може да се зареди",
-    "network": "Проверете интернет връзката",
-    "decode": "Файлът не може да се възпроизведе"
+    "notFound": "No se pudo cargar el sonido",
+    "network": "Compruebe su conexión a internet",
+    "decode": "No se pudo reproducir el archivo"
    }
   },
   "components": {
    "infoPanel": {
-    "readMore": "Прочети повече",
-    "readLess": "Покажи по-малко",
-    "citationsLabel": "Източници",
-    "faqLabel": "Често задавани въпроси",
-    "expandQuestionAria": "Покажи отговора на: {question}",
-    "collapseQuestionAria": "Скрий отговора на: {question}"
+    "readMore": "Leer más",
+    "readLess": "Mostrar menos",
+    "citationsLabel": "Fuentes",
+    "faqLabel": "Preguntas frecuentes",
+    "expandQuestionAria": "Mostrar la respuesta de: {question}",
+    "collapseQuestionAria": "Ocultar la respuesta de: {question}"
    },
    "noisePicker": {
-    "title": "Изберете фонов шум",
-    "close": "Затвори",
-    "infoAria": "Информация за: {name}",
+    "title": "Elija el ruido de fondo",
+    "close": "Cerrar",
+    "infoAria": "Información sobre: {name}",
     "options": {
-     "none": "Без фон",
-     "brown_pure": "Кафяв (чист)",
-     "brown_lp1000": "Кафяв · филтър 1000 Hz",
-     "brown_lp500": "Кафяв · филтър 500 Hz",
-     "pink_pure": "Розов (чист)",
-     "pink_lp2000": "Розов · филтър 2000 Hz",
-     "pink_lp4000": "Розов · филтър 4000 Hz"
+     "none": "Sin fondo",
+     "brown_pure": "Marrón (puro)",
+     "brown_lp1000": "Marrón · filtro 1000 Hz",
+     "brown_lp500": "Marrón · filtro 500 Hz",
+     "pink_pure": "Rosa (puro)",
+     "pink_lp2000": "Rosa · filtro 2000 Hz",
+     "pink_lp4000": "Rosa · filtro 4000 Hz"
     }
    },
    "player": {
-    "backAria": "Назад към библиотеката",
-    "layer1Label": "Основен звук",
-    "layer2Label": "Фонов шум",
-    "noiseChange": "Смени фон",
-    "pauseAria": "Пауза",
-    "playAria": "Пусни",
-    "sleepAria": "Нощен режим",
-    "sosAria": "SOS дишане",
-    "noLayer2": "Без фон"
+    "backAria": "Volver a la biblioteca",
+    "layer1Label": "Sonido principal",
+    "layer2Label": "Ruido de fondo",
+    "noiseChange": "Cambiar fondo",
+    "pauseAria": "Pausa",
+    "playAria": "Reproducir",
+    "sleepAria": "Modo nocturno",
+    "sosAria": "Respiración SOS",
+    "noLayer2": "Sin fondo"
    }
   },
   "noises": {
    "none": {
-    "title": "Без фон",
-    "description": "Без втори звуков слой."
+    "title": "Sin fondo",
+    "description": "Sin segunda capa de sonido."
    },
    "brown_pure": {
-    "title": "Brown noise (чист)",
-    "description": "Мек, дълбок шум с акцент върху ниските честоти (1/f²). Подходящ за релаксация и заспиване. Често ползван от хора с висок-тонов тинитус."
+    "title": "Ruido marrón (puro)",
+    "description": "Ruido suave y profundo con énfasis en las frecuencias bajas (1/f²). Adecuado para la relajación y conciliar el sueño. Usado a menudo por personas con tinnitus agudo."
    },
    "brown_lp1000": {
     "title": "Brown lowpass 1000 Hz",
-    "description": "Brown noise филтриран — отстранени са честоти над 1000 Hz. По-меко, по-фоново звучене. Добър за дълга концентрация."
+    "description": "Ruido marrón filtrado — eliminadas las frecuencias por encima de 1000 Hz. Sonido más suave y de fondo. Bueno para la concentración prolongada."
    },
    "brown_lp500": {
     "title": "Brown lowpass 500 Hz",
-    "description": "Brown noise филтриран до много ниски честоти (под 500 Hz). Усеща се повече като дълбок тътен, отколкото като шум."
+    "description": "Ruido marrón filtrado a frecuencias muy bajas (por debajo de 500 Hz). Se percibe más como un retumbo profundo que como ruido."
    },
    "pink_pure": {
-    "title": "Pink noise (чист)",
-    "description": "Натурален природен шум (1/f). Подобен на лек дъжд или вятър. Един от най-изследваните типове шум за сън."
+    "title": "Ruido rosa (puro)",
+    "description": "Ruido natural (1/f). Parecido a la lluvia ligera o el viento. Uno de los tipos de ruido más estudiados para dormir."
    },
    "pink_lp2000": {
     "title": "Pink lowpass 2000 Hz",
-    "description": "Pink noise с филтър — без свистенето на високите честоти. По-мек, по-приятен за дълго слушане."
+    "description": "Ruido rosa filtrado — sin el silbido de las frecuencias altas. Más suave y agradable para escuchar durante mucho tiempo."
    },
    "pink_lp4000": {
     "title": "Pink lowpass 4000 Hz",
@@ -354,15 +354,15 @@
    },
    "card": {
     "durationFmt": "{m}:{s}",
-    "playAria": "Пусни {title}",
+    "playAria": "Reproducir {title}",
     "favoriteAddAria": "Добави {title} в любими",
     "favoriteRemoveAria": "Премахни {title} от любими"
    },
    "player": {
     "playing": "Възпроизвежда се",
     "paused": "Паузирано",
-    "playAria": "Пусни",
-    "pauseAria": "Пауза",
+    "playAria": "Reproducir",
+    "pauseAria": "Pausa",
     "nextAria": "Следващ звук",
     "expandAria": "Разгъни плеъра"
    },
@@ -376,15 +376,15 @@
      "subtitle": "Равномерен пролетен дъжд"
     },
     "sample_underwater_01": {
-     "title": "Подводна тишина",
-     "subtitle": "Дълбоки честоти · 60–120 Hz"
+     "title": "Silencio submarino",
+     "subtitle": "Frecuencias profundas · 60–120 Hz"
     },
     "sample_deep_01": {
      "title": "Дълбок ambient",
      "subtitle": "Спокоен басов фон"
     },
     "sample_pink_01": {
-     "title": "Розов шум",
+     "title": "Ruido rosa",
      "subtitle": "Генериран в реално време"
     },
     "sample_river_01": {
@@ -436,7 +436,7 @@
    }
   },
   "sleep": {
-   "title": "Нощен режим",
+   "title": "Modo nocturno",
    "closeAria": "Изход от нощен режим",
    "nothingPlaying": "Изберете звук от библиотеката",
    "openLibrary": "Към библиотеката",
@@ -472,7 +472,7 @@
    }
   },
   "privacy": {
-   "title": "Политика за поверителност",
+   "title": "Política de privacidad",
    "lastUpdated": "Последна актуализация: 24 май 2026",
    "intro": "AURALIS уважава Вашата поверителност. Този документ обяснява простичко какво (НЕ) събираме и какво се случва с данните Ви.",
    "collection": {
@@ -502,7 +502,7 @@
    "body": "AURALIS е инструмент за слухова релаксация. Не лекува тинитус и не заменя медицинска консултация.\n\nВсички Ваши данни (квиз отговори, дневник, любими, история на слушане) се пазят локално на устройството Ви.\n\nНие не събираме нищо. Не изпращаме никакви данни към сървър. Няма tracking, няма analytics, няма cookies от трети страни.\n\nМожете да изтриете всички свои данни по всяко време от Настройки → Моите данни → Изтрий всички данни.\n\nПри инсталация от Google Play / App Store, платформата може да обработва Вашия email и платежна информация — това е тяхна отговорност, не нашата.\n\nПри въпроси: tiholenev@gmail.com"
   },
   "terms": {
-   "title": "Условия за ползване",
+   "title": "Términos de uso",
    "lastUpdated": "Последна актуализация: 24 май 2026",
    "intro": "С отварянето на AURALIS приемате тези условия. Те са кратки и прости.",
    "wellness": {
@@ -514,7 +514,7 @@
     "text": "При интензивен или внезапен тинитус (особено в едно ухо, с виене на свят или загуба на слуха) се консултирайте със специалист по уши-нос-гърло (УНГ). При мисли за самонараняване или тежка депресия — потърсете незабавно професионална помощ."
    },
    "volume": {
-    "title": "Сила на звука",
+    "title": "Volumen",
     "text": "Слушайте на умерена сила. Не позволявайте звукът напълно да заглушава тинитуса (това би било вредно при дългосрочно ползване). Препоръчителна сила: при слушалки около 30–40 % от max."
    },
    "noWarranty": {
@@ -534,8 +534,8 @@
    "categoryLabel": "Медитация",
    "playerAria": "Плеър за медитация",
    "closeAria": "Затвори плеъра",
-   "playAria": "Пусни",
-   "pauseAria": "Пауза",
+   "playAria": "Reproducir",
+   "pauseAria": "Pausa",
    "missingFile": "Аудио файлът липсва (placeholder за UI development).",
    "ended": "Завършена",
    "endedSub": "Връщане към библиотеката..."
@@ -644,7 +644,7 @@
     "resumeDraftTitle": "Имате незавършен запис",
     "resumeDraftBody": "Желаете ли да продължите от там, където спряхте?",
     "resumeYes": "Продължи",
-    "resumeStartOver": "Започни отначало",
+    "resumeStartOver": "Empezar de nuevo",
     "highDistress3d": "През последните 3 дни сте отчели висок дистрес. AURALIS е wellness инструмент, не медицински. Ако се чувствате претоварен, можете да обмислите консултация със специалист.",
     "multiEntryHint": "Виждаме, че днес попълвате и сутрешния, и вечерния запис заедно. Това е окей. Обикновено вечерният се прави след 20:00.",
     "saveDraftFailed": "Не успяхме да запазим автоматично. Натиснете „Запиши\" преди да затворите."
@@ -762,7 +762,7 @@
     "title": "Готово",
     "subtitle": "Намерихме приблизителната честота на Вашия тинитус.",
     "note": "Това е приблизителна оценка, не клинично измерване — честотата на тинитуса естествено се променя. Затова звуковият подход използва широка лента около нея.",
-    "continue": "Продължете",
+    "continue": "Continuar",
     "retest": "Повторете теста"
    },
    "quit": {
@@ -783,7 +783,7 @@
    "fullAccess": "Пълен достъп ✓",
    "trialLeftFmt": "Пробен период: още {n} дни",
    "trial": "Пробен период",
-   "profileTitle": "Вашият профил",
+   "profileTitle": "Su perfil",
    "loggedInAs": "Влезли сте като <b>{email}</b>",
    "unlock": "Отключи пълен достъп — €19.99",
    "loading": "Зареждам…",
@@ -794,7 +794,7 @@
    "syncing": "Синхронизирам…",
    "synced": "Синхронизирано ✓",
    "logout": "Изход",
-   "close": "Затвори",
+   "close": "Cerrar",
    "loginTitle": "Вход / Възстановяване",
    "loginSub": "Въведете имейл и ще получите връзка за вход — без парола. Така данните ви се пазят и се връщат при смяна на телефон.",
    "emailPlaceholder": "вашият@имейл.bg",
@@ -810,7 +810,7 @@
    "hoursSessionsFmt": "{h}ч / {s}x"
   },
   "categoryView": {
-   "loading": "Зарежда се...",
+   "loading": "Cargando...",
    "notFound": "Категорията не е намерена."
   },
   "diaryHub": {
@@ -836,7 +836,7 @@
    }
   },
   "favorites": {
-   "loadingSkeleton": "Зарежда се..."
+   "loadingSkeleton": "Cargando..."
   },
   "headphones": {
    "l1": "Слушалките-тапи (in-ear) ВЛОШАВАТ тинитуса. Те създават оклузивен ефект — вътрешният шум се чува по-силно.",
@@ -865,25 +865,25 @@
    "infoNoise": "Препоръчителен фон за вашия профил",
    "infoWhy": "Защо този звук е добър за вас",
    "hintAria": "Съвет за силата",
-   "close": "Затвори",
+   "close": "Cerrar",
    "hintTitle": "Малък съвет за Вас",
    "hintBody1": "Нагласете силата и микса както Ви е приятно — <b>Вие решавате</b>.",
    "hintBody2": "За най-силен ефект и за да отслабва шумът с времето, оставете звука да <b>не заглушава напълно</b> Вашия тинитус — добре е леко да чувате и него под звука.",
    "hintOk": "Разбрах",
    "hintNever": "Не показвай повече",
-   "sleepPreset15": "15 минути",
-   "sleepPreset30": "30 минути",
+   "sleepPreset15": "15 minutos",
+   "sleepPreset30": "30 minutos",
    "sleepPreset60": "1 час",
    "sleepPresetNight": "8 часа (цяла нощ)",
    "sleepTimerTitle": "Таймер за сън",
-   "bgNoise": "Фонов шум",
+   "bgNoise": "Ruido de fondo",
    "soundDescFmt": "Звук от категория {cat}."
   },
   "profileResults": {
    "spectrumAria": "Спектър на честотите от 250 Hz до 16 kHz, маркер на {f}"
   },
   "soundDetail": {
-   "loading": "Зарежда се...",
+   "loading": "Cargando...",
    "notFound": "Звукът не е намерен."
   },
   "volumeCalib": {
@@ -930,7 +930,7 @@
    "s4": "Notch ★",
    "s5": "Звук",
    "s6": "Безопасност",
-   "s7": "Източници"
+   "s7": "Fuentes"
   },
   "s1": {
    "title": "Защо AURALIS работи",
@@ -1284,7 +1284,7 @@
   },
   "placeholder": "Това съдържание се подготвя от научния екип.",
   "descriptionTitle": "Какво означава това",
-  "expectationsTitle": "Какво да очаквате",
+  "expectationsTitle": "Qué esperar",
   "recommendedTitle": "Препоръчителни режими",
   "recommendedBadge": "За Вас",
   "duration": {
@@ -1310,7 +1310,7 @@
     "strategyReasoning": "- Препоръчителен носещ звук: филтриран дъжд или балансиран розов шум.\n\n- Препоръчителен `recommended_noise` в библиотеката: `pink_lowpass_4000` или `brown_lowpass_1000`.\n\n- Препоръчително съотношение sound/noise: 0.70/0.30 (леко sound-dominant). Принцип на \"точката на смесване\" — звукът трябва да бъде малко под силата на тинитуса, не да го заглушава напълно.\n\n- Препоръчителна продължителност: минимум 2 часа дневно за устойчива хабитуация; идеално 4–6 часа разпределени през деня.\n\n- Топ use cases по приоритет: `daily` (умствена работа) → `relaxation` → `falling_asleep`.",
     "timeline": [
      {
-      "period": "Седмица 1–2",
+      "period": "Semana 1–2",
       "expectation": "обикновено се появява първо усещане за \"по-малко натрапчив\" звук в момента на слушане. Веднага след спиране на звука тинитусът се възприема в първоначалната си сила. Това е напълно нормално и не означава, че процесът не работи."
      },
      {
@@ -1380,7 +1380,7 @@
       "expectation": "при правилно избран зелен шум или меки природни звуци, повечето хора усещат намаляване на остротата на ситуацията в рамките на 5–15 минути. Това е незабавният anxiolytic ефект на средночестотната звукова обертурата."
      },
      {
-      "period": "Седмица 1–2",
+      "period": "Semana 1–2",
       "expectation": "при последователно ежедневно прилагане намалява базовата реактивност — амплитудата на пиковете в стресовия отговор спада."
      },
      {
@@ -1409,7 +1409,7 @@
     "strategyReasoning": "- Препоръчителен носещ звук: силно динамични и непериодични природни среди — океански приливи и отливи, modulated wave swells, binaural ambient.\n\n- Препоръчителен `recommended_noise` в библиотеката: `brown_lowpass_1000` за равномерно тяло на звука; mix с natural дунамични файлове (например `water_wave_ocean_wave_swells`, ocean swells, дишащи waves).\n\n- Препоръчително съотношение: 0.85/0.15 (sound dominant) — динамиката на природния звук ангажира вниманието и пречи на кортикалната адаптация.\n\n- Препоръчителна продължителност: 2–4 часа дневно, с акцент върху периоди на физическо ангажиране — разходка, рутинни задачи. Това комбинира моторно разсейване със звуково обогатяване.\n\n- Топ use cases по приоритет: `relaxation` → `daily` → `meditation`.",
     "timeline": [
      {
-      "period": "Седмица 1–2",
+      "period": "Semana 1–2",
       "expectation": "при паралелна orofacial физиотерапия можете да забележите бързи флуктуации — добри и лоши дни. Това не означава, че процесът не работи; означава, че се отнема пресъхналата тъканна тяга."
      },
      {
@@ -1509,7 +1509,7 @@
    "layer2": "Layer 2 (фон шум)"
   },
   "previewCta": "Опитайте сега",
-  "closeAria": "Затвори",
+  "closeAria": "Cerrar",
   "placeholder": "Това съдържание се подготвя от научния екип.",
   "sleep_deep": {
    "title": "Сън дълбок",
@@ -1919,14 +1919,14 @@
  },
  "thi": {
   "title": "THI оценка",
-  "progressFmt": "Въпрос {n} от {total}",
+  "progressFmt": "Pregunta {n} de {total}",
   "options": {
    "yes": "Да",
    "sometimes": "Понякога",
    "no": "Не"
   },
   "actions": {
-   "prev": "Назад",
+   "prev": "Atrás",
    "next": "Следващ",
    "finish": "Завърши",
    "continue": "Продължи"
@@ -1981,7 +1981,7 @@
    "compareDay1": "Ден 1",
    "compareDay14": "Ден 14",
    "compareChange": "Промяна",
-   "close": "Затвори"
+   "close": "Cerrar"
   },
   "insights": {
    "functional": {
@@ -2021,8 +2021,8 @@
   }
  },
  "faq": {
-  "title": "Често задавани въпроси",
-  "openLabel": "Често задавани въпроси",
+  "title": "Preguntas frecuentes",
+  "openLabel": "Preguntas frecuentes",
   "closeAria": "Затвори въпроси и отговори",
   "searchPlaceholder": "Търси въпрос…",
   "searchAria": "Търси въпрос",
@@ -2313,7 +2313,7 @@
  "home": {
   "infoAria": "Информация за категорията",
   "title": "Изберете режим",
-  "openLibraryAll": "Всички звуци",
+  "openLibraryAll": "Todos los sonidos",
   "openDiary": "Дневник",
   "soundCountFmt": "{n} звука",
   "favoritesBtn": {
@@ -2366,7 +2366,7 @@
    "refine_cta": "Уточни честотата"
   },
   "volume": {
-   "label": "Сила на звука",
+   "label": "Volumen",
    "aria": "Сила на звука 0-100"
   },
   "tests": {
@@ -2388,7 +2388,7 @@
    "lastFmt": "Последно: {v}",
    "unfinishedF": "Недовършена оценка",
    "continueBtn": "Продължи",
-   "restartBtn": "Започни отначало",
+   "restartBtn": "Empezar de nuevo",
    "viewBtn": "Виж",
    "retestBtn": "Направи отново",
    "doBtn": "Направи",
@@ -2780,7 +2780,7 @@
  },
  "noises": {
   "none": {
-   "title": "Без фон",
+   "title": "Sin fondo",
    "description": "Само главният звук, без фонов шум. Подходящо за медитативни мелодии."
   },
   "pink_pure": {
@@ -2814,11 +2814,11 @@
  },
  "components": {
   "noisePicker": {
-   "title": "Изберете фонов шум",
-   "close": "Затвори",
-   "infoAria": "Информация за: {name}",
+   "title": "Elija el ruido de fondo",
+   "close": "Cerrar",
+   "infoAria": "Información sobre: {name}",
    "options": {
-    "none": "Без фон",
+    "none": "Sin fondo",
     "pink_pure": "Ясен розов шум",
     "pink_lp2000": "Приглушен розов шум",
     "pink_lp4000": "Мек розов шум",
@@ -2829,7 +2829,7 @@
    }
   },
   "bottomSheet": {
-   "close": "Затвори"
+   "close": "Cerrar"
   },
   "player": {
    "infoAria": "Информация за звука"
@@ -2923,7 +2923,7 @@
  },
  "a11y": {
   "skipToContent": "Прескочи към основно съдържание",
-  "paused": "Пауза",
+  "paused": "Pausa",
   "playing": "Пускане",
   "help": {
    "esc": "Затвори модал",
@@ -2973,7 +2973,7 @@
   "remove": "Премахни",
   "removed": "Премахнато от любими",
   "pageSubtitle": "Вашите запазени звуци",
-  "backAria": "Назад",
+  "backAria": "Atrás",
   "countFmt": "Звуци (",
   "emptyHint": "Натиснете сърцето в плеъра за да добавите звук към любими."
  },
@@ -3307,7 +3307,7 @@
     "title": "Подводна нежност"
    },
    "ambience_underwater_complex_08": {
-    "title": "Подводна тишина"
+    "title": "Silencio submarino"
    },
    "ambience_underwater_complex_09": {
     "title": "Безкрайни дълбини"
@@ -3727,7 +3727,7 @@
     "title": "Мек розов шум"
    },
    "pink_lowpass_4000": {
-    "title": "Розов шум"
+    "title": "Ruido rosa"
    },
    "pink_pure": {
     "title": "Чист розов шум"
