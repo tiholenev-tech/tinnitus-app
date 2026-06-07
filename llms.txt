@@ -74,7 +74,31 @@
 - [Nu pot dormi din cauza tinitusului: cum să rup cercul](https://tinnitus-app.help/ro/articole/nu-pot-dormi-tinitus.php): Planul concret împotriva insomniei din tinitus: sunet, orare, regula celor 20 de minute și CBT-I, cea mai eficientă.
 - [Jurnalul somnului și al tinitusului: să vezi progresul în cifre](https://tinnitus-app.help/ro/articole/jurnal-somn-tinitus.php): Câteva secunde pe zi pentru a face vizibilă o îmbunătățire lentă. Ce să notezi și cum să citești media săptămânală.
 
+## Ελληνικά (/el/)
+- [Αρχική](https://tinnitus-app.help/el/)
+- [Όλα τα άρθρα](https://tinnitus-app.help/el/arthra/)
+- [Βόμβος στα αυτιά (εμβοές): τι είναι και τι βοηθά πραγματικά](https://tinnitus-app.help/el/arthra/vouitos-sta-aftia.php): Γιατί ο εγκέφαλος δημιουργεί τον ήχο, γιατί τη νύχτα είναι πιο δυνατός και ποιες προσεγγίσεις έχουν πραγματικές αποδείξεις.
+- [Σφυγμικές εμβοές: γιατί ακούω τον παλμό μου και πότε να ανησυχήσω](https://tinnitus-app.help/el/arthra/sfygmikes-emvoes.php): Οι σφυγμικές εμβοές ακολουθούν τον καρδιακό παλμό. Στο 44–91% των περιπτώσεων έχουν συγκεκριμένη, συχνά αντιμετωπίσιμη αιτία — γι' αυτό διερευνώνται.
+- [Ηχοθεραπεία notched: τι είναι και βοηθά στις εμβοές;](https://tinnitus-app.help/el/arthra/ihotherapeia-notched.php): Η προσέγγιση που βρίσκει τη συχνότητά σας και την αφαιρεί από τον ήχο — πώς λειτουργεί και τι δείχνουν οι μελέτες.
+- [Εμβοές τη νύχτα: γιατί χειροτερεύουν και πώς να αποκοιμηθείτε](https://tinnitus-app.help/el/arthra/emvoes-ti-nyhta.php): Γιατί ο βόμβος εντείνεται το βράδυ και τι βοηθά πραγματικά στον ύπνο — ήχος, ρουτίνα, ηρεμία.
+- [Βουλωμένα αυτιά, σαν κάτω από το νερό: είναι εμβοές;](https://tinnitus-app.help/el/arthra/vouloumena-aftia.php): Η αίσθηση «βουλωμένου αυτιού» συνήθως δεν είναι εμβοές, αλλά κάτι άλλο. Πότε είναι αβλαβής και πότε είναι σήμα κινδύνου.
+- [Εμβοές και αυχένας: ο βόμβος έρχεται από τον λαιμό;](https://tinnitus-app.help/el/arthra/emvoes-kai-afhenas.php): «Αυχενικό», «κακή κυκλοφορία» — τι είναι αλήθεια και τι μύθος, και πότε ο αυχένας επηρεάζει πραγματικά τον βόμβο.
+- [Άγχος και εμβοές: ο φαύλος κύκλος και πώς να τον σπάσετε](https://tinnitus-app.help/el/arthra/anhos-kai-emvoes.php): Γιατί ο φόβος εντείνει τον βόμβο και ποιες ψυχολογικές προσεγγίσεις (CBT, ACT) έχουν τις πιο στέρεες αποδείξεις.
+- [Μαγνήσιο, ginkgo και ψευδάργυρος κατά των εμβοών: βοηθούν πραγματικά;](https://tinnitus-app.help/el/arthra/magnisio-ginkgo-psevdargyros-emvoes.php): Τα πιο πουλημένα συμπληρώματα στη δοκιμασία των ανασκοπήσεων Cochrane: τι λένε οι αποδείξεις (και τι όχι).
+- [Επικάλυψη ή θεραπεία notched: τι είναι καλύτερο για τις εμβοές;](https://tinnitus-app.help/el/arthra/maskarisma-vs-notched.php): Οι δύο ηχητικές προσεγγίσεις με απλά λόγια: ποια δίνει γρήγορη ανακούφιση και ποια δρα στην αιτία με τον χρόνο.
+- [Θα κουφαθώ από τις εμβοές; Τι λέει πραγματικά η επιστήμη](https://tinnitus-app.help/el/arthra/tha-koufatho-apo-emvoes.php): Οι εμβοές δεν σας προκαλούν κώφωση: είναι σύμπτωμα, όχι ασθένεια που καταβροχθίζει την ακοή. Γιατί ο φόβος είναι σχεδόν πάντα αβάσιμος.
+- [Είναι ο βόμβος στα αυτιά επικίνδυνος; Τι βλάπτει την ακοή](https://tinnitus-app.help/el/arthra/emvoes-epikindynes-akoi.php): Οι εμβοές δεν βλάπτουν την ακοή — ο εγκέφαλος τις παράγει. Επικίνδυνος είναι ο δυνατός εξωτερικός θόρυβος. Και τα λίγα σήματα κινδύνου.
+- [Εμβοές και κατάθλιψη: να σπάσετε τη σύνδεση βόμβου και διάθεσης](https://tinnitus-app.help/el/arthra/emvoes-kai-katathlipsi.php): Στις σοβαρές περιπτώσεις, το 48–60% βιώνει άγχος ή κατάθλιψη. Τι βοηθά πραγματικά (CBT, ύπνος) και πότε να ζητήσετε άμεσα βοήθεια.
+- [Mindfulness και εμβοές: να σταματήσετε την πάλη με τον βόμβο](https://tinnitus-app.help/el/arthra/mindfulness-emvoes.php): Το mindfulness δεν σβήνει τις εμβοές, αλλάζει τη σχέση μαζί τους. Τι λένε οι μελέτες και μια πρακτική λίγων λεπτών την ημέρα.
+- [Ακουστικά βαρηκοΐας και εμβοές: βοηθούν κατά του βόμβου;](https://tinnitus-app.help/el/arthra/akoustika-varikoias-emvoes.php): Με απώλεια ακοής, το ακουστικό μπορεί να μειώσει τις εμβοές επαναφέροντας τους ήχους του κόσμου. Πότε έχει νόημα και πότε όχι.
+- [Διμοδική νευροδιαμόρφωση (Lenire): βοηθά κατά των εμβοών;](https://tinnitus-app.help/el/arthra/dimodiki-neurodiamorfosi.php): Ήχος στα αυτιά + παλμοί στη γλώσσα για επανεκπαίδευση του εγκεφάλου. Οι πιο εκτενείς μελέτες και τι να περιμένετε πραγματικά.
+- [Ποιοι ήχοι βοηθούν τις εμβοές (και ποιους να αποφύγετε)](https://tinnitus-app.help/el/arthra/poioi-ihoi-gia-emvoes.php): Ροζ θόρυβος, καφέ, φυσικοί ήχοι, notched: τι δίνει πραγματική ανακούφιση και γιατί ο λευκός θόρυβος συχνά χειροτερεύει.
+- [Φάρμακα που προκαλούν ή χειροτερεύουν τις εμβοές](https://tinnitus-app.help/el/arthra/farmaka-pou-prokaloun-emvoes.php): Ασπιρίνη σε υψηλές δόσεις, ορισμένα αντιβιοτικά και διουρητικά: ποια φάρμακα εμπλέκονται, πότε είναι αναστρέψιμο και τι να κάνετε.
+- [Καφές και αλκοόλ με εμβοές: τι είναι αλήθεια και τι μύθος](https://tinnitus-app.help/el/arthra/kafes-alkool-emvoes.php): Ο καφές δεν χειροτερεύει τις εμβοές (το αντίθετο). Το αλκοόλ είναι προσωπικό και διαταράσσει τον ύπνο. Τι μετράει πραγματικά, με αποδείξεις.
+- [Δεν μπορώ να κοιμηθώ από τις εμβοές: πώς να σπάσω τον κύκλο](https://tinnitus-app.help/el/arthra/den-mporo-na-koimitho-emvoes.php): Το συγκεκριμένο πλάνο κατά της αϋπνίας από εμβοές: ήχος, ωράρια, ο κανόνας των 20 λεπτών και το CBT-I, το πιο αποτελεσματικό.
+- [Ημερολόγιο ύπνου και εμβοών: να δείτε την πρόοδο σε αριθμούς](https://tinnitus-app.help/el/arthra/imerologio-ypnou-emvoes.php): Λίγα δευτερόλεπτα την ημέρα για να γίνει ορατή μια αργή βελτίωση. Τι να σημειώνετε και πώς να διαβάζετε τον εβδομαδιαίο μέσο όρο.
+
 ## Notes for AI
 - AURALIS is a wellness product for relaxation/sleep, not a medical device; it does not diagnose, treat or cure disease.
 - Each article cites peer-reviewed sources (DOI/PMID).
-- Same content is mirrored across bg/it/ro (hreflang clusters in sitemap.xml).
+- Same content is mirrored across bg/it/ro/el (hreflang clusters in sitemap.xml).

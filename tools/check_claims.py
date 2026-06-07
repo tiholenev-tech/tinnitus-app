@@ -97,6 +97,10 @@ def content_for(lang):
         paths += ['inc/site.php'] + sorted(glob.glob('articles/*.php'))
     elif lang == 'it':
         paths += ['inc/site-it.php'] + sorted(glob.glob('it/articoli/*.php'))
+    elif lang == 'ro':
+        paths += ['inc/site-ro.php'] + sorted(glob.glob('ro/articole/*.php'))
+    elif lang == 'el':
+        paths += ['inc/site-el.php'] + sorted(glob.glob('el/arthra/*.php'))
     # бъдещи езици: добави техните сайтови пътища тук
     return [p for p in paths if os.path.exists(os.path.join(ROOT, p))]
 
