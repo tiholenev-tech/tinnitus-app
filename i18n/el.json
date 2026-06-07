@@ -3714,13 +3714,13 @@
     "title": "Άραγε θα καταλάβεις"
    },
    "brown_lowpass_1000": {
-    "title": "Мек кафяв шум"
+    "title": "Απαλός καφέ θόρυβος"
    },
    "brown_lowpass_500": {
     "title": "Βαθύς καφέ θόρυβος"
    },
    "brown_pure": {
-    "title": "Кафяв шум"
+    "title": "Καφέ θόρυβος"
    },
    "pink_lowpass_2000": {
     "title": "Απαλός ροζ θόρυβος"
@@ -3729,119 +3729,119 @@
     "title": "Ροζ θόρυβος"
    },
    "pink_pure": {
-    "title": "Чист розов шум"
+    "title": "Καθαρός ροζ θόρυβος"
    },
    "ambience_scifi_eerie_alien_planet": {
-    "title": "Космическа атмосфера"
+    "title": "Διαστημική ατμόσφαιρα"
    },
    "ambience_underground_cave_dark_bubbles": {
-    "title": "Тъмна пещера"
+    "title": "Σκοτεινή σπηλιά"
    },
    "designed_drone_atmospheric_space_drone_tonal_rumble": {
-    "title": "Космически дрон"
+    "title": "Διαστημικό drone"
    },
    "designed_drone_deep_bass": {
-    "title": "Дълбок бас"
+    "title": "Βαθιά μπάσα"
    },
    "designed_rumble_low_sub_bass_moving_slowly": {
-    "title": "Бавен нисък тон"
+    "title": "Αργός χαμηλός τόνος"
    },
    "designed_rumble_low_sub_slight_air": {
-    "title": "Лек ветрец под нивото"
+    "title": "Ελαφριά αύρα κάτω από το επίπεδο"
    },
    "lay_down_with_me_hanna_lindgren": {
-    "title": "Легни до мен"
+    "title": "Ξάπλωσε δίπλα μου"
    },
    "opposite_to_destruction_hanna_lindgren": {
-    "title": "Противоположност на разрухата"
+    "title": "Το αντίθετο της καταστροφής"
    },
    "water_turbulent_river_small_waterfall": {
-    "title": "Малък бурен водопад"
+    "title": "Μικρός ορμητικός καταρράκτης"
    },
    "water_waterfall_at_top_water_falling_into_creek_below": {
-    "title": "Водопад над поточето"
+    "title": "Καταρράκτης πάνω από το ρυάκι"
    },
    "water_waterfall_creek_from_waterfall_close": {
-    "title": "Водопад над поток"
+    "title": "Καταρράκτης πάνω από ρέμα"
    },
    "water_waterfall_distant_iceland_close": {
-    "title": "Исландски водопад отблизо"
+    "title": "Ισλανδικός καταρράκτης από κοντά"
    },
    "water_waterfall_distant_iceland_high_perspective": {
-    "title": "Исландски водопад отвисоко"
+    "title": "Ισλανδικός καταρράκτης από ψηλά"
    },
    "water_waterfall_distant_iceland_semi_close": {
-    "title": "Далечен исландски водопад"
+    "title": "Μακρινός ισλανδικός καταρράκτης"
    },
    "water_waterfall_forest_ambience_birds_chirp": {
-    "title": "Горски водопад с птици"
+    "title": "Δασικός καταρράκτης με πουλιά"
    },
    "water_waterfall_grand_marais_minnesota": {
-    "title": "Водопад в Минесота"
+    "title": "Καταρράκτης στη Μινεσότα"
    },
    "water_waterfall_into_shallow_pool_forest": {
-    "title": "Горски водопад в плитчина"
+    "title": "Δασικός καταρράκτης σε ρηχά νερά"
    },
    "water_waterfall_large": {
-    "title": "Голям водопад"
+    "title": "Μεγάλος καταρράκτης"
    },
    "water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_4_0": {
-    "title": "Голям 10-метров водопад"
+    "title": "Μεγάλος καταρράκτης 10 μέτρων"
    },
    "water_waterfall_loud_waterfall": {
-    "title": "Гръмък водопад"
+    "title": "Βροντερός καταρράκτης"
    },
    "water_waterfall_niagra_falls_distant": {
-    "title": "Ниагарският водопад отдалеч"
+    "title": "Οι καταρράκτες του Νιαγάρα από μακριά"
    },
    "water_waterfall_river_creek_australia": {
-    "title": "Австралийски водопад над поток"
+    "title": "Αυστραλιανός καταρράκτης πάνω από ρέμα"
    },
    "water_waterfall_small_birds": {
-    "title": "Малък водопад с птици"
+    "title": "Μικρός καταρράκτης με πουλιά"
    },
    "water_waterfall_small_burbling_in_forest": {
-    "title": "Бълбукащ горски водопад"
+    "title": "Κελαρυστός δασικός καταρράκτης"
    },
    "water_waterfall_small_long_fall_flowing_trickle": {
-    "title": "Тънък дълъг водопад"
+    "title": "Λεπτός μακρύς καταρράκτης"
    },
    "water_waterfall_strong_flow_forest_lower_waterfall_people_chatter_evening_zenny_fall_telluride": {
-    "title": "Силен горски водопад"
+    "title": "Δυνατός δασικός καταρράκτης"
    },
    "water_waterfall_top_deep_water_flowing_before_falling": {
-    "title": "Водата преди водопада"
+    "title": "Το νερό πριν τον καταρράκτη"
    },
    "water_waterfall_water_big_waterfall_little_andaman": {
-    "title": "Голям водопад на Андаман"
+    "title": "Μεγάλος καταρράκτης στα Άνταμαν"
    },
    "water_waterfall_waterfall_200m_distant_strong_flow_forest_light_wind_evening_sunset_zenny_fall_telluride": {
-    "title": "Далечен горски водопад"
+    "title": "Μακρινός δασικός καταρράκτης"
    },
    "water_waterfall_waterfall_medium_flow_02": {
-    "title": "Среден водопад"
+    "title": "Μεσαίος καταρράκτης"
    },
    "water_waterfall_waterfalls_30_feet_away_pyrenees_france": {
-    "title": "Водопад в Пиренеите"
+    "title": "Καταρράκτης στα Πυρηναία"
    },
    "waterfall_underneath_river_splashing_loud_big": {
-    "title": "Под водопада"
+    "title": "Κάτω από τον καταρράκτη"
    }
   }
  },
  "notifications": {
-  "diary": "Време е да попълните дневника днес",
-  "title": "Напомняне",
-  "goToDiary": "Запиши сега",
-  "later": "Напомни по-късно"
+  "diary": "Ώρα να συμπληρώσετε το ημερολόγιο σήμερα",
+  "title": "Υπενθύμιση",
+  "goToDiary": "Καταγραφή τώρα",
+  "later": "Υπενθύμιση αργότερα"
  },
  "tour": {
-  "skip": "Пропусни",
+  "skip": "Παράλειψη",
   "next": "Κατάλαβα",
-  "finish": "Готово!"
+  "finish": "Έτοιμο!"
  },
  "account": {
-  "profile": "Профил",
-  "open": "Вход и синхронизация"
+  "profile": "Προφίλ",
+  "open": "Είσοδος και συγχρονισμός"
  }
 }
