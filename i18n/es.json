@@ -1292,120 +1292,120 @@
    "firstTwoWeeks": "Primeras 2 semanas",
    "firstTwoWeeksText": "2–3 horas al día",
    "afterTitle": "Después de eso",
-   "afterText": "Цяла нощ (с sleep timer)"
+   "afterText": "Toda la noche (con temporizador de sueño)"
   },
   "disclaimer": {
-   "title": "Важно — научни ограничения",
-   "text": "AURALIS е инструмент за wellness support, не заменя медицинска диагноза или лечение. Препоръките се базират на агрегирани изследвания и общи модели, не на личен медицински преглед. При тежки симптоми или нарастващо влошаване — консултирайте се със специалист (УНГ лекар или аудиолог)."
+   "title": "Importante — limitaciones científicas",
+   "text": "AURALIS es una herramienta de apoyo al bienestar; no sustituye el diagnóstico médico ni el tratamiento. Las recomendaciones se basan en investigación agregada y modelos generales, no en un examen médico personal. En caso de síntomas graves o empeoramiento progresivo — consulte a un especialista (médico ORL o audiólogo)."
   },
-  "continue": "Към звуците",
+  "continue": "A los sonidos",
   "profiles": {
    "TH_C": {
-    "shortName": "Тонален висок",
-    "fullName": "Тонален високочестотен",
-    "description": "Профил \"Тонален висок\". Подробно описание скоро ще бъде добавено в това приложение.",
-    "expectations": "Подробни очаквания за този профил скоро ще бъдат добавени.",
-    "meaning": "Вие чувате високочестотен, постоянен пищящ или звънящ тон, който се натрапва особено в тиха среда и при умствена работа. Този тип тинитус се възприема като еднoтонен звук, концентриран във високия край на чуваемия спектър.\n\nВ клиничния модел това състояние се обяснява чрез \"ефекта на засилване на контраста\": в абсолютна тишина мозъкът насочва максимално когнитивно внимание към вътрешния сигнал, който се превръща в доминиращ — подобно на запалена свещ в тъмна стая.\n\nНа клетъчно ниво се наблюдава отслабване на инхибиторния тонус в централната слухова система — понижена GABA активност и засилена глутаматергична възбуда, което създава абнормна синхронизация в слуховата кора. Висшите когнитивни центрове интерпретират тази синхронизация като устойчив фантомен звук.",
-    "why": "Най-чести фактори са продължителна експозиция на висoки звукови нива в миналото (концерти, индустриална работа, ловно оръжие) и възрастово свързано увреждане на високочестотните косменни клетки в кохлеята (presbycusis). Допринасящи фактори, които засилват възприятието: тиха среда вечер, недостатъчен сън, високи нива на стрес, дехидратация и кофеин.",
-    "strategyReasoning": "- Препоръчителен носещ звук: филтриран дъжд или балансиран розов шум.\n\n- Препоръчителен `recommended_noise` в библиотеката: `pink_lowpass_4000` или `brown_lowpass_1000`.\n\n- Препоръчително съотношение sound/noise: 0.70/0.30 (леко sound-dominant). Принцип на \"точката на смесване\" — звукът трябва да бъде малко под силата на тинитуса, не да го заглушава напълно.\n\n- Препоръчителна продължителност: минимум 2 часа дневно за устойчива хабитуация; идеално 4–6 часа разпределени през деня.\n\n- Топ use cases по приоритет: `daily` (умствена работа) → `relaxation` → `falling_asleep`.",
+    "shortName": "Tonal agudo",
+    "fullName": "Tonal de alta frecuencia",
+    "description": "Perfil \"Tonal agudo\". Pronto se añadirá una descripción detallada en esta aplicación.",
+    "expectations": "Pronto se añadirán expectativas detalladas para este perfil.",
+    "meaning": "Usted oye un tono agudo, constante, silbante o pitante que se entromete especialmente en entornos silenciosos y durante el trabajo mental. Este tipo de tinnitus se percibe como un sonido de un solo tono concentrado en el extremo agudo del espectro audible.\n\nEn el modelo clínico este estado se explica mediante el \"efecto de realce del contraste\": en el silencio absoluto el cerebro dirige la máxima atención cognitiva a la señal interna, que se vuelve dominante — como una vela encendida en una habitación oscura.\n\nA nivel celular se observa un debilitamiento del tono inhibitorio en el sistema auditivo central — actividad GABA reducida y excitación glutamatérgica aumentada, lo que crea una sincronización anómala en la corteza auditiva. Los centros cognitivos superiores interpretan esta sincronización como un sonido fantasma persistente.",
+    "why": "Los factores más comunes son la exposición prolongada en el pasado a niveles sonoros altos (conciertos, trabajo industrial, armas de fuego) y el daño relacionado con la edad de las células ciliadas de alta frecuencia en la cóclea (presbiacusia). Factores que contribuyen y aumentan la percepción: un entorno silencioso por la tarde, sueño insuficiente, altos niveles de estrés, deshidratación y cafeína.",
+    "strategyReasoning": "- Sonido portador recomendado: lluvia filtrada o ruido rosa equilibrado.\n\n- `recommended_noise` recomendado en la biblioteca: `pink_lowpass_4000` o `brown_lowpass_1000`.\n\n- Proporción sonido/ruido recomendada: 0,70/0,30 (ligeramente dominado por el sonido). El principio del \"punto de mezcla\" — el sonido debe estar algo por debajo de la intensidad del tinnitus, no enmascararlo por completo.\n\n- Duración recomendada: al menos 2 horas al día para una habituación estable; idealmente 4–6 horas repartidas a lo largo del día.\n\n- Casos de uso principales por prioridad: `daily` (trabajo mental) → `relaxation` → `falling_asleep`.",
     "timeline": [
      {
       "period": "Semana 1–2",
-      "expectation": "обикновено се появява първо усещане за \"по-малко натрапчив\" звук в момента на слушане. Веднага след спиране на звука тинитусът се възприема в първоначалната си сила. Това е напълно нормално и не означава, че процесът не работи."
+      "expectation": "normalmente aparece primero una sensación de sonido \"menos molesto\" mientras escucha. Justo después de detener el sonido, el tinnitus se percibe con su intensidad original. Esto es completamente normal y no significa que el proceso no funcione."
      },
      {
-      "period": "Месец 1",
-      "expectation": "проучвания регистрират средно намаление от около 17.6% по въпросника за здраве при тинитус на четвъртата седмица."
+      "period": "Mes 1",
+      "expectation": "los estudios registran una reducción media de alrededor del 17,6% en el cuestionario de salud del tinnitus en la cuarta semana."
      },
      {
-      "period": "Месец 3",
-      "expectation": "мета-анализ на 14 RCT показва средно подобрение от −8.6 точки по скалата THI на третия месец. MCID (минимално клинично значима разлика) на THI е 7 точки — т.е. на 3 месец много хора пресичат прагa на \"усетима\" промяна."
+      "period": "Mes 3",
+      "expectation": "un metaanálisis de 14 ECA muestra una mejora media de −8,6 puntos en la escala THI en el tercer mes. El MCID (diferencia mínima clínicamente importante) del THI es de 7 puntos — así que en el mes 3 muchas personas cruzan el umbral de un cambio \"perceptible\"."
      },
      {
-      "period": "Месец 6 и след",
-      "expectation": "същият мета-анализ регистрира средно подобрение от −24.6 точки по THI на 6 месец, което е почти 3-кратно над MCID. Минималният терапевтичен прозорец за устойчиво пренастройване е 9–18 месеца."
+      "period": "Mes 6 y después",
+      "expectation": "el mismo metaanálisis registra una mejora media de −24,6 puntos en el THI en el mes 6, casi 3 veces por encima del MCID. La ventana terapéutica mínima para una reconfiguración estable es de 9–18 meses."
      }
     ],
-    "additional": "- Слуховa среда: предпочитайте отворени говорители или костна проводимост пред затворени слушалки — оклузивният ефект може да усили вътрешния звук.\n\n- Хигиенa на съня: избягвайте абсолютна тишина в спалнята; контраст между тинитуса и тишината е най-силен именно вечер.\n\n- Кофеин и алкохол: ограничете кофеин след 14:00 ч. и алкохол вечер. Кофеинът е централен стимулант, който засилва кортикалната чувствителност; алкохолът променя архитектурата на съня.\n\n- Когнитивна работа: при концентрация използвайте `focus_brown_noise`-стил mix — кафяв шум блокира високочестотния писък без претоварване на средните честоти, важни за реч.\n\n- Допълнителни техники: Когнитивно-поведенческо консултиране (CBT) се препоръчва като комплемент към звуковата терапия — то прекъсва \"когнитивния цикъл на дистрес\".",
-    "medicalFlags": "- Незабавно към УНГ: ако тинитусът е едностранен (само в едното ухо), пулсиращ (синхронизиран със сърдечен ритъм), внезапно появил се през последните дни, или съпроводен от рязка загуба на слуха.\n\n- Към одиолог: ако забелязвате влошаване на разбираемостта на речта в шумна среда (ресторант, парти) — възможна е скрита загуба на слуха, която изисква обективен слухов тест.\n\n- Към психолог / психотерапевт: ако тинитусът Ви води до устойчиви мисли от типа \"няма да издържа\" или \"винаги ще е така\" — структуриран CBT курс е доказано ефективен.",
+    "additional": "- Entorno de escucha: prefiera altavoces abiertos o conducción ósea frente a auriculares cerrados — el efecto de oclusión puede amplificar el sonido interno.\n\n- Higiene del sueño: evite el silencio absoluto en el dormitorio; el contraste entre el tinnitus y el silencio es más fuerte por la tarde.\n\n- Cafeína y alcohol: limite la cafeína después de las 14:00 y el alcohol por la tarde. La cafeína es un estimulante central que aumenta la sensibilidad cortical; el alcohol altera la arquitectura del sueño.\n\n- Trabajo cognitivo: para concentrarse use una mezcla estilo `focus_brown_noise` — el ruido marrón bloquea el pitido de alta frecuencia sin sobrecargar las frecuencias medias importantes para el habla.\n\n- Técnicas adicionales: el asesoramiento cognitivo-conductual (CBT) se recomienda como complemento a la terapia de sonido — rompe el \"ciclo cognitivo de malestar\".",
+    "medicalFlags": "- Inmediatamente a un ORL: si el tinnitus es unilateral (solo en un oído), pulsátil (sincronizado con el pulso), de aparición reciente en los últimos días, o acompañado de una pérdida auditiva repentina.\n\n- A un audiólogo: si nota un empeoramiento de la inteligibilidad del habla en entornos ruidosos (restaurante, fiesta) — puede haber una pérdida auditiva oculta que requiere una prueba auditiva objetiva.\n\n- A un psicólogo / psicoterapeuta: si el tinnitus le lleva a pensamientos persistentes del tipo \"no lo soporto\" o \"siempre será así\" — un curso estructurado de CBT es eficaz y está demostrado.",
     "reasons": {
-     "sleep_deep": "Дълбоки честоти срещу високия тон преди сън",
-     "relaxation": "Тихи природни звуци за вечерно успокояване"
+     "sleep_deep": "Frecuencias profundas contra el tono agudo antes de dormir",
+     "relaxation": "Sonidos naturales suaves para la calma de la tarde"
     }
    },
    "DN_S": {
-    "shortName": "Шумов нискочестотен",
-    "fullName": "Шумов нискочестотен / Сън",
-    "description": "Профил \"Шумов нискочестотен\". Подробно описание скоро ще бъде добавено в това приложение.",
-    "expectations": "Подробни очаквания за този профил скоро ще бъдат добавени.",
-    "meaning": "Вие чувате плътен, нискочестотен, понякога бучащ или тътнещ шум, който е особено натрапчив вечер и нарушава качеството на Вашия сън. Вашите оплаквания най-често се концентрират около заспиване и поддържане на съня — събуждания през нощта, чувство за \"недостатъчно почивка\" сутрин.\n\nВ клиничен модел тинитусът и инсомнията формират двупосочен затворен цикъл — всяко състояние подхранва другото. Лимбичната система интерпретира тинитуса като заплаха, активира ХХН-оста (хипоталамус-хипофиза-надбъбречни), което води до повишен кортизол в късния следобед и предсънния период, поддържайки нервната система в хипервъзбудимост.\n\nПолисомнографските проучвания показват, че при този профил архитектурата на съня е тежко нарушена — средно 85% от нощта се прекарва в повърхностни стадии 1–2, а дълбокият бавновълнов сън и REM спадат до ~6.4% (при здрави контроли — 21.5%).",
-    "why": "Този профил често се асоциира с нискочестотна хидропсна или съдова компонента (например еднoстранен туптящ шум при колебания на кръвното налягане), с продължително битово или работно излагане на ниски шумове (вентилации, машини), или с възрастова деаферентация на ниските честоти.\n\nЗасилващи фактори: вечерна тишина в спалнята (усилва вътрешния шум при липса на маскант), стрес и тревожност преди сън, нарушена циркадна крива на кортизола, и обструктивна сънна апнея, ако присъства.",
-    "strategyReasoning": "- Препоръчителен носещ звук: дълбок кафяв шум, плътни водопади, планински поток с филтриран розов слой.\n\n- Препоръчителен `recommended_noise` в библиотеката: `brown_lowpass_500` (най-deep) или `brown_pure`.\n\n- Препоръчително съотношение: 0.50/0.50 (равно) до 0.30/0.70 (noise-dominant) при акутно безсъние.\n\n- Препоръчителна продължителност: непрекъснато през целия 8-часов сънен прозорец. Не използвайте sleep таймер — внезапната тишина в средата на нощта моментално задейства амигдалата при първия лек преход между сънните цикли.\n\n- Топ use cases по приоритет: `sleep_deep` → `falling_asleep` → `relaxation` (вечерно сваляне на тонуса).",
+    "shortName": "Ruido de baja frecuencia",
+    "fullName": "Ruido de baja frecuencia / Sueño",
+    "description": "Perfil \"Ruido de baja frecuencia\". Pronto se añadirá una descripción detallada en esta aplicación.",
+    "expectations": "Pronto se añadirán expectativas detalladas para este perfil.",
+    "meaning": "Usted oye un ruido denso, de baja frecuencia, a veces zumbante o retumbante, especialmente molesto por la tarde y que altera la calidad de su sueño. Sus molestias se centran con más frecuencia en conciliar y mantener el sueño — despertares durante la noche, sensación de \"descanso insuficiente\" por la mañana.\n\nEn el modelo clínico, el tinnitus y el insomnio forman un ciclo cerrado bidireccional — cada estado alimenta al otro. El sistema límbico interpreta el tinnitus como una amenaza y activa el eje HHA (hipotálamo-hipófisis-suprarrenal), lo que eleva el cortisol a última hora de la tarde y antes de dormir, manteniendo el sistema nervioso en hiperexcitación.\n\nLos estudios de polisomnografía muestran que en este perfil la arquitectura del sueño está gravemente alterada — de media el 85% de la noche se pasa en las fases ligeras 1–2, mientras que el sueño profundo de ondas lentas y el REM caen a ~6,4% (en controles sanos — 21,5%).",
+    "why": "Este perfil se asocia a menudo con un componente hidrópico o vascular de baja frecuencia (por ejemplo, un ruido pulsátil unilateral con fluctuaciones de la tensión arterial), con una exposición prolongada doméstica o laboral a ruidos bajos (ventilación, máquinas), o con una desaferenciación de las frecuencias bajas relacionada con la edad.\n\nFactores agravantes: el silencio nocturno en el dormitorio (amplifica el ruido interno al faltar un enmascarador), el estrés y la ansiedad antes de dormir, una curva circadiana del cortisol alterada, y la apnea obstructiva del sueño si está presente.",
+    "strategyReasoning": "- Sonido portador recomendado: ruido marrón profundo, cascadas densas, un arroyo de montaña con una capa rosa filtrada.\n\n- `recommended_noise` recomendado en la biblioteca: `brown_lowpass_500` (el más profundo) o `brown_pure`.\n\n- Proporción recomendada: 0,50/0,50 (igual) a 0,30/0,70 (dominado por el ruido) en el insomnio agudo.\n\n- Duración recomendada: continua durante toda la ventana de sueño de 8 horas. No use temporizador de sueño — el silencio repentino en mitad de la noche activa al instante la amígdala en la primera transición ligera entre ciclos de sueño.\n\n- Casos de uso principales por prioridad: `sleep_deep` → `falling_asleep` → `relaxation` (relajación de la tarde).",
     "timeline": [
      {
-      "period": "Нощ 1–7",
-      "expectation": "обикновено се появява първо леко съкращаване на латентността на заспиване (време от лягането до първия сън). Шумът остава, но контрастът с тишината намалява, което прекъсва верижната реакция \"тинитус → паника → пик на кортизол\"."
+      "period": "Noche 1–7",
+      "expectation": "normalmente aparece primero un ligero acortamiento de la latencia del sueño (el tiempo desde acostarse hasta el primer sueño). El ruido permanece, pero el contraste con el silencio disminuye, lo que rompe la reacción en cadena \"tinnitus → pánico → pico de cortisol\"."
      },
      {
-      "period": "Седмица 2–4",
-      "expectation": "проучвания регистрират подобрение по THI скалата от около 11.8% (седмица 2) до 17.6% (седмица 4) при последователно прилагане на звукова терапия."
+      "period": "Semana 2–4",
+      "expectation": "los estudios registran una mejora del THI de alrededor del 11,8% (semana 2) al 17,6% (semana 4) con una aplicación constante de la terapia de sonido."
      },
      {
-      "period": "Месец 3–6",
-      "expectation": "при последователно прилагане се възстановява част от дълбокия бавновълнов сън — pink/brown noise има потвърден положителен ефект върху SWS (stage 3) консолидация. THI спадане в диапазона −13 до −25 точки."
+      "period": "Mes 3–6",
+      "expectation": "con una aplicación constante se recupera parte del sueño profundo de ondas lentas — el ruido rosa/marrón tiene un efecto positivo confirmado en la consolidación del SWS (fase 3). Caída del THI en el rango de −13 a −25 puntos."
      },
      {
-      "period": "Месец 6+",
-      "expectation": "при 6-месечен курс на бимодална + звукова терапия 73.4% от пациенти достигат клинично значимо подобрение по TFI (≥13 точки спад). Минималният терапевтичен прозорец е 9–18 месеца."
+      "period": "Mes 6+",
+      "expectation": "con un curso de 6 meses de terapia bimodal + de sonido, el 73,4% de los pacientes alcanza una mejora clínicamente significativa en el TFI (caída ≥13 puntos). La ventana terapéutica mínima es de 9–18 meses."
      }
     ],
-    "additional": "- Хигиена на съня: запазете последователно време за лягане и ставане ±30 минути.\n\n- Сценарий \"събуждане в 3:00 ч.\": ако след 15–20 минути не сте се върнали в съня, плавно станете и отидете в друга стая с пуснат непрекъснат розов шум малко под силата на тинитуса. Извършете 5-минутна сесия на 4-7-8 дишане. Върнете се в леглото когато се появи естествена сънливост.\n\n- Кафе, сол, алкохол: ограничете кофеин след 14:00 ч.; намалете натрий вечер (задържане на течности влошава ниските честоти на тинитуса); избягвайте алкохол като \"приспивателно\" — той фрагментира съня.\n\n- Не използвайте бял шум. При продължително нощно слушане белият шум води до кортикална дедиференциация и парадоксално влошаване — този ефект е известен като \"ефект на кобрата\".\n\n- Допълнителни техники: модифициран CBT-I (когнитивно-поведенческа терапия за инсомния) е златен стандарт. Класическият SCT протокол изисква модификация — никога не оставайте в напълно тиха стая.",
-    "medicalFlags": "- Към УНГ: ако тинитусът е едностранен или пулсиращ; ако забелязвате замайвания, вертиго или чувство за пълнота в ухото (възможен болест на Мениер).\n\n- Към сомнолог: ако имате силно хъркане, спирания на дишането през нощта, дневна сънливост — може да е обструктивна сънна апнея, която изисква PSG изследване.\n\n- Към общопрактикуващ: ако приемате диуретици, високи дози NSAID или антибиотици и забелязвате влошаване — някои медикаменти са ототоксични.",
+    "additional": "- Higiene del sueño: mantenga una hora de acostarse y levantarse constante ±30 minutos.\n\n- Escenario \"despertar a las 3:00\": si tras 15–20 minutos no ha vuelto a dormirse, levántese suavemente y vaya a otra habitación con ruido rosa continuo algo por debajo de la intensidad del tinnitus. Haga una sesión de 5 minutos de respiración 4-7-8. Vuelva a la cama cuando aparezca somnolencia natural.\n\n- Café, sal, alcohol: limite la cafeína después de las 14:00; reduzca el sodio por la tarde (la retención de líquidos empeora las frecuencias bajas del tinnitus); evite el alcohol como \"somnífero\" — fragmenta el sueño.\n\n- No use ruido blanco. Con una escucha nocturna prolongada, el ruido blanco provoca una desdiferenciación cortical y un empeoramiento paradójico — este efecto se conoce como \"efecto cobra\".\n\n- Técnicas adicionales: la CBT-I modificada (terapia cognitivo-conductual para el insomnio) es el estándar de oro. El protocolo clásico SCT requiere modificación — nunca permanezca en una habitación completamente silenciosa.",
+    "medicalFlags": "- A un ORL: si el tinnitus es unilateral o pulsátil; si nota mareos, vértigo o sensación de plenitud en el oído (posible enfermedad de Ménière).\n\n- A un especialista del sueño: si tiene ronquidos fuertes, pausas en la respiración durante la noche, somnolencia diurna — puede ser apnea obstructiva del sueño, que requiere un estudio PSG.\n\n- A un médico de cabecera: si toma diuréticos, dosis altas de AINE o antibióticos y nota empeoramiento — algunos medicamentos son ototóxicos.",
     "reasons": {
-     "relaxation": "Балансирани природни звуци за намаляване на бученето",
-     "daily": "Меки фонови звуци за работа"
+     "relaxation": "Sonidos naturales equilibrados para reducir el zumbido",
+     "daily": "Sonidos de fondo suaves para trabajar"
     }
    },
    "SS_R": {
-    "shortName": "Стрес-чувствителен",
-    "fullName": "Стрес-чувствителен / Реактивен",
-    "description": "Профил \"Стрес-чувствителен\". Подробно описание скоро ще бъде добавено в това приложение.",
-    "expectations": "Подробни очаквания за този профил скоро ще бъдат добавени.",
-    "meaning": "Вашият тинитус е силно свързан със състоянието на нервната Ви система — той се засилва при стрес, тревожност, конфликти и емоционално натоварване, а при спокойствие отслабва. Леки външни звуци или ежедневни събития могат временно да усилят възприятието на вътрешния шум.\n\nТова състояние се медиира от висока лабилност на автономната нервна система и лимбичната структура — амигдалата и предният cingulate отговарят за свръхреактивната оценка на сигнала като \"заплаха\". При типична ситуация мозъкът на хора с устойчив тинитус навлиза в защитен режим, при който вътрешният шум поддържа активна симпатиковата ос.\n\nПри част от хората с този профил се наблюдава реактивен тинитус — вътрешният шум парадоксално се засилва временно в отговор на нови външни звуци. В такъв случай агресивното широколентово маскиране е противопоказано.",
-    "why": "Този профил често се асоциира с предхождаща тревожна симптоматика, перфекционистки тип личност, постоянен професионален или семеен стрес, и понякога — с обща хиперсензитивност (или хиперакузис — повишена чувствителност към нормални звуци).\n\nЗасилващи фактори: ранен следобед след кофе, конфликтни ситуации, последователни нощи с недостатъчен сън, новинарска информационна претовареност, и социална изолация в тиха среда.",
-    "strategyReasoning": "- Препоръчителен носещ звук: изключително нежни природни блендове и зелен шум (центриран около средните честоти).\n\n- Препоръчителен `recommended_noise` в библиотеката: зеленият шум засега не е наличен в библиотеката — като временен fallback използваме `brown_lowpass_500` за дълбоко успокоение и нежни meditation треки (`grounded`, `inner_balance`).\n\n- Препоръчително съотношение: при остра тревожност → 0.30/0.70 (noise dominant) за бързо потискане на сетивния контраст; при ежедневно слушане → 0.50/0.50.\n\n- Препоръчителна продължителност: използвайте SOS режим (3–10 мин noise-dominant) при остри пикове; ежедневно фоново слушане 2–4 часа разпределени през деня.\n\n- Топ use cases по приоритет: `anxiety` → `relaxation` → `meditation`.",
+    "shortName": "Sensible al estrés",
+    "fullName": "Sensible al estrés / Reactivo",
+    "description": "Perfil \"Sensible al estrés\". Pronto se añadirá una descripción detallada en esta aplicación.",
+    "expectations": "Pronto se añadirán expectativas detalladas para este perfil.",
+    "meaning": "Su tinnitus está fuertemente ligado al estado de su sistema nervioso — se intensifica con el estrés, la ansiedad, los conflictos y la carga emocional, y se alivia con la calma. Sonidos externos leves o eventos cotidianos pueden aumentar temporalmente la percepción del ruido interno.\n\nEste estado está mediado por una alta labilidad del sistema nervioso autónomo y la estructura límbica — la amígdala y el cíngulo anterior son responsables de la evaluación sobrerreactiva de la señal como \"amenaza\". En una situación típica, el cerebro de las personas con tinnitus persistente entra en un modo defensivo en el que el ruido interno mantiene activo el eje simpático.\n\nEn algunas personas con este perfil se observa un tinnitus reactivo — el ruido interno se intensifica paradójicamente de forma temporal en respuesta a nuevos sonidos externos. En ese caso, el enmascaramiento agresivo de banda ancha está contraindicado.",
+    "why": "Este perfil se asocia a menudo con sintomatología ansiosa previa, un tipo de personalidad perfeccionista, estrés profesional o familiar constante, y a veces — con una hipersensibilidad general (o hiperacusia — mayor sensibilidad a sonidos normales).\n\nFactores agravantes: el comienzo de la tarde tras el café, las situaciones de conflicto, varias noches seguidas de sueño insuficiente, la sobrecarga informativa de noticias, y el aislamiento social en un entorno silencioso.",
+    "strategyReasoning": "- Sonido portador recomendado: mezclas naturales extremadamente suaves y ruido verde (centrado en las frecuencias medias).\n\n- `recommended_noise` recomendado en la biblioteca: el ruido verde aún no está disponible en la biblioteca — como alternativa temporal usamos `brown_lowpass_500` para una calma profunda y pistas de meditación suaves (`grounded`, `inner_balance`).\n\n- Proporción recomendada: en ansiedad aguda → 0,30/0,70 (dominado por el ruido) para una rápida supresión del contraste sensorial; en escucha diaria → 0,50/0,50.\n\n- Duración recomendada: use el modo SOS (3–10 min dominado por el ruido) en los picos agudos; escucha de fondo diaria de 2–4 horas repartidas a lo largo del día.\n\n- Casos de uso principales por prioridad: `anxiety` → `relaxation` → `meditation`.",
     "timeline": [
      {
-      "period": "Първа сесия (минути)",
-      "expectation": "при правилно избран зелен шум или меки природни звуци, повечето хора усещат намаляване на остротата на ситуацията в рамките на 5–15 минути. Това е незабавният anxiolytic ефект на средночестотната звукова обертурата."
+      "period": "Primera sesión (minutos)",
+      "expectation": "con un ruido verde bien elegido o sonidos naturales suaves, la mayoría de las personas siente que la agudeza de la situación disminuye en 5–15 minutos. Es el efecto ansiolítico inmediato de la apertura sonora de frecuencias medias."
      },
      {
       "period": "Semana 1–2",
-      "expectation": "при последователно ежедневно прилагане намалява базовата реактивност — амплитудата на пиковете в стресовия отговор спада."
+      "expectation": "con una aplicación diaria constante disminuye la reactividad de base — la amplitud de los picos en la respuesta al estrés baja."
      },
      {
-      "period": "Месец 1–3",
-      "expectation": "очаквайте намаление по емоционалните под-скали на THI/TFI; пълната хабитуация и пренастройване на оценъчния процес изискват по-дълго време."
+      "period": "Mes 1–3",
+      "expectation": "espere una reducción en las subescalas emocionales del THI/TFI; la habituación completa y la reconfiguración del proceso de evaluación requieren más tiempo."
      },
      {
-      "period": "Месец 6+",
-      "expectation": "при комбинирана интервенция (звук + структуриран CBT курс) клинично значимо подобрение се постига от мнозинството пациенти."
+      "period": "Mes 6+",
+      "expectation": "con una intervención combinada (sonido + un curso estructurado de CBT) la mayoría de los pacientes logra una mejora clínicamente significativa."
      }
     ],
-    "additional": "- Дихателни техники: 4-7-8 дишане при остри пикове (вдишване 4 сек, задържане 7, издишване 8). Това активира блуждаещия нерв и сваля симпатиковия тонус.\n\n- Информационна хигиена: ограничете социални мрежи и новини в първите 30 минути след събуждане и последните 60 минути преди сън.\n\n- Кофеин: при този профил кофеинът има особено силен ефект — обмислете преминаване към 1 чаша сутрин или decaf.\n\n- Слухова среда: избягвайте слушалки с активно шумоподтискане (active noise cancelling) — при някои хора с реактивен тинитус те усилват възприятието на вътрешния шум поради създаване на абсолютна тишина.\n\n- Допълнителни техники: Терапия за приемане и обвързване (ACT), mindfulness-базирани практики и структуриран CBT курс са особено подходящи за този профил.",
-    "medicalFlags": "- Към психиатър или психотерапевт: ако имате персистираща тревожност, панически атаки, обсесивни мисли за тинитуса, или симптоми на депресия в продължение на повече от 2 седмици.\n\n- Към УНГ: ако забелязвате хиперакузис (нормални звуци стават болезнено силни) — необходимо е аудиологично изследване с тимпанометрия и стапедиален рефлекс.\n\n- Към общопрактикуващ: при чести епизоди на сърцебиене, изпотяване, замайване, треперене — за изключване на ендокринни (щитовидна жлеза) или сърдечно-съдови причини, които могат да наподобяват тревожност.",
+    "additional": "- Técnicas de respiración: respiración 4-7-8 en los picos agudos (inhalar 4 s, retener 7, exhalar 8). Esto activa el nervio vago y baja el tono simpático.\n\n- Higiene informativa: limite las redes sociales y las noticias en los primeros 30 minutos tras despertar y los últimos 60 minutos antes de dormir.\n\n- Cafeína: en este perfil la cafeína tiene un efecto especialmente fuerte — considere pasar a 1 taza por la mañana o descafeinado.\n\n- Entorno de escucha: evite los auriculares con cancelación activa de ruido — en algunas personas con tinnitus reactivo amplifican la percepción del ruido interno al crear un silencio absoluto.\n\n- Técnicas adicionales: la Terapia de Aceptación y Compromiso (ACT), las prácticas basadas en mindfulness y un curso estructurado de CBT son especialmente adecuados para este perfil.",
+    "medicalFlags": "- A un psiquiatra o psicoterapeuta: si tiene ansiedad persistente, ataques de pánico, pensamientos obsesivos sobre el tinnitus, o síntomas de depresión durante más de 2 semanas.\n\n- A un ORL: si nota hiperacusia (los sonidos normales se vuelven dolorosamente fuertes) — se necesita un examen audiológico con timpanometría y reflejo estapedial.\n\n- A un médico de cabecera: con episodios frecuentes de palpitaciones, sudoración, mareos, temblores — para descartar causas endocrinas (tiroides) o cardiovasculares que pueden imitar la ansiedad.",
     "reasons": {
-     "anxiety": "SOS дишане + успокояващи звуци при кризи",
-     "falling_asleep": "Постепенно понижаване на стреса преди сън"
+     "anxiety": "Respiración SOS + sonidos calmantes en las crisis",
+     "falling_asleep": "Reducir gradualmente el estrés antes de dormir"
     }
    },
    "SM_F": {
-    "shortName": "Соматичен / Флуктуиращ",
-    "fullName": "Соматичен / Флуктуиращ",
-    "description": "Профил \"Соматичен / Флуктуиращ\". Подробно описание скоро ще бъде добавено в това приложение.",
-    "expectations": "Подробни очаквания за този профил скоро ще бъдат добавени.",
-    "meaning": "Вашият тинитус има променлив характер — силата му се променя през деня, понякога значително, и често е свързан с физическо напрежение във врата, челюстта или раменете. Можете да забележите, че при определени движения, позиции на главата или стискане на челюстите шумът се променя — това е \"соматичен модулиращ\" феномен.\n\nТози тип се медиира от взаимовръзка между тригеминалната и соматосензорната система (врат, темпоромандибуларна става) и слуховите пътища. Абнормни сигнали от напрегнати или дисфункционални тъкани (TMD — темпоромандибуларна дисфункция, цервикална дисфункция) се \"пренасочват\" към слуховата кора и модулират фантомния звук.\n\nКлинично проучване на orofacial терапия показва, че намаляването на болката в темпоромандибуларната става обяснява около 35% от спада в индекса TFI при този подтип.",
-    "why": "Този профил често се асоциира с brux (стискане или скърцане на зъби — нощно или дневно), forward-head posture (придвижена напред глава, особено при дълга работа на екран), травма на врата (whiplash), или предишен спортен/професионален стрес върху шийния отдел.\n\nЗасилващи фактори: продължителни часове на компютъра без почивки, носене на тежки чанти на едно рамо, спане на корем, и стрес-индуцирано стискане на челюстите.",
+    "shortName": "Somático / Fluctuante",
+    "fullName": "Somático / Fluctuante",
+    "description": "Perfil \"Somático / Fluctuante\". Pronto se añadirá una descripción detallada en esta aplicación.",
+    "expectations": "Pronto se añadirán expectativas detalladas para este perfil.",
+    "meaning": "Su tinnitus tiene un carácter variable — su intensidad cambia a lo largo del día, a veces de forma notable, y suele estar relacionado con la tensión física en el cuello, la mandíbula o los hombros. Puede notar que con ciertos movimientos, posiciones de la cabeza o al apretar la mandíbula el ruido cambia — es el fenómeno \"modulador somático\".\n\nEste tipo está mediado por una interacción entre los sistemas trigeminal y somatosensorial (cuello, articulación temporomandibular) y las vías auditivas. Señales anómalas de tejidos tensos o disfuncionales (TTM — disfunción temporomandibular, disfunción cervical) se \"redirigen\" a la corteza auditiva y modulan el sonido fantasma.\n\nUn estudio clínico de terapia orofacial muestra que reducir el dolor en la articulación temporomandibular explica alrededor del 35% de la caída del índice TFI en este subtipo.",
+    "why": "Este perfil se asocia a menudo con bruxismo (apretar o rechinar los dientes — de noche o de día), postura de cabeza adelantada (cabeza desplazada hacia delante, especialmente en trabajo prolongado de pantalla), traumatismo cervical (latigazo), o estrés deportivo/laboral previo sobre la región cervical.\n\nFactores agravantes: muchas horas frente al ordenador sin descansos, llevar bolsas pesadas en un solo hombro, dormir boca abajo, y el apretamiento de la mandíbula inducido por el estrés.",
     "strategyReasoning": "- Препоръчителен носещ звук: силно динамични и непериодични природни среди — океански приливи и отливи, modulated wave swells, binaural ambient.\n\n- Препоръчителен `recommended_noise` в библиотеката: `brown_lowpass_1000` за равномерно тяло на звука; mix с natural дунамични файлове (например `water_wave_ocean_wave_swells`, ocean swells, дишащи waves).\n\n- Препоръчително съотношение: 0.85/0.15 (sound dominant) — динамиката на природния звук ангажира вниманието и пречи на кортикалната адаптация.\n\n- Препоръчителна продължителност: 2–4 часа дневно, с акцент върху периоди на физическо ангажиране — разходка, рутинни задачи. Това комбинира моторно разсейване със звуково обогатяване.\n\n- Топ use cases по приоритет: `relaxation` → `daily` → `meditation`.",
     "timeline": [
      {
@@ -1417,11 +1417,11 @@
       "expectation": "клинично проучване с 9-седмичен orofacial курс регистрира средно намаление на TFI с −13.8 точки, докато групата с отложена терапия показва само −5.0 точки. MCID на TFI е 13 точки."
      },
      {
-      "period": "Месец 3–6",
+      "period": "Mes 3–6",
       "expectation": "при последователно прилагане на звук + физиотерапия + ограничаване на bruxism: средни намаления THI в диапазона −8.6 до −24.6 точки."
      },
      {
-      "period": "Месец 6+",
+      "period": "Mes 6+",
       "expectation": "при този профил особено важна е дългосрочната последователност — пренастройването на cross-modal interactions изисква поне 9–18 месеца."
      }
     ],
@@ -1436,7 +1436,7 @@
     "shortName": "Адаптиран / Лек",
     "fullName": "Адаптиран / Лек",
     "description": "Профил \"Адаптиран / Лек\". Подробно описание скоро ще бъде добавено в това приложение.",
-    "expectations": "Подробни очаквания за този профил скоро ще бъдат добавени.",
+    "expectations": "Pronto se añadirán expectativas detalladas para este perfil.",
     "meaning": "Вие имате тинитус, но той Ви безпокои предимно в условия на абсолютна тишина и не оказва съществено влияние върху ежедневните Ви задачи, концентрация, сън или настроение. Вашата нервна система вече е изградила висока степен на естествена хабитуация — мозъкът Ви до голяма степен филтрира фантомния сигнал като маловажен фон.\n\nВ клиничен модел това състояние отразява запазен инхибиторен контрол в централните слухови пътища и адекватно функциониране на лимбичните оценъчни структури — те не приписват \"заплаха\" на сигнала.\n\nЦелта на звуковата терапия при този профил не е активно потискане на тинитуса (тъй като той не Ви натоварва), а превенция — поддържане на лек звуков фон, който предотвратява засилване на сетивния контраст в моментите на абсолютна тишина.",
     "why": "Адаптираният профил често се асоциира с по-късна или по-малко травматична поява на тинитуса, с устойчива личностна структура без тенденция към тревожност, с активен и социален начин на живот, или с предишен успешен индивидуален опит за справяне с подобен стимул.\n\nЗасилващи фактори, които могат временно да дестабилизират HB_M: тежък нелекуван период на стрес, продължителна болест, нощно бдение, акутна слухова експозиция (концерт без защита), или нов медицински проблем (ототоксичен медикамент).",
     "strategyReasoning": "- Препоръчителен носещ звук: ултра-меки природни звуци — шепот на листа, тих летен дъжд, лек вятър, рaйн зад прозорец.\n\n- Препоръчителен `recommended_noise` в библиотеката: `brown_lowpass_500` (минимално, само за фоново обогатяване) или `none` — често само природният звук без допълнителен шум е достатъчен.\n\n- Препоръчително съотношение: 0.85/0.15 или дори 0.95/0.05 — звукът трябва да е едва доловим.\n\n- Препоръчителна продължителност: 30–60 минути в моменти на абсолютна тишина (вечер преди сън, ранно утро, продължителна работа в тиха стая).\n\n- Топ use cases по приоритет: `relaxation` → `falling_asleep` → `daily`.",
@@ -1446,7 +1446,7 @@
       "expectation": "при HB_M профила обикновено не очаквайте драматични промени в усещането, защото базовото състояние вече е добро. Целта е поддръжка, не подобрение."
      },
      {
-      "period": "Месец 1–3",
+      "period": "Mes 1–3",
       "expectation": "очаквайте, че по-меките вечери в тишина стават по-приятни. Емоционалната неутралност спрямо тинитуса се запазва или леко се укрепва."
      },
      {
@@ -2580,23 +2580,23 @@
   },
   "profiles": {
    "TH_C": {
-    "shortName": "Тонален високочестотен",
+    "shortName": "Tonal de alta frecuencia",
     "fullName": "Тонален високочестотен / Когнитивен",
     "description": "Този профил включва субективно усещане за висок, пищящ и тонален тинитус, който оказва сериозно влияние върху когнитивните процеси и ежедневната концентрация. При него се препоръчват високочестотни звуци като филтриран дъжд и балансиран розов шум, настроени близо до точката на смесване, за да улеснят хабитуацията на ниво мозъчна кора."
    },
    "DN_S": {
-    "shortName": "Шумов нискочестотен",
-    "fullName": "Шумов нискочестотен / Сън",
+    "shortName": "Ruido de baja frecuencia",
+    "fullName": "Ruido de baja frecuencia / Sueño",
     "description": "Профил, дефиниран от наличието на плътни, нискочестотни звуци и сериозни проблеми със заспиването или поддържането на съня. При него водещи са по-дълбоките акустични среди (кафяв шум, плътни водопади), които силно маскират субективното бучене и успокояват ума вечер, подпомагайки плавния и здравословен преход към сън."
    },
    "SS_R": {
-    "shortName": "Стрес-чувствителен",
-    "fullName": "Стрес-чувствителен / Реактивен",
+    "shortName": "Sensible al estrés",
+    "fullName": "Sensible al estrés / Reactivo",
     "description": "При този профил възприятието на тинитус е силно свързано с активността на вегетативната нервна система и лимбичната структура. Дори леки звукови дразнители или ежедневен стрес засилват усещането за шум. Акустичният отговор изисква зелен шум за облекчение и изключително нежни природни блендове за намаляване на кортикалната възбудимост."
    },
    "SM_F": {
-    "shortName": "Соматичен / Флуктуиращ",
-    "fullName": "Соматичен / Флуктуиращ",
+    "shortName": "Somático / Fluctuante",
+    "fullName": "Somático / Fluctuante",
     "description": "Профил, съответстващ на тинитус с променлива сила и честота, често проявяващ се на цикли или силно свързан с физическо напрежение във врата и челюстта. Използват се силно динамични и непериодични природни среди, като океански приливи и отливи, които ангажират слуховия апарат без риск от привикване към статичен сигнал."
    },
    "HB_M": {
