@@ -625,280 +625,280 @@
     "microDoseCta": "Empezar una dosis de 2 minutos",
     "softCheckTitle": "¿Qué pasó?",
     "softCheckBody": "Vemos que ha estado ausente unos días. No está obligado a responder, pero nos ayudará a serle útil.",
-    "softCheckOpt1": "Бях зает",
-    "softCheckOpt2": "Чувствах се по-зле",
-    "softCheckOpt3": "Технически проблем",
-    "softCheckOpt4": "Не беше за мен",
-    "softCheckSkip": "Прескочи",
-    "softCheckSavedToast": "Благодарим за отговора. AURALIS остава с Вас.",
-    "softCheckWorseAdvice": "Чувствата Ви са важни. Може да е добра идея да говорите с лекар или специалист.",
-    "lateEntrySavedToast": "Записан със закъснение"
+    "softCheckOpt1": "Estaba ocupado",
+    "softCheckOpt2": "Me sentí peor",
+    "softCheckOpt3": "Problema técnico",
+    "softCheckOpt4": "No era para mí",
+    "softCheckSkip": "Omitir",
+    "softCheckSavedToast": "Gracias por su respuesta. AURALIS sigue con usted.",
+    "softCheckWorseAdvice": "Sus sentimientos importan. Puede ser buena idea hablar con un médico o especialista.",
+    "lateEntrySavedToast": "Registrado con retraso"
    },
    "edge": {
-    "nightHintTitle": "Не успявате да заспите?",
-    "nightHintBody": "Това е чест момент при тинитус. Можете да попълните дневника сега, или вместо това да изберете тиха звукова сесия.",
-    "confirmAllMaxTitle": "Точно ли е?",
-    "confirmAllMaxBody": "Отбелязахте най-високата стойност на всички въпроси. Сигурни ли сте, че така са били усещанията Ви днес?",
-    "confirmYes": "Да, запиши",
-    "confirmFix": "Поправи",
-    "resumeDraftTitle": "Имате незавършен запис",
-    "resumeDraftBody": "Желаете ли да продължите от там, където спряхте?",
-    "resumeYes": "Продължи",
+    "nightHintTitle": "¿No puede dormir?",
+    "nightHintBody": "Es un momento común con el tinnitus. Puede completar el diario ahora, o elegir en su lugar una sesión de sonido tranquila.",
+    "confirmAllMaxTitle": "¿Es correcto?",
+    "confirmAllMaxBody": "Marcó el valor más alto en todas las preguntas. ¿Seguro que así se sintió hoy?",
+    "confirmYes": "Sí, guardar",
+    "confirmFix": "Corregir",
+    "resumeDraftTitle": "Tiene una entrada sin terminar",
+    "resumeDraftBody": "¿Desea continuar donde lo dejó?",
+    "resumeYes": "Continuar",
     "resumeStartOver": "Empezar de nuevo",
-    "highDistress3d": "През последните 3 дни сте отчели висок дистрес. AURALIS е wellness инструмент, не медицински. Ако се чувствате претоварен, можете да обмислите консултация със специалист.",
-    "multiEntryHint": "Виждаме, че днес попълвате и сутрешния, и вечерния запис заедно. Това е окей. Обикновено вечерният се прави след 20:00.",
-    "saveDraftFailed": "Не успяхме да запазим автоматично. Натиснете „Запиши\" преди да затворите."
+    "highDistress3d": "En los últimos 3 días ha indicado un alto malestar. AURALIS es una herramienta de bienestar, no médica. Si se siente sobrepasado, puede considerar consultar a un especialista.",
+    "multiEntryHint": "Vemos que hoy completa la entrada de la mañana y la de la tarde juntas. Está bien. La de la tarde suele hacerse después de las 20:00.",
+    "saveDraftFailed": "No pudimos guardar automáticamente. Pulse \"Guardar\" antes de cerrar."
    }
   },
   "pitchTest": {
    "pretest": {
-    "title": "Какво чувате най-точно?",
-    "subtitle": "Това определя как ще намерим Вашата честота.",
+    "title": "¿Qué oye con más exactitud?",
+    "subtitle": "Esto determina cómo encontraremos su frecuencia.",
     "tonal": {
-     "label": "Чист тон / пищене",
-     "desc": "Като „и-и-и\" — постоянна височина"
+     "label": "Tono puro / pitido",
+     "desc": "Como \"iii\" — un tono constante"
     },
     "noise": {
-     "label": "Съскане / шум",
-     "desc": "Като „ш-ш-ш\", пара, вода"
+     "label": "Siseo / ruido",
+     "desc": "Como \"shhh\", vapor, agua"
     },
     "pulsing": {
-     "label": "Пулсиране",
-     "desc": "В ритъм със сърдечния пулс"
+     "label": "Pulsación",
+     "desc": "Al ritmo del pulso cardíaco"
     },
     "other": {
-     "label": "Друго / Не съм сигурен",
-     "desc": "Не съответства на горните"
+     "label": "Otro / No estoy seguro",
+     "desc": "No coincide con las anteriores"
     }
    },
    "pulsingSkip": {
-    "title": "Препоръчваме преглед при УНГ специалист",
-    "body": "Пулсиращ тинитус (в ритъм със сърдечния пулс) изисква медицинска консултация — може да има съдов произход. Препоръчваме посещение преди да продължите."
+    "title": "Recomendamos una revisión con un especialista ORL",
+    "body": "El tinnitus pulsátil (al ritmo del pulso) requiere consulta médica — puede tener un origen vascular. Recomendamos una visita antes de continuar."
    },
    "device": {
-    "title": "Сложете слушалки",
-    "subtitle": "Тестът покрива високи честоти, които високоговорителят на телефона не възпроизвежда точно. Кои да е слушалки (тапи или други) дават много по-верен резултат.",
+    "title": "Póngase auriculares",
+    "subtitle": "La prueba cubre frecuencias altas que el altavoz del teléfono no reproduce con precisión. Cualquier auricular (de botón u otros) da un resultado mucho más fiel.",
     "headphones": {
-     "label": "Готово, със слушалки съм",
-     "desc": "Тапи, безжични или кабелни — всякакви"
+     "label": "Listo, tengo auriculares puestos",
+     "desc": "De botón, inalámbricos o con cable — cualquiera"
     },
     "speakers": {
-     "label": "Нямам — ще ползвам телефона",
-     "desc": "Високоговорител (по-малко точно на високите)"
+     "label": "No tengo — usaré el teléfono",
+     "desc": "Altavoz (menos preciso en agudos)"
     }
    },
    "calib": {
-    "title": "Чувате ли звука?",
-    "subtitle": "Звукът бавно се усилва.<br>Натиснете <b>СПРИ</b>, щом го чувате удобно.",
-    "stopAria": "Спри — силата е удобна",
-    "stop": "СПРИ"
+    "title": "¿Oye el sonido?",
+    "subtitle": "El sonido sube de volumen lentamente.<br>Pulse <b>PARAR</b> en cuanto lo oiga cómodamente.",
+    "stopAria": "Parar — el volumen es cómodo",
+    "stop": "PARAR"
    },
    "bravo": {
-    "almost": "Чудесно! Почти готово…",
-    "quickFmt": "Браво! {done} от {total} готови",
-    "preciseFmt": "Браво! Замерване {done} готово"
+    "almost": "¡Genial! Casi listo…",
+    "quickFmt": "¡Bien! {done} de {total} listos",
+    "preciseFmt": "¡Bien! Medición {done} lista"
    },
    "measure": {
-    "ofFmt": "Замерване {n} от {total}",
-    "nFmt": "Замерване {n}",
-    "octSuffix": "окт",
-    "accuracyFmt": "точност: {ci} (цел ±{target})"
+    "ofFmt": "Medición {n} de {total}",
+    "nFmt": "Medición {n}",
+    "octSuffix": "oct",
+    "accuracyFmt": "precisión: {ci} (objetivo ±{target})"
    },
    "trial": {
-    "title": "Намиране на Вашата честота",
-    "help": "Чуйте двата звука. Изберете кой е по-близо до Вашия.",
-    "back": "Назад към предишния",
-    "quit": "Спри засега",
-    "quitSub": "Запазваме докъде стигнахте"
+    "title": "Encontrando su frecuencia",
+    "help": "Escuche los dos sonidos. Elija cuál se acerca más al suyo.",
+    "back": "Volver al anterior",
+    "quit": "Parar por ahora",
+    "quitSub": "Guardamos su progreso"
    },
    "tone": {
-    "aria": "Звук {letter} — натиснете, за да чуете",
-    "label": "Звук {letter}",
-    "hint": "Натиснете, за да чуете",
-    "replay": "Чуй пак",
-    "choose": "Това е моят"
+    "aria": "Sonido {letter} — pulse para oír",
+    "label": "Sonido {letter}",
+    "hint": "Pulse para oír",
+    "replay": "Oír de nuevo",
+    "choose": "Este es el mío"
    },
    "hold": {
-    "holding": "Задръж…",
-    "hint": "Натисни = чуй<br>Задръж = избери"
+    "holding": "Mantenga…",
+    "hint": "Pulsar = oír<br>Mantener = elegir"
    },
    "octave": {
-    "title": "Проверка на октава",
-    "lower": "долна октава",
-    "upper": "горна октава"
+    "title": "Comprobación de octava",
+    "lower": "octava inferior",
+    "upper": "octava superior"
    },
    "finetune": {
-    "title": "Нагласи точно своя тон",
-    "subtitle": "Плъзгай бавно, докато звукът стане<br>точно като твоя тинитус.",
-    "aria": "Фина настройка на честотата",
-    "lower": "по-ниско",
-    "higher": "по-високо",
-    "done": "Това е моят тон"
+    "title": "Ajuste con precisión su tono",
+    "subtitle": "Deslice lentamente hasta que el sonido sea<br>exactamente como su tinnitus.",
+    "aria": "Ajuste fino de la frecuencia",
+    "lower": "más bajo",
+    "higher": "más alto",
+    "done": "Este es mi tono"
    },
    "reward": {
-    "title": "Намерихме Вашата честота",
-    "subtitle": "Слушайте спокойно — звукът е настроен за Вас.<br>Дишайте бавно.",
-    "done": "Готово"
+    "title": "Encontramos su frecuencia",
+    "subtitle": "Escuche con calma — el sonido está ajustado para usted.<br>Respire lentamente.",
+    "done": "Listo"
    },
    "rewardAsk": {
-    "title": "Усетихте ли разлика?",
-    "subtitle": "При мнозина писъкът утихва за няколко минути след това.",
+    "title": "¿Notó alguna diferencia?",
+    "subtitle": "En muchas personas el pitido disminuye durante unos minutos después.",
     "yes": {
-     "label": "Да, по-тихо е",
-     "desc": "Писъкът намаля"
+     "label": "Sí, está más bajo",
+     "desc": "El pitido disminuyó"
     },
     "little": {
-     "label": "Малко",
-     "desc": "Лека промяна"
+     "label": "Un poco",
+     "desc": "Cambio leve"
     },
     "no": {
-     "label": "Не усетих",
-     "desc": "Няма промяна сега"
+     "label": "No lo noté",
+     "desc": "Sin cambios por ahora"
     },
-    "note": "За още по-точна честота можете да довършите теста по-късно — когато Ви е удобно."
+    "note": "Para una frecuencia aún más precisa, puede terminar la prueba más tarde — cuando le convenga."
    },
    "result": {
-    "rangeFmt": "Диапазон на надеждност: {lo} – {hi} (±{ci} октава).",
-    "title": "Готово",
-    "subtitle": "Намерихме приблизителната честота на Вашия тинитус.",
-    "note": "Това е приблизителна оценка, не клинично измерване — честотата на тинитуса естествено се променя. Затова звуковият подход използва широка лента около нея.",
+    "rangeFmt": "Rango de fiabilidad: {lo} – {hi} (±{ci} octava).",
+    "title": "Listo",
+    "subtitle": "Encontramos la frecuencia aproximada de su tinnitus.",
+    "note": "Es una estimación aproximada, no una medición clínica — la frecuencia del tinnitus cambia de forma natural. Por eso el enfoque sonoro usa una banda amplia a su alrededor.",
     "continue": "Continuar",
-    "retest": "Повторете теста"
+    "retest": "Repetir la prueba"
    },
    "quit": {
-    "title": "Няма проблем 🙂",
-    "body": "Спряхте теста. Можете да го направите по-късно, когато Ви е удобно — отнема само минута.",
-    "toStart": "Към началото"
+    "title": "Sin problema 🙂",
+    "body": "Detuvo la prueba. Puede hacerla más tarde, cuando le convenga — solo lleva un minuto.",
+    "toStart": "Al inicio"
    }
   },
   "account": {
-   "loginOk": "Влязохте успешно ✓",
-   "loginFail": "Входът не беше успешен. Опитайте пак.",
-   "payCancelled": "Плащането е отменено.",
-   "linkExpired": "Връзката е изтекла или невалидна.",
-   "loggedOut": "Излязохте от профила.",
-   "alreadyPaid": "Вече имате пълен достъп ✓",
-   "payThanks": "Благодарим! Пълен достъп е отключен ✓",
-   "payProcessing": "Плащането се обработва… може да отнеме минута.",
-   "fullAccess": "Пълен достъп ✓",
-   "trialLeftFmt": "Пробен период: още {n} дни",
-   "trial": "Пробен период",
+   "loginOk": "Sesión iniciada ✓",
+   "loginFail": "No se pudo iniciar sesión. Inténtelo de nuevo.",
+   "payCancelled": "Pago cancelado.",
+   "linkExpired": "El enlace ha caducado o no es válido.",
+   "loggedOut": "Ha cerrado sesión.",
+   "alreadyPaid": "Ya tiene acceso completo ✓",
+   "payThanks": "¡Gracias! Acceso completo desbloqueado ✓",
+   "payProcessing": "El pago se está procesando… puede tardar un minuto.",
+   "fullAccess": "Acceso completo ✓",
+   "trialLeftFmt": "Periodo de prueba: quedan {n} días",
+   "trial": "Periodo de prueba",
    "profileTitle": "Su perfil",
-   "loggedInAs": "Влезли сте като <b>{email}</b>",
-   "unlock": "Отключи пълен достъп — €19.99",
-   "loading": "Зареждам…",
-   "payNotReady": "Плащането още се настройва. Опитайте малко по-късно.",
-   "epay": "Плати с ePay / EasyPay (България)",
-   "epayNotReady": "ePay още се настройва. Опитайте малко по-късно.",
-   "syncNow": "Синхронизирай сега",
-   "syncing": "Синхронизирам…",
-   "synced": "Синхронизирано ✓",
-   "logout": "Изход",
+   "loggedInAs": "Ha iniciado sesión como <b>{email}</b>",
+   "unlock": "Desbloquear acceso completo — €19.99",
+   "loading": "Cargando…",
+   "payNotReady": "El pago aún se está configurando. Inténtelo un poco más tarde.",
+   "epay": "Pagar con ePay / EasyPay (Bulgaria)",
+   "epayNotReady": "ePay aún se está configurando. Inténtelo un poco más tarde.",
+   "syncNow": "Sincronizar ahora",
+   "syncing": "Sincronizando…",
+   "synced": "Sincronizado ✓",
+   "logout": "Cerrar sesión",
    "close": "Cerrar",
-   "loginTitle": "Вход / Възстановяване",
-   "loginSub": "Въведете имейл и ще получите връзка за вход — без парола. Така данните ви се пазят и се връщат при смяна на телефон.",
-   "emailPlaceholder": "вашият@имейл.bg",
-   "sendLink": "Изпрати връзка",
-   "invalidEmail": "Моля въведете валиден имейл.",
-   "sending": "Изпращам…",
-   "linkSent": "Изпратихме връзка на <b>{email}</b>.<br>Отворете я от <b>същия телефон</b>, за да влезете.",
-   "done": "Готово ✓",
-   "serviceNotReady": "Услугата още се настройва. Опитайте малко по-късно.",
-   "genericError": "Възникна грешка. Опитайте пак."
+   "loginTitle": "Iniciar sesión / Restaurar",
+   "loginSub": "Introduzca su correo y recibirá un enlace de acceso — sin contraseña. Así sus datos se conservan y se recuperan al cambiar de teléfono.",
+   "emailPlaceholder": "su@correo.com",
+   "sendLink": "Enviar enlace",
+   "invalidEmail": "Introduzca un correo válido.",
+   "sending": "Enviando…",
+   "linkSent": "Enviamos un enlace a <b>{email}</b>.<br>Ábralo en el <b>mismo teléfono</b> para iniciar sesión.",
+   "done": "Listo ✓",
+   "serviceNotReady": "El servicio aún se está configurando. Inténtelo un poco más tarde.",
+   "genericError": "Se produjo un error. Inténtelo de nuevo."
   },
   "analytics": {
-   "hoursSessionsFmt": "{h}ч / {s}x"
+   "hoursSessionsFmt": "{h}h / {s}x"
   },
   "categoryView": {
    "loading": "Cargando...",
-   "notFound": "Категорията не е намерена."
+   "notFound": "Categoría no encontrada."
   },
   "diaryHub": {
    "title": "Diario",
-   "notStarted": "Все още не сте започнали 14-дневната програма.",
-   "notStartedSub": "Когато стартирате, тук ще виждате докъде сте и какво сте записали.",
-   "statCurrentDay": "текущ ден от програмата",
-   "statCompleted": "завършени дни",
-   "statEntries": "записа в дневника",
-   "statStreak": "последователни активни дни",
-   "statFreezes": "останали „пропуски\"",
+   "notStarted": "Aún no ha empezado el programa de 14 días.",
+   "notStartedSub": "Cuando empiece, aquí verá su avance y lo que ha registrado.",
+   "statCurrentDay": "día actual del programa",
+   "statCompleted": "días completados",
+   "statEntries": "entradas del diario",
+   "statStreak": "días activos consecutivos",
+   "statFreezes": "\"saltos\" restantes",
    "evening": {
     "title": "Diario de la tarde",
-    "desc": "5 въпроса, 90 секунди"
+    "desc": "5 preguntas, 90 segundos"
    },
    "cbt": {
-    "title": "Днешна практика",
-    "descFmt": "Ден {n} от 14"
+    "title": "Práctica de hoy",
+    "descFmt": "Día {n} de 14"
    },
    "progress": {
-    "title": "Прогрес",
-    "desc": "Вижте промяната"
+    "title": "Progreso",
+    "desc": "Vea el cambio"
    }
   },
   "favorites": {
    "loadingSkeleton": "Cargando..."
   },
   "headphones": {
-   "l1": "Слушалките-тапи (in-ear) ВЛОШАВАТ тинитуса. Те създават оклузивен ефект — вътрешният шум се чува по-силно.",
-   "l2": "Препоръчваме:",
-   "l3": "✓ Външни говорители (60–90 см от главата)",
-   "l4": "✓ Костна проводимост (bone conduction)",
-   "l5": "✓ Open-back слушалки",
-   "l6": "Силата НЕ трябва да заглушава тинитуса. Двата звука трябва да се чуват заедно (т.нар. „точка на смесване\").",
-   "l7": "Нощем — максимум 8 часа без прекъсване. Не настройвайте таймер за изключване нощем.",
-   "title": "ВАЖНО — преди да започнете",
-   "cta": "Разбрах — продължи"
+   "l1": "Los auriculares de botón (in-ear) EMPEORAN el tinnitus. Crean un efecto de oclusión — el ruido interno se oye más fuerte.",
+   "l2": "Recomendamos:",
+   "l3": "✓ Altavoces externos (60–90 cm de la cabeza)",
+   "l4": "✓ Conducción ósea (bone conduction)",
+   "l5": "✓ Auriculares open-back",
+   "l6": "El volumen NO debe enmascarar el tinnitus. Ambos sonidos deben oírse juntos (el llamado \"punto de mezcla\").",
+   "l7": "Por la noche — un máximo de 8 horas sin interrupción. No configure un temporizador de apagado por la noche.",
+   "title": "IMPORTANTE — antes de empezar",
+   "cta": "Entendido — continuar"
   },
   "player": {
-   "masterAria": "Обща сила на звука",
-   "masterAriaFull": "Обща сила на звука 0-100",
-   "sosTitle": "При паник атака · SOS",
-   "sosSub": "Дихателно упражнение, 60 сек",
-   "favRemove": "Премахни от любими",
-   "favAdd": "Добави в любими",
-   "sleepManual": "Ръчно:",
-   "minShort": "мин.",
-   "sleepManualAria": "Ръчна продължителност в минути (1 до 480)",
-   "sleepCancel": "Отмени таймер",
-   "sleepSave": "Запази",
-   "infoAbout": "За звука",
-   "infoNoise": "Препоръчителен фон за вашия профил",
-   "infoWhy": "Защо този звук е добър за вас",
-   "hintAria": "Съвет за силата",
+   "masterAria": "Volumen general",
+   "masterAriaFull": "Volumen general 0-100",
+   "sosTitle": "En una crisis de pánico · SOS",
+   "sosSub": "Ejercicio de respiración, 60 s",
+   "favRemove": "Quitar de favoritos",
+   "favAdd": "Añadir a favoritos",
+   "sleepManual": "Manual:",
+   "minShort": "min",
+   "sleepManualAria": "Duración manual en minutos (1 a 480)",
+   "sleepCancel": "Cancelar temporizador",
+   "sleepSave": "Guardar",
+   "infoAbout": "Sobre el sonido",
+   "infoNoise": "Fondo recomendado para su perfil",
+   "infoWhy": "Por qué este sonido es bueno para usted",
+   "hintAria": "Consejo de volumen",
    "close": "Cerrar",
-   "hintTitle": "Малък съвет за Вас",
-   "hintBody1": "Нагласете силата и микса както Ви е приятно — <b>Вие решавате</b>.",
-   "hintBody2": "За най-силен ефект и за да отслабва шумът с времето, оставете звука да <b>не заглушава напълно</b> Вашия тинитус — добре е леко да чувате и него под звука.",
-   "hintOk": "Разбрах",
-   "hintNever": "Не показвай повече",
+   "hintTitle": "Un pequeño consejo para usted",
+   "hintBody1": "Ajuste el volumen y la mezcla como prefiera — <b>usted decide</b>.",
+   "hintBody2": "Para el mayor efecto, y para que el ruido se atenúe con el tiempo, deje que el sonido <b>no enmascare por completo</b> su tinnitus — conviene oírlo ligeramente bajo el sonido.",
+   "hintOk": "Entendido",
+   "hintNever": "No mostrar de nuevo",
    "sleepPreset15": "15 minutos",
    "sleepPreset30": "30 minutos",
    "sleepPreset60": "1 hora",
-   "sleepPresetNight": "8 часа (цяла нощ)",
-   "sleepTimerTitle": "Таймер за сън",
+   "sleepPresetNight": "8 horas (toda la noche)",
+   "sleepTimerTitle": "Temporizador de sueño",
    "bgNoise": "Ruido de fondo",
-   "soundDescFmt": "Звук от категория {cat}."
+   "soundDescFmt": "Sonido de la categoría {cat}."
   },
   "profileResults": {
-   "spectrumAria": "Спектър на честотите от 250 Hz до 16 kHz, маркер на {f}"
+   "spectrumAria": "Espectro de frecuencias de 250 Hz a 16 kHz, marcador en {f}"
   },
   "soundDetail": {
    "loading": "Cargando...",
-   "notFound": "Звукът не е намерен."
+   "notFound": "Sonido no encontrado."
   },
   "volumeCalib": {
-   "testStop": "Спри",
-   "testPlay": "Пуснете тестовия звук",
-   "testStopAria": "Спри тестовия звук",
-   "testPlayAria": "Пусни тестовия звук",
-   "title": "Настройка на силата",
-   "subtitle": "Намерете нивото, което работи за Вас.",
-   "explain": "Звуковата терапия работи най-добре, когато фоновият звук е малко по-тих от Вашия тинитус — двата звука се смесват частично, а не се заглушават. Това се нарича „точка на смесване\" и е принципът, който позволява на мозъка постепенно да привикне.",
-   "stepsTitle": "Три стъпки",
-   "step1": "<strong>Седнете в тиха стая.</strong> Уверете се, че няма телевизор, разговор или шум от пътя.",
-   "step2": "<strong>Пуснете тестовия звук.</strong> Слушайте на ниско ниво в продължение на 20 секунди.",
-   "step3": "<strong>Намалявайте силата постепенно.</strong> Спрете в момента, в който чувате едновременно и тинитуса, и фоновия звук. Те трябва да съществуват заедно.",
-   "sliderLabel": "Сила",
+   "testStop": "Parar",
+   "testPlay": "Reproduzca el sonido de prueba",
+   "testStopAria": "Detener el sonido de prueba",
+   "testPlayAria": "Reproducir el sonido de prueba",
+   "title": "Ajuste del volumen",
+   "subtitle": "Encuentre el nivel que le funcione.",
+   "explain": "La terapia de sonido funciona mejor cuando el sonido de fondo es algo más bajo que su tinnitus — los dos sonidos se mezclan parcialmente en vez de enmascararse. Esto se llama \"punto de mezcla\" y es el principio que permite al cerebro acostumbrarse poco a poco.",
+   "stepsTitle": "Tres pasos",
+   "step1": "<strong>Siéntese en una habitación tranquila.</strong> Asegúrese de que no haya televisión, conversación ni ruido de la calle.",
+   "step2": "<strong>Reproduzca el sonido de prueba.</strong> Escuche a bajo nivel durante 20 segundos.",
+   "step3": "<strong>Baje el volumen gradualmente.</strong> Pare en el momento en que oiga a la vez el tinnitus y el sonido de fondo. Deben coexistir.",
+   "sliderLabel": "Volumen",
    "sliderAria": "Сила на звука от 0 до {max} процента",
    "sliderValuetext": "{v} от {max}",
    "sliderHint": "Нагласете до ниво, което чувате удобно.",
@@ -1929,10 +1929,10 @@
    "prev": "Atrás",
    "next": "Следващ",
    "finish": "Завърши",
-   "continue": "Продължи"
+   "continue": "Continuar"
   },
   "result": {
-   "done": "Готово",
+   "done": "Listo",
    "baseline": "Baseline THI score",
    "day14": "Финален THI score (Ден 14)",
    "completed": "Записахме новия резултат"
@@ -2387,7 +2387,7 @@
    },
    "lastFmt": "Последно: {v}",
    "unfinishedF": "Недовършена оценка",
-   "continueBtn": "Продължи",
+   "continueBtn": "Continuar",
    "restartBtn": "Empezar de nuevo",
    "viewBtn": "Виж",
    "retestBtn": "Направи отново",
@@ -2413,7 +2413,7 @@
    "todoMain": "Започнете да следите",
    "todoSub": "Сън и настроение · 14 дни",
    "startBtn": "Започни",
-   "dueFmt": "Ден {n} от 14",
+   "dueFmt": "Día {n} de 14",
    "dueSub": "Попълнете днешния запис",
    "fillBtn": "Попълни"
   }
@@ -2525,7 +2525,7 @@
     "text": "Колко силно тинитусът влияе на съня Ви?",
     "options": {
      "a": "Изобщо",
-     "b": "Малко",
+     "b": "Un poco",
      "c": "Доста",
      "d": "Не мога да спя"
     }
@@ -2534,7 +2534,7 @@
     "text": "Колко силно влияе на концентрацията Ви?",
     "options": {
      "a": "Изобщо",
-     "b": "Малко",
+     "b": "Un poco",
      "c": "Доста",
      "d": "Не мога да се фокусирам"
     }
@@ -2837,7 +2837,7 @@
  },
  "progress": {
   "title": "Вашата 14-дневна програма",
-  "day_of": "Ден {n} от 14",
+  "day_of": "Día {n} de 14",
   "day_n": "Ден {n}",
   "completed": "Завършен ден",
   "partial": "Частичен ден",
@@ -3838,7 +3838,7 @@
  },
  "tour": {
   "skip": "Пропусни",
-  "next": "Разбрах",
+  "next": "Entendido",
   "finish": "Готово!"
  },
  "account": {
