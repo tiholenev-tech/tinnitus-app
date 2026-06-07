@@ -874,7 +874,8 @@
    "sleepPreset30": "30 de minute",
    "sleepPreset60": "1 oră",
    "sleepPresetNight": "8 ore (toată noaptea)",
-   "sleepTimerTitle": "Timer de somn"
+   "sleepTimerTitle": "Timer de somn",
+   "bgNoise": "Zgomot de fundal"
   },
   "profileResults": {
    "spectrumAria": "Spectrul frecvențelor de la 250 Hz la 16 kHz, marcaj pe {f}"
@@ -904,6 +905,10 @@
    "confirm": "E bine",
    "later": "Mai târziu",
    "disclaimer": "AURALIS este un instrument de bunăstare generală, nu un produs medical."
+  },
+  "streak": {
+   "unit": "zile",
+   "aria": "{n} zile la rând"
   }
  },
  "science": {

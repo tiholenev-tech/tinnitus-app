@@ -157,13 +157,13 @@ window.Player = (function () {
     'green_noise':  'Зелен шум'
   };
   function noiseLabel(id) {
-    if (NOISE_LABEL_BG[id]) return NOISE_LABEL_BG[id];
-    // Fallback: i18n key или generic "Фонов шум"
+    // i18n ПЪРВО (BG картата е само fallback при липсващ ключ)
     if (window.i18n && window.i18n.t) {
       var v = window.i18n.t('noises.' + id + '.title', null);
       if (typeof v === 'string' && v.indexOf('noises.') !== 0 && v.indexOf('TODO') !== 0) return v;
     }
-    return 'Фонов шум';
+    if (NOISE_LABEL_BG[id]) return NOISE_LABEL_BG[id];
+    return t('ui.player.bgNoise', 'Фонов шум');
   }
 
   // ============================================================

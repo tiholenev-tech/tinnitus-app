@@ -31,9 +31,12 @@ def main():
             if isinstance(n,dict) and x in n: n=n[x]
             else: return False
         return True
+    # noises (Layer 2) покритие
+    noise_ids=[n['id'] for n in m.get('noises',[])]
+    noise_missing=[nid for nid in noise_ids if not has(o,'noises.'+nid+'.title')]
     missing=[s['id'] for s in m['sounds'] if s.get('bg_title') and s.get('title_key') and not has(o,s['title_key'])]
-    print(f"[{lang}] кирилски leak: {len(leak)} · звуци без преведено заглавие: {len(missing)}")
+    print(f"[{lang}] кирилски leak: {len(leak)} · звуци без заглавие: {len(missing)} · noises без заглавие: {len(noise_missing)}")
     for x in leak[:15]: print("   leak:",x)
     for x in missing[:8]: print("   no-title:",x)
-    return 1 if (leak or missing) else 0
+    return 1 if (leak or missing or noise_missing) else 0
 if __name__=='__main__': sys.exit(main())

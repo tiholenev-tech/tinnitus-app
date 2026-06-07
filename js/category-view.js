@@ -252,7 +252,7 @@ window.CategoryView = (function () {
     var v = tOrNull(sound.subtitle_key);
     if (v) return v;
     var catId = sound.category_audio || sound.category || '';
-    return tOrNull('library.cat_audio.' + catId) || ELEM_BG[catId] || prettifyFilename(catId);
+    return tOrNull('ui.library.cat_audio.' + catId) || ELEM_BG[catId] || prettifyFilename(catId);
   }
 
   // ============================================================

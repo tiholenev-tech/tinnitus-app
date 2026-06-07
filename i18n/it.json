@@ -874,7 +874,8 @@
    "sleepPreset30": "30 minuti",
    "sleepPreset60": "1 ora",
    "sleepPresetNight": "8 ore (tutta la notte)",
-   "sleepTimerTitle": "Timer del sonno"
+   "sleepTimerTitle": "Timer del sonno",
+   "bgNoise": "Rumore di fondo"
   },
   "profileResults": {
    "spectrumAria": "Spettro delle frequenze da 250 Hz a 16 kHz, marcatore su {f}"
@@ -904,6 +905,10 @@
    "confirm": "Va bene",
    "later": "Più tardi",
    "disclaimer": "AURALIS è uno strumento di benessere generale, non un prodotto medico."
+  },
+  "streak": {
+   "unit": "giorni",
+   "aria": "{n} giorni di serie"
   }
  },
  "science": {
