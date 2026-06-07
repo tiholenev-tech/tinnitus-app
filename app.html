@@ -321,7 +321,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       (function () {
-        var CODE_VERSION = '1.0.122';   // ← sync с service-worker.js VERSION при всеки release
+        var CODE_VERSION = '1.0.123';   // ← sync с service-worker.js VERSION при всеки release
         var refreshing = false;
         var reg = null;
 
@@ -372,11 +372,11 @@
           bar.setAttribute('role', 'alert');
           var txt = document.createElement('span');
           txt.className = 'sw-txt';
-          txt.textContent = 'Налична е нова версия';
+          txt.textContent = (window.i18n && window.i18n.t) ? window.i18n.t('ui.update.available', 'Налична е нова версия') : 'Налична е нова версия';
           var btn = document.createElement('button');
           btn.type = 'button';
           btn.className = 'sw-btn';
-          btn.textContent = 'Обнови';
+          btn.textContent = (window.i18n && window.i18n.t) ? window.i18n.t('ui.update.button', 'Обнови') : 'Обнови';
           btn.addEventListener('click', applyUpdate);
           bar.appendChild(txt);
           bar.appendChild(btn);
