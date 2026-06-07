@@ -205,6 +205,15 @@ function it_masthead($active = '') {
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
       <a class="btn btn--primary masthead__cta" href="/it/#oferta">Prova gratis</a>
+      <details class="lang-menu">
+        <summary class="lang-menu__btn" title="Език / Lingua / Limbă" aria-label="Език / Lingua / Limbă"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg></summary>
+        <ul class="lang-menu__list">
+          <li><a href="/" lang="bg" hreflang="bg">Български</a></li>
+          <li><a href="/it/" lang="it" hreflang="it" aria-current="true">Italiano</a></li>
+          <li><a href="/ro/" lang="ro" hreflang="ro">Română</a></li>
+        </ul>
+      </details>
+
     </div>
     <nav id="site-nav" class="navrow" aria-label="Navigazione principale">
       <a class="pill" href="/it/"<?= $active === 'home' ? ' aria-current="page"' : '' ?>>Inizio</a>
@@ -212,7 +221,6 @@ function it_masthead($active = '') {
       <a class="pill" href="/it/argomenti/<?= $slug ?>/"<?= $active === $slug ? ' aria-current="page"' : '' ?>><?= htmlspecialchars($s['short']) ?></a>
       <?php endforeach; ?>
       <a class="pill" href="/it/articoli/"<?= $active === 'articles' ? ' aria-current="page"' : '' ?>>Tutti</a>
-      <a class="pill lang-switch" href="/" lang="bg" hreflang="bg" title="Български">BG</a>
     </nav>
   </div>
 </header>
@@ -241,7 +249,6 @@ function it_footer() {
         <ul>
           <li><a href="/it/articoli/">Tutti gli articoli</a></li>
           <li><a href="/app.html?lang=it">L'app</a></li>
-          <li><a href="/" lang="bg" hreflang="bg">Български (BG)</a></li>
         </ul>
       </div>
     </div>
