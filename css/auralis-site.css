@@ -170,27 +170,45 @@ html, body { overflow-x: clip; }   /* clip НЕ чупи sticky менюто (з
 .lang-menu__list a:active { box-shadow: var(--concave-sm); }
 
 /* ============================================================
-   Masthead bar — лого + CTA + globe БЕЗ застъпване
-   (globe-ът претовари реда; space-between центрираше CTA върху логото)
+   Masthead bar — лого + CTA + globe, БЕЗ застъпване на всички езици
    ============================================================ */
 .masthead__bar { justify-content: flex-start; gap: 10px; flex-wrap: nowrap; }
-.brand { margin-right: auto; min-width: 0; }          /* бута CTA+globe вдясно */
-.masthead__cta { flex: 0 0 auto; }
+.brand { margin-right: auto; min-width: 0; }
+.masthead__cta { flex: 0 0 auto; white-space: nowrap; }
 .lang-menu { flex: 0 0 auto; }
 @media (max-width: 600px) {
-  .masthead__cta { padding: 0 14px; font-size: 12.5px; min-height: 42px; }
+  .brand__mark   { font-size: 16px; }
+  .masthead__cta { padding: 0 13px; font-size: 12px; min-height: 40px; }
   .lang-menu__btn { width: 38px; height: 38px; }
 }
-@media (max-width: 380px) {
-  .masthead__cta { padding: 0 11px; font-size: 11.5px; min-height: 40px; }
+@media (max-width: 400px) {
+  .brand__mark   { font-size: 14.5px; }
+  .masthead__cta { padding: 0 11px; font-size: 11.5px; }
+  .lang-menu__btn { width: 36px; height: 36px; }
 }
 
 /* ============================================================
    Навигация — симетрична решетка „като войници" (мобилно)
-   2 равни колони; нечетен последен елемент заема целия ред (балансирано)
+   minmax(0,1fr) → колоните НЕ преливат при дълги думи; текстът се
+   пренася при нужда (никога отрязан). Нечетен последен = цял ред.
    ============================================================ */
 @media (max-width: 640px) {
-  .navrow { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; max-height: 420px; align-content: start; }
-  .navrow .pill { width: 100%; justify-content: center; text-align: center; }
+  .navrow {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    max-height: 520px;
+    align-content: start;
+  }
+  .navrow .pill {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.15;
+    min-height: 50px;
+    padding: 8px 12px;
+    font-size: 13.5px;
+  }
   .navrow .pill:last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
