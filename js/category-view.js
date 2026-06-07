@@ -111,14 +111,14 @@ window.CategoryView = (function () {
   function getCatName(catId) {
     // Елемент-категории → име от library.cat_audio.<id> (Вълни, Дъжд…),
     // с БГ fallback за да не се показва английско prettify.
-    var el = tOrNull('library.cat_audio.' + catId);
+    var el = tOrNull('ui.library.cat_audio.' + catId);
     if (el) return el;
     if (ELEM_BG[catId]) return ELEM_BG[catId];
     return t('home.cat.' + catId + '.name', prettifyFilename(catId));
   }
 
   function getCatSubtitle(catId) {
-    return t('home.cat.' + catId + '.subtitle', '');
+    return t('ui.library.cat_sub.' + catId, '');
   }
 
   function getCatDescription(catId) {

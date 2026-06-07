@@ -557,10 +557,10 @@ window.Player = (function () {
     var activeMin = current.active ? current.totalMinutes : 0;
 
     var presets = [
-      { mins: 15,  label: '15 минути' },
-      { mins: 30,  label: '30 минути' },
-      { mins: 60,  label: '1 час' },
-      { mins: 480, label: '8 часа (цяла нощ)' }
+      { mins: 15,  label: t('ui.player.sleepPreset15', '15 минути') },
+      { mins: 30,  label: t('ui.player.sleepPreset30', '30 минути') },
+      { mins: 60,  label: t('ui.player.sleepPreset60', '1 час') },
+      { mins: 480, label: t('ui.player.sleepPresetNight', '8 часа (цяла нощ)') }
     ];
 
     var presetHtml = presets.map(function (p) {
@@ -602,7 +602,7 @@ window.Player = (function () {
 
     if (window.BottomSheet && window.BottomSheet.open) {
       window.BottomSheet.open({
-        title: 'Таймер за сън',
+        title: t('ui.player.sleepTimerTitle', 'Таймер за сън'),
         content: content,
         height: 'auto',
         showGrip: true,

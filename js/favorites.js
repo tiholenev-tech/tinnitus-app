@@ -203,7 +203,7 @@ window.Favorites = (function () {
         '</div>';
 
       var list = sorted.map(function (item) {
-        var label = t('sounds.' + item.id + '.title', item.id);
+        var label = t('library.sounds.' + item.id + '.title', item.id);
         return (
           '<div class="fav-item" data-fav-id="' + escapeHtml(item.id) + '">' +
             '<button class="fav-item-main" type="button" data-action="play">' +
