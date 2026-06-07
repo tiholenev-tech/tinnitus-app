@@ -2438,182 +2438,182 @@
  "quiz": {
   "questions": {
    "q1": {
-    "text": "Какъв звук чувате?",
+    "text": "¿Qué sonido oye?",
     "options": {
-     "a": "Звънене (висок тон)",
-     "b": "Бръмчене (нисък тон)",
-     "c": "Съскане (като пара)",
-     "d": "Пулсиращ",
-     "e": "Друг / не съм сигурен/а"
+     "a": "Pitido (tono agudo)",
+     "b": "Zumbido (tono grave)",
+     "c": "Siseo (como vapor)",
+     "d": "Pulsátil",
+     "e": "Otro / no estoy seguro/a"
     }
    },
    "q2": {
-    "text": "Каква е височината на звука?",
+    "text": "¿Cuál es la altura del sonido?",
     "options": {
-     "a": "Висок (като свирка)",
-     "b": "Среден (като комар)",
-     "c": "Нисък (като бучене)",
-     "d": "Не съм сигурен/а"
+     "a": "Agudo (como un silbato)",
+     "b": "Medio (como un mosquito)",
+     "c": "Grave (como un retumbo)",
+     "d": "No estoy seguro/a"
     }
    },
    "q3": {
-    "text": "В кое ухо го чувате?",
+    "text": "¿En qué oído lo oye?",
     "options": {
-     "a": "Само в лявото",
-     "b": "Само в дясното",
-     "c": "И в двете",
-     "d": "В главата (не от ушите)"
+     "a": "Solo en el izquierdo",
+     "b": "Solo en el derecho",
+     "c": "En ambos",
+     "d": "En la cabeza (no de los oídos)"
     }
    },
    "q4": {
-    "text": "Кога чувате звука?",
+    "text": "¿Cuándo oye el sonido?",
     "options": {
-     "a": "Постоянно",
-     "b": "Идва и си отива",
-     "c": "Само в тишина",
-     "d": "Само вечер"
+     "a": "Constantemente",
+     "b": "Va y viene",
+     "c": "Solo en silencio",
+     "d": "Solo por la tarde"
     }
    },
    "q5": {
-    "text": "Кога е НАЙ-СИЛЕН?",
+    "text": "¿Cuándo es MÁS FUERTE?",
     "options": {
-     "a": "Сутрин",
-     "b": "През деня",
-     "c": "Вечер",
-     "d": "През нощта",
-     "e": "Без значение"
+     "a": "Por la mañana",
+     "b": "Durante el día",
+     "c": "Por la tarde",
+     "d": "Por la noche",
+     "e": "Indiferente"
     }
    },
    "q6": {
-    "text": "Откога имате тинитус?",
+    "text": "¿Desde cuándo tiene tinnitus?",
     "options": {
-     "a": "По-малко от 6 месеца",
-     "b": "6 месеца – 2 години",
-     "c": "2 – 5 години",
-     "d": "Повече от 5 години"
+     "a": "Menos de 6 meses",
+     "b": "6 meses – 2 años",
+     "c": "2 – 5 años",
+     "d": "Más de 5 años"
     }
    },
    "q7": {
-    "text": "Имало ли е силен звук преди появата?",
+    "text": "¿Hubo un sonido fuerte antes de que apareciera?",
     "options": {
-     "a": "Концерт / силна музика",
-     "b": "Експлозия / стрелба",
-     "c": "Работа в шумна среда",
-     "d": "Не помня нищо специално"
+     "a": "Concierto / música fuerte",
+     "b": "Explosión / disparos",
+     "c": "Trabajo en un entorno ruidoso",
+     "d": "No recuerdo nada especial"
     }
    },
    "q8": {
-    "text": "Имате ли загуба на слуха?",
+    "text": "¿Tiene pérdida auditiva?",
     "options": {
-     "a": "Да, явно",
-     "b": "Може би леко",
+     "a": "Sí, claramente",
+     "b": "Quizás leve",
      "c": "No",
-     "d": "Не съм проверявал/а"
+     "d": "No lo he comprobado"
     }
    },
    "q9": {
-    "text": "Имате ли други състояния? (само информативно)",
+    "text": "¿Tiene otras afecciones? (solo informativo)",
     "options": {
-     "a": "Високо кръвно",
-     "b": "Диабет",
-     "c": "Тревожност / стрес",
-     "d": "Нищо особено",
-     "e": "Не искам да отговарям"
+     "a": "Tensión alta",
+     "b": "Diabetes",
+     "c": "Ansiedad / estrés",
+     "d": "Nada en particular",
+     "e": "Prefiero no responder"
     }
    },
    "q10": {
-    "text": "Колко силно тинитусът влияе на съня Ви?",
+    "text": "¿Cuánto afecta el tinnitus a su sueño?",
     "options": {
-     "a": "Изобщо",
+     "a": "Nada",
      "b": "Un poco",
-     "c": "Доста",
-     "d": "Не мога да спя"
+     "c": "Bastante",
+     "d": "No puedo dormir"
     }
    },
    "q11": {
-    "text": "Колко силно влияе на концентрацията Ви?",
+    "text": "¿Cuánto afecta a su concentración?",
     "options": {
-     "a": "Изобщо",
+     "a": "Nada",
      "b": "Un poco",
-     "c": "Доста",
-     "d": "Не мога да се фокусирам"
+     "c": "Bastante",
+     "d": "No puedo concentrarme"
     }
    },
    "q12": {
-    "text": "Колко е стресиращ за Вас (0-10)?",
+    "text": "¿Cómo de estresante es para usted (0-10)?",
     "options": {
-     "a": "0 – 2 (минимален стрес)",
-     "b": "3 – 5 (лек до умерен стрес)",
-     "c": "6 – 8 (силен стрес)",
-     "d": "9 – 10 (непоносим стрес)"
+     "a": "0 – 2 (estrés mínimo)",
+     "b": "3 – 5 (estrés leve a moderado)",
+     "c": "6 – 8 (estrés alto)",
+     "d": "9 – 10 (estrés insoportable)"
     }
    },
    "q13": {
-    "text": "Какво сте опитвали досега?",
+    "text": "¿Qué ha probado hasta ahora?",
     "options": {
-     "a": "Лекарства",
-     "b": "Слухови апарати",
+     "a": "Medicamentos",
+     "b": "Audífonos",
      "c": "Terapia de sonido",
      "d": "Meditación",
-     "e": "Нищо още"
+     "e": "Nada todavía"
     }
    },
    "q14": {
-    "text": "Какво Ви помага най-много?",
+    "text": "¿Qué le ayuda más?",
     "options": {
-     "a": "Тишина",
-     "b": "Слаб шум",
-     "c": "Силен шум",
-     "d": "Природа",
-     "e": "Нищо не помага"
+     "a": "Silencio",
+     "b": "Ruido tenue",
+     "c": "Ruido fuerte",
+     "d": "Naturaleza",
+     "e": "Nada ayuda"
     }
    },
    "q15": {
-    "text": "Какво очаквате от приложението?",
+    "text": "¿Qué espera de la aplicación?",
     "options": {
-     "a": "По-добър сън",
-     "b": "Маскиране на шума",
-     "c": "По-малко стрес",
-     "d": "Дълготрайна промяна"
+     "a": "Mejor sueño",
+     "b": "Enmascarar el ruido",
+     "c": "Menos estrés",
+     "d": "Cambio duradero"
     }
    }
   },
   "profiles": {
    "TH_C": {
     "shortName": "Tonal de alta frecuencia",
-    "fullName": "Тонален високочестотен / Когнитивен",
-    "description": "Този профил включва субективно усещане за висок, пищящ и тонален тинитус, който оказва сериозно влияние върху когнитивните процеси и ежедневната концентрация. При него се препоръчват високочестотни звуци като филтриран дъжд и балансиран розов шум, настроени близо до точката на смесване, за да улеснят хабитуацията на ниво мозъчна кора."
+    "fullName": "Tonal de alta frecuencia / Cognitivo",
+    "description": "Este perfil implica una sensación subjetiva de tinnitus agudo, silbante y tonal que afecta seriamente los procesos cognitivos y la concentración diaria. Para él se recomiendan sonidos de alta frecuencia como lluvia filtrada y ruido rosa equilibrado, ajustados cerca del punto de mezcla, para facilitar la habituación a nivel cortical."
    },
    "DN_S": {
     "shortName": "Ruido de baja frecuencia",
     "fullName": "Ruido de baja frecuencia / Sueño",
-    "description": "Профил, дефиниран от наличието на плътни, нискочестотни звуци и сериозни проблеми със заспиването или поддържането на съня. При него водещи са по-дълбоките акустични среди (кафяв шум, плътни водопади), които силно маскират субективното бучене и успокояват ума вечер, подпомагайки плавния и здравословен преход към сън."
+    "description": "Un perfil definido por la presencia de sonidos densos de baja frecuencia y problemas serios para conciliar o mantener el sueño. Para él, las opciones principales son los entornos acústicos más profundos (ruido marrón, cascadas densas), que enmascaran fuertemente el zumbido subjetivo y calman la mente por la tarde, apoyando una transición suave y saludable al sueño."
    },
    "SS_R": {
     "shortName": "Sensible al estrés",
     "fullName": "Sensible al estrés / Reactivo",
-    "description": "При този профил възприятието на тинитус е силно свързано с активността на вегетативната нервна система и лимбичната структура. Дори леки звукови дразнители или ежедневен стрес засилват усещането за шум. Акустичният отговор изисква зелен шум за облекчение и изключително нежни природни блендове за намаляване на кортикалната възбудимост."
+    "description": "En este perfil la percepción del tinnitus está fuertemente ligada a la actividad del sistema nervioso autónomo y la estructura límbica. Incluso estímulos sonoros leves o el estrés cotidiano intensifican la sensación de ruido. La respuesta acústica requiere ruido verde para el alivio y mezclas naturales extremadamente suaves para reducir la excitabilidad cortical."
    },
    "SM_F": {
     "shortName": "Somático / Fluctuante",
     "fullName": "Somático / Fluctuante",
-    "description": "Профил, съответстващ на тинитус с променлива сила и честота, често проявяващ се на цикли или силно свързан с физическо напрежение във врата и челюстта. Използват се силно динамични и непериодични природни среди, като океански приливи и отливи, които ангажират слуховия апарат без риск от привикване към статичен сигнал."
+    "description": "Un perfil que corresponde a un tinnitus con intensidad y frecuencia variables, que a menudo se manifiesta en ciclos o está fuertemente ligado a la tensión física en el cuello y la mandíbula. Se usan entornos naturales muy dinámicos y no periódicos, como las mareas del océano, que activan el sistema auditivo sin el riesgo de habituarse a una señal estática."
    },
    "HB_M": {
     "shortName": "Adaptado / Leve",
     "fullName": "Adaptado / Leve",
-    "description": "Този профил показва високо ниво на естествено привикване. Шумът се чува предимно в условия на абсолютна тишина и няма съществено влияние върху качеството на живот. Акустичната препоръка цели единствено обогатяване на тихата среда с минимални природни звуци за дългосрочно предотвратяване на сензорния контраст."
+    "description": "Este perfil muestra un alto nivel de habituación natural. El ruido se oye principalmente en condiciones de silencio absoluto y no tiene un impacto significativo en la calidad de vida. La recomendación acústica busca únicamente enriquecer el entorno silencioso con sonidos naturales mínimos para la prevención a largo plazo del contraste sensorial."
    }
   },
   "diLevels": {
-   "low": "Лек",
-   "medium": "Умерен",
-   "high": "Тежък"
+   "low": "Leve",
+   "medium": "Moderado",
+   "high": "Grave"
   },
   "intensity": {
-   "low": "Изключително тих, едва доловим фон",
-   "medium": "Равен на точката на смесване (Mixing Point)",
-   "high": "Малко под нивото на тинитуса; мек тембър"
+   "low": "Fondo extremadamente silencioso, apenas perceptible",
+   "medium": "Igual al punto de mezcla (Mixing Point)",
+   "high": "Ligeramente por debajo del nivel del tinnitus; un timbre suave"
   }
  },
  "content": {
