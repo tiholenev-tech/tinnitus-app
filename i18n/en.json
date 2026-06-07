@@ -2282,40 +2282,40 @@
    "explanation": "When you have tinnitus, your mind is trained to notice mostly the unpleasant. This is not your weakness — it's a defensive reaction. But there's an antidote: each day make a short list of three pleasant sensory moments — a taste, a scent, a sight, a touch, a quiet sound. Over time your brain will start to seek them out on its own.",
    "exercise": [
     "Before you fall asleep, recall the day.",
-    "Запишете три неща, които сте усетили днес и са Ви били приятни (например аромат на кафе, топла светлина, разговор).",
-    "До всяко напишете една дума за чувството, което Ви даде."
+    "Write three things you felt today that were pleasant (for example the aroma of coffee, warm light, a conversation).",
+    "Next to each, write one word for the feeling it gave you."
    ],
-   "reflection": "Кой от трите мига беше най-неочакван за Вас?"
+   "reflection": "Which of the three moments was the most unexpected for you?"
   },
   "day_13": {
-   "title": "Звук и дишане заедно",
-   "theme": "Когато спокойната природа и спокойното дишане се срещнат, тинитусът губи силата си.",
-   "explanation": "Досега използвахте дишането и фоновия звук поотделно. Днес ще ги комбинирате. Мозъкът свързва двете преживявания — звукът става сигнал за релаксация, релаксацията засилва ефекта на звука. Постепенно изграждате нова, неутрална асоциация: тинитусът не е сам в съзнанието Ви — около него има спокойна среда и спокойно тяло.",
+   "title": "Sound and breathing together",
+   "theme": "When calm nature and calm breathing meet, the tinnitus loses its power.",
+   "explanation": "Until now you used breathing and the background sound separately. Today you'll combine them. The brain links the two experiences — the sound becomes a signal for relaxation, the relaxation strengthens the effect of the sound. Gradually you build a new, neutral association: the tinnitus is not alone in your awareness — around it there's a calm environment and a calm body.",
    "exercise": [
-    "Пуснете 10-минутна природна звукова сесия от приложението (вълни, поток или дъжд).",
-    "През цялото време дишайте бавно: 4 секунди вдишване, 6 секунди издишване.",
-    "Когато тинитусът се обади, не реагирайте — продължете звука и дишането."
+    "Play a 10-minute nature sound session from the app (waves, a stream or rain).",
+    "Throughout, breathe slowly: 4 seconds in, 6 seconds out.",
+    "When the tinnitus speaks up, don't react — continue the sound and the breathing."
    ],
-   "reflection": "Беше ли тинитусът същият през тези 10 минути, или нещо в усещането се промени?"
+   "reflection": "Was the tinnitus the same during these 10 minutes, or did something in the feeling change?"
   },
   "day_14": {
-   "title": "Поглед назад и напред",
-   "theme": "Две седмици назад — кое работи за Вас и какво ще пренесете нататък.",
-   "explanation": "Две седмици са достатъчни да усетите промяна в отношението си към шума, но не и за пълно привикване. Хабитуацията е процес от месеци, не дни. Това, което днес ще си отнесете, е не „лечение\", а лична карта на инструментите, които работят за Вас. Тази карта ще използвате занапред — при добри дни и при тежки.",
+   "title": "A look back and forward",
+   "theme": "Two weeks back — what works for you and what you'll carry forward.",
+   "explanation": "Two weeks are enough to feel a change in your attitude toward the noise, but not for full habituation. Habituation is a process of months, not days. What you'll take with you today is not a \"cure\", but a personal map of the tools that work for you. You'll use this map from now on — on good days and on hard ones.",
    "exercise": [
-    "Прелистете всички записки и рефлексии от Дни 1–13.",
-    "Напишете три неща, които ще продължите да правите всеки ден (упражнения, фраза, звук).",
-    "Попълнете втория въпросник THI — той ще покаже как се чувствате сега, в сравнение с първия ден."
+    "Flip through all the notes and reflections from Days 1–13.",
+    "Write three things you'll keep doing every day (exercises, a phrase, a sound).",
+    "Fill in the second THI questionnaire — it will show how you feel now, compared to the first day."
    ],
-   "reflection": "Кое от наученото през тези 14 дни беше най-важно за Вас лично?"
+   "reflection": "Which of the things you learned during these 14 days was the most important for you personally?"
   }
  },
  "home": {
-  "infoAria": "Информация за категорията",
-  "title": "Изберете режим",
+  "infoAria": "Category information",
+  "title": "Choose a mode",
   "openLibraryAll": "All sounds",
   "openDiary": "Journal",
-  "soundCountFmt": "{n} звука",
+  "soundCountFmt": "{n} sounds",
   "favoritesBtn": {
    "aria": "Favorites"
   },
@@ -2346,93 +2346,93 @@
    }
   },
   "thiCta": {
-   "title": "Завършете научната оценка",
-   "body": "Попълнете THI тест (5 минути) за персонализиран план",
-   "button": "Започнете теста"
+   "title": "Complete the scientific assessment",
+   "body": "Fill in the THI test (5 minutes) for a personalized plan",
+   "button": "Start the test"
   },
   "pitch": {
-   "new_title": "Тон на тинитуса",
-   "new_body": "Открийте честотата на вашия тинитус за персонализиран notch филтър.",
+   "new_title": "Tinnitus tone",
+   "new_body": "Discover the frequency of your tinnitus for a personalized notch filter.",
    "new_cta": "Take the test",
-   "done_title": "Тон на тинитуса",
-   "done_body": "Текущ профил: {hz} Hz. Можете да повторите теста при нужда.",
-   "done_cta": "Повтори теста",
-   "skipped_title": "Тон на тинитуса",
-   "skipped_body": "Тестът беше пропуснат. Направете го за персонализиран филтър.",
+   "done_title": "Tinnitus tone",
+   "done_body": "Current profile: {hz} Hz. You can repeat the test if needed.",
+   "done_cta": "Repeat the test",
+   "skipped_title": "Tinnitus tone",
+   "skipped_body": "The test was skipped. Take it for a personalized filter.",
    "skipped_cta": "Take the test",
-   "caution": "Не е нужно да тествате често — резултатите са най-надеждни при няколко дни между измерванията.",
-   "infoAria": "Научна информация за теста",
-   "refine_body": "Намерена: {hz} Hz. Искате ли да я уточним по-точно? Отнема 5 минути.",
-   "refine_cta": "Уточни честотата"
+   "caution": "You don't need to test often — the results are most reliable with a few days between measurements.",
+   "infoAria": "Scientific information about the test",
+   "refine_body": "Found: {hz} Hz. Would you like to refine it more precisely? Takes 5 minutes.",
+   "refine_cta": "Refine the frequency"
   },
   "volume": {
    "label": "Volume",
-   "aria": "Сила на звука 0-100"
+   "aria": "Volume 0-100"
   },
   "tests": {
    "thi": {
-    "grade1": "Много леко",
-    "grade2": "Леко",
-    "grade3": "Умерено",
-    "grade4": "Тежко",
-    "grade5": "Много тежко",
-    "name": "Оценка на тинитуса",
-    "resumeFmt": "Има недовършен тест · въпрос {n} от {total}",
-    "compared": "Сравнение готово",
-    "comparedSub": "Ден 1 → Ден 14",
-    "due": "Време за повторна оценка",
-    "readySub": "оценка готова",
-    "todoMain": "Не е направена",
-    "todoSub": "25 въпроса · по желание"
+    "grade1": "Very mild",
+    "grade2": "Mild",
+    "grade3": "Moderate",
+    "grade4": "Severe",
+    "grade5": "Very severe",
+    "name": "Tinnitus assessment",
+    "resumeFmt": "There's an unfinished test · question {n} of {total}",
+    "compared": "Comparison ready",
+    "comparedSub": "Day 1 → Day 14",
+    "due": "Time for a reassessment",
+    "readySub": "assessment ready",
+    "todoMain": "Not done",
+    "todoSub": "25 questions · optional"
    },
-   "lastFmt": "Последно: {v}",
-   "unfinishedF": "Недовършена оценка",
+   "lastFmt": "Last: {v}",
+   "unfinishedF": "Unfinished assessment",
    "continueBtn": "Continue",
    "restartBtn": "Start over",
-   "viewBtn": "Виж",
-   "retestBtn": "Направи отново",
-   "doBtn": "Направи",
+   "viewBtn": "View",
+   "retestBtn": "Do again",
+   "doBtn": "Do",
    "pitch": {
-    "name": "Тон на тинитуса",
-    "resumeOctave": "Има недовършен тест · финална проверка",
-    "resumeFmt": "Има недовършен тест · замерване {n} от {total}",
-    "freqFmt": "Честота {hz}",
-    "readySub": "готов",
-    "skippedMain": "Пропуснат",
-    "skippedSub": "направете го за личен филтър",
-    "todoMain": "Не е направен",
-    "todoSub": "~5 минути · по желание"
+    "name": "Tinnitus tone",
+    "resumeOctave": "There's an unfinished test · final check",
+    "resumeFmt": "There's an unfinished test · measurement {n} of {total}",
+    "freqFmt": "Frequency {hz}",
+    "readySub": "ready",
+    "skippedMain": "Skipped",
+    "skippedSub": "do it for a personal filter",
+    "todoMain": "Not done",
+    "todoSub": "~5 minutes · optional"
    },
-   "unfinishedM": "Недовършен тест",
-   "refineBtn": "Уточни",
-   "counterFmt": "{n} от {total} готови",
-   "title": "Моите тестове"
+   "unfinishedM": "Unfinished test",
+   "refineBtn": "Refine",
+   "counterFmt": "{n} of {total} ready",
+   "title": "My tests"
   },
   "diary": {
    "name": "Journal",
-   "todoMain": "Започнете да следите",
-   "todoSub": "Сън и настроение · 14 дни",
-   "startBtn": "Започни",
+   "todoMain": "Start tracking",
+   "todoSub": "Sleep and mood · 14 days",
+   "startBtn": "Start",
    "dueFmt": "Day {n} of 14",
-   "dueSub": "Попълнете днешния запис",
-   "fillBtn": "Попълни"
+   "dueSub": "Fill in today's entry",
+   "fillBtn": "Fill in"
   }
  },
  "categoryView": {
-  "backAria": "Назад към началото",
-  "soundsCount": "Звуци ({n})",
-  "noSounds": "Скоро ще има звуци в тази категория.",
-  "description": "За какво е",
+  "backAria": "Back to the start",
+  "soundsCount": "Sounds ({n})",
+  "noSounds": "There will be sounds in this category soon.",
+  "description": "What it's for",
   "faqLabel": "Frequent questions"
  },
  "soundDetail": {
-  "backAria": "Назад към категорията",
-  "playCta": "Слушай",
+  "backAria": "Back to the category",
+  "playCta": "Listen",
   "description": "Description",
-  "recommendedNoise": "Препоръчителен фон",
-  "recommendedMix": "Препоръчителен микс: {ratio}",
-  "noRecommendation": "Без препоръка за фон",
-  "why": "Защо точно този звук",
+  "recommendedNoise": "Recommended background",
+  "recommendedMix": "Recommended mix: {ratio}",
+  "noRecommendation": "No background recommendation",
+  "why": "Why this exact sound",
   "faqLabel": "Frequent questions"
  },
  "quiz": {
