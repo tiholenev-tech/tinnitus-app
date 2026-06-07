@@ -712,7 +712,8 @@ window.Player = (function () {
       }
     }
     if (!description) {
-      description = 'Звук от категория ' + (sound.category_audio || 'природа') + '.';
+      var _cat = t('ui.library.cat_audio.' + (sound.category_audio || ''), sound.category_audio || '');
+      description = t('ui.player.soundDescFmt', 'Звук от категория {cat}.', { cat: _cat });
     }
 
     // P0.2: pass scenario — meditation scenario връща 'none' (per BUG2 spec —

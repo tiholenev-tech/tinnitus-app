@@ -189,11 +189,6 @@ window.Onboarding = (function () {
             'Звукова релаксация за облекчение при хроничен тинитус.') +
         '</p>' +
 
-        '<button class="ob-video-cta" type="button" data-action="video">' +
-          '<span class="ob-video-icon" aria-hidden="true">▶</span> ' +
-          t('ui.onboarding.welcome.video', '30-секундно видео какво е AURALIS') +
-        '</button>' +
-
         '<div class="ob-actions ob-welcome-cta">' +
           '<button class="btn-cta" type="button" data-action="next">' +
             t('ui.onboarding.welcome.cta', 'Започнете безплатната оценка') +
@@ -442,9 +437,6 @@ window.Onboarding = (function () {
         break;
       case 'finish':
         finishOnboarding();
-        break;
-      case 'video':
-        showVideoPlaceholder();
         break;
     }
   }

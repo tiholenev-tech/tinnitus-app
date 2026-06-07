@@ -875,7 +875,8 @@
    "sleepPreset60": "1 ora",
    "sleepPresetNight": "8 ore (tutta la notte)",
    "sleepTimerTitle": "Timer del sonno",
-   "bgNoise": "Rumore di fondo"
+   "bgNoise": "Rumore di fondo",
+   "soundDescFmt": "Suono della categoria {cat}."
   },
   "profileResults": {
    "spectrumAria": "Spettro delle frequenze da 250 Hz a 16 kHz, marcatore su {f}"
@@ -909,6 +910,10 @@
   "streak": {
    "unit": "giorni",
    "aria": "{n} giorni di serie"
+  },
+  "update": {
+   "available": "È disponibile una nuova versione",
+   "button": "Aggiorna"
   }
  },
  "science": {

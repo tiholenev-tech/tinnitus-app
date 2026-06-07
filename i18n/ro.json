@@ -875,7 +875,8 @@
    "sleepPreset60": "1 oră",
    "sleepPresetNight": "8 ore (toată noaptea)",
    "sleepTimerTitle": "Timer de somn",
-   "bgNoise": "Zgomot de fundal"
+   "bgNoise": "Zgomot de fundal",
+   "soundDescFmt": "Sunet din categoria {cat}."
   },
   "profileResults": {
    "spectrumAria": "Spectrul frecvențelor de la 250 Hz la 16 kHz, marcaj pe {f}"
@@ -909,6 +910,10 @@
   "streak": {
    "unit": "zile",
    "aria": "{n} zile la rând"
+  },
+  "update": {
+   "available": "Este disponibilă o versiune nouă",
+   "button": "Actualizează"
   }
  },
  "science": {
