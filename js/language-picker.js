@@ -19,7 +19,8 @@ window.LanguagePicker = (function () {
   var LANGUAGES = [
     { code: 'bg', name: 'Български', native: 'Български', flag: '🇧🇬' },
     { code: 'it', name: 'Italian', native: 'Italiano', flag: '🇮🇹' },
-    { code: 'ro', name: 'Romanian', native: 'Română', flag: '🇷🇴' }
+    { code: 'ro', name: 'Romanian', native: 'Română', flag: '🇷🇴' },
+    { code: 'el', name: 'Greek', native: 'Ελληνικά', flag: '🇬🇷' }
   ];
 
   function t(key, fallback) {
