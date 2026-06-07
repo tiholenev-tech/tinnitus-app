@@ -1532,126 +1532,126 @@
    "mixRatio": {
     "layer1": 35,
     "layer2": 65,
-    "reasoning": "Layer 1 (главен звук — природа/мелодия): 30–40%. Layer 2 (фонов розов или кафяв шум): 60–70%. Research дава абсолютни параметри (розов шум 2–3 dB под прага на тинитуса; общо 45–55 dBA за възрастни, <50 dBA за деца), но не дава процентен X/Y. Доминирането на Layer 2 следва от логиката, че фоновата маска е терапевтично активният елемент."
+    "reasoning": "Capa 1 (sonido principal — naturaleza/melodía): 30–40%. Capa 2 (ruido rosa o marrón de fondo): 60–70%. La investigación da parámetros absolutos (ruido rosa 2–3 dB por debajo del umbral del tinnitus; total 45–55 dBA para adultos, <50 dBA para niños), pero no un porcentaje X/Y. El dominio de la Capa 2 se deriva de la lógica de que la máscara de fondo es el elemento terapéuticamente activo."
    },
-   "expectedEffect": "Понижена реактивност на амигдалата при нощни преходи между сънни цикли; защита на REM и N3 (дълбок бавновълнов) сън; при продължителна употреба — стимулиране на невропластичност и постепенна когнитивна хабитуация към тинитуса. Терапевтична цел: седмична ефективност на съня (SE) ≥85%.",
+   "expectedEffect": "Reactividad reducida de la amígdala en las transiciones nocturnas entre ciclos de sueño; protección del sueño REM y N3 (profundo de ondas lentas); con un uso prolongado — estimulación de la neuroplasticidad y habituación cognitiva gradual al tinnitus. Objetivo terapéutico: eficiencia del sueño semanal (SE) ≥85%.",
    "safety": [
-    "Максимум 50 dBA нощем (за деца строго <50 dBA).",
-    "Нива над 50 dBA започват субклинично увреждане на слуха и нарушават хомеостазата на съня.",
-    "Системно нощно излагане >50 dB е свързано с риск за деменция (атрофия на кората, тау-протеини).",
-    "Без бял шум, без пикове >8 kHz, без резки transients.",
-    "Loudness стандарт: −23 LUFS integrated, True peak ≤ −1 dBTP.",
-    "Wellness disclaimer задължителен — продуктът не е медицинско устройство."
+    "Máximo 50 dBA por la noche (para niños estrictamente <50 dBA).",
+    "Los niveles por encima de 50 dBA empiezan a causar daño auditivo subclínico y alteran la homeostasis del sueño.",
+    "La exposición nocturna sistemática >50 dB se asocia con un riesgo de demencia (atrofia cortical, proteínas tau).",
+    "Sin ruido blanco, sin picos >8 kHz, sin transientes bruscos.",
+    "Estándar de sonoridad: −23 LUFS integrado, true peak ≤ −1 dBTP.",
+    "Aviso de bienestar obligatorio — el producto no es un dispositivo médico."
    ],
    "faq": [
     {
-     "q": "Колко силно да пускам звука нощем?",
-     "a": "Между 45 и 55 dBA за възрастни; строго под 50 dBA за деца и кърмачета. Розовият шум трябва да е настроен 2–3 dB под прага на Вашия субективен тинитус — двата звука трябва да се смесват частично (точка на смесване на Jastreboff), а не да го заглушават напълно."
+     "q": "¿Cómo de fuerte debo poner el sonido por la noche?",
+     "a": "Entre 45 y 55 dBA para adultos; estrictamente por debajo de 50 dBA para niños y bebés. El ruido rosa debe ajustarse 2–3 dB por debajo del umbral de su tinnitus subjetivo — los dos sonidos deben mezclarse parcialmente (punto de mezcla de Jastreboff), no enmascararlo por completo."
     },
     {
-     "q": "Колко дълго мога да го пускам през нощта? Цяла нощ ли?",
-     "a": "Препоръчително непрекъснато през 8-часовия сънен прозорец. В научната литература има две противоречиви гледни точки: едни изследвания посочват, че таймери за изключване след 30–60 мин са „сериозна терапевтична грешка“, защото внезапната тишина задейства амигдалата при преходите между сънни цикли; други препоръчват таймер 30–40 мин или 60–90 мин за защита на REM. В AURALIS: default е непрекъснато; потребителят може да зададе sleep timer (30/60/90/120 мин) в настройките, ако предпочита автоматично изключване."
+     "q": "¿Cuánto tiempo puedo reproducirlo durante la noche? ¿Toda la noche?",
+     "a": "Se recomienda continuo durante la ventana de sueño de 8 horas. En la literatura científica hay dos puntos de vista contradictorios: algunos estudios señalan que los temporizadores de apagado tras 30–60 min son un \"error terapéutico grave\", porque el silencio repentino activa la amígdala en las transiciones entre ciclos de sueño; otros recomiendan un temporizador de 30–40 min o 60–90 min para proteger el REM. En AURALIS: por defecto es continuo; el usuario puede configurar un temporizador de sueño (30/60/90/120 min) en los ajustes si prefiere el apagado automático."
     },
     {
-     "q": "Може ли да го слушам с шумозащитни тапи или in-ear слушалки?",
-     "a": "Не препоръчваме дългосрочно блокиране на ушния канал със стандартни in-ear слушалки тип „тапи“ — предизвиква оклузивен ефект, който прави вътрешния тинитус по-силен, пречи на естествената миграция на ушната кал и създава условия за бактериални инфекции (външен отит). Препоръчват се отворени говорители в спалнята или висококачествени слушалки с костна проводимост (bone conduction), които оставят ушния канал свободен."
+     "q": "¿Puedo escucharlo con tapones aislantes o auriculares in-ear?",
+     "a": "No recomendamos el bloqueo prolongado del canal auditivo con auriculares in-ear estándar de tipo \"botón\" — provoca un efecto de oclusión que hace más fuerte el tinnitus interno, dificulta la migración natural de la cera y crea condiciones para infecciones bacterianas (otitis externa). Recomendamos altavoces abiertos en el dormitorio o auriculares de conducción ósea de alta calidad, que dejan libre el canal auditivo."
     },
     {
-     "q": "Кога ще усетя ефект?",
-     "a": "Първи терапевтичен отговор е възможен още в първите 2 седмици (субакутен интервал 11–31 дни) — спад от ≥10 точки по THI скалата. Реален клинично значим ефект от звукова терапия с филтриран честотен ноч: −8.6 точки THI след 3 месеца, −24.6 точки след 6 месеца. При мащабно RCT за 9 месеца медианният THI спада от 50 на 35. Не очаквайте пълно изчезване на тинитуса — целта е хабитуация (мозъкът да спре да го третира като заплаха), не премахване."
+     "q": "¿Cuándo notaré un efecto?",
+     "a": "Una primera respuesta terapéutica es posible ya en las primeras 2 semanas (intervalo subagudo 11–31 días) — una caída de ≥10 puntos en la escala THI. Un efecto clínicamente significativo real de la terapia de sonido con un notch de frecuencia filtrado: −8,6 puntos THI tras 3 meses, −24,6 puntos tras 6 meses. En un gran ECA de 9 meses la mediana del THI baja de 50 a 35. No espere que el tinnitus desaparezca por completo — el objetivo es la habituación (que el cerebro deje de tratarlo como una amenaza), no su eliminación."
     },
     {
-     "q": "Опасно ли е дълго слушане всяка нощ?",
-     "a": "Опасно е само ако нивото надхвърля 50 dBA — над този праг започва субклинично увреждане на слуха, нарушаване на хомеостазата на съня, и при хронично нощно излагане над 50 dB е документиран дългосрочен риск (атрофия на кората, тау-протеини, ускорено когнитивно стареене). При спазване на 45–55 dBA нощем (за деца <50 dBA), 8-часовият цикъл е безопасен дългосрочно. WHO/NIOSH lifetime safe лимит е 70 dBA за 24/7 — нощната препоръка е значително под този праг."
+     "q": "¿Es peligroso escuchar mucho tiempo cada noche?",
+     "a": "Es peligroso solo si el nivel supera los 50 dBA — por encima de ese umbral empieza el daño auditivo subclínico, se altera la homeostasis del sueño, y con una exposición nocturna crónica por encima de 50 dB se documenta un riesgo a largo plazo (atrofia cortical, proteínas tau, envejecimiento cognitivo acelerado). Con 45–55 dBA por la noche (para niños <50 dBA), el ciclo de 8 horas es seguro a largo plazo. El límite seguro de por vida de la WHO/NIOSH es 70 dBA para 24/7 — la recomendación nocturna está muy por debajo de este umbral."
     },
     {
-     "q": "Може ли да слушам с медикаменти за сън или антидепресанти?",
-     "a": "Звуковата терапия не взаимодейства фармакологично с медикаменти. Но внимание: някои класове антидепресанти (както и аспирин във високи дози, ибупрофен, определени антибиотици, диуретици) могат самостоятелно да повлияят тинитуса — нивата им в плазмата флуктуират през деня. Ако забелязвате влошаване на тинитуса при определен медикамент, консултирайте се с Вашия лекар. AURALIS е wellness приложение, не замества медицинска консултация."
+     "q": "¿Puedo escuchar mientras tomo medicación para dormir o antidepresivos?",
+     "a": "La terapia de sonido no interactúa farmacológicamente con los medicamentos. Pero atención: algunas clases de antidepresivos (así como la aspirina en dosis altas, el ibuprofeno, ciertos antibióticos, diuréticos) pueden afectar al tinnitus por sí solos — sus niveles en plasma fluctúan durante el día. Si nota que su tinnitus empeora con un medicamento concreto, consulte a su médico. AURALIS es una aplicación de bienestar, no sustituye la consulta médica."
     },
     {
-     "q": "Какво ако не действа след няколко седмици?",
-     "a": "Първо: проверете дали спазвате правилата — 45–55 dBA, непрекъснат фон (не таймер за изключване, ако сте на default режим), без бял шум, нощта в тъмна спалня без екрани. Второ: добавете дневна CBT-I/ACT практика (категория медитация) — звуковата терапия е по-ефективна в комбинация с когнитивно-поведенчески елемент. Трето: ако след 6 месеца няма промяна в THI скора — препоръчваме консултация с аудиолог или специалист по тинитус. AURALIS не лекува тинитус, а помага за хабитуация."
+     "q": "¿Y si no funciona después de unas semanas?",
+     "a": "Primero: compruebe que sigue las reglas — 45–55 dBA, fondo continuo (no un temporizador de apagado si está en el modo predeterminado), sin ruido blanco, la noche en un dormitorio oscuro sin pantallas. Segundo: añada una práctica diurna de CBT-I/ACT (la categoría de meditación) — la terapia de sonido es más eficaz combinada con un elemento cognitivo-conductual. Tercero: si tras 6 meses no hay cambio en la puntuación THI — recomendamos una consulta con un audiólogo o especialista en tinnitus. AURALIS no cura el tinnitus, sino que ayuda con la habituación."
     }
    ],
    "scientificBasis": [
-    "Файл 'Детайлна невробиология и терапия на инсомнията при пациенти с хроничен тинитус'",
-    "Файл 'Клинична и невробиологична ефективност на звуковата терапия при хроничен тинитус'",
-    "Файл 'Анализ на клиничната ефикасност, честотните спектри и невробиологичните механизми на звуковата терапия при субективен тинитус (период 2020-2026)'",
-    "Файл 'Физикални, психоакустични и физиологични принципи за безопасно и естетическо смесване на звукови слоеве'",
-    "Файл 'AURALIS_BIBLE_v3_PIVOT.md'"
+    "Archivo 'Neurobiología detallada y terapia del insomnio en pacientes con tinnitus crónico'",
+    "Archivo 'Eficacia clínica y neurobiológica de la terapia de sonido en el tinnitus crónico'",
+    "Archivo 'Análisis de la eficacia clínica, los espectros de frecuencia y los mecanismos neurobiológicos de la terapia de sonido en el tinnitus subjetivo (periodo 2020-2026)'",
+    "Archivo 'Principios físicos, psicoacústicos y fisiológicos para una mezcla segura y estética de capas de sonido'",
+    "Archivo 'AURALIS_BIBLE_v3_PIVOT.md'"
    ]
   },
   "falling_asleep": {
-   "title": "Заспиване",
-   "subtitle": "30–90 мин преди сън",
-   "definition": "Режим за последните 30–90 минути преди лягане, с цел плавно понижаване на симпатиковата активация, активиране на парасимпатиковата нервна система и съкращаване на латентността на заспиване (SOL). Изгражда условна асоциация между конкретен звук и мускулната релаксация, която впоследствие подпомага по-бързо заспиване.",
+   "title": "Conciliar el sueño",
+   "subtitle": "30–90 min antes de dormir",
+   "definition": "Un modo para los últimos 30–90 minutos antes de acostarse, destinado a una reducción suave de la activación simpática, la activación del sistema nervioso parasimpático y el acortamiento de la latencia de inicio del sueño (SOL). Construye una asociación condicionada entre un sonido concreto y la relajación muscular, que después favorece conciliar el sueño más rápido.",
    "whenUsed": {
-    "timeOfDay": "Последните 30–90 мин преди установения час за лягане.",
-    "context": "Легло или удобно кресло; приглушена топла светлина без сини дължини; без екрани.",
-    "duration": "15–30 мин активна релаксационна сесия (например прогресивна мускулна релаксация с фонов звук). След тази сесия можете да преминете към режим „Сън дълбок“."
+    "timeOfDay": "Los últimos 30–90 min antes de la hora establecida para acostarse.",
+    "context": "Cama o un sillón cómodo; luz cálida tenue sin longitudes de onda azules; sin pantallas.",
+    "duration": "15–30 min de una sesión de relajación activa (por ejemplo, relajación muscular progresiva con un sonido de fondo). Tras esta sesión puede pasar al modo \"Sueño profundo\"."
    },
    "whenNotUsed": [
-    "Веднага след тежко хранене или прием на кофеин/алкохол (кофеин се спира след 12:00 ч., алкохол — вечер).",
-    "При остра паник атака — там първо приложете режим „Тревожност“.",
-    "В легло през деня — леглото трябва да остане свързано с асоциация „сън + релакс“, не с дневна активност."
+    "Justo después de una comida pesada o de tomar cafeína/alcohol (la cafeína se deja después del mediodía, el alcohol — por la tarde).",
+    "Durante una crisis de pánico aguda — ahí, aplique primero el modo \"Ansiedad\".",
+    "En la cama durante el día — la cama debe seguir asociada con \"sueño + relajación\", no con actividad diurna."
    ],
    "recommendedNoise": {
     "type": "pink_lp2000",
-    "description": "Същият фрактален розов шум, който се ползва нощем — за изграждане на условна асоциация звук → отпускане. По време на 15-минутна прогресивна мускулна релаксация (PMR) се пуска „същият фрактален розов шум“. Алтернативно: фрактални природни тонове (водопад, лек дъжд) на ниско ниво."
+    "description": "El mismo ruido rosa fractal que se usa por la noche — para construir una asociación condicionada sonido → relajación. Durante una relajación muscular progresiva (RMP) de 15 minutos se reproduce el \"mismo ruido rosa fractal\". Alternativamente: tonos naturales fractales (cascada, lluvia ligera) a bajo nivel."
    },
    "mixRatio": {
     "layer1": 45,
     "layer2": 55,
-    "reasoning": "Layer 1 (водеща релаксация — дихателно упражнение, PMR voice guide, или мелодия): 40–50%. Layer 2 (фонов розов шум): 50–60%. Layer 1 има малко по-голяма тежест отколкото в режим „Сън дълбок“, защото релаксационното съдържание е активно фокусирано; Layer 2 пак е доминантен."
+    "reasoning": "Capa 1 (relajación principal — ejercicio de respiración, guía de voz de RMP, o melodía): 40–50%. Capa 2 (ruido rosa de fondo): 50–60%. La Capa 1 tiene algo más de peso que en el modo \"Sueño profundo\", porque el contenido de relajación está enfocado activamente; la Capa 2 sigue siendo dominante."
    },
-   "expectedEffect": "Скъсяване на латентността на заспиване (SOL); активиране на вагусовия тонус; понижение на сърдечния ритъм и кръвното налягане; плавен преход към N1/N2 фази на съня. При продължителна употреба — изграждане на устойчива условна връзка „звук = отпускане“.",
+   "expectedEffect": "Acortamiento de la latencia de inicio del sueño (SOL); activación del tono vagal; reducción de la frecuencia cardíaca y la tensión arterial; una transición suave a las fases N1/N2 del sueño. Con un uso prolongado — la construcción de un vínculo condicionado estable \"sonido = relajación\".",
    "safety": [
-    "Същите ограничения като „Сън дълбок“ — максимум 50 dBA.",
-    "Без бял шум, без резки transients.",
-    "Ако сесията не води до сънливост след 20 мин, не насилвайте — изправете се и преминете към тиха активност в съседна стая с лек фонов розов шум до появата на естествена сомнолентност.",
-    "Loudness стандарт: −23 LUFS integrated, True peak ≤ −1 dBTP.",
-    "Wellness disclaimer задължителен."
+    "Los mismos límites que \"Sueño profundo\" — máximo 50 dBA.",
+    "Sin ruido blanco, sin transientes bruscos.",
+    "Si la sesión no produce somnolencia tras 20 min, no la fuerce — levántese y pase a una actividad tranquila en otra habitación con ruido rosa de fondo ligero hasta que aparezca una somnolencia natural.",
+    "Estándar de sonoridad: −23 LUFS integrado, true peak ≤ −1 dBTP.",
+    "Aviso de bienestar obligatorio."
    ],
    "faq": [
     {
-     "q": "Колко силно?",
-     "a": "По време на 15–30 мин активна релаксационна сесия преди сън, фоновият звук трябва да е сходен или малко по-висок от планираното нощно ниво (45–55 dBA за възрастни). За децата под 50 dBA. Същата препоръка като за режим „Сън дълбок“ — точка на смесване, не пълно заглушаване."
+     "q": "¿Cómo de fuerte?",
+     "a": "Durante la sesión de relajación activa de 15–30 min antes de dormir, el sonido de fondo debe ser similar o algo más alto que el nivel nocturno previsto (45–55 dBA para adultos). Para niños por debajo de 50 dBA. La misma recomendación que para el modo \"Sueño profundo\" — punto de mezcla, no enmascaramiento total."
     },
     {
-     "q": "Колко минути преди да заспя?",
-     "a": "30–90 мин преди установения час за лягане. Активната релаксационна сесия (например прогресивна мускулна релаксация с фрактален розов шум) е 15–30 мин. След нея — преминете към режим „Сън дълбок“, не изключвайте звука."
+     "q": "¿Cuántos minutos antes de dormirme?",
+     "a": "30–90 min antes de la hora establecida para acostarse. La sesión de relajación activa (por ejemplo relajación muscular progresiva con ruido rosa fractal) es de 15–30 min. Después — pase al modo \"Sueño profundo\", no apague el sonido."
     },
     {
-     "q": "Кое е по-добре — слушалки или говорител?",
-     "a": "Отворени говорители в спалнята или костно-проводими слушалки. Стандартни in-ear „тапи“ не са препоръчителни — оклузивен ефект прави тинитуса по-силен; риск от ушна кал и инфекции при дълга употреба."
+     "q": "¿Qué es mejor — auriculares o altavoz?",
+     "a": "Altavoces abiertos en el dormitorio o auriculares de conducción ósea. Los \"botones\" in-ear estándar no se recomiendan — el efecto de oclusión hace más fuerte el tinnitus; riesgo de cera e infecciones con un uso prolongado."
     },
     {
-     "q": "Какво ако не заспя след 20 мин?",
-     "a": "Не насилвайте. Изправете се и преминете в съседна стая (всекидневна) с лек фонов розов шум 3–5 dB по-тих от нощното ниво и приглушена топла светлина. Прочетете книга на хартия, изпийте чаша топла вода или хапнете лек въглехидратен снакс. Върнете се в леглото само когато усетите истинска сомнолентност (натежали клепачи, повтарящи се прозявки). Не гледайте часовник или телефон — светлината и осъзнаването на часа задействат HPA-оста и блокират заспиването."
+     "q": "¿Y si no me duermo después de 20 min?",
+     "a": "No lo fuerce. Levántese y pase a una habitación contigua (el salón) con un ruido rosa de fondo ligero 3–5 dB más bajo que el nivel nocturno y luz cálida tenue. Lea un libro en papel, beba un vaso de agua tibia o coma un tentempié ligero de carbohidratos. Vuelva a la cama solo cuando sienta una somnolencia real (párpados pesados, bostezos repetidos). No mire el reloj ni el teléfono — la luz y la conciencia de la hora activan el eje HPA y bloquean el sueño."
     },
     {
-     "q": "Може ли с дихателно упражнение?",
-     "a": "Да, силно препоръчително. Техниката 4-7-8 (вдишване 4 сек, задържане 7 сек, издишване 8 сек) активира парасимпатиковите влакна на блуждаещия нерв, забавя сърдечния ритъм и потиска амигдалата. Може и прогресивна мускулна релаксация (PMR) 15 мин с фонов розов шум — изгражда условна асоциация звук → отпускане."
+     "q": "¿Puedo hacerlo con un ejercicio de respiración?",
+     "a": "Sí, muy recomendable. La técnica 4-7-8 (inhalar 4 s, retener 7 s, exhalar 8 s) activa las fibras parasimpáticas del nervio vago, ralentiza la frecuencia cardíaca y suprime la amígdala. También es posible la relajación muscular progresiva (RMP) de 15 min con ruido rosa de fondo — construye una asociación condicionada sonido → relajación."
     },
     {
-     "q": "Кога ще усетя ефект на скъсена латентност на заспиване?",
-     "a": "При системно ежедневно прилагане — обикновено в първите 1–2 седмици, заедно с другите компоненти на терапията. Точното намаляване на латентността е индивидуално; следете го с дневник на съня (час на лягане, време за заспиване, среднощни събуждания). Целта е седмична ефективност на съня (SE) ≥85%."
+     "q": "¿Cuándo notaré el efecto de una latencia del sueño acortada?",
+     "a": "Con una aplicación diaria sistemática — normalmente en las primeras 1–2 semanas, junto con los demás componentes de la terapia. La reducción exacta de la latencia es individual; regístrela con un diario de sueño (hora de acostarse, tiempo para dormirse, despertares nocturnos). El objetivo es una eficiencia del sueño semanal (SE) ≥85%."
     },
     {
-     "q": "Какво ако режимът ме разбуди вместо да ме приспи?",
-     "a": "Звукът е твърде силен — намалете с 3–5 dB. Или съдържанието е твърде стимулиращо — заменете музика с глас, природа, или фрактален розов шум сам (без Layer 1). Избягвайте нови или експериментални звуци преди сън — мозъкът се нуждае от позната, стабилна акустична сигнатура."
+     "q": "¿Y si el modo me despierta en vez de dormirme?",
+     "a": "El sonido es demasiado fuerte — bájelo 3–5 dB. O el contenido es demasiado estimulante — sustituya la música por voz, naturaleza, o ruido rosa fractal solo (sin Capa 1). Evite sonidos nuevos o experimentales antes de dormir — el cerebro necesita una firma acústica familiar y estable."
     }
    ],
    "scientificBasis": [
-    "Файл 'Детайлна невробиология и терапия на инсомнията при пациенти с хроничен тинитус'",
-    "Файл 'Клинична и невробиологична ефективност на звуковата терапия при хроничен тинитус'",
-    "Файл 'AURALIS_BIBLE_v3_PIVOT.md'"
+    "Archivo 'Neurobiología detallada y terapia del insomnio en pacientes con tinnitus crónico'",
+    "Archivo 'Eficacia clínica y neurobiológica de la terapia de sonido en el tinnitus crónico'",
+    "Archivo 'AURALIS_BIBLE_v3_PIVOT.md'"
    ]
   },
   "relaxation": {
-   "title": "Релаксация",
-   "subtitle": "Преди сън, четене",
-   "definition": "Режим за пасивна релаксация през деня или вечерта — четене на хартиена книга, лек разговор, чаша топла вода или чай, ниско-енергийни занимания. Целта е общо понижение на психофизиологичния тонус, не подготовка за сън. Може да се ползва и при среднощно събуждане, когато се напуска леглото временно (Night Wake Protocol).",
+   "title": "Relajación",
+   "subtitle": "Antes de dormir, lectura",
+   "definition": "Un modo de relajación pasiva durante el día o la tarde — leer un libro en papel, una conversación ligera, un vaso de agua tibia o té, actividades de baja energía. El objetivo es una reducción general del tono psicofisiológico, no la preparación para dormir. También puede usarse durante un despertar nocturno cuando se abandona temporalmente la cama (Night Wake Protocol).",
    "whenUsed": {
     "timeOfDay": "Следобед или ранна вечер; също като част от Night Wake Protocol след среднощно събуждане.",
     "context": "Всекидневна стая (НЕ легло), приглушена топла светлина, удобна позиция.",
@@ -1676,11 +1676,11 @@
     "Максимум 70 dBA за неограничено време (WHO/NIOSH lifetime safe).",
     "Правило 60/60 (60% volume / 60 мин) с 10–15 мин пълна тишина след.",
     "Без бял шум.",
-    "Wellness disclaimer задължителен."
+    "Aviso de bienestar obligatorio."
    ],
    "faq": [
     {
-     "q": "Колко силно?",
+     "q": "¿Cómo de fuerte?",
      "a": "Под точката на смесване на тинитуса — мек, непрекъснат неутрален звук. За дневна релаксация: 50–65 dBA общо в стаята. За Night Wake (среднощна релаксация в съседна стая): 3–5 dB по-тих от дневното ниво."
     },
     {
@@ -1705,10 +1705,10 @@
     }
    ],
    "scientificBasis": [
-    "Файл 'Детайлна невробиология и терапия на инсомнията при пациенти с хроничен тинитус'",
-    "Файл 'Клинична и невробиологична ефективност на звуковата терапия при хроничен тинитус'",
-    "Файл 'Физикални, психоакустични и физиологични принципи за безопасно и естетическо смесване на звукови слоеве'",
-    "Файл 'AURALIS_BIBLE_v3_PIVOT.md'"
+    "Archivo 'Neurobiología detallada y terapia del insomnio en pacientes con tinnitus crónico'",
+    "Archivo 'Eficacia clínica y neurobiológica de la terapia de sonido en el tinnitus crónico'",
+    "Archivo 'Principios físicos, psicoacústicos y fisiológicos para una mezcla segura y estética de capas de sonido'",
+    "Archivo 'AURALIS_BIBLE_v3_PIVOT.md'"
    ]
   },
   "daily": {
@@ -1742,7 +1742,7 @@
     "Правило 60/60 (60% volume на устройството, не повече от 60 мин, после 10–15 мин тишина).",
     "Внимание: емоционално харесвани звуци се възприемат субективно като по-тихи, отколкото са физически — използвайте обективен SPL meter (или dB measurement app) при настройка.",
     "За деца — строго под 50 dBA.",
-    "Wellness disclaimer задължителен."
+    "Aviso de bienestar obligatorio."
    ],
    "faq": [
     {
@@ -1775,10 +1775,10 @@
     }
    ],
    "scientificBasis": [
-    "Файл 'Детайлна невробиология и терапия на инсомнията при пациенти с хроничен тинитус'",
-    "Файл 'Клинична и невробиологична ефективност на звуковата терапия при хроничен тинитус'",
-    "Файл 'Анализ на клиничната ефикасност, честотните спектри и невробиологичните механизми на звуковата терапия при субективен тинитус (период 2020-2026)'",
-    "Файл 'Физикални, психоакустични и физиологични принципи за безопасно и естетическо смесване на звукови слоеве'",
+    "Archivo 'Neurobiología detallada y terapia del insomnio en pacientes con tinnitus crónico'",
+    "Archivo 'Eficacia clínica y neurobiológica de la terapia de sonido en el tinnitus crónico'",
+    "Archivo 'Análisis de la eficacia clínica, los espectros de frecuencia y los mecanismos neurobiológicos de la terapia de sonido en el tinnitus subjetivo (periodo 2020-2026)'",
+    "Archivo 'Principios físicos, psicoacústicos y fisiológicos para una mezcla segura y estética de capas de sonido'",
     "Файл 'Оптимизирана двуседмична когнитивно-поведенческа програма за първоначално справяне с хроничен тинитус'"
    ]
   },
@@ -1841,9 +1841,9 @@
     }
    ],
    "scientificBasis": [
-    "Файл 'Детайлна невробиология и терапия на инсомнията при пациенти с хроничен тинитус'",
-    "Файл 'Клинична и невробиологична ефективност на звуковата терапия при хроничен тинитус'",
-    "Файл 'AURALIS_BIBLE_v3_PIVOT.md'"
+    "Archivo 'Neurobiología detallada y terapia del insomnio en pacientes con tinnitus crónico'",
+    "Archivo 'Eficacia clínica y neurobiológica de la terapia de sonido en el tinnitus crónico'",
+    "Archivo 'AURALIS_BIBLE_v3_PIVOT.md'"
    ]
   },
   "meditation": {
@@ -1876,7 +1876,7 @@
     "Бинаурални вълни — абсолютно противопоказани при епилепсия или тежки психиатрични разстройства.",
     "За бинаурални — задължително стерео слушалки.",
     "Микропрактики: избягвайте едночасови сесии — продължителното фокусиране върху упражнение може парадоксално да увеличи соматичния фокус върху тинитуса и да засили таламо-кортикалната възбуда (exposure fatigue).",
-    "Wellness disclaimer задължителен."
+    "Aviso de bienestar obligatorio."
    ],
    "faq": [
     {
@@ -1892,7 +1892,7 @@
      "a": "Абсолютно противопоказана при епилепсия или тежки психиатрични разстройства. Може да предизвика при неподходяща честотна разлика: краткотрайно повишаване на раздразнителността, тревожност, главоболие. Ако усетите някое от тези → прекратете и преминете към друг тип медитация (body scan, дефузия). AURALIS е wellness приложение, не медицинско."
     },
     {
-     "q": "Кога ще усетя ефект?",
+     "q": "¿Cuándo notaré un efecto?",
      "a": "Различно според типа сесия. CBT-I/ACT микропрактики (5-10 мин дневно): първи терапевтичен отговор в субакутния интервал (11–31 дни) — спад на THI с ≥10 точки при системно прилагане. Бинаурални вълни 8 Hz + сонда терапия: статистически по-голям ефект отколкото сондата сама в RCT 2025 (Δ=17.33 точки THI за комбинирана група спрямо Δ=9.00 за TMNMT самостоятелно). ACT като комплексна терапия 6 месеца: 54.5% от пациентите поддържат трайно подобрение (срещу 20% при TRT); мета-анализ — средно намаление на THI с 17.67 точки."
     },
     {
@@ -1910,9 +1910,9 @@
    ],
    "scientificBasis": [
     "Файл 'Оптимизирана двуседмична когнитивно-поведенческа програма за първоначално справяне с хроничен тинитус'",
-    "Файл 'Анализ на клиничната ефикасност, честотните спектри и невробиологичните механизми на звуковата терапия при субективен тинитус (период 2020-2026)'",
+    "Archivo 'Análisis de la eficacia clínica, los espectros de frecuencia y los mecanismos neurobiológicos de la terapia de sonido en el tinnitus subjetivo (periodo 2020-2026)'",
     "Файл 'Клиничен доклад за прилагане на Терапия за приемане и обвързване (ACT) при пациенти над 50-годишна възраст с хроничен субективен тинитус'",
-    "Файл 'Детайлна невробиология и терапия на инсомнията при пациенти с хроничен тинитус'"
+    "Archivo 'Neurobiología detallada y terapia del insomnio en pacientes con tinnitus crónico'"
    ]
   },
   "recommendedNoiseNote": "Всеки звук има подбран фонов шум, оптимизиран за този тип използване. "
@@ -2325,12 +2325,12 @@
     "subtitle": "Toda la noche"
    },
    "falling_asleep": {
-    "name": "Заспиване",
-    "subtitle": "30–90 мин преди сън"
+    "name": "Conciliar el sueño",
+    "subtitle": "30–90 min antes de dormir"
    },
    "relaxation": {
-    "name": "Релаксация",
-    "subtitle": "Преди сън, четене"
+    "name": "Relajación",
+    "subtitle": "Antes de dormir, lectura"
    },
    "daily": {
     "name": "Ежедневие",
