@@ -7,7 +7,7 @@
  */
 
 $SITE_URL = 'https://tinnitus-app.help';
-if (!defined('AURALIS_ASSET_V')) define('AURALIS_ASSET_V', '4'); // bump → cache-bust на css/js
+if (!defined('AURALIS_ASSET_V')) define('AURALIS_ASSET_V', '5'); // bump → cache-bust на css/js
 
 /* ── Раздели (подредбата = менюто и футъра) ───────────────────────── */
 $SECTIONS = [
@@ -236,6 +236,15 @@ function auralis_masthead($active = '') {
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
       <a class="btn btn--primary masthead__cta" href="/#oferta">Пробвай безплатно</a>
+      <details class="lang-menu">
+        <summary class="lang-menu__btn" title="Език / Lingua / Limbă" aria-label="Език / Lingua / Limbă"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg></summary>
+        <ul class="lang-menu__list">
+          <li><a href="/" lang="bg" hreflang="bg" aria-current="true">Български</a></li>
+          <li><a href="/it/" lang="it" hreflang="it">Italiano</a></li>
+          <li><a href="/ro/" lang="ro" hreflang="ro">Română</a></li>
+        </ul>
+      </details>
+
     </div>
     <nav id="site-nav" class="navrow" aria-label="Основна навигация">
       <a class="pill" href="/"<?= $active === 'home' ? ' aria-current="page"' : '' ?>>Начало</a>
@@ -243,7 +252,6 @@ function auralis_masthead($active = '') {
       <a class="pill" href="/temi/<?= $slug ?>/"<?= $active === $slug ? ' aria-current="page"' : '' ?>><?= htmlspecialchars($s['short']) ?></a>
       <?php endforeach; ?>
       <a class="pill" href="/articles/"<?= $active === 'articles' ? ' aria-current="page"' : '' ?>>Всички</a>
-      <a class="pill lang-switch" href="/it/" lang="it" hreflang="it" title="Italiano">IT</a>
     </nav>
   </div>
 </header>
