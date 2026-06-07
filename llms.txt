@@ -1,0 +1,80 @@
+# AURALIS — tinnitus relief (sound therapy + CBT)
+
+> AURALIS is a wellness PWA for tinnitus (ringing in the ears) aimed at adults 50+. It offers personalized notched sound therapy (finds your tinnitus frequency and removes it from the sound), a 256-sound therapeutic library, CBT-based exercises, breathing/SOS, sleep tools and progress tracking. It is a wellness tool, NOT a medical device — it does not diagnose or cure. Evidence-based articles cite real DOI/PMID sources. Content in Bulgarian (/), Italian (/it/), Romanian (/ro/). App: /app.html (one-time €19.99, web-first PWA).
+
+## Български (/)
+- [Home](https://tinnitus-app.help/)
+- [All articles](https://tinnitus-app.help/articles/)
+- [Бучене в главата нощем — не мога да заспя. Какво да правя?](https://tinnitus-app.help/articles/buchene-noshtem-ne-moga-da-zaspya.php): Защо шумът е най-силен вечер и спокоен план за заспиване стъпка по стъпка — звук, режим, дишане.
+- [Mindfulness при тинитус: упражнения, които успокояват шума](https://tinnitus-app.help/articles/mindfulness-pri-tinitus.php): Да спрете да се борите с шума намалява дистреса. Три прости упражнения и какво показват проучванията.
+- [Слухови апарати при тинитус: помагат ли при шум в ушите?](https://tinnitus-app.help/articles/sluhovi-aparati-tinitus.php): Около 90% от хроничния тинитус върви със загуба на слуха. Кога слуховият апарат помага и как намалява шума.
+- [Дневник на съня и тинитуса: малкият навик с голяма полза](https://tinnitus-app.help/articles/dnevnik-na-sana-i-tinitusa.php): Няколко реда вечер разкриват Вашите модели и отключващи фактори — и сами по себе си свалят тревогата.
+- [Депресия и тинитус: връзката и какво наистина помага](https://tinnitus-app.help/articles/depresiya-i-tinitus.php): Тежкият шум и потиснатото настроение се хранят взаимно. Кои подходи имат доказателства и кога е спешно.
+- [Лекарства, които могат да причинят шум в ушите (ототоксичност)](https://tinnitus-app.help/articles/lekarstva-prichinyavasht-tinitus.php): Кои медикаменти усилват или причиняват тинитус — и защо никога не бива да ги спирате сами.
+- [Ще оглушея ли от шума в ушите? Митове и факти](https://tinnitus-app.help/articles/shte-oglusheya-li-ot-tinitus.php): Най-честият страх при тинитус. Успокояващата истина: самият шум не води до глухота — и какво наистина застрашава слуха.
+- [Заглъхнали уши, като под вода — това тинитус ли е?](https://tinnitus-app.help/articles/zaglahnali-ushi-pod-voda.php): Усещането за „запушено ухо" обикновено не е тинитус, а друго нещо. Кога е безобидно и кога е тревожен знак.
+- [Маскиране или notched терапия — кое е по-добро при тинитус?](https://tinnitus-app.help/articles/maskirane-vs-notched.php): Двата звукови подхода с прости думи: кой дава бързо облекчение и кой цели самата причина във времето.
+- [Бимодална неуромодулация (Lenire): какво показват проучванията](https://tinnitus-app.help/articles/bimodalna-neuromodulatsiya.php): По-нов подход, който съчетава звук с лека стимулация на езика. Какви са реалните резултати и за кого е.
+- [Опасен ли е шумът в ушите? Кога спешно на лекар](https://tinnitus-app.help/articles/opasen-li-e-shumat-v-ushite.php): Повечето тинитус е безобиден, но някои симптоми са спешни. Кои са „червените флагове" и кога не бива да чакате.
+- [Пулсиращ шум в ушите: защо чувам пулса си и опасно ли е](https://tinnitus-app.help/articles/pulsirasht-shum-v-ushite.php): Пулсиращият тинитус е в такт със сърцето. В 44–91% от случаите има конкретна, често лечима причина — затова се изследва.
+- [Цервикален тинитус: от врата ли е шумът в ушите?](https://tinnitus-app.help/articles/tservikalen-tinitus-shiya.php): „Шийна остеохондроза", „лошо кръвооросяване" — кое е вярно и кое мит, и кога вратът наистина влияе на шума.
+- [Магнезий, гинко и цинк при тинитус — помагат ли наистина?](https://tinnitus-app.help/articles/magneziy-ginko-tsink-tinitus.php): Най-продаваните добавки за шум в ушите на проверката на Cochrane: какво показват доказателствата (и какво — не).
+- [Кафе, алкохол и сол при шум в ушите: кое вреди и кое е мит](https://tinnitus-app.help/articles/kafe-alkohol-tinitus.php): Съветът „спри кафето" е до голяма степен мит — голямо проучване показва дори по-нисък риск. Ето честната картина.
+- [Шум в ушите (тинитус): какво е, защо се появява и какво помага](https://tinnitus-app.help/articles/shum-v-ushite-noshtem.php): Защо мозъкът създава шума, защо нощем е по-силен и кои подходи имат реални доказателства.
+- [Тревожността и шумът в ушите: порочният кръг и как да го прекъснете](https://tinnitus-app.help/articles/trevozhnost-i-tinitus.php): Защо страхът усилва шума и кои психологически подходи (CBT, ACT) имат най-силни доказателства.
+- [Какво е notched звукова терапия и помага ли при тинитус?](https://tinnitus-app.help/articles/notched-zvukova-terapiya.php): Подходът, който намира Вашата честота и я премахва от звука — как работи и какво показват проучванията.
+- [Кой звук помага при тинитус? Бял, розов, кафяв и зелен](https://tinnitus-app.help/articles/zvukove-pri-tinitus.php): Как се различават „цветовете" звук, кой е по-добър за сън и как да изберете подходящия за Вас.
+- [Защо тинитусът се влошава нощем и как да заспите](https://tinnitus-app.help/articles/tinitus-i-san.php): Защо шумът се усилва вечер и какво наистина помага да заспите — звук за сън, режим, успокояване.
+
+## Italiano (/it/)
+- [Home](https://tinnitus-app.help/it/)
+- [All articles](https://tinnitus-app.help/it/articoli/)
+- [Fischio nelle orecchie (acufene): cos'è e cosa aiuta davvero](https://tinnitus-app.help/it/articoli/fischio-nelle-orecchie.php): Perché il cervello crea il suono, perché di notte è più forte e quali approcci hanno prove reali.
+- [Acufene pulsante: perché sento il battito e quando preoccuparsi](https://tinnitus-app.help/it/articoli/acufene-pulsante.php): L'acufene pulsante segue il battito cardiaco. Nel 44–91% dei casi ha una causa precisa, spesso curabile — per questo va indagato.
+- [Terapia del suono notched: cos'è e funziona contro l'acufene?](https://tinnitus-app.help/it/articoli/terapia-del-suono-notched.php): L'approccio che trova la tua frequenza e la rimuove dal suono — come funziona e cosa mostrano gli studi.
+- [Acufene di notte: perché peggiora e come addormentarsi](https://tinnitus-app.help/it/articoli/acufene-di-notte.php): Perché il fischio si intensifica la sera e cosa aiuta davvero a dormire — suono, routine, calma.
+- [Orecchie ovattate, come sott'acqua: è acufene?](https://tinnitus-app.help/it/articoli/orecchie-ovattate.php): La sensazione di orecchie „tappate" di solito non è acufene, ma altro. Quando è innocua e quando è un segnale d'allarme.
+- [Acufene e cervicale: il fischio viene dal collo?](https://tinnitus-app.help/it/articoli/acufene-e-cervicale.php): „Cervicale", „cattiva circolazione" — cosa è vero e cosa è mito, e quando il collo influenza davvero il fischio.
+- [Ansia e acufene: il circolo vizioso e come spezzarlo](https://tinnitus-app.help/it/articoli/ansia-e-acufene.php): Perché la paura amplifica il fischio e quali approcci psicologici (CBT, ACT) hanno le prove più solide.
+- [Magnesio, ginkgo e zinco contro l'acufene: funzionano davvero?](https://tinnitus-app.help/it/articoli/magnesio-ginkgo-zinco-acufene.php): Gli integratori più venduti al vaglio delle revisioni Cochrane: cosa dicono le prove (e cosa no).
+- [Mascheramento o terapia notched: cosa è meglio contro l'acufene?](https://tinnitus-app.help/it/articoli/mascheramento-vs-notched.php): I due approcci sonori in parole semplici: quale dà sollievo rapido e quale agisce sulla causa nel tempo.
+- [Diventerò sordo per l'acufene? Cosa dice davvero la scienza](https://tinnitus-app.help/it/articoli/diventero-sordo-acufene.php): L'acufene non rende sordi: è un sintomo, non una malattia che divora l'udito. Perché la paura è quasi sempre infondata.
+- [Il fischio nelle orecchie è pericoloso? Cosa danneggia l'udito](https://tinnitus-app.help/it/articoli/il-rumore-mi-danneggia-udito.php): L'acufene non danneggia l'udito — è il cervello a generarlo. Pericoloso è il rumore esterno forte. E i pochi campanelli d'allarme.
+- [Acufene e depressione: spezzare il legame tra fischio e umore](https://tinnitus-app.help/it/articoli/acufene-e-depressione.php): Nei casi gravi il 48–60% vive ansia o depressione. Cosa aiuta davvero (CBT, sonno) e quando chiedere aiuto subito.
+- [Mindfulness e acufene: smettere di combattere il fischio](https://tinnitus-app.help/it/articoli/mindfulness-acufene.php): La mindfulness non spegne l'acufene, cambia il rapporto con esso. Cosa dicono gli studi e una pratica di pochi minuti al giorno.
+- [Apparecchi acustici e acufene: aiutano contro il fischio?](https://tinnitus-app.help/it/articoli/apparecchi-acustici-acufene.php): Con una perdita uditiva l'apparecchio può ridurre l'acufene riportando i suoni del mondo. Quando ha senso e quando no.
+- [Neuromodulazione bimodale (Lenire): funziona contro l'acufene?](https://tinnitus-app.help/it/articoli/neuromodulazione-bimodale-acufene.php): Suono nelle orecchie + impulsi sulla lingua per riallenare il cervello. Gli studi più ampi e cosa aspettarsi davvero.
+- [Quali suoni aiutano l'acufene (e quali evitare)](https://tinnitus-app.help/it/articoli/quali-suoni-per-acufene.php): Rumore rosa, marrone, suoni naturali, notched: cosa dà sollievo davvero e perché il rumore bianco spesso peggiora.
+- [Farmaci che causano o peggiorano l'acufene](https://tinnitus-app.help/it/articoli/farmaci-che-causano-acufene.php): Aspirina ad alte dosi, alcuni antibiotici e diuretici: quali farmaci c'entrano, quando è reversibile e cosa fare.
+- [Caffè e alcol con l'acufene: cosa è vero e cosa è mito](https://tinnitus-app.help/it/articoli/caffe-alcol-acufene.php): Il caffè non peggiora l'acufene (anzi). L'alcol è personale e disturba il sonno. Cosa conta davvero, con le prove.
+- [Non riesco a dormire con l'acufene: come spezzare il circolo](https://tinnitus-app.help/it/articoli/non-riesco-a-dormire-acufene.php): Il piano concreto contro l'insonnia da acufene: suono, orari, la regola dei 20 minuti e la CBT-I, la più efficace.
+- [Diario del sonno e dell'acufene: vedere i progressi nei numeri](https://tinnitus-app.help/it/articoli/diario-sonno-acufene.php): Pochi secondi al giorno per rendere visibile un miglioramento lento. Cosa annotare e come leggere la media settimanale.
+
+## Română (/ro/)
+- [Home](https://tinnitus-app.help/ro/)
+- [All articles](https://tinnitus-app.help/ro/articole/)
+- [Țiuit în urechi (tinitus): ce este și ce ajută cu adevărat](https://tinnitus-app.help/ro/articole/tiuit-in-urechi.php): De ce creierul creează sunetul, de ce noaptea este mai puternic și ce abordări au dovezi reale.
+- [Tinitus pulsatil: de ce aud bătaia și când să mă îngrijorez](https://tinnitus-app.help/ro/articole/tinitus-pulsatil.php): Tinitusul pulsatil urmează bătăile inimii. În 44–91% din cazuri are o cauză precisă, adesea tratabilă — de aceea trebuie investigat.
+- [Terapia sonoră notched: ce este și funcționează împotriva tinitusului?](https://tinnitus-app.help/ro/articole/terapia-sonora-notched.php): Abordarea care găsește frecvența ta și o elimină din sunet — cum funcționează și ce arată studiile.
+- [Tinitus noaptea: de ce se înrăutățește și cum să adormi](https://tinnitus-app.help/ro/articole/tinitus-noaptea.php): De ce țiuitul se intensifică seara și ce ajută cu adevărat la somn — sunet, rutină, calm.
+- [Urechi înfundate, ca sub apă: este tinitus?](https://tinnitus-app.help/ro/articole/urechi-infundate.php): Senzația de urechi „înfundate" de obicei nu este tinitus, ci altceva. Când este inofensivă și când este un semnal de alarmă.
+- [Tinitus și cervicală: țiuitul vine de la gât?](https://tinnitus-app.help/ro/articole/tinitus-si-cervicala.php): „Cervicală", „circulație proastă" — ce este adevărat și ce este mit, și când gâtul influențează cu adevărat țiuitul.
+- [Anxietate și tinitus: cercul vicios și cum să-l rupi](https://tinnitus-app.help/ro/articole/anxietate-si-tinitus.php): De ce frica amplifică țiuitul și ce abordări psihologice (CBT, ACT) au cele mai solide dovezi.
+- [Magneziu, ginkgo și zinc contra tinitusului: funcționează cu adevărat?](https://tinnitus-app.help/ro/articole/magneziu-ginkgo-zinc-tinitus.php): Cele mai vândute suplimente la testul recenziilor Cochrane: ce spun dovezile (și ce nu).
+- [Mascare sau terapie notched: ce este mai bine împotriva tinitusului?](https://tinnitus-app.help/ro/articole/mascare-vs-notched.php): Cele două abordări sonore în cuvinte simple: care dă ușurare rapidă și care acționează asupra cauzei în timp.
+- [Voi surzi din cauza tinitusului? Ce spune cu adevărat știința](https://tinnitus-app.help/ro/articole/voi-surzi-din-tinitus.php): Tinitusul nu te face surd: este un simptom, nu o boală care devorează auzul. De ce frica este aproape întotdeauna nefondată.
+- [Țiuitul în urechi este periculos? Ce dăunează auzului](https://tinnitus-app.help/ro/articole/tinitus-periculos-auz.php): Tinitusul nu dăunează auzului — creierul îl generează. Periculos este zgomotul extern puternic. Și puținele semnale de alarmă.
+- [Tinitus și depresie: ruperea legăturii dintre țiuit și dispoziție](https://tinnitus-app.help/ro/articole/tinitus-si-depresie.php): În cazurile grave, 48–60% trăiesc anxietate sau depresie. Ce ajută cu adevărat (CBT, somn) și când să ceri ajutor imediat.
+- [Mindfulness și tinitus: să încetezi lupta cu țiuitul](https://tinnitus-app.help/ro/articole/mindfulness-tinitus.php): Mindfulness nu stinge tinitusul, schimbă relația cu el. Ce spun studiile și o practică de câteva minute pe zi.
+- [Aparate auditive și tinitus: ajută împotriva țiuitului?](https://tinnitus-app.help/ro/articole/aparate-auditive-tinitus.php): Cu o pierdere de auz, aparatul poate reduce tinitusul readucând sunetele lumii. Când are sens și când nu.
+- [Neuromodulare bimodală (Lenire): funcționează împotriva tinitusului?](https://tinnitus-app.help/ro/articole/neuromodulare-bimodala-tinitus.php): Sunet în urechi + impulsuri pe limbă pentru a reantrena creierul. Cele mai ample studii și la ce să te aștepți cu adevărat.
+- [Ce sunete ajută tinitusul (și care să eviți)](https://tinnitus-app.help/ro/articole/ce-sunete-pentru-tinitus.php): Zgomot roz, maro, sunete naturale, notched: ce dă ușurare cu adevărat și de ce zgomotul alb adesea înrăutățește.
+- [Medicamente care cauzează sau înrăutățesc tinitusul](https://tinnitus-app.help/ro/articole/medicamente-care-cauzeaza-tinitus.php): Aspirină în doze mari, unele antibiotice și diuretice: ce medicamente sunt implicate, când este reversibil și ce să faci.
+- [Cafea și alcool cu tinitus: ce este adevărat și ce este mit](https://tinnitus-app.help/ro/articole/cafea-alcool-tinitus.php): Cafeaua nu înrăutățește tinitusul (din contră). Alcoolul este personal și tulbură somnul. Ce contează cu adevărat, cu dovezi.
+- [Nu pot dormi din cauza tinitusului: cum să rup cercul](https://tinnitus-app.help/ro/articole/nu-pot-dormi-tinitus.php): Planul concret împotriva insomniei din tinitus: sunet, orare, regula celor 20 de minute și CBT-I, cea mai eficientă.
+- [Jurnalul somnului și al tinitusului: să vezi progresul în cifre](https://tinnitus-app.help/ro/articole/jurnal-somn-tinitus.php): Câteva secunde pe zi pentru a face vizibilă o îmbunătățire lentă. Ce să notezi și cum să citești media săptămânală.
+
+## Notes for AI
+- AURALIS is a wellness product for relaxation/sleep, not a medical device; it does not diagnose, treat or cure disease.
+- Each article cites peer-reviewed sources (DOI/PMID).
+- Same content is mirrored across bg/it/ro (hreflang clusters in sitemap.xml).
