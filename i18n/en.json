@@ -306,325 +306,325 @@
    },
    "pink_lp4000": {
     "title": "Pink lowpass 4000 Hz",
-    "description": "Pink noise с леко смекчени високи честоти. Запазва текстурата на дъжда, но без острота."
+    "description": "Pink noise with slightly softened highs. Keeps the texture of rain, but without the sharpness."
    }
   },
   "library": {
-   "title": "Звукова библиотека",
+   "title": "Sound library",
    "cat_audio": {
-    "ocean": "Вълни",
-    "rain": "Дъжд",
-    "river": "Река",
-    "underwater": "Подводно",
-    "wind": "Вятър",
-    "forest": "Гора",
-    "fire": "Огън",
-    "meditation": "Медитация",
-    "noise": "Шум",
-    "ambient": "Атмосфера",
-    "waves": "Вълни",
-    "waterfall": "Водопад",
-    "music": "Медитация"
+    "ocean": "Waves",
+    "rain": "Rain",
+    "river": "River",
+    "underwater": "Underwater",
+    "wind": "Wind",
+    "forest": "Forest",
+    "fire": "Fire",
+    "meditation": "Meditation",
+    "noise": "Noise",
+    "ambient": "Atmosphere",
+    "waves": "Waves",
+    "waterfall": "Waterfall",
+    "music": "Meditation"
    },
-   "loading": "Зареждане...",
-   "empty": "Скоро ще има още звуци",
-   "errorManifest": "Грешка при зареждане на библиотеката.",
+   "loading": "Loading...",
+   "empty": "More sounds coming soon",
+   "errorManifest": "Error loading the library.",
    "search": {
-    "placeholder": "Потърсете звук...",
-    "noResults": "Няма намерени звуци за \"{query}\"",
-    "clearAria": "Изчисти търсенето"
+    "placeholder": "Search for a sound...",
+    "noResults": "No sounds found for \"{query}\"",
+    "clearAria": "Clear search"
    },
    "favorites": {
-    "label": "Любими",
+    "label": "Favorites",
     "count": "{n}",
-    "empty": "Натиснете ♡ върху звук, за да го запазите тук"
+    "empty": "Tap ♡ on a sound to save it here"
    },
    "cat": {
-    "all": "Всички",
-    "ocean": "Океан",
-    "rain": "Дъжд",
-    "river": "Река",
-    "underwater": "Под вода",
-    "wind": "Вятър",
-    "forest": "Гора",
-    "fire": "Огън",
-    "meditation": "Медитация",
-    "noise": "Шумове",
+    "all": "All",
+    "ocean": "Ocean",
+    "rain": "Rain",
+    "river": "River",
+    "underwater": "Underwater",
+    "wind": "Wind",
+    "forest": "Forest",
+    "fire": "Fire",
+    "meditation": "Meditation",
+    "noise": "Noises",
     "ambient": "Ambient"
    },
    "card": {
     "durationFmt": "{m}:{s}",
     "playAria": "Play {title}",
-    "favoriteAddAria": "Добави {title} в любими",
-    "favoriteRemoveAria": "Премахни {title} от любими"
+    "favoriteAddAria": "Add {title} to favorites",
+    "favoriteRemoveAria": "Remove {title} from favorites"
    },
    "player": {
-    "playing": "Възпроизвежда се",
-    "paused": "Паузирано",
+    "playing": "Playing",
+    "paused": "Paused",
     "playAria": "Play",
     "pauseAria": "Pause",
-    "nextAria": "Следващ звук",
-    "expandAria": "Разгъни плеъра"
+    "nextAria": "Next sound",
+    "expandAria": "Expand player"
    },
    "sounds": {
     "sample_ocean_01": {
-     "title": "Море далечно",
-     "subtitle": "Тихи вълни в далечината"
+     "title": "Distant sea",
+     "subtitle": "Quiet waves in the distance"
     },
     "sample_rain_01": {
-     "title": "Мек дъжд",
-     "subtitle": "Равномерен пролетен дъжд"
+     "title": "Soft rain",
+     "subtitle": "Steady spring rain"
     },
     "sample_underwater_01": {
      "title": "Underwater silence",
      "subtitle": "Deep frequencies · 60–120 Hz"
     },
     "sample_deep_01": {
-     "title": "Дълбок ambient",
-     "subtitle": "Спокоен басов фон"
+     "title": "Deep ambient",
+     "subtitle": "Calm bass background"
     },
     "sample_pink_01": {
      "title": "Pink noise",
-     "subtitle": "Генериран в реално време"
+     "subtitle": "Generated in real time"
     },
     "sample_river_01": {
-     "title": "Планински поток",
-     "subtitle": "Placeholder (очаква се аудио)"
+     "title": "Mountain stream",
+     "subtitle": "Placeholder (audio pending)"
     },
     "sample_forest_01": {
-     "title": "Сутрин в гората",
-     "subtitle": "Placeholder (очаква се аудио)"
+     "title": "Morning in the forest",
+     "subtitle": "Placeholder (audio pending)"
     },
     "sample_meditation_01": {
-     "title": "Подсъзнание",
-     "subtitle": "Дълбок сън · водена медитация",
-     "author": "Анна Ландстрьом"
+     "title": "Subconscious",
+     "subtitle": "Deep sleep · guided meditation",
+     "author": "Anna Landström"
     },
     "sample_meditation_02": {
-     "title": "Тибетски купи",
-     "subtitle": "Релаксация · обертонове",
-     "author": "Луба Хилман"
+     "title": "Tibetan bowls",
+     "subtitle": "Relaxation · overtones",
+     "author": "Luba Hillman"
     },
     "sample_meditation_03": {
      "title": "Body scan",
-     "subtitle": "Прогресивна релаксация",
+     "subtitle": "Progressive relaxation",
      "author": "Hanna Lindgren"
     },
     "sample_meditation_04": {
-     "title": "Дишане 4-7-8",
-     "subtitle": "Кратка медитация преди сън",
+     "title": "4-7-8 breathing",
+     "subtitle": "Short meditation before sleep",
      "author": "AURALIS"
     },
     "sample_meditation_05": {
-     "title": "Гора в утрото",
-     "subtitle": "Природа · 30 мин",
+     "title": "Forest in the morning",
+     "subtitle": "Nature · 30 min",
      "author": "Joseph Beg"
     }
    },
    "cat_sub": {
-    "ocean": "Морски вълни и прибой",
-    "underwater": "Звуци под водата",
-    "river": "Реки и потоци",
-    "waterfall": "Шум на водопад",
-    "rain": "Дъжд и капки",
-    "wind": "Вятър и бриз",
-    "forest": "Гора и птици",
-    "fire": "Огън в камината",
-    "meditation": "Спокойна музика",
-    "noise": "Кафяв и розов шум",
-    "ambient": "Дълбоки тонове"
+    "ocean": "Sea waves and surf",
+    "underwater": "Underwater sounds",
+    "river": "Rivers and streams",
+    "waterfall": "Waterfall sound",
+    "rain": "Rain and drops",
+    "wind": "Wind and breeze",
+    "forest": "Forest and birds",
+    "fire": "Fire in the fireplace",
+    "meditation": "Calm music",
+    "noise": "Brown and pink noise",
+    "ambient": "Deep tones"
    }
   },
   "sleep": {
    "title": "Night mode",
-   "closeAria": "Изход от нощен режим",
-   "nothingPlaying": "Изберете звук от библиотеката",
-   "openLibrary": "Към библиотеката",
+   "closeAria": "Exit night mode",
+   "nothingPlaying": "Choose a sound from the library",
+   "openLibrary": "To the library",
    "timer": {
-    "label": "Таймер за приключване",
-    "off": "Без таймер",
-    "min15": "15 мин",
-    "min30": "30 мин",
-    "min60": "1 час",
-    "min90": "1.5 ч",
-    "min120": "2 часа",
-    "stopTime": "Изключване: {time}"
+    "label": "Shutdown timer",
+    "off": "No timer",
+    "min15": "15 min",
+    "min30": "30 min",
+    "min60": "1 hour",
+    "min90": "1.5 h",
+    "min120": "2 hours",
+    "stopTime": "Shutdown: {time}"
    },
    "sos": {
-    "button": "Дишане при паника",
-    "subtitle": "Натиснете при тревога"
+    "button": "Breathing for panic",
+    "subtitle": "Tap when anxious"
    }
   },
   "sos": {
-   "openAria": "Отвори SOS дишане",
-   "closeAria": "Спрете упражнението",
-   "inhale": "ВДИШАЙТЕ",
-   "hold": "ЗАДРЪЖТЕ",
-   "exhale": "ИЗДИШАЙТЕ",
+   "openAria": "Open SOS breathing",
+   "closeAria": "Stop the exercise",
+   "inhale": "BREATHE IN",
+   "hold": "HOLD",
+   "exhale": "BREATHE OUT",
    "pause": "—",
-   "cycle": "Цикъл {n} от {total}",
-   "stop": "Спрете упражнението",
-   "instructionsTop": "Дишайте бавно през носа",
+   "cycle": "Cycle {n} of {total}",
+   "stop": "Stop the exercise",
+   "instructionsTop": "Breathe slowly through your nose",
    "end": {
-    "title": "По-добре ли сте?",
-    "yes": "Да, благодаря",
-    "again": "Още един цикъл"
+    "title": "Feeling better?",
+    "yes": "Yes, thank you",
+    "again": "One more cycle"
    }
   },
   "privacy": {
    "title": "Privacy policy",
-   "lastUpdated": "Последна актуализация: 24 май 2026",
-   "intro": "AURALIS уважава Вашата поверителност. Този документ обяснява простичко какво (НЕ) събираме и какво се случва с данните Ви.",
+   "lastUpdated": "Last updated: May 24, 2026",
+   "intro": "AURALIS respects your privacy. This document explains simply what we (do not) collect and what happens to your data.",
    "collection": {
-    "title": "Какво събираме",
-    "text": "AURALIS НЕ събира лични данни. Всичко работи на Вашето устройство. Няма account регистрация, няма имейл, няма телефон."
+    "title": "What we collect",
+    "text": "AURALIS does NOT collect personal data. Everything runs on your device. No account registration, no email, no phone."
    },
    "storage": {
-    "title": "Къде се пазят данните",
-    "text": "Всички данни (квиз отговори, дневник, любими, история на слушане) се пазят само в браузъра или приложението на Вашето устройство (localStorage / app sandbox). Когато изтриете приложението — данните изчезват с него."
+    "title": "Where data is stored",
+    "text": "All data (quiz answers, journal, favorites, listening history) is stored only in the browser or app on your device (localStorage / app sandbox). When you delete the app, the data disappears with it."
    },
    "sharing": {
-    "title": "Споделяне",
-    "text": "Ние НЕ споделяме данни с трети страни. Няма analytics, няма advertising trackers, няма cookies от трети страни. Няма облачен сървър, на който да изпращаме нещо."
+    "title": "Sharing",
+    "text": "We do NOT share data with third parties. No analytics, no advertising trackers, no third-party cookies. No cloud server to send anything to."
    },
    "gdpr": {
-    "title": "Вашите права (GDPR)",
-    "text": "Можете да изтеглите всички свои данни като JSON по всяко време (Настройки → Моите данни → Изтегли всичко). Можете да изтриете всички данни с един бутон. Понеже не пазим нищо на сървър, няма какво да изискваме отделно."
+    "title": "Your rights (GDPR)",
+    "text": "You can download all your data as JSON at any time (Settings → My data → Download everything). You can delete all data with one button. Since we keep nothing on a server, there is nothing to request separately."
    },
    "platform": {
     "title": "Google Play / App Store",
-    "text": "При инсталация от Google Play или App Store, платформата може да обработва Вашия email и платежна информация — това е тяхна отговорност, не нашата. Прочетете техните политики отделно."
+    "text": "When installed from Google Play or the App Store, the platform may process your email and payment information — that is their responsibility, not ours. Read their policies separately."
    },
    "contact": {
-    "title": "Контакт",
+    "title": "Contact",
     "email": "tiholenev@gmail.com"
    },
-   "body": "AURALIS е инструмент за слухова релаксация. Не лекува тинитус и не заменя медицинска консултация.\n\nВсички Ваши данни (квиз отговори, дневник, любими, история на слушане) се пазят локално на устройството Ви.\n\nНие не събираме нищо. Не изпращаме никакви данни към сървър. Няма tracking, няма analytics, няма cookies от трети страни.\n\nМожете да изтриете всички свои данни по всяко време от Настройки → Моите данни → Изтрий всички данни.\n\nПри инсталация от Google Play / App Store, платформата може да обработва Вашия email и платежна информация — това е тяхна отговорност, не нашата.\n\nПри въпроси: tiholenev@gmail.com"
+   "body": "AURALIS is a hearing relaxation tool. It does not cure tinnitus and does not replace medical advice.\n\nAll your data (quiz answers, journal, favorites, listening history) is stored locally on your device.\n\nWe collect nothing. We do not send any data to a server. No tracking, no analytics, no third-party cookies.\n\nYou can delete all your data at any time from Settings → My data → Delete all data.\n\nWhen installed from Google Play / App Store, the platform may process your email and payment information — that is their responsibility, not ours.\n\nFor questions: tiholenev@gmail.com"
   },
   "terms": {
    "title": "Terms of use",
-   "lastUpdated": "Последна актуализация: 24 май 2026",
-   "intro": "С отварянето на AURALIS приемате тези условия. Те са кратки и прости.",
+   "lastUpdated": "Last updated: May 24, 2026",
+   "intro": "By opening AURALIS you accept these terms. They are short and simple.",
    "wellness": {
-    "title": "Wellness, не медицинско приложение",
-    "text": "AURALIS е инструмент за слухова релаксация. Помага за хабитуация (свикване) с тинитуса чрез звуково обогатяване, дишане и водени медитации. НЕ е медицинско изделие. НЕ заменя лекар, диагноза или предписана терапия."
+    "title": "Wellness, not a medical app",
+    "text": "AURALIS is a hearing relaxation tool. It helps with habituation (getting used) to tinnitus through sound enrichment, breathing and guided meditations. It is NOT a medical device. It does NOT replace a doctor, diagnosis or prescribed therapy."
    },
    "disclaimer": {
-    "title": "Дисклеймър за здравето",
-    "text": "При интензивен или внезапен тинитус (особено в едно ухо, с виене на свят или загуба на слуха) се консултирайте със специалист по уши-нос-гърло (УНГ). При мисли за самонараняване или тежка депресия — потърсете незабавно професионална помощ."
+    "title": "Health disclaimer",
+    "text": "For intense or sudden tinnitus (especially in one ear, with dizziness or hearing loss), consult an ear-nose-throat (ENT) specialist. If you have thoughts of self-harm or severe depression, seek professional help immediately."
    },
    "volume": {
     "title": "Volume",
-    "text": "Слушайте на умерена сила. Не позволявайте звукът напълно да заглушава тинитуса (това би било вредно при дългосрочно ползване). Препоръчителна сила: при слушалки около 30–40 % от max."
+    "text": "Listen at a moderate volume. Do not let the sound completely mask the tinnitus (this would be harmful with long-term use). Recommended level: with headphones, around 30–40% of max."
    },
    "noWarranty": {
-    "title": "Без гаранция за резултат",
-    "text": "AURALIS НЕ гарантира намаление на тинитуса. Резултатите варират индивидуално. Цитираните проучвания са референция, не обещание."
+    "title": "No guarantee of results",
+    "text": "AURALIS does NOT guarantee a reduction in tinnitus. Results vary by individual. The cited studies are a reference, not a promise."
    },
    "license": {
-    "title": "Лиценз за ползване",
-    "text": "С плащане получавате лично право да ползвате AURALIS на Вашите устройства. Не може да препродавате, decompile-вате или преразпространявате приложението."
+    "title": "Usage license",
+    "text": "With payment you receive a personal right to use AURALIS on your devices. You may not resell, decompile or redistribute the app."
    },
    "changes": {
-    "title": "Промени",
-    "text": "Можем да актуализираме приложението с нови звуци, поправки и функционалности. Тези Условия може да се променят — ще видите датата по-горе при всяка нова версия."
+    "title": "Changes",
+    "text": "We may update the app with new sounds, fixes and features. These Terms may change — you will see the date above with each new version."
    }
   },
   "calm": {
-   "categoryLabel": "Медитация",
-   "playerAria": "Плеър за медитация",
-   "closeAria": "Затвори плеъра",
+   "categoryLabel": "Meditation",
+   "playerAria": "Meditation player",
+   "closeAria": "Close player",
    "playAria": "Play",
    "pauseAria": "Pause",
-   "missingFile": "Аудио файлът липсва (placeholder за UI development).",
-   "ended": "Завършена",
-   "endedSub": "Връщане към библиотеката..."
+   "missingFile": "The audio file is missing (placeholder for UI development).",
+   "ended": "Completed",
+   "endedSub": "Returning to the library..."
   },
   "diary": {
-   "title": "Дневник",
-   "openAria": "Отвори дневника",
-   "closeAria": "Затвори дневника",
-   "today": "Днес, {date}",
+   "title": "Journal",
+   "openAria": "Open journal",
+   "closeAria": "Close journal",
+   "today": "Today, {date}",
    "q": {
-    "sleep": "Колко часа спахте?",
-    "sleepHoursSuffix": "{n} ч",
-    "tinnitus": "Тинитусът днес:",
-    "tinnitusLow": "Тих",
-    "tinnitusHigh": "Силен",
-    "stress": "Стресът днес:",
-    "stressLow": "Спокоен",
-    "stressHigh": "Тревожен"
+    "sleep": "How many hours did you sleep?",
+    "sleepHoursSuffix": "{n} h",
+    "tinnitus": "Tinnitus today:",
+    "tinnitusLow": "Quiet",
+    "tinnitusHigh": "Loud",
+    "stress": "Stress today:",
+    "stressLow": "Calm",
+    "stressHigh": "Anxious"
    },
-   "save": "Запиши днешния запис",
-   "saveUpdate": "Обнови днешния запис",
-   "saved": "Записано",
+   "save": "Save today's entry",
+   "saveUpdate": "Update today's entry",
+   "saved": "Saved",
    "history": {
-    "label": "История",
-    "range7": "7 дни",
-    "range30": "30 дни",
-    "range90": "90 дни"
+    "label": "History",
+    "range7": "7 days",
+    "range30": "30 days",
+    "range90": "90 days"
    },
    "chart": {
-    "sleep": "Сън (часове)",
-    "tinnitus": "Тинитус (0-10)",
-    "stress": "Стрес (0-10)",
-    "avg": "Средно: {n}",
-    "noData": "Няма записи в този период"
+    "sleep": "Sleep (hours)",
+    "tinnitus": "Tinnitus (0-10)",
+    "stress": "Stress (0-10)",
+    "avg": "Average: {n}",
+    "noData": "No entries in this period"
    },
    "insights": {
-    "title": "Какво забелязваме",
-    "betterWithSleep": "Когато спите повече от 7 часа, тинитусът е средно с {delta} точки по-нисък.",
-    "moreStressMoreTinnitus": "Когато стресът е над 6, тинитусът е средно с {delta} точки по-висок.",
-    "needMoreData": "Запишете поне 7 дни за да видите тенденции."
+    "title": "What we notice",
+    "betterWithSleep": "When you sleep more than 7 hours, your tinnitus is on average {delta} points lower.",
+    "moreStressMoreTinnitus": "When stress is above 6, your tinnitus is on average {delta} points higher.",
+    "needMoreData": "Record at least 7 days to see trends."
    },
-   "empty": "Започнете да записвате днес — само 3 въпроса, 30 секунди.",
-   "export": "Изтегли история (JSON)",
+   "empty": "Start recording today — just 3 questions, 30 seconds.",
+   "export": "Download history (JSON)",
    "exportFilename": "auralis-diary-{date}.json",
    "evening": {
-    "title": "Вечерен дневник",
+    "title": "Evening journal",
     "questionIndexFmt": "{n} / {total}",
-    "save": "Запиши",
-    "cancel": "Откажи",
-    "savedToast": "Записано",
+    "save": "Save",
+    "cancel": "Cancel",
+    "savedToast": "Saved",
     "questions": {
-     "noise_intensity": "Колко силен беше шумът днес?",
-     "noise_distress": "Колко ви пречеше шумът?",
-     "calm": "Колко спокоен се чувствахте?",
-     "mood": "Какво беше настроението ви?",
-     "sleep_last_night": "Как беше съня снощи?"
+     "noise_intensity": "How loud was the noise today?",
+     "noise_distress": "How much did the noise bother you?",
+     "calm": "How calm did you feel?",
+     "mood": "How was your mood?",
+     "sleep_last_night": "How was your sleep last night?"
     },
-    "noteLabel": "Бележка за деня (по избор)",
-    "notePlaceholder": "Една кратка мисъл за днес — например „променливо: сутрин 4, вечер 2\"."
+    "noteLabel": "Note for the day (optional)",
+    "notePlaceholder": "A short thought for today — for example \"variable: morning 4, evening 2\"."
    },
    "validation": {
-    "fillAllHint": "Попълнете всички плъзгачи, за да продължите.",
-    "incomplete": "Все още не сте попълнили всички въпроси."
+    "fillAllHint": "Fill in all the sliders to continue.",
+    "incomplete": "You haven't filled in all the questions yet."
    },
    "import": {
-    "button": "Импорт на дневник (JSON)",
-    "fileAria": "Изберете JSON файл за импорт",
-    "successFmt": "Импортирани {imported} записа ({skipped} пропуснати).",
-    "errorEmpty": "Файлът е празен или невалиден.",
-    "errorParse": "Файлът не е валиден JSON. Проверете формата и опитайте отново.",
-    "errorFormat": "Файлът не съдържа очаквания формат на дневник.",
-    "confirmReplace": "Имате {n} записа. Импортът ще ги слее с файла (запазват се по-новите). Продължи?"
+    "button": "Import journal (JSON)",
+    "fileAria": "Choose a JSON file to import",
+    "successFmt": "Imported {imported} entries ({skipped} skipped).",
+    "errorEmpty": "The file is empty or invalid.",
+    "errorParse": "The file is not valid JSON. Check the format and try again.",
+    "errorFormat": "The file does not contain the expected journal format.",
+    "confirmReplace": "You have {n} entries. The import will merge them with the file (newer ones are kept). Continue?"
    },
    "hub": {
-    "cbtLocked24hToast": "Ден {n} ще е достъпен утре. Този материал работи най-добре, когато оставите време между дните.",
-    "timezoneChangedBanner": "Часовата зона се промени на {tz}. Следващите записи ще използват новата зона.",
-    "timezoneDismissAria": "Затвори съобщението за часова зона",
-    "listenNudgeTitle": "Не сте слушали звуци още",
-    "listenNudgeBody": "Звуковото обогатяване е една от опорите на 14-дневния модул. Можете да опитате кратка сесия сега — само 5 минути.",
-    "listenNudgeCta": "Опитай 5 минути",
-    "listenNudgeSkip": "По-късно",
-    "missedYesterday": "Вчера не успяхте да попълните дневника. Това е напълно нормално. Ден {n} Ви чака — можете да го направите днес или просто да продължите.",
-    "missedYesterdayCta": "Попълни Ден {n} със закъснение",
-    "missedYesterdaySkip": "Прескочи към днешния ден",
-    "microDoseTitle": "Ние сме тук.",
-    "microDoseBody": "Започнете отново — с 2 минути. Просто 3 спокойни вдишвания или един ред в дневника.",
-    "microDoseCta": "Започни 2-минутна доза",
-    "softCheckTitle": "Какво се случи?",
-    "softCheckBody": "Виждаме, че Ви няма от няколко дни. Не сте задължен да отговорите, но ще ни помогне да Ви бъдем полезни.",
+    "cbtLocked24hToast": "Day {n} will be available tomorrow. This material works best when you leave time between days.",
+    "timezoneChangedBanner": "The time zone changed to {tz}. Future entries will use the new zone.",
+    "timezoneDismissAria": "Close the time zone message",
+    "listenNudgeTitle": "You haven't listened to any sounds yet",
+    "listenNudgeBody": "Sound enrichment is one of the pillars of the 14-day module. You can try a short session now — just 5 minutes.",
+    "listenNudgeCta": "Try 5 minutes",
+    "listenNudgeSkip": "Later",
+    "missedYesterday": "Yesterday you didn't fill in the journal. That's completely normal. Day {n} is waiting for you — you can do it today or simply continue.",
+    "missedYesterdayCta": "Fill in Day {n} late",
+    "missedYesterdaySkip": "Skip to today",
+    "microDoseTitle": "We're here.",
+    "microDoseBody": "Start again — with 2 minutes. Just 3 calm breaths or one line in the journal.",
+    "microDoseCta": "Start a 2-minute dose",
+    "softCheckTitle": "What happened?",
+    "softCheckBody": "We see you've been away for a few days. You don't have to answer, but it will help us be useful to you.",
     "softCheckOpt1": "Бях зает",
     "softCheckOpt2": "Чувствах се по-зле",
     "softCheckOpt3": "Технически проблем",
@@ -814,7 +814,7 @@
    "notFound": "Категорията не е намерена."
   },
   "diaryHub": {
-   "title": "Дневник",
+   "title": "Journal",
    "notStarted": "Все още не сте започнали 14-дневната програма.",
    "notStartedSub": "Когато стартирате, тук ще виждате докъде сте и какво сте записали.",
    "statCurrentDay": "текущ ден от програмата",
@@ -823,7 +823,7 @@
    "statStreak": "последователни активни дни",
    "statFreezes": "останали „пропуски\"",
    "evening": {
-    "title": "Вечерен дневник",
+    "title": "Evening journal",
     "desc": "5 въпроса, 90 секунди"
    },
    "cbt": {
@@ -873,7 +873,7 @@
    "hintNever": "Не показвай повече",
    "sleepPreset15": "15 minutes",
    "sleepPreset30": "30 minutes",
-   "sleepPreset60": "1 час",
+   "sleepPreset60": "1 hour",
    "sleepPresetNight": "8 часа (цяла нощ)",
    "sleepTimerTitle": "Таймер за сън",
    "bgNoise": "Background noise",
@@ -905,7 +905,7 @@
    "warnTitle": "Какво да НЕ правите",
    "warnBody": "Не увеличавайте до пълно заглушаване на тинитуса. Това натоварва слуха и тренира мозъка да очаква пълна тишина — обратното на нашата цел.",
    "confirm": "Това е добре",
-   "later": "По-късно",
+   "later": "Later",
    "disclaimer": "AURALIS е инструмент за общо благополучие, не медицински продукт."
   },
   "streak": {
@@ -1233,7 +1233,7 @@
    "hintReady": "Натиснете „Запиши\" за да добавите, или текста за нов запис.",
    "hintEmpty": "Не чух нищо. Натиснете текста за нов опит.",
    "placeholder": "Текстът ще се появи тук…",
-   "save": "Запиши",
+   "save": "Save",
    "cancel": "Отмени",
    "closeAria": "Затвори диктовката"
   }
@@ -1847,7 +1847,7 @@
    ]
   },
   "meditation": {
-   "title": "Медитация",
+   "title": "Meditation",
    "subtitle": "Водени сесии",
    "definition": "Режим за активна, водена практика — кратки 5–10 мин дневни упражнения по принципите на CBT-I и ACT (Acceptance and Commitment Therapy): екстернализация на вниманието, когнитивна дефузия, body scan, радикално приемане. Не е пасивно слушане — изисква съзнателен ангажимент.",
    "whenUsed": {
@@ -2151,10 +2151,10 @@
   "reflectionPlaceholder": "Запишете отговора си тук (по избор)…",
   "alreadyDone": "Тази практика вече е записана за днес. Можете да я обновите.",
   "actions": {
-   "save": "Запиши",
-   "cancel": "Откажи"
+   "save": "Save",
+   "cancel": "Cancel"
   },
-  "savedToast": "Записано",
+  "savedToast": "Saved",
   "day_1": {
    "title": "Сензорна демистификация",
    "theme": "Тинитусът е звук, който мозъкът създава сам — не е увреждане на ухото и не е предупреждение за опасност.",
@@ -2314,10 +2314,10 @@
   "infoAria": "Информация за категорията",
   "title": "Изберете режим",
   "openLibraryAll": "All sounds",
-  "openDiary": "Дневник",
+  "openDiary": "Journal",
   "soundCountFmt": "{n} звука",
   "favoritesBtn": {
-   "aria": "Любими"
+   "aria": "Favorites"
   },
   "cat": {
    "sleep_deep": {
@@ -2341,7 +2341,7 @@
     "subtitle": "SOS, паник атака"
    },
    "meditation": {
-    "name": "Медитация",
+    "name": "Meditation",
     "subtitle": "Водени сесии"
    }
   },
@@ -2409,7 +2409,7 @@
    "title": "Моите тестове"
   },
   "diary": {
-   "name": "Дневник",
+   "name": "Journal",
    "todoMain": "Започнете да следите",
    "todoSub": "Сън и настроение · 14 дни",
    "startBtn": "Започни",
@@ -2554,7 +2554,7 @@
      "a": "Лекарства",
      "b": "Слухови апарати",
      "c": "Звукова терапия",
-     "d": "Медитация",
+     "d": "Meditation",
      "e": "Нищо още"
     }
    },
@@ -2701,7 +2701,7 @@
     "source": "Tong et al. (2023) + TENT-A1/A2 trials, 2024. Виж docs/research/11."
    },
    "cat_river": {
-    "title": "Реки и потоци",
+    "title": "Rivers and streams",
     "micro": "Подводни и надводни звуци от реки. Средночестотни (1000-2000Hz). Идеални за концентрация и работа.",
     "full": "📊 КАКВО СА:\n\nЗаписи на планински реки, ручейчета и потоци — от подводна перспектива (по-меки) и надводна (с повече детайли). Между средно меки и средно ярки звуци.\n\n🎯 ЗА КОГО:\n✅ Нискочестотен шумов тинитус (DN_S)\n✅ Адаптиран/лек профил (HB_M)\n✅ Хора които ползват звукова терапия дълго време\n✅ За концентрация и работа\n⚠ Не за хора с тинитус в средните честоти (1000-3000Hz)\n\n💡 КОГА:\n• По време на работа (60-120 мин)\n• При учене или четене\n• След стресов ден\n• По-малко подходящи за нощно слушане\n\n📈 ЗАЩО ТЕЗИ ЗВУЦИ:\n\nРеките са в средночестотния диапазон, който перфектно \"припокрива\" зоната където много тинитуси живеят. Освен това имат естествени вариации, които не уморяват мозъка така, както постоянният бял шум.\n\n🧠 ЗАЩО РАБОТЯТ:\n\nСредночестотните звуци (1000-2000Hz) маскират директно най-разпространените тинитус честоти. Естествените флуктуации в течението създават \"звукова текстура\" която мозъкът намира за приятна.\n\n📚 ПРОУЧВАНЕ:\n\nМногоцентрово проучване (2024, n=793): обогатени природни звуци (включително реки) показват 84% по-добро придържане към лечението от пациентите в сравнение с традиционен бял шум.",
     "source": "Мета-анализ от 14 RCT, 2024. Виж docs/research/11."
@@ -2879,8 +2879,8 @@
    "exported": "Експортирано",
    "deleteOnly": "Изтрий само",
    "quizAnswers": "Quiz отговори",
-   "diary": "Дневник",
-   "favorites": "Любими",
+   "diary": "Journal",
+   "favorites": "Favorites",
    "history": "Listening history",
    "exportSection": "Експорт раздел",
    "deleteConfirmSection": "Изтрий ",
@@ -2901,7 +2901,7 @@
   "volume": {
    "quiet": "Тих режим",
    "normal": "Нормален",
-   "loud": "Силен",
+   "loud": "Loud",
    "profile": "Профил на сила"
   },
   "audio": {
@@ -2943,7 +2943,7 @@
    "favoriteHour": "Любим час"
   },
   "diary": {
-   "section": "Дневник",
+   "section": "Journal",
    "daysLogged": "Записани дни",
    "avgTinnitus": "Среден тинитус",
    "avgSleep": "Среден сън"
