@@ -7,7 +7,7 @@
  */
 
 $SITE_URL = 'https://tinnitus-app.help';
-if (!defined('AURALIS_ASSET_V')) define('AURALIS_ASSET_V', '5'); // bump → cache-bust на css/js
+if (!defined('AURALIS_ASSET_V')) define('AURALIS_ASSET_V', '6'); // bump → cache-bust на css/js
 
 /* ── Раздели (подредбата = менюто и футъра) ───────────────────────── */
 $SECTIONS = [
