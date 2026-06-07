@@ -29,12 +29,12 @@ window.Sleep = (function () {
 
   var STORAGE_TIMER = 'auralis_sleep_timer_minutes';
   var TIMER_OPTIONS = [
-    { min: 0,   key: 'sleep.timer.off',   label: 'Без таймер' },
-    { min: 15,  key: 'sleep.timer.min15', label: '15 мин' },
-    { min: 30,  key: 'sleep.timer.min30', label: '30 мин' },
-    { min: 60,  key: 'sleep.timer.min60', label: '1 час' },
-    { min: 90,  key: 'sleep.timer.min90', label: '1.5 ч' },
-    { min: 120, key: 'sleep.timer.min120', label: '2 часа' }
+    { min: 0,   key: 'ui.sleep.timer.off',   label: 'Без таймер' },
+    { min: 15,  key: 'ui.sleep.timer.min15', label: '15 мин' },
+    { min: 30,  key: 'ui.sleep.timer.min30', label: '30 мин' },
+    { min: 60,  key: 'ui.sleep.timer.min60', label: '1 час' },
+    { min: 90,  key: 'ui.sleep.timer.min90', label: '1.5 ч' },
+    { min: 120, key: 'ui.sleep.timer.min120', label: '2 часа' }
   ];
 
   var selectedMinutes = 0;

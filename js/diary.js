@@ -428,7 +428,7 @@ window.Diary = (function () {
 
     var rangeButtons = RANGES.map(function (r) {
       var isActive = r === activeRange;
-      var label = t('diary.history.range' + r, r + ' дни');
+      var label = t('ui.diary.history.range' + r, r + ' дни');
       return (
         '<button class="diary-range-btn' + (isActive ? ' is-active' : '') + '"' +
           ' type="button" data-range="' + r + '" role="radio"' +

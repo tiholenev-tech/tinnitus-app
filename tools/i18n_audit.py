@@ -120,7 +120,7 @@ def main():
             if is_comment(line):
                 continue
             code = strip_inline_comment(line)
-            if 't(' in code or 'sectionTitle(' in code or CONSOLE.search(code):
+            if ('t(' in code or 'sectionTitle(' in code or 'tOrNull(' in code or 'tObjOrNull(' in code or 'tOrPrettify(' in code or CONSOLE.search(code)):
                 continue  # t() → fallback (ок); console.* → не е UI
             mm = CYR_LIT.search(code)
             if mm:

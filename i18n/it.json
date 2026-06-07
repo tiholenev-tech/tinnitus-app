@@ -419,6 +419,19 @@
      "subtitle": "Natura · 30 min",
      "author": "Joseph Beg"
     }
+   },
+   "cat_sub": {
+    "ocean": "Onde del mare e risacca",
+    "underwater": "Suoni sott'acqua",
+    "river": "Fiumi e ruscelli",
+    "waterfall": "Scroscio di cascata",
+    "rain": "Pioggia e gocce",
+    "wind": "Vento e brezza",
+    "forest": "Bosco e uccelli",
+    "fire": "Fuoco nel camino",
+    "meditation": "Musica tranquilla",
+    "noise": "Rumore marrone e rosa",
+    "ambient": "Toni profondi"
    }
   },
   "sleep": {
@@ -807,7 +820,19 @@
    "statCompleted": "giorni completati",
    "statEntries": "voci nel diario",
    "statStreak": "giorni attivi consecutivi",
-   "statFreezes": "«salti» rimasti"
+   "statFreezes": "«salti» rimasti",
+   "evening": {
+    "title": "Diario serale",
+    "desc": "5 domande, 90 secondi"
+   },
+   "cbt": {
+    "title": "Pratica di oggi",
+    "descFmt": "Giorno {n} di 14"
+   },
+   "progress": {
+    "title": "Progressi",
+    "desc": "Guarda il cambiamento"
+   }
   },
   "favorites": {
    "loadingSkeleton": "Caricamento…"
@@ -844,7 +869,12 @@
    "hintBody1": "Regola il volume e il mix come preferisci — <b>decidi tu</b>.",
    "hintBody2": "Per il massimo effetto e perché il rumore si attenui col tempo, lascia che il suono <b>non copra del tutto</b> il tuo acufene — è bene sentirlo un po' sotto il suono.",
    "hintOk": "Ho capito",
-   "hintNever": "Non mostrare più"
+   "hintNever": "Non mostrare più",
+   "sleepPreset15": "15 minuti",
+   "sleepPreset30": "30 minuti",
+   "sleepPreset60": "1 ora",
+   "sleepPresetNight": "8 ore (tutta la notte)",
+   "sleepTimerTitle": "Timer del sonno"
   },
   "profileResults": {
    "spectrumAria": "Spettro delle frequenze da 250 Hz a 16 kHz, marcatore su {f}"
@@ -2945,6 +2975,848 @@
  "library": {
   "player": {
    "openAria": "Apri il player"
+  },
+  "sounds": {
+   "ambience_air_inside_bunker_sea_ambience_from_outside_02": {
+    "title": "Sussurro del mare"
+   },
+   "ambience_residential_abandoned_building_gentle_wind_distant_boat_engine_distant_traffic_people_pass_by_helicopter_distant_sea_athens_greece": {
+    "title": "Brezza marina ad Atene"
+   },
+   "ambience_seaside_dalian_beach_waves_people_footsteps_distant_boats_china": {
+    "title": "Onde mattutine sulla riva"
+   },
+   "ambience_underwater_sea_wave_ilo_aquatic_water_burble_waves_back_forth_microphone_blocking_feet": {
+    "title": "Onde sottomarine"
+   },
+   "ambience_underwater_waves_constant_deep_hits": {
+    "title": "Nelle profondità dell'oceano"
+   },
+   "ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_01": {
+    "title": "Alba sul Mar Nero"
+   },
+   "ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_02": {
+    "title": "Sera sul Mar Nero"
+   },
+   "ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_03": {
+    "title": "La riva tranquilla di Batumi"
+   },
+   "birds_sea_seagulls_distant_several_gentle_waves_02": {
+    "title": "Gabbiani sulla riva"
+   },
+   "genetic_waves_joseph_beg": {
+    "title": "Le onde infinite"
+   },
+   "ocean_meditation_joseph_beg": {
+    "title": "Oceano in profondità"
+   },
+   "water_lap_waves_splashing_against_boat_large_hitting_sea_02": {
+    "title": "Onde contro la barca"
+   },
+   "water_lap_waves_water_lapping_seafront_sea_close": {
+    "title": "La riva vicina"
+   },
+   "water_lap_waves_water_lapping_seafront_sea_semi_close": {
+    "title": "Risacca lontana"
+   },
+   "water_surf_beach_ocean_waves_sand_wind": {
+    "title": "Spiaggia sabbiosa"
+   },
+   "water_surf_beach_waves_coming_in_occasional_birds_atlantic_ocean_caribbean_sea": {
+    "title": "Onde caraibiche"
+   },
+   "water_surf_distant_calm_sea_waves_few_distant_birds": {
+    "title": "Mare calmo in lontananza"
+   },
+   "water_surf_ocean_sea_big_waves_breaking_against_dyke_breakwater_strong_weather_02_30": {
+    "title": "Mare in tempesta"
+   },
+   "water_surf_water_ocean_seashore_waves_roar_distant_llandudno_cape_town_south_africa": {
+    "title": "Oceano africano"
+   },
+   "water_surf_water_sea_waves_choppy_italy_grado_01": {
+    "title": "Costa italiana"
+   },
+   "water_surf_water_sea_waves_choppy_italy_grado_02": {
+    "title": "Onde adriatiche"
+   },
+   "water_surf_water_waves_rough_sea_01": {
+    "title": "Onde tempestose"
+   },
+   "water_surf_water_waves_rough_sea_02": {
+    "title": "Mare agitato"
+   },
+   "water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta": {
+    "title": "Baia maltese"
+   },
+   "water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta_01": {
+    "title": "Onde serali a Selmun"
+   },
+   "water_surf_waves_ocean_distant_on_beach_distant_boat_motor_03": {
+    "title": "Barca in lontananza"
+   },
+   "water_underwater_deep_sea_bubbles_muffled_big_02": {
+    "title": "Bolle sottomarine"
+   },
+   "water_underwater_ocean_bubbles_water_movement_lapping_argentina_02": {
+    "title": "Argentina sottomarina"
+   },
+   "water_wave_ocean_beach_waves_medium_lapping": {
+    "title": "Marea calma"
+   },
+   "water_wave_ocean_medium_waves_coming_in_close_03": {
+    "title": "Onde vicine"
+   },
+   "water_wave_ocean_wave_swells": {
+    "title": "L'oceano che respira"
+   },
+   "water_wave_ocean_waves_medium_on_stone_sea_wall_boats_harbor_in_background": {
+    "title": "Onde nel porto"
+   },
+   "water_wave_ocean_waves_on_shore_beach_medium_distant": {
+    "title": "Onde sulla riva"
+   },
+   "water_wave_sea_beach_cove_100m_away_distance_moderate_waves_distant_plane_birds": {
+    "title": "Baia appartata"
+   },
+   "water_wave_sea_beach_cove_50m_distance_moderate_waves_ms": {
+    "title": "Onde tranquille sulla riva"
+   },
+   "water_wave_sea_light_wind_waves_intensifies": {
+    "title": "Vento sulle onde"
+   },
+   "water_wave_sea_water_very_gentle_waves": {
+    "title": "Mare gentile"
+   },
+   "water_wave_waves_sea_beach_punta_allen_sian_ka_an_biosphere_reserve_mexico": {
+    "title": "Costa messicana"
+   },
+   "wind_general_calm_mountain_sea_distant_waves_01": {
+    "title": "Vento di montagna sul mare"
+   },
+   "wind_general_calm_mountain_sea_distant_waves_02": {
+    "title": "Brezza marina dall'alto"
+   },
+   "wind_general_calm_mountain_sea_distant_waves_03": {
+    "title": "Vento lieve sulla baia"
+   },
+   "ambience_forest_ukraine_morning_birds_nature_trees_calm_breeze_wildlife": {
+    "title": "Uccelli mattutini nei Carpazi"
+   },
+   "ambience_swamp_wetland_after_rain_water_dripping_humid_distant_fowl": {
+    "title": "Dopo la pioggia nelle paludi"
+   },
+   "ambience_tropical_rain_texture_medium": {
+    "title": "Pioggia tropicale"
+   },
+   "ambience_underwater_grainy_bubbles_small_deep_fizz": {
+    "title": "Il suono degli abissi"
+   },
+   "rain_attic_01": {
+    "title": "Pioggia sul tetto"
+   },
+   "rain_cloth_raining_umbrella_01": {
+    "title": "Gocce sull'ombrello"
+   },
+   "rain_concrete_city_rain_soft_residential_neighborhood_night_car_pass_by_wet_roads_side_streets_02": {
+    "title": "Pioggia leggera in città"
+   },
+   "rain_general_medium_drip_details_night_wide": {
+    "title": "Gocce notturne"
+   },
+   "rain_glass_rain_car_window_perspective_medium_01": {
+    "title": "Pioggia sul finestrino dell'auto"
+   },
+   "rain_glass_window_roof_location_2_medium_room_loft_roof_window": {
+    "title": "Gocce sul lucernario"
+   },
+   "rain_interior_rain_medium_drops_drumming_clunking": {
+    "title": "Il tamburellare della pioggia"
+   },
+   "rain_interior_rain_medium_inside_car": {
+    "title": "Sera di pioggia in auto"
+   },
+   "rain_interior_rain_on_window_house_apartment_room_tone_light_rain": {
+    "title": "Pioggia nell'appartamento"
+   },
+   "rain_plastic_medium_outside_plastic_window": {
+    "title": "Pioggia sulla plastica"
+   },
+   "rain_plastic_medium_to_light_outside_plastic_window": {
+    "title": "Pioggia leggera sul vetro"
+   },
+   "rain_plastic_medium_to_light_under_plastic_roof_01": {
+    "title": "Al riparo dalla pioggia"
+   },
+   "rain_plastic_medium_to_light_under_plastic_roof_02": {
+    "title": "Pioggia sulla tettoia"
+   },
+   "rain_plastic_on_plastic_umbrella_medium_intensity_dense_dripping": {
+    "title": "Pioggia fitta sull'ombrello"
+   },
+   "rain_plastic_plastic_buckets_multiple_drops_medium_busy_01": {
+    "title": "Gocce nei secchi"
+   },
+   "rain_plastic_plastic_buckets_multiple_drops_medium_busy_02": {
+    "title": "Gocce numerose"
+   },
+   "rain_vegetation_medium_leaves_drop_tropical_jungle": {
+    "title": "Pioggia nella giungla"
+   },
+   "rain_wood_rain_front_porch_rain_on_door_medium": {
+    "title": "Pioggia davanti alla porta"
+   },
+   "wind_general_rain_playa_blanca_village_drops_metal_sheet_roof_movement_04": {
+    "title": "Pioggia sulla lamiera"
+   },
+   "ambience_forest_wetlands_river_water_wind_ship": {
+    "title": "Vento nel bosco lungo il fiume"
+   },
+   "ambience_underwater_bubbles_dark_spacious_boiling_flowing": {
+    "title": "Profondità sottomarine ribollenti"
+   },
+   "ambience_underwater_dark_deep_leak_gurgling_flowing": {
+    "title": "Gorgoglio sottomarino"
+   },
+   "ambience_underwater_dark_eerie_deep_bubbles_spacious_stream": {
+    "title": "Fiume sottomarino mistico"
+   },
+   "ambience_underwater_dark_eerie_spacious_flowing_roaring_01": {
+    "title": "Ritmo sottomarino"
+   },
+   "ambience_underwater_dark_eerie_spacious_flowing_roaring_02": {
+    "title": "Corrente sottomarina scura"
+   },
+   "ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_02": {
+    "title": "Acqua di montagna sottomarina"
+   },
+   "ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_03": {
+    "title": "Fiume sottomarino glaciale"
+   },
+   "ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_05": {
+    "title": "Profondità di ametista"
+   },
+   "ambience_underwater_river_flowing_01": {
+    "title": "Fiume calmo sott'acqua"
+   },
+   "ambience_underwater_river_flowing_02": {
+    "title": "Limpido fiume sottomarino"
+   },
+   "ambience_underwater_river_flowing_03": {
+    "title": "Corrente sottomarina calma"
+   },
+   "ambience_underwater_river_flowing_04": {
+    "title": "Ruscello sottomarino cristallino"
+   },
+   "ambience_underwater_river_flowing_05": {
+    "title": "Fiume sottomarino argenteo"
+   },
+   "ambience_underwater_river_flowing_06": {
+    "title": "Corrente sottomarina fresca"
+   },
+   "ambience_underwater_trickle_bright_detailed_stream": {
+    "title": "Ruscello sottomarino luminoso"
+   },
+   "ambience_underwater_water_flow_01": {
+    "title": "Danza sottomarina"
+   },
+   "ambience_underwater_water_flow_02": {
+    "title": "Ritmo sottomarino profondo"
+   },
+   "ambience_underwater_water_flow_03": {
+    "title": "Silenzio sott'acqua"
+   },
+   "ambience_underwater_water_flow_04": {
+    "title": "Corrente sottomarina tranquilla"
+   },
+   "rain_metal_rain_gutter_medium_drops_flowing": {
+    "title": "Pioggia nella grondaia"
+   },
+   "water_flow_deep_mountain_stream_creek_bubble": {
+    "title": "Profondo fiume di montagna"
+   },
+   "water_flow_river_calm_running_medium_distance_01": {
+    "title": "Fiume tranquillo"
+   },
+   "water_flow_river_close_gentle_01": {
+    "title": "Corrente gentile e vicina"
+   },
+   "water_flow_river_close_gentle_02": {
+    "title": "Sussurro cristallino del fiume"
+   },
+   "water_flow_river_current_fast_distant": {
+    "title": "Corrente veloce e lontana"
+   },
+   "water_flow_river_current_small_fast_flow": {
+    "title": "Limpido fiume veloce"
+   },
+   "water_flow_river_flow_strong_bubbles_nature_forest_telluride": {
+    "title": "Forte fiume nel bosco"
+   },
+   "water_flow_river_run_flow_valley_bubbles_calm_nature_san_miguel_river_telluride": {
+    "title": "Fiume nella valle di San Miguel"
+   },
+   "water_flow_river_small_mountain_stream": {
+    "title": "Piccolo fiume di montagna"
+   },
+   "water_waterfall_strong_flow_people_forest_lower_waterfall_evening_zenny_fall_telluride": {
+    "title": "Cascata al tramonto"
+   },
+   "water_waterfall_waterfall_medium_flow_01": {
+    "title": "Cascata tranquilla"
+   },
+   "water_waterfall_waterfall_the_trolls_road_20m_from_river": {
+    "title": "Cascata lungo la strada"
+   },
+   "ambience_tropical_water_source_palm_leaves_wind_soothing": {
+    "title": "Brezza tropicale"
+   },
+   "ambience_underwater_active": {
+    "title": "Pulsazione sottomarina"
+   },
+   "ambience_underwater_complex_01": {
+    "title": "Sinfonia sottomarina"
+   },
+   "ambience_underwater_complex_02": {
+    "title": "Danza sottomarina silenziosa"
+   },
+   "ambience_underwater_complex_03": {
+    "title": "Enigma sottomarino"
+   },
+   "ambience_underwater_complex_04": {
+    "title": "Nel profondo dell'acqua"
+   },
+   "ambience_underwater_complex_05": {
+    "title": "Sogno sottomarino"
+   },
+   "ambience_underwater_complex_06": {
+    "title": "Luogo sottomarino segreto"
+   },
+   "ambience_underwater_complex_07": {
+    "title": "Tenerezza sottomarina"
+   },
+   "ambience_underwater_complex_08": {
+    "title": "Silenzio sottomarino"
+   },
+   "ambience_underwater_complex_09": {
+    "title": "Profondità infinite"
+   },
+   "ambience_underwater_complex_10": {
+    "title": "Pace sottomarina"
+   },
+   "ambience_underwater_complex_evolving": {
+    "title": "Profondità in evoluzione"
+   },
+   "ambience_underwater_dark_eerie_roaring": {
+    "title": "Eco sottomarina scura"
+   },
+   "ambience_underwater_dark_eerie_slow_moving_stutter": {
+    "title": "Lento affondare sott'acqua"
+   },
+   "ambience_underwater_deep_01": {
+    "title": "Le grandi profondità sottomarine"
+   },
+   "ambience_underwater_deep_02": {
+    "title": "Quieto silenzio sottomarino"
+   },
+   "ambience_underwater_deep_03": {
+    "title": "Profondità sottomarine argentee"
+   },
+   "ambience_underwater_deep_04": {
+    "title": "Acque sottomarine fredde"
+   },
+   "ambience_underwater_deep_abstract_01": {
+    "title": "Nel profondo dell'acqua, trance"
+   },
+   "ambience_underwater_deep_abstract_02": {
+    "title": "Surreale sott'acqua"
+   },
+   "ambience_underwater_deep_abstract_03": {
+    "title": "Astrazione sottomarina"
+   },
+   "ambience_underwater_deep_abstract_04": {
+    "title": "Corrente sottomarina misteriosa"
+   },
+   "ambience_underwater_deep_bubble_01": {
+    "title": "Bolle profonde"
+   },
+   "ambience_underwater_deep_bubble_02": {
+    "title": "Bolle tranquille"
+   },
+   "ambience_underwater_deep_bubble_active_01": {
+    "title": "Bolle sottomarine attive"
+   },
+   "ambience_underwater_deep_bubble_active_02": {
+    "title": "Bolle danzanti"
+   },
+   "ambience_underwater_deep_bubbles_01": {
+    "title": "Bolla dopo bolla"
+   },
+   "ambience_underwater_deep_bubbles_02": {
+    "title": "Flusso di bolle"
+   },
+   "ambience_underwater_deep_bubbles_03": {
+    "title": "Bolle numerose"
+   },
+   "ambience_underwater_deep_low": {
+    "title": "Profondità basse"
+   },
+   "ambience_underwater_deep_propeller": {
+    "title": "Piccolo motore sottomarino"
+   },
+   "ambience_underwater_deep_sub": {
+    "title": "Silenzio sottomarino · al crepuscolo"
+   },
+   "ambience_underwater_designed_subsonic_01": {
+    "title": "Basso invisibile"
+   },
+   "ambience_underwater_designed_water_aquarium_bubbles_18": {
+    "title": "Acquario sottomarino"
+   },
+   "ambience_underwater_designed_water_aquarium_bubbles_32": {
+    "title": "Bolla d'acquario"
+   },
+   "ambience_underwater_distant_low_rumble_01": {
+    "title": "Profondo rombo sottomarino"
+   },
+   "ambience_underwater_distant_low_rumble_02": {
+    "title": "Tono basso e lontano"
+   },
+   "ambience_underwater_distant_mid_resonance_01": {
+    "title": "Eco sottomarina"
+   },
+   "ambience_underwater_distant_thrill_water_01": {
+    "title": "Brivido sottomarino"
+   },
+   "ambience_underwater_distant_thrill_water_02": {
+    "title": "Fremito sottomarino lontano"
+   },
+   "ambience_underwater_near_machine_01": {
+    "title": "Macchina sottomarina vicina"
+   },
+   "ambience_underwater_near_machine_02": {
+    "title": "Meccanismo sottomarino"
+   },
+   "ambience_underwater_small_bubbles_02": {
+    "title": "Piccole bolle"
+   },
+   "ambience_underwater_submarine_underwater": {
+    "title": "Sotto il sottomarino"
+   },
+   "ambience_underwater_tub_underwater_loop": {
+    "title": "Sotto la superficie dell'acqua"
+   },
+   "ambience_underwater_underwater_current": {
+    "title": "Corrente sottomarina"
+   },
+   "ambience_underwater_underwater_designed_flush_01": {
+    "title": "Onda sottomarina"
+   },
+   "ambience_underwater_underwater_designed_running_03": {
+    "title": "Flusso sottomarino"
+   },
+   "ambience_underwater_underwater_designed_running_04": {
+    "title": "Canto sottomarino tranquillo"
+   },
+   "ambience_underwater_underwater_drone_hum": {
+    "title": "Drone sottomarino"
+   },
+   "ambience_underwater_waterfall": {
+    "title": "Cascata sottomarina"
+   },
+   "designed_drone_sub_deep_underwater": {
+    "title": "Drone sottomarino profondo"
+   },
+   "water_bubbles_aqua_massage_bubbling_01": {
+    "title": "Massaggio sottomarino"
+   },
+   "water_bubbles_bubbling_witchs_cauldron": {
+    "title": "Bolle sottomarine gorgoglianti"
+   },
+   "water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_40": {
+    "title": "La grande cascata"
+   },
+   "water_waterfall_steady_perspective": {
+    "title": "Cascata costante"
+   },
+   "water_waterfall_waterfall_powerful": {
+    "title": "Cascata possente"
+   },
+   "ambience_forest_winter_calm_light_wind_oslo_ostmarka_01": {
+    "title": "Vento invernale presso Oslo"
+   },
+   "ambience_forest_winter_calm_light_wind_single_bird_distant_oslo_ostmarka_01": {
+    "title": "Vento invernale e un uccello solitario"
+   },
+   "ambience_urban_oslo_urban_city_hall_strong_winds_rattling_no_people_distant_trams_traffic": {
+    "title": "Vento forte su Oslo"
+   },
+   "wind_general_abandoned_factory_chimney_wind_gusts_light_whistling_mic_upwards_distant_traffic_hum_humberstone_chile": {
+    "title": "Vento nella fabbrica abbandonata"
+   },
+   "wind_general_desert_bushes_twigs_wind_gusts_light_electric_whistling": {
+    "title": "Vento del deserto tra i cespugli"
+   },
+   "wind_general_desert_close_to_bushes_wind_gusts_twig_branch_close": {
+    "title": "Cespugli vicini nella brezza"
+   },
+   "wind_general_desert_light_whistling_bagdad_highway_wind_gusts_light_wind_bushes": {
+    "title": "Vento del deserto presso Baghdad"
+   },
+   "wind_general_desert_pampa_perdiz_wind_gusts_dark_02": {
+    "title": "Vento sulla pampa scura"
+   },
+   "wind_general_desert_pampa_perdiz_wind_gusts_dark_03": {
+    "title": "Brezza patagonica"
+   },
+   "wind_general_high_cliff_alto_patache_chile_01": {
+    "title": "Vento sulle scogliere del Cile"
+   },
+   "wind_general_iron_wire_sculpture_light_metallic_creaking_noise_wind_gusts_light_whistling_alto_patache_chile": {
+    "title": "Vento nella scultura di ferro"
+   },
+   "wind_general_large_tree_foliage_01": {
+    "title": "Vento nel grande albero"
+   },
+   "wind_general_light_whistling_gusts_alto_patache_chile": {
+    "title": "Vento del deserto che fischia piano"
+   },
+   "wind_general_light_wind_iron_wire_weather_station_barbed_wire_low_whistling_wind_gusts_alto_patache_chile": {
+    "title": "Vento presso la stazione meteo"
+   },
+   "wind_general_plastic_telescope_gusts_salar_atacama": {
+    "title": "Vento presso il telescopio in Atacama"
+   },
+   "wind_general_rusty_antenna_howling_alto_patache_chile": {
+    "title": "Vento nell'antenna arrugginita"
+   },
+   "wind_general_steady_wind_light_movement_cold": {
+    "title": "Vento freddo costante"
+   },
+   "wind_general_wilderness_medium_movement_cold_01": {
+    "title": "Vento freddo selvaggio"
+   },
+   "wind_gust_cold_mountain_wind_gusts_varied_intensity_01": {
+    "title": "Raffiche di montagna"
+   },
+   "wind_gust_distant_bush_light_whistling_valley": {
+    "title": "Vento dalla valle lontana"
+   },
+   "wind_gust_salt_desert_salar_atacama_chile": {
+    "title": "Vento sul deserto salato"
+   },
+   "wind_gust_whistling_garden_alto_patache_chile": {
+    "title": "Vento che fischia nel giardino"
+   },
+   "wind_tonal_light_pole_whistling_wind_gusts_desert_alto_patache": {
+    "title": "Vento del deserto presso il palo"
+   },
+   "wind_tonal_wind_howling_barbed_wire_fence_tierra_del_fuego_argentina_01": {
+    "title": "Vento ululante nella Terra del Fuoco"
+   },
+   "wind_tonal_wind_whistling_distant_fog_collector_alto_patache": {
+    "title": "Vento nella nebbia di Alto Patache"
+   },
+   "wind_tonal_wind_whistling_iron_fence_movement_wind_gusts_distant_city_hum_desert_outskirts_twentynine_palms": {
+    "title": "Vento notturno nella recinzione di ferro"
+   },
+   "wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_01": {
+    "title": "Erba nel vento del deserto"
+   },
+   "wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_02": {
+    "title": "Vento nell'erba del deserto"
+   },
+   "wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_03": {
+    "title": "Vento del deserto con eco"
+   },
+   "wind_vegetation_mixed_forest_mountainside_gentle_wind_through_birches_pines_firs_spruces_distant_birds_40": {
+    "title": "Betulla e pino nella brezza gentile"
+   },
+   "wind_vegetation_mixed_forest_mountainside_strong_wind_gusts_through_firs_birches_poplars_creaking_tree_40": {
+    "title": "Vento tra i pini scricchiolanti"
+   },
+   "wind_vegetation_mixed_forest_wind_through_pines_birches_poplars_creaking_tree_trunk_leaves_rustling_bird_flyby_40": {
+    "title": "Vento e uccelli nel bosco"
+   },
+   "ambience_forest_wetlands_forest_birds_birdsong": {
+    "title": "Canti degli uccelli del bosco"
+   },
+   "ambience_forest_wetlands_snowing_droplets_distant": {
+    "title": "Bosco invernale con neve"
+   },
+   "ambience_forest_wetlands_winter_wildlife_birds": {
+    "title": "Bosco invernale"
+   },
+   "ambience_nautical_wetlands_distant_factory_birds_01": {
+    "title": "Uccelli lontani vicino all'acqua"
+   },
+   "fire_burning_fireplace_glass_front_wood_burning_medium": {
+    "title": "Il focolare di casa"
+   },
+   "369_seconds_of_bliss_369": {
+    "title": "Sei minuti di beatitudine"
+   },
+   "8_pm_anna_landstrom": {
+    "title": "Le otto di sera"
+   },
+   "a_calm_early_morning_rikard_from": {
+    "title": "Mattino tranquillo"
+   },
+   "angelica_instrumental_version_david_edward": {
+    "title": "Melodia angelica"
+   },
+   "archipelago_of_relaxation_mandala_dreams": {
+    "title": "Arcipelago della serenità"
+   },
+   "carried_by_current_valante": {
+    "title": "Trasportato dalla corrente"
+   },
+   "celestial_spheres_ave_air": {
+    "title": "Sfere celesti"
+   },
+   "city_park_ave_air": {
+    "title": "Il parco cittadino"
+   },
+   "crowned_with_spirit_valante": {
+    "title": "Coronato di spirito"
+   },
+   "crystal_haze_shuta_yasukochi": {
+    "title": "Foschia di cristallo"
+   },
+   "dharapani_dex_1200": {
+    "title": "Serenità himalayana"
+   },
+   "dusky_mirage_true_messenger": {
+    "title": "Miraggio al crepuscolo"
+   },
+   "end_of_rain_beyza": {
+    "title": "La fine della pioggia"
+   },
+   "enlightened_drift_amber_glow": {
+    "title": "Deriva illuminata"
+   },
+   "epic_mirage_hanna_lindgren": {
+    "title": "Miraggio epico"
+   },
+   "field_of_horses_joseph_beg": {
+    "title": "Il campo dei cavalli"
+   },
+   "floating_sakura_petals_sayuri_hayashi_egnell": {
+    "title": "Petali di sakura che cadono"
+   },
+   "forest_breeze_ave_air": {
+    "title": "Brezza del bosco"
+   },
+   "gold_and_green_anna_landstrom": {
+    "title": "Oro e verde"
+   },
+   "grounded_hanna_lindgren": {
+    "title": "Radicamento"
+   },
+   "healing_tides_amber_glow": {
+    "title": "Maree curative"
+   },
+   "hush_my_darling_yi_nantiro": {
+    "title": "Sonno tranquillo, amore mio"
+   },
+   "inner_balance_elm_lake": {
+    "title": "Equilibrio interiore"
+   },
+   "kokoro_valante": {
+    "title": "Il cuore"
+   },
+   "komorebi_shuta_yasukochi": {
+    "title": "Luce tra le foglie"
+   },
+   "lullaby_for_kilian_magnus_ludvigsson": {
+    "title": "Ninna nanna per Kilian"
+   },
+   "meditation_aquatic_369": {
+    "title": "Meditazione acquatica"
+   },
+   "mindstream_amber_glow": {
+    "title": "Flusso del pensiero"
+   },
+   "mirror_of_the_heart_bladverk_band": {
+    "title": "Lo specchio del cuore"
+   },
+   "murmurations_hanna_lindgren": {
+    "title": "Mormorio dello stormo"
+   },
+   "my_friend_the_warlock_bitwraith": {
+    "title": "Il mio amico mago"
+   },
+   "namucuo_by_lotus": {
+    "title": "Lago di montagna"
+   },
+   "on_a_knee_the_golden_peas": {
+    "title": "In ginocchio"
+   },
+   "parlemor_bomull": {
+    "title": "Lucentezza di madreperla"
+   },
+   "pillars_of_resilience_cora_zea": {
+    "title": "Pilastri della resilienza"
+   },
+   "resonance_luba_hilman": {
+    "title": "Risonanza dell'anima"
+   },
+   "silver_woodlands_cora_zea": {
+    "title": "Boschi d'argento"
+   },
+   "solitude_conscience_mandala_dreams": {
+    "title": "La solitudine della coscienza"
+   },
+   "stargazing_shuta_yasukochi": {
+    "title": "Cielo stellato"
+   },
+   "state_of_meditation_elm_lake": {
+    "title": "Stato di meditazione"
+   },
+   "still_love_hanna_lindgren": {
+    "title": "Amore silenzioso"
+   },
+   "the_hidden_realm_ruiqi_zhao": {
+    "title": "Il regno nascosto"
+   },
+   "the_lake_at_3am_mandala_dreams": {
+    "title": "Il lago alle tre del mattino"
+   },
+   "the_water_remains_rand_aldo": {
+    "title": "L'acqua rimane"
+   },
+   "third_charm_joseph_beg": {
+    "title": "Il terzo incanto"
+   },
+   "to_have_you_near_anna_landstrom": {
+    "title": "Averti vicino"
+   },
+   "uninhabited_land_flouw": {
+    "title": "Terra disabitata"
+   },
+   "uphill_climbing_anna_landstrom": {
+    "title": "Salita verso l'alto"
+   },
+   "weightless_center_of_attention": {
+    "title": "Assenza di peso"
+   },
+   "will_you_ever_know_anna_landstrom": {
+    "title": "Lo saprai mai"
+   },
+   "brown_lowpass_1000": {
+    "title": "Rumore marrone morbido"
+   },
+   "brown_lowpass_500": {
+    "title": "Rumore marrone profondo"
+   },
+   "brown_pure": {
+    "title": "Rumore marrone"
+   },
+   "pink_lowpass_2000": {
+    "title": "Rumore rosa morbido"
+   },
+   "pink_lowpass_4000": {
+    "title": "Rumore rosa"
+   },
+   "pink_pure": {
+    "title": "Rumore rosa puro"
+   },
+   "ambience_scifi_eerie_alien_planet": {
+    "title": "Atmosfera cosmica"
+   },
+   "ambience_underground_cave_dark_bubbles": {
+    "title": "Caverna oscura"
+   },
+   "designed_drone_atmospheric_space_drone_tonal_rumble": {
+    "title": "Drone cosmico"
+   },
+   "designed_drone_deep_bass": {
+    "title": "Basso profondo"
+   },
+   "designed_rumble_low_sub_bass_moving_slowly": {
+    "title": "Tono basso e lento"
+   },
+   "designed_rumble_low_sub_slight_air": {
+    "title": "Brezza leggera nel sottofondo"
+   },
+   "lay_down_with_me_hanna_lindgren": {
+    "title": "Sdraiati accanto a me"
+   },
+   "opposite_to_destruction_hanna_lindgren": {
+    "title": "L'opposto della distruzione"
+   },
+   "water_turbulent_river_small_waterfall": {
+    "title": "Piccola cascata impetuosa"
+   },
+   "water_waterfall_at_top_water_falling_into_creek_below": {
+    "title": "Cascata sopra il ruscello"
+   },
+   "water_waterfall_creek_from_waterfall_close": {
+    "title": "Cascata sopra un ruscello"
+   },
+   "water_waterfall_distant_iceland_close": {
+    "title": "Cascata islandese da vicino"
+   },
+   "water_waterfall_distant_iceland_high_perspective": {
+    "title": "Cascata islandese dall'alto"
+   },
+   "water_waterfall_distant_iceland_semi_close": {
+    "title": "Cascata islandese lontana"
+   },
+   "water_waterfall_forest_ambience_birds_chirp": {
+    "title": "Cascata nel bosco con uccelli"
+   },
+   "water_waterfall_grand_marais_minnesota": {
+    "title": "Cascata in Minnesota"
+   },
+   "water_waterfall_into_shallow_pool_forest": {
+    "title": "Cascata nel bosco in una pozza"
+   },
+   "water_waterfall_large": {
+    "title": "Grande cascata"
+   },
+   "water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_4_0": {
+    "title": "Grande cascata di 10 metri"
+   },
+   "water_waterfall_loud_waterfall": {
+    "title": "Cascata fragorosa"
+   },
+   "water_waterfall_niagra_falls_distant": {
+    "title": "Le cascate del Niagara da lontano"
+   },
+   "water_waterfall_river_creek_australia": {
+    "title": "Cascata australiana sopra un ruscello"
+   },
+   "water_waterfall_small_birds": {
+    "title": "Piccola cascata con uccelli"
+   },
+   "water_waterfall_small_burbling_in_forest": {
+    "title": "Cascata gorgogliante nel bosco"
+   },
+   "water_waterfall_small_long_fall_flowing_trickle": {
+    "title": "Cascata sottile e lunga"
+   },
+   "water_waterfall_strong_flow_forest_lower_waterfall_people_chatter_evening_zenny_fall_telluride": {
+    "title": "Forte cascata nel bosco"
+   },
+   "water_waterfall_top_deep_water_flowing_before_falling": {
+    "title": "L'acqua prima della cascata"
+   },
+   "water_waterfall_water_big_waterfall_little_andaman": {
+    "title": "Grande cascata alle Andamane"
+   },
+   "water_waterfall_waterfall_200m_distant_strong_flow_forest_light_wind_evening_sunset_zenny_fall_telluride": {
+    "title": "Cascata lontana nel bosco"
+   },
+   "water_waterfall_waterfall_medium_flow_02": {
+    "title": "Cascata media"
+   },
+   "water_waterfall_waterfalls_30_feet_away_pyrenees_france": {
+    "title": "Cascata nei Pirenei"
+   },
+   "waterfall_underneath_river_splashing_loud_big": {
+    "title": "Sotto la cascata"
+   }
   }
  },
  "notifications": {
