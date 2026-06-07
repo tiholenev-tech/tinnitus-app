@@ -172,6 +172,7 @@ function it_head(array $o) {
   echo '<link rel="alternate" hreflang="it" href="'.$url.'">'."\n";
   echo '<link rel="alternate" hreflang="bg" href="'.$altBg.'">'."\n";
   if (!empty($o['alt_ro'])) echo '<link rel="alternate" hreflang="ro" href="'.$o['alt_ro'].'">'."\n";
+  if (!empty($o['alt_el'])) echo '<link rel="alternate" hreflang="el" href="'.$o['alt_el'].'">'."\n";
   echo '<link rel="alternate" hreflang="x-default" href="'.$altBg.'">'."\n";
   echo '<meta name="robots" content="'.$robots.'">'."\n";
   echo '<meta property="og:type" content="'.$ogType.'">'."\n";
@@ -211,6 +212,7 @@ function it_masthead($active = '') {
           <li><a href="/" lang="bg" hreflang="bg">Български</a></li>
           <li><a href="/it/" lang="it" hreflang="it" aria-current="true">Italiano</a></li>
           <li><a href="/ro/" lang="ro" hreflang="ro">Română</a></li>
+          <li><a href="/el/" lang="el" hreflang="el">Ελληνικά</a></li>
         </ul>
       </details>
 

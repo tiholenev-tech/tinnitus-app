@@ -222,10 +222,11 @@ function auralis_head(array $o) {
   echo '<title>'.htmlspecialchars($title).'</title>'."\n";
   echo '<meta name="description" content="'.htmlspecialchars($desc).'">'."\n";
   echo '<link rel="canonical" href="'.$url.'">'."\n";
-  if (!empty($o['alt_it']) || !empty($o['alt_ro'])) {
+  if (!empty($o['alt_it']) || !empty($o['alt_ro']) || !empty($o['alt_el'])) {
     echo '<link rel="alternate" hreflang="bg" href="'.$url.'">'."\n";
     if (!empty($o['alt_it'])) echo '<link rel="alternate" hreflang="it" href="'.$o['alt_it'].'">'."\n";
     if (!empty($o['alt_ro'])) echo '<link rel="alternate" hreflang="ro" href="'.$o['alt_ro'].'">'."\n";
+    if (!empty($o['alt_el'])) echo '<link rel="alternate" hreflang="el" href="'.$o['alt_el'].'">'."\n";
     echo '<link rel="alternate" hreflang="x-default" href="'.$url.'">'."\n";
   }
   echo '<meta name="robots" content="'.$robots.'">'."\n";
@@ -269,6 +270,7 @@ function auralis_masthead($active = '') {
           <li><a href="/" lang="bg" hreflang="bg" aria-current="true">Български</a></li>
           <li><a href="/it/" lang="it" hreflang="it">Italiano</a></li>
           <li><a href="/ro/" lang="ro" hreflang="ro">Română</a></li>
+          <li><a href="/el/" lang="el" hreflang="el">Ελληνικά</a></li>
         </ul>
       </details>
 

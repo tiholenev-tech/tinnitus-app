@@ -57,7 +57,7 @@ $graph[] = ['@type'=>'BreadcrumbList','itemListElement'=>[
 $JSONLD = json_encode(['@context'=>'https://schema.org','@graph'=>$graph], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
 $_alts = hreflang_alts($ALT_BG);
-it_head(['title' => $TITLE . ' — AURALIS', 'desc' => $DESC, 'url' => $URL, 'og_type' => 'article', 'alt_bg' => $ALT_BG, 'alt_ro' => $_alts['ro'] ?? '', 'jsonld' => $JSONLD]);
+it_head(['title' => $TITLE . ' — AURALIS', 'desc' => $DESC, 'url' => $URL, 'og_type' => 'article', 'alt_bg' => $ALT_BG, 'alt_ro' => $_alts['ro'] ?? '', 'alt_el' => $_alts['el'] ?? '', 'jsonld' => $JSONLD]);
 it_masthead($a['section']);
 ?>
 <main id="main">

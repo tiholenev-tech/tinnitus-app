@@ -19,7 +19,7 @@
 // CACHE_AUDIO бамп също защото старите URLs (audio/library/* и
 // library_staging_loop_ready/*) са персистнали → нови URLs
 // (library_staging_normalized/*) не са в стария cache + 503 offline.
-var VERSION = '1.0.125';
+var VERSION = '1.0.127';
 var CACHE_SHELL = 'auralis-shell-v' + VERSION;
 var CACHE_I18N = 'auralis-i18n-v' + VERSION;
 var CACHE_AUDIO = 'auralis-audio-v3';
@@ -169,6 +169,7 @@ self.addEventListener('fetch', function (e) {
       pathname.indexOf('/lp/') === 0 ||
       pathname.indexOf('/it/') === 0 ||
       pathname.indexOf('/ro/') === 0 ||
+      pathname.indexOf('/el/') === 0 ||
       pathname.indexOf('/articles/') === 0 ||
       pathname.indexOf('/temi/') === 0 ||
       pathname.indexOf('/cena/') === 0 ||
