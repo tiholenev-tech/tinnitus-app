@@ -631,6 +631,127 @@
     "multiEntryHint": "Vediamo che oggi compili insieme la voce del mattino e quella della sera. Va bene. Di solito quella serale si fa dopo le 20:00.",
     "saveDraftFailed": "Non siamo riusciti a salvare automaticamente. Premi „Salva\" prima di chiudere."
    }
+  },
+  "pitchTest": {
+   "pretest": {
+    "title": "Cosa senti più precisamente?",
+    "subtitle": "Questo determina come troveremo la tua frequenza.",
+    "tonal": {
+     "label": "Tono puro / fischio",
+     "desc": "Come «iiii» — altezza costante"
+    },
+    "noise": {
+     "label": "Sibilo / rumore",
+     "desc": "Come «shhh», vapore, acqua"
+    },
+    "pulsing": {
+     "label": "Pulsazione",
+     "desc": "A ritmo con il battito cardiaco"
+    },
+    "other": {
+     "label": "Altro / Non sono sicuro",
+     "desc": "Non corrisponde a quelli sopra"
+    }
+   },
+   "pulsingSkip": {
+    "title": "Consigliamo una visita da uno specialista ORL",
+    "body": "L'acufene pulsante (a ritmo con il battito cardiaco) richiede una consulenza medica — può avere origine vascolare. Consigliamo una visita prima di continuare."
+   },
+   "device": {
+    "title": "Indossa le cuffie",
+    "subtitle": "Il test copre frequenze alte che l'altoparlante del telefono non riproduce con precisione. Qualsiasi cuffia (auricolari o altre) dà un risultato molto più fedele.",
+    "headphones": {
+     "label": "Fatto, ho le cuffie",
+     "desc": "Auricolari, wireless o con cavo — qualsiasi"
+    },
+    "speakers": {
+     "label": "Non le ho — userò il telefono",
+     "desc": "Altoparlante (meno preciso sugli acuti)"
+    }
+   },
+   "calib": {
+    "title": "Senti il suono?",
+    "subtitle": "Il suono aumenta lentamente.<br>Premi <b>STOP</b> appena lo senti comodamente.",
+    "stopAria": "Stop — il volume è comodo",
+    "stop": "STOP"
+   },
+   "bravo": {
+    "almost": "Ottimo! Quasi finito…",
+    "quickFmt": "Bravo! {done} di {total} pronti",
+    "preciseFmt": "Bravo! Misurazione {done} pronta"
+   },
+   "measure": {
+    "ofFmt": "Misurazione {n} di {total}",
+    "nFmt": "Misurazione {n}",
+    "octSuffix": "ott",
+    "accuracyFmt": "precisione: {ci} (obiettivo ±{target})"
+   },
+   "trial": {
+    "title": "Troviamo la tua frequenza",
+    "help": "Ascolta i due suoni. Scegli quale è più vicino al tuo.",
+    "back": "Torna al precedente",
+    "quit": "Ferma per ora",
+    "quitSub": "Salviamo il punto in cui sei arrivato"
+   },
+   "tone": {
+    "aria": "Suono {letter} — premi per ascoltare",
+    "label": "Suono {letter}",
+    "hint": "Premi per ascoltare",
+    "replay": "Riascolta",
+    "choose": "È il mio"
+   },
+   "hold": {
+    "holding": "Tieni premuto…",
+    "hint": "Premi = ascolta<br>Tieni = scegli"
+   },
+   "octave": {
+    "title": "Controllo dell'ottava",
+    "lower": "ottava inferiore",
+    "upper": "ottava superiore"
+   },
+   "finetune": {
+    "title": "Regola con precisione il tuo tono",
+    "subtitle": "Scorri lentamente finché il suono diventa<br>esattamente come il tuo acufene.",
+    "aria": "Regolazione fine della frequenza",
+    "lower": "più basso",
+    "higher": "più alto",
+    "done": "È il mio tono"
+   },
+   "reward": {
+    "title": "Abbiamo trovato la tua frequenza",
+    "subtitle": "Ascolta con calma — il suono è regolato per te.<br>Respira lentamente.",
+    "done": "Fatto"
+   },
+   "rewardAsk": {
+    "title": "Hai sentito una differenza?",
+    "subtitle": "In molti il fischio si attenua per qualche minuto dopo.",
+    "yes": {
+     "label": "Sì, è più silenzioso",
+     "desc": "Il fischio è diminuito"
+    },
+    "little": {
+     "label": "Un po'",
+     "desc": "Lieve cambiamento"
+    },
+    "no": {
+     "label": "Non ho sentito",
+     "desc": "Nessun cambiamento ora"
+    },
+    "note": "Per una frequenza ancora più precisa puoi completare il test più tardi — quando ti è comodo."
+   },
+   "result": {
+    "rangeFmt": "Intervallo di affidabilità: {lo} – {hi} (±{ci} ottava).",
+    "title": "Fatto",
+    "subtitle": "Abbiamo trovato la frequenza approssimativa del tuo acufene.",
+    "note": "È una stima approssimativa, non una misurazione clinica — la frequenza dell'acufene cambia naturalmente. Per questo l'approccio sonoro usa una banda ampia attorno ad essa.",
+    "continue": "Continua",
+    "retest": "Ripeti il test"
+   },
+   "quit": {
+    "title": "Nessun problema 🙂",
+    "body": "Hai fermato il test. Puoi farlo più tardi, quando ti è comodo — richiede solo un minuto.",
+    "toStart": "All'inizio"
+   }
   }
  },
  "science": {

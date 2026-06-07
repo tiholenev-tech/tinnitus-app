@@ -631,6 +631,127 @@
     "multiEntryHint": "Observăm că astăzi completați împreună atât înregistrarea de dimineață, cât și cea de seară. Este în regulă. De obicei, cea de seară se face după ora 20:00.",
     "saveDraftFailed": "Nu am putut salva automat. Apăsați „Salvează\" înainte de a închide."
    }
+  },
+  "pitchTest": {
+   "pretest": {
+    "title": "Ce auzi cel mai exact?",
+    "subtitle": "Asta determină cum îți vom găsi frecvența.",
+    "tonal": {
+     "label": "Ton pur / țiuit",
+     "desc": "Ca „iiii\" — înălțime constantă"
+    },
+    "noise": {
+     "label": "Șuierat / zgomot",
+     "desc": "Ca „șșș\", abur, apă"
+    },
+    "pulsing": {
+     "label": "Pulsație",
+     "desc": "În ritm cu pulsul inimii"
+    },
+    "other": {
+     "label": "Altceva / Nu sunt sigur",
+     "desc": "Nu corespunde celor de mai sus"
+    }
+   },
+   "pulsingSkip": {
+    "title": "Recomandăm un consult la un medic ORL",
+    "body": "Tinitusul pulsatil (în ritm cu pulsul inimii) necesită consult medical — poate avea origine vasculară. Recomandăm o vizită înainte de a continua."
+   },
+   "device": {
+    "title": "Pune căștile",
+    "subtitle": "Testul acoperă frecvențe înalte pe care difuzorul telefonului nu le redă exact. Orice căști (în ureche sau altele) dau un rezultat mult mai fidel.",
+    "headphones": {
+     "label": "Gata, am căștile",
+     "desc": "În ureche, wireless sau cu fir — oricare"
+    },
+    "speakers": {
+     "label": "Nu am — voi folosi telefonul",
+     "desc": "Difuzor (mai puțin exact pe înalte)"
+    }
+   },
+   "calib": {
+    "title": "Auzi sunetul?",
+    "subtitle": "Sunetul crește încet.<br>Apasă <b>STOP</b> de îndată ce îl auzi confortabil.",
+    "stopAria": "Stop — volumul e confortabil",
+    "stop": "STOP"
+   },
+   "bravo": {
+    "almost": "Excelent! Aproape gata…",
+    "quickFmt": "Bravo! {done} din {total} gata",
+    "preciseFmt": "Bravo! Măsurătoarea {done} gata"
+   },
+   "measure": {
+    "ofFmt": "Măsurătoarea {n} din {total}",
+    "nFmt": "Măsurătoarea {n}",
+    "octSuffix": "oct",
+    "accuracyFmt": "precizie: {ci} (țintă ±{target})"
+   },
+   "trial": {
+    "title": "Îți găsim frecvența",
+    "help": "Ascultă cele două sunete. Alege care e mai aproape de al tău.",
+    "back": "Înapoi la precedentul",
+    "quit": "Oprește deocamdată",
+    "quitSub": "Salvăm unde ai ajuns"
+   },
+   "tone": {
+    "aria": "Sunetul {letter} — apasă pentru a asculta",
+    "label": "Sunetul {letter}",
+    "hint": "Apasă pentru a asculta",
+    "replay": "Ascultă din nou",
+    "choose": "Acesta e al meu"
+   },
+   "hold": {
+    "holding": "Ține apăsat…",
+    "hint": "Apasă = asculți<br>Ține = alegi"
+   },
+   "octave": {
+    "title": "Verificarea octavei",
+    "lower": "octava inferioară",
+    "upper": "octava superioară"
+   },
+   "finetune": {
+    "title": "Reglează-ți exact tonul",
+    "subtitle": "Glisează încet până când sunetul devine<br>exact ca tinitusul tău.",
+    "aria": "Reglaj fin al frecvenței",
+    "lower": "mai jos",
+    "higher": "mai sus",
+    "done": "Acesta e tonul meu"
+   },
+   "reward": {
+    "title": "Ți-am găsit frecvența",
+    "subtitle": "Ascultă liniștit — sunetul e reglat pentru tine.<br>Respiră încet.",
+    "done": "Gata"
+   },
+   "rewardAsk": {
+    "title": "Ai simțit o diferență?",
+    "subtitle": "La mulți, țiuitul se atenuează câteva minute după aceea.",
+    "yes": {
+     "label": "Da, e mai liniștit",
+     "desc": "Țiuitul a scăzut"
+    },
+    "little": {
+     "label": "Puțin",
+     "desc": "Schimbare ușoară"
+    },
+    "no": {
+     "label": "Nu am simțit",
+     "desc": "Nicio schimbare acum"
+    },
+    "note": "Pentru o frecvență și mai exactă poți termina testul mai târziu — când îți e comod."
+   },
+   "result": {
+    "rangeFmt": "Interval de încredere: {lo} – {hi} (±{ci} octavă).",
+    "title": "Gata",
+    "subtitle": "Am găsit frecvența aproximativă a tinitusului tău.",
+    "note": "Este o estimare aproximativă, nu o măsurătoare clinică — frecvența tinitusului se schimbă natural. De aceea abordarea sonoră folosește o bandă largă în jurul ei.",
+    "continue": "Continuă",
+    "retest": "Repetă testul"
+   },
+   "quit": {
+    "title": "Nicio problemă 🙂",
+    "body": "Ai oprit testul. Îl poți face mai târziu, când îți e comod — durează doar un minut.",
+    "toStart": "La început"
+   }
   }
  },
  "science": {
