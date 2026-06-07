@@ -2781,35 +2781,35 @@
  "noises": {
   "none": {
    "title": "Sin fondo",
-   "description": "Само главният звук, без фонов шум. Подходящо за медитативни мелодии."
+   "description": "Solo el sonido principal, sin ruido de fondo. Adecuado para melodías meditativas."
   },
   "pink_pure": {
-   "title": "Ясен розов шум",
-   "description": "Най-широкоспектърният равномерен шум. Прилича на постоянен дъжд върху листа. Подходящ за концентрация и широко маскиране."
+   "title": "Ruido rosa claro",
+   "description": "El ruido uniforme de espectro más amplio. Parecido a una lluvia constante sobre las hojas. Adecuado para la concentración y un enmascaramiento amplio."
   },
   "pink_lp2000": {
-   "title": "Приглушен розов шум",
-   "description": "Розов шум с приглушени високи честоти. По-меко звучене, подходящо при чувствителност към ярки звуци."
+   "title": "Ruido rosa amortiguado",
+   "description": "Ruido rosa con las frecuencias agudas amortiguadas. Un sonido más suave, adecuado ante la sensibilidad a los sonidos brillantes."
   },
   "pink_lp4000": {
-   "title": "Мек розов шум",
-   "description": "Леко филтриран розов шум. Научно потвърден като оптимален за маскиране на високочестотен тинитус."
+   "title": "Ruido rosa suave",
+   "description": "Ruido rosa ligeramente filtrado. Confirmado científicamente como óptimo para enmascarar el acúfeno agudo."
   },
   "brown_pure": {
-   "title": "Плътен кафяв шум",
-   "description": "Богат, басов шум с пълен спектър. Прилича на далечен водопад или океан. Силно маскира."
+   "title": "Ruido marrón denso",
+   "description": "Un ruido rico y grave de espectro completo. Parecido a una cascada lejana o al océano. Enmascara con fuerza."
   },
   "brown_lp1000": {
-   "title": "Топъл кафяв шум",
-   "description": "Меко филтриран кафяв шум. Топло и обгръщащо звучене, подходящо за релакс и заспиване."
+   "title": "Ruido marrón cálido",
+   "description": "Ruido marrón suavemente filtrado. Un sonido cálido y envolvente, adecuado para relajarse y dormirse."
   },
   "brown_lp500": {
-   "title": "Дълбок кафяв шум",
-   "description": "Най-дълбокият вариант, само ниски честоти. Идеален за дълбок сън и SOS моменти на тревожност."
+   "title": "Ruido marrón profundo",
+   "description": "La variante más profunda, solo frecuencias graves. Ideal para el sueño profundo y los momentos SOS de ansiedad."
   },
   "green_noise": {
-   "title": "Зелен шум",
-   "description": "Центриран в средни честоти, подобен на природна среда. Подходящ при стрес и за дневен фон."
+   "title": "Ruido verde",
+   "description": "Centrado en frecuencias medias, similar a un entorno natural. Adecuado ante el estrés y como fondo diurno."
   }
  },
  "components": {
@@ -2819,173 +2819,173 @@
    "infoAria": "Información sobre: {name}",
    "options": {
     "none": "Sin fondo",
-    "pink_pure": "Ясен розов шум",
-    "pink_lp2000": "Приглушен розов шум",
-    "pink_lp4000": "Мек розов шум",
-    "brown_pure": "Плътен кафяв шум",
-    "brown_lp1000": "Топъл кафяв шум",
-    "brown_lp500": "Дълбок кафяв шум",
-    "green_noise": "Зелен шум"
+    "pink_pure": "Ruido rosa claro",
+    "pink_lp2000": "Ruido rosa amortiguado",
+    "pink_lp4000": "Ruido rosa suave",
+    "brown_pure": "Ruido marrón denso",
+    "brown_lp1000": "Ruido marrón cálido",
+    "brown_lp500": "Ruido marrón profundo",
+    "green_noise": "Ruido verde"
    }
   },
   "bottomSheet": {
    "close": "Cerrar"
   },
   "player": {
-   "infoAria": "Информация за звука"
+   "infoAria": "Información del sonido"
   }
  },
  "progress": {
-  "title": "Вашата 14-дневна програма",
+  "title": "Tu programa de 14 días",
   "day_of": "Día {n} de 14",
-  "day_n": "Ден {n}",
-  "completed": "Завършен ден",
-  "partial": "Частичен ден",
-  "empty": "Празен ден",
-  "frozen": "Замразен ден",
-  "today": "Днес",
-  "freeze_use": "Използвайте freeze",
-  "freeze_remaining": "{count} оставащи freeze-а",
+  "day_n": "Día {n}",
+  "completed": "Día completado",
+  "partial": "Día parcial",
+  "empty": "Día vacío",
+  "frozen": "Día congelado",
+  "today": "Hoy",
+  "freeze_use": "Usar un freeze",
+  "freeze_remaining": "{count} freezes restantes",
   "freeze": {
-   "banner_title": "Замразете ден {n}",
-   "banner_body": "Streak-ът Ви се запазва. Имате {count} оставащ(и) freeze.",
-   "success_toast": "Ден {n} е замразен",
-   "failed": "Замразяването не успя"
+   "banner_title": "Congelar el día {n}",
+   "banner_body": "Tu racha se conserva. Te quedan {count} freeze(s).",
+   "success_toast": "El día {n} está congelado",
+   "failed": "La congelación falló"
   },
   "legend": {
-   "completed": "завършени",
-   "partial": "частични",
-   "frozen": "замразени"
+   "completed": "completados",
+   "partial": "parciales",
+   "frozen": "congelados"
   }
  },
  "settings": {
-  "pitchRetest": "Направи звуков тест отново",
+  "pitchRetest": "Hacer la prueba de sonido otra vez",
   "notch": {
-   "title": "Лична честотна терапия",
-   "on": "Активна",
-   "off": "Спряна",
-   "descActive": "Премахваме Вашата тинитус честота ({freq}) от всички звуци за подобрена терапия.",
-   "descInactive": "Терапията е спряна. Звуците се възпроизвеждат без личен филтър.",
-   "toastOn": "Личната терапия е активирана",
-   "toastOff": "Личната терапия е спряна. Звуците ще се възпроизвеждат без notch филтър.",
-   "what": "От всеки звук премахваме точно Вашата тинитус честота (",
-   "keepOn": "Препоръчваме да остане включена. Изключете я само ако звукът Ви е неприятен — иначе губите главното предимство на терапията.",
-   "offWarn": "Терапията е спряна. Звуците се възпроизвеждат без личния филтър — за пълен ефект включете я отново.",
-   "recommended": "Препоръчва се",
-   "confirmOff": "Сигурни ли сте? Личната честотна терапия е в основата на метода. "
+   "title": "Terapia de frecuencia personal",
+   "on": "Activa",
+   "off": "Detenida",
+   "descActive": "Eliminamos tu frecuencia del acúfeno ({freq}) de todos los sonidos para una terapia mejorada.",
+   "descInactive": "La terapia está detenida. Los sonidos se reproducen sin filtro personal.",
+   "toastOn": "La terapia personal está activada",
+   "toastOff": "La terapia personal está detenida. Los sonidos se reproducirán sin filtro notch.",
+   "what": "De cada sonido eliminamos exactamente tu frecuencia del acúfeno (",
+   "keepOn": "Recomendamos mantenerla activada. Desactívala solo si el sonido te resulta desagradable — de lo contrario pierdes la principal ventaja de la terapia.",
+   "offWarn": "La terapia está detenida. Los sonidos se reproducen sin el filtro personal — para el efecto completo, actívala de nuevo.",
+   "recommended": "Recomendado",
+   "confirmOff": "¿Estás seguro? La terapia de frecuencia personal es la base del método. "
   },
   "data": {
-   "exportAll": "Експорт всичко",
-   "exported": "Експортирано",
-   "deleteOnly": "Изтрий само",
-   "quizAnswers": "Quiz отговори",
+   "exportAll": "Exportar todo",
+   "exported": "Exportado",
+   "deleteOnly": "Eliminar solo",
+   "quizAnswers": "Respuestas del Quiz",
    "diary": "Diario",
    "favorites": "Favoritos",
    "history": "Listening history",
-   "exportSection": "Експорт раздел",
-   "deleteConfirmSection": "Изтрий ",
-   "deletedSection": "Изтрито: "
+   "exportSection": "Exportar sección",
+   "deleteConfirmSection": "Eliminar ",
+   "deletedSection": "Eliminado: "
   },
   "reminders": {
-   "intro": "Нежни напомняния, които Ви помагат да задържите ежедневния навик. ",
-   "dailyLabel": "Вечерно напомняне за дневника",
-   "dailyHelp": "Известие всяка вечер да отбележите как мина денят. Дневникът проследява напредъка Ви.",
-   "weeklyLabel": "Седмично резюме",
-   "weeklyHelp": "Кратък преглед на седмицата Ви — изпраща се в понеделник сутрин.",
-   "note": "Известията изискват разрешение и приложението да е добавено на началния екран.",
-   "timeLabel": "Час на напомнянето",
-   "title": "Напомняния",
-   "unsupported": "Това устройство не поддържа известия в браузъра.",
-   "denied": "Известията са блокирани. Разрешете ги от настройките на устройството."
+   "intro": "Recordatorios suaves que te ayudan a mantener el hábito diario. ",
+   "dailyLabel": "Recordatorio nocturno del diario",
+   "dailyHelp": "Una notificación cada noche para anotar cómo fue el día. El diario registra tu progreso.",
+   "weeklyLabel": "Resumen semanal",
+   "weeklyHelp": "Un breve repaso de tu semana — se envía el lunes por la mañana.",
+   "note": "Las notificaciones requieren permiso y que la app esté añadida a la pantalla de inicio.",
+   "timeLabel": "Hora del recordatorio",
+   "title": "Recordatorios",
+   "unsupported": "Este dispositivo no admite notificaciones en el navegador.",
+   "denied": "Las notificaciones están bloqueadas. Permítelas desde los ajustes del dispositivo."
   },
   "volume": {
-   "quiet": "Тих режим",
-   "normal": "Нормален",
+   "quiet": "Modo silencioso",
+   "normal": "Normal",
    "loud": "Fuerte",
-   "profile": "Профил на сила"
+   "profile": "Perfil de volumen"
   },
   "audio": {
    "title": "Advanced Audio",
-   "crossfade": "Преходи между звуци",
-   "layer2Default": "Сила на фонов шум (по подразбиране)",
-   "sleepFade": "Затихване при сън"
+   "crossfade": "Transiciones entre sonidos",
+   "layer2Default": "Volumen del ruido de fondo (por defecto)",
+   "sleepFade": "Desvanecimiento al dormir"
   },
   "stats": {
-   "desc": "Преглед на напредъка Ви: колко минути слушате, любими звуци и серията ",
-   "title": "Вашата статистика",
-   "cta": "Покажи статистиката"
+   "desc": "Un repaso de tu progreso: cuántos minutos escuchas, sonidos favoritos y la racha ",
+   "title": "Tus estadísticas",
+   "cta": "Mostrar las estadísticas"
   }
  },
  "player": {
   "notch": {
-   "aria": "Лична честотна терапия активна — {freq} премахната"
+   "aria": "Terapia de frecuencia personal activa — {freq} eliminada"
   }
  },
  "a11y": {
-  "skipToContent": "Прескочи към основно съдържание",
+  "skipToContent": "Saltar al contenido principal",
   "paused": "Pausa",
-  "playing": "Пускане",
+  "playing": "Reproducir",
   "help": {
-   "esc": "Затвори модал",
-   "spaceKey": "Интервал",
-   "space": "Пусни / Пауза",
-   "arrows": "Навигация между карти",
-   "enter": "Активирай фокусиран елемент",
-   "question": "Покажи тази помощ",
-   "title": "Клавишни комбинации"
+   "esc": "Cerrar la ventana",
+   "spaceKey": "Intervalo",
+   "space": "Reproducir / Pausar",
+   "arrows": "Navegar entre tarjetas",
+   "enter": "Activar el elemento enfocado",
+   "question": "Mostrar esta ayuda",
+   "title": "Atajos de teclado"
   }
  },
  "analytics": {
   "listening": {
-   "section": "Слушане",
-   "totalHours": "Общо часове",
-   "mostPlayed": "Най-слушан",
-   "favoriteHour": "Любим час"
+   "section": "Escucha",
+   "totalHours": "Horas totales",
+   "mostPlayed": "Más escuchado",
+   "favoriteHour": "Hora favorita"
   },
   "diary": {
    "section": "Diario",
-   "daysLogged": "Записани дни",
-   "avgTinnitus": "Среден тинитус",
-   "avgSleep": "Среден сън"
+   "daysLogged": "Días registrados",
+   "avgTinnitus": "Acúfeno medio",
+   "avgSleep": "Sueño medio"
   },
   "other": {
-   "section": "Други",
-   "sosUsed": "SOS използван",
-   "sleepMode": "Sleep режим"
+   "section": "Otros",
+   "sosUsed": "SOS usado",
+   "sleepMode": "Modo de sueño"
   },
-  "title": "Вашата статистика",
-  "topPlayed": "Най-слушани",
-  "noData": "Няма данни за слушане все още."
+  "title": "Tus estadísticas",
+  "topPlayed": "Más escuchados",
+  "noData": "Aún no hay datos de escucha."
  },
  "errors": {
-  "storageQuota": "Паметта на устройството е пълна. Изтрийте стари данни.",
-  "network": "Без интернет връзка",
-  "reconnected": "Връзката е възстановена"
+  "storageQuota": "La memoria del dispositivo está llena. Elimina datos antiguos.",
+  "network": "Sin conexión a internet",
+  "reconnected": "La conexión se ha restablecido"
  },
  "favorites": {
-  "title": "Моите любими",
-  "empty": "Все още нямате любими звуци.",
+  "title": "Mis favoritos",
+  "empty": "Aún no tienes sonidos favoritos.",
   "sort": {
-   "recent": "Скорошни",
-   "played": "Слушани",
+   "recent": "Recientes",
+   "played": "Escuchados",
    "alpha": "A-Z"
   },
-  "remove": "Премахни",
-  "removed": "Премахнато от любими",
-  "pageSubtitle": "Вашите запазени звуци",
+  "remove": "Quitar",
+  "removed": "Quitado de favoritos",
+  "pageSubtitle": "Tus sonidos guardados",
   "backAria": "Atrás",
-  "countFmt": "Звуци (",
-  "emptyHint": "Натиснете сърцето в плеъра за да добавите звук към любими."
+  "countFmt": "Sonidos (",
+  "emptyHint": "Pulsa el corazón en el reproductor para añadir un sonido a favoritos."
  },
  "languagePicker": {
-  "current": "Текущ:",
-  "search": "Търсете...",
-  "available": "Достъпни:",
-  "title": "Изберете език"
+  "current": "Actual:",
+  "search": "Buscar...",
+  "available": "Disponibles:",
+  "title": "Elige un idioma"
  },
  "library": {
   "player": {
-   "openAria": "Отвори плейъра"
+   "openAria": "Abrir el reproductor"
   },
   "sounds": {
    "ambience_air_inside_bunker_sea_ambience_from_outside_02": {
@@ -3718,13 +3718,13 @@
     "title": "Мек кафяв шум"
    },
    "brown_lowpass_500": {
-    "title": "Дълбок кафяв шум"
+    "title": "Ruido marrón profundo"
    },
    "brown_pure": {
     "title": "Кафяв шум"
    },
    "pink_lowpass_2000": {
-    "title": "Мек розов шум"
+    "title": "Ruido rosa suave"
    },
    "pink_lowpass_4000": {
     "title": "Ruido rosa"
