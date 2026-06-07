@@ -39,3 +39,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://tinnitus-app.help/sitemap.xml
+
+# AI-четим индекс на съдържанието (llmstxt.org)
+# LLM-friendly content index: https://tinnitus-app.help/llms.txt

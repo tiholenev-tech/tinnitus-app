@@ -16,6 +16,7 @@
  *   $RELATED         — масив от slug-ове (по подразбиране: 2 от същия раздел)
  */
 require __DIR__ . '/site.php';
+require __DIR__ . '/hreflang-map.php';
 
 $a = site_article($SLUG);
 if (!$a) { http_response_code(404); echo 'Статията не е намерена.'; return; }
@@ -74,6 +75,11 @@ if ($HAS_REVIEWER) {
   if ($REVIEWER_SAMEAS) $rev['sameAs'] = $REVIEWER_SAMEAS;
   $article['reviewedBy'] = $rev;
 }
+// speakable — кои части гласовите асистенти да четат на глас (заглавие + BLUF)
+$article['speakable'] = ['@type' => 'SpeakableSpecification', 'cssSelector' => ['h1', '.bluf']];
+// citation — реалните научни източници (DOI/PMID URL-и) от $SOURCES
+$cites = site_citations($SOURCES);
+if ($cites) $article['citation'] = $cites;
 $graph[] = $article;
 if ($FAQ) {
   $main = [];
@@ -87,7 +93,9 @@ $graph[] = ['@type'=>'BreadcrumbList','itemListElement'=>[
 ]];
 $JSONLD = json_encode(['@context'=>'https://schema.org','@graph'=>$graph], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
-auralis_head(['title' => $TITLE . ' — AURALIS', 'desc' => $DESC, 'url' => $URL, 'og_type' => 'article', 'jsonld' => $JSONLD]);
+$_alts = hreflang_alts($URL);
+auralis_head(['title' => $TITLE . ' — AURALIS', 'desc' => $DESC, 'url' => $URL, 'og_type' => 'article', 'jsonld' => $JSONLD,
+  'alt_it' => $_alts['it'] ?? '', 'alt_ro' => $_alts['ro'] ?? '']);
 auralis_masthead($a['section']);
 ?>
 <main id="main">
