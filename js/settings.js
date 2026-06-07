@@ -35,8 +35,8 @@ window.Settings = (function () {
   // language-picker.js). Mirror към i18n.SUPPORTED=['bg'].
   // Когато EN е production-ready → разшири ВСИЧКИ ТРИ места едновременно:
   // i18n.js SUPPORTED + language-picker.js LANGUAGES + settings.js LOCALES.
-  var LOCALES = ['bg', 'it', 'ro', 'el'];
-  var COMPLETE_LOCALES = ['bg', 'it', 'ro', 'el'];
+  var LOCALES = ['bg', 'it', 'ro', 'el', 'en', 'es'];
+  var COMPLETE_LOCALES = ['bg', 'it', 'ro', 'el', 'en', 'es'];
   var PREVIEW_LOCALES = []; // EN stub скрит за launch (Google audit risk)
 
   // ============================================================
