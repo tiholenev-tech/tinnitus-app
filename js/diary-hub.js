@@ -316,20 +316,20 @@ window.DiaryHub = (function () {
           buildActionCard({
             action: 'evening',
             icon: SVG.moon,
-            title: 'Вечерен дневник',
-            desc: '5 въпроса, 90 секунди'
+            title: t('ui.diaryHub.evening.title', 'Вечерен дневник'),
+            desc: t('ui.diaryHub.evening.desc', '5 въпроса, 90 секунди')
           }) +
           buildActionCard({
             action: 'cbt',
             icon: SVG.book,
-            title: 'Днешна практика',
-            desc: 'Ден ' + currentDay + ' от 14'
+            title: t('ui.diaryHub.cbt.title', 'Днешна практика'),
+            desc: t('ui.diaryHub.cbt.descFmt', 'Ден {n} от 14', { n: currentDay })
           }) +
           buildActionCard({
             action: 'progress',
             icon: SVG.chart,
-            title: 'Прогрес',
-            desc: 'Вижте промяната'
+            title: t('ui.diaryHub.progress.title', 'Прогрес'),
+            desc: t('ui.diaryHub.progress.desc', 'Вижте промяната')
           }) +
         '</div>' +
       '</div>'
@@ -743,7 +743,7 @@ window.DiaryHub = (function () {
 
     if (window.BottomSheet && window.BottomSheet.open) {
       window.BottomSheet.open({
-        title: 'Прогрес',
+        title: t('ui.diaryHub.progress.title', 'Прогрес'),
         content: content,
         height: 'auto',
         showGrip: true,

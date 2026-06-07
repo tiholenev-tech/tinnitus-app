@@ -419,6 +419,19 @@
      "subtitle": "Natură · 30 min",
      "author": "Joseph Beg"
     }
+   },
+   "cat_sub": {
+    "ocean": "Valuri de mare și resac",
+    "underwater": "Sunete sub apă",
+    "river": "Râuri și pâraie",
+    "waterfall": "Susur de cascadă",
+    "rain": "Ploaie și picături",
+    "wind": "Vânt și briză",
+    "forest": "Pădure și păsări",
+    "fire": "Foc în șemineu",
+    "meditation": "Muzică liniștită",
+    "noise": "Zgomot maro și roz",
+    "ambient": "Tonuri profunde"
    }
   },
   "sleep": {
@@ -807,7 +820,19 @@
    "statCompleted": "zile finalizate",
    "statEntries": "înregistrări în jurnal",
    "statStreak": "zile active consecutive",
-   "statFreezes": "«salturi» rămase"
+   "statFreezes": "«salturi» rămase",
+   "evening": {
+    "title": "Jurnal de seară",
+    "desc": "5 întrebări, 90 de secunde"
+   },
+   "cbt": {
+    "title": "Practica de azi",
+    "descFmt": "Ziua {n} din 14"
+   },
+   "progress": {
+    "title": "Progres",
+    "desc": "Vezi schimbarea"
+   }
   },
   "favorites": {
    "loadingSkeleton": "Se încarcă…"
@@ -844,7 +869,12 @@
    "hintBody1": "Reglează volumul și mixul cum îți place — <b>tu decizi</b>.",
    "hintBody2": "Pentru efect maxim și ca zgomotul să se atenueze în timp, lasă sunetul să <b>nu acopere complet</b> tinitusul tău — e bine să-l auzi puțin sub sunet.",
    "hintOk": "Am înțeles",
-   "hintNever": "Nu mai arăta"
+   "hintNever": "Nu mai arăta",
+   "sleepPreset15": "15 minute",
+   "sleepPreset30": "30 de minute",
+   "sleepPreset60": "1 oră",
+   "sleepPresetNight": "8 ore (toată noaptea)",
+   "sleepTimerTitle": "Timer de somn"
   },
   "profileResults": {
    "spectrumAria": "Spectrul frecvențelor de la 250 Hz la 16 kHz, marcaj pe {f}"
@@ -2945,6 +2975,848 @@
  "library": {
   "player": {
    "openAria": "Deschide playerul"
+  },
+  "sounds": {
+   "ambience_air_inside_bunker_sea_ambience_from_outside_02": {
+    "title": "Șoaptă a mării"
+   },
+   "ambience_residential_abandoned_building_gentle_wind_distant_boat_engine_distant_traffic_people_pass_by_helicopter_distant_sea_athens_greece": {
+    "title": "Briză marină lângă Atena"
+   },
+   "ambience_seaside_dalian_beach_waves_people_footsteps_distant_boats_china": {
+    "title": "Valuri de dimineață pe țărm"
+   },
+   "ambience_underwater_sea_wave_ilo_aquatic_water_burble_waves_back_forth_microphone_blocking_feet": {
+    "title": "Valuri subacvatice"
+   },
+   "ambience_underwater_waves_constant_deep_hits": {
+    "title": "În adâncul oceanului"
+   },
+   "ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_01": {
+    "title": "Răsărit la Marea Neagră"
+   },
+   "ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_02": {
+    "title": "Seară la Marea Neagră"
+   },
+   "ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_03": {
+    "title": "Țărmul liniștit din Batumi"
+   },
+   "birds_sea_seagulls_distant_several_gentle_waves_02": {
+    "title": "Pescăruși deasupra țărmului"
+   },
+   "genetic_waves_joseph_beg": {
+    "title": "Valurile nesfârșite"
+   },
+   "ocean_meditation_joseph_beg": {
+    "title": "Ocean în adâncime"
+   },
+   "water_lap_waves_splashing_against_boat_large_hitting_sea_02": {
+    "title": "Valuri lângă barcă"
+   },
+   "water_lap_waves_water_lapping_seafront_sea_close": {
+    "title": "Țărmul apropiat"
+   },
+   "water_lap_waves_water_lapping_seafront_sea_semi_close": {
+    "title": "Resac îndepărtat"
+   },
+   "water_surf_beach_ocean_waves_sand_wind": {
+    "title": "Plajă cu nisip"
+   },
+   "water_surf_beach_waves_coming_in_occasional_birds_atlantic_ocean_caribbean_sea": {
+    "title": "Valuri caraibiene"
+   },
+   "water_surf_distant_calm_sea_waves_few_distant_birds": {
+    "title": "Mare calmă în depărtare"
+   },
+   "water_surf_ocean_sea_big_waves_breaking_against_dyke_breakwater_strong_weather_02_30": {
+    "title": "Mare furtunoasă"
+   },
+   "water_surf_water_ocean_seashore_waves_roar_distant_llandudno_cape_town_south_africa": {
+    "title": "Ocean african"
+   },
+   "water_surf_water_sea_waves_choppy_italy_grado_01": {
+    "title": "Coastă italiană"
+   },
+   "water_surf_water_sea_waves_choppy_italy_grado_02": {
+    "title": "Valuri adriatice"
+   },
+   "water_surf_water_waves_rough_sea_01": {
+    "title": "Valuri furtunoase"
+   },
+   "water_surf_water_waves_rough_sea_02": {
+    "title": "Mare agitată"
+   },
+   "water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta": {
+    "title": "Golf maltez"
+   },
+   "water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta_01": {
+    "title": "Valuri de seară la Selmun"
+   },
+   "water_surf_waves_ocean_distant_on_beach_distant_boat_motor_03": {
+    "title": "Barcă în depărtare"
+   },
+   "water_underwater_deep_sea_bubbles_muffled_big_02": {
+    "title": "Bule subacvatice"
+   },
+   "water_underwater_ocean_bubbles_water_movement_lapping_argentina_02": {
+    "title": "Argentina subacvatică"
+   },
+   "water_wave_ocean_beach_waves_medium_lapping": {
+    "title": "Maree calmă"
+   },
+   "water_wave_ocean_medium_waves_coming_in_close_03": {
+    "title": "Valuri apropiate"
+   },
+   "water_wave_ocean_wave_swells": {
+    "title": "Oceanul care respiră"
+   },
+   "water_wave_ocean_waves_medium_on_stone_sea_wall_boats_harbor_in_background": {
+    "title": "Valuri în port"
+   },
+   "water_wave_ocean_waves_on_shore_beach_medium_distant": {
+    "title": "Valuri pe țărm"
+   },
+   "water_wave_sea_beach_cove_100m_away_distance_moderate_waves_distant_plane_birds": {
+    "title": "Golf retras"
+   },
+   "water_wave_sea_beach_cove_50m_distance_moderate_waves_ms": {
+    "title": "Valuri liniștite pe țărm"
+   },
+   "water_wave_sea_light_wind_waves_intensifies": {
+    "title": "Vânt deasupra valurilor"
+   },
+   "water_wave_sea_water_very_gentle_waves": {
+    "title": "Mare blândă"
+   },
+   "water_wave_waves_sea_beach_punta_allen_sian_ka_an_biosphere_reserve_mexico": {
+    "title": "Coastă mexicană"
+   },
+   "wind_general_calm_mountain_sea_distant_waves_01": {
+    "title": "Vânt de munte lângă mare"
+   },
+   "wind_general_calm_mountain_sea_distant_waves_02": {
+    "title": "Briză marină de sus"
+   },
+   "wind_general_calm_mountain_sea_distant_waves_03": {
+    "title": "Vânt lin deasupra golfului"
+   },
+   "ambience_forest_ukraine_morning_birds_nature_trees_calm_breeze_wildlife": {
+    "title": "Păsări de dimineață în Carpați"
+   },
+   "ambience_swamp_wetland_after_rain_water_dripping_humid_distant_fowl": {
+    "title": "După ploaie în mlaștini"
+   },
+   "ambience_tropical_rain_texture_medium": {
+    "title": "Ploaie tropicală"
+   },
+   "ambience_underwater_grainy_bubbles_small_deep_fizz": {
+    "title": "Sunetul adâncurilor"
+   },
+   "rain_attic_01": {
+    "title": "Ploaie pe acoperiș"
+   },
+   "rain_cloth_raining_umbrella_01": {
+    "title": "Picături pe umbrelă"
+   },
+   "rain_concrete_city_rain_soft_residential_neighborhood_night_car_pass_by_wet_roads_side_streets_02": {
+    "title": "Ploaie liniștită în oraș"
+   },
+   "rain_general_medium_drip_details_night_wide": {
+    "title": "Picături nocturne"
+   },
+   "rain_glass_rain_car_window_perspective_medium_01": {
+    "title": "Ploaie pe geamul mașinii"
+   },
+   "rain_glass_window_roof_location_2_medium_room_loft_roof_window": {
+    "title": "Picături pe luminator"
+   },
+   "rain_interior_rain_medium_drops_drumming_clunking": {
+    "title": "Toba ploii"
+   },
+   "rain_interior_rain_medium_inside_car": {
+    "title": "Seară ploioasă în mașină"
+   },
+   "rain_interior_rain_on_window_house_apartment_room_tone_light_rain": {
+    "title": "Ploaie în apartament"
+   },
+   "rain_plastic_medium_outside_plastic_window": {
+    "title": "Ploaie pe plastic"
+   },
+   "rain_plastic_medium_to_light_outside_plastic_window": {
+    "title": "Ploaie liniștită pe geam"
+   },
+   "rain_plastic_medium_to_light_under_plastic_roof_01": {
+    "title": "Adăpostiți de ploaie"
+   },
+   "rain_plastic_medium_to_light_under_plastic_roof_02": {
+    "title": "Ploaie pe copertină"
+   },
+   "rain_plastic_on_plastic_umbrella_medium_intensity_dense_dripping": {
+    "title": "Ploaie deasă pe umbrelă"
+   },
+   "rain_plastic_plastic_buckets_multiple_drops_medium_busy_01": {
+    "title": "Picături în găleți"
+   },
+   "rain_plastic_plastic_buckets_multiple_drops_medium_busy_02": {
+    "title": "Picături numeroase"
+   },
+   "rain_vegetation_medium_leaves_drop_tropical_jungle": {
+    "title": "Ploaie în junglă"
+   },
+   "rain_wood_rain_front_porch_rain_on_door_medium": {
+    "title": "Ploaie în fața ușii"
+   },
+   "wind_general_rain_playa_blanca_village_drops_metal_sheet_roof_movement_04": {
+    "title": "Ploaie pe tablă"
+   },
+   "ambience_forest_wetlands_river_water_wind_ship": {
+    "title": "Vânt în pădure lângă râu"
+   },
+   "ambience_underwater_bubbles_dark_spacious_boiling_flowing": {
+    "title": "Adâncuri subacvatice clocotinde"
+   },
+   "ambience_underwater_dark_deep_leak_gurgling_flowing": {
+    "title": "Gâlgâit subacvatic"
+   },
+   "ambience_underwater_dark_eerie_deep_bubbles_spacious_stream": {
+    "title": "Râu subacvatic mistic"
+   },
+   "ambience_underwater_dark_eerie_spacious_flowing_roaring_01": {
+    "title": "Ritm subacvatic"
+   },
+   "ambience_underwater_dark_eerie_spacious_flowing_roaring_02": {
+    "title": "Curent subacvatic întunecat"
+   },
+   "ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_02": {
+    "title": "Apă de munte subacvatică"
+   },
+   "ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_03": {
+    "title": "Râu subacvatic glaciar"
+   },
+   "ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_05": {
+    "title": "Adâncuri de ametist"
+   },
+   "ambience_underwater_river_flowing_01": {
+    "title": "Râu liniștit sub apă"
+   },
+   "ambience_underwater_river_flowing_02": {
+    "title": "Râu subacvatic limpede"
+   },
+   "ambience_underwater_river_flowing_03": {
+    "title": "Curent subacvatic calm"
+   },
+   "ambience_underwater_river_flowing_04": {
+    "title": "Pârâu subacvatic cristalin"
+   },
+   "ambience_underwater_river_flowing_05": {
+    "title": "Râu subacvatic argintiu"
+   },
+   "ambience_underwater_river_flowing_06": {
+    "title": "Curent subacvatic răcoros"
+   },
+   "ambience_underwater_trickle_bright_detailed_stream": {
+    "title": "Pârâu subacvatic luminos"
+   },
+   "ambience_underwater_water_flow_01": {
+    "title": "Dans subacvatic"
+   },
+   "ambience_underwater_water_flow_02": {
+    "title": "Ritm subacvatic profund"
+   },
+   "ambience_underwater_water_flow_03": {
+    "title": "Tăcere sub apă"
+   },
+   "ambience_underwater_water_flow_04": {
+    "title": "Curent subacvatic liniștit"
+   },
+   "rain_metal_rain_gutter_medium_drops_flowing": {
+    "title": "Ploaie în jgheab"
+   },
+   "water_flow_deep_mountain_stream_creek_bubble": {
+    "title": "Râu adânc de munte"
+   },
+   "water_flow_river_calm_running_medium_distance_01": {
+    "title": "Râu liniștit"
+   },
+   "water_flow_river_close_gentle_01": {
+    "title": "Curent blând și apropiat"
+   },
+   "water_flow_river_close_gentle_02": {
+    "title": "Șoaptă cristalină a râului"
+   },
+   "water_flow_river_current_fast_distant": {
+    "title": "Curent rapid și îndepărtat"
+   },
+   "water_flow_river_current_small_fast_flow": {
+    "title": "Râu limpede și rapid"
+   },
+   "water_flow_river_flow_strong_bubbles_nature_forest_telluride": {
+    "title": "Râu puternic de pădure"
+   },
+   "water_flow_river_run_flow_valley_bubbles_calm_nature_san_miguel_river_telluride": {
+    "title": "Râu în valea San Miguel"
+   },
+   "water_flow_river_small_mountain_stream": {
+    "title": "Râu mic de munte"
+   },
+   "water_waterfall_strong_flow_people_forest_lower_waterfall_evening_zenny_fall_telluride": {
+    "title": "Cascadă în amurg"
+   },
+   "water_waterfall_waterfall_medium_flow_01": {
+    "title": "Cascadă liniștită"
+   },
+   "water_waterfall_waterfall_the_trolls_road_20m_from_river": {
+    "title": "Cascadă lângă drum"
+   },
+   "ambience_tropical_water_source_palm_leaves_wind_soothing": {
+    "title": "Briză tropicală"
+   },
+   "ambience_underwater_active": {
+    "title": "Puls subacvatic"
+   },
+   "ambience_underwater_complex_01": {
+    "title": "Simfonie subacvatică"
+   },
+   "ambience_underwater_complex_02": {
+    "title": "Dans subacvatic liniștit"
+   },
+   "ambience_underwater_complex_03": {
+    "title": "Enigmă subacvatică"
+   },
+   "ambience_underwater_complex_04": {
+    "title": "Adânc sub apă"
+   },
+   "ambience_underwater_complex_05": {
+    "title": "Vis subacvatic"
+   },
+   "ambience_underwater_complex_06": {
+    "title": "Loc subacvatic secret"
+   },
+   "ambience_underwater_complex_07": {
+    "title": "Tandrețe subacvatică"
+   },
+   "ambience_underwater_complex_08": {
+    "title": "Liniște subacvatică"
+   },
+   "ambience_underwater_complex_09": {
+    "title": "Adâncuri nesfârșite"
+   },
+   "ambience_underwater_complex_10": {
+    "title": "Pace subacvatică"
+   },
+   "ambience_underwater_complex_evolving": {
+    "title": "Adâncuri în evoluție"
+   },
+   "ambience_underwater_dark_eerie_roaring": {
+    "title": "Ecou subacvatic întunecat"
+   },
+   "ambience_underwater_dark_eerie_slow_moving_stutter": {
+    "title": "Scufundare lentă sub apă"
+   },
+   "ambience_underwater_deep_01": {
+    "title": "Marile adâncuri subacvatice"
+   },
+   "ambience_underwater_deep_02": {
+    "title": "Liniște subacvatică calmă"
+   },
+   "ambience_underwater_deep_03": {
+    "title": "Adâncuri subacvatice argintii"
+   },
+   "ambience_underwater_deep_04": {
+    "title": "Ape subacvatice reci"
+   },
+   "ambience_underwater_deep_abstract_01": {
+    "title": "Adânc sub apă, transă"
+   },
+   "ambience_underwater_deep_abstract_02": {
+    "title": "Suprarealist sub apă"
+   },
+   "ambience_underwater_deep_abstract_03": {
+    "title": "Abstracție subacvatică"
+   },
+   "ambience_underwater_deep_abstract_04": {
+    "title": "Curent subacvatic misterios"
+   },
+   "ambience_underwater_deep_bubble_01": {
+    "title": "Bule adânci"
+   },
+   "ambience_underwater_deep_bubble_02": {
+    "title": "Bule liniștite"
+   },
+   "ambience_underwater_deep_bubble_active_01": {
+    "title": "Bule subacvatice active"
+   },
+   "ambience_underwater_deep_bubble_active_02": {
+    "title": "Bule dansând"
+   },
+   "ambience_underwater_deep_bubbles_01": {
+    "title": "Bulă după bulă"
+   },
+   "ambience_underwater_deep_bubbles_02": {
+    "title": "Flux de bule"
+   },
+   "ambience_underwater_deep_bubbles_03": {
+    "title": "Bule numeroase"
+   },
+   "ambience_underwater_deep_low": {
+    "title": "Adâncuri joase"
+   },
+   "ambience_underwater_deep_propeller": {
+    "title": "Motoraș subacvatic"
+   },
+   "ambience_underwater_deep_sub": {
+    "title": "Liniște subacvatică · în amurg"
+   },
+   "ambience_underwater_designed_subsonic_01": {
+    "title": "Bas invizibil"
+   },
+   "ambience_underwater_designed_water_aquarium_bubbles_18": {
+    "title": "Acvariu subacvatic"
+   },
+   "ambience_underwater_designed_water_aquarium_bubbles_32": {
+    "title": "Bulă de acvariu"
+   },
+   "ambience_underwater_distant_low_rumble_01": {
+    "title": "Bubuit subacvatic profund"
+   },
+   "ambience_underwater_distant_low_rumble_02": {
+    "title": "Ton jos și îndepărtat"
+   },
+   "ambience_underwater_distant_mid_resonance_01": {
+    "title": "Ecou subacvatic"
+   },
+   "ambience_underwater_distant_thrill_water_01": {
+    "title": "Fior subacvatic"
+   },
+   "ambience_underwater_distant_thrill_water_02": {
+    "title": "Freamăt subacvatic îndepărtat"
+   },
+   "ambience_underwater_near_machine_01": {
+    "title": "Mașină subacvatică apropiată"
+   },
+   "ambience_underwater_near_machine_02": {
+    "title": "Mecanism subacvatic"
+   },
+   "ambience_underwater_small_bubbles_02": {
+    "title": "Bule mici"
+   },
+   "ambience_underwater_submarine_underwater": {
+    "title": "Sub submarin"
+   },
+   "ambience_underwater_tub_underwater_loop": {
+    "title": "Sub suprafața apei"
+   },
+   "ambience_underwater_underwater_current": {
+    "title": "Curent subacvatic"
+   },
+   "ambience_underwater_underwater_designed_flush_01": {
+    "title": "Undă subacvatică"
+   },
+   "ambience_underwater_underwater_designed_running_03": {
+    "title": "Flux subacvatic"
+   },
+   "ambience_underwater_underwater_designed_running_04": {
+    "title": "Cântec subacvatic liniștit"
+   },
+   "ambience_underwater_underwater_drone_hum": {
+    "title": "Drone subacvatic"
+   },
+   "ambience_underwater_waterfall": {
+    "title": "Cascadă subacvatică"
+   },
+   "designed_drone_sub_deep_underwater": {
+    "title": "Drone subacvatic profund"
+   },
+   "water_bubbles_aqua_massage_bubbling_01": {
+    "title": "Masaj subacvatic"
+   },
+   "water_bubbles_bubbling_witchs_cauldron": {
+    "title": "Bule subacvatice gâlgâind"
+   },
+   "water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_40": {
+    "title": "Marea cascadă"
+   },
+   "water_waterfall_steady_perspective": {
+    "title": "Cascadă constantă"
+   },
+   "water_waterfall_waterfall_powerful": {
+    "title": "Cascadă puternică"
+   },
+   "ambience_forest_winter_calm_light_wind_oslo_ostmarka_01": {
+    "title": "Vânt de iarnă lângă Oslo"
+   },
+   "ambience_forest_winter_calm_light_wind_single_bird_distant_oslo_ostmarka_01": {
+    "title": "Vânt de iarnă și o pasăre singuratică"
+   },
+   "ambience_urban_oslo_urban_city_hall_strong_winds_rattling_no_people_distant_trams_traffic": {
+    "title": "Vânt puternic peste Oslo"
+   },
+   "wind_general_abandoned_factory_chimney_wind_gusts_light_whistling_mic_upwards_distant_traffic_hum_humberstone_chile": {
+    "title": "Vânt în fabrica părăsită"
+   },
+   "wind_general_desert_bushes_twigs_wind_gusts_light_electric_whistling": {
+    "title": "Vânt de deșert printre tufișuri"
+   },
+   "wind_general_desert_close_to_bushes_wind_gusts_twig_branch_close": {
+    "title": "Tufișuri apropiate în briză"
+   },
+   "wind_general_desert_light_whistling_bagdad_highway_wind_gusts_light_wind_bushes": {
+    "title": "Vânt de deșert lângă Bagdad"
+   },
+   "wind_general_desert_pampa_perdiz_wind_gusts_dark_02": {
+    "title": "Vânt peste pampasul întunecat"
+   },
+   "wind_general_desert_pampa_perdiz_wind_gusts_dark_03": {
+    "title": "Briză patagoneză"
+   },
+   "wind_general_high_cliff_alto_patache_chile_01": {
+    "title": "Vânt pe stâncile din Chile"
+   },
+   "wind_general_iron_wire_sculpture_light_metallic_creaking_noise_wind_gusts_light_whistling_alto_patache_chile": {
+    "title": "Vânt în sculptura de fier"
+   },
+   "wind_general_large_tree_foliage_01": {
+    "title": "Vânt în copacul mare"
+   },
+   "wind_general_light_whistling_gusts_alto_patache_chile": {
+    "title": "Vânt de deșert care șuieră încet"
+   },
+   "wind_general_light_wind_iron_wire_weather_station_barbed_wire_low_whistling_wind_gusts_alto_patache_chile": {
+    "title": "Vânt lângă stația meteo"
+   },
+   "wind_general_plastic_telescope_gusts_salar_atacama": {
+    "title": "Vânt lângă telescopul din Atacama"
+   },
+   "wind_general_rusty_antenna_howling_alto_patache_chile": {
+    "title": "Vânt în antena ruginită"
+   },
+   "wind_general_steady_wind_light_movement_cold": {
+    "title": "Vânt rece constant"
+   },
+   "wind_general_wilderness_medium_movement_cold_01": {
+    "title": "Vânt rece sălbatic"
+   },
+   "wind_gust_cold_mountain_wind_gusts_varied_intensity_01": {
+    "title": "Rafale de munte"
+   },
+   "wind_gust_distant_bush_light_whistling_valley": {
+    "title": "Vânt din valea îndepărtată"
+   },
+   "wind_gust_salt_desert_salar_atacama_chile": {
+    "title": "Vânt peste deșertul de sare"
+   },
+   "wind_gust_whistling_garden_alto_patache_chile": {
+    "title": "Vânt șuierând în grădină"
+   },
+   "wind_tonal_light_pole_whistling_wind_gusts_desert_alto_patache": {
+    "title": "Vânt de deșert lângă stâlp"
+   },
+   "wind_tonal_wind_howling_barbed_wire_fence_tierra_del_fuego_argentina_01": {
+    "title": "Vânt urlând în Țara de Foc"
+   },
+   "wind_tonal_wind_whistling_distant_fog_collector_alto_patache": {
+    "title": "Vânt în ceața din Alto Patache"
+   },
+   "wind_tonal_wind_whistling_iron_fence_movement_wind_gusts_distant_city_hum_desert_outskirts_twentynine_palms": {
+    "title": "Vânt nocturn în gardul de fier"
+   },
+   "wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_01": {
+    "title": "Iarbă în vântul deșertului"
+   },
+   "wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_02": {
+    "title": "Vânt în iarba deșertului"
+   },
+   "wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_03": {
+    "title": "Vânt de deșert cu ecou"
+   },
+   "wind_vegetation_mixed_forest_mountainside_gentle_wind_through_birches_pines_firs_spruces_distant_birds_40": {
+    "title": "Mesteacăn și pin în briză blândă"
+   },
+   "wind_vegetation_mixed_forest_mountainside_strong_wind_gusts_through_firs_birches_poplars_creaking_tree_40": {
+    "title": "Vânt prin pinii scârțâind"
+   },
+   "wind_vegetation_mixed_forest_wind_through_pines_birches_poplars_creaking_tree_trunk_leaves_rustling_bird_flyby_40": {
+    "title": "Vânt și păsări în pădure"
+   },
+   "ambience_forest_wetlands_forest_birds_birdsong": {
+    "title": "Cântecele păsărilor din pădure"
+   },
+   "ambience_forest_wetlands_snowing_droplets_distant": {
+    "title": "Pădure de iarnă cu zăpadă"
+   },
+   "ambience_forest_wetlands_winter_wildlife_birds": {
+    "title": "Pădure de iarnă"
+   },
+   "ambience_nautical_wetlands_distant_factory_birds_01": {
+    "title": "Păsări îndepărtate lângă apă"
+   },
+   "fire_burning_fireplace_glass_front_wood_burning_medium": {
+    "title": "Vatra casei"
+   },
+   "369_seconds_of_bliss_369": {
+    "title": "Șase minute de beatitudine"
+   },
+   "8_pm_anna_landstrom": {
+    "title": "Ora opt seara"
+   },
+   "a_calm_early_morning_rikard_from": {
+    "title": "Dimineață liniștită"
+   },
+   "angelica_instrumental_version_david_edward": {
+    "title": "Melodie angelică"
+   },
+   "archipelago_of_relaxation_mandala_dreams": {
+    "title": "Arhipelagul seninătății"
+   },
+   "carried_by_current_valante": {
+    "title": "Purtat de curent"
+   },
+   "celestial_spheres_ave_air": {
+    "title": "Sfere celeste"
+   },
+   "city_park_ave_air": {
+    "title": "Parcul orașului"
+   },
+   "crowned_with_spirit_valante": {
+    "title": "Încununat cu spirit"
+   },
+   "crystal_haze_shuta_yasukochi": {
+    "title": "Ceață de cristal"
+   },
+   "dharapani_dex_1200": {
+    "title": "Seninătate himalayană"
+   },
+   "dusky_mirage_true_messenger": {
+    "title": "Miraj în amurg"
+   },
+   "end_of_rain_beyza": {
+    "title": "Sfârșitul ploii"
+   },
+   "enlightened_drift_amber_glow": {
+    "title": "Derivă iluminată"
+   },
+   "epic_mirage_hanna_lindgren": {
+    "title": "Miraj epic"
+   },
+   "field_of_horses_joseph_beg": {
+    "title": "Câmpul cailor"
+   },
+   "floating_sakura_petals_sayuri_hayashi_egnell": {
+    "title": "Petale de sakura căzând"
+   },
+   "forest_breeze_ave_air": {
+    "title": "Briză de pădure"
+   },
+   "gold_and_green_anna_landstrom": {
+    "title": "Aur și verde"
+   },
+   "grounded_hanna_lindgren": {
+    "title": "Înrădăcinare"
+   },
+   "healing_tides_amber_glow": {
+    "title": "Maree vindecătoare"
+   },
+   "hush_my_darling_yi_nantiro": {
+    "title": "Somn liniștit, iubitule"
+   },
+   "inner_balance_elm_lake": {
+    "title": "Echilibru interior"
+   },
+   "kokoro_valante": {
+    "title": "Inima"
+   },
+   "komorebi_shuta_yasukochi": {
+    "title": "Lumină printre frunze"
+   },
+   "lullaby_for_kilian_magnus_ludvigsson": {
+    "title": "Cântec de leagăn pentru Kilian"
+   },
+   "meditation_aquatic_369": {
+    "title": "Meditație acvatică"
+   },
+   "mindstream_amber_glow": {
+    "title": "Fluxul gândului"
+   },
+   "mirror_of_the_heart_bladverk_band": {
+    "title": "Oglinda inimii"
+   },
+   "murmurations_hanna_lindgren": {
+    "title": "Murmurul stolului"
+   },
+   "my_friend_the_warlock_bitwraith": {
+    "title": "Prietenul meu vrăjitorul"
+   },
+   "namucuo_by_lotus": {
+    "title": "Lac de munte"
+   },
+   "on_a_knee_the_golden_peas": {
+    "title": "Într-un genunchi"
+   },
+   "parlemor_bomull": {
+    "title": "Lucire de sidef"
+   },
+   "pillars_of_resilience_cora_zea": {
+    "title": "Pilonii rezilienței"
+   },
+   "resonance_luba_hilman": {
+    "title": "Rezonanța sufletului"
+   },
+   "silver_woodlands_cora_zea": {
+    "title": "Păduri de argint"
+   },
+   "solitude_conscience_mandala_dreams": {
+    "title": "Singurătatea conștiinței"
+   },
+   "stargazing_shuta_yasukochi": {
+    "title": "Cer înstelat"
+   },
+   "state_of_meditation_elm_lake": {
+    "title": "Stare de meditație"
+   },
+   "still_love_hanna_lindgren": {
+    "title": "Iubire tăcută"
+   },
+   "the_hidden_realm_ruiqi_zhao": {
+    "title": "Tărâmul ascuns"
+   },
+   "the_lake_at_3am_mandala_dreams": {
+    "title": "Lacul la trei dimineața"
+   },
+   "the_water_remains_rand_aldo": {
+    "title": "Apa rămâne"
+   },
+   "third_charm_joseph_beg": {
+    "title": "Al treilea farmec"
+   },
+   "to_have_you_near_anna_landstrom": {
+    "title": "Să te am aproape"
+   },
+   "uninhabited_land_flouw": {
+    "title": "Pământ nelocuit"
+   },
+   "uphill_climbing_anna_landstrom": {
+    "title": "Urcuș spre înalt"
+   },
+   "weightless_center_of_attention": {
+    "title": "Imponderabilitate"
+   },
+   "will_you_ever_know_anna_landstrom": {
+    "title": "Vei ști vreodată"
+   },
+   "brown_lowpass_1000": {
+    "title": "Zgomot maro blând"
+   },
+   "brown_lowpass_500": {
+    "title": "Zgomot maro profund"
+   },
+   "brown_pure": {
+    "title": "Zgomot maro"
+   },
+   "pink_lowpass_2000": {
+    "title": "Zgomot roz blând"
+   },
+   "pink_lowpass_4000": {
+    "title": "Zgomot roz"
+   },
+   "pink_pure": {
+    "title": "Zgomot roz pur"
+   },
+   "ambience_scifi_eerie_alien_planet": {
+    "title": "Atmosferă cosmică"
+   },
+   "ambience_underground_cave_dark_bubbles": {
+    "title": "Peșteră întunecată"
+   },
+   "designed_drone_atmospheric_space_drone_tonal_rumble": {
+    "title": "Drone cosmic"
+   },
+   "designed_drone_deep_bass": {
+    "title": "Bas profund"
+   },
+   "designed_rumble_low_sub_bass_moving_slowly": {
+    "title": "Ton jos și lent"
+   },
+   "designed_rumble_low_sub_slight_air": {
+    "title": "Briză ușoară în fundal"
+   },
+   "lay_down_with_me_hanna_lindgren": {
+    "title": "Întinde-te lângă mine"
+   },
+   "opposite_to_destruction_hanna_lindgren": {
+    "title": "Opusul distrugerii"
+   },
+   "water_turbulent_river_small_waterfall": {
+    "title": "Cascadă mică și impetuoasă"
+   },
+   "water_waterfall_at_top_water_falling_into_creek_below": {
+    "title": "Cascadă deasupra pârâiașului"
+   },
+   "water_waterfall_creek_from_waterfall_close": {
+    "title": "Cascadă deasupra unui pârâu"
+   },
+   "water_waterfall_distant_iceland_close": {
+    "title": "Cascadă islandeză de aproape"
+   },
+   "water_waterfall_distant_iceland_high_perspective": {
+    "title": "Cascadă islandeză de sus"
+   },
+   "water_waterfall_distant_iceland_semi_close": {
+    "title": "Cascadă islandeză îndepărtată"
+   },
+   "water_waterfall_forest_ambience_birds_chirp": {
+    "title": "Cascadă de pădure cu păsări"
+   },
+   "water_waterfall_grand_marais_minnesota": {
+    "title": "Cascadă în Minnesota"
+   },
+   "water_waterfall_into_shallow_pool_forest": {
+    "title": "Cascadă de pădure într-o băltoacă"
+   },
+   "water_waterfall_large": {
+    "title": "Cascadă mare"
+   },
+   "water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_4_0": {
+    "title": "Cascadă mare de 10 metri"
+   },
+   "water_waterfall_loud_waterfall": {
+    "title": "Cascadă răsunătoare"
+   },
+   "water_waterfall_niagra_falls_distant": {
+    "title": "Cascada Niagara de departe"
+   },
+   "water_waterfall_river_creek_australia": {
+    "title": "Cascadă australiană deasupra unui pârâu"
+   },
+   "water_waterfall_small_birds": {
+    "title": "Cascadă mică cu păsări"
+   },
+   "water_waterfall_small_burbling_in_forest": {
+    "title": "Cascadă gâlgâind în pădure"
+   },
+   "water_waterfall_small_long_fall_flowing_trickle": {
+    "title": "Cascadă subțire și lungă"
+   },
+   "water_waterfall_strong_flow_forest_lower_waterfall_people_chatter_evening_zenny_fall_telluride": {
+    "title": "Cascadă puternică în pădure"
+   },
+   "water_waterfall_top_deep_water_flowing_before_falling": {
+    "title": "Apa înainte de cascadă"
+   },
+   "water_waterfall_water_big_waterfall_little_andaman": {
+    "title": "Cascadă mare în Andaman"
+   },
+   "water_waterfall_waterfall_200m_distant_strong_flow_forest_light_wind_evening_sunset_zenny_fall_telluride": {
+    "title": "Cascadă îndepărtată în pădure"
+   },
+   "water_waterfall_waterfall_medium_flow_02": {
+    "title": "Cascadă medie"
+   },
+   "water_waterfall_waterfalls_30_feet_away_pyrenees_france": {
+    "title": "Cascadă în Pirinei"
+   },
+   "waterfall_underneath_river_splashing_loud_big": {
+    "title": "Sub cascadă"
+   }
   }
  },
  "notifications": {
