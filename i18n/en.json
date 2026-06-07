@@ -1406,128 +1406,128 @@
     "expectations": "Detailed expectations for this profile will be added soon.",
     "meaning": "Your tinnitus has a variable character — its loudness changes throughout the day, sometimes significantly, and it's often linked to physical tension in the neck, jaw or shoulders. You may notice that with certain movements, head positions or clenching of the jaw the noise changes — this is the \"somatic modulating\" phenomenon.\n\nThis type is mediated by an interaction between the trigeminal and somatosensory systems (neck, temporomandibular joint) and the auditory pathways. Abnormal signals from tense or dysfunctional tissues (TMD — temporomandibular dysfunction, cervical dysfunction) are \"rerouted\" to the auditory cortex and modulate the phantom sound.\n\nA clinical study of orofacial therapy shows that reducing pain in the temporomandibular joint explains about 35% of the drop in the TFI index in this subtype.",
     "why": "This profile is often associated with bruxism (clenching or grinding of teeth — at night or during the day), forward-head posture (head pushed forward, especially during long screen work), neck trauma (whiplash), or previous athletic/occupational stress on the cervical region.\n\nAggravating factors: long hours at the computer without breaks, carrying heavy bags on one shoulder, sleeping on the stomach, and stress-induced jaw clenching.",
-    "strategyReasoning": "- Препоръчителен носещ звук: силно динамични и непериодични природни среди — океански приливи и отливи, modulated wave swells, binaural ambient.\n\n- Препоръчителен `recommended_noise` в библиотеката: `brown_lowpass_1000` за равномерно тяло на звука; mix с natural дунамични файлове (например `water_wave_ocean_wave_swells`, ocean swells, дишащи waves).\n\n- Препоръчително съотношение: 0.85/0.15 (sound dominant) — динамиката на природния звук ангажира вниманието и пречи на кортикалната адаптация.\n\n- Препоръчителна продължителност: 2–4 часа дневно, с акцент върху периоди на физическо ангажиране — разходка, рутинни задачи. Това комбинира моторно разсейване със звуково обогатяване.\n\n- Топ use cases по приоритет: `relaxation` → `daily` → `meditation`.",
+    "strategyReasoning": "- Recommended carrier sound: highly dynamic and non-periodic natural environments — ocean tides, modulated wave swells, binaural ambient.\n\n- Recommended `recommended_noise` in the library: `brown_lowpass_1000` for an even body of sound; mix with dynamic natural files (for example `water_wave_ocean_wave_swells`, ocean swells, breathing waves).\n\n- Recommended ratio: 0.85/0.15 (sound dominant) — the dynamics of the natural sound engage attention and prevent cortical adaptation.\n\n- Recommended duration: 2–4 hours a day, with emphasis on periods of physical engagement — walking, routine tasks. This combines motor distraction with sound enrichment.\n\n- Top use cases by priority: `relaxation` → `daily` → `meditation`.",
     "timeline": [
      {
       "period": "Week 1–2",
-      "expectation": "при паралелна orofacial физиотерапия можете да забележите бързи флуктуации — добри и лоши дни. Това не означава, че процесът не работи; означава, че се отнема пресъхналата тъканна тяга."
+      "expectation": "with parallel orofacial physiotherapy you may notice rapid fluctuations — good and bad days. This does not mean the process isn't working; it means the built-up tissue tension is being released."
      },
      {
-      "period": "Седмица 9 (директна orofacial група)",
-      "expectation": "клинично проучване с 9-седмичен orofacial курс регистрира средно намаление на TFI с −13.8 точки, докато групата с отложена терапия показва само −5.0 точки. MCID на TFI е 13 точки."
+      "period": "Week 9 (direct orofacial group)",
+      "expectation": "a clinical study with a 9-week orofacial course recorded an average TFI reduction of −13.8 points, while the delayed-therapy group showed only −5.0 points. The MCID for TFI is 13 points."
      },
      {
       "period": "Month 3–6",
-      "expectation": "при последователно прилагане на звук + физиотерапия + ограничаване на bruxism: средни намаления THI в диапазона −8.6 до −24.6 точки."
+      "expectation": "with consistent application of sound + physiotherapy + limiting bruxism: average THI reductions in the range of −8.6 to −24.6 points."
      },
      {
       "period": "Month 6+",
-      "expectation": "при този профил особено важна е дългосрочната последователност — пренастройването на cross-modal interactions изисква поне 9–18 месеца."
+      "expectation": "in this profile long-term consistency is especially important — re-tuning the cross-modal interactions requires at least 9–18 months."
      }
     ],
-    "additional": "- Постура: при работа на компютър — екран на нивото на очите, ходила на пода, ушите подравнени над раменете. Микро-почивки на всеки 30–45 минути с леки flexion-extension движения на врата.\n\n- Челюст: ако забелязвате стискане на зъбите през деня — поставете малък напомнящ стикер на компютъра; вечер обмислете oклузална шинa след преглед при стоматолог.\n\n- Прогресивна мускулна релаксация (ПМР): 10-минутна вечерна сесия с фокус върху врата, челюстта и раменете е особено подходяща.\n\n- Слухова среда: избягвайте дълго слушане с in-ear слушалки — те могат да създадат TMJ натоварване при някои хора; предпочитайте open-back или говорители.\n\n- Допълнителни техники: orofacial физиотерапия и при необходимост консултация със стоматолог-специалист по TMD са доказано ефективни като комплемент към звуковата терапия.",
-    "medicalFlags": "- Към орален хирург или специалист по TMD: ако имате болка при отваряне на устата, щракане в челюстната става, ограничено отваряне (<35 mm), или сутрешно главоболие в слепоочията — възможна е темпоромандибуларна дисфункция.\n\n- Към физиотерапевт (специалност шиен отдел): ако забелязвате болка в шията, ограничена ротация, или връзка между шийни движения и интензитета на тинитуса.\n\n- Към УНГ: ако модулацията не се ограничава до врата/челюстта и тинитусът става пулсиращ, или ако се появят епизоди на вертиго.",
+    "additional": "- Posture: at the computer — screen at eye level, feet on the floor, ears aligned over the shoulders. Micro-breaks every 30–45 minutes with gentle flexion-extension movements of the neck.\n\n- Jaw: if you notice clenching during the day — place a small reminder sticker on the computer; in the evening consider an occlusal splint after a dental check-up.\n\n- Progressive muscle relaxation (PMR): a 10-minute evening session focused on the neck, jaw and shoulders is particularly suitable.\n\n- Listening environment: avoid long listening with in-ear headphones — they can create TMJ strain in some people; prefer open-back or speakers.\n\n- Additional techniques: orofacial physiotherapy and, if needed, a consultation with a dentist specializing in TMD are proven effective as a complement to sound therapy.",
+    "medicalFlags": "- To an oral surgeon or TMD specialist: if you have pain when opening the mouth, clicking in the jaw joint, limited opening (<35 mm), or morning headaches in the temples — temporomandibular dysfunction is possible.\n\n- To a physiotherapist (cervical specialty): if you notice neck pain, limited rotation, or a link between neck movements and the intensity of the tinnitus.\n\n- To an ENT: if the modulation is not limited to the neck/jaw and the tinnitus becomes pulsatile, or if episodes of vertigo appear.",
     "reasons": {
-     "meditation": "Водени сесии за намаляване на физическо напрежение",
-     "relaxation": "Динамични природни звуци срещу циклите"
+     "meditation": "Guided sessions to reduce physical tension",
+     "relaxation": "Dynamic nature sounds against the cycles"
     }
    },
    "HB_M": {
-    "shortName": "Адаптиран / Лек",
-    "fullName": "Адаптиран / Лек",
-    "description": "Профил \"Адаптиран / Лек\". Подробно описание скоро ще бъде добавено в това приложение.",
+    "shortName": "Adapted / Mild",
+    "fullName": "Adapted / Mild",
+    "description": "Profile \"Adapted / Mild\". A detailed description will be added to this app soon.",
     "expectations": "Detailed expectations for this profile will be added soon.",
-    "meaning": "Вие имате тинитус, но той Ви безпокои предимно в условия на абсолютна тишина и не оказва съществено влияние върху ежедневните Ви задачи, концентрация, сън или настроение. Вашата нервна система вече е изградила висока степен на естествена хабитуация — мозъкът Ви до голяма степен филтрира фантомния сигнал като маловажен фон.\n\nВ клиничен модел това състояние отразява запазен инхибиторен контрол в централните слухови пътища и адекватно функциониране на лимбичните оценъчни структури — те не приписват \"заплаха\" на сигнала.\n\nЦелта на звуковата терапия при този профил не е активно потискане на тинитуса (тъй като той не Ви натоварва), а превенция — поддържане на лек звуков фон, който предотвратява засилване на сетивния контраст в моментите на абсолютна тишина.",
-    "why": "Адаптираният профил често се асоциира с по-късна или по-малко травматична поява на тинитуса, с устойчива личностна структура без тенденция към тревожност, с активен и социален начин на живот, или с предишен успешен индивидуален опит за справяне с подобен стимул.\n\nЗасилващи фактори, които могат временно да дестабилизират HB_M: тежък нелекуван период на стрес, продължителна болест, нощно бдение, акутна слухова експозиция (концерт без защита), или нов медицински проблем (ототоксичен медикамент).",
-    "strategyReasoning": "- Препоръчителен носещ звук: ултра-меки природни звуци — шепот на листа, тих летен дъжд, лек вятър, рaйн зад прозорец.\n\n- Препоръчителен `recommended_noise` в библиотеката: `brown_lowpass_500` (минимално, само за фоново обогатяване) или `none` — често само природният звук без допълнителен шум е достатъчен.\n\n- Препоръчително съотношение: 0.85/0.15 или дори 0.95/0.05 — звукът трябва да е едва доловим.\n\n- Препоръчителна продължителност: 30–60 минути в моменти на абсолютна тишина (вечер преди сън, ранно утро, продължителна работа в тиха стая).\n\n- Топ use cases по приоритет: `relaxation` → `falling_asleep` → `daily`.",
+    "meaning": "You have tinnitus, but it bothers you mainly in conditions of absolute silence and has no significant impact on your daily tasks, concentration, sleep or mood. Your nervous system has already built a high degree of natural habituation — your brain largely filters the phantom signal as an unimportant background.\n\nIn the clinical model this state reflects preserved inhibitory control in the central auditory pathways and adequate functioning of the limbic appraisal structures — they do not assign a \"threat\" to the signal.\n\nThe goal of sound therapy in this profile is not active suppression of the tinnitus (since it does not burden you), but prevention — maintaining a light sound background that prevents an increase in the sensory contrast in moments of absolute silence.",
+    "why": "The adapted profile is often associated with a later or less traumatic onset of the tinnitus, with a stable personality structure without a tendency toward anxiety, with an active and social lifestyle, or with previous successful individual experience coping with a similar stimulus.\n\nAggravating factors that can temporarily destabilize HB_M: a severe untreated period of stress, prolonged illness, a sleepless night, acute sound exposure (a concert without protection), or a new medical problem (an ototoxic medication).",
+    "strategyReasoning": "- Recommended carrier sound: ultra-soft nature sounds — rustling leaves, quiet summer rain, light wind, rain behind the window.\n\n- Recommended `recommended_noise` in the library: `brown_lowpass_500` (minimal, only for background enrichment) or `none` — often just the natural sound without additional noise is enough.\n\n- Recommended ratio: 0.85/0.15 or even 0.95/0.05 — the sound should be barely perceptible.\n\n- Recommended duration: 30–60 minutes in moments of absolute silence (evening before sleep, early morning, prolonged work in a quiet room).\n\n- Top use cases by priority: `relaxation` → `falling_asleep` → `daily`.",
     "timeline": [
      {
-      "period": "Кратки периоди (дни до седмици)",
-      "expectation": "при HB_M профила обикновено не очаквайте драматични промени в усещането, защото базовото състояние вече е добро. Целта е поддръжка, не подобрение."
+      "period": "Short periods (days to weeks)",
+      "expectation": "in the HB_M profile usually don't expect dramatic changes in perception, because the baseline state is already good. The goal is maintenance, not improvement."
      },
      {
       "period": "Month 1–3",
-      "expectation": "очаквайте, че по-меките вечери в тишина стават по-приятни. Емоционалната неутралност спрямо тинитуса се запазва или леко се укрепва."
+      "expectation": "expect quieter evenings in silence to become more pleasant. Emotional neutrality toward the tinnitus is preserved or slightly strengthened."
      },
      {
-      "period": "Дългосрочно (6+ месеца)",
-      "expectation": "профилактичното звуково обогатяване намалява вероятността от епизоди на дестабилизация при бъдещ стрес."
+      "period": "Long-term (6+ months)",
+      "expectation": "prophylactic sound enrichment reduces the likelihood of destabilization episodes during future stress."
      },
      {
-      "period": "При дестабилизация",
-      "expectation": "ако забелязвате, че тинитусът внезапно стане по-натрапчив за повече от 2 седмици, преоценете профила си през quiz-а — възможно е преминаване към друг профил (например DN_S при нов сън-проблем или SS_R при нов стрес)."
+      "period": "In case of destabilization",
+      "expectation": "if you notice the tinnitus suddenly becomes more intrusive for more than 2 weeks, re-evaluate your profile through the quiz — a transition to another profile is possible (for example DN_S with a new sleep problem or SS_R with new stress)."
      }
     ],
-    "additional": "- Поддържайте това, което работи: активен начин на живот, социална среда, физическа активност, добър сън. Тези фактори са най-силната защита срещу прогресия.\n\n- Слухова защита: при концерти, тенис-турнири, ловно оръжие или високи звуци в работна среда — носете слухови защитни тапи. Една акутна експозиция може да дестабилизира профила за месеци.\n\n- Звукова среда: избягвайте дълго слушане на музика с високи нива на слушалки — при тинитус общата препоръка е <60% от макс. ниво за <60 минути.\n\n- Поведенческа поддръжка: активна реалистична оценка — не превръщайте тинитуса в \"проблем\", който още не съществува. Това запазва положителната емоционална оценъчност на лимбичната система.\n\n- Допълнителни техники: не са необходими активни CBT/ACT интервенции при този профил, но добра обща хигиена на съня и стрес-мениджмънт остават полезни.",
-    "medicalFlags": "- При промяна в характера: ако тинитусът внезапно стане едностранен, пулсиращ, или съпроводен от загуба на слуха — незабавно към УНГ.\n\n- При продължителна дестабилизация: ако базовото състояние се влоши и остане влошено >2 седмици — преоценете през quiz-а и потърсете консултация (одиолог или УНГ).\n\n- Превантивно: едно изходно аудиологично изследване (audiogram) е препоръчително, ако не сте правили такова — то осигурява базова линия за бъдещо сравнение, ако нещо се промени.",
+    "additional": "- Maintain what works: an active lifestyle, a social environment, physical activity, good sleep. These factors are the strongest protection against progression.\n\n- Hearing protection: at concerts, tennis tournaments, with firearms or loud sounds in the work environment — wear protective earplugs. One acute exposure can destabilize the profile for months.\n\n- Sound environment: avoid long listening to music at high levels on headphones — for tinnitus the general recommendation is <60% of max level for <60 minutes.\n\n- Behavioural support: an active realistic assessment — don't turn the tinnitus into a \"problem\" that doesn't yet exist. This preserves the positive emotional appraisal of the limbic system.\n\n- Additional techniques: active CBT/ACT interventions are not necessary in this profile, but good general sleep hygiene and stress management remain useful.",
+    "medicalFlags": "- With a change in character: if the tinnitus suddenly becomes one-sided, pulsatile, or accompanied by hearing loss — immediately to an ENT.\n\n- With prolonged destabilization: if the baseline state worsens and stays worsened for >2 weeks — re-evaluate through the quiz and seek a consultation (audiologist or ENT).\n\n- Preventively: one baseline audiological examination (audiogram) is recommended if you haven't had one — it provides a baseline for future comparison if something changes.",
     "reasons": {
-     "daily": "Лек звуков фон за поддръжка на адаптацията",
-     "falling_asleep": "Тихи природни звуци за вечерта"
+     "daily": "A light sound background to support adaptation",
+     "falling_asleep": "Quiet nature sounds for the evening"
     }
    }
   },
   "pitch": {
-   "title": "Вашата тинитус честота",
-   "intro": "Вашата честота: {freq}",
-   "skipped": "Не сте завършили теста за честота. Можете да го направите по-късно от Настройки.",
+   "title": "Your tinnitus frequency",
+   "intro": "Your frequency: {freq}",
+   "skipped": "You haven't completed the frequency test. You can do it later from Settings.",
    "cat": {
-    "low": "Нискочестотен тинитус",
-    "mid": "Среднен честотен тинитус",
-    "high": "Високочестотен тинитус",
-    "veryHigh": "Много висок честотен тинитус",
-    "extreme": "Изключително висок тинитус"
+    "low": "Low-frequency tinnitus",
+    "mid": "Mid-frequency tinnitus",
+    "high": "High-frequency tinnitus",
+    "veryHigh": "Very high-frequency tinnitus",
+    "extreme": "Extremely high tinnitus"
    },
    "rec": {
-    "low": "Препоръчителни звуци с богат среден и висок спектър за маскиране — препоръчваме категория „Гора“ и „Дъжд“.",
-    "mid": "Препоръчителни звуци с балансиран спектър — препоръчваме „Океан“ и „Река“.",
-    "high": "Препоръчителни звуци с акцент върху ниски и средни честоти — препоръчваме „Подводен“ и „Кафяв шум“.",
-    "veryHigh": "Препоръчителни наситено basov звук за оптимална маска — препоръчваме „Дълбок кафяв шум“ или „Подводна тишина“.",
-    "extreme": "Препоръчителни наситено basov звук за оптимална маска — препоръчваме „Дълбок кафяв шум“ или „Подводна тишина“."
+    "low": "Recommended sounds with a rich mid and high spectrum for masking — we recommend the \"Forest\" and \"Rain\" categories.",
+    "mid": "Recommended sounds with a balanced spectrum — we recommend \"Ocean\" and \"River\".",
+    "high": "Recommended sounds with an emphasis on low and mid frequencies — we recommend \"Underwater\" and \"Brown noise\".",
+    "veryHigh": "Recommended a rich bass sound for optimal masking — we recommend \"Deep brown noise\" or \"Underwater silence\".",
+    "extreme": "Recommended a rich bass sound for optimal masking — we recommend \"Deep brown noise\" or \"Underwater silence\"."
    },
-   "notchActive": "✓ Активна лична терапия на {freq}"
+   "notchActive": "✓ Personal therapy active at {freq}"
   }
  },
  "categoryInfo": {
   "sectionTitles": {
-   "definition": "За какво е този режим",
-   "whenUsed": "Кога се ползва",
-   "whenNotUsed": "Кога НЕ се ползва",
+   "definition": "What this mode is for",
+   "whenUsed": "When to use it",
+   "whenNotUsed": "When NOT to use it",
    "recommendedNoise": "Recommended background noise",
    "mixRatio": "Recommended ratio",
-   "expectedEffect": "Очакван ефект",
+   "expectedEffect": "Expected effect",
    "safety": "Safety",
-   "faq": "Чести въпроси",
+   "faq": "Frequent questions",
    "scientificBasis": "Scientific basis"
   },
   "whenUsedLabels": {
-   "timeOfDay": "Час от деня",
-   "context": "Контекст",
-   "duration": "Продължителност"
+   "timeOfDay": "Time of day",
+   "context": "Context",
+   "duration": "Duration"
   },
   "mixRatioLabels": {
-   "layer1": "Layer 1 (главен звук)",
-   "layer2": "Layer 2 (фон шум)"
+   "layer1": "Layer 1 (main sound)",
+   "layer2": "Layer 2 (background noise)"
   },
-  "previewCta": "Опитайте сега",
+  "previewCta": "Try now",
   "closeAria": "Close",
   "placeholder": "This content is being prepared by the science team.",
   "sleep_deep": {
-   "title": "Сън дълбок",
-   "subtitle": "Цяла нощ",
-   "definition": "Звуков режим за нощно ползване по време на естествения сън, с цел намаляване на акустичния контраст между фантомния тинитусен сигнал и тихата спалня, понижаване на реактивността на амигдалата при преходите между сънни цикли, и защита на REM/N3 архитектурата. Не цели пълно маскиране, а смесване с тинитуса на „точката на смесване“ на Jastreboff.",
+   "title": "Deep sleep",
+   "subtitle": "All night",
+   "definition": "A sound mode for nighttime use during natural sleep, aimed at reducing the acoustic contrast between the phantom tinnitus signal and the quiet bedroom, lowering the reactivity of the amygdala at transitions between sleep cycles, and protecting REM/N3 architecture. It does not aim for full masking, but for blending with the tinnitus at Jastreboff's \"mixing point\".",
    "whenUsed": {
-    "timeOfDay": "Старт 5–10 мин преди заспиване, продължава през цялата нощ.",
-    "context": "Тиха тъмна спалня; температура 15.5–20°C; без екрани и синя светлина 1 час преди сън.",
-    "duration": "Препоръчително непрекъснато през 8-часовия сънен прозорец. Потребителят може да зададе sleep timer (30/60/90/120 мин) в настройките, ако предпочита автоматично изключване."
+    "timeOfDay": "Start 5–10 min before falling asleep, continues throughout the night.",
+    "context": "A quiet dark bedroom; temperature 15.5–20°C; no screens or blue light 1 hour before sleep.",
+    "duration": "Recommended continuous throughout the 8-hour sleep window. The user can set a sleep timer (30/60/90/120 min) in settings if they prefer automatic shut-off."
    },
    "whenNotUsed": [
-    "При коморбидна обструктивна сънна апнея (OSA) без консултация с лекар — повтарящите се десатурации засилват симпатиковата активация.",
-    "При епилепсия или тежки психиатрични разстройства, ако сесията включва бинаурални вълни.",
-    "При остра ушна болка или необяснимо едностранен тинитус без преглед."
+    "With comorbid obstructive sleep apnea (OSA) without consulting a doctor — the recurrent desaturations increase sympathetic activation.",
+    "With epilepsy or severe psychiatric disorders, if the session includes binaural beats.",
+    "With acute ear pain or unexplained one-sided tinnitus without an examination."
    ],
    "recommendedNoise": {
     "type": "pink_lp2000",
-    "description": "Розов шум с фрактален характер, спектрален наклон −3 dB/октава. Съответства на логаритмичната подредба на космените клетки в кохлеата; вълновата форма симулира естествени среди (водопад, дъжд, вятър). При хиперакузис: low-pass над 5 kHz, или преминаване към кафяв шум (−6 dB/октава)."
+    "description": "Pink noise with a fractal character, spectral slope −3 dB/octave. It matches the logarithmic arrangement of the hair cells in the cochlea; the waveform simulates natural environments (waterfall, rain, wind). For hyperacusis: low-pass above 5 kHz, or switch to brown noise (−6 dB/octave)."
    },
    "mixRatio": {
     "layer1": 35,
@@ -2321,8 +2321,8 @@
   },
   "cat": {
    "sleep_deep": {
-    "name": "Сън дълбок",
-    "subtitle": "Цяла нощ"
+    "name": "Deep sleep",
+    "subtitle": "All night"
    },
    "falling_asleep": {
     "name": "Заспиване",
@@ -2423,7 +2423,7 @@
   "soundsCount": "Звуци ({n})",
   "noSounds": "Скоро ще има звуци в тази категория.",
   "description": "За какво е",
-  "faqLabel": "Чести въпроси"
+  "faqLabel": "Frequent questions"
  },
  "soundDetail": {
   "backAria": "Назад към категорията",
@@ -2433,7 +2433,7 @@
   "recommendedMix": "Препоръчителен микс: {ratio}",
   "noRecommendation": "Без препоръка за фон",
   "why": "Защо точно този звук",
-  "faqLabel": "Чести въпроси"
+  "faqLabel": "Frequent questions"
  },
  "quiz": {
   "questions": {
@@ -2600,8 +2600,8 @@
     "description": "Профил, съответстващ на тинитус с променлива сила и честота, често проявяващ се на цикли или силно свързан с физическо напрежение във врата и челюстта. Използват се силно динамични и непериодични природни среди, като океански приливи и отливи, които ангажират слуховия апарат без риск от привикване към статичен сигнал."
    },
    "HB_M": {
-    "shortName": "Адаптиран / Лек",
-    "fullName": "Адаптиран / Лек",
+    "shortName": "Adapted / Mild",
+    "fullName": "Adapted / Mild",
     "description": "Този профил показва високо ниво на естествено привикване. Шумът се чува предимно в условия на абсолютна тишина и няма съществено влияние върху качеството на живот. Акустичната препоръка цели единствено обогатяване на тихата среда с минимални природни звуци за дългосрочно предотвратяване на сензорния контраст."
    }
   },
