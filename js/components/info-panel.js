@@ -142,7 +142,7 @@ window.InfoPanel = (function () {
       '<button class="ip-expand-toggle" type="button" data-action="ip-toggle"' +
         ' aria-expanded="false">' +
         '<span class="ip-expand-text">' +
-          escapeHtml(t('components.infoPanel.readMore', 'Прочети повече')) +
+          escapeHtml(t('ui.components.infoPanel.readMore', 'Прочети повече')) +
         '</span>' +
         '<span class="ip-expand-icon" aria-hidden="true">' + ICONS.chevron + '</span>' +
       '</button>'
@@ -151,7 +151,7 @@ window.InfoPanel = (function () {
 
   function buildCitations(citations) {
     if (!citations || !citations.length) return '';
-    var label = t('components.infoPanel.citationsLabel', 'Източници');
+    var label = t('ui.components.infoPanel.citationsLabel', 'Източници');
     var items = citations.map(function (c) {
       if (!c || !c.label) return '';
       if (c.url) {
@@ -171,7 +171,7 @@ window.InfoPanel = (function () {
 
   function buildFaq(faq) {
     if (!faq || !faq.length) return '';
-    var label = t('components.infoPanel.faqLabel', 'Често задавани въпроси');
+    var label = t('ui.components.infoPanel.faqLabel', 'Често задавани въпроси');
     var items = faq.map(function (item, idx) {
       if (!item || !item.q || !item.a) return '';
       var qHtml = parseInlineMarkdown(item.q);
@@ -180,7 +180,7 @@ window.InfoPanel = (function () {
         '<li class="ip-faq-item" data-faq-idx="' + idx + '">' +
           '<button class="ip-faq-q" type="button" data-action="ip-faq-toggle"' +
             ' aria-expanded="false"' +
-            ' aria-label="' + escapeHtml(t('components.infoPanel.expandQuestionAria',
+            ' aria-label="' + escapeHtml(t('ui.components.infoPanel.expandQuestionAria',
               'Покажи отговора на: ' + item.q, { question: item.q })) + '">' +
             '<span class="ip-faq-q-text">' + qHtml + '</span>' +
             '<span class="ip-faq-icon" aria-hidden="true">' + ICONS.chevron + '</span>' +
@@ -224,8 +224,8 @@ window.InfoPanel = (function () {
     var textEl = btn.querySelector('.ip-expand-text');
     if (textEl) {
       textEl.textContent = collapsed
-        ? t('components.infoPanel.readLess', 'Покажи по-малко')
-        : t('components.infoPanel.readMore', 'Прочети повече');
+        ? t('ui.components.infoPanel.readLess', 'Покажи по-малко')
+        : t('ui.components.infoPanel.readMore', 'Прочети повече');
     }
   }
 
