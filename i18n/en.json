@@ -899,152 +899,152 @@
    "step2": "<strong>Play the test sound.</strong> Listen at a low level for 20 seconds.",
    "step3": "<strong>Lower the volume gradually.</strong> Stop the moment you hear both the tinnitus and the background sound at once. They should coexist.",
    "sliderLabel": "Volume",
-   "sliderAria": "Сила на звука от 0 до {max} процента",
-   "sliderValuetext": "{v} от {max}",
-   "sliderHint": "Нагласете до ниво, което чувате удобно.",
-   "warnTitle": "Какво да НЕ правите",
-   "warnBody": "Не увеличавайте до пълно заглушаване на тинитуса. Това натоварва слуха и тренира мозъка да очаква пълна тишина — обратното на нашата цел.",
-   "confirm": "Това е добре",
+   "sliderAria": "Volume from 0 to {max} percent",
+   "sliderValuetext": "{v} of {max}",
+   "sliderHint": "Adjust to a level you hear comfortably.",
+   "warnTitle": "What NOT to do",
+   "warnBody": "Don't turn it up until the tinnitus is fully masked. This strains your hearing and trains the brain to expect complete silence — the opposite of our goal.",
+   "confirm": "This is fine",
    "later": "Later",
-   "disclaimer": "AURALIS е инструмент за общо благополучие, не медицински продукт."
+   "disclaimer": "AURALIS is a general wellness tool, not a medical product."
   },
   "streak": {
-   "unit": "дни",
-   "aria": "{n} дни streak"
+   "unit": "days",
+   "aria": "{n}-day streak"
   },
   "update": {
-   "available": "Налична е нова версия",
-   "button": "Обнови"
+   "available": "A new version is available",
+   "button": "Update"
   }
  },
  "science": {
-  "title": "Научна основа",
-  "subtitle": "AURALIS — защо работи",
-  "openLabel": "Научна основа",
-  "closeAria": "Затвори научната основа",
-  "pillsAria": "Секции",
+  "title": "Scientific basis",
+  "subtitle": "AURALIS — why it works",
+  "openLabel": "Scientific basis",
+  "closeAria": "Close the scientific basis",
+  "pillsAria": "Sections",
   "pills": {
-   "s1": "Общо",
+   "s1": "General",
    "s2": "THI",
    "s3": "Pitch",
    "s4": "Notch ★",
-   "s5": "Звук",
-   "s6": "Безопасност",
+   "s5": "Sound",
+   "s6": "Safety",
    "s7": "Sources"
   },
   "s1": {
-   "title": "Защо AURALIS работи",
-   "subtitle": "Научна основа на терапията",
-   "intro": "AURALIS е дигитално приложение за управление на хроничен субективен тинитус. Не е лекарство. Не замества медицински преглед. Но методите вътре са базирани на 14 рандомизирани клинични изпитвания (RCT) и одобрени от FDA устройства.",
-   "doTitle": "Какво правим:",
-   "do1": "Измерваме тежестта на тинитуса Ви с THI — клинично валидирана скала от 1996.",
-   "do2": "Намираме точната Ви тинитус честота с pitch matching тест (двоично търсене).",
-   "do3": "Премахваме точно тази честота от всичките терапевтични звуци — нарича се „Notched Sound Therapy\".",
-   "do4": "Слушате тези звуци по 30–60 минути на ден.",
-   "expectTitle": "Какво очаквате:",
-   "stat1": "−8.6 точки THI",
-   "stat1Label": "На 3-тия месец (14-RCT meta-analysis)",
-   "stat2": "−24.6 точки THI",
-   "stat2Label": "На 6-тия месец (същата meta-analysis)",
-   "stat3": "−28 точки THI",
-   "stat3Label": "Lenire FDA-одобрено устройство, 12 седмици (real-world 2025–2026)",
-   "ctaSources": "Виж научните източници"
+   "title": "Why AURALIS works",
+   "subtitle": "Scientific basis of the therapy",
+   "intro": "AURALIS is a digital app for managing chronic subjective tinnitus. It is not a medicine. It does not replace a medical examination. But the methods inside are based on 14 randomized controlled trials (RCTs) and FDA-approved devices.",
+   "doTitle": "What we do:",
+   "do1": "We measure the severity of your tinnitus with the THI — a clinically validated scale from 1996.",
+   "do2": "We find your exact tinnitus frequency with a pitch-matching test (binary search).",
+   "do3": "We remove exactly that frequency from all the therapeutic sounds — this is called \"Notched Sound Therapy\".",
+   "do4": "You listen to these sounds for 30–60 minutes a day.",
+   "expectTitle": "What to expect:",
+   "stat1": "−8.6 THI points",
+   "stat1Label": "At month 3 (14-RCT meta-analysis)",
+   "stat2": "−24.6 THI points",
+   "stat2Label": "At month 6 (same meta-analysis)",
+   "stat3": "−28 THI points",
+   "stat3Label": "Lenire FDA-approved device, 12 weeks (real-world 2025–2026)",
+   "ctaSources": "See the scientific sources"
   },
   "s2": {
-   "title": "THI: какво мерим",
+   "title": "THI: what we measure",
    "subtitle": "Tinnitus Handicap Inventory (Newman et al., 1996)",
    "paragraphs": [
-    "Tinnitus Handicap Inventory (THI) е създаден през 1996 г. от Newman, Jacobson и Spitzer — психометрично валидиран въпросник за оценка на тежестта на тинитуса.",
+    "The Tinnitus Handicap Inventory (THI) was created in 1996 by Newman, Jacobson and Spitzer — a psychometrically validated questionnaire for assessing tinnitus severity.",
     {
      "type": "h3",
-     "text": "25 въпроса, разделени в 3 категории:"
+     "text": "25 questions, divided into 3 categories:"
     },
     {
      "type": "list",
      "items": [
-      "Функционални (11 въпр.): концентрация, сън, работа",
-      "Емоционални (9 въпр.): тревожност, гняв, фрустрация",
-      "Катастрофизиращи (5 въпр.): чувство за безнадеждност"
+      "Functional (11 q.): concentration, sleep, work",
+      "Emotional (9 q.): anxiety, anger, frustration",
+      "Catastrophic (5 q.): a sense of hopelessness"
      ]
     },
-    "Точки: Да = 4, Понякога = 2, Не = 0. Общ резултат: 0–100.",
+    "Points: Yes = 4, Sometimes = 2, No = 0. Total score: 0–100.",
     {
      "type": "h3",
-     "text": "Класификация (British Association of Otolaryngologists):"
+     "text": "Classification (British Association of Otolaryngologists):"
     },
     {
      "type": "list",
      "items": [
-      "0–16: Слабо",
-      "18–36: Леко",
-      "38–56: Умерено",
-      "58–76: Тежко",
-      "78–100: Катастрофично"
+      "0–16: Slight",
+      "18–36: Mild",
+      "38–56: Moderate",
+      "58–76: Severe",
+      "78–100: Catastrophic"
      ]
     },
     {
      "type": "note",
-     "text": "Клинично значимо подобрение (MCID): минимум 7 точки спад. Това е установеният праг за реална промяна."
+     "text": "Clinically significant improvement (MCID): a drop of at least 7 points. This is the established threshold for real change."
     },
-    "Защо го правим: измерване ПРЕДИ терапия + ПОВТАРЯНЕ след 14 дни — за да виждате обективен прогрес, не само субективно усещане."
+    "Why we do it: a measurement BEFORE therapy + a REPEAT after 14 days — so you see objective progress, not just a subjective feeling."
    ]
   },
   "s3": {
    "title": "Pitch Matching",
-   "subtitle": "Намиране на Вашата тинитус честота",
+   "subtitle": "Finding your tinnitus frequency",
    "paragraphs": [
-    "Тинитусът има „тон\" — една или няколко основни честоти. За повечето хора с тонален тинитус това е между 1000 и 12000 Hz (обикновено в средно-високите честоти).",
+    "Tinnitus has a \"pitch\" — one or several main frequencies. For most people with tonal tinnitus this is between 1000 and 12000 Hz (usually in the mid-high frequencies).",
     {
      "type": "h3",
-     "text": "Нашият метод: 2AFC binary search"
+     "text": "Our method: 2AFC binary search"
     },
-    "Two-Alternative Forced Choice — стандартен психофизичен метод за определяне на прагови честоти.",
+    "Two-Alternative Forced Choice — a standard psychophysical method for determining threshold frequencies.",
     {
      "type": "h3",
-     "text": "Как работи:"
+     "text": "How it works:"
     },
     {
      "type": "ol",
      "items": [
-      "Чувате Тон А и Тон Б (две различни честоти).",
-      "Избирате кой е по-близо до Вашия тинитус.",
-      "Системата стеснява диапазона по двоична логика.",
-      "След 3–4 итерации намираме честотата с точност ±1/4 octave."
+      "You hear Tone A and Tone B (two different frequencies).",
+      "You choose which is closer to your tinnitus.",
+      "The system narrows the range using binary logic.",
+      "After 3–4 iterations we find the frequency with an accuracy of ±1/4 octave."
      ]
     },
     {
      "type": "note",
-     "text": "Защо binary search: log₂(12 възможни честоти) ≈ 3–4 итерации. Минимум tap-ове, максимум точност."
+     "text": "Why binary search: log₂(12 possible frequencies) ≈ 3–4 iterations. Minimum taps, maximum accuracy."
     }
    ]
   },
   "s4": {
    "title": "Notched Therapy",
-   "subtitle": "Терапевтичното сърце на AURALIS",
+   "subtitle": "The therapeutic heart of AURALIS",
    "paragraphs": [
     {
      "type": "h3",
-     "text": "Принцип"
+     "text": "Principle"
     },
-    "При продължително слушане на звук с премахната Ваша тинитус честота, мозъкът прави „re-mapping\" на слуховия кортекс. Невроните, отговорни за phantom тон, постепенно намаляват активността си.",
+    "With prolonged listening to a sound that has your tinnitus frequency removed, the brain \"re-maps\" the auditory cortex. The neurons responsible for the phantom tone gradually reduce their activity.",
     {
      "type": "h3",
-     "text": "Технически"
+     "text": "Technical"
     },
     {
      "type": "list",
      "items": [
-      "Notch филтър (Web Audio BiquadFilterNode тип „notch\")",
-      "Q фактор = 2.871 (стандарт за 1/2 octave bandwidth)",
-      "Центриран точно на Вашата pitch честота"
+      "Notch filter (Web Audio BiquadFilterNode of type \"notch\")",
+      "Q factor = 2.871 (standard for 1/2 octave bandwidth)",
+      "Centered exactly on your pitch frequency"
      ]
     },
     {
      "type": "h3",
-     "text": "Валидиран в:"
+     "text": "Validated in:"
     },
-    "Pantev et al. (2012) — „Tailor-made notched music training for tinnitus\", Frontiers in Systems Neuroscience. Първото RCT, показало значимо намаление при 6 месеца ежедневно слушане.",
-    "Stein et al. (2015) — Repeated follow-up. Потвърждава дългосрочни ефекти.",
+    "Pantev et al. (2012) — \"Tailor-made notched music training for tinnitus\", Frontiers in Systems Neuroscience. The first RCT to show a significant reduction after 6 months of daily listening.",
+    "Stein et al. (2015) — Repeated follow-up. Confirms long-term effects.",
     {
      "type": "h3",
      "text": "Notched Therapy Meta-analysis (2025):"
@@ -1052,246 +1052,246 @@
     {
      "type": "list",
      "items": [
-      "14 RCT, общо 793 пациенти",
-      "3 месец: −8.6 THI точки (95% CI)",
-      "6 месец: −24.6 THI точки",
-      "Терапевтичният ефект НАРАСТВА с дългосрочна употреба",
-      "По-добра поносимост от TRT (Tinnitus Retraining Therapy)"
+      "14 RCTs, 793 patients in total",
+      "Month 3: −8.6 THI points (95% CI)",
+      "Month 6: −24.6 THI points",
+      "The therapeutic effect GROWS with long-term use",
+      "Better tolerated than TRT (Tinnitus Retraining Therapy)"
      ]
     }
    ]
   },
   "s5": {
-   "title": "Звукова терапия",
-   "subtitle": "256 проби, 10 категории, 2 layer-а",
+   "title": "Sound therapy",
+   "subtitle": "256 samples, 10 categories, 2 layers",
    "paragraphs": [
-    "AURALIS използва 256 терапевтични звукови проби, организирани в 10 категории: Океан, Дъжд, Река, Подводен, Вятър, Медитация, Гора, Огън, Околни, Шум.",
+    "AURALIS uses 256 therapeutic sound samples, organized into 10 categories: Ocean, Rain, River, Underwater, Wind, Meditation, Forest, Fire, Ambient, Noise.",
     {
      "type": "h3",
-     "text": "Всеки звук:"
+     "text": "Each sound:"
     },
     {
      "type": "list",
      "items": [
-      "Преминава през notch филтър (премахва Вашата честота)",
-      "Loop-friendly (без crossfade артефакти)",
-      "Нормализиран по LUFS (постоянна сила)"
+      "Passes through a notch filter (removes your frequency)",
+      "Loop-friendly (no crossfade artifacts)",
+      "Normalized by LUFS (constant loudness)"
      ]
     },
     {
      "type": "h3",
-     "text": "Два слоя:"
+     "text": "Two layers:"
     },
     {
      "type": "list",
      "items": [
-      "Layer 1 (основен звук): природа, музика, медитация",
-      "Layer 2 (фонов шум): розов или кафяв (генерира се в реално време)"
+      "Layer 1 (main sound): nature, music, meditation",
+      "Layer 2 (background noise): pink or brown (generated in real time)"
      ]
     },
-    "Защо двата слоя: розов/кафяв шум осигурява постоянна „маскираща\" основа. Природните звуци дават емоционално приятно преживяване. Комбинацията увеличава compliance (продължителното слушане).",
+    "Why two layers: pink/brown noise provides a constant \"masking\" base. Natural sounds give an emotionally pleasant experience. The combination increases compliance (continued listening).",
     {
      "type": "h3",
-     "text": "Препоръчителна продължителност:"
+     "text": "Recommended duration:"
     },
     {
      "type": "list",
      "items": [
-      "Минимум 30 минути на ден",
-      "Идеално 60–120 минути",
-      "14 дни въвеждаща програма",
-      "12 седмици пълен курс за измерим резултат"
+      "At least 30 minutes a day",
+      "Ideally 60–120 minutes",
+      "14-day introductory program",
+      "12-week full course for a measurable result"
      ]
     }
    ]
   },
   "s6": {
-   "title": "Безопасност и поверителност",
-   "subtitle": "Какво остава на телефона Ви",
+   "title": "Safety and privacy",
+   "subtitle": "What stays on your phone",
    "paragraphs": [
     {
      "type": "h3",
-     "text": "Безопасност"
+     "text": "Safety"
     },
     {
      "type": "list",
      "items": [
-      "Всички звуци са нормализирани под 70 dB SPL (безопасно ниво)",
-      "Препоръчваме затворени слушалки за чистота",
-      "Спрете слушане ако чувствате неудобство"
+      "All sounds are normalized below 70 dB SPL (a safe level)",
+      "We recommend closed headphones for clarity",
+      "Stop listening if you feel discomfort"
      ]
     },
     {
      "type": "h3",
-     "text": "Поверителност"
+     "text": "Privacy"
     },
     {
      "type": "list",
      "items": [
-      "Всички Ваши данни остават на устройството Ви (localStorage)",
-      "AURALIS не изпраща нищо към сървъри",
-      "THI отговори, pitch резултати, дневник — само локално"
+      "All your data stays on your device (localStorage)",
+      "AURALIS sends nothing to servers",
+      "THI answers, pitch results, journal — local only"
      ]
     },
     {
      "type": "h3",
-     "text": "Регулаторен статус"
+     "text": "Regulatory status"
     },
     {
      "type": "list",
      "items": [
-      "AURALIS е дигитална wellness платформа, не медицинско устройство",
-      "Не замества преглед от УНГ лекар",
-      "За тежки случаи (THI > 78) препоръчваме консултация"
+      "AURALIS is a digital wellness platform, not a medical device",
+      "Does not replace an examination by an ENT doctor",
+      "For severe cases (THI > 78) we recommend a consultation"
      ]
     },
     {
      "type": "note",
-     "text": "При въпроси: tinnitus-app.help/contact"
+     "text": "For questions: tinnitus-app.help/contact"
     }
    ]
   },
   "s7": {
-   "title": "Научни източници",
-   "subtitle": "Студии, на които се базира AURALIS"
+   "title": "Scientific sources",
+   "subtitle": "Studies AURALIS is based on"
   },
   "sources": {
    "src1": {
     "title": "Development of the Tinnitus Handicap Inventory",
-    "contrib": "Създаване на THI скалата — основа на нашата оценка."
+    "contrib": "Creation of the THI scale — the basis of our assessment."
    },
    "src2": {
     "title": "Tinnitus: the dark side of the auditory cortex plasticity",
-    "contrib": "Доказва невропластичния ефект на notched терапия."
+    "contrib": "Proves the neuroplastic effect of notched therapy."
    },
    "src3": {
     "title": "Clinical trial on tonal tinnitus with tailor-made notched music training",
-    "contrib": "6-месечно RCT с дълготрайни ефекти."
+    "contrib": "A 6-month RCT with long-lasting effects."
    },
    "src4": {
-    "title": "14 RCT, общо 793 пациенти",
-    "contrib": "−24.6 точки THI на 6 месец; ефектът нараства с продължителна употреба."
+    "title": "14 RCTs, 793 patients in total",
+    "contrib": "−24.6 THI points at month 6; the effect grows with continued use."
    },
    "src5": {
-    "title": "FDA-одобрена бимодална стимулация",
-    "contrib": "−28 точки THI за 12 седмици в real-world practice."
+    "title": "FDA-approved bimodal stimulation",
+    "contrib": "−28 THI points in 12 weeks in real-world practice."
    },
    "src6": {
-    "title": "THI grading system — 5 категории на тежест",
-    "contrib": "Клиничната класификация Слабо/Леко/Умерено/Тежко/Катастрофично."
+    "title": "THI grading system — 5 severity categories",
+    "contrib": "The clinical classification Slight/Mild/Moderate/Severe/Catastrophic."
    },
    "src7": {
     "title": "Multicenter, double-blind, n=440",
-    "contrib": "9 месеца проследяване — потвърждава дългосрочни ефекти."
+    "contrib": "9-month follow-up — confirms long-term effects."
    }
   },
   "reminders": {
    "pitch": {
-    "body": "Notch филтър активиран на {freq} Hz. От сега всичките звуци премахват Вашата тинитус честота — клинично доказана терапия (Pantev 2012, Stein 2015).",
-    "cta": "Научи повече"
+    "body": "Notch filter activated at {freq} Hz. From now on, all sounds remove your tinnitus frequency — a clinically proven therapy (Pantev 2012, Stein 2015).",
+    "cta": "Learn more"
    },
    "day7": {
-    "title": "Поздравления — половината е зад Вас",
-    "body": "Notched therapy показва ефекти от 3-тия месец и нараства до 6-тия. Продължавайте.",
-    "cta": "Виж научните данни"
+    "title": "Congratulations — you're halfway there",
+    "body": "Notched therapy shows effects from month 3 and grows through month 6. Keep going.",
+    "cta": "See the scientific data"
    },
    "day14": {
-    "mcid": "MCID (Minimal Clinically Important Difference) за THI = 7 точки.",
-    "delta": "Вашата промяна: {delta} точки.",
-    "significant": "Това е клинично значимо подобрение.",
-    "partial": "Дайте на терапията време — пълен ефект се вижда от 3-тия до 6-тия месец."
+    "mcid": "The MCID (Minimal Clinically Important Difference) for THI = 7 points.",
+    "delta": "Your change: {delta} points.",
+    "significant": "This is a clinically significant improvement.",
+    "partial": "Give the therapy time — the full effect is seen between months 3 and 6."
    }
   }
  },
  "voice": {
-  "startAria": "Започни диктовка",
-  "stopAria": "Спри диктовката",
-  "listening": "Слушам…",
+  "startAria": "Start dictation",
+  "stopAria": "Stop dictation",
+  "listening": "Listening…",
   "privacy": {
-   "title": "Гласовата диктовка",
-   "body": "При натискане на микрофона, гласът Ви се обработва от браузъра Ви. Браузърът използва безплатна услуга на Google (Chrome) или Apple (Safari), което изисква интернет връзка.\n\nТекстът остава САМО на телефона Ви — AURALIS не пази и не изпраща Вашите записи.\n\nМожете да изключите гласовата диктовка по всяко време чрез настройките на телефона.",
-   "acknowledge": "Разбирам, продължи",
-   "cancel": "Отмени"
+   "title": "Voice dictation",
+   "body": "When you tap the microphone, your voice is processed by your browser. The browser uses a free service from Google (Chrome) or Apple (Safari), which requires an internet connection.\n\nThe text stays ONLY on your phone — AURALIS does not store or send your recordings.\n\nYou can turn off voice dictation at any time through your phone's settings.",
+   "acknowledge": "I understand, continue",
+   "cancel": "Cancel"
   },
   "error": {
-   "noSpeech": "Не чух нищо. Опитайте отново.",
-   "mic": "Не намирам микрофон.",
-   "permission": "Разрешете достъп до микрофона в настройките на браузъра.",
-   "offline": "Гласовата диктовка изисква интернет. Опитайте отново когато сте online.",
-   "lang": "Българският не се поддържа от браузъра Ви.",
-   "generic": "Възникна грешка при гласовото въвеждане."
+   "noSpeech": "I didn't hear anything. Please try again.",
+   "mic": "I can't find a microphone.",
+   "permission": "Allow microphone access in your browser settings.",
+   "offline": "Voice dictation requires internet. Try again when you're online.",
+   "lang": "Your browser doesn't support this language.",
+   "generic": "An error occurred during voice input."
   },
   "settings": {
-   "section": "Поверителност",
-   "resetPrivacy": "Покажи отново инфото за диктовка",
-   "resetDoneToast": "Готово. При следваща употреба ще видите инфото отново."
+   "section": "Privacy",
+   "resetPrivacy": "Show the dictation info again",
+   "resetDoneToast": "Done. Next time you use it, you'll see the info again."
   },
   "overlay": {
-   "recording": "ЗАПИСВАНЕ",
-   "ready": "ГОТОВО",
-   "hintRecording": "Говорете на български. Спрете и ще видите текста.",
-   "hintReady": "Натиснете „Запиши\" за да добавите, или текста за нов запис.",
-   "hintEmpty": "Не чух нищо. Натиснете текста за нов опит.",
-   "placeholder": "Текстът ще се появи тук…",
+   "recording": "RECORDING",
+   "ready": "DONE",
+   "hintRecording": "Speak now. Stop and you'll see the text.",
+   "hintReady": "Press \"Save\" to add, or the text for a new entry.",
+   "hintEmpty": "I didn't hear anything. Tap the text to try again.",
+   "placeholder": "The text will appear here…",
    "save": "Save",
-   "cancel": "Отмени",
-   "closeAria": "Затвори диктовката"
+   "cancel": "Cancel",
+   "closeAria": "Close dictation"
   }
  },
  "profile_results": {
-  "title": "Вашата оценка",
+  "title": "Your assessment",
   "welcomes": {
-   "TH_C": "Вие чувате високочестотен, постоянен пищящ или звънящ тон, който се натрапва особено в тиха среда и при умствена работа. Това е чест профил при хора, които са били излагани на високи звуци или забелязват промени в слуха с възрастта — мозъкът компенсира липсващите сигнали със собствена активност. AURALIS ще Ви предложи филтрирани природни звуци и розов шум за маскиране, заедно с кратки CBT практики, които насочват вниманието далеч от пищенето.",
-   "DN_S": "Вие чувате плътен, нискочестотен, понякога бучащ или тътнещ шум, който е особено натрапчив вечер и нарушава качеството на Вашия сън. Това е чест профил при хора, които прекарват време в тихи спални — без външен звук мозъкът усилва вътрешния шум. AURALIS ще Ви предложи дълбоки кафяви звуци, които смесват тинитуса с фон, без да го заглушават напълно — тази стратегия се нарича „точка на смесване\" и помага за по-добър сън без внезапна тишина.",
-   "SS_R": "Вашият тинитус е силно свързан със състоянието на нервната Ви система — той се засилва при стрес, тревожност и емоционално натоварване, а при спокойствие отслабва. Това отразява висока чувствителност на тялото към сигнали — Вашата лимбична система реагира бързо на промени. AURALIS ще Ви даде нежни природни звуци, дихателно упражнение 4-7-8 за остри моменти и кратки практики за приемане, които прекъсват порочния кръг между шум и тревога.",
-   "SM_F": "Вашият тинитус има променлив характер — силата му се променя през деня, понякога значително, и често е свързан с физическо напрежение във врата, челюстта или раменете. Това е соматичен тип тинитус: мускулите около ухото и тригеминалният нерв могат да модулират шума. AURALIS ще Ви предложи динамични природни звуци като океански вълни (които ангажират мозъка по-силно), упражнение за отпускане на челюстта и нежен масаж — телесните практики имат измерим ефект при този профил.",
-   "HB_M": "Вие имате тинитус, но той Ви безпокои предимно в условия на абсолютна тишина и не оказва съществено влияние върху ежедневните Ви задачи, концентрация, сън или настроение. Вашата нервна система вече е изградила висока степен на естествена адаптация — мозъкът Ви до голяма степен филтрира фантомния сигнал като маловажен фон. AURALIS ще Ви предложи ултра-меки природни звуци за моментите на пълна тишина и насоки как да поддържате тази устойчивост и в стресови периоди."
+   "TH_C": "You hear a high-pitched, constant whistling or ringing tone that intrudes especially in quiet environments and during mental work. This is a common profile in people who have been exposed to loud sounds or notice age-related changes in hearing — the brain compensates for the missing signals with its own activity. AURALIS will offer you filtered nature sounds and pink noise for masking, along with short CBT practices that steer attention away from the ringing.",
+   "DN_S": "You hear a dense, low-frequency, sometimes buzzing or rumbling noise that is especially intrusive in the evening and disrupts the quality of your sleep. This is a common profile in people who spend time in quiet bedrooms — without external sound the brain amplifies the internal noise. AURALIS will offer you deep brown sounds that blend the tinnitus with a background without masking it completely — this strategy is called the \"mixing point\" and helps you sleep better without sudden silence.",
+   "SS_R": "Your tinnitus is strongly linked to the state of your nervous system — it intensifies with stress, anxiety and emotional load, and eases when you're calm. This reflects a high sensitivity of the body to signals — your limbic system reacts quickly to changes. AURALIS will give you gentle nature sounds, a 4-7-8 breathing exercise for acute moments, and short acceptance practices that break the vicious cycle between noise and anxiety.",
+   "SM_F": "Your tinnitus has a variable character — its loudness changes throughout the day, sometimes significantly, and it's often linked to physical tension in the neck, jaw or shoulders. This is a somatic type of tinnitus: the muscles around the ear and the trigeminal nerve can modulate the noise. AURALIS will offer you dynamic nature sounds such as ocean waves (which engage the brain more strongly), a jaw-relaxation exercise and gentle massage — body practices have a measurable effect in this profile.",
+   "HB_M": "You have tinnitus, but it bothers you mainly in conditions of complete silence and has no significant impact on your daily tasks, concentration, sleep or mood. Your nervous system has already built a high degree of natural adaptation — your brain largely filters the phantom signal as an unimportant background. AURALIS will offer you ultra-soft nature sounds for moments of total silence and guidance on how to maintain this resilience even during stressful periods."
   },
-  "welcomeAria": "Персонално приветствие за профил {code}",
+  "welcomeAria": "Personal welcome for profile {code}",
   "code": {
-   "label": "Код на профил"
+   "label": "Profile code"
   },
   "di": {
-   "label": "DI скор",
-   "low": "Слаб интензитет",
-   "medium": "Умерен интензитет",
-   "high": "Висок интензитет"
+   "label": "DI score",
+   "low": "Low intensity",
+   "medium": "Moderate intensity",
+   "high": "High intensity"
   },
   "sections": {
-   "meaning": "Какво означава за вас",
-   "why": "Защо имате този тип",
-   "strategy": "Препоръчителна стратегия",
-   "recommended": "Препоръчителни режими",
-   "topSounds": "Топ препоръчителни звуци",
-   "timeline": "Очаквания във времето",
-   "additional": "Допълнителни препоръки",
-   "medical": "Кога към лекар"
+   "meaning": "What it means for you",
+   "why": "Why you have this type",
+   "strategy": "Recommended strategy",
+   "recommended": "Recommended modes",
+   "topSounds": "Top recommended sounds",
+   "timeline": "Expectations over time",
+   "additional": "Additional recommendations",
+   "medical": "When to see a doctor"
   },
   "strategy": {
-   "noiseLabel": "Препоръчителен фонов шум",
-   "mixRatioLabel": "Препоръчително съотношение",
+   "noiseLabel": "Recommended background noise",
+   "mixRatioLabel": "Recommended ratio",
    "mixRatioFmt": "{l1}/{l2}",
-   "durationLabel": "Препоръчителна продължителност",
-   "reasoningLabel": "Защо тази стратегия"
+   "durationLabel": "Recommended duration",
+   "reasoningLabel": "Why this strategy"
   },
   "topSounds": {
-   "loading": "Зареждане на препоръки...",
-   "empty": "Препоръките се подготвят...",
-   "viewAll": "Виж всички препоръчителни"
+   "loading": "Loading recommendations...",
+   "empty": "Recommendations are being prepared...",
+   "viewAll": "See all recommended"
   },
   "timeline": {
-   "loading": "Прогнозата се подготвя..."
+   "loading": "The forecast is being prepared..."
   },
-  "placeholder": "Това съдържание се подготвя от научния екип.",
-  "descriptionTitle": "Какво означава това",
+  "placeholder": "This content is being prepared by the science team.",
+  "descriptionTitle": "What this means",
   "expectationsTitle": "What to expect",
-  "recommendedTitle": "Препоръчителни режими",
-  "recommendedBadge": "За Вас",
+  "recommendedTitle": "Recommended modes",
+  "recommendedBadge": "For you",
   "duration": {
-   "title": "Препоръчителна продължителност",
-   "firstTwoWeeks": "Първи 2 седмици",
-   "firstTwoWeeksText": "2–3 часа на ден",
-   "afterTitle": "След това",
+   "title": "Recommended duration",
+   "firstTwoWeeks": "First 2 weeks",
+   "firstTwoWeeksText": "2–3 hours a day",
+   "afterTitle": "After that",
    "afterText": "Цяла нощ (с sleep timer)"
   },
   "disclaimer": {
@@ -1492,12 +1492,12 @@
    "definition": "За какво е този режим",
    "whenUsed": "Кога се ползва",
    "whenNotUsed": "Кога НЕ се ползва",
-   "recommendedNoise": "Препоръчителен фонов шум",
-   "mixRatio": "Препоръчително съотношение",
+   "recommendedNoise": "Recommended background noise",
+   "mixRatio": "Recommended ratio",
    "expectedEffect": "Очакван ефект",
-   "safety": "Безопасност",
+   "safety": "Safety",
    "faq": "Чести въпроси",
-   "scientificBasis": "Научна основа"
+   "scientificBasis": "Scientific basis"
   },
   "whenUsedLabels": {
    "timeOfDay": "Час от деня",
@@ -1510,7 +1510,7 @@
   },
   "previewCta": "Опитайте сега",
   "closeAria": "Close",
-  "placeholder": "Това съдържание се подготвя от научния екип.",
+  "placeholder": "This content is being prepared by the science team.",
   "sleep_deep": {
    "title": "Сън дълбок",
    "subtitle": "Цяла нощ",
@@ -2032,8 +2032,8 @@
   "supportEmail": "support@auralis.app",
   "supportSubject": "AURALIS въпрос",
   "categories": {
-   "safety": "Безопасност",
-   "technical": "Технически",
+   "safety": "Safety",
+   "technical": "Technical",
    "therapeutic": "Терапевтични",
    "program": "Програма"
   },
@@ -2553,7 +2553,7 @@
     "options": {
      "a": "Лекарства",
      "b": "Слухови апарати",
-     "c": "Звукова терапия",
+     "c": "Sound therapy",
      "d": "Meditation",
      "e": "Нищо още"
     }
