@@ -147,7 +147,7 @@ window.Library = (function () {
     var total = Math.round(sec);
     var m = Math.floor(total / 60);
     var s = total % 60;
-    return t('library.card.durationFmt',
+    return t('ui.library.card.durationFmt',
       m + ':' + (s < 10 ? '0' : '') + s,
       { m: m, s: (s < 10 ? '0' + s : '' + s) });
   }
@@ -256,9 +256,9 @@ window.Library = (function () {
   // ============================================================
 
   function buildSearchBarHtml() {
-    var placeholder = t('library.search.placeholder', 'Потърсете звук...');
-    var clearAria = t('library.search.clearAria', 'Изчисти търсенето');
-    var diaryAria = t('diary.openAria', 'Отвори дневника');
+    var placeholder = t('ui.library.search.placeholder', 'Потърсете звук...');
+    var clearAria = t('ui.library.search.clearAria', 'Изчисти търсенето');
+    var diaryAria = t('ui.diary.openAria', 'Отвори дневника');
     var hiddenClass = searchQuery ? '' : ' is-hidden';
     var diaryIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"' +
       ' stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
@@ -317,9 +317,9 @@ window.Library = (function () {
     var isFav = favorites.indexOf(sound.id) !== -1;
     var isPlaying = (window.AudioEngine && window.AudioEngine.getActivePreset() === sound.id);
     var favAria = isFav
-      ? t('library.card.favoriteRemoveAria', 'Премахни ' + title + ' от любими', { title: title })
-      : t('library.card.favoriteAddAria', 'Добави ' + title + ' в любими', { title: title });
-    var playAria = t('library.card.playAria', 'Пусни ' + title, { title: title });
+      ? t('ui.library.card.favoriteRemoveAria', 'Премахни ' + title + ' от любими', { title: title })
+      : t('ui.library.card.favoriteAddAria', 'Добави ' + title + ' в любими', { title: title });
+    var playAria = t('ui.library.card.playAria', 'Пусни ' + title, { title: title });
 
     // Schema v2: category_audio (от 01_ocean/, 02_rain/, etc.); fallback към legacy category
     var catId = sound.category_audio || sound.category;
@@ -365,10 +365,10 @@ window.Library = (function () {
     var subtitle = soundSubtitle(sound);
     var author = sound.author_key ? t(sound.author_key, '') : '';
     var isFav = favorites.indexOf(sound.id) !== -1;
-    var playAria = t('library.card.playAria', 'Пусни ' + title, { title: title });
+    var playAria = t('ui.library.card.playAria', 'Пусни ' + title, { title: title });
     var favAria = isFav
-      ? t('library.card.favoriteRemoveAria', 'Премахни ' + title + ' от любими', { title: title })
-      : t('library.card.favoriteAddAria', 'Добави ' + title + ' в любими', { title: title });
+      ? t('ui.library.card.favoriteRemoveAria', 'Премахни ' + title + ' от любими', { title: title })
+      : t('ui.library.card.favoriteAddAria', 'Добави ' + title + ' в любими', { title: title });
 
     return (
       '<div class="glass lib-med-card" data-sound-id="' + escapeHtml(sound.id) + '"' +
@@ -402,10 +402,10 @@ window.Library = (function () {
   function buildGridHtml(sounds) {
     if (sounds.length === 0) {
       var empty = searchQuery
-        ? t('library.search.noResults', 'Няма намерени звуци за "' + searchQuery + '"', { query: searchQuery })
+        ? t('ui.library.search.noResults', 'Няма намерени звуци за "' + searchQuery + '"', { query: searchQuery })
         : (activeFilter === 'favorites'
-            ? t('library.favorites.empty', 'Натиснете ♡ върху звук, за да го запазите тук')
-            : t('library.empty', 'Скоро ще има още звуци'));
+            ? t('ui.library.favorites.empty', 'Натиснете ♡ върху звук, за да го запазите тук')
+            : t('ui.library.empty', 'Скоро ще има още звуци'));
       return '<div class="lib-empty">' + escapeHtml(empty) + '</div>';
     }
 
@@ -433,9 +433,9 @@ window.Library = (function () {
     if (!sound) return '';
     var title = soundTitle(sound);
     var subtitle = soundSubtitle(sound);
-    var playingLabel = t('library.player.playing', 'Възпроизвежда се');
-    var pauseAria = t('library.player.pauseAria', 'Пауза');
-    var sleepLabel = t('sleep.title', 'Нощен режим');
+    var playingLabel = t('ui.library.player.playing', 'Възпроизвежда се');
+    var pauseAria = t('ui.library.player.pauseAria', 'Пауза');
+    var sleepLabel = t('ui.sleep.title', 'Нощен режим');
 
     var moonSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"' +
       ' stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
@@ -475,7 +475,7 @@ window.Library = (function () {
   function buildLibraryHtml() {
     if (!manifest) {
       return '<div class="lib-loading">' +
-        escapeHtml(t('library.loading', 'Зареждане...')) +
+        escapeHtml(t('ui.library.loading', 'Зареждане...')) +
         '</div>';
     }
 
@@ -535,7 +535,7 @@ window.Library = (function () {
     window.addEventListener('auralis-sound-error', function (e) {
       var kind = (e.detail && e.detail.kind) || 'notFound';
       var msgKey = 'audio.error.' + kind;
-      var msg = t(msgKey, t('audio.error.notFound', 'Звукът не може да се зареди'));
+      var msg = t(msgKey, t('ui.audio.error.notFound', 'Звукът не може да се зареди'));
       if (window.Toast && window.Toast.error) window.Toast.error(msg);
       // Re-render → mini player автоматично hides ако getActivePreset() === null
       refresh();
