@@ -1653,55 +1653,55 @@
    "subtitle": "Antes de dormir, lectura",
    "definition": "Un modo de relajación pasiva durante el día o la tarde — leer un libro en papel, una conversación ligera, un vaso de agua tibia o té, actividades de baja energía. El objetivo es una reducción general del tono psicofisiológico, no la preparación para dormir. También puede usarse durante un despertar nocturno cuando se abandona temporalmente la cama (Night Wake Protocol).",
    "whenUsed": {
-    "timeOfDay": "Следобед или ранна вечер; също като част от Night Wake Protocol след среднощно събуждане.",
-    "context": "Всекидневна стая (НЕ легло), приглушена топла светлина, удобна позиция.",
-    "duration": "20–60 мин, гъвкаво според нуждата. 60 мин е консервативна горна граница спрямо общото правило 60/60."
+    "timeOfDay": "Por la tarde o al anochecer; también como parte del Night Wake Protocol tras un despertar nocturno.",
+    "context": "Salón (NO la cama), luz cálida tenue, una posición cómoda.",
+    "duration": "20–60 min, flexible según la necesidad. 60 min es un límite superior conservador respecto a la regla general 60/60."
    },
    "whenNotUsed": [
-    "Като заместител на сън (за това използвайте режим „Сън дълбок“).",
-    "В самото легло през деня — леглото трябва да остане свързано с асоциация „сън + релакс“, не с дневна активност.",
-    "При шофиране или работа с машини — режимът цели понижение на сърдечния ритъм и съзнателната активност."
+    "Como sustituto del sueño (para eso use el modo \"Sueño profundo\").",
+    "En la propia cama durante el día — la cama debe seguir asociada con \"sueño + relajación\", no con actividad diurna.",
+    "Mientras conduce o maneja maquinaria — el modo busca reducir la frecuencia cardíaca y la actividad consciente."
    ],
    "recommendedNoise": {
     "type": "pink_pure",
-    "description": "Мек, непрекъснат неутрален звук — розов шум или фрактални природни тонове, настроени под субективната точка на смесване (mixing point), за да се намали акустичният контраст без да привлича вниманието. При нощно ползване (Night Wake) — същият розов шум, но 3–5 dB по-тих от дневното ниво."
+    "description": "Un sonido neutro, suave y continuo — ruido rosa o tonos naturales fractales, ajustados por debajo del punto de mezcla subjetivo, para reducir el contraste acústico sin atraer la atención. Para uso nocturno (Night Wake) — el mismo ruido rosa, pero 3–5 dB más bajo que el nivel diurno."
    },
    "mixRatio": {
     "layer1": 45,
     "layer2": 55,
-    "reasoning": "Layer 1 (главен звук — природа, лека инструментална музика): 40–50%. Layer 2 (фонов розов шум): 50–60%. Подобно на „Заспиване“ — Layer 1 може да е по-разнообразен (музика, природа), Layer 2 остава доминантен за маскираща функция."
+    "reasoning": "Capa 1 (sonido principal — naturaleza, música instrumental suave): 40–50%. Capa 2 (ruido rosa de fondo): 50–60%. Similar a \"Conciliar el sueño\" — la Capa 1 puede ser más variada (música, naturaleza), la Capa 2 sigue siendo dominante para la función de enmascaramiento."
    },
-   "expectedEffect": "Намаляване на психофизиологичния тонус; снижаване на сърдечния ритъм; парасимпатикова доминация. При нощно ползване (Night Wake) — улеснение на връщането към сън без задействане на условна връзка „легло = тревога“.",
+   "expectedEffect": "Reducción del tono psicofisiológico; reducción de la frecuencia cardíaca; dominancia parasimpática. Para uso nocturno (Night Wake) — facilita el regreso al sueño sin activar el vínculo condicionado \"cama = ansiedad\".",
    "safety": [
-    "Максимум 70 dBA за неограничено време (WHO/NIOSH lifetime safe).",
-    "Правило 60/60 (60% volume / 60 мин) с 10–15 мин пълна тишина след.",
-    "Без бял шум.",
+    "Máximo 70 dBA por tiempo ilimitado (WHO/NIOSH lifetime safe).",
+    "Regla 60/60 (60% de volumen / 60 min) con 10–15 min de silencio total después.",
+    "Sin ruido blanco.",
     "Aviso de bienestar obligatorio."
    ],
    "faq": [
     {
      "q": "¿Cómo de fuerte?",
-     "a": "Под точката на смесване на тинитуса — мек, непрекъснат неутрален звук. За дневна релаксация: 50–65 dBA общо в стаята. За Night Wake (среднощна релаксация в съседна стая): 3–5 dB по-тих от дневното ниво."
+     "a": "Por debajo del punto de mezcla del tinnitus — un sonido neutro, suave y continuo. Para la relajación diurna: 50–65 dBA en total en la habitación. Para Night Wake (relajación nocturna en una habitación contigua): 3–5 dB más bajo que el nivel diurno."
     },
     {
-     "q": "Колко дълго мога да го пускам?",
-     "a": "20–60 мин типична сесия. При по-дълго слушане спазвайте правилото 60/60 (60% volume / 60 мин), последвано от 10–15 мин пълна тишина за защита от слухова умора. При нива под 70 dBA няма дневен лимит (WHO/NIOSH lifetime safe)."
+     "q": "¿Cuánto tiempo puedo reproducirlo?",
+     "a": "20–60 min es una sesión típica. Para una escucha más larga siga la regla 60/60 (60% de volumen / 60 min), seguida de 10–15 min de silencio total para proteger contra la fatiga auditiva. En niveles por debajo de 70 dBA no hay límite diario (WHO/NIOSH lifetime safe)."
     },
     {
-     "q": "Може ли в леглото?",
-     "a": "Не препоръчваме дневна релаксация в леглото — леглото трябва да остане свързано с асоциация „сън“, не с дневен релакс. Това е ключово правило за хора с тинитус-индуцирана инсомния. За дневна релаксация: всекидневна стая, удобен фотьойл, не легло."
+     "q": "¿Puedo hacerlo en la cama?",
+     "a": "No recomendamos la relajación diurna en la cama — la cama debe seguir asociada con \"sueño\", no con la relajación diurna. Es una regla clave para personas con insomnio inducido por el tinnitus. Para la relajación diurna: un salón, un sillón cómodo, no la cama."
     },
     {
-     "q": "Подходящо ли е при тревожност?",
-     "a": "Релаксацията не е заместител на режим „Тревожност“ (SOS). При остра паник атака — първо режим „Тревожност“ (4-7-8 дишане, котва-фраза, познат розов шум 3–5 dB по-тих). След стабилизация → релаксация може да поддържа парасимпатиковата доминация. Релаксация ≠ криза."
+     "q": "¿Es adecuado para la ansiedad?",
+     "a": "La relajación no sustituye al modo \"Ansiedad\" (SOS). Durante una crisis de pánico aguda — primero el modo \"Ansiedad\" (respiración 4-7-8, frase ancla, ruido rosa familiar 3–5 dB más bajo). Tras la estabilización → la relajación puede apoyar la dominancia parasimpática. Relajación ≠ crisis."
     },
     {
-     "q": "Тапи или говорител?",
-     "a": "Същата препоръка като „Сън дълбок“ — отворени говорители или костно-проводими слушалки; не in-ear „тапи“ за дълги сесии."
+     "q": "¿Tapones o altavoz?",
+     "a": "La misma recomendación que \"Sueño profundo\" — altavoces abiertos o auriculares de conducción ósea; no \"botones\" in-ear para sesiones largas."
     },
     {
-     "q": "Опасно ли е, ако заспивам с релаксационна сесия?",
-     "a": "Не — но ако редовно заспивате с релаксация, преминете към режим „Сън дълбок“ вместо това. „Сън дълбок“ е специално настроен за 8-часов сън и точка на смесване по-тиха от релаксацията. Дневното ниво на релаксация, поддържано цяла нощ, може да фрагментира съня."
+     "q": "¿Es peligroso si me duermo con una sesión de relajación?",
+     "a": "No — pero si se duerme con frecuencia con la relajación, pase al modo \"Sueño profundo\" en su lugar. \"Sueño profundo\" está especialmente ajustado para un sueño de 8 horas y un punto de mezcla más bajo que la relajación. El nivel de relajación diurno, mantenido toda la noche, puede fragmentar el sueño."
     }
    ],
    "scientificBasis": [
@@ -1712,66 +1712,66 @@
    ]
   },
   "daily": {
-   "title": "Ежедневие",
-   "subtitle": "Работа, концентрация",
-   "definition": "Режим за дневна употреба по време на работа или концентрация, с цел осигуряване на леко, маскиращо акустично обогатяване на работната среда, което поддържа тинитуса извън фокуса на съзнателното внимание и стимулира кортикалната хабитуация. Симулира естественото маскиране, което осигуряват екологичните и индустриални звукови източници през деня.",
+   "title": "Día a día",
+   "subtitle": "Trabajo, concentración",
+   "definition": "Un modo para uso diurno durante el trabajo o la concentración, destinado a proporcionar un enriquecimiento acústico ligero y de enmascaramiento del entorno de trabajo que mantiene el tinnitus fuera del foco de la atención consciente y estimula la habituación cortical. Simula el enmascaramiento natural que proporcionan las fuentes sonoras ecológicas e industriales durante el día.",
    "whenUsed": {
-    "timeOfDay": "Работно време, преди 12:00 ч. идеално; следобед при концентрационни задачи.",
-    "context": "Офис, домашен офис, четене, учене — седяща активност с фокус.",
-    "duration": "1–2 часа по време на будни сесии; може и по-дълго при ниски нива (под 70 dBA)."
+    "timeOfDay": "Horas de trabajo, antes de las 12:00 idealmente; por la tarde para tareas de concentración.",
+    "context": "Oficina, teletrabajo, lectura, estudio — actividad sentada con concentración.",
+    "duration": "1–2 horas durante las sesiones de vigilia; puede ser más largo a niveles bajos (por debajo de 70 dBA)."
    },
    "whenNotUsed": [
-    "При шофиране или работа с тежки машини — отвлича внимание; високи когнитивни последствия от грешка.",
-    "При срещи, обаждания, разговори — водещият звук пречи на комуникацията.",
-    "При остра паник атака — използвайте режим „Тревожност“.",
-    "За деца — само под 50 dBA."
+    "Mientras conduce o maneja maquinaria pesada — distrae la atención; altas consecuencias cognitivas de un error.",
+    "Durante reuniones, llamadas, conversaciones — el sonido principal interfiere con la comunicación.",
+    "Durante una crisis de pánico aguda — use el modo \"Ansiedad\".",
+    "Para niños — solo por debajo de 50 dBA."
    ],
    "recommendedNoise": {
     "type": "pink_pure",
-    "description": "Лек, маскиращ розов шум — мозъкът се нуждае от позната, стабилна акустична сигнатура, към която вече е започнал да хабитуира. Дневното ниво е с 3–5 dB по-високо от нощното (поради по-високия дневен праг на чуваемост). Алтернативно: фрактални природни тонове (вятър, далечен дъжд)."
+    "description": "Un ruido rosa ligero y de enmascaramiento — el cerebro necesita una firma acústica familiar y estable a la que ya ha empezado a habituarse. El nivel diurno es 3–5 dB más alto que el nocturno (debido al mayor umbral auditivo diurno). Alternativamente: tonos naturales fractales (viento, lluvia lejana)."
    },
    "mixRatio": {
     "layer1": 25,
     "layer2": 75,
-    "reasoning": "Layer 1 (опционален, мек главен звук — природа, инструментална музика без вокали): 20–30%. Layer 2 (фонов розов шум): 70–80%. Дневният режим е по-фонов от „Сън дълбок“ — Layer 1 е минимален или липсва; Layer 2 доминира, защото целта е акустично обогатяване, не активно слушане. Музика с вокали е изключена, защото вокалите конкурират когнитивните ресурси за работа."
+    "reasoning": "Capa 1 (opcional, sonido principal suave — naturaleza, música instrumental sin voces): 20–30%. Capa 2 (ruido rosa de fondo): 70–80%. El modo diurno es más de fondo que \"Sueño profundo\" — la Capa 1 es mínima o ausente; la Capa 2 domina, porque el objetivo es el enriquecimiento acústico, no la escucha activa. La música con voces se excluye, porque las voces compiten por los recursos cognitivos para el trabajo."
    },
-   "expectedEffect": "Поддържане на тинитуса извън фокуса на съзнателното внимание чрез частично екологично маскиране; стимулиране на кортикалната хабитуация през деня; редукция на дневната соматична умора, причинена от тинитус-индуцирана инсомния.",
+   "expectedEffect": "Mantener el tinnitus fuera del foco de la atención consciente mediante un enmascaramiento ecológico parcial; estimular la habituación cortical durante el día; reducir la fatiga somática diurna causada por el insomnio inducido por el tinnitus.",
    "safety": [
-    "70 dBA максимум за неограничено време (WHO/NIOSH lifetime safe).",
-    "80 dBA = максимум 40 часа седмично.",
-    "Правило 60/60 (60% volume на устройството, не повече от 60 мин, после 10–15 мин тишина).",
-    "Внимание: емоционално харесвани звуци се възприемат субективно като по-тихи, отколкото са физически — използвайте обективен SPL meter (или dB measurement app) при настройка.",
-    "За деца — строго под 50 dBA.",
+    "70 dBA máximo por tiempo ilimitado (WHO/NIOSH lifetime safe).",
+    "80 dBA = máximo 40 horas por semana.",
+    "Regla 60/60 (60% del volumen del dispositivo, no más de 60 min, luego 10–15 min de silencio).",
+    "Nota: los sonidos que gustan emocionalmente se perciben subjetivamente como más bajos de lo que son físicamente — use un medidor SPL objetivo (o una app de medición de dB) al ajustar.",
+    "Para niños — estrictamente por debajo de 50 dBA.",
     "Aviso de bienestar obligatorio."
    ],
    "faq": [
     {
-     "q": "Колко силно по време на работа?",
-     "a": "Под 70 dBA — това е WHO/NIOSH lifetime safe лимит за 24/7 експозиция. Реално: 50–65 dBA в работната среда е достатъчно за маскиращ ефект, без да пречи на концентрацията. За деца — строго под 50 dBA."
+     "q": "¿Cómo de fuerte durante el trabajo?",
+     "a": "Por debajo de 70 dBA — es el límite seguro de por vida WHO/NIOSH para una exposición 24/7. En la práctica: 50–65 dBA en el entorno de trabajo basta para un efecto de enmascaramiento sin interferir con la concentración. Para niños — estrictamente por debajo de 50 dBA."
     },
     {
-     "q": "Колко дълго на ден?",
-     "a": "1–2 часа активно при будни сесии — посочено в research за розов шум. При нива под 70 dBA може и по-дълго. Спазвайте правилото 60/60 (60% volume / 60 мин активно слушане), последвано от 10–15 мин тишина за защита от слухова умора."
+     "q": "¿Cuánto tiempo al día?",
+     "a": "1–2 horas de forma activa durante las sesiones de vigilia — indicado en la investigación sobre el ruido rosa. En niveles por debajo de 70 dBA puede ser más largo. Siga la regla 60/60 (60% de volumen / 60 min de escucha activa), seguida de 10–15 min de silencio para proteger contra la fatiga auditiva."
     },
     {
-     "q": "Може ли с музика с вокали?",
-     "a": "Не препоръчителен Layer 1 с вокали за дневен режим — вокалите конкурират за когнитивни ресурси по време на работа. Препоръчват се: инструментална музика без вокали, природни звуци (вятър, далечен дъжд), или само фрактален розов шум."
+     "q": "¿Puedo usar música con voces?",
+     "a": "No se recomienda la Capa 1 con voces para el modo diurno — las voces compiten por los recursos cognitivos durante el trabajo. Se recomiendan: música instrumental sin voces, sonidos naturales (viento, lluvia lejana), o solo ruido rosa fractal."
     },
     {
-     "q": "Слушалки за работа?",
-     "a": "Костно-проводими (bone conduction) са най-добрият избор за дълъг работен ден — оставят ушния канал свободен и не предизвикват оклузивен ефект. Открити on-ear слушалки също са приемливи. Избягвайте in-ear „тапи“ за 4+ часа дневно."
+     "q": "¿Auriculares para trabajar?",
+     "a": "Los auriculares de conducción ósea son la mejor opción para una jornada laboral larga — dejan libre el canal auditivo y no provocan un efecto de oclusión. Los auriculares on-ear abiertos también son aceptables. Evite los \"botones\" in-ear durante 4+ horas al día."
     },
     {
-     "q": "Пречи ли на концентрация?",
-     "a": "Не — целта на дневния режим е обратното: да поддържа тинитуса извън фокуса на съзнателното внимание, освобождавайки префронталния кортекс за работата. Ако усещате, че Layer 1 (мелодия/природа) Ви разсейва — премахнете го и оставете само Layer 2 (розов шум)."
+     "q": "¿Interfiere con la concentración?",
+     "a": "No — el objetivo del modo diurno es el contrario: mantener el tinnitus fuera del foco de la atención consciente, liberando la corteza prefrontal para el trabajo. Si siente que la Capa 1 (melodía/naturaleza) le distrae — quítela y deje solo la Capa 2 (ruido rosa)."
     },
     {
-     "q": "Кофеин и звукова терапия?",
-     "a": "Кофеинът действа като вазоконстриктор и централен стимулант — засилва тревожността и кортикалната сетивност, влошава тинитуса. Звуковата терапия не неутрализира този ефект. Препоръка: спрете кофеина след 12:00 ч. Алкохол вечер също — нарушава перфузията на вътрешното ухо."
+     "q": "¿Cafeína y terapia de sonido?",
+     "a": "La cafeína actúa como vasoconstrictor y estimulante central — aumenta la ansiedad y la sensibilidad cortical, empeorando el tinnitus. La terapia de sonido no neutraliza este efecto. Recomendación: deje la cafeína después de las 12:00. También el alcohol por la tarde — altera la perfusión del oído interno."
     },
     {
-     "q": "Кога ще усетя ефект върху дневния тинитус?",
-     "a": "Кратки ежедневни 5-минутни сесии са по-ефективни от една дълга сесия — research посочва, че 3 кратки тренировки по 3 минути дневно са по-ефективни за невропластична консолидация от еднократна 60-минутна практика седмично. Първи признаци за намалена дневна осведоменост за тинитуса — обикновено 2–4 седмици при системна употреба."
+     "q": "¿Cuándo notaré un efecto en el tinnitus diurno?",
+     "a": "Las sesiones cortas diarias de 5 minutos son más eficaces que una sesión larga — la investigación indica que 3 entrenamientos cortos de 3 minutos al día son más eficaces para la consolidación neuroplástica que una única práctica de 60 minutos por semana. Primeros signos de una menor conciencia diurna del tinnitus — normalmente 2–4 semanas con un uso sistemático."
     }
    ],
    "scientificBasis": [
@@ -1779,65 +1779,65 @@
     "Archivo 'Eficacia clínica y neurobiológica de la terapia de sonido en el tinnitus crónico'",
     "Archivo 'Análisis de la eficacia clínica, los espectros de frecuencia y los mecanismos neurobiológicos de la terapia de sonido en el tinnitus subjetivo (periodo 2020-2026)'",
     "Archivo 'Principios físicos, psicoacústicos y fisiológicos para una mezcla segura y estética de capas de sonido'",
-    "Файл 'Оптимизирана двуседмична когнитивно-поведенческа програма за първоначално справяне с хроничен тинитус'"
+    "Archivo 'Programa cognitivo-conductual optimizado de dos semanas para el afrontamiento inicial del tinnitus crónico'"
    ]
   },
   "anxiety": {
-   "title": "Тревожност",
-   "subtitle": "SOS, паник атака",
-   "definition": "Кратък аварен режим за остра тинитус-индуцирана тревожна криза или паник атака — типично при среднощно събуждане в 3:00 ч., но и при дневен пик. Целта е незабавна стабилизация чрез поведенчески и акустичен алгоритъм: вагусово активиране, понижение на симпатиковата хиперактивност и когнитивно неутрализиране на сигнала.",
+   "title": "Ansiedad",
+   "subtitle": "SOS, crisis de pánico",
+   "definition": "Un modo de emergencia breve para una crisis de ansiedad aguda o crisis de pánico inducida por el tinnitus — típicamente durante un despertar nocturno a las 3:00, pero también durante un pico diurno. El objetivo es la estabilización inmediata mediante un algoritmo conductual y acústico: activación vagal, reducción de la hiperactividad simpática y neutralización cognitiva de la señal.",
    "whenUsed": {
-    "timeOfDay": "При остра нужда — нощем (среднощно събуждане), денем (тревожен пик).",
-    "context": "Дръжте очите си затворени или гледайте към тъмен сектор. Избягвайте часовника и екрана на телефона — светлината и осъзнаването на часа задействат HPA-оста.",
-    "duration": "Първи 30 секунди — лимбична стабилизация; минути 1–15 — продължено дишане; ако сънят не се възстанови след 15–20 мин нощем → ставане и преминаване към „Релаксация“ в съседна стая."
+    "timeOfDay": "En caso de necesidad aguda — de noche (despertar nocturno), de día (pico de ansiedad).",
+    "context": "Mantenga los ojos cerrados o mire hacia una zona oscura. Evite el reloj y la pantalla del teléfono — la luz y la conciencia de la hora activan el eje HPA.",
+    "duration": "Primeros 30 segundos — estabilización límbica; minutos 1–15 — respiración continuada; si el sueño no se restablece tras 15–20 min por la noche → levántese y pase a \"Relajación\" en una habitación contigua."
    },
    "whenNotUsed": [
-    "За дълготрайно ежедневно слушане — режимът е SOS, не дневна терапия.",
-    "Като заместител на психиатрична помощ при тежки или продължителни паник атаки — wellness disclaimer."
+    "Para una escucha diaria a largo plazo — el modo es SOS, no una terapia diaria.",
+    "Como sustituto de la ayuda psiquiátrica en crisis de pánico graves o prolongadas — aviso de bienestar."
    ],
    "recommendedNoise": {
     "type": "pink_lp2000",
-    "description": "Същият розов шум, който се ползва нощем — мозъкът се нуждае от позната, стабилна акустична сигнатура. Не нов или експериментален звук. Хардуерно/софтуерно пренастроен 3–5 dB по-тих от стандартното дневно ниво."
+    "description": "El mismo ruido rosa que se usa por la noche — el cerebro necesita una firma acústica familiar y estable. No un sonido nuevo o experimental. Reajustado (hardware/software) 3–5 dB más bajo que el nivel diurno estándar."
    },
    "mixRatio": {
     "layer1": 55,
     "layer2": 45,
-    "reasoning": "Layer 1 (гласово водене — 4-7-8 дишане voice guide, котва-фраза): 50–60%. Layer 2 (фонов розов шум): 40–50%. Layer 1 (водещ глас) е по-доминантен, защото структурираното дишане е активният терапевтичен елемент, а фоновият шум е поддържащ."
+    "reasoning": "Capa 1 (guía de voz — guía de voz de respiración 4-7-8, frase ancla): 50–60%. Capa 2 (ruido rosa de fondo): 40–50%. La Capa 1 (la voz guía) es más dominante, porque la respiración estructurada es el elemento terapéutico activo, mientras que el ruido de fondo es de apoyo."
    },
-   "expectedEffect": "Стимулиране на парасимпатиковите влакна на блуждаещия нерв; принудително забавяне на сърдечния ритъм; понижение на кръвното налягане; постепенно потискане на хиперактивността на амигдалата; прекъсване на адреналиновия/кортизолов пик. Техника 4-7-8: вдишване през носа за 4 секунди, задържане на дъха за 7 секунди, издишване през устата за 8 секунди.",
+   "expectedEffect": "Estimulación de las fibras parasimpáticas del nervio vago; ralentización forzada de la frecuencia cardíaca; reducción de la tensión arterial; supresión gradual de la hiperactividad de la amígdala; interrupción del pico de adrenalina/cortisol. Técnica 4-7-8: inhale por la nariz durante 4 segundos, retenga la respiración 7 segundos, exhale por la boca durante 8 segundos.",
    "safety": [
-    "НЕ повишавайте силата при паника — „паническото маскиране“ (увеличаване до пълно заглушаване на тинитуса) тренира амигдалата да възприема тинитуса като критична заплаха, влошава дългосрочния прогноз.",
-    "Останете на нормално нощно/дневно ниво (3–5 dB под прага на тинитуса).",
-    "Wellness disclaimer задължителен — продуктът не заменя психиатрична грижа при тежки или повтарящи се панически атаки."
+    "NO aumente el volumen durante el pánico — el \"enmascaramiento de pánico\" (subirlo hasta ahogar por completo el tinnitus) entrena a la amígdala para percibir el tinnitus como una amenaza crítica, empeorando el pronóstico a largo plazo.",
+    "Permanezca en el nivel nocturno/diurno normal (3–5 dB por debajo del umbral del tinnitus).",
+    "Aviso de bienestar obligatorio — el producto no sustituye la atención psiquiátrica en crisis de pánico graves o recurrentes."
    ],
    "faq": [
     {
-     "q": "Какво да направя в първите 30 секунди при паник атака?",
-     "a": "Три стъпки: (1) Визуална блокада — затворете очи или гледайте към тъмен сектор. НЕ гледайте часовник или екран (светлината и осъзнаването на часа задействат HPA-оста). (2) 4-7-8 дишане — вдишване през носа за 4 секунди, задържане 7 секунди, издишване през устата за 8 секунди. Стимулира блуждаещия нерв. (3) Когнитивна котва-фраза — повторете наум: „Това е просто безвредна електрическа активност в слуховия ми нерв. Тялото ми е в безопасност и сега ще се отпусне.“"
+     "q": "¿Qué debo hacer en los primeros 30 segundos durante una crisis de pánico?",
+     "a": "Tres pasos: (1) Bloqueo visual — cierre los ojos o mire hacia una zona oscura. NO mire un reloj ni una pantalla (la luz y la conciencia de la hora activan el eje HPA). (2) Respiración 4-7-8 — inhale por la nariz durante 4 segundos, retenga 7 segundos, exhale por la boca durante 8 segundos. Estimula el nervio vago. (3) Frase ancla cognitiva — repita en su mente: \"Esto es solo una actividad eléctrica inofensiva en mi nervio auditivo. Mi cuerpo está a salvo y ahora se relajará.\""
     },
     {
-     "q": "Колко силно да пусна звука при паник атака?",
-     "a": "Същото нормално ниво като нощния режим — 3–5 dB по-тих от дневното ниво на тинитуса. НЕ повишавайте силата за заглушаване — това е „паническо маскиране“ и тренира амигдалата да възприема тинитуса като критична заплаха, влошава дългосрочния прогноз."
+     "q": "¿Cómo de fuerte debo poner el sonido durante una crisis de pánico?",
+     "a": "El mismo nivel normal que el modo nocturno — 3–5 dB más bajo que el nivel diurno del tinnitus. NO aumente el volumen para ahogarlo — esto es \"enmascaramiento de pánico\" y entrena a la amígdala para percibir el tinnitus como una amenaza crítica, empeorando el pronóstico a largo plazo."
     },
     {
-     "q": "Колко често мога да го ползвам?",
-     "a": "Режим „Тревожност“ е SOS — за остри кризи, не за ежедневна употреба. Ако ползвате протокола повече от 2–3 пъти седмично, това е сигнал за консултация с лекар или психотерапевт. AURALIS не замества психиатрична грижа. За дневен поддържащ ефект ползвайте „Ежедневие“ и „Медитация“."
+     "q": "¿Con qué frecuencia puedo usarlo?",
+     "a": "El modo \"Ansiedad\" es SOS — para crisis agudas, no para uso diario. Si usa el protocolo más de 2–3 veces por semana, es una señal para consultar a un médico o psicoterapeuta. AURALIS no sustituye la atención psiquiátrica. Para un efecto de apoyo diario use \"Día a día\" y \"Meditación\"."
     },
     {
-     "q": "Какво ако дишането не помогне?",
-     "a": "Ако след 15–20 мин 4-7-8 дишане и котва-фраза не настъпи стабилизация (нощем — повторно заспиване), изправете се и преминете в съседна стая (всекидневна) с лек фонов розов шум. Не оставайте в леглото в състояние на тревожност — продължителното въртене изгражда условна връзка „легло = тревожност + шум“. Върнете се в леглото само при реална сомнолентност."
+     "q": "¿Y si la respiración no ayuda?",
+     "a": "Si tras 15–20 min de respiración 4-7-8 y la frase ancla no se produce la estabilización (de noche — volver a dormirse), levántese y pase a una habitación contigua (el salón) con un ruido rosa de fondo ligero. No permanezca en la cama en estado de ansiedad — dar vueltas de forma prolongada construye el vínculo condicionado \"cama = ansiedad + ruido\". Vuelva a la cama solo con una somnolencia real."
     },
     {
-     "q": "Звукът ме плаши повече, не помага. Защо?",
-     "a": "Възможни причини: (1) Силата е твърде висока — намалете до 3–5 dB под прага на тинитуса. (2) Звукът е нов или непознат — research препоръчва позната акустична сигнатура (същия розов шум, който ползвате нощем); не нов експериментален звук в момент на криза. (3) Съдържанието е твърде стимулиращо — заменете музиката с глас (4-7-8 voice guide) или само розов шум."
+     "q": "El sonido me asusta más, no ayuda. ¿Por qué?",
+     "a": "Posibles razones: (1) El volumen es demasiado alto — bájelo a 3–5 dB por debajo del umbral del tinnitus. (2) El sonido es nuevo o desconocido — la investigación recomienda una firma acústica familiar (el mismo ruido rosa que usa por la noche); no un sonido experimental nuevo en un momento de crisis. (3) El contenido es demasiado estimulante — sustituya la música por voz (guía de voz 4-7-8) o solo ruido rosa."
     },
     {
-     "q": "Може ли при дневна тревожност (не нощем)?",
-     "a": "Да, режимът работи и денем. 4-7-8 дишането е валидно винаги. Дневната версия е по-кратка — обикновено 2–5 мин до стабилизация. След това можете да продължите с „Ежедневие“ или „Релаксация“ за поддържащ ефект."
+     "q": "¿Puedo usarlo para la ansiedad diurna (no de noche)?",
+     "a": "Sí, el modo funciona también de día. La respiración 4-7-8 es válida siempre. La versión diurna es más corta — normalmente 2–5 min hasta la estabilización. Después puede continuar con \"Día a día\" o \"Relajación\" para un efecto de apoyo."
     },
     {
-     "q": "Кога трябва да потърся професионална помощ?",
-     "a": "Незабавно ако: паническите атаки са с честота над 2–3 пъти седмично; появяват се суицидни мисли; тинитусът е новопоявен в едно ухо без обяснение; имате остра ушна болка или загуба на слух заедно с тинитуса. AURALIS е wellness приложение, не медицинско устройство. При тежки симптоми — психиатър, аудиолог или ОНГ специалист."
+     "q": "¿Cuándo debo buscar ayuda profesional?",
+     "a": "Inmediatamente si: las crisis de pánico ocurren más de 2–3 veces por semana; aparecen pensamientos suicidas; el tinnitus es de aparición reciente en un oído sin explicación; tiene dolor de oído agudo o pérdida auditiva junto con el tinnitus. AURALIS es una aplicación de bienestar, no un dispositivo médico. Para síntomas graves — un psiquiatra, audiólogo o especialista ORL."
     }
    ],
    "scientificBasis": [
@@ -1848,112 +1848,112 @@
   },
   "meditation": {
    "title": "Meditación",
-   "subtitle": "Водени сесии",
-   "definition": "Режим за активна, водена практика — кратки 5–10 мин дневни упражнения по принципите на CBT-I и ACT (Acceptance and Commitment Therapy): екстернализация на вниманието, когнитивна дефузия, body scan, радикално приемане. Не е пасивно слушане — изисква съзнателен ангажимент.",
+   "subtitle": "Sesiones guiadas",
+   "definition": "Un modo para una práctica activa y guiada — ejercicios diarios cortos de 5–10 min basados en los principios de CBT-I y ACT (Acceptance and Commitment Therapy): externalización de la atención, defusión cognitiva, body scan, aceptación radical. No es escucha pasiva — requiere un compromiso consciente.",
    "whenUsed": {
-    "timeOfDay": "Препоръчва се 3 кратки сесии по 3 минути през деня вместо една дълга 60-минутна — невропластично консолидиране чрез висока честота на активиране, не дължина.",
-    "context": "Удобна тиха позиция; не по време на работа, шофиране или съсредоточена дейност.",
-    "duration": "5–10 мин на сесия (микропрактики); за бинаурално-аудио сесии — 15–30 мин, 1–2 пъти дневно."
+    "timeOfDay": "Se recomiendan 3 sesiones cortas de 3 minutos durante el día en lugar de una larga de 60 minutos — consolidación neuroplástica mediante una alta frecuencia de activación, no la duración.",
+    "context": "Una posición tranquila y cómoda; no durante el trabajo, la conducción o una actividad de concentración.",
+    "duration": "5–10 min por sesión (micropracticas); para sesiones de audio binaural — 15–30 min, 1–2 veces al día."
    },
    "whenNotUsed": [
-    "При остра паник атака — първо режим „Тревожност“, после медитация след стабилизация.",
-    "Бинаурални вълни сесии — абсолютно противопоказани при епилепсия или тежки психиатрични разстройства.",
-    "Без качествени стерео слушалки за бинаурални — при моно източник бинауралният ефект изчезва напълно.",
-    "При тежко непридържане (3+ дни пропуснати сесии) — системата прилага Adaptive Micro-Dosing (2-минутни микро-дози), не наказва пациента."
+    "Durante una crisis de pánico aguda — primero el modo \"Ansiedad\", luego meditación tras la estabilización.",
+    "Las sesiones de sonidos binaurales — absolutamente contraindicadas con epilepsia o trastornos psiquiátricos graves.",
+    "Sin auriculares estéreo de calidad para el binaural — con una fuente mono el efecto binaural desaparece por completo.",
+    "Con un incumplimiento grave (3+ días de sesiones perdidas) — el sistema aplica Adaptive Micro-Dosing (microdosis de 2 minutos), no castiga al paciente."
    ],
    "recommendedNoise": {
     "type": "pink_pure",
-    "description": "Силно зависи от типа сесия. За body scan / дефузия / приемане: фрактален розов шум на ниско ниво или фрактални природни тонове (за асоциация с релаксация). За бинаурални вълни (алфа 8 Hz): теснолентов карър с binaural beat — задължително стерео слушалки, без широкоспектърен фонов шум, който би прикрил бинауралния ефект."
+    "description": "Depende mucho del tipo de sesión. Para body scan / defusión / aceptación: ruido rosa fractal a bajo nivel o tonos naturales fractales (para la asociación con la relajación). Para sonidos binaurales (alfa 8 Hz): un portador de banda estrecha con un latido binaural — auriculares estéreo obligatorios, sin un ruido de fondo de banda ancha que enmascararía el efecto binaural."
    },
    "mixRatio": {
     "layer1": 65,
     "layer2": 35,
-    "reasoning": "Layer 1 (водещ глас / бинаурален беат / водена медитация): 60–70%. Layer 2 (фонов розов шум или природа): 30–40%. Layer 1 (водещият елемент) е доминантен, защото активното съдържание (глас, бинаурален беат) е терапевтично активното — обратно от „Сън дълбок“, където фонът е активен."
+    "reasoning": "Capa 1 (voz guía / latido binaural / meditación guiada): 60–70%. Capa 2 (ruido rosa de fondo o naturaleza): 30–40%. La Capa 1 (el elemento guía) es dominante, porque el contenido activo (voz, latido binaural) es el terapéuticamente activo — al contrario que \"Sueño profundo\", donde el fondo es activo."
    },
-   "expectedEffect": "CBT-I/ACT практики: елиминиране на емоционалната съпротива срещу тинитуса (която поддържа таламо-кортикалната активност); намаляване на хиперфокуса върху слуховия анализатор. Бинаурални вълни (алфа 8 Hz): статистически по-нисък THI скор (Δ=17.33 за TMNMT+BBS vs Δ=9.00 за TMNMT самостоятелно в RCT 2025); по-голям ефект върху депресивните симптоми. ACT като терапия: 54.5% от пациентите поддържат трайно подобрение при 6-месечно проследяване (срещу 20% при TRT); средно намаление на THI с 17.67 точки (мета-анализ).",
+   "expectedEffect": "Prácticas CBT-I/ACT: eliminar la resistencia emocional al tinnitus (que mantiene la actividad tálamo-cortical); reducir el hiperfoco en el analizador auditivo. Sonidos binaurales (alfa 8 Hz): puntuación THI estadísticamente más baja (Δ=17,33 para TMNMT+BBS frente a Δ=9,00 para TMNMT solo en un ECA de 2025); un mayor efecto sobre los síntomas depresivos. ACT como terapia: el 54,5% de los pacientes mantiene una mejora duradera en el seguimiento a 6 meses (frente al 20% con TRT); reducción media del THI de 17,67 puntos (metaanálisis).",
    "safety": [
-    "Бинаурални вълни могат да предизвикат краткотрайно повишаване на раздразнителността, тревожността или главоболието при неподходяща честотна разлика — намалете честотата или прекратете сесията.",
-    "Бинаурални вълни — абсолютно противопоказани при епилепсия или тежки психиатрични разстройства.",
-    "За бинаурални — задължително стерео слушалки.",
-    "Микропрактики: избягвайте едночасови сесии — продължителното фокусиране върху упражнение може парадоксално да увеличи соматичния фокус върху тинитуса и да засили таламо-кортикалната възбуда (exposure fatigue).",
+    "Los sonidos binaurales pueden causar un aumento a corto plazo de la irritabilidad, la ansiedad o el dolor de cabeza con una diferencia de frecuencia inadecuada — baje la frecuencia o termine la sesión.",
+    "Sonidos binaurales — absolutamente contraindicados con epilepsia o trastornos psiquiátricos graves.",
+    "Para el binaural — auriculares estéreo obligatorios.",
+    "Micropracticas: evite las sesiones de una hora — el enfoque prolongado en un ejercicio puede aumentar paradójicamente el foco somático en el tinnitus e intensificar la excitación tálamo-cortical (exposure fatigue).",
     "Aviso de bienestar obligatorio."
    ],
    "faq": [
     {
-     "q": "Колко дълго трябва да медитирам?",
-     "a": "5–10 мин на сесия е оптимално за CBT-I/ACT микропрактики. Research показва, че 3 кратки тренировки по 3 минути през деня са по-ефективни от една 60-минутна сесия седмично — за невропластична консолидация е критична честотата на активиране, не дължината на единичната сесия. По-дълги сесии могат парадоксално да увеличат соматичния фокус върху тинитуса (exposure fatigue). За бинаурално-аудио сесии: 15–30 мин, 1–2 пъти дневно."
+     "q": "¿Cuánto tiempo debo meditar?",
+     "a": "5–10 min por sesión es óptimo para las micropracticas CBT-I/ACT. La investigación muestra que 3 entrenamientos cortos de 3 minutos durante el día son más eficaces que una sesión de 60 minutos por semana — para la consolidación neuroplástica es crítica la frecuencia de activación, no la duración de la sesión individual. Las sesiones más largas pueden aumentar paradójicamente el foco somático en el tinnitus (exposure fatigue). Para sesiones de audio binaural: 15–30 min, 1–2 veces al día."
     },
     {
-     "q": "Нужни ли са специални слушалки?",
-     "a": "За бинаурални вълни — ДА, задължително висококачествени стерео слушалки. При моно източник бинауралният ефект изчезва напълно. За CBT-I/ACT гласови медитации (body scan, дефузия, приемане) — отворени говорители или костно-проводими слушалки също работят."
+     "q": "¿Se necesitan auriculares especiales?",
+     "a": "Para los sonidos binaurales — SÍ, son obligatorios unos auriculares estéreo de alta calidad. Con una fuente mono el efecto binaural desaparece por completo. Para las meditaciones de voz CBT-I/ACT (body scan, defusión, aceptación) — también funcionan altavoces abiertos o auriculares de conducción ósea."
     },
     {
-     "q": "Кога е опасна бинауралната медитация?",
-     "a": "Абсолютно противопоказана при епилепсия или тежки психиатрични разстройства. Може да предизвика при неподходяща честотна разлика: краткотрайно повишаване на раздразнителността, тревожност, главоболие. Ако усетите някое от тези → прекратете и преминете към друг тип медитация (body scan, дефузия). AURALIS е wellness приложение, не медицинско."
+     "q": "¿Cuándo es peligrosa la meditación binaural?",
+     "a": "Absolutamente contraindicada con epilepsia o trastornos psiquiátricos graves. Con una diferencia de frecuencia inadecuada puede causar: un aumento a corto plazo de la irritabilidad, ansiedad, dolor de cabeza. Si nota alguno de estos → deténgase y pase a otro tipo de meditación (body scan, defusión). AURALIS es una aplicación de bienestar, no médica."
     },
     {
      "q": "¿Cuándo notaré un efecto?",
-     "a": "Различно според типа сесия. CBT-I/ACT микропрактики (5-10 мин дневно): първи терапевтичен отговор в субакутния интервал (11–31 дни) — спад на THI с ≥10 точки при системно прилагане. Бинаурални вълни 8 Hz + сонда терапия: статистически по-голям ефект отколкото сондата сама в RCT 2025 (Δ=17.33 точки THI за комбинирана група спрямо Δ=9.00 за TMNMT самостоятелно). ACT като комплексна терапия 6 месеца: 54.5% от пациентите поддържат трайно подобрение (срещу 20% при TRT); мета-анализ — средно намаление на THI с 17.67 точки."
+     "a": "Varía según el tipo de sesión. Micropracticas CBT-I/ACT (5-10 min al día): primera respuesta terapéutica en el intervalo subagudo (11–31 días) — una caída del THI de ≥10 puntos con una aplicación sistemática. Sonidos binaurales 8 Hz + terapia con sonda: un efecto estadísticamente mayor que la sonda sola en un ECA de 2025 (Δ=17,33 puntos THI para el grupo combinado frente a Δ=9,00 para TMNMT solo). ACT como terapia compleja durante 6 meses: el 54,5% de los pacientes mantiene una mejora duradera (frente al 20% con TRT); metaanálisis — reducción media del THI de 17,67 puntos."
     },
     {
-     "q": "Какво ако пропусна няколко дни?",
-     "a": "Не се паникьосвайте. Adaptive Micro-Dosing — продължете със съкратени 2-минутни микропрактики (например 3 дълбоки вдишвания или само отпускане на челюстта). Системата не наказва за пропуски — целта е поддържане на навика, не перфектно придържане. След 4+ дни без сесия — фокусирайте се само на пасивна звукова библиотека („Сън дълбок“, „Ежедневие“), докато се почувствате готови да възстановите активните практики."
+     "q": "¿Y si me salto unos días?",
+     "a": "No se asuste. Adaptive Micro-Dosing — continúe con micropracticas acortadas de 2 minutos (por ejemplo 3 respiraciones profundas o solo relajar la mandíbula). El sistema no le castiga por los días perdidos — el objetivo es mantener el hábito, no una adherencia perfecta. Tras 4+ días sin sesión — céntrese solo en la biblioteca de sonido pasiva (\"Sueño profundo\", \"Día a día\") hasta que se sienta listo para reanudar las prácticas activas."
     },
     {
-     "q": "Може ли с медикаменти?",
-     "a": "Медитацията няма фармакологично взаимодействие. Но при прием на антидепресанти, бензодиазепини или седативи — консултирайте се с лекар за оптимална комбинация. ACT е доказано ефективна дори при пациенти, които не са се повлияли от 6+ месеца TRT терапия — медитативните практики допълват, не заменят медицинско лечение."
+     "q": "¿Puedo hacerlo con medicamentos?",
+     "a": "La meditación no tiene interacción farmacológica. Pero al tomar antidepresivos, benzodiazepinas o sedantes — consulte a un médico para la combinación óptima. La ACT ha demostrado ser eficaz incluso en pacientes que no respondieron a 6+ meses de terapia TRT — las prácticas meditativas complementan, no sustituyen, el tratamiento médico."
     },
     {
-     "q": "Кои техники са най-важни?",
-     "a": "Според research, ядрените ACT/CBT-I компоненти за тинитус са: (1) Радикално приемане — спиране на борбата с шума; „Аз ти позволявам да присъстваш тук в момента“. (2) Когнитивна дефузия — преструктуриране на метафорите („пищене“ → „вятър в клоните“). (3) Body scan — намаляване на хиперфокуса върху слуховия анализатор. (4) Екстернализация на вниманието — пренасочване от вътрешни към външни стимули. (5) Редукция на избягващото поведение — извършване на дейности, които сте избягвали заради страх от засилване на тинитуса."
+     "q": "¿Qué técnicas son las más importantes?",
+     "a": "Según la investigación, los componentes ACT/CBT-I centrales para el tinnitus son: (1) Aceptación radical — dejar de luchar con el ruido; \"Te permito estar aquí en este momento\". (2) Defusión cognitiva — reestructurar las metáforas (\"pitido\" → \"viento en las ramas\"). (3) Body scan — reducir el hiperfoco en el analizador auditivo. (4) Externalización de la atención — redirigir de los estímulos internos a los externos. (5) Reducción de la conducta de evitación — hacer actividades que evitaba por miedo a intensificar el tinnitus."
     }
    ],
    "scientificBasis": [
-    "Файл 'Оптимизирана двуседмична когнитивно-поведенческа програма за първоначално справяне с хроничен тинитус'",
+    "Archivo 'Programa cognitivo-conductual optimizado de dos semanas para el afrontamiento inicial del tinnitus crónico'",
     "Archivo 'Análisis de la eficacia clínica, los espectros de frecuencia y los mecanismos neurobiológicos de la terapia de sonido en el tinnitus subjetivo (periodo 2020-2026)'",
-    "Файл 'Клиничен доклад за прилагане на Терапия за приемане и обвързване (ACT) при пациенти над 50-годишна възраст с хроничен субективен тинитус'",
+    "Archivo 'Informe clínico sobre la aplicación de la Terapia de Aceptación y Compromiso (ACT) en pacientes mayores de 50 años con tinnitus subjetivo crónico'",
     "Archivo 'Neurobiología detallada y terapia del insomnio en pacientes con tinnitus crónico'"
    ]
   },
-  "recommendedNoiseNote": "Всеки звук има подбран фонов шум, оптимизиран за този тип използване. "
+  "recommendedNoiseNote": "Cada sonido tiene un ruido de fondo seleccionado, optimizado para este tipo de uso. "
  },
  "thi": {
-  "title": "THI оценка",
+  "title": "Evaluación THI",
   "progressFmt": "Pregunta {n} de {total}",
   "options": {
-   "yes": "Да",
-   "sometimes": "Понякога",
-   "no": "Не"
+   "yes": "Sí",
+   "sometimes": "A veces",
+   "no": "No"
   },
   "actions": {
    "prev": "Atrás",
-   "next": "Следващ",
-   "finish": "Завърши",
+   "next": "Siguiente",
+   "finish": "Finalizar",
    "continue": "Continuar"
   },
   "result": {
    "done": "Listo",
    "baseline": "Baseline THI score",
-   "day14": "Финален THI score (Ден 14)",
-   "completed": "Записахме новия резултат"
+   "day14": "Puntuación THI final (Día 14)",
+   "completed": "Registramos el nuevo resultado"
   },
-  "q1": "Поради тинитуса си, трудно ли се концентрирате?",
-  "q2": "Силата на тинитуса Ви пречи ли Ви да чувате другите хора?",
-  "q3": "Тинитусът Ви ядосва ли Ви?",
-  "q4": "Тинитусът Ви предизвиква ли усещане за обърканост?",
-  "q5": "Поради тинитуса си, чувствате ли се отчаян?",
-  "q6": "Често ли се оплаквате от тинитуса си?",
-  "q7": "Поради тинитуса си, трудно ли заспивате вечер?",
-  "q8": "Имате ли усещането, че не можете да избягате от тинитуса си?",
-  "q9": "Тинитусът Ви пречи ли Ви да се наслаждавате на социални дейности (например излизане на вечеря или кино)?",
-  "q10": "Поради тинитуса си, чувствате ли се фрустриран?",
-  "q11": "Поради тинитуса си, имате ли усещането, че страдате от тежко заболяване?",
-  "q12": "Тинитусът Ви пречи ли Ви да се наслаждавате на живота?",
-  "q13": "Тинитусът Ви пречи ли Ви на работата или на домашните задължения?",
-  "q14": "Поради тинитуса си, забелязвате ли, че сте често раздразнителен?",
-  "q15": "Поради тинитуса си, трудно ли четете?",
-  "q16": "Тинитусът Ви разстройва ли Ви?",
-  "q17": "Чувствате ли, че проблемът с тинитуса натоварва отношенията Ви с членовете на семейството и приятелите Ви?",
+  "q1": "Debido a su tinnitus, ¿le cuesta concentrarse?",
+  "q2": "¿La intensidad de su tinnitus le impide oír a otras personas?",
+  "q3": "¿Su tinnitus le enfada?",
+  "q4": "¿Su tinnitus le provoca una sensación de confusión?",
+  "q5": "Debido a su tinnitus, ¿se siente desesperado?",
+  "q6": "¿Se queja a menudo de su tinnitus?",
+  "q7": "Debido a su tinnitus, ¿le cuesta conciliar el sueño por la noche?",
+  "q8": "¿Tiene la sensación de que no puede escapar de su tinnitus?",
+  "q9": "¿Su tinnitus le impide disfrutar de actividades sociales (como salir a cenar o al cine)?",
+  "q10": "Debido a su tinnitus, ¿se siente frustrado?",
+  "q11": "Debido a su tinnitus, ¿tiene la sensación de padecer una enfermedad grave?",
+  "q12": "¿Su tinnitus le impide disfrutar de la vida?",
+  "q13": "¿Su tinnitus interfiere con su trabajo o sus tareas domésticas?",
+  "q14": "Debido a su tinnitus, ¿nota que está a menudo irritable?",
+  "q15": "Debido a su tinnitus, ¿le cuesta leer?",
+  "q16": "¿Su tinnitus le altera?",
+  "q17": "¿Siente que el problema del tinnitus carga sus relaciones con familiares y amigos?",
   "q18": "Трудно ли Ви е да насочите вниманието си извън тинитуса и към други неща?",
   "q19": "Имате ли усещането, че нямате никакъв контрол над тинитуса си?",
   "q20": "Поради тинитуса си, често ли се чувствате уморен?",
@@ -2333,16 +2333,16 @@
     "subtitle": "Antes de dormir, lectura"
    },
    "daily": {
-    "name": "Ежедневие",
-    "subtitle": "Работа, концентрация"
+    "name": "Día a día",
+    "subtitle": "Trabajo, concentración"
    },
    "anxiety": {
-    "name": "Тревожност",
-    "subtitle": "SOS, паник атака"
+    "name": "Ansiedad",
+    "subtitle": "SOS, crisis de pánico"
    },
    "meditation": {
     "name": "Meditación",
-    "subtitle": "Водени сесии"
+    "subtitle": "Sesiones guiadas"
    }
   },
   "thiCta": {
@@ -2507,7 +2507,7 @@
     "options": {
      "a": "Да, явно",
      "b": "Може би леко",
-     "c": "Не",
+     "c": "No",
      "d": "Не съм проверявал/а"
     }
    },
