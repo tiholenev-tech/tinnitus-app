@@ -257,12 +257,12 @@ window.Player = (function () {
     var vol = (window.AudioEngine && window.AudioEngine.getMasterVolume)
       ? window.AudioEngine.getMasterVolume() : 70;
     return (
-      '<div class="pl-master" aria-label="Обща сила на звука">' +
+      '<div class="pl-master" aria-label="' + escapeHtml(t('ui.player.masterAria','Обща сила на звука')) + '">' +
         '<span class="pl-master-icon" aria-hidden="true">' + SVG.speaker + '</span>' +
         '<input type="range" class="pl-master-slider" id="plMaster"' +
           ' min="0" max="100" step="1" value="' + vol + '"' +
           ' orient="vertical"' +
-          ' aria-label="Обща сила на звука 0-100" aria-valuenow="' + vol + '">' +
+          ' aria-label="' + escapeHtml(t('ui.player.masterAriaFull','Обща сила на звука 0-100')) + '" aria-valuenow="' + vol + '">' +
         '<span class="pl-master-plus" aria-hidden="true">+</span>' +
       '</div>'
     );
@@ -376,8 +376,8 @@ window.Player = (function () {
             ' aria-label="' + escapeHtml(sosAria) + '">' +
             '<span class="pl-sos-icon" aria-hidden="true">' + SVG.alert + '</span>' +
             '<span class="pl-sos-text">' +
-              '<span class="pl-sos-title">При паник атака · SOS</span>' +
-              '<span class="pl-sos-sub">Дихателно упражнение, 60 сек</span>' +
+              '<span class="pl-sos-title">' + escapeHtml(t('ui.player.sosTitle','При паник атака · SOS')) + '</span>' +
+              '<span class="pl-sos-sub">' + escapeHtml(t('ui.player.sosSub','Дихателно упражнение, 60 сек')) + '</span>' +
             '</span>' +
           '</button>' +
         '</div>' +
@@ -539,7 +539,7 @@ window.Player = (function () {
     if (btn) {
       btn.classList.toggle('is-fav', nowFav);
       btn.setAttribute('aria-pressed', nowFav ? 'true' : 'false');
-      btn.setAttribute('aria-label', nowFav ? 'Премахни от любими' : 'Добави в любими');
+      btn.setAttribute('aria-label', nowFav ? t('ui.player.favRemove','Премахни от любими') : t('ui.player.favAdd','Добави в любими'));
       btn.innerHTML = nowFav ? SVG.heartFilled : SVG.heartOutline;
     }
     if (window.Toast) {
@@ -585,18 +585,18 @@ window.Player = (function () {
         '<div class="pl-sleep-divider" aria-hidden="true"></div>' +
         '<label class="pl-sleep-opt pl-sleep-opt--manual">' +
           '<input type="radio" name="pl-sleep" value="manual"' + customChecked + ' id="plSleepManualRadio">' +
-          '<span class="pl-sleep-opt-label">Ръчно:</span>' +
+          '<span class="pl-sleep-opt-label">' + escapeHtml(t('ui.player.sleepManual','Ръчно:')) + '</span>' +
           '<input type="number" id="plSleepManualInput" class="pl-sleep-manual-input"' +
-            ' min="1" max="480" step="1" placeholder="мин."' +
+            ' min="1" max="480" step="1" placeholder="' + escapeHtml(t('ui.player.minShort','мин.')) + '"' +
             ' value="' + customVal + '"' +
-            ' aria-label="Ръчна продължителност в минути (1 до 480)">' +
-          '<span class="pl-sleep-opt-unit">мин.</span>' +
+            ' aria-label="' + escapeHtml(t('ui.player.sleepManualAria','Ръчна продължителност в минути (1 до 480)')) + '">' +
+          '<span class="pl-sleep-opt-unit">' + escapeHtml(t('ui.player.minShort','мин.')) + '</span>' +
         '</label>' +
         '<div class="pl-sleep-actions">' +
           (activeMin > 0
-            ? '<button class="pl-sleep-btn pl-sleep-btn--ghost" type="button" data-sleep-action="cancel">Отмени таймер</button>'
+            ? '<button class="pl-sleep-btn pl-sleep-btn--ghost" type="button" data-sleep-action="cancel">' + escapeHtml(t('ui.player.sleepCancel','Отмени таймер')) + '</button>'
             : '') +
-          '<button class="pl-sleep-btn pl-sleep-btn--primary" type="button" data-sleep-action="apply">Запази</button>' +
+          '<button class="pl-sleep-btn pl-sleep-btn--primary" type="button" data-sleep-action="apply">' + escapeHtml(t('ui.player.sleepSave','Запази')) + '</button>' +
         '</div>' +
       '</div>';
 
@@ -735,16 +735,16 @@ window.Player = (function () {
     var content =
       '<div class="pl-info-sheet">' +
         '<section class="pl-info-section">' +
-          '<h3>За звука</h3>' +
+          '<h3>' + escapeHtml(t('ui.player.infoAbout','За звука')) + '</h3>' +
           '<p>' + escapeHtml(description) + '</p>' +
         '</section>' +
         '<section class="pl-info-section">' +
-          '<h3>Препоръчителен фон за вашия профил</h3>' +
+          '<h3>' + escapeHtml(t('ui.player.infoNoise','Препоръчителен фон за вашия профил')) + '</h3>' +
           '<p>' + escapeHtml(noiseLabelText) + '</p>' +
         '</section>' +
         (why
           ? '<section class="pl-info-section">' +
-              '<h3>Защо този звук е добър за вас</h3>' +
+              '<h3>' + escapeHtml(t('ui.player.infoWhy','Защо този звук е добър за вас')) + '</h3>' +
               '<p>' + escapeHtml(why) + '</p>' +
             '</section>'
           : '') +
@@ -1045,17 +1045,14 @@ window.Player = (function () {
     ov.id = 'mixHintOverlay';
     ov.className = 'mix-hint-overlay';
     ov.innerHTML =
-      '<div class="mix-hint-card" role="dialog" aria-label="Съвет за силата">' +
-        '<button class="mix-hint-x" type="button" aria-label="Затвори" data-mixhint="ok">×</button>' +
+      '<div class="mix-hint-card" role="dialog" aria-label="' + escapeHtml(t('ui.player.hintAria','Съвет за силата')) + '">' +
+        '<button class="mix-hint-x" type="button" aria-label="' + escapeHtml(t('ui.player.close','Затвори')) + '" data-mixhint="ok">×</button>' +
         '<div class="mix-hint-emoji" aria-hidden="true">🎧</div>' +
-        '<h2 class="mix-hint-title">Малък съвет за Вас</h2>' +
-        '<p class="mix-hint-body">Нагласете силата и микса както Ви е приятно — ' +
-          '<b>Вие решавате</b>.</p>' +
-        '<p class="mix-hint-body">За най-силен ефект и за да отслабва шумът с времето, ' +
-          'оставете звука да <b>не заглушава напълно</b> Вашия тинитус — добре е леко ' +
-          'да чувате и него под звука.</p>' +
-        '<button class="mix-hint-ok" type="button" data-mixhint="ok">Разбрах</button>' +
-        '<button class="mix-hint-never" type="button" data-mixhint="never">Не показвай повече</button>' +
+        '<h2 class="mix-hint-title">' + escapeHtml(t('ui.player.hintTitle','Малък съвет за Вас')) + '</h2>' +
+        '<p class="mix-hint-body">' + t('ui.player.hintBody1','Нагласете силата и микса както Ви е приятно — <b>Вие решавате</b>.') + '</p>' +
+        '<p class="mix-hint-body">' + t('ui.player.hintBody2','За най-силен ефект и за да отслабва шумът с времето, оставете звука да <b>не заглушава напълно</b> Вашия тинитус — добре е леко да чувате и него под звука.') + '</p>' +
+        '<button class="mix-hint-ok" type="button" data-mixhint="ok">' + escapeHtml(t('ui.player.hintOk','Разбрах')) + '</button>' +
+        '<button class="mix-hint-never" type="button" data-mixhint="never">' + escapeHtml(t('ui.player.hintNever','Не показвай повече')) + '</button>' +
       '</div>';
     document.body.appendChild(ov);
     function close() {

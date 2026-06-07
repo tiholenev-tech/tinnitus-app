@@ -153,18 +153,18 @@
     if (loginParam === 'ok') {
       stripParam('login');
       checkSession().then(function (ok) {
-        if (ok) { toast('Влязохте успешно ✓'); pullAndReload(); }
-        else    { toast('Входът не беше успешен. Опитайте пак.'); }
+        if (ok) { toast(t('ui.account.loginOk','Влязохте успешно ✓')); pullAndReload(); }
+        else    { toast(t('ui.account.loginFail','Входът не беше успешен. Опитайте пак.')); }
       });
     } else if (paidParam === 'ok') {
       stripParam('paid');
       confirmPaid(4);
     } else if (paidParam === 'cancel') {
       stripParam('paid');
-      toast('Плащането е отменено.');
+      toast(t('ui.account.payCancelled','Плащането е отменено.'));
       checkSession();
     } else {
-      if (loginParam === 'fail') { stripParam('login'); toast('Връзката е изтекла или невалидна.'); }
+      if (loginParam === 'fail') { stripParam('login'); toast(t('ui.account.linkExpired','Връзката е изтекла или невалидна.')); }
       checkSession(); // тихо — за статус в Настройки + активиране на push
     }
   }
@@ -185,7 +185,7 @@
   function logout() {
     return postJSON(API.logout, {}).then(function () {
       state.loggedIn = false; state.email = null; state.paid = false; state.trialLeft = null;
-      toast('Излязохте от профила.');
+      toast(t('ui.account.loggedOut','Излязохте от профила.'));
     });
   }
 
@@ -193,7 +193,7 @@
   function startCheckout() {
     return postJSON(API.checkout, {}).then(function (r) {
       if (r && r.url) { try { location.href = r.url; } catch (e) {} return { redirect: true }; }
-      if (r && r.already_paid) { state.paid = true; toast('Вече имате пълен достъп ✓'); return { paid: true }; }
+      if (r && r.already_paid) { state.paid = true; toast(t('ui.account.alreadyPaid','Вече имате пълен достъп ✓')); return { paid: true }; }
       return { notReady: true };
     });
   }
@@ -202,9 +202,9 @@
   // проверяваме сесията няколко пъти докато paid стане true.
   function confirmPaid(tries) {
     checkSession().then(function () {
-      if (state.paid) { toast('Благодарим! Пълен достъп е отключен ✓'); return; }
+      if (state.paid) { toast(t('ui.account.payThanks','Благодарим! Пълен достъп е отключен ✓')); return; }
       if (tries > 0) setTimeout(function () { confirmPaid(tries - 1); }, 2500);
-      else toast('Плащането се обработва… може да отнеме минута.');
+      else toast(t('ui.account.payProcessing','Плащането се обработва… може да отнеме минута.'));
     });
   }
 
@@ -212,7 +212,7 @@
   function startEpay() {
     return postJSON(API.epay, {}).then(function (r) {
       if (r && r.submit_url && r.fields) { submitForm(r.submit_url, r.fields); return { redirect: true }; }
-      if (r && r.already_paid) { state.paid = true; toast('Вече имате пълен достъп ✓'); return { paid: true }; }
+      if (r && r.already_paid) { state.paid = true; toast(t('ui.account.alreadyPaid','Вече имате пълен достъп ✓')); return { paid: true }; }
       return { notReady: true };
     });
   }
@@ -302,87 +302,85 @@
     card.className = 'acc-card';
 
     if (state.loggedIn) {
-      var trial = (state.paid) ? 'Пълен достъп ✓'
-        : (state.trialLeft !== null ? ('Пробен период: още ' + state.trialLeft + ' дни') : 'Пробен период');
+      var trial = (state.paid) ? t('ui.account.fullAccess','Пълен достъп ✓')
+        : (state.trialLeft !== null ? t('ui.account.trialLeftFmt','Пробен период: още {n} дни',{n:state.trialLeft}) : t('ui.account.trial','Пробен период'));
       card.innerHTML =
-        '<h3>Вашият профил</h3>' +
-        '<p class="acc-row">Влезли сте като <b>' + esc(state.email || '') + '</b></p>' +
+        '<h3>' + esc(t('ui.account.profileTitle','Вашият профил')) + '</h3>' +
+        '<p class="acc-row">' + t('ui.account.loggedInAs','Влезли сте като <b>{email}</b>',{email:esc(state.email || '')}) + '</p>' +
         '<p class="acc-row">' + esc(trial) + '</p>';
       if (!state.paid) {
-        var bPay = btn('Отключи пълен достъп — €19.99', 'acc-btn');
+        var bPay = btn(t('ui.account.unlock','Отключи пълен достъп — €19.99'), 'acc-btn');
         bPay.style.marginTop = '14px';
         bPay.addEventListener('click', function () {
-          bPay.disabled = true; bPay.textContent = 'Зареждам…';
+          bPay.disabled = true; bPay.textContent = t('ui.account.loading','Зареждам…');
           startCheckout().then(function (r) {
             if (r && r.notReady) {
-              bPay.disabled = false; bPay.textContent = 'Отключи пълен достъп — €19.99';
-              toast('Плащането още се настройва. Опитайте малко по-късно.');
+              bPay.disabled = false; bPay.textContent = t('ui.account.unlock','Отключи пълен достъп — €19.99');
+              toast(t('ui.account.payNotReady','Плащането още се настройва. Опитайте малко по-късно.'));
             }
           });
         });
         card.appendChild(bPay);
 
-        var bEpay = btn('Плати с ePay / EasyPay (България)', 'acc-ghost');
+        var bEpay = btn(t('ui.account.epay','Плати с ePay / EasyPay (България)'), 'acc-ghost');
         bEpay.addEventListener('click', function () {
-          bEpay.disabled = true; bEpay.textContent = 'Зареждам…';
+          bEpay.disabled = true; bEpay.textContent = t('ui.account.loading','Зареждам…');
           startEpay().then(function (r) {
             if (r && r.notReady) {
-              bEpay.disabled = false; bEpay.textContent = 'Плати с ePay / EasyPay (България)';
-              toast('ePay още се настройва. Опитайте малко по-късно.');
+              bEpay.disabled = false; bEpay.textContent = t('ui.account.epay','Плати с ePay / EasyPay (България)');
+              toast(t('ui.account.epayNotReady','ePay още се настройва. Опитайте малко по-късно.'));
             }
           });
         });
         card.appendChild(bEpay);
       }
-      var bSync = btn('Синхронизирай сега', 'acc-btn');
+      var bSync = btn(t('ui.account.syncNow','Синхронизирай сега'), 'acc-btn');
       bSync.style.marginTop = '14px';
       bSync.addEventListener('click', function () {
-        bSync.disabled = true; bSync.textContent = 'Синхронизирам…';
-        pushNow().then(function () { bSync.textContent = 'Синхронизирано ✓'; });
+        bSync.disabled = true; bSync.textContent = t('ui.account.syncing','Синхронизирам…');
+        pushNow().then(function () { bSync.textContent = t('ui.account.synced','Синхронизирано ✓'); });
       });
-      var bOut = btn('Изход', 'acc-ghost');
+      var bOut = btn(t('ui.account.logout','Изход'), 'acc-ghost');
       bOut.addEventListener('click', function () { logout().then(closeModal); });
-      var x = btn('Затвори', 'acc-x');
+      var x = btn(t('ui.account.close','Затвори'), 'acc-x');
       x.addEventListener('click', closeModal);
       card.appendChild(bSync); card.appendChild(bOut); card.appendChild(x);
     } else {
       card.innerHTML =
-        '<h3>Вход / Възстановяване</h3>' +
-        '<p class="acc-sub">Въведете имейл и ще получите връзка за вход — без парола. ' +
-        'Така данните ви се пазят и се връщат при смяна на телефон.</p>';
+        '<h3>' + esc(t('ui.account.loginTitle','Вход / Възстановяване')) + '</h3>' +
+        '<p class="acc-sub">' + esc(t('ui.account.loginSub','Въведете имейл и ще получите връзка за вход — без парола. Така данните ви се пазят и се връщат при смяна на телефон.')) + '</p>';
       var input = document.createElement('input');
       input.className = 'acc-in';
       input.type = 'email';
       input.inputMode = 'email';
       input.autocomplete = 'email';
-      input.placeholder = 'вашият@имейл.bg';
-      var send = btn('Изпрати връзка', 'acc-btn');
+      input.placeholder = t('ui.account.emailPlaceholder','вашият@имейл.bg');
+      var send = btn(t('ui.account.sendLink','Изпрати връзка'), 'acc-btn');
       var msg = document.createElement('p');
       msg.className = 'acc-msg';
       msg.style.display = 'none';
-      var x2 = btn('Затвори', 'acc-x');
+      var x2 = btn(t('ui.account.close','Затвори'), 'acc-x');
       x2.addEventListener('click', closeModal);
 
       send.addEventListener('click', function () {
         var email = (input.value || '').trim().toLowerCase();
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
           msg.style.display = 'block'; msg.style.color = '#f3c0c0';
-          msg.textContent = 'Моля въведете валиден имейл.';
+          msg.textContent = t('ui.account.invalidEmail','Моля въведете валиден имейл.');
           return;
         }
-        send.disabled = true; send.textContent = 'Изпращам…';
+        send.disabled = true; send.textContent = t('ui.account.sending','Изпращам…');
         postJSON(API.request, { email: email }).then(function (r) {
           if (r && r.ok) {
             msg.style.display = 'block'; msg.style.color = '#bfe3c8';
-            msg.innerHTML = 'Изпратихме връзка на <b>' + esc(email) + '</b>.<br>' +
-              'Отворете я от <b>същия телефон</b>, за да влезете.';
-            send.textContent = 'Готово ✓';
+            msg.innerHTML = t('ui.account.linkSent','Изпратихме връзка на <b>{email}</b>.<br>Отворете я от <b>същия телефон</b>, за да влезете.',{email:esc(email)});
+            send.textContent = t('ui.account.done','Готово ✓');
           } else {
             msg.style.display = 'block'; msg.style.color = '#f3c0c0';
             msg.textContent = (r && r.__status === 500)
-              ? 'Услугата още се настройва. Опитайте малко по-късно.'
-              : 'Възникна грешка. Опитайте пак.';
-            send.disabled = false; send.textContent = 'Изпрати връзка';
+              ? t('ui.account.serviceNotReady','Услугата още се настройва. Опитайте малко по-късно.')
+              : t('ui.account.genericError','Възникна грешка. Опитайте пак.');
+            send.disabled = false; send.textContent = t('ui.account.sendLink','Изпрати връзка');
           }
         });
       });
@@ -397,6 +395,7 @@
     document.body.appendChild(ov);
   }
 
+  function t(key, fallback, params) { return (window.i18n && window.i18n.t) ? window.i18n.t(key, fallback, params) : (fallback != null ? fallback : key); }
   function btn(label, cls) { var b = document.createElement('button'); b.type = 'button'; b.className = cls; b.textContent = label; return b; }
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]; }); }
 

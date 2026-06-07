@@ -388,7 +388,7 @@ window.Analytics = (function () {
           '<div class="an-bar-track">' +
             '<div class="an-bar-fill" style="width:' + pct.toFixed(0) + '%"></div>' +
           '</div>' +
-          '<span class="an-bar-val">' + item.totalHours + 'ч / ' + item.sessions + 'x</span>' +
+          '<span class="an-bar-val">' + escapeHtml(t('ui.analytics.hoursSessionsFmt','{h}ч / {s}x',{h:item.totalHours,s:item.sessions})) + '</span>' +
         '</div>'
       );
     }).join('');

@@ -756,6 +756,124 @@
     "body": "Ai oprit testul. Îl poți face mai târziu, când îți e comod — durează doar un minut.",
     "toStart": "La început"
    }
+  },
+  "account": {
+   "loginOk": "Autentificare reușită ✓",
+   "loginFail": "Autentificarea nu a reușit. Încearcă din nou.",
+   "payCancelled": "Plata a fost anulată.",
+   "linkExpired": "Linkul a expirat sau este invalid.",
+   "loggedOut": "Ai ieșit din profil.",
+   "alreadyPaid": "Ai deja acces complet ✓",
+   "payThanks": "Mulțumim! Accesul complet este deblocat ✓",
+   "payProcessing": "Plata se procesează… poate dura un minut.",
+   "fullAccess": "Acces complet ✓",
+   "trialLeftFmt": "Perioadă de probă: încă {n} zile",
+   "trial": "Perioadă de probă",
+   "profileTitle": "Profilul tău",
+   "loggedInAs": "Ești autentificat ca <b>{email}</b>",
+   "unlock": "Deblochează accesul complet — €19.99",
+   "loading": "Se încarcă…",
+   "payNotReady": "Plata se configurează încă. Încearcă mai târziu.",
+   "epay": "Plătește cu ePay / EasyPay (Bulgaria)",
+   "epayNotReady": "ePay se configurează încă. Încearcă mai târziu.",
+   "syncNow": "Sincronizează acum",
+   "syncing": "Se sincronizează…",
+   "synced": "Sincronizat ✓",
+   "logout": "Ieșire",
+   "close": "Închide",
+   "loginTitle": "Autentificare / Recuperare",
+   "loginSub": "Introdu emailul și vei primi un link de autentificare — fără parolă. Astfel datele tale sunt în siguranță și revin când schimbi telefonul.",
+   "emailPlaceholder": "tu@email.ro",
+   "sendLink": "Trimite linkul",
+   "invalidEmail": "Introdu un email valid.",
+   "sending": "Se trimite…",
+   "linkSent": "Am trimis un link la <b>{email}</b>.<br>Deschide-l de pe <b>același telefon</b> ca să te autentifici.",
+   "done": "Gata ✓",
+   "serviceNotReady": "Serviciul se configurează încă. Încearcă mai târziu.",
+   "genericError": "A apărut o eroare. Încearcă din nou."
+  },
+  "analytics": {
+   "hoursSessionsFmt": "{h}h / {s}x"
+  },
+  "categoryView": {
+   "loading": "Se încarcă…",
+   "notFound": "Categoria nu a fost găsită."
+  },
+  "diaryHub": {
+   "title": "Jurnal",
+   "notStarted": "Încă nu ai început programul de 14 zile.",
+   "notStartedSub": "Când începi, aici vei vedea unde ai ajuns și ce ai înregistrat.",
+   "statCurrentDay": "ziua curentă din program",
+   "statCompleted": "zile finalizate",
+   "statEntries": "înregistrări în jurnal",
+   "statStreak": "zile active consecutive",
+   "statFreezes": "«salturi» rămase"
+  },
+  "favorites": {
+   "loadingSkeleton": "Se încarcă…"
+  },
+  "headphones": {
+   "l1": "Căștile in-ear ÎNRĂUTĂȚESC tinitusul. Creează un efect de ocluzie — zgomotul interior se aude mai tare.",
+   "l2": "Recomandăm:",
+   "l3": "✓ Boxe externe (60–90 cm de cap)",
+   "l4": "✓ Conducție osoasă (bone conduction)",
+   "l5": "✓ Căști open-back",
+   "l6": "Volumul NU trebuie să acopere tinitusul. Cele două sunete trebuie auzite împreună (așa-numitul «punct de amestec»).",
+   "l7": "Noaptea — maximum 8 ore neîntrerupt. Nu seta un timer de oprire noaptea.",
+   "title": "IMPORTANT — înainte de a începe",
+   "cta": "Am înțeles — continuă"
+  },
+  "player": {
+   "masterAria": "Volum general",
+   "masterAriaFull": "Volum general 0-100",
+   "sosTitle": "În caz de atac de panică · SOS",
+   "sosSub": "Exercițiu de respirație, 60 sec",
+   "favRemove": "Elimină de la favorite",
+   "favAdd": "Adaugă la favorite",
+   "sleepManual": "Manual:",
+   "minShort": "min.",
+   "sleepManualAria": "Durată manuală în minute (1 până la 480)",
+   "sleepCancel": "Anulează timerul",
+   "sleepSave": "Salvează",
+   "infoAbout": "Despre sunet",
+   "infoNoise": "Fundal recomandat pentru profilul tău",
+   "infoWhy": "De ce acest sunet e bun pentru tine",
+   "hintAria": "Sfat despre volum",
+   "close": "Închide",
+   "hintTitle": "Un mic sfat pentru tine",
+   "hintBody1": "Reglează volumul și mixul cum îți place — <b>tu decizi</b>.",
+   "hintBody2": "Pentru efect maxim și ca zgomotul să se atenueze în timp, lasă sunetul să <b>nu acopere complet</b> tinitusul tău — e bine să-l auzi puțin sub sunet.",
+   "hintOk": "Am înțeles",
+   "hintNever": "Nu mai arăta"
+  },
+  "profileResults": {
+   "spectrumAria": "Spectrul frecvențelor de la 250 Hz la 16 kHz, marcaj pe {f}"
+  },
+  "soundDetail": {
+   "loading": "Se încarcă…",
+   "notFound": "Sunetul nu a fost găsit."
+  },
+  "volumeCalib": {
+   "testStop": "Oprește",
+   "testPlay": "Pornește sunetul de test",
+   "testStopAria": "Oprește sunetul de test",
+   "testPlayAria": "Pornește sunetul de test",
+   "title": "Reglarea volumului",
+   "subtitle": "Găsește nivelul care funcționează pentru tine.",
+   "explain": "Terapia sonoră funcționează cel mai bine când sunetul de fundal este puțin mai slab decât tinitusul tău — cele două sunete se amestecă parțial, fără să se acopere. Se numește «punct de amestec» și este principiul care permite creierului să se obișnuiască treptat.",
+   "stepsTitle": "Trei pași",
+   "step1": "<strong>Așază-te într-o cameră liniștită.</strong> Asigură-te că nu există televizor, conversație sau zgomot din trafic.",
+   "step2": "<strong>Pornește sunetul de test.</strong> Ascultă la volum redus timp de 20 de secunde.",
+   "step3": "<strong>Scade volumul treptat.</strong> Oprește-te în momentul în care auzi simultan și tinitusul, și sunetul de fundal. Trebuie să coexiste.",
+   "sliderLabel": "Volum",
+   "sliderAria": "Volum de la 0 la {max} procente",
+   "sliderValuetext": "{v} din {max}",
+   "sliderHint": "Reglează la un nivel pe care îl auzi confortabil.",
+   "warnTitle": "Ce să NU faci",
+   "warnBody": "Nu crește până la acoperirea completă a tinitusului. Asta solicită auzul și antrenează creierul să aștepte liniște totală — opusul scopului nostru.",
+   "confirm": "E bine",
+   "later": "Mai târziu",
+   "disclaimer": "AURALIS este un instrument de bunăstare generală, nu un produs medical."
   }
  },
  "science": {

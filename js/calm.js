@@ -259,8 +259,7 @@ window.Calm = (function () {
     stopProgressTick();
     var app = el('app');
     if (!app) return;
-    var msg = t('ui.calm.missingFile',
-      'Аудио файлът липсва (placeholder за UI development).');
+    var msg = t('ui.calm.missingFile', 'Аудио файлът липсва (placeholder за UI development).');
     var sound = findSound(activeSoundId);
     app.innerHTML = (
       '<div class="calm-screen" data-screen="calm-missing">' +

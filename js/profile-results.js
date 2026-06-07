@@ -549,8 +549,7 @@ window.ProfileResults = (function () {
     }).join('');
     return (
       '<div class="pr-pitch-spectrum" role="img"' +
-        ' aria-label="Спектър на честотите от 250 Hz до 16 kHz, маркер на ' +
-        formatFreqLabel(freq) + '">' +
+        ' aria-label="' + escapeHtml(t('ui.profileResults.spectrumAria','Спектър на честотите от 250 Hz до 16 kHz, маркер на {f}',{f:formatFreqLabel(freq)})) + '">' +
         '<div class="pr-pitch-spectrum-bar"></div>' +
         '<div class="pr-pitch-marker" style="left:' + pct.toFixed(2) + '%">' +
           '<span class="pr-pitch-marker-line"></span>' +

@@ -33,6 +33,10 @@ window.VolumeCalibration = (function () {
   var doneCallback = null;
 
   function el(id) { return document.getElementById(id); }
+  function t(key, fallback, params) {
+    if (window.i18n && window.i18n.t) return window.i18n.t(key, fallback, params);
+    return fallback != null ? fallback : key;
+  }
   function escapeHtml(s) {
     return String(s)
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -56,11 +60,11 @@ window.VolumeCalibration = (function () {
   function buildTestBtnInner() {
     if (isPlaying) {
       return SVG_STOP +
-        '<span class="vc-test-label">Спри</span>' +
+        '<span class="vc-test-label">' + escapeHtml(t('ui.volumeCalib.testStop', 'Спри')) + '</span>' +
         WAVE_BARS;
     }
     return SVG_PLAY +
-      '<span class="vc-test-label">Пуснете тестовия звук</span>';
+      '<span class="vc-test-label">' + escapeHtml(t('ui.volumeCalib.testPlay', 'Пуснете тестовия звук')) + '</span>';
   }
 
   // Partial update — само бутонът се променя (data-action + class + inner +
@@ -71,7 +75,7 @@ window.VolumeCalibration = (function () {
     btn.classList.toggle('is-playing', isPlaying);
     btn.setAttribute('data-action', isPlaying ? 'stop-test' : 'play-test');
     btn.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
-    btn.setAttribute('aria-label', isPlaying ? 'Спри тестовия звук' : 'Пусни тестовия звук');
+    btn.setAttribute('aria-label', isPlaying ? t('ui.volumeCalib.testStopAria', 'Спри тестовия звук') : t('ui.volumeCalib.testPlayAria', 'Пусни тестовия звук'));
     btn.innerHTML = buildTestBtnInner();
   }
 
@@ -93,23 +97,23 @@ window.VolumeCalibration = (function () {
     var btnInner = buildTestBtnInner();
     var btnClass = 'vc-test-btn' + (isPlaying ? ' is-playing' : '');
     var btnAction = isPlaying ? 'stop-test' : 'play-test';
-    var btnAria = isPlaying ? 'Спри тестовия звук' : 'Пусни тестовия звук';
+    var btnAria = isPlaying ? t('ui.volumeCalib.testStopAria', 'Спри тестовия звук') : t('ui.volumeCalib.testPlayAria', 'Пусни тестовия звук');
 
     return (
       '<div class="vc-screen" data-screen="calibration">' +
-        '<h1 class="vc-title">Настройка на силата</h1>' +
-        '<p class="vc-subtitle">Намерете нивото, което работи за Вас.</p>' +
+        '<h1 class="vc-title">' + escapeHtml(t('ui.volumeCalib.title', 'Настройка на силата')) + '</h1>' +
+        '<p class="vc-subtitle">' + escapeHtml(t('ui.volumeCalib.subtitle', 'Намерете нивото, което работи за Вас.')) + '</p>' +
 
         '<section class="vc-section vc-explain">' +
-          '<p class="vc-line">Звуковата терапия работи най-добре, когато фоновият звук е малко по-тих от Вашия тинитус — двата звука се смесват частично, а не се заглушават. Това се нарича „точка на смесване" и е принципът, който позволява на мозъка постепенно да привикне.</p>' +
+          '<p class="vc-line">' + escapeHtml(t('ui.volumeCalib.explain', 'Звуковата терапия работи най-добре, когато фоновият звук е малко по-тих от Вашия тинитус — двата звука се смесват частично, а не се заглушават. Това се нарича „точка на смесване" и е принципът, който позволява на мозъка постепенно да привикне.')) + '</p>' +
         '</section>' +
 
         '<section class="vc-section vc-steps">' +
-          '<h2 class="vc-section-title">Три стъпки</h2>' +
+          '<h2 class="vc-section-title">' + escapeHtml(t('ui.volumeCalib.stepsTitle', 'Три стъпки')) + '</h2>' +
           '<ol class="vc-steps-list">' +
-            '<li><strong>Седнете в тиха стая.</strong> Уверете се, че няма телевизор, разговор или шум от пътя.</li>' +
-            '<li><strong>Пуснете тестовия звук.</strong> Слушайте на ниско ниво в продължение на 20 секунди.</li>' +
-            '<li><strong>Намалявайте силата постепенно.</strong> Спрете в момента, в който чувате едновременно и тинитуса, и фоновия звук. Те трябва да съществуват заедно.</li>' +
+            '<li>' + t('ui.volumeCalib.step1', '<strong>Седнете в тиха стая.</strong> Уверете се, че няма телевизор, разговор или шум от пътя.') + '</li>' +
+            '<li>' + t('ui.volumeCalib.step2', '<strong>Пуснете тестовия звук.</strong> Слушайте на ниско ниво в продължение на 20 секунди.') + '</li>' +
+            '<li>' + t('ui.volumeCalib.step3', '<strong>Намалявайте силата постепенно.</strong> Спрете в момента, в който чувате едновременно и тинитуса, и фоновия звук. Те трябва да съществуват заедно.') + '</li>' +
           '</ol>' +
         '</section>' +
 
@@ -123,32 +127,32 @@ window.VolumeCalibration = (function () {
 
         '<section class="vc-section vc-slider-section">' +
           '<div class="vc-slider-head">' +
-            '<span class="vc-slider-label">Сила</span>' +
+            '<span class="vc-slider-label">' + escapeHtml(t('ui.volumeCalib.sliderLabel', 'Сила')) + '</span>' +
             '<span class="vc-slider-value" id="vcVolValue">' + currentVolume + '%</span>' +
           '</div>' +
           '<input type="range" class="vc-slider" id="vcVolSlider"' +
             ' min="0" max="' + MAX_VOLUME + '" step="1"' +
             ' value="' + currentVolume + '"' +
-            ' aria-label="Сила на звука от 0 до ' + MAX_VOLUME + ' процента"' +
-            ' aria-valuetext="' + currentVolume + ' от ' + MAX_VOLUME + '" />' +
-          '<div class="vc-slider-hint">Нагласете до ниво, което чувате удобно.</div>' +
+            ' aria-label="' + escapeHtml(t('ui.volumeCalib.sliderAria', 'Сила на звука от 0 до {max} процента', { max: MAX_VOLUME })) + '"' +
+            ' aria-valuetext="' + escapeHtml(t('ui.volumeCalib.sliderValuetext', '{v} от {max}', { v: currentVolume, max: MAX_VOLUME })) + '" />' +
+          '<div class="vc-slider-hint">' + escapeHtml(t('ui.volumeCalib.sliderHint', 'Нагласете до ниво, което чувате удобно.')) + '</div>' +
         '</section>' +
 
         '<section class="vc-section vc-warn-block">' +
-          '<h2 class="vc-section-title">Какво да НЕ правите</h2>' +
-          '<p class="vc-line">Не увеличавайте до пълно заглушаване на тинитуса. Това натоварва слуха и тренира мозъка да очаква пълна тишина — обратното на нашата цел.</p>' +
+          '<h2 class="vc-section-title">' + escapeHtml(t('ui.volumeCalib.warnTitle', 'Какво да НЕ правите')) + '</h2>' +
+          '<p class="vc-line">' + escapeHtml(t('ui.volumeCalib.warnBody', 'Не увеличавайте до пълно заглушаване на тинитуса. Това натоварва слуха и тренира мозъка да очаква пълна тишина — обратното на нашата цел.')) + '</p>' +
         '</section>' +
 
         '<div class="vc-actions">' +
           '<button class="vc-btn vc-btn--primary" type="button" data-action="confirm">' +
-            'Това е добре' +
+            escapeHtml(t('ui.volumeCalib.confirm', 'Това е добре')) +
           '</button>' +
           '<button class="vc-btn vc-btn--ghost" type="button" data-action="skip">' +
-            'По-късно' +
+            escapeHtml(t('ui.volumeCalib.later', 'По-късно')) +
           '</button>' +
         '</div>' +
 
-        '<p class="vc-disclaimer">AURALIS е инструмент за общо благополучие, не медицински продукт.</p>' +
+        '<p class="vc-disclaimer">' + escapeHtml(t('ui.volumeCalib.disclaimer', 'AURALIS е инструмент за общо благополучие, не медицински продукт.')) + '</p>' +
       '</div>'
     );
   }
