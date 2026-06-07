@@ -8,6 +8,7 @@
  */
 
 window.StreakBadge = (function () {
+  function t(key, fallback, params){ return (window.i18n&&window.i18n.t)?window.i18n.t(key,fallback,params):(fallback!=null?fallback:key); }
   'use strict';
 
   var SVG_FLAME =
@@ -24,12 +25,12 @@ window.StreakBadge = (function () {
     var el = document.createElement('div');
     el.className = 'sb-badge' + (days >= 7 ? ' sb-badge--pulse' : '');
     el.setAttribute('role', 'status');
-    el.setAttribute('aria-label', days + ' дни streak');
+    el.setAttribute('aria-label', t('ui.streak.aria', '{n} дни streak', { n: days }));
 
     el.innerHTML =
       '<span class="sb-icon">' + SVG_FLAME + '</span>' +
       '<span class="sb-count">' + days + '</span>' +
-      '<span class="sb-unit">дни</span>';
+      '<span class="sb-unit">' + t('ui.streak.unit', 'дни') + '</span>';
 
     el.addEventListener('click', function () {
       console.log('Streak: ' + days + ' days, freezes: ' + freezes);

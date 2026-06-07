@@ -874,7 +874,8 @@
    "sleepPreset30": "30 минути",
    "sleepPreset60": "1 час",
    "sleepPresetNight": "8 часа (цяла нощ)",
-   "sleepTimerTitle": "Таймер за сън"
+   "sleepTimerTitle": "Таймер за сън",
+   "bgNoise": "Фонов шум"
   },
   "profileResults": {
    "spectrumAria": "Спектър на честотите от 250 Hz до 16 kHz, маркер на {f}"
@@ -904,6 +905,10 @@
    "confirm": "Това е добре",
    "later": "По-късно",
    "disclaimer": "AURALIS е инструмент за общо благополучие, не медицински продукт."
+  },
+  "streak": {
+   "unit": "дни",
+   "aria": "{n} дни streak"
   }
  },
  "science": {
