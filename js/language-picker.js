@@ -20,7 +20,9 @@ window.LanguagePicker = (function () {
     { code: 'bg', name: 'Български', native: 'Български', flag: '🇧🇬' },
     { code: 'it', name: 'Italian', native: 'Italiano', flag: '🇮🇹' },
     { code: 'ro', name: 'Romanian', native: 'Română', flag: '🇷🇴' },
-    { code: 'el', name: 'Greek', native: 'Ελληνικά', flag: '🇬🇷' }
+    { code: 'el', name: 'Greek', native: 'Ελληνικά', flag: '🇬🇷' },
+    { code: 'en', name: 'English', native: 'English', flag: '🇬🇧' },
+    { code: 'es', name: 'Spanish', native: 'Español', flag: '🇪🇸' }
   ];
 
   function t(key, fallback) {

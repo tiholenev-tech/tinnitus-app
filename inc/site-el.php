@@ -173,6 +173,8 @@ function el_head(array $o) {
   echo '<link rel="alternate" hreflang="bg" href="'.$altBg.'">'."\n";
   if (!empty($o['alt_it'])) echo '<link rel="alternate" hreflang="it" href="'.$o['alt_it'].'">'."\n";
   if (!empty($o['alt_ro'])) echo '<link rel="alternate" hreflang="ro" href="'.$o['alt_ro'].'">'."\n";
+  if (!empty($o['alt_en'])) echo '<link rel="alternate" hreflang="en" href="'.$o['alt_en'].'">'."\n";
+  if (!empty($o['alt_es'])) echo '<link rel="alternate" hreflang="es" href="'.$o['alt_es'].'">'."\n";
   echo '<link rel="alternate" hreflang="x-default" href="'.$altBg.'">'."\n";
   echo '<meta name="robots" content="'.$robots.'">'."\n";
   echo '<meta property="og:type" content="'.$ogType.'">'."\n";
@@ -213,6 +215,8 @@ function el_masthead($active = '') {
           <li><a href="/it/" lang="it" hreflang="it">Italiano</a></li>
           <li><a href="/ro/" lang="ro" hreflang="ro">Română</a></li>
           <li><a href="/el/" lang="el" hreflang="el" aria-current="true">Ελληνικά</a></li>
+          <li><a href="/en/" lang="en" hreflang="en">English</a></li>
+          <li><a href="/es/" lang="es" hreflang="es">Español</a></li>
         </ul>
       </details>
 

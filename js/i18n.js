@@ -28,7 +28,7 @@ window.i18n = (function () {
   // инфраструктура остава за бъдеще, но НЕ е достъпна от UI и
   // setLocale('en') ще reject-не. Когато EN е готов — върни 'en' в array
   // + добави го в LANGUAGES list на language-picker.js едновременно.
-  var SUPPORTED = ['bg', 'it', 'ro', 'el'];
+  var SUPPORTED = ['bg', 'it', 'ro', 'el', 'en', 'es'];
   var DEFAULT_FALLBACK = 'bg';  // beta: BG complete, IT в процес на превод (вълни), EN stub
 
   var locale = DEFAULT_FALLBACK;
