@@ -22,7 +22,7 @@ $JSONLD = <<<JSON
 ]}
 JSON;
 
-auralis_head(['title' => $TITLE, 'desc' => $DESC, 'url' => $URL, 'alt_it' => $SITE_URL . '/it/', 'alt_ro' => $SITE_URL . '/ro/', 'jsonld' => $JSONLD]);
+auralis_head(['title' => $TITLE, 'desc' => $DESC, 'url' => $URL, 'alt_it' => $SITE_URL . '/it/', 'alt_ro' => $SITE_URL . '/ro/', 'alt_el' => $SITE_URL . '/el/', 'alt_en' => $SITE_URL . '/en/', 'alt_es' => $SITE_URL . '/es/', 'jsonld' => $JSONLD]);
 auralis_masthead('home');
 ?>
 <main id="main">

@@ -19,7 +19,7 @@ $JSONLD = <<<JSON
 ]}
 JSON;
 
-el_head(['title' => $TITLE, 'desc' => $DESC, 'url' => $URL, 'alt_bg' => $SITE_URL . '/', 'alt_it' => $SITE_URL . '/it/', 'alt_ro' => $SITE_URL . '/ro/', 'jsonld' => $JSONLD]);
+el_head(['title' => $TITLE, 'desc' => $DESC, 'url' => $URL, 'alt_bg' => $SITE_URL . '/', 'alt_it' => $SITE_URL . '/it/', 'alt_ro' => $SITE_URL . '/ro/', 'alt_en' => $SITE_URL . '/en/', 'alt_es' => $SITE_URL . '/es/', 'jsonld' => $JSONLD]);
 el_masthead('home');
 ?>
 <main id="main">

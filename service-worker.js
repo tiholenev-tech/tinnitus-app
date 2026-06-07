@@ -170,6 +170,8 @@ self.addEventListener('fetch', function (e) {
       pathname.indexOf('/it/') === 0 ||
       pathname.indexOf('/ro/') === 0 ||
       pathname.indexOf('/el/') === 0 ||
+      pathname.indexOf('/en/') === 0 ||
+      pathname.indexOf('/es/') === 0 ||
       pathname.indexOf('/articles/') === 0 ||
       pathname.indexOf('/temi/') === 0 ||
       pathname.indexOf('/cena/') === 0 ||

@@ -95,7 +95,7 @@ $JSONLD = json_encode(['@context'=>'https://schema.org','@graph'=>$graph], JSON_
 
 $_alts = hreflang_alts($URL);
 auralis_head(['title' => $TITLE . ' — AURALIS', 'desc' => $DESC, 'url' => $URL, 'og_type' => 'article', 'jsonld' => $JSONLD,
-  'alt_it' => $_alts['it'] ?? '', 'alt_ro' => $_alts['ro'] ?? '', 'alt_el' => $_alts['el'] ?? '']);
+  'alt_it' => $_alts['it'] ?? '', 'alt_ro' => $_alts['ro'] ?? '', 'alt_el' => $_alts['el'] ?? '', 'alt_en' => $_alts['en'] ?? '', 'alt_es' => $_alts['es'] ?? '']);
 auralis_masthead($a['section']);
 ?>
 <main id="main">
