@@ -2989,739 +2989,739 @@
   },
   "sounds": {
    "ambience_air_inside_bunker_sea_ambience_from_outside_02": {
-    "title": "Морски шепот"
+    "title": "Sea whisper"
    },
    "ambience_residential_abandoned_building_gentle_wind_distant_boat_engine_distant_traffic_people_pass_by_helicopter_distant_sea_athens_greece": {
-    "title": "Морски бриз край Атина"
+    "title": "Sea breeze near Athens"
    },
    "ambience_seaside_dalian_beach_waves_people_footsteps_distant_boats_china": {
-    "title": "Утринни вълни на брега"
+    "title": "Morning waves on the shore"
    },
    "ambience_underwater_sea_wave_ilo_aquatic_water_burble_waves_back_forth_microphone_blocking_feet": {
-    "title": "Подводни вълни"
+    "title": "Underwater waves"
    },
    "ambience_underwater_waves_constant_deep_hits": {
-    "title": "Дълбоко под океана"
+    "title": "Deep under the ocean"
    },
    "ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_01": {
-    "title": "Черноморски изгрев"
+    "title": "Black Sea sunrise"
    },
    "ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_02": {
-    "title": "Черноморска вечер"
+    "title": "Black Sea evening"
    },
    "ambience_urban_black_sea_distant_waves_roar_condominium_neighborhod_black_sea_batumi_georgia_03": {
-    "title": "Тихият бряг на Батуми"
+    "title": "The quiet shore of Batumi"
    },
    "birds_sea_seagulls_distant_several_gentle_waves_02": {
-    "title": "Чайки над брега"
+    "title": "Gulls over the shore"
    },
    "genetic_waves_joseph_beg": {
-    "title": "Безкрайните вълни"
+    "title": "The endless waves"
    },
    "ocean_meditation_joseph_beg": {
-    "title": "Океан в дълбочина"
+    "title": "Ocean in depth"
    },
    "water_lap_waves_splashing_against_boat_large_hitting_sea_02": {
-    "title": "Вълни при лодката"
+    "title": "Waves by the boat"
    },
    "water_lap_waves_water_lapping_seafront_sea_close": {
-    "title": "Близкият морски бряг"
+    "title": "The nearby seashore"
    },
    "water_lap_waves_water_lapping_seafront_sea_semi_close": {
-    "title": "Далечен прибой"
+    "title": "Distant surf"
    },
    "water_surf_beach_ocean_waves_sand_wind": {
-    "title": "Песъчлив бряг"
+    "title": "Sandy shore"
    },
    "water_surf_beach_waves_coming_in_occasional_birds_atlantic_ocean_caribbean_sea": {
-    "title": "Карибски вълни"
+    "title": "Caribbean waves"
    },
    "water_surf_distant_calm_sea_waves_few_distant_birds": {
-    "title": "Спокойно море в далечината"
+    "title": "Calm sea in the distance"
    },
    "water_surf_ocean_sea_big_waves_breaking_against_dyke_breakwater_strong_weather_02_30": {
-    "title": "Бурно море"
+    "title": "Stormy sea"
    },
    "water_surf_water_ocean_seashore_waves_roar_distant_llandudno_cape_town_south_africa": {
-    "title": "Африкански океан"
+    "title": "African ocean"
    },
    "water_surf_water_sea_waves_choppy_italy_grado_01": {
-    "title": "Италиански бряг"
+    "title": "Italian shore"
    },
    "water_surf_water_sea_waves_choppy_italy_grado_02": {
-    "title": "Адриатически вълни"
+    "title": "Adriatic waves"
    },
    "water_surf_water_waves_rough_sea_01": {
-    "title": "Бурни вълни"
+    "title": "Stormy waves"
    },
    "water_surf_water_waves_rough_sea_02": {
-    "title": "Развълнувано море"
+    "title": "Choppy sea"
    },
    "water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta": {
-    "title": "Малтийски залив"
+    "title": "Maltese bay"
    },
    "water_surf_waves_bay_calm_waves_rocks_wash_evening_mediterranean_sea_selmun_bay_malta_01": {
-    "title": "Вечерни вълни в Селмун"
+    "title": "Evening waves in Selmun"
    },
    "water_surf_waves_ocean_distant_on_beach_distant_boat_motor_03": {
-    "title": "Лодка в далечината"
+    "title": "A boat in the distance"
    },
    "water_underwater_deep_sea_bubbles_muffled_big_02": {
-    "title": "Подводни мехури"
+    "title": "Underwater bubbles"
    },
    "water_underwater_ocean_bubbles_water_movement_lapping_argentina_02": {
-    "title": "Подводна Аржентина"
+    "title": "Underwater Argentina"
    },
    "water_wave_ocean_beach_waves_medium_lapping": {
-    "title": "Спокоен морски прилив"
+    "title": "Calm sea tide"
    },
    "water_wave_ocean_medium_waves_coming_in_close_03": {
-    "title": "Близки вълни"
+    "title": "Nearby waves"
    },
    "water_wave_ocean_wave_swells": {
-    "title": "Дишащият океан"
+    "title": "The breathing ocean"
    },
    "water_wave_ocean_waves_medium_on_stone_sea_wall_boats_harbor_in_background": {
-    "title": "Вълни в пристанището"
+    "title": "Waves in the harbour"
    },
    "water_wave_ocean_waves_on_shore_beach_medium_distant": {
-    "title": "Вълни на брега"
+    "title": "Waves on the shore"
    },
    "water_wave_sea_beach_cove_100m_away_distance_moderate_waves_distant_plane_birds": {
-    "title": "Усамотен залив"
+    "title": "Secluded bay"
    },
    "water_wave_sea_beach_cove_50m_distance_moderate_waves_ms": {
-    "title": "Тихи вълни на брега"
+    "title": "Quiet waves on the shore"
    },
    "water_wave_sea_light_wind_waves_intensifies": {
-    "title": "Вятър над вълните"
+    "title": "Wind over the waves"
    },
    "water_wave_sea_water_very_gentle_waves": {
-    "title": "Нежно море"
+    "title": "Gentle sea"
    },
    "water_wave_waves_sea_beach_punta_allen_sian_ka_an_biosphere_reserve_mexico": {
-    "title": "Мексикански бряг"
+    "title": "Mexican shore"
    },
    "wind_general_calm_mountain_sea_distant_waves_01": {
-    "title": "Планински вятър край морето"
+    "title": "Mountain wind by the sea"
    },
    "wind_general_calm_mountain_sea_distant_waves_02": {
-    "title": "Морски бриз отвисоко"
+    "title": "Sea breeze from above"
    },
    "wind_general_calm_mountain_sea_distant_waves_03": {
-    "title": "Тих вятър над залива"
+    "title": "Quiet wind over the bay"
    },
    "ambience_forest_ukraine_morning_birds_nature_trees_calm_breeze_wildlife": {
-    "title": "Утринни птици в Карпатите"
+    "title": "Morning birds in the Carpathians"
    },
    "ambience_swamp_wetland_after_rain_water_dripping_humid_distant_fowl": {
-    "title": "След дъжда в блатата"
+    "title": "After the rain in the marshes"
    },
    "ambience_tropical_rain_texture_medium": {
-    "title": "Тропически дъжд"
+    "title": "Tropical rain"
    },
    "ambience_underwater_grainy_bubbles_small_deep_fizz": {
-    "title": "Шум на дълбините"
+    "title": "The noise of the depths"
    },
    "rain_attic_01": {
-    "title": "Дъжд по покрива"
+    "title": "Rain on the roof"
    },
    "rain_cloth_raining_umbrella_01": {
-    "title": "Капки по чадъра"
+    "title": "Drops on the umbrella"
    },
    "rain_concrete_city_rain_soft_residential_neighborhood_night_car_pass_by_wet_roads_side_streets_02": {
-    "title": "Тих дъжд в града"
+    "title": "Quiet rain in the city"
    },
    "rain_general_medium_drip_details_night_wide": {
-    "title": "Нощни капки"
+    "title": "Night drops"
    },
    "rain_glass_rain_car_window_perspective_medium_01": {
-    "title": "Дъжд по прозореца на колата"
+    "title": "Rain on the car window"
    },
    "rain_glass_window_roof_location_2_medium_room_loft_roof_window": {
-    "title": "Капки над таванския прозорец"
+    "title": "Drops on the skylight"
    },
    "rain_interior_rain_medium_drops_drumming_clunking": {
-    "title": "Барабаненето на дъжда"
+    "title": "The drumming of the rain"
    },
    "rain_interior_rain_medium_inside_car": {
-    "title": "Дъждовна вечер в колата"
+    "title": "A rainy evening in the car"
    },
    "rain_interior_rain_on_window_house_apartment_room_tone_light_rain": {
-    "title": "Дъжд в апартамента"
+    "title": "Rain in the apartment"
    },
    "rain_plastic_medium_outside_plastic_window": {
-    "title": "Дъжд по пластмасата"
+    "title": "Rain on the plastic"
    },
    "rain_plastic_medium_to_light_outside_plastic_window": {
-    "title": "Тих дъжд по прозореца"
+    "title": "Quiet rain on the window"
    },
    "rain_plastic_medium_to_light_under_plastic_roof_01": {
-    "title": "Скрити от дъжда"
+    "title": "Sheltered from the rain"
    },
    "rain_plastic_medium_to_light_under_plastic_roof_02": {
-    "title": "Дъжд върху навеса"
+    "title": "Rain on the awning"
    },
    "rain_plastic_on_plastic_umbrella_medium_intensity_dense_dripping": {
-    "title": "Гъст дъжд по чадъра"
+    "title": "Heavy rain on the umbrella"
    },
    "rain_plastic_plastic_buckets_multiple_drops_medium_busy_01": {
-    "title": "Капки в кофите"
+    "title": "Drops in the buckets"
    },
    "rain_plastic_plastic_buckets_multiple_drops_medium_busy_02": {
-    "title": "Многобройни капки"
+    "title": "Countless drops"
    },
    "rain_vegetation_medium_leaves_drop_tropical_jungle": {
-    "title": "Дъжд в джунглата"
+    "title": "Rain in the jungle"
    },
    "rain_wood_rain_front_porch_rain_on_door_medium": {
-    "title": "Дъжд пред вратата"
+    "title": "Rain at the door"
    },
    "wind_general_rain_playa_blanca_village_drops_metal_sheet_roof_movement_04": {
-    "title": "Дъжд по тенекия"
+    "title": "Rain on the tin"
    },
    "ambience_forest_wetlands_river_water_wind_ship": {
-    "title": "Вятър в гората край реката"
+    "title": "Wind in the forest by the river"
    },
    "ambience_underwater_bubbles_dark_spacious_boiling_flowing": {
-    "title": "Кипящи подводни дълбини"
+    "title": "Bubbling underwater depths"
    },
    "ambience_underwater_dark_deep_leak_gurgling_flowing": {
-    "title": "Подводно гърголене"
+    "title": "Underwater gurgling"
    },
    "ambience_underwater_dark_eerie_deep_bubbles_spacious_stream": {
-    "title": "Мистична подводна река"
+    "title": "Mystical underwater river"
    },
    "ambience_underwater_dark_eerie_spacious_flowing_roaring_01": {
-    "title": "Подводен ритъм"
+    "title": "Underwater rhythm"
    },
    "ambience_underwater_dark_eerie_spacious_flowing_roaring_02": {
-    "title": "Тъмно подводно течение"
+    "title": "Dark underwater current"
    },
    "ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_02": {
-    "title": "Подводна планинска вода"
+    "title": "Underwater mountain water"
    },
    "ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_03": {
-    "title": "Ледникова подводна река"
+    "title": "Glacial underwater river"
    },
    "ambience_underwater_gargle_river_flow_bubbles_water_telluride_usa_05": {
-    "title": "Аметистови дълбини"
+    "title": "Amethyst depths"
    },
    "ambience_underwater_river_flowing_01": {
-    "title": "Тиха река под водата"
+    "title": "Quiet river underwater"
    },
    "ambience_underwater_river_flowing_02": {
-    "title": "Бистра подводна река"
+    "title": "Clear underwater river"
    },
    "ambience_underwater_river_flowing_03": {
-    "title": "Спокойно подводно течение"
+    "title": "Calm underwater current"
    },
    "ambience_underwater_river_flowing_04": {
-    "title": "Кристален подводен поток"
+    "title": "Crystal underwater stream"
    },
    "ambience_underwater_river_flowing_05": {
-    "title": "Сребриста подводна река"
+    "title": "Silvery underwater river"
    },
    "ambience_underwater_river_flowing_06": {
-    "title": "Прохладно подводно течение"
+    "title": "Cool underwater current"
    },
    "ambience_underwater_trickle_bright_detailed_stream": {
-    "title": "Светъл подводен поток"
+    "title": "Bright underwater stream"
    },
    "ambience_underwater_water_flow_01": {
-    "title": "Подводен танц"
+    "title": "Underwater dance"
    },
    "ambience_underwater_water_flow_02": {
-    "title": "Дълбок подводен ритъм"
+    "title": "Deep underwater rhythm"
    },
    "ambience_underwater_water_flow_03": {
-    "title": "Безмълвие под водата"
+    "title": "Silence underwater"
    },
    "ambience_underwater_water_flow_04": {
-    "title": "Тихо подводно течение"
+    "title": "Quiet underwater current"
    },
    "rain_metal_rain_gutter_medium_drops_flowing": {
-    "title": "Дъжд по улука"
+    "title": "Rain on the gutter"
    },
    "water_flow_deep_mountain_stream_creek_bubble": {
-    "title": "Дълбока планинска река"
+    "title": "Deep mountain river"
    },
    "water_flow_river_calm_running_medium_distance_01": {
-    "title": "Спокойна река"
+    "title": "Calm river"
    },
    "water_flow_river_close_gentle_01": {
-    "title": "Нежно близко течение"
+    "title": "Gentle nearby current"
    },
    "water_flow_river_close_gentle_02": {
-    "title": "Кристален речен шепот"
+    "title": "Crystal river whisper"
    },
    "water_flow_river_current_fast_distant": {
-    "title": "Бързо далечно течение"
+    "title": "Fast distant current"
    },
    "water_flow_river_current_small_fast_flow": {
-    "title": "Бистра бърза река"
+    "title": "Clear fast river"
    },
    "water_flow_river_flow_strong_bubbles_nature_forest_telluride": {
-    "title": "Силна горска река"
+    "title": "Strong forest river"
    },
    "water_flow_river_run_flow_valley_bubbles_calm_nature_san_miguel_river_telluride": {
-    "title": "Река в долината Сан Мигел"
+    "title": "River in the San Miguel valley"
    },
    "water_flow_river_small_mountain_stream": {
-    "title": "Малка планинска река"
+    "title": "Small mountain river"
    },
    "water_waterfall_strong_flow_people_forest_lower_waterfall_evening_zenny_fall_telluride": {
-    "title": "Водопад привечер"
+    "title": "Waterfall at dusk"
    },
    "water_waterfall_waterfall_medium_flow_01": {
-    "title": "Тих водопад"
+    "title": "Quiet waterfall"
    },
    "water_waterfall_waterfall_the_trolls_road_20m_from_river": {
-    "title": "Водопад край пътя"
+    "title": "Waterfall by the road"
    },
    "ambience_tropical_water_source_palm_leaves_wind_soothing": {
-    "title": "Тропически бриз"
+    "title": "Tropical breeze"
    },
    "ambience_underwater_active": {
-    "title": "Подводен пулс"
+    "title": "Underwater pulse"
    },
    "ambience_underwater_complex_01": {
-    "title": "Подводна симфония"
+    "title": "Underwater symphony"
    },
    "ambience_underwater_complex_02": {
-    "title": "Тих подводен танц"
+    "title": "Quiet underwater dance"
    },
    "ambience_underwater_complex_03": {
-    "title": "Подводна загадка"
+    "title": "Underwater mystery"
    },
    "ambience_underwater_complex_04": {
-    "title": "Дълбоко под водата"
+    "title": "Deep underwater"
    },
    "ambience_underwater_complex_05": {
-    "title": "Подводен сън"
+    "title": "Underwater dream"
    },
    "ambience_underwater_complex_06": {
-    "title": "Тайно подводно място"
+    "title": "Secret underwater place"
    },
    "ambience_underwater_complex_07": {
-    "title": "Подводна нежност"
+    "title": "Underwater tenderness"
    },
    "ambience_underwater_complex_08": {
     "title": "Underwater silence"
    },
    "ambience_underwater_complex_09": {
-    "title": "Безкрайни дълбини"
+    "title": "Endless depths"
    },
    "ambience_underwater_complex_10": {
-    "title": "Подводен мир"
+    "title": "Underwater peace"
    },
    "ambience_underwater_complex_evolving": {
-    "title": "Развиващи се дълбини"
+    "title": "Unfolding depths"
    },
    "ambience_underwater_dark_eerie_roaring": {
-    "title": "Тъмно подводно ехо"
+    "title": "Dark underwater echo"
    },
    "ambience_underwater_dark_eerie_slow_moving_stutter": {
-    "title": "Бавно потъване под водата"
+    "title": "Slowly sinking underwater"
    },
    "ambience_underwater_deep_01": {
-    "title": "Великите подводни дълбини"
+    "title": "The great underwater depths"
    },
    "ambience_underwater_deep_02": {
-    "title": "Тиха подводна тишина"
+    "title": "Quiet underwater stillness"
    },
    "ambience_underwater_deep_03": {
-    "title": "Сребристи подводни глъбини"
+    "title": "Silvery underwater depths"
    },
    "ambience_underwater_deep_04": {
-    "title": "Студени подводни води"
+    "title": "Cold underwater waters"
    },
    "ambience_underwater_deep_abstract_01": {
-    "title": "Дълбоко под водата, унес"
+    "title": "Deep underwater, in a trance"
    },
    "ambience_underwater_deep_abstract_02": {
-    "title": "Сюрреалистично под водата"
+    "title": "Surreal underwater"
    },
    "ambience_underwater_deep_abstract_03": {
-    "title": "Подводна абстракция"
+    "title": "Underwater abstraction"
    },
    "ambience_underwater_deep_abstract_04": {
-    "title": "Тайнствено подводно течение"
+    "title": "Mysterious underwater current"
    },
    "ambience_underwater_deep_bubble_01": {
-    "title": "Дълбоки мехурчета"
+    "title": "Deep bubbles"
    },
    "ambience_underwater_deep_bubble_02": {
-    "title": "Спокойни мехури"
+    "title": "Calm bubbles"
    },
    "ambience_underwater_deep_bubble_active_01": {
-    "title": "Активни подводни мехури"
+    "title": "Active underwater bubbles"
    },
    "ambience_underwater_deep_bubble_active_02": {
-    "title": "Танцуващи мехурчета"
+    "title": "Dancing bubbles"
    },
    "ambience_underwater_deep_bubbles_01": {
-    "title": "Мехурче по мехурче"
+    "title": "Bubble by bubble"
    },
    "ambience_underwater_deep_bubbles_02": {
-    "title": "Поток от мехурчета"
+    "title": "A stream of bubbles"
    },
    "ambience_underwater_deep_bubbles_03": {
-    "title": "Многобройни мехурчета"
+    "title": "Countless bubbles"
    },
    "ambience_underwater_deep_low": {
-    "title": "Ниски дълбини"
+    "title": "Low depths"
    },
    "ambience_underwater_deep_propeller": {
-    "title": "Подводно моторче"
+    "title": "Underwater motor"
    },
    "ambience_underwater_deep_sub": {
-    "title": "Подводна тишина · по здрач"
+    "title": "Underwater silence · at dusk"
    },
    "ambience_underwater_designed_subsonic_01": {
-    "title": "Невидим бас"
+    "title": "Invisible bass"
    },
    "ambience_underwater_designed_water_aquarium_bubbles_18": {
-    "title": "Подводен аквариум"
+    "title": "Underwater aquarium"
    },
    "ambience_underwater_designed_water_aquarium_bubbles_32": {
-    "title": "Аквариумно мехурче"
+    "title": "Aquarium bubble"
    },
    "ambience_underwater_distant_low_rumble_01": {
-    "title": "Дълбок подводен тътен"
+    "title": "Deep underwater rumble"
    },
    "ambience_underwater_distant_low_rumble_02": {
-    "title": "Нисък далечен тон"
+    "title": "Low distant tone"
    },
    "ambience_underwater_distant_mid_resonance_01": {
-    "title": "Подводно ехо"
+    "title": "Underwater echo"
    },
    "ambience_underwater_distant_thrill_water_01": {
-    "title": "Подводна тръпка"
+    "title": "Underwater shiver"
    },
    "ambience_underwater_distant_thrill_water_02": {
-    "title": "Далечно подводно вълнение"
+    "title": "Distant underwater stir"
    },
    "ambience_underwater_near_machine_01": {
-    "title": "Близка подводна машина"
+    "title": "Nearby underwater machine"
    },
    "ambience_underwater_near_machine_02": {
-    "title": "Подводен механизъм"
+    "title": "Underwater mechanism"
    },
    "ambience_underwater_small_bubbles_02": {
-    "title": "Малки мехурчета"
+    "title": "Small bubbles"
    },
    "ambience_underwater_submarine_underwater": {
-    "title": "Под подводницата"
+    "title": "Beneath the submarine"
    },
    "ambience_underwater_tub_underwater_loop": {
-    "title": "Под повърхността на водата"
+    "title": "Below the water's surface"
    },
    "ambience_underwater_underwater_current": {
-    "title": "Подводно течение"
+    "title": "Underwater current"
    },
    "ambience_underwater_underwater_designed_flush_01": {
-    "title": "Подводна вълна"
+    "title": "Underwater wave"
    },
    "ambience_underwater_underwater_designed_running_03": {
-    "title": "Подводен поток"
+    "title": "Underwater stream"
    },
    "ambience_underwater_underwater_designed_running_04": {
-    "title": "Тиха подводна песен"
+    "title": "Quiet underwater song"
    },
    "ambience_underwater_underwater_drone_hum": {
-    "title": "Подводен дрон"
+    "title": "Underwater drone"
    },
    "ambience_underwater_waterfall": {
-    "title": "Подводен водопад"
+    "title": "Underwater waterfall"
    },
    "designed_drone_sub_deep_underwater": {
-    "title": "Дълбок подводен дрон"
+    "title": "Deep underwater drone"
    },
    "water_bubbles_aqua_massage_bubbling_01": {
-    "title": "Подводен масаж"
+    "title": "Underwater massage"
    },
    "water_bubbles_bubbling_witchs_cauldron": {
-    "title": "Бълбукащи подводни мехури"
+    "title": "Bubbling underwater bubbles"
    },
    "water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_40": {
-    "title": "Великият водопад"
+    "title": "The great waterfall"
    },
    "water_waterfall_steady_perspective": {
-    "title": "Постоянен водопад"
+    "title": "Steady waterfall"
    },
    "water_waterfall_waterfall_powerful": {
-    "title": "Мощен водопад"
+    "title": "Powerful waterfall"
    },
    "ambience_forest_winter_calm_light_wind_oslo_ostmarka_01": {
-    "title": "Зимен вятър край Осло"
+    "title": "Winter wind near Oslo"
    },
    "ambience_forest_winter_calm_light_wind_single_bird_distant_oslo_ostmarka_01": {
-    "title": "Зимен вятър и самотна птица"
+    "title": "Winter wind and a lone bird"
    },
    "ambience_urban_oslo_urban_city_hall_strong_winds_rattling_no_people_distant_trams_traffic": {
-    "title": "Силен вятър над Осло"
+    "title": "Strong wind over Oslo"
    },
    "wind_general_abandoned_factory_chimney_wind_gusts_light_whistling_mic_upwards_distant_traffic_hum_humberstone_chile": {
-    "title": "Вятър в изоставената фабрика"
+    "title": "Wind in the abandoned factory"
    },
    "wind_general_desert_bushes_twigs_wind_gusts_light_electric_whistling": {
-    "title": "Пустинен вятър в храстите"
+    "title": "Desert wind in the bushes"
    },
    "wind_general_desert_close_to_bushes_wind_gusts_twig_branch_close": {
-    "title": "Близки храсти в бриз"
+    "title": "Nearby bushes in a breeze"
    },
    "wind_general_desert_light_whistling_bagdad_highway_wind_gusts_light_wind_bushes": {
-    "title": "Пустинен вятър край Багдад"
+    "title": "Desert wind near Baghdad"
    },
    "wind_general_desert_pampa_perdiz_wind_gusts_dark_02": {
-    "title": "Вятър над тъмната пампа"
+    "title": "Wind over the dark pampas"
    },
    "wind_general_desert_pampa_perdiz_wind_gusts_dark_03": {
-    "title": "Патагонски бриз"
+    "title": "Patagonian breeze"
    },
    "wind_general_high_cliff_alto_patache_chile_01": {
-    "title": "Вятър по скалите на Чили"
+    "title": "Wind on the cliffs of Chile"
    },
    "wind_general_iron_wire_sculpture_light_metallic_creaking_noise_wind_gusts_light_whistling_alto_patache_chile": {
-    "title": "Вятър в желязната скулптура"
+    "title": "Wind in the iron sculpture"
    },
    "wind_general_large_tree_foliage_01": {
-    "title": "Вятър в голямото дърво"
+    "title": "Wind in the great tree"
    },
    "wind_general_light_whistling_gusts_alto_patache_chile": {
-    "title": "Тихо свирещ пустинен вятър"
+    "title": "Softly whistling desert wind"
    },
    "wind_general_light_wind_iron_wire_weather_station_barbed_wire_low_whistling_wind_gusts_alto_patache_chile": {
-    "title": "Вятър край метеостанцията"
+    "title": "Wind by the weather station"
    },
    "wind_general_plastic_telescope_gusts_salar_atacama": {
-    "title": "Вятър край телескопа в Атакама"
+    "title": "Wind by the telescope in Atacama"
    },
    "wind_general_rusty_antenna_howling_alto_patache_chile": {
-    "title": "Вятър в ръждивата антена"
+    "title": "Wind in the rusty antenna"
    },
    "wind_general_steady_wind_light_movement_cold": {
-    "title": "Студен постоянен вятър"
+    "title": "Cold steady wind"
    },
    "wind_general_wilderness_medium_movement_cold_01": {
-    "title": "Див студен вятър"
+    "title": "Wild cold wind"
    },
    "wind_gust_cold_mountain_wind_gusts_varied_intensity_01": {
-    "title": "Планински повеи"
+    "title": "Mountain gusts"
    },
    "wind_gust_distant_bush_light_whistling_valley": {
-    "title": "Вятър от далечната долина"
+    "title": "Wind from the distant valley"
    },
    "wind_gust_salt_desert_salar_atacama_chile": {
-    "title": "Вятър над солената пустиня"
+    "title": "Wind over the salt desert"
    },
    "wind_gust_whistling_garden_alto_patache_chile": {
-    "title": "Свирещ вятър в градината"
+    "title": "Whistling wind in the garden"
    },
    "wind_tonal_light_pole_whistling_wind_gusts_desert_alto_patache": {
-    "title": "Пустинен вятър край стълба"
+    "title": "Desert wind by the pole"
    },
    "wind_tonal_wind_howling_barbed_wire_fence_tierra_del_fuego_argentina_01": {
-    "title": "Воещ вятър на Огнена земя"
+    "title": "Howling wind in Tierra del Fuego"
    },
    "wind_tonal_wind_whistling_distant_fog_collector_alto_patache": {
-    "title": "Вятър в мъглата на Алто Патаче"
+    "title": "Wind in the fog of Alto Patache"
    },
    "wind_tonal_wind_whistling_iron_fence_movement_wind_gusts_distant_city_hum_desert_outskirts_twentynine_palms": {
-    "title": "Нощен вятър в желязната ограда"
+    "title": "Night wind in the iron fence"
    },
    "wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_01": {
-    "title": "Тревичка в пустинния вятър"
+    "title": "A blade of grass in the desert wind"
    },
    "wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_02": {
-    "title": "Вятър в пустинната трева"
+    "title": "Wind in the desert grass"
    },
    "wind_vegetation_desert_wind_grass_blowing_in_wind_gusts_distant_traffic_hum_outskirts_03": {
-    "title": "Пустинен вятър с ехо"
+    "title": "Desert wind with echo"
    },
    "wind_vegetation_mixed_forest_mountainside_gentle_wind_through_birches_pines_firs_spruces_distant_birds_40": {
-    "title": "Бреза и бор в нежен вятър"
+    "title": "Birch and pine in a gentle wind"
    },
    "wind_vegetation_mixed_forest_mountainside_strong_wind_gusts_through_firs_birches_poplars_creaking_tree_40": {
-    "title": "Вятър в скърцащите борове"
+    "title": "Wind in the creaking pines"
    },
    "wind_vegetation_mixed_forest_wind_through_pines_birches_poplars_creaking_tree_trunk_leaves_rustling_bird_flyby_40": {
-    "title": "Вятър и птици в гората"
+    "title": "Wind and birds in the forest"
    },
    "ambience_forest_wetlands_forest_birds_birdsong": {
-    "title": "Песни на горските птици"
+    "title": "Songs of the forest birds"
    },
    "ambience_forest_wetlands_snowing_droplets_distant": {
-    "title": "Зимна гора със сняг"
+    "title": "Winter forest with snow"
    },
    "ambience_forest_wetlands_winter_wildlife_birds": {
-    "title": "Зимна гора"
+    "title": "Winter forest"
    },
    "ambience_nautical_wetlands_distant_factory_birds_01": {
-    "title": "Далечни птици край водата"
+    "title": "Distant birds by the water"
    },
    "fire_burning_fireplace_glass_front_wood_burning_medium": {
-    "title": "Огнището у дома"
+    "title": "The hearth at home"
    },
    "369_seconds_of_bliss_369": {
-    "title": "Шест минути блаженство"
+    "title": "Six minutes of bliss"
    },
    "8_pm_anna_landstrom": {
-    "title": "Осем часа вечерта"
+    "title": "Eight in the evening"
    },
    "a_calm_early_morning_rikard_from": {
-    "title": "Спокойна сутрин"
+    "title": "Calm morning"
    },
    "angelica_instrumental_version_david_edward": {
-    "title": "Ангелска мелодия"
+    "title": "Angelic melody"
    },
    "archipelago_of_relaxation_mandala_dreams": {
-    "title": "Архипелаг на спокойствието"
+    "title": "Archipelago of calm"
    },
    "carried_by_current_valante": {
-    "title": "Носен от течението"
+    "title": "Carried by the current"
    },
    "celestial_spheres_ave_air": {
-    "title": "Небесни сфери"
+    "title": "Celestial spheres"
    },
    "city_park_ave_air": {
-    "title": "Градският парк"
+    "title": "The city park"
    },
    "crowned_with_spirit_valante": {
-    "title": "Коронован с дух"
+    "title": "Crowned with spirit"
    },
    "crystal_haze_shuta_yasukochi": {
-    "title": "Кристална мъгла"
+    "title": "Crystal mist"
    },
    "dharapani_dex_1200": {
-    "title": "Хималайско спокойствие"
+    "title": "Himalayan calm"
    },
    "dusky_mirage_true_messenger": {
-    "title": "Здрачен мираж"
+    "title": "Twilight mirage"
    },
    "end_of_rain_beyza": {
-    "title": "Краят на дъжда"
+    "title": "The end of the rain"
    },
    "enlightened_drift_amber_glow": {
-    "title": "Просветлен дрейф"
+    "title": "Enlightened drift"
    },
    "epic_mirage_hanna_lindgren": {
-    "title": "Епичен мираж"
+    "title": "Epic mirage"
    },
    "field_of_horses_joseph_beg": {
-    "title": "Полето на конете"
+    "title": "The field of horses"
    },
    "floating_sakura_petals_sayuri_hayashi_egnell": {
-    "title": "Падащи сакура венчелистчета"
+    "title": "Falling sakura petals"
    },
    "forest_breeze_ave_air": {
-    "title": "Горски бриз"
+    "title": "Forest breeze"
    },
    "gold_and_green_anna_landstrom": {
-    "title": "Злато и зелено"
+    "title": "Gold and green"
    },
    "grounded_hanna_lindgren": {
-    "title": "Заземяване"
+    "title": "Grounding"
    },
    "healing_tides_amber_glow": {
-    "title": "Лечебни приливи"
+    "title": "Soothing tides"
    },
    "hush_my_darling_yi_nantiro": {
-    "title": "Тих сън, любими"
+    "title": "Sleep gently, my love"
    },
    "inner_balance_elm_lake": {
-    "title": "Вътрешен баланс"
+    "title": "Inner balance"
    },
    "kokoro_valante": {
-    "title": "Сърцето"
+    "title": "The heart"
    },
    "komorebi_shuta_yasukochi": {
-    "title": "Светлина през листата"
+    "title": "Light through the leaves"
    },
    "lullaby_for_kilian_magnus_ludvigsson": {
-    "title": "Приспивна за Килиан"
+    "title": "Lullaby for Kilian"
    },
    "meditation_aquatic_369": {
-    "title": "Водна медитация"
+    "title": "Water meditation"
    },
    "mindstream_amber_glow": {
-    "title": "Поток на мисълта"
+    "title": "Stream of thought"
    },
    "mirror_of_the_heart_bladverk_band": {
-    "title": "Огледалото на сърцето"
+    "title": "The mirror of the heart"
    },
    "murmurations_hanna_lindgren": {
-    "title": "Шепнене на стадото"
+    "title": "Whisper of the herd"
    },
    "my_friend_the_warlock_bitwraith": {
-    "title": "Моят приятел магьосникът"
+    "title": "My friend the wizard"
    },
    "namucuo_by_lotus": {
-    "title": "Планинско езеро"
+    "title": "Mountain lake"
    },
    "on_a_knee_the_golden_peas": {
-    "title": "На едно коляно"
+    "title": "On one knee"
    },
    "parlemor_bomull": {
-    "title": "Седефен блясък"
+    "title": "Pearl shimmer"
    },
    "pillars_of_resilience_cora_zea": {
-    "title": "Стълбове на устойчивостта"
+    "title": "Pillars of resilience"
    },
    "resonance_luba_hilman": {
-    "title": "Резонанс на душата"
+    "title": "Resonance of the soul"
    },
    "silver_woodlands_cora_zea": {
-    "title": "Сребърни гори"
+    "title": "Silver forests"
    },
    "solitude_conscience_mandala_dreams": {
-    "title": "Самотата на съвестта"
+    "title": "The solitude of conscience"
    },
    "stargazing_shuta_yasukochi": {
-    "title": "Звездно небе"
+    "title": "Starry sky"
    },
    "state_of_meditation_elm_lake": {
-    "title": "Състояние на медитация"
+    "title": "A state of meditation"
    },
    "still_love_hanna_lindgren": {
-    "title": "Тиха любов"
+    "title": "Quiet love"
    },
    "the_hidden_realm_ruiqi_zhao": {
-    "title": "Скритото царство"
+    "title": "The hidden kingdom"
    },
    "the_lake_at_3am_mandala_dreams": {
-    "title": "Езерото в три сутринта"
+    "title": "The lake at three in the morning"
    },
    "the_water_remains_rand_aldo": {
-    "title": "Водата остава"
+    "title": "The water remains"
    },
    "third_charm_joseph_beg": {
-    "title": "Третото обаяние"
+    "title": "The third charm"
    },
    "to_have_you_near_anna_landstrom": {
-    "title": "Да те имам близо"
+    "title": "To have you near"
    },
    "uninhabited_land_flouw": {
-    "title": "Необитаема земя"
+    "title": "Uninhabited land"
    },
    "uphill_climbing_anna_landstrom": {
-    "title": "Изкачване нагоре"
+    "title": "Climbing upward"
    },
    "weightless_center_of_attention": {
-    "title": "Безтегловност"
+    "title": "Weightlessness"
    },
    "will_you_ever_know_anna_landstrom": {
-    "title": "Дали ще разбереш"
+    "title": "Will you understand"
    },
    "brown_lowpass_1000": {
-    "title": "Мек кафяв шум"
+    "title": "Soft brown noise"
    },
    "brown_lowpass_500": {
     "title": "Deep brown noise"
    },
    "brown_pure": {
-    "title": "Кафяв шум"
+    "title": "Brown noise"
    },
    "pink_lowpass_2000": {
     "title": "Soft pink noise"
@@ -3730,119 +3730,119 @@
     "title": "Pink noise"
    },
    "pink_pure": {
-    "title": "Чист розов шум"
+    "title": "Pure pink noise"
    },
    "ambience_scifi_eerie_alien_planet": {
-    "title": "Космическа атмосфера"
+    "title": "Cosmic atmosphere"
    },
    "ambience_underground_cave_dark_bubbles": {
-    "title": "Тъмна пещера"
+    "title": "Dark cave"
    },
    "designed_drone_atmospheric_space_drone_tonal_rumble": {
-    "title": "Космически дрон"
+    "title": "Cosmic drone"
    },
    "designed_drone_deep_bass": {
-    "title": "Дълбок бас"
+    "title": "Deep bass"
    },
    "designed_rumble_low_sub_bass_moving_slowly": {
-    "title": "Бавен нисък тон"
+    "title": "Slow low tone"
    },
    "designed_rumble_low_sub_slight_air": {
-    "title": "Лек ветрец под нивото"
+    "title": "A light breeze below the level"
    },
    "lay_down_with_me_hanna_lindgren": {
-    "title": "Легни до мен"
+    "title": "Lie down beside me"
    },
    "opposite_to_destruction_hanna_lindgren": {
-    "title": "Противоположност на разрухата"
+    "title": "The opposite of ruin"
    },
    "water_turbulent_river_small_waterfall": {
-    "title": "Малък бурен водопад"
+    "title": "Small rushing waterfall"
    },
    "water_waterfall_at_top_water_falling_into_creek_below": {
-    "title": "Водопад над поточето"
+    "title": "Waterfall over the brook"
    },
    "water_waterfall_creek_from_waterfall_close": {
-    "title": "Водопад над поток"
+    "title": "Waterfall over a stream"
    },
    "water_waterfall_distant_iceland_close": {
-    "title": "Исландски водопад отблизо"
+    "title": "Icelandic waterfall up close"
    },
    "water_waterfall_distant_iceland_high_perspective": {
-    "title": "Исландски водопад отвисоко"
+    "title": "Icelandic waterfall from above"
    },
    "water_waterfall_distant_iceland_semi_close": {
-    "title": "Далечен исландски водопад"
+    "title": "Distant Icelandic waterfall"
    },
    "water_waterfall_forest_ambience_birds_chirp": {
-    "title": "Горски водопад с птици"
+    "title": "Forest waterfall with birds"
    },
    "water_waterfall_grand_marais_minnesota": {
-    "title": "Водопад в Минесота"
+    "title": "Waterfall in Minnesota"
    },
    "water_waterfall_into_shallow_pool_forest": {
-    "title": "Горски водопад в плитчина"
+    "title": "Forest waterfall in the shallows"
    },
    "water_waterfall_large": {
-    "title": "Голям водопад"
+    "title": "Large waterfall"
    },
    "water_waterfall_large_waterfall_10_meters_constant_hum_mkh8040_4_0": {
-    "title": "Голям 10-метров водопад"
+    "title": "Large 10-metre waterfall"
    },
    "water_waterfall_loud_waterfall": {
-    "title": "Гръмък водопад"
+    "title": "Thunderous waterfall"
    },
    "water_waterfall_niagra_falls_distant": {
-    "title": "Ниагарският водопад отдалеч"
+    "title": "Niagara Falls from afar"
    },
    "water_waterfall_river_creek_australia": {
-    "title": "Австралийски водопад над поток"
+    "title": "Australian waterfall over a stream"
    },
    "water_waterfall_small_birds": {
-    "title": "Малък водопад с птици"
+    "title": "Small waterfall with birds"
    },
    "water_waterfall_small_burbling_in_forest": {
-    "title": "Бълбукащ горски водопад"
+    "title": "Bubbling forest waterfall"
    },
    "water_waterfall_small_long_fall_flowing_trickle": {
-    "title": "Тънък дълъг водопад"
+    "title": "Thin tall waterfall"
    },
    "water_waterfall_strong_flow_forest_lower_waterfall_people_chatter_evening_zenny_fall_telluride": {
-    "title": "Силен горски водопад"
+    "title": "Strong forest waterfall"
    },
    "water_waterfall_top_deep_water_flowing_before_falling": {
-    "title": "Водата преди водопада"
+    "title": "The water before the waterfall"
    },
    "water_waterfall_water_big_waterfall_little_andaman": {
-    "title": "Голям водопад на Андаман"
+    "title": "Large waterfall on the Andaman"
    },
    "water_waterfall_waterfall_200m_distant_strong_flow_forest_light_wind_evening_sunset_zenny_fall_telluride": {
-    "title": "Далечен горски водопад"
+    "title": "Distant forest waterfall"
    },
    "water_waterfall_waterfall_medium_flow_02": {
-    "title": "Среден водопад"
+    "title": "Medium waterfall"
    },
    "water_waterfall_waterfalls_30_feet_away_pyrenees_france": {
-    "title": "Водопад в Пиренеите"
+    "title": "Waterfall in the Pyrenees"
    },
    "waterfall_underneath_river_splashing_loud_big": {
-    "title": "Под водопада"
+    "title": "Beneath the waterfall"
    }
   }
  },
  "notifications": {
-  "diary": "Време е да попълните дневника днес",
-  "title": "Напомняне",
-  "goToDiary": "Запиши сега",
-  "later": "Напомни по-късно"
+  "diary": "It's time to fill in the diary today",
+  "title": "Reminder",
+  "goToDiary": "Record now",
+  "later": "Remind me later"
  },
  "tour": {
-  "skip": "Пропусни",
+  "skip": "Skip",
   "next": "Got it",
-  "finish": "Готово!"
+  "finish": "Done!"
  },
  "account": {
-  "profile": "Профил",
-  "open": "Вход и синхронизация"
+  "profile": "Profile",
+  "open": "Sign in and sync"
  }
 }
