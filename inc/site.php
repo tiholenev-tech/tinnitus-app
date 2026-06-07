@@ -153,6 +153,33 @@ function site_article($slug) {
   $a = $ARTICLES[$slug]; $a['slug'] = $slug; return $a;
 }
 
+/**
+ * Извлича каноничните научни URL-и (DOI / PubMed) от HTML-а на $SOURCES,
+ * за да ги подадем като schema.org `citation`. Така AI/Google виждат, че
+ * статиите стъпват на реални рецензирани източници (E-E-A-T сигнал).
+ * Връща масив от уникални URL-и (или празен масив).
+ */
+function site_citations($sources) {
+  if (!$sources || !is_array($sources)) return [];
+  $urls = [];
+  foreach ($sources as $src) {
+    if (!is_string($src)) continue;
+    // 1) href-ове към pubmed / doi.org
+    if (preg_match_all('#https?://(?:[a-z0-9.-]*\.)?(?:pubmed\.ncbi\.nlm\.nih\.gov|doi\.org|ncbi\.nlm\.nih\.gov|cochranelibrary\.com)/[^\s"\'<>]+#i', $src, $m)) {
+      foreach ($m[0] as $u) $urls[] = rtrim($u, '.,;');
+    }
+    // 2) гол „DOI: 10.xxxx/...." → нормализираме към https://doi.org/
+    if (preg_match_all('#\bDOI:\s*(10\.\S+)#i', $src, $m)) {
+      foreach ($m[1] as $d) $urls[] = 'https://doi.org/' . rtrim($d, '.,;');
+    }
+    // 3) гол „PMID: 12345" → PubMed URL
+    if (preg_match_all('#\bPMID:\s*(\d+)#i', $src, $m)) {
+      foreach ($m[1] as $p) $urls[] = 'https://pubmed.ncbi.nlm.nih.gov/' . $p . '/';
+    }
+  }
+  return array_values(array_unique($urls));
+}
+
 /** Monoline икони (наследяват currentColor). Пътеки 1:1 от handoff-а. */
 function site_icon($name, $size = 26, $sw = 1.6) {
   $p = '';

@@ -1,6 +1,7 @@
 <?php
 /** AURALIS — template articol (RO). Fișierul articol setează variabilele + $BODY și îl include. */
 require __DIR__ . '/site-ro.php';
+require __DIR__ . '/hreflang-map.php';
 
 $a = ro_article($SLUG);
 if (!$a) { http_response_code(404); echo 'Articol negăsit.'; return; }
@@ -43,6 +44,9 @@ $article = [
   'about' => ['@type' => 'MedicalCondition', 'name' => 'Tinitus (țiuit în urechi)', 'alternateName' => 'Tinnitus'],
 ];
 if ($HAS_REVIEWER) $article['reviewedBy'] = ['@type' => 'Physician', 'name' => $REVIEWER];
+$article['speakable'] = ['@type' => 'SpeakableSpecification', 'cssSelector' => ['h1', '.bluf']];
+$cites = site_citations($SOURCES);
+if ($cites) $article['citation'] = $cites;
 $graph[] = $article;
 if ($FAQ) { $m = []; foreach ($FAQ as $qa) { $m[] = ['@type'=>'Question','name'=>$qa[0],'acceptedAnswer'=>['@type'=>'Answer','text'=>$qa[1]]]; } $graph[] = ['@type'=>'FAQPage','mainEntity'=>$m]; }
 $graph[] = ['@type'=>'BreadcrumbList','itemListElement'=>[
@@ -52,7 +56,8 @@ $graph[] = ['@type'=>'BreadcrumbList','itemListElement'=>[
 ]];
 $JSONLD = json_encode(['@context'=>'https://schema.org','@graph'=>$graph], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
-ro_head(['title' => $TITLE . ' — AURALIS', 'desc' => $DESC, 'url' => $URL, 'og_type' => 'article', 'alt_bg' => $ALT_BG, 'jsonld' => $JSONLD]);
+$_alts = hreflang_alts($ALT_BG);
+ro_head(['title' => $TITLE . ' — AURALIS', 'desc' => $DESC, 'url' => $URL, 'og_type' => 'article', 'alt_bg' => $ALT_BG, 'alt_it' => $_alts['it'] ?? '', 'jsonld' => $JSONLD]);
 ro_masthead($a['section']);
 ?>
 <main id="main">

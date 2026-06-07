@@ -1,6 +1,7 @@
 <?php
 /** AURALIS — template articolo (IT). Il file articolo imposta le variabili + $BODY e include questo. */
 require __DIR__ . '/site-it.php';
+require __DIR__ . '/hreflang-map.php';
 
 $a = it_article($SLUG);
 if (!$a) { http_response_code(404); echo 'Articolo non trovato.'; return; }
@@ -43,6 +44,9 @@ $article = [
   'about' => ['@type' => 'MedicalCondition', 'name' => 'Acufene (fischio nelle orecchie)', 'alternateName' => 'Tinnitus'],
 ];
 if ($HAS_REVIEWER) $article['reviewedBy'] = ['@type' => 'Physician', 'name' => $REVIEWER];
+$article['speakable'] = ['@type' => 'SpeakableSpecification', 'cssSelector' => ['h1', '.bluf']];
+$cites = site_citations($SOURCES);
+if ($cites) $article['citation'] = $cites;
 $graph[] = $article;
 if ($FAQ) { $m = []; foreach ($FAQ as $qa) { $m[] = ['@type'=>'Question','name'=>$qa[0],'acceptedAnswer'=>['@type'=>'Answer','text'=>$qa[1]]]; } $graph[] = ['@type'=>'FAQPage','mainEntity'=>$m]; }
 $graph[] = ['@type'=>'BreadcrumbList','itemListElement'=>[
@@ -52,7 +56,8 @@ $graph[] = ['@type'=>'BreadcrumbList','itemListElement'=>[
 ]];
 $JSONLD = json_encode(['@context'=>'https://schema.org','@graph'=>$graph], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
-it_head(['title' => $TITLE . ' — AURALIS', 'desc' => $DESC, 'url' => $URL, 'og_type' => 'article', 'alt_bg' => $ALT_BG, 'jsonld' => $JSONLD]);
+$_alts = hreflang_alts($ALT_BG);
+it_head(['title' => $TITLE . ' — AURALIS', 'desc' => $DESC, 'url' => $URL, 'og_type' => 'article', 'alt_bg' => $ALT_BG, 'alt_ro' => $_alts['ro'] ?? '', 'jsonld' => $JSONLD]);
 it_masthead($a['section']);
 ?>
 <main id="main">
