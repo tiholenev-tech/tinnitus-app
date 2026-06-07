@@ -303,18 +303,24 @@ function auralis_foot($scripts = []) {
 (function(){
   var mh = document.querySelector('.masthead'); if (!mh) return;
   var btn = mh.querySelector('.masthead__menu');
-  var t = false;
-  function u(){
-    // Хистерезис (две прагови стойности) — спира трептенето: свиването на менюто
-    // скъсява документа и при единичен праг scrollY подскача около него в цикъл.
-    var y = window.scrollY || window.pageYOffset;
-    var sc = mh.classList.contains('is-scrolled');
-    if (!sc && y > 80) sc = true;          // влиза в компактен режим чак на 80px
-    else if (sc && y < 40) sc = false;     // излиза чак под 40px — мъртвата зона спира цикъла
+  var t = false, locked = false;
+  function apply(sc){
     mh.classList.toggle('is-scrolled', sc);
     if (!sc) mh.classList.remove('nav-open');            // в горната част менюто е винаги отворено
     if (btn) btn.setAttribute('aria-expanded', (!sc || mh.classList.contains('nav-open')) ? 'true' : 'false');
+  }
+  function u(){
     t = false;
+    if (locked) return;                      // по време на .34s collapse не пипаме → НЯМА трептене
+    var y = window.scrollY || window.pageYOffset;
+    var sc = mh.classList.contains('is-scrolled');
+    var next = sc;
+    if (!sc && y > 80) next = true;          // влиза компактен на 80px
+    else if (sc && y < 40) next = false;     // излиза под 40px (хистерезис — мъртва зона)
+    if (next === sc) return;
+    apply(next);
+    locked = true;                           // заключи докато тече анимацията → без re-toggle от смяната на височината
+    setTimeout(function(){ locked = false; }, 420);
   }
   window.addEventListener('scroll', function(){ if (!t) { t = true; requestAnimationFrame(u); } }, { passive: true });
   if (btn) btn.addEventListener('click', function(){
@@ -322,7 +328,7 @@ function auralis_foot($scripts = []) {
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     btn.setAttribute('aria-label', open ? 'Скрий менюто' : 'Покажи менюто');
   });
-  u();
+  (function(){ var y0 = window.scrollY || window.pageYOffset; apply(y0 > 80); })();
 })();
 /* Reveal on scroll — прогресивно подобрение (html.js вече е зададено в <head>). */
 (function(){
