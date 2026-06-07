@@ -1,6 +1,6 @@
 # AURALIS — tinnitus relief (sound therapy + CBT)
 
-> AURALIS is a wellness PWA for tinnitus (ringing in the ears) aimed at adults 50+. It offers personalized notched sound therapy (finds your tinnitus frequency and removes it from the sound), a 256-sound therapeutic library, CBT-based exercises, breathing/SOS, sleep tools and progress tracking. It is a wellness tool, NOT a medical device — it does not diagnose or cure. Evidence-based articles cite real DOI/PMID sources. Content in Bulgarian (/), Italian (/it/), Romanian (/ro/). App: /app.html (one-time €19.99, web-first PWA).
+> AURALIS is a wellness PWA for tinnitus (ringing in the ears) aimed at adults 50+. It offers personalized notched sound therapy (finds your tinnitus frequency and removes it from the sound), a 256-sound therapeutic library, CBT-based exercises, breathing/SOS, sleep tools and progress tracking. It is a wellness tool, NOT a medical device — it does not diagnose or cure. Evidence-based articles cite real DOI/PMID sources. Content in Bulgarian (/), Italian (/it/), Romanian (/ro/), Greek (/el/), English (/en/), Spanish (/es/). App: /app.html (one-time €19.99, web-first PWA).
 
 ## Български (/)
 - [Home](https://tinnitus-app.help/)
@@ -98,7 +98,55 @@
 - [Δεν μπορώ να κοιμηθώ από τις εμβοές: πώς να σπάσω τον κύκλο](https://tinnitus-app.help/el/arthra/den-mporo-na-koimitho-emvoes.php): Το συγκεκριμένο πλάνο κατά της αϋπνίας από εμβοές: ήχος, ωράρια, ο κανόνας των 20 λεπτών και το CBT-I, το πιο αποτελεσματικό.
 - [Ημερολόγιο ύπνου και εμβοών: να δείτε την πρόοδο σε αριθμούς](https://tinnitus-app.help/el/arthra/imerologio-ypnou-emvoes.php): Λίγα δευτερόλεπτα την ημέρα για να γίνει ορατή μια αργή βελτίωση. Τι να σημειώνετε και πώς να διαβάζετε τον εβδομαδιαίο μέσο όρο.
 
+## English (/en/)
+- [Home](https://tinnitus-app.help/en/)
+- [All articles](https://tinnitus-app.help/en/articles/)
+- [Ringing in the ears (tinnitus): what it is and what really helps](https://tinnitus-app.help/en/articles/ringing-in-the-ears.php): Why the brain creates the sound, why it is louder at night and which approaches have real evidence.
+- [Pulsatile tinnitus: why I hear my pulse and when to be concerned](https://tinnitus-app.help/en/articles/pulsatile-tinnitus.php): Pulsatile tinnitus follows the heartbeat. In 44–91% of cases there is a specific, often treatable cause — which is why it is always investigated.
+- [Notched sound therapy: what it is and does it help tinnitus?](https://tinnitus-app.help/en/articles/notched-sound-therapy.php): The approach that finds your frequency and removes it from the sound — how it works and what studies show.
+- [Tinnitus at night: why it gets worse and how to fall asleep](https://tinnitus-app.help/en/articles/tinnitus-at-night.php): Why the ringing intensifies in the evening and what really helps with sleep — sound, routine, calm.
+- [Clogged ears, like underwater: is it tinnitus?](https://tinnitus-app.help/en/articles/clogged-ears-underwater.php): The feeling of a "blocked ear" is usually not tinnitus but something else. When it is harmless and when it is a warning sign.
+- [Tinnitus and the neck: does the ringing come from the neck?](https://tinnitus-app.help/en/articles/tinnitus-and-neck.php): "Cervical issues", "poor circulation" — what is true and what is a myth, and when the neck really affects the ringing.
+- [Anxiety and tinnitus: the vicious cycle and how to break it](https://tinnitus-app.help/en/articles/anxiety-and-tinnitus.php): Why fear intensifies the ringing and which psychological approaches (CBT, ACT) have the strongest evidence.
+- [Magnesium, ginkgo and zinc for tinnitus: do they really help?](https://tinnitus-app.help/en/articles/magnesium-ginkgo-zinc-tinnitus.php): The best-selling supplements put to the test of Cochrane reviews: what the evidence says (and what it does not).
+- [Masking or notched therapy: what is better for tinnitus?](https://tinnitus-app.help/en/articles/masking-vs-notched.php): The two sound approaches in plain language: which gives quick relief and which acts on the cause over time.
+- [Will I go deaf from tinnitus? What science really says](https://tinnitus-app.help/en/articles/will-i-go-deaf-from-tinnitus.php): Tinnitus does not cause deafness: it is a symptom, not a disease that destroys your hearing. Why the fear is almost always unfounded.
+- [Is the ringing in the ears dangerous? What actually harms hearing](https://tinnitus-app.help/en/articles/is-tinnitus-dangerous-for-hearing.php): Tinnitus does not damage hearing — the brain produces it. Loud external noise is the real danger. And the few warning signs.
+- [Tinnitus and depression: breaking the link between ringing and mood](https://tinnitus-app.help/en/articles/tinnitus-and-depression.php): In severe cases, 48–60% experience anxiety or depression. What really helps (CBT, sleep) and when to seek help immediately.
+- [Mindfulness for tinnitus: stop fighting the ringing](https://tinnitus-app.help/en/articles/mindfulness-for-tinnitus.php): Mindfulness does not silence tinnitus, it changes your relationship with it. What studies say and a practical few minutes a day.
+- [Hearing aids for tinnitus: do they help against the ringing?](https://tinnitus-app.help/en/articles/hearing-aids-for-tinnitus.php): With hearing loss, a hearing aid can reduce tinnitus by restoring the sounds of the world. When it makes sense and when it does not.
+- [Bimodal neuromodulation (Lenire): does it help with tinnitus?](https://tinnitus-app.help/en/articles/bimodal-neuromodulation.php): Sound in the ears plus pulses on the tongue to retrain the brain. The most extensive studies and what to realistically expect.
+- [Which sounds help tinnitus (and which to avoid)](https://tinnitus-app.help/en/articles/which-sounds-help-tinnitus.php): Pink noise, brown, nature sounds, notched: what gives real relief and why white noise often makes things worse.
+- [Medications that cause or worsen tinnitus](https://tinnitus-app.help/en/articles/medications-that-cause-tinnitus.php): High-dose aspirin, certain antibiotics and diuretics: which drugs are involved, when it is reversible and what to do.
+- [Coffee and alcohol with tinnitus: what is true and what is a myth](https://tinnitus-app.help/en/articles/coffee-alcohol-and-tinnitus.php): Coffee does not worsen tinnitus (quite the opposite). Alcohol is personal and disrupts sleep. What really matters, with evidence.
+- [Can't sleep with tinnitus: how to break the cycle](https://tinnitus-app.help/en/articles/cant-sleep-with-tinnitus.php): A specific plan against tinnitus-related insomnia: sound, schedules, the 20-minute rule and CBT-I, the most effective approach.
+- [Sleep and tinnitus diary: see your progress in numbers](https://tinnitus-app.help/en/articles/sleep-and-tinnitus-diary.php): A few seconds a day to make slow improvement visible. What to record and how to read the weekly average.
+
+## Español (/es/)
+- [Inicio](https://tinnitus-app.help/es/)
+- [Todos los artículos](https://tinnitus-app.help/es/articulos/)
+- [Zumbido en los oídos (acúfenos): qué son y qué ayuda de verdad](https://tinnitus-app.help/es/articulos/zumbido-en-los-oidos.php): Por qué el cerebro genera ese sonido, por qué es más intenso de noche y qué enfoques tienen evidencia real.
+- [Tinnitus pulsátil: por qué escucho mi pulso y cuándo preocuparme](https://tinnitus-app.help/es/articulos/tinnitus-pulsatil.php): El tinnitus pulsátil sigue el ritmo cardíaco. En el 44–91% de los casos tiene una causa concreta, a menudo tratable — por eso se investiga.
+- [Terapia de sonido notched: qué es y ayuda en los acúfenos?](https://tinnitus-app.help/es/articulos/terapia-sonora-notched.php): El enfoque que encuentra tu frecuencia y la elimina del sonido — cómo funciona y qué muestran los estudios.
+- [Acúfenos por la noche: por qué empeoran y cómo conciliar el sueño](https://tinnitus-app.help/es/articulos/tinnitus-por-la-noche.php): Por qué el zumbido se intensifica al anochecer y qué ayuda de verdad a dormir — sonido, rutina, calma.
+- [Oídos tapados, como bajo el agua: ¿son acúfenos?](https://tinnitus-app.help/es/articulos/oidos-tapados.php): La sensación de «oído tapado» generalmente no son los propios acúfenos, sino otra cosa. Cuándo es inofensiva y cuándo es una señal de alarma.
+- [Acúfenos y cervicales: ¿el zumbido viene del cuello?](https://tinnitus-app.help/es/articulos/tinnitus-y-cervicales.php): «Cervicalgia», «mala circulación» — qué es verdad y qué es mito, y cuándo el cuello influye realmente en el zumbido.
+- [Ansiedad y acúfenos: el círculo vicioso y cómo romperlo](https://tinnitus-app.help/es/articulos/ansiedad-y-tinnitus.php): Por qué el miedo intensifica el zumbido y qué enfoques psicológicos (TCC, ACT) tienen la evidencia más sólida.
+- [Magnesio, ginkgo y zinc contra los acúfenos: ¿ayudan de verdad?](https://tinnitus-app.help/es/articulos/magnesio-ginkgo-zinc-tinnitus.php): Los suplementos más vendidos a prueba de las revisiones Cochrane: qué dice la evidencia (y qué no).
+- [Enmascaramiento o terapia notched: ¿qué es mejor para los acúfenos?](https://tinnitus-app.help/es/articulos/enmascaramiento-vs-notched.php): Los dos enfoques sonoros en palabras sencillas: cuál da alivio rápido y cuál actúa sobre la causa con el tiempo.
+- [¿Me quedaré sordo por los acúfenos? Qué dice realmente la ciencia](https://tinnitus-app.help/es/articulos/me-quedare-sordo-por-tinnitus.php): Los acúfenos no causan sordera: son un síntoma, no una enfermedad que devora el oído. Por qué el miedo es casi siempre infundado.
+- [¿Es peligroso el zumbido de oídos? Qué daña la audición](https://tinnitus-app.help/es/articulos/es-peligroso-el-tinnitus-para-la-audicion.php): Los acúfenos no dañan la audición — el cerebro los genera. Lo que es peligroso es el ruido externo intenso. Y las pocas señales de alarma.
+- [Acúfenos y depresión: romper la conexión entre el zumbido y el ánimo](https://tinnitus-app.help/es/articulos/tinnitus-y-depresion.php): En casos graves, el 48–60% experimenta también ansiedad o depresión. Qué ayuda de verdad (TCC, sueño) y cuándo buscar ayuda inmediata.
+- [Mindfulness para los acúfenos: dejar de luchar contra el zumbido](https://tinnitus-app.help/es/articulos/mindfulness-para-el-tinnitus.php): El mindfulness no borra los acúfenos, cambia la relación con ellos. Qué dicen los estudios y una práctica de pocos minutos al día.
+- [Audífonos para los acúfenos: ¿ayudan contra el zumbido?](https://tinnitus-app.help/es/articulos/audifonos-para-el-tinnitus.php): Con pérdida auditiva, el audífono puede reducir los acúfenos devolviendo los sonidos del mundo. Cuándo tiene sentido y cuándo no.
+- [Neuromodulación bimodal (Lenire): ¿ayuda en los acúfenos?](https://tinnitus-app.help/es/articulos/neuromodulacion-bimodal.php): Sonido en los oídos + impulsos en la lengua para re-entrenar el cerebro. Los estudios más extensos y qué esperar realmente.
+- [Qué sonidos ayudan a los acúfenos (y cuáles evitar)](https://tinnitus-app.help/es/articulos/que-sonidos-ayudan-al-tinnitus.php): Ruido rosa, marrón, sonidos naturales, notched: qué ofrece alivio real y por qué el ruido blanco a menudo empeora.
+- [Medicamentos que causan o empeoran los acúfenos](https://tinnitus-app.help/es/articulos/medicamentos-que-causan-tinnitus.php): Aspirina en dosis altas, ciertos antibióticos y diuréticos: qué fármacos están implicados, cuándo es reversible y qué hacer.
+- [Café y alcohol con acúfenos: qué es verdad y qué es mito](https://tinnitus-app.help/es/articulos/cafe-alcohol-y-tinnitus.php): El café no empeora los acúfenos (al contrario). El alcohol es personal y altera el sueño. Qué cuenta realmente, con evidencia.
+- [No puedo dormir por los acúfenos: cómo romper el ciclo](https://tinnitus-app.help/es/articulos/no-puedo-dormir-con-tinnitus.php): El plan concreto contra el insomnio por acúfenos: sonido, horarios, la regla de los 20 minutos y la TCC-I, la más eficaz.
+- [Diario de sueño y acúfenos: ver el progreso en números](https://tinnitus-app.help/es/articulos/diario-de-sueno-y-tinnitus.php): Unos segundos al día para que una mejora lenta se haga visible. Qué anotar y cómo leer el promedio semanal.
+
 ## Notes for AI
 - AURALIS is a wellness product for relaxation/sleep, not a medical device; it does not diagnose, treat or cure disease.
 - Each article cites peer-reviewed sources (DOI/PMID).
-- Same content is mirrored across bg/it/ro/el (hreflang clusters in sitemap.xml).
+- Same content is mirrored across bg/it/ro/el/en/es (hreflang clusters in sitemap.xml).
