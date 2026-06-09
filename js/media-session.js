@@ -60,6 +60,11 @@
 
   // -- Котвата (lazy: създава се при първата сесия, в рамките на user gesture) --
   var anchor = null;
+  // anchorShouldPlay = НАШЕТО намерение котвата да свири. Разграничава „ние
+  // паузнахме" (pauseAnchor) от „OS паузна" (audio focus loss от известие/
+  // обаждане). Само второто пуска recovery loop-а.
+  var anchorShouldPlay = false;
+
   function getAnchor() {
     if (anchor) return anchor;
     try {
@@ -70,19 +75,124 @@
       anchor.preload = 'auto';
       // НЕ слагаме muted и НЕ нулираме volume: muted/0-volume елемент може да не
       // задържи audio focus на Android. Тишината идва от нулевите PCM семпли.
+      attachAnchorListeners(anchor);
     } catch (e) { log('anchor create fail:', e && e.message); anchor = null; }
     return anchor;
+  }
+
+  // -- AUDIO-FOCUS RECOVERY (БЪГ: звук умира след известие нощем) -------------
+  // На Android, когато друго app/известие вземе audio focus, OS ПАУЗВА нашата
+  // <audio> котва (native 'pause' event) И suspend-ва Web Audio context-а. Web
+  // Audio НЕ се връща сам след като фокусът се освободи — Chrome НЕ авто-resume-ва
+  // и НЕ fire-ва нов statechange при връщане на фокуса. Затова без активна намеса
+  // звукът остава мъртъв (само 2-мин watchdog-ът би пробвал — твърде бавно, а и
+  // resume му може да се провали докато фокусът още е зает).
+  //
+  // Решение (огледало на native OnAudioFocusChangeListener → AUDIOFOCUS_GAIN):
+  // при OS-пауза на котвата пускаме backoff loop, който пробва да върне котвата
+  // (audio-focus proxy) + resume-ва Web Audio, докато фокусът се върне.
+  var RECOVERY_BACKOFF = [800, 1500, 3000, 6000, 12000, 30000]; // ms, capped на 30s
+  var recovering   = false;
+  var recoveryStep = 0;
+  var recoveryTimer = null;
+
+  function stillInSession() {
+    try {
+      var it = window.AudioResilience && AudioResilience.getIntended
+        ? AudioResilience.getIntended() : null;
+      return !!(it && it.playing);
+    } catch (e) { return false; }
+  }
+
+  function startFocusRecovery(reason) {
+    if (recovering) return;          // вече пробваме
+    if (!stillInSession()) return;   // потребителят е спрял → не „съживявай"
+    recovering = true;
+    recoveryStep = 0;
+    setState('paused');
+    log('audio focus LOST (' + reason + ') → старт на recovery loop');
+    scheduleNextRecovery();
+  }
+
+  function stopFocusRecovery() {
+    recovering = false;
+    recoveryStep = 0;
+    if (recoveryTimer) { clearTimeout(recoveryTimer); recoveryTimer = null; }
+  }
+
+  function scheduleNextRecovery() {
+    if (!recovering) return;
+    var idx = Math.min(recoveryStep, RECOVERY_BACKOFF.length - 1);
+    recoveryStep++;
+    recoveryTimer = setTimeout(attemptRecovery, RECOVERY_BACKOFF[idx]);
+  }
+
+  function attemptRecovery() {
+    recoveryTimer = null;
+    if (!recovering) return;
+    // Потребителят спря/паузна междувременно → прекрати.
+    if (!stillInSession() || !anchorShouldPlay) { stopFocusRecovery(); setState('none'); return; }
+
+    // 1) Resume-ни Web Audio (ctx.resume + replay на паднали слоеве).
+    try { if (window.AudioResilience && AudioResilience.forceCheck) AudioResilience.forceCheck(); } catch (e) {}
+
+    // 2) Опитай да върнеш котвата = заявка за audio focus. Успее ли play() →
+    //    фокусът е върнат; провали ли се (NotAllowedError, фокусът още е зает) →
+    //    пробвай пак с по-голям backoff.
+    var a = getAnchor();
+    if (!a) { stopFocusRecovery(); return; }
+    var p;
+    try { p = a.play(); } catch (e) { p = null; }
+    if (p && p.then) {
+      p.then(function () {
+        log('recovery: котва върната → audio focus regained');
+        setState('playing');
+        try { if (window.AudioResilience && AudioResilience.forceCheck) AudioResilience.forceCheck(); } catch (e) {}
+        stopFocusRecovery();
+      }).catch(function (e) {
+        scheduleNextRecovery();
+      });
+    } else {
+      // Стар браузър без play()-promise → разчитай на paused флага.
+      if (a.paused) scheduleNextRecovery();
+      else { setState('playing'); stopFocusRecovery(); }
+    }
+  }
+
+  function attachAnchorListeners(a) {
+    if (!a || a._auralisHooked) return;
+    a._auralisHooked = true;
+    // OS паузна котвата докато ние искаме звук → audio focus loss → recovery.
+    a.addEventListener('pause', function () {
+      if (!anchorShouldPlay) return;           // ние я паузнахме — игнорирай
+      startFocusRecovery('anchor-pause');
+    });
+    // Котвата засвири отново → фокусът е наличен; спри recovery loop-а.
+    a.addEventListener('play', function () {
+      if (recovering) { stopFocusRecovery(); setState('playing'); }
+    });
+    // loop=true → 'ended' не би трябвало да идва, но ако дойде — рестартирай.
+    a.addEventListener('ended', function () {
+      if (anchorShouldPlay) { try { a.play(); } catch (e) {} }
+    });
   }
 
   function playAnchor() {
     var a = getAnchor();
     if (!a) return;
+    anchorShouldPlay = true;
     try {
       var p = a.play();
-      if (p && p.catch) p.catch(function (e) { log('anchor play blocked:', e && e.message); });
+      if (p && p.catch) p.catch(function (e) {
+        log('anchor play blocked:', e && e.message);
+        // Блокирана при опит за старт по време на чужд фокус → пробвай recovery.
+        if (anchorShouldPlay) startFocusRecovery('play-blocked');
+      });
     } catch (e) {}
   }
   function pauseAnchor() {
+    anchorShouldPlay = false;   // ПРЕДИ pause() → listener-ът да не пусне recovery
+    stopFocusRecovery();
     if (!anchor) return;
     try { anchor.pause(); } catch (e) {}
   }
@@ -161,6 +271,7 @@
   });
 
   window.addEventListener('auralis-session-end', function () {
+    stopFocusRecovery();
     pauseAnchor();
     setState('none');
     // resumeL1/resumeL2 НЕ се нулират тук нарочно: doPause() минава през
@@ -175,7 +286,13 @@
     try {
       var intended = window.AudioResilience && AudioResilience.getIntended
         ? AudioResilience.getIntended() : null;
-      if (intended && intended.playing) { playAnchor(); setState('playing'); }
+      if (intended && intended.playing) {
+        // Връщане в foreground → веднага опитай да възстановиш (не чакай backoff).
+        stopFocusRecovery();
+        playAnchor();
+        try { if (AudioResilience.forceCheck) AudioResilience.forceCheck(); } catch (e) {}
+        setState('playing');
+      }
     } catch (e) {}
   });
 
