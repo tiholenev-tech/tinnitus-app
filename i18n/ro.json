@@ -276,7 +276,10 @@
     "playAria": "Redă",
     "sleepAria": "Mod nocturn",
     "sosAria": "Respirație SOS",
-    "noLayer2": "Fără fundal"
+    "noLayer2": "Fără fundal",
+    "resetMix": "Resetează setările",
+    "resetMixAria": "Restabilește mixul audio original",
+    "resetMixDone": "Mix original restabilit"
    }
   },
   "noises": {

@@ -221,6 +221,20 @@ window.ProfileConfig = (function () {
     if (s.saveUserOverrides) s.saveUserOverrides();
   }
 
+  // „Върни настройките" (Player reset button): трие user override-а за този
+  // звук → resolveFor пада обратно на матричните (оригинални) стойности.
+  // Връща true ако е имало override за триене (за да реши викащият дали да
+  // покаже toast/haptic).
+  function clearUserOverride(soundId) {
+    if (!soundId) return false;
+    var s = window.AppState;
+    if (!s || !s.userOverrides) return false;
+    if (!Object.prototype.hasOwnProperty.call(s.userOverrides, soundId)) return false;
+    delete s.userOverrides[soundId];
+    if (s.saveUserOverrides) s.saveUserOverrides();
+    return true;
+  }
+
   // Resolve effective config за конкретен sound. User override > Profile matrix.
   function resolveFor(sound, soundId) {
     var s = window.AppState || {};
@@ -280,6 +294,7 @@ window.ProfileConfig = (function () {
     resolveFor: resolveFor,
     getUserOverride: getUserOverride,
     setUserOverride: setUserOverride,
+    clearUserOverride: clearUserOverride,
     // Expose matrices за тестове / Settings debug
     _MIX_MATRIX: MIX_MATRIX,
     _VOLUME_MATRIX: VOLUME_MATRIX

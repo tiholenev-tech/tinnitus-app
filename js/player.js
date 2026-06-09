@@ -202,7 +202,12 @@ window.Player = (function () {
     waves: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"' +
       ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
       '<path d="M2 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>' +
-      '<path d="M2 17c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg>'
+      '<path d="M2 17c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg>',
+    // „Върни настройките" — кръгова стрелка (restore/undo).
+    reset: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"' +
+      ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<polyline points="1 4 1 10 7 10"/>' +
+      '<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>'
   };
 
   // ============================================================
@@ -349,6 +354,19 @@ window.Player = (function () {
             buildSlider('plL2', noiseLabel(noiseId), layer2Vol,
               l2Label + ' 0-100') +
           '</div>') +
+
+          // „Върни настройките" — връща оригиналния микс (матрични default-и),
+          // изтривайки запазения user override за този звук.
+          '<div class="pl-mix-reset-row">' +
+            '<button class="pl-mix-reset" type="button" data-action="reset-mix"' +
+              ' aria-label="' + escapeHtml(t('components.player.resetMixAria',
+                'Върни оригиналния микс на звуците')) + '">' +
+              '<span class="pl-mix-reset-icon" aria-hidden="true">' + SVG.reset + '</span>' +
+              '<span class="pl-mix-reset-text">' +
+                escapeHtml(t('components.player.resetMix', 'Върни настройките')) +
+              '</span>' +
+            '</button>' +
+          '</div>' +
         '</div>' +
 
         // PACK A: row 1 — favorite (heart) + play/pause + sleep timer (moon).
@@ -523,6 +541,65 @@ window.Player = (function () {
     else if (action === 'sos') openSos();
     else if (action === 'info') openSoundInfo();
     else if (action === 'favorite') toggleFavorite();
+    else if (action === 'reset-mix') resetMix();
+  }
+
+  // „Върни настройките": връща оригиналния микс — изтрива user override-а за
+  // активния звук и прилага матричните default-и (L1/L2 баланс + обща сила).
+  // Noise ТИПЪТ не се пипа (това е отделен избор през NoisePicker) — само
+  // силите на двата хоризонтални плъзгача + вертикалния master.
+  function resetMix() {
+    if (!activeSoundId) return;
+    var sound = findSound(activeSoundId);
+    if (!sound) return;
+
+    // Изтрий запазения override → resolveFor пада на оригиналните стойности.
+    if (window.ProfileConfig && window.ProfileConfig.clearUserOverride) {
+      window.ProfileConfig.clearUserOverride(activeSoundId);
+    }
+    // Отмени pending debounced записи — да не презапишат изтрития override.
+    if (overrideSaveTimer) { clearTimeout(overrideSaveTimer); overrideSaveTimer = null; }
+    if (l1PersistTimer) { clearTimeout(l1PersistTimer); l1PersistTimer = null; }
+    if (l2PersistTimer) { clearTimeout(l2PersistTimer); l2PersistTimer = null; }
+    if (masterPersistTimer) { clearTimeout(masterPersistTimer); masterPersistTimer = null; }
+
+    var cfg = (window.ProfileConfig && window.ProfileConfig.resolveFor)
+      ? window.ProfileConfig.resolveFor(sound, sound.id) : null;
+    if (!cfg) return;
+
+    layer1Vol = cfg.layer1Vol;
+    layer2Vol = cfg.layer2Vol;
+    // Същият floor (60) като applyProfileConfig за default master volume.
+    var masterVol = cfg.masterVol;
+    if (!cfg.fromOverride) masterVol = Math.max(masterVol, 60);
+
+    // Приложи към audio engine (isFinal=true → плавен ramp, без click).
+    if (window.AudioEngine) {
+      if (window.AudioEngine.setLayer1Volume) window.AudioEngine.setLayer1Volume(layer1Vol, true);
+      if (window.AudioEngine.setLayer2Volume) window.AudioEngine.setLayer2Volume(layer2Vol, true);
+      if (window.AudioEngine.setMasterVolume) window.AudioEngine.setMasterVolume(masterVol, true);
+    }
+
+    // Persist новите (default) стойности.
+    persist(STORAGE_L1_VOL, layer1Vol);
+    persist(STORAGE_L2_VOL, layer2Vol);
+    persist('auralis-master-volume', masterVol);
+
+    // Update slider thumb-овете + ARIA. Programmatic .value НЕ fire-ва
+    // input/change → не презаписва override обратно.
+    var s1 = el('plL1');
+    if (s1) { s1.value = layer1Vol; s1.setAttribute('aria-valuenow', layer1Vol); }
+    var s2 = el('plL2');
+    if (s2) { s2.value = layer2Vol; s2.setAttribute('aria-valuenow', layer2Vol); }
+    var sm = el('plMaster');
+    if (sm) { sm.value = masterVol; sm.setAttribute('aria-valuenow', masterVol); }
+
+    if (window.Toast) {
+      var msg = t('components.player.resetMixDone', 'Върнат оригинален микс');
+      if (window.Toast.success) window.Toast.success(msg);
+      else if (window.Toast.show) window.Toast.show(msg, { durationMs: 1800 });
+    }
+    if (window.Haptics && window.Haptics.light) window.Haptics.light();
   }
 
   // PACK A change 1: heart icon → toggle favorite за активния звук.

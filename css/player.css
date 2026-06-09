@@ -189,6 +189,43 @@
   border: 1px solid hsl(220 20% 15%);
 }
 
+/* „Върни настройките" — дискретен restore бутон под двата плъзгача.
+   Pill стил, голям достатъчно за пръст (50+ аудитория). */
+.pl-mix-reset-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 2px;
+}
+.pl-mix-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid hsl(220 20% 40% / 0.45);
+  color: inherit;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+.pl-mix-reset:hover { background: hsl(220 20% 50% / 0.12); }
+.pl-mix-reset:active { opacity: 0.7; }
+.pl-mix-reset-icon { display: inline-flex; width: 17px; height: 17px; }
+.pl-mix-reset-icon svg { width: 17px; height: 17px; }
+[data-theme="dark"] .pl-mix-reset {
+  border-color: hsl(220 20% 32%);
+  color: hsl(220 15% 82%);
+}
+[data-theme="light"] .pl-mix-reset,
+:root:not([data-theme]) .pl-mix-reset {
+  border-color: hsl(220 20% 70%);
+  color: var(--text);
+}
+
 .pl-layer-name {
   display: flex;
   align-items: center;
