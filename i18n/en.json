@@ -635,7 +635,8 @@
     "softCheckSkip": "Skip",
     "softCheckSavedToast": "Thank you for your answer. AURALIS stays with you.",
     "softCheckWorseAdvice": "Your feelings matter. It may be a good idea to talk to a doctor or specialist.",
-    "lateEntrySavedToast": "Recorded late"
+    "lateEntrySavedToast": "Recorded late",
+    "completedDaysFmt": "Completed days: {n} / 14"
    },
    "edge": {
     "nightHintTitle": "Can't fall asleep?",
@@ -880,7 +881,15 @@
    "sleepPresetNight": "8 hours (all night)",
    "sleepTimerTitle": "Sleep timer",
    "bgNoise": "Background noise",
-   "soundDescFmt": "Sound from category {cat}."
+   "soundDescFmt": "Sound from category {cat}.",
+   "favAdded": "Added to favourites",
+   "favRemoved": "Removed from favourites",
+   "sleepCancelled": "Timer cancelled",
+   "sleepSelectTime": "Select a time",
+   "sleepInvalidRange": "Enter a number between 1 and 480",
+   "sleepSetFmt": "Timer: {min} min",
+   "volWarnNight": "Above 55% at night is not recommended — a risk to hearing with prolonged listening.",
+   "volWarnDay": "Above 70% can damage hearing with prolonged listening."
   },
   "profileResults": {
    "spectrumAria": "Frequency spectrum from 250 Hz to 16 kHz, marker at {f}"
