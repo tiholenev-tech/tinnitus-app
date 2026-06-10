@@ -340,7 +340,7 @@ window.Player = (function () {
               // „Върни настройките" — малка кръгла иконка ВДЯСНО на L1 реда,
               // симетрично на chevron-а (›) на L2 реда. Връща оригиналния микс.
               '<button class="pl-layer-reset" type="button" data-action="reset-mix"' +
-                ' aria-label="' + escapeHtml(t('components.player.resetMixAria',
+                ' aria-label="' + escapeHtml(t('ui.components.player.resetMixAria',
                   'Върни оригиналния микс на звуците')) + '">' +
                 SVG.reset +
               '</button>' +
@@ -417,9 +417,9 @@ window.Player = (function () {
     var isNight = hour >= 22 || hour < 7;
     var msg = null;
     if (isNight && level > 55) {
-      msg = 'Над 55% нощем не се препоръчва — риск за слуха при дълго слушане.';
+      msg = t('ui.player.volWarnNight', 'Над 55% нощем не се препоръчва — риск за слуха при дълго слушане.');
     } else if (!isNight && level > 70) {
-      msg = 'Над 70% може да увреди слуха при дълго слушане.';
+      msg = t('ui.player.volWarnDay', 'Над 70% може да увреди слуха при дълго слушане.');
     }
     if (msg && window.Toast) {
       lastVolumeWarnTs = now;
@@ -608,7 +608,7 @@ window.Player = (function () {
     persist('auralis-master-volume', toMaster);
 
     if (window.Toast) {
-      var msg = t('components.player.resetMixDone', 'Върнат оригинален микс');
+      var msg = t('ui.components.player.resetMixDone', 'Върнат оригинален микс');
       if (window.Toast.success) window.Toast.success(msg);
       else if (window.Toast.show) window.Toast.show(msg, { durationMs: 1800 });
     }
@@ -672,7 +672,7 @@ window.Player = (function () {
       btn.innerHTML = nowFav ? SVG.heartFilled : SVG.heartOutline;
     }
     if (window.Toast) {
-      var msg = nowFav ? 'Добавен в любими' : 'Премахнат от любими';
+      var msg = nowFav ? t('ui.player.favAdded', 'Добавен в любими') : t('ui.player.favRemoved', 'Премахнат от любими');
       if (window.Toast.success) window.Toast.success(msg);
       else if (window.Toast.show) window.Toast.show(msg, { durationMs: 1800 });
     }
@@ -777,7 +777,7 @@ window.Player = (function () {
           window.AudioEngine.cancelSleepTimer();
         }
         if (window.Toast && window.Toast.show) {
-          window.Toast.show('Таймерът е отменен', { durationMs: 1800 });
+          window.Toast.show(t('ui.player.sleepCancelled', 'Таймерът е отменен'), { durationMs: 1800 });
         }
         if (window.BottomSheet && window.BottomSheet.close) window.BottomSheet.close();
         return;
@@ -786,7 +786,7 @@ window.Player = (function () {
         var selected = sheet.querySelector('input[name="pl-sleep"]:checked');
         if (!selected) {
           if (window.Toast && window.Toast.show) {
-            window.Toast.show('Изберете време', { durationMs: 1500 });
+            window.Toast.show(t('ui.player.sleepSelectTime', 'Изберете време'), { durationMs: 1500 });
           }
           return;
         }
@@ -795,7 +795,7 @@ window.Player = (function () {
           var raw = manualInput ? parseInt(manualInput.value, 10) : NaN;
           if (isNaN(raw) || raw < 1 || raw > 480) {
             if (window.Toast && window.Toast.show) {
-              window.Toast.show('Въведете число между 1 и 480', { durationMs: 2200 });
+              window.Toast.show(t('ui.player.sleepInvalidRange', 'Въведете число между 1 и 480'), { durationMs: 2200 });
             }
             if (manualInput) manualInput.classList.add('is-invalid');
             return;
@@ -808,9 +808,9 @@ window.Player = (function () {
           window.AudioEngine.setSleepTimer(minutes);
         }
         if (window.Toast && window.Toast.success) {
-          window.Toast.success('Таймер: ' + minutes + ' мин.');
+          window.Toast.success(t('ui.player.sleepSetFmt', 'Таймер: {min} мин.', { min: minutes }));
         } else if (window.Toast && window.Toast.show) {
-          window.Toast.show('Таймер: ' + minutes + ' мин.', { durationMs: 1800 });
+          window.Toast.show(t('ui.player.sleepSetFmt', 'Таймер: {min} мин.', { min: minutes }), { durationMs: 1800 });
         }
         if (window.BottomSheet && window.BottomSheet.close) window.BottomSheet.close();
       }

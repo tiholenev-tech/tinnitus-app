@@ -750,7 +750,7 @@ window.DiaryHub = (function () {
         closeOnBackdrop: true
       });
     } else if (window.Toast && window.Toast.show) {
-      window.Toast.show('Завършени дни: ' + completed.length + ' / 14', { durationMs: 3000 });
+      window.Toast.show(t('ui.diary.hub.completedDaysFmt', 'Завършени дни: {n} / 14', { n: completed.length }), { durationMs: 3000 });
     }
   }
 

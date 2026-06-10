@@ -635,7 +635,8 @@
     "softCheckSkip": "Omitir",
     "softCheckSavedToast": "Gracias por su respuesta. AURALIS sigue con usted.",
     "softCheckWorseAdvice": "Sus sentimientos importan. Puede ser buena idea hablar con un médico o especialista.",
-    "lateEntrySavedToast": "Registrado con retraso"
+    "lateEntrySavedToast": "Registrado con retraso",
+    "completedDaysFmt": "Días completados: {n} / 14"
    },
    "edge": {
     "nightHintTitle": "¿No puede dormir?",
@@ -880,7 +881,15 @@
    "sleepPresetNight": "8 horas (toda la noche)",
    "sleepTimerTitle": "Temporizador de sueño",
    "bgNoise": "Ruido de fondo",
-   "soundDescFmt": "Sonido de la categoría {cat}."
+   "soundDescFmt": "Sonido de la categoría {cat}.",
+   "favAdded": "Añadido a favoritos",
+   "favRemoved": "Eliminado de favoritos",
+   "sleepCancelled": "Temporizador cancelado",
+   "sleepSelectTime": "Seleccione un tiempo",
+   "sleepInvalidRange": "Introduzca un número entre 1 y 480",
+   "sleepSetFmt": "Temporizador: {min} min",
+   "volWarnNight": "Más del 55% por la noche no se recomienda — riesgo para la audición con escucha prolongada.",
+   "volWarnDay": "Más del 70% puede dañar la audición con escucha prolongada."
   },
   "profileResults": {
    "spectrumAria": "Espectro de frecuencias de 250 Hz a 16 kHz, marcador en {f}"

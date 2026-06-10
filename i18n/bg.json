@@ -635,7 +635,8 @@
     "softCheckSkip": "Прескочи",
     "softCheckSavedToast": "Благодарим за отговора. AURALIS остава с Вас.",
     "softCheckWorseAdvice": "Чувствата Ви са важни. Може да е добра идея да говорите с лекар или специалист.",
-    "lateEntrySavedToast": "Записан със закъснение"
+    "lateEntrySavedToast": "Записан със закъснение",
+    "completedDaysFmt": "Завършени дни: {n} / 14"
    },
    "edge": {
     "nightHintTitle": "Не успявате да заспите?",
@@ -880,7 +881,15 @@
    "sleepPresetNight": "8 часа (цяла нощ)",
    "sleepTimerTitle": "Таймер за сън",
    "bgNoise": "Фонов шум",
-   "soundDescFmt": "Звук от категория {cat}."
+   "soundDescFmt": "Звук от категория {cat}.",
+   "favAdded": "Добавен в любими",
+   "favRemoved": "Премахнат от любими",
+   "sleepCancelled": "Таймерът е отменен",
+   "sleepSelectTime": "Изберете време",
+   "sleepInvalidRange": "Въведете число между 1 и 480",
+   "sleepSetFmt": "Таймер: {min} мин.",
+   "volWarnNight": "Над 55% нощем не се препоръчва — риск за слуха при дълго слушане.",
+   "volWarnDay": "Над 70% може да увреди слуха при дълго слушане."
   },
   "profileResults": {
    "spectrumAria": "Спектър на честотите от 250 Hz до 16 kHz, маркер на {f}"
