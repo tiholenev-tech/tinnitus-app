@@ -188,6 +188,14 @@ window.i18n = (function () {
       var pv = t(pk);
       if (pv !== pk) phEls[l].setAttribute('placeholder', pv);
     }
+
+    // content attr (meta description и подобни)
+    var cEls = root.querySelectorAll('[data-i18n-content]');
+    for (var m = 0; m < cEls.length; m++) {
+      var ck = cEls[m].getAttribute('data-i18n-content');
+      var cv = t(ck);
+      if (cv !== ck) cEls[m].setAttribute('content', cv);
+    }
   }
 
   // ============================================================

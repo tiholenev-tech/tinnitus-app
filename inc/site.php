@@ -359,7 +359,8 @@ function auralis_foot($scripts = []) {
   if (btn) btn.addEventListener('click', function(){
     var open = mh.classList.toggle('nav-open');
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    btn.setAttribute('aria-label', open ? 'Скрий менюто' : 'Покажи менюто');
+    // aria-label остава локализиран от masthead-а на всеки език; aria-expanded
+    // предава отворено/затворено състоянието (без hardcode-нат БГ тук).
   });
   (function(){ var y0 = window.scrollY || window.pageYOffset; apply(y0 > 80); })();
 })();

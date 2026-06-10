@@ -15,7 +15,8 @@
   "header": {
    "brandHomeAria": "Către pagina de start",
    "themeToggleAria": "Schimbă tema",
-   "settingsAria": "Setări"
+   "settingsAria": "Setări",
+   "backAria": "Înapoi"
   },
   "onboarding": {
    "back": "Înapoi",
@@ -597,7 +598,44 @@
      "sleep_last_night": "Cum a fost somnul azi-noapte?"
     },
     "noteLabel": "Notă pentru ziua de azi (opțional)",
-    "notePlaceholder": "Un gând scurt despre ziua de azi — de exemplu „variabil: dimineața 4, seara 2\"."
+    "notePlaceholder": "Un gând scurt despre ziua de azi — de exemplu „variabil: dimineața 4, seara 2\".",
+    "labels": {
+     "noise_intensity": [
+      "Foarte slab",
+      "Slab",
+      "Mediu",
+      "Puternic",
+      "Extrem de puternic"
+     ],
+     "noise_distress": [
+      "Deloc",
+      "Ușor",
+      "Moderat",
+      "Destul de mult",
+      "Extrem"
+     ],
+     "calm": [
+      "Complet calm",
+      "Calm",
+      "Neutru",
+      "Anxios",
+      "Extrem de anxios"
+     ],
+     "mood": [
+      "Foarte bună",
+      "Bună",
+      "Neutră",
+      "Proastă",
+      "Foarte deprimată"
+     ],
+     "sleep_last_night": [
+      "Excelent",
+      "Bun",
+      "Mediu",
+      "Slab",
+      "Foarte slab"
+     ]
+    }
    },
    "validation": {
     "fillAllHint": "Completați toate glisoarele pentru a continua.",
@@ -2845,6 +2883,16 @@
   },
   "player": {
    "infoAria": "Informații despre sunet"
+  },
+  "search": {
+   "placeholder": "Caută...",
+   "clear": "Șterge"
+  },
+  "scaleSlider": {
+   "stepAria": "Nivel {n} din 5"
+  },
+  "progressDay": {
+   "dayFmt": "Ziua {n} din 14"
   }
  },
  "progress": {
@@ -3851,10 +3899,31 @@
  "tour": {
   "skip": "Sari",
   "next": "Am înțeles",
-  "finish": "Gata!"
+  "finish": "Gata!",
+  "tourStep1": "Atinge pentru a încerca",
+  "tourStep2": "Atinge pentru a asculta",
+  "tourStep3": "Aici schimbi totul",
+  "tourStep4": "Jurnal de progres"
  },
  "account": {
   "profile": "Profil",
   "open": "Autentificare și sincronizare"
+ },
+ "soundCard": {
+  "favorite": "Adaugă la favorite",
+  "unfavorite": "Elimină de la favorite"
+ },
+ "profileBadge": {
+  "aria": "Profil: {code}"
+ },
+ "audio": {
+  "error": {
+   "banner": {
+    "title": "Sunetul nu a putut fi încărcat",
+    "retry": "Încercați din nou",
+    "choose": "Alege altul",
+    "dismiss": "Închide"
+   }
+  }
  }
 }

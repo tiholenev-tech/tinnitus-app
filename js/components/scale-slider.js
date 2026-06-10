@@ -37,7 +37,9 @@ window.ScaleSlider = (function () {
         circle.type = 'button';
         circle.setAttribute('role', 'radio');
         circle.setAttribute('aria-checked', value === num ? 'true' : 'false');
-        circle.setAttribute('aria-label', 'Степен ' + num + ' от 5');
+        circle.setAttribute('aria-label', (window.i18n && window.i18n.t)
+          ? window.i18n.t('components.scaleSlider.stepAria', 'Степен {n} от 5', { n: num })
+          : 'Степен ' + num + ' от 5');
         circle.textContent = String(num);
         circle.addEventListener('click', function () {
           value = num;

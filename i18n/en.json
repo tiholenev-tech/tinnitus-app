@@ -15,7 +15,8 @@
   "header": {
    "brandHomeAria": "To the home page",
    "themeToggleAria": "Switch theme",
-   "settingsAria": "Settings"
+   "settingsAria": "Settings",
+   "backAria": "Back"
   },
   "onboarding": {
    "back": "Back",
@@ -597,7 +598,44 @@
      "sleep_last_night": "How was your sleep last night?"
     },
     "noteLabel": "Note for the day (optional)",
-    "notePlaceholder": "A short thought for today — for example \"variable: morning 4, evening 2\"."
+    "notePlaceholder": "A short thought for today — for example \"variable: morning 4, evening 2\".",
+    "labels": {
+     "noise_intensity": [
+      "Very quiet",
+      "Quiet",
+      "Medium",
+      "Loud",
+      "Extremely loud"
+     ],
+     "noise_distress": [
+      "Not at all",
+      "Slightly",
+      "Moderately",
+      "Quite a bit",
+      "Extremely"
+     ],
+     "calm": [
+      "Completely calm",
+      "Calm",
+      "Neutral",
+      "Anxious",
+      "Extremely anxious"
+     ],
+     "mood": [
+      "Very good",
+      "Good",
+      "Neutral",
+      "Bad",
+      "Very low"
+     ],
+     "sleep_last_night": [
+      "Excellent",
+      "Good",
+      "Average",
+      "Poor",
+      "Very poor"
+     ]
+    }
    },
    "validation": {
     "fillAllHint": "Fill in all the sliders to continue.",
@@ -2845,6 +2883,16 @@
   },
   "player": {
    "infoAria": "Sound information"
+  },
+  "search": {
+   "placeholder": "Search...",
+   "clear": "Clear"
+  },
+  "scaleSlider": {
+   "stepAria": "Step {n} of 5"
+  },
+  "progressDay": {
+   "dayFmt": "Day {n} of 14"
   }
  },
  "progress": {
@@ -3851,10 +3899,31 @@
  "tour": {
   "skip": "Skip",
   "next": "Got it",
-  "finish": "Done!"
+  "finish": "Done!",
+  "tourStep1": "Tap to try",
+  "tourStep2": "Tap to listen",
+  "tourStep3": "Change everything here",
+  "tourStep4": "Diary for progress"
  },
  "account": {
   "profile": "Profile",
   "open": "Sign in and sync"
+ },
+ "soundCard": {
+  "favorite": "Add to favorites",
+  "unfavorite": "Remove from favorites"
+ },
+ "profileBadge": {
+  "aria": "Profile: {code}"
+ },
+ "audio": {
+  "error": {
+   "banner": {
+    "title": "The sound failed to load",
+    "retry": "Try again",
+    "choose": "Choose another",
+    "dismiss": "Close"
+   }
+  }
  }
 }
