@@ -554,7 +554,15 @@ window.Player = (function () {
     if (!sound) return;
 
     // Изтрий запазения override → resolveFor пада на оригиналните стойности.
-    if (window.ProfileConfig && window.ProfileConfig.clearUserOverride) {
+    // ВАЖНО: трием ДИРЕКТНО от AppState (source of truth, който resolveFor чете),
+    // НЕ разчитаме само на ProfileConfig.clearUserOverride — при SW desync стар
+    // cached profile-config.js може да няма този helper → бутонът „не прави нищо".
+    var appState = window.AppState;
+    if (appState && appState.userOverrides &&
+        Object.prototype.hasOwnProperty.call(appState.userOverrides, activeSoundId)) {
+      delete appState.userOverrides[activeSoundId];
+      if (appState.saveUserOverrides) appState.saveUserOverrides();
+    } else if (window.ProfileConfig && window.ProfileConfig.clearUserOverride) {
       window.ProfileConfig.clearUserOverride(activeSoundId);
     }
     // Отмени pending debounced записи — да не презапишат изтрития override.
