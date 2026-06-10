@@ -337,6 +337,13 @@ window.Player = (function () {
               // PACK C T3: notch indicator (champagne pill) — показва се само
               // когато notch активен (има pitch data + не disabled).
               buildNotchIndicator() +
+              // „Върни настройките" — малка кръгла иконка ВДЯСНО на L1 реда,
+              // симетрично на chevron-а (›) на L2 реда. Връща оригиналния микс.
+              '<button class="pl-layer-reset" type="button" data-action="reset-mix"' +
+                ' aria-label="' + escapeHtml(t('components.player.resetMixAria',
+                  'Върни оригиналния микс на звуците')) + '">' +
+                SVG.reset +
+              '</button>' +
             '</div>' +
             buildSlider('plL1', title, layer1Vol,
               l1Label + ' 0-100') +
@@ -354,19 +361,6 @@ window.Player = (function () {
             buildSlider('plL2', noiseLabel(noiseId), layer2Vol,
               l2Label + ' 0-100') +
           '</div>') +
-
-          // „Върни настройките" — връща оригиналния микс (матрични default-и),
-          // изтривайки запазения user override за този звук.
-          '<div class="pl-mix-reset-row">' +
-            '<button class="pl-mix-reset" type="button" data-action="reset-mix"' +
-              ' aria-label="' + escapeHtml(t('components.player.resetMixAria',
-                'Върни оригиналния микс на звуците')) + '">' +
-              '<span class="pl-mix-reset-icon" aria-hidden="true">' + SVG.reset + '</span>' +
-              '<span class="pl-mix-reset-text">' +
-                escapeHtml(t('components.player.resetMix', 'Върни настройките')) +
-              '</span>' +
-            '</button>' +
-          '</div>' +
         '</div>' +
 
         // PACK A: row 1 — favorite (heart) + play/pause + sleep timer (moon).
@@ -575,32 +569,43 @@ window.Player = (function () {
       ? window.ProfileConfig.resolveFor(sound, sound.id) : null;
     if (!cfg) return;
 
-    layer1Vol = cfg.layer1Vol;
-    layer2Vol = cfg.layer2Vol;
-    // Същият floor (60) като applyProfileConfig за default master volume.
-    var masterVol = cfg.masterVol;
-    if (!cfg.fromOverride) masterVol = Math.max(masterVol, 60);
+    // FROM = текущите (потребителски) стойности; TO = оригиналните (матрични).
+    var fromL1 = layer1Vol;
+    var fromL2 = layer2Vol;
+    var fromMaster = (window.AudioEngine && window.AudioEngine.getMasterVolume)
+      ? window.AudioEngine.getMasterVolume() : 70;
 
-    // Приложи към audio engine (isFinal=true → плавен ramp, без click).
-    if (window.AudioEngine) {
-      if (window.AudioEngine.setLayer1Volume) window.AudioEngine.setLayer1Volume(layer1Vol, true);
-      if (window.AudioEngine.setLayer2Volume) window.AudioEngine.setLayer2Volume(layer2Vol, true);
-      if (window.AudioEngine.setMasterVolume) window.AudioEngine.setMasterVolume(masterVol, true);
-    }
+    var toL1 = cfg.layer1Vol;
+    var toL2 = cfg.layer2Vol;
+    // Същият floor (60) като applyProfileConfig за default master volume.
+    var toMaster = cfg.masterVol;
+    if (!cfg.fromOverride) toMaster = Math.max(toMaster, 60);
+
+    layer1Vol = toL1;
+    layer2Vol = toL2;
+
+    // ПЛАВНО (Тихол: „да става плавно, не изведнъж"): анимираме плъзгачите И
+    // звука от текущите към оригиналните стойности (ease-out), вместо рязък скок.
+    animateMixValue('plL1', fromL1, toL1, function (v, isFinal) {
+      if (window.AudioEngine && window.AudioEngine.setLayer1Volume) {
+        window.AudioEngine.setLayer1Volume(v, isFinal);
+      }
+    });
+    animateMixValue('plL2', fromL2, toL2, function (v, isFinal) {
+      if (window.AudioEngine && window.AudioEngine.setLayer2Volume) {
+        window.AudioEngine.setLayer2Volume(v, isFinal);
+      }
+    });
+    animateMixValue('plMaster', fromMaster, toMaster, function (v, isFinal) {
+      if (window.AudioEngine && window.AudioEngine.setMasterVolume) {
+        window.AudioEngine.setMasterVolume(v, isFinal);
+      }
+    });
 
     // Persist новите (default) стойности.
-    persist(STORAGE_L1_VOL, layer1Vol);
-    persist(STORAGE_L2_VOL, layer2Vol);
-    persist('auralis-master-volume', masterVol);
-
-    // Update slider thumb-овете + ARIA. Programmatic .value НЕ fire-ва
-    // input/change → не презаписва override обратно.
-    var s1 = el('plL1');
-    if (s1) { s1.value = layer1Vol; s1.setAttribute('aria-valuenow', layer1Vol); }
-    var s2 = el('plL2');
-    if (s2) { s2.value = layer2Vol; s2.setAttribute('aria-valuenow', layer2Vol); }
-    var sm = el('plMaster');
-    if (sm) { sm.value = masterVol; sm.setAttribute('aria-valuenow', masterVol); }
+    persist(STORAGE_L1_VOL, toL1);
+    persist(STORAGE_L2_VOL, toL2);
+    persist('auralis-master-volume', toMaster);
 
     if (window.Toast) {
       var msg = t('components.player.resetMixDone', 'Върнат оригинален микс');
@@ -608,6 +613,45 @@ window.Player = (function () {
       else if (window.Toast.show) window.Toast.show(msg, { durationMs: 1800 });
     }
     if (window.Haptics && window.Haptics.light) window.Haptics.light();
+  }
+
+  // Плавна анимация на range плъзгач (value + ARIA) + callback за звука на
+  // всеки кадър. Reuse-ва SEQ-REVEAL anim token-ите за plL1/plL2 (за да отмени
+  // евентуална текуща reveal анимация). Reduced-motion → моментален скок.
+  var RESET_ANIM_MS = 550;
+  function animateMixValue(sliderId, fromVal, toVal, onFrame) {
+    var slider = el(sliderId);
+    // Отмени текуща reveal анимация на същия slot (за да не се „бият").
+    if (sliderId === 'plL1') {
+      if (currentL1AnimRAF != null) { cancelAnimationFrame(currentL1AnimRAF); currentL1AnimRAF = null; }
+      currentL1AnimToken++;
+    } else if (sliderId === 'plL2') {
+      if (currentL2AnimRAF != null) { cancelAnimationFrame(currentL2AnimRAF); currentL2AnimRAF = null; }
+      currentL2AnimToken++;
+    }
+
+    function apply(v, isFinal) {
+      var rv = Math.round(v);
+      if (slider) {
+        programmaticAnimation = true;
+        slider.value = rv;
+        slider.setAttribute('aria-valuenow', rv);
+        programmaticAnimation = false;
+      }
+      if (onFrame) onFrame(rv, isFinal);
+    }
+
+    var reduced = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced || !slider || fromVal === toVal) { apply(toVal, true); return; }
+
+    var start = performance.now();
+    (function step(now) {
+      var progress = Math.min((now - start) / RESET_ANIM_MS, 1);
+      var eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic (като SEQ-REVEAL)
+      apply(fromVal + (toVal - fromVal) * eased, progress >= 1);
+      if (progress < 1) requestAnimationFrame(step);
+    })(start);
   }
 
   // PACK A change 1: heart icon → toggle favorite за активния звук.
