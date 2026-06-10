@@ -267,8 +267,9 @@ window.DiaryEvening = (function () {
     QUESTIONS.forEach(function (q) {
       var slot = document.querySelector('[data-slider-slot="' + q.key + '"]');
       if (!slot || !window.ScaleSlider) return;
+      var i18nLabels = (window.i18n && window.i18n.tArr) ? window.i18n.tArr('ui.diary.evening.labels.' + q.key) : [];
       var slider = window.ScaleSlider.create({
-        labels: q.labels,
+        labels: (i18nLabels && i18nLabels.length === 5) ? i18nLabels : q.labels,
         value: answers[q.key] || null,
         onChange: function (val) {
           answers[q.key] = val;

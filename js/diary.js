@@ -462,13 +462,13 @@ window.Diary = (function () {
           '<div class="diary-ranges" role="radiogroup">' + rangeButtons + '</div>' +
         '</div>' +
 
-        buildChartSection('diary.chart.sleep', 'Сън (часове)',
+        buildChartSection('ui.diary.chart.sleep', 'Сън (часове)',
           sleepVals, 12, 'hsl(var(--hue3) 70% 55%)') +
 
-        buildChartSection('diary.chart.tinnitus', 'Тинитус (0-10)',
+        buildChartSection('ui.diary.chart.tinnitus', 'Тинитус (0-10)',
           tinnVals, 10, 'hsl(var(--hue1) 70% 55%)') +
 
-        buildChartSection('diary.chart.stress', 'Стрес (0-10)',
+        buildChartSection('ui.diary.chart.stress', 'Стрес (0-10)',
           stressVals, 10, 'hsl(38 80% 55%)') +
 
         '<button class="diary-export-btn" type="button" data-action="export">' +

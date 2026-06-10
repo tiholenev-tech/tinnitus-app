@@ -25,7 +25,9 @@ window.ProgressDay = window.ProgressDay || {
     // Defensive fallback ако progress-chart.js не е заредил.
     var div = document.createElement('div');
     div.className = 'pc-card pc-card--fallback';
-    div.textContent = 'Ден ' + (opts.currentDay || 1) + ' от 14';
+    div.textContent = (window.i18n && window.i18n.t)
+      ? window.i18n.t('components.progressDay.dayFmt', 'Ден {n} от 14', { n: (opts.currentDay || 1) })
+      : 'Ден ' + (opts.currentDay || 1) + ' от 14';
     return div;
   }
 };

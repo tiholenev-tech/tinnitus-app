@@ -198,7 +198,7 @@ window.TopSoundsCarousel = (function () {
 
   function buildCardHtml(sound, index) {
     var title = soundTitle(sound);
-    var ariaLabel = t('library.card.playAria', 'Пусни ' + title, { title: title });
+    var ariaLabel = t('ui.library.card.playAria', 'Пусни ' + title, { title: title });
     return (
       '<button class="tsc-card" type="button"' +
         ' data-tsc-action="play" data-sound-id="' + escapeHtml(sound.id) + '"' +

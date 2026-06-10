@@ -209,7 +209,7 @@ function el_masthead($active = '') {
       </button>
       <a class="btn btn--primary masthead__cta" href="/el/#prosfora">Δοκιμάστε δωρεάν</a>
       <details class="lang-menu">
-        <summary class="lang-menu__btn" title="Език / Lingua / Limbă / Γλώσσα" aria-label="Език / Lingua / Limbă / Γλώσσα"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg></summary>
+        <summary class="lang-menu__btn" title="Γλώσσα" aria-label="Γλώσσα"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg></summary>
         <ul class="lang-menu__list">
           <li><a href="/" lang="bg" hreflang="bg">Български</a></li>
           <li><a href="/it/" lang="it" hreflang="it">Italiano</a></li>

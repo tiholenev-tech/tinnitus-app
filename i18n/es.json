@@ -15,7 +15,8 @@
   "header": {
    "brandHomeAria": "A la página de inicio",
    "themeToggleAria": "Cambiar tema",
-   "settingsAria": "Ajustes"
+   "settingsAria": "Ajustes",
+   "backAria": "Atrás"
   },
   "onboarding": {
    "back": "Atrás",
@@ -597,7 +598,44 @@
      "sleep_last_night": "¿Cómo durmió anoche?"
     },
     "noteLabel": "Nota del día (opcional)",
-    "notePlaceholder": "Un breve pensamiento para hoy — por ejemplo \"variable: mañana 4, tarde 2\"."
+    "notePlaceholder": "Un breve pensamiento para hoy — por ejemplo \"variable: mañana 4, tarde 2\".",
+    "labels": {
+     "noise_intensity": [
+      "Muy bajo",
+      "Bajo",
+      "Medio",
+      "Fuerte",
+      "Extremadamente fuerte"
+     ],
+     "noise_distress": [
+      "Para nada",
+      "Levemente",
+      "Moderadamente",
+      "Bastante",
+      "Extremadamente"
+     ],
+     "calm": [
+      "Completamente tranquilo",
+      "Tranquilo",
+      "Neutral",
+      "Ansioso",
+      "Extremadamente ansioso"
+     ],
+     "mood": [
+      "Muy bueno",
+      "Bueno",
+      "Neutral",
+      "Malo",
+      "Muy decaído"
+     ],
+     "sleep_last_night": [
+      "Excelente",
+      "Bueno",
+      "Regular",
+      "Malo",
+      "Muy malo"
+     ]
+    }
    },
    "validation": {
     "fillAllHint": "Complete todos los controles para continuar.",
@@ -2845,6 +2883,16 @@
   },
   "player": {
    "infoAria": "Información del sonido"
+  },
+  "search": {
+   "placeholder": "Buscar...",
+   "clear": "Borrar"
+  },
+  "scaleSlider": {
+   "stepAria": "Nivel {n} de 5"
+  },
+  "progressDay": {
+   "dayFmt": "Día {n} de 14"
   }
  },
  "progress": {
@@ -3851,10 +3899,31 @@
  "tour": {
   "skip": "Omitir",
   "next": "Entendido",
-  "finish": "¡Listo!"
+  "finish": "¡Listo!",
+  "tourStep1": "Toca para probar",
+  "tourStep2": "Toca para escuchar",
+  "tourStep3": "Aquí cambias todo",
+  "tourStep4": "Diario de progreso"
  },
  "account": {
   "profile": "Perfil",
   "open": "Iniciar sesión y sincronizar"
+ },
+ "soundCard": {
+  "favorite": "Añadir a favoritos",
+  "unfavorite": "Quitar de favoritos"
+ },
+ "profileBadge": {
+  "aria": "Perfil: {code}"
+ },
+ "audio": {
+  "error": {
+   "banner": {
+    "title": "No se pudo cargar el sonido",
+    "retry": "Inténtelo de nuevo",
+    "choose": "Elegir otro",
+    "dismiss": "Cerrar"
+   }
+  }
  }
 }

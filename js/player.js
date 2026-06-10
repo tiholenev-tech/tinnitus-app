@@ -291,7 +291,7 @@ window.Player = (function () {
     // PACK A change 1: favorite state определя heart icon variant + aria.
     var isFav = !!(window.Favorites && window.Favorites.has &&
       sound && window.Favorites.has(sound.id));
-    var favAria = isFav ? 'Премахни от любими' : 'Добави в любими';
+    var favAria = isFav ? t('ui.player.favRemove', 'Премахни от любими') : t('ui.player.favAdd', 'Добави в любими');
 
     return (
       '<div class="pl-screen" data-screen="player"' +
@@ -852,7 +852,7 @@ window.Player = (function () {
       ? window.ProfileConfig.getRecommendedNoise(profile, scenario)
       : 'brown_lp500';
     var noiseLabelText = recommendedNoise === 'none'
-      ? 'Без фонов шум (само чист звук)'
+      ? t('noises.none.description', 'Без фонов шум (само чист звук)')
       : noiseLabel(recommendedNoise);
 
     var whyKey = 'profile_results.profiles.' + profile + '.reasons.' + scenario;
