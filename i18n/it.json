@@ -276,7 +276,10 @@
     "playAria": "Riproduci",
     "sleepAria": "Modalità notte",
     "sosAria": "Respirazione SOS",
-    "noLayer2": "Senza sfondo"
+    "noLayer2": "Senza sfondo",
+    "resetMix": "Ripristina impostazioni",
+    "resetMixAria": "Ripristina il mix audio originale",
+    "resetMixDone": "Mix originale ripristinato"
    }
   },
   "noises": {

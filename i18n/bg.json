@@ -276,7 +276,10 @@
     "playAria": "Пусни",
     "sleepAria": "Нощен режим",
     "sosAria": "SOS дишане",
-    "noLayer2": "Без фон"
+    "noLayer2": "Без фон",
+    "resetMix": "Върни настройките",
+    "resetMixAria": "Върни оригиналния микс на звуците",
+    "resetMixDone": "Върнат оригинален микс"
    }
   },
   "noises": {
