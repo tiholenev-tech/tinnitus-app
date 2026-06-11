@@ -20,6 +20,21 @@ if (!stripe_verify_webhook($payload, $sig, $secret)) {
 
 $event = json_decode($payload, true);
 $type  = is_array($event) ? ($event['type'] ?? '') : '';
+$eventId = is_array($event) ? (string) ($event['id'] ?? '') : '';
+
+// IDEMPOTENCY (replay защита): Stripe може да достави един и същ event повече от
+// веднъж (ретраи). Записваме event id-то с INSERT IGNORE — при дубликат rowCount
+// е 0 → излизаме с 200, без да пипаме достъпа пак. Не променя плащане логиката,
+// само спира двойна обработка. (Таблица stripe_events — виж db/schema.sql.)
+if ($eventId !== '') {
+    $ins = db()->prepare('INSERT IGNORE INTO stripe_events (event_id) VALUES (?)');
+    $ins->execute([$eventId]);
+    if ($ins->rowCount() === 0) {
+        http_response_code(200);
+        echo 'ok (duplicate)';
+        exit;
+    }
+}
 
 if ($type === 'checkout.session.completed') {
     $obj  = $event['data']['object'] ?? [];
