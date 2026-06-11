@@ -1967,7 +1967,107 @@
     "Fișier 'Neurobiologia detaliată și terapia insomniei la pacienții cu tinitus cronic'"
    ]
   },
-  "recommendedNoiseNote": "Fiecare sunet are un zgomot de fundal selectat, optimizat pentru acest tip de utilizare. "
+  "recommendedNoiseNote": "Fiecare sunet are un zgomot de fundal selectat, optimizat pentru acest tip de utilizare. ",
+  "ocean": {
+   "title": "Valuri",
+   "definition": "Valuri de mare și resac — un sunet lent, ritmic, cu un corp bogat de frecvențe joase. Ritmul lent al valurilor este aproape de respirația calmă, de aceea mulți îl găsesc foarte liniștitor. Spectrul larg și blând umple liniștea în care tinitusul se aude cel mai tare.",
+   "whenUsed": {
+    "timeOfDay": "Seara și la culcare; și pentru relaxare în timpul zilei.",
+    "context": "În pat sau într-un loc liniștit; cu căști într-un mediu zgomotos.",
+    "duration": "20–90 min; folosește cronometrul de somn pentru toată noaptea."
+   },
+   "expectedEffect": "Senzație de calm și respirație mai lentă; o liniște mai puțin contrastantă în care sunetul să iasă în evidență. Bun pentru relaxare seara."
+  },
+  "river": {
+   "title": "Râu",
+   "definition": "Un râu și un pârâu care curg — un sunet de apă constant și lin, în registrul mediu-înalt. Mai luminos și mai activ decât valurile, fără vârfuri bruște. Bun pentru mascarea tinitusului mai ascuțit și pentru confort de fundal ziua.",
+   "whenUsed": {
+    "timeOfDay": "În timpul zilei și seara.",
+    "context": "Muncă, citit, concentrare sau relaxare ușoară.",
+    "duration": "30–120 min, în funcție de activitate."
+   },
+   "expectedEffect": "Un fundal uniform care înmoaie liniștea și ajută la concentrare sau calm, fără să distragă."
+  },
+  "waterfall": {
+   "title": "Cascadă",
+   "definition": "Sunet de cascadă — un sunet de apă dens și plin, apropiat de zgomotul alb sau roz natural. Efect puternic de mascare datorită spectrului larg și nivelului constant. Potrivit când tinitusul este mai supărător sau mediul este zgomotos.",
+   "whenUsed": {
+    "timeOfDay": "Oricând, mai ales cu tinitus mai puternic.",
+    "context": "Mediu zgomotos, concentrare sau mascarea unui sunet supărător.",
+    "duration": "20–90 min; păstrează un nivel confortabil."
+   },
+   "expectedEffect": "Mascare puternică și uniformă care face tinitusul mai puțin sesizabil. Ține volumul moderat din cauza densității."
+  },
+  "underwater": {
+   "title": "Sub apă",
+   "definition": "Sunete înăbușite, ca sub apă — un fundal cald, de frecvență joasă și învăluitor, fără înalte. Senzația este de izolare și calm. O alegere blândă pentru urechi sensibile și pentru adormire.",
+   "whenUsed": {
+    "timeOfDay": "Seara și la culcare.",
+    "context": "În pat, o cameră liniștită, relaxare.",
+    "duration": "20–90 min; cronometru de noapte."
+   },
+   "expectedEffect": "Senzație de învăluire și izolare de zgomotul exterior; un nivel blând și jos, delicat pentru urechi sensibile."
+  },
+  "rain": {
+   "title": "Ploaie",
+   "definition": "Ploaie și picături — un sunet natural, ușor neregulat, cu o textură plăcută. Unul dintre cele mai preferate sunete pentru somn și relaxare. Spectrul larg maschează bine, iar ritmul blând al picăturilor liniștește.",
+   "whenUsed": {
+    "timeOfDay": "Seara, la culcare și pentru relaxare ziua.",
+    "context": "În pat, citind, lucrând sau odihnindu-te.",
+    "duration": "20–120 min; cronometru de somn."
+   },
+   "expectedEffect": "Un fundal familiar și liniștitor pe care mulți îl asociază cu confortul și somnul; înmoaie liniștea din jurul tinitusului."
+  },
+  "wind": {
+   "title": "Vânt",
+   "definition": "Vânt și briză — un sunet lin, „care respiră”, cu schimbări lente de intensitate. Mai delicat și mai puțin apos decât ploaia. Potrivit pentru relaxare ușoară și pentru cei care preferă un fundal mai fin și neutru.",
+   "whenUsed": {
+    "timeOfDay": "În timpul zilei și seara.",
+    "context": "Relaxare, concentrare, respirație meditativă.",
+    "duration": "20–90 min."
+   },
+   "expectedEffect": "Un fundal ușor și discret; senzație de spațiu și calm, fără sunete bruște."
+  },
+  "forest": {
+   "title": "Pădure",
+   "definition": "Pădure și păsări — un sunet natural și viu, cu detalii fine (frunze, păsări îndepărtate). Mai bogat în detalii decât zgomotele pure. Potrivit pentru relaxare ziua și un sentiment de prezență în natură.",
+   "whenUsed": {
+    "timeOfDay": "Dimineața și în timpul zilei.",
+    "context": "Relaxare, o plimbare, odihnă, concentrare.",
+    "duration": "20–90 min."
+   },
+   "expectedEffect": "Senzația unui cadru natural liniștit; mută blând atenția de la tinitus fără să fie monoton."
+  },
+  "fire": {
+   "title": "Foc",
+   "definition": "Foc în șemineu — un sunet cald, cu pârâit ușor și un corp grav. Primitor și familiar, cu o ușoară neregularitate pe care mulți o găsesc plăcută seara. Potrivit pentru relaxare și adormire în lunile reci.",
+   "whenUsed": {
+    "timeOfDay": "Seara și la culcare.",
+    "context": "Odihnă, citit, o seară primitoare, patul.",
+    "duration": "20–90 min; cronometru de noapte."
+   },
+   "expectedEffect": "Senzație de căldură și confort; un fundal blând care înmoaie liniștea și sprijină relaxarea."
+  },
+  "noise": {
+   "title": "Zgomot",
+   "definition": "Zgomot maro și roz — un fundal uniform, tehnic, fără melodie. Sunt cele mai studiate sunete de mascare: spectrul larg și constant acoperă uniform frecvențele la care se aude tinitusul. Maro este mai profund, roz mai echilibrat.",
+   "whenUsed": {
+    "timeOfDay": "Oricând, mai ales pentru somn și concentrare.",
+    "context": "Mascare, concentrare, mediu zgomotos, adormire.",
+    "duration": "20–120 min; cronometru de noapte."
+   },
+   "expectedEffect": "Mascare stabilă și uniformă care face tinitusul mai puțin sesizabil. Fără detalii care să distragă."
+  },
+  "ambient": {
+   "title": "Atmosferă",
+   "definition": "Tonuri ambientale profunde — straturi de sunet lente și învăluitoare, fără melodie clară. Creează o stare calmă și un sentiment de spațiu. Potrivite pentru meditație, relaxare profundă și adormire.",
+   "whenUsed": {
+    "timeOfDay": "Seara, meditație, la culcare.",
+    "context": "Meditație, exerciții de respirație, relaxare, patul.",
+    "duration": "20–90 min."
+   },
+   "expectedEffect": "Senzație de calm și spațiu; un fundal fluid care ajută la liniștea interioară și la adormire."
+  }
  },
  "thi": {
   "title": "Evaluare THI",

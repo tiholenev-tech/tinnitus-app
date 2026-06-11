@@ -1967,7 +1967,107 @@
     "File 'Detailed neurobiology and therapy of insomnia in patients with chronic tinnitus'"
    ]
   },
-  "recommendedNoiseNote": "Each sound has a selected background noise optimized for this type of use. "
+  "recommendedNoiseNote": "Each sound has a selected background noise optimized for this type of use. ",
+  "ocean": {
+   "title": "Ocean waves",
+   "definition": "Sea waves and surf — a slow, rhythmic sound with a rich low-frequency body. The slow wave rhythm is close to calm breathing, which is why many find it deeply soothing. The wide, soft spectrum fills the silence in which tinnitus stands out most.",
+   "whenUsed": {
+    "timeOfDay": "Evening and at bedtime; also for daytime relaxation.",
+    "context": "In bed or in a quiet place; with headphones in a noisy environment.",
+    "duration": "20–90 min; use the sleep timer for the whole night."
+   },
+   "expectedEffect": "A sense of calm and slower breathing; less contrasting silence for the sound to stand out against. Good for winding down in the evening."
+  },
+  "river": {
+   "title": "River",
+   "definition": "A flowing river and stream — a steady, smooth water sound in the mid-to-high range. Brighter and more active than waves, without sharp peaks. Good for masking higher-pitched tinnitus and for background comfort during the day.",
+   "whenUsed": {
+    "timeOfDay": "During the day and evening.",
+    "context": "Work, reading, focus or light relaxation.",
+    "duration": "30–120 min depending on the activity."
+   },
+   "expectedEffect": "An even background that softens silence and helps with concentration or calm, without being distracting."
+  },
+  "waterfall": {
+   "title": "Waterfall",
+   "definition": "Waterfall sound — a dense, full water sound close to natural white or pink noise. Strong masking effect thanks to the wide spectrum and constant level. Suitable when tinnitus is more intrusive or the environment is noisy.",
+   "whenUsed": {
+    "timeOfDay": "Any time, especially with louder tinnitus.",
+    "context": "A noisy environment, concentration, or masking an intrusive sound.",
+    "duration": "20–90 min; keep the level comfortable."
+   },
+   "expectedEffect": "Strong, even masking that makes tinnitus less noticeable. Keep the volume moderate due to its density."
+  },
+  "underwater": {
+   "title": "Underwater",
+   "definition": "Muffled, underwater-like sounds — a warm, low-frequency and enveloping background with no highs. The feeling is of isolation and calm. A gentle choice for sensitive ears and for falling asleep.",
+   "whenUsed": {
+    "timeOfDay": "Evening and at bedtime.",
+    "context": "In bed, a quiet room, relaxation.",
+    "duration": "20–90 min; night timer."
+   },
+   "expectedEffect": "A sense of being enveloped and cut off from outside noise; a soft, low level, gentle on sensitive ears."
+  },
+  "rain": {
+   "title": "Rain",
+   "definition": "Rain and droplets — a natural, slightly irregular sound with a pleasant texture. One of the most preferred sounds for sleep and relaxation. The wide spectrum masks well, and the gentle rhythm of the drops soothes.",
+   "whenUsed": {
+    "timeOfDay": "Evening, at bedtime and for daytime relaxation.",
+    "context": "In bed, reading, work or rest.",
+    "duration": "20–120 min; sleep timer."
+   },
+   "expectedEffect": "A soothing, familiar background that many associate with comfort and sleep; softens the silence around tinnitus."
+  },
+  "wind": {
+   "title": "Wind",
+   "definition": "Wind and breeze — a smooth, breathing sound with slow changes in intensity. Gentler and less watery than rain. Suitable for light relaxation and for those who prefer a finer, neutral background.",
+   "whenUsed": {
+    "timeOfDay": "During the day and evening.",
+    "context": "Relaxation, focus, meditative breathing.",
+    "duration": "20–90 min."
+   },
+   "expectedEffect": "A light, unobtrusive background; a sense of space and calm, without sharp sounds."
+  },
+  "forest": {
+   "title": "Forest",
+   "definition": "Forest and birds — a living natural sound with light natural detail (leaves, distant birds). Richer in detail than pure noises. Suitable for daytime relaxation and a feeling of being present in nature.",
+   "whenUsed": {
+    "timeOfDay": "Morning and during the day.",
+    "context": "Relaxation, a walk, rest, focus.",
+    "duration": "20–90 min."
+   },
+   "expectedEffect": "A sense of a calm natural setting; gently draws attention away from tinnitus without being monotonous."
+  },
+  "fire": {
+   "title": "Fire",
+   "definition": "A fireplace fire — a warm sound with quiet crackling and a low body. Cozy and familiar, with a light irregularity that many find pleasant in the evening. Suitable for relaxation and falling asleep in the cold months.",
+   "whenUsed": {
+    "timeOfDay": "Evening and at bedtime.",
+    "context": "Rest, reading, a cozy evening, bed.",
+    "duration": "20–90 min; night timer."
+   },
+   "expectedEffect": "A sense of warmth and coziness; a soft background that softens silence and supports unwinding."
+  },
+  "noise": {
+   "title": "Noise",
+   "definition": "Brown and pink noise — an even, technical background with no melody. These are the most researched masking sounds: the wide, constant spectrum evenly covers the frequencies at which tinnitus is heard. Brown is deeper, pink more balanced.",
+   "whenUsed": {
+    "timeOfDay": "Any time, especially for sleep and focus.",
+    "context": "Masking, concentration, a noisy environment, falling asleep.",
+    "duration": "20–120 min; night timer."
+   },
+   "expectedEffect": "Stable, even masking that makes tinnitus less noticeable. No detail to distract attention."
+  },
+  "ambient": {
+   "title": "Ambient",
+   "definition": "Deep ambient tones — slow, enveloping layers of sound with no clear melody. They create a calm mood and a sense of space. Suitable for meditation, deep relaxation and falling asleep.",
+   "whenUsed": {
+    "timeOfDay": "Evening, meditation, at bedtime.",
+    "context": "Meditation, breathing exercises, relaxation, bed.",
+    "duration": "20–90 min."
+   },
+   "expectedEffect": "A sense of calm and space; a smooth background that helps with inner calm and falling asleep."
+  }
  },
  "thi": {
   "title": "THI assessment",
