@@ -280,7 +280,9 @@
     "noLayer2": "No background",
     "resetMix": "Reset settings",
     "resetMixAria": "Restore the original sound mix",
-    "resetMixDone": "Original mix restored"
+    "resetMixDone": "Original mix restored",
+    "prevAria": "Previous sound",
+    "nextAria": "Next sound"
    }
   },
   "noises": {
