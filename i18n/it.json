@@ -1967,7 +1967,107 @@
     "File 'Neurobiologia dettagliata e terapia dell'insonnia nei pazienti con acufene cronico'"
    ]
   },
-  "recommendedNoiseNote": "Ogni suono ha un rumore di fondo selezionato, ottimizzato per questo tipo di utilizzo. "
+  "recommendedNoiseNote": "Ogni suono ha un rumore di fondo selezionato, ottimizzato per questo tipo di utilizzo. ",
+  "ocean": {
+   "title": "Onde del mare",
+   "definition": "Onde del mare e risacca: un suono lento e ritmico con un ricco corpo di basse frequenze. Il ritmo lento delle onde è vicino al respiro calmo, perciò molti lo trovano molto rilassante. Lo spettro ampio e morbido riempie il silenzio in cui l’acufene risalta di più.",
+   "whenUsed": {
+    "timeOfDay": "La sera e prima di dormire; anche per il relax diurno.",
+    "context": "A letto o in un luogo tranquillo; con le cuffie in un ambiente rumoroso.",
+    "duration": "20–90 min; usa il timer del sonno per tutta la notte."
+   },
+   "expectedEffect": "Senso di calma e respiro più lento; un silenzio meno contrastato in cui il suono risalta. Ottimo per rilassarsi la sera."
+  },
+  "river": {
+   "title": "Fiume",
+   "definition": "Un fiume e un ruscello che scorrono: un suono d’acqua costante e morbido nella fascia medio-alta. Più chiaro e attivo delle onde, senza picchi netti. Buono per mascherare l’acufene più acuto e per comfort di sottofondo durante il giorno.",
+   "whenUsed": {
+    "timeOfDay": "Durante il giorno e la sera.",
+    "context": "Lavoro, lettura, concentrazione o relax leggero.",
+    "duration": "30–120 min a seconda dell’attività."
+   },
+   "expectedEffect": "Un sottofondo uniforme che ammorbidisce il silenzio e aiuta la concentrazione o la calma, senza distrarre."
+  },
+  "waterfall": {
+   "title": "Cascata",
+   "definition": "Suono di cascata: un suono d’acqua denso e pieno, vicino al rumore bianco o rosa naturale. Forte effetto di mascheramento grazie allo spettro ampio e al livello costante. Adatto quando l’acufene è più invadente o l’ambiente è rumoroso.",
+   "whenUsed": {
+    "timeOfDay": "In qualsiasi momento, soprattutto con acufene più forte.",
+    "context": "Ambiente rumoroso, concentrazione o mascheramento di un suono invadente.",
+    "duration": "20–90 min; mantieni il livello confortevole."
+   },
+   "expectedEffect": "Mascheramento forte e uniforme che rende l’acufene meno percepibile. Tieni il volume moderato per la sua densità."
+  },
+  "underwater": {
+   "title": "Sott’acqua",
+   "definition": "Suoni ovattati, come sott’acqua: un sottofondo caldo, a bassa frequenza e avvolgente, senza acuti. La sensazione è di isolamento e calma. Una scelta delicata per orecchie sensibili e per addormentarsi.",
+   "whenUsed": {
+    "timeOfDay": "La sera e prima di dormire.",
+    "context": "A letto, in una stanza tranquilla, relax.",
+    "duration": "20–90 min; timer notturno."
+   },
+   "expectedEffect": "Senso di essere avvolti e isolati dal rumore esterno; un livello morbido e basso, delicato per orecchie sensibili."
+  },
+  "rain": {
+   "title": "Pioggia",
+   "definition": "Pioggia e gocce: un suono naturale, leggermente irregolare e di texture piacevole. Uno dei suoni preferiti per il sonno e il relax. Lo spettro ampio maschera bene e il ritmo dolce delle gocce calma.",
+   "whenUsed": {
+    "timeOfDay": "La sera, prima di dormire e per il relax diurno.",
+    "context": "A letto, leggendo, lavorando o riposando.",
+    "duration": "20–120 min; timer del sonno."
+   },
+   "expectedEffect": "Un sottofondo familiare e rilassante che molti associano al comfort e al sonno; ammorbidisce il silenzio attorno all’acufene."
+  },
+  "wind": {
+   "title": "Vento",
+   "definition": "Vento e brezza: un suono morbido e “che respira”, con lenti cambi di intensità. Più delicato e meno acquoso della pioggia. Adatto a un relax leggero e a chi preferisce un sottofondo più fine e neutro.",
+   "whenUsed": {
+    "timeOfDay": "Durante il giorno e la sera.",
+    "context": "Relax, concentrazione, respirazione meditativa.",
+    "duration": "20–90 min."
+   },
+   "expectedEffect": "Un sottofondo leggero e discreto; senso di spazio e calma, senza suoni netti."
+  },
+  "forest": {
+   "title": "Foresta",
+   "definition": "Foresta e uccelli: un suono naturale e vivo con lievi dettagli (foglie, uccelli lontani). Più ricco di dettagli dei rumori puri. Adatto al relax diurno e a un senso di presenza nella natura.",
+   "whenUsed": {
+    "timeOfDay": "Al mattino e durante il giorno.",
+    "context": "Relax, una passeggiata, riposo, concentrazione.",
+    "duration": "20–90 min."
+   },
+   "expectedEffect": "Senso di un ambiente naturale tranquillo; sposta dolcemente l’attenzione dall’acufene senza essere monotono."
+  },
+  "fire": {
+   "title": "Fuoco",
+   "definition": "Fuoco del camino: un suono caldo con un lieve crepitio e un corpo grave. Accogliente e familiare, con una leggera irregolarità che molti trovano piacevole la sera. Adatto a rilassarsi e addormentarsi nei mesi freddi.",
+   "whenUsed": {
+    "timeOfDay": "La sera e prima di dormire.",
+    "context": "Riposo, lettura, una serata accogliente, il letto.",
+    "duration": "20–90 min; timer notturno."
+   },
+   "expectedEffect": "Senso di calore e comfort; un sottofondo morbido che ammorbidisce il silenzio e favorisce il rilassamento."
+  },
+  "noise": {
+   "title": "Rumore",
+   "definition": "Rumore marrone e rosa: un sottofondo uniforme e tecnico, senza melodia. Sono i suoni di mascheramento più studiati: lo spettro ampio e costante copre in modo uniforme le frequenze a cui si sente l’acufene. Il marrone è più profondo, il rosa più equilibrato.",
+   "whenUsed": {
+    "timeOfDay": "In qualsiasi momento, soprattutto per dormire e concentrarsi.",
+    "context": "Mascheramento, concentrazione, ambiente rumoroso, addormentarsi.",
+    "duration": "20–120 min; timer notturno."
+   },
+   "expectedEffect": "Mascheramento stabile e uniforme che rende l’acufene meno percepibile. Nessun dettaglio che distragga."
+  },
+  "ambient": {
+   "title": "Atmosfera",
+   "definition": "Toni ambient profondi: strati di suono lenti e avvolgenti, senza melodia chiara. Creano un’atmosfera calma e un senso di spazio. Adatti a meditazione, relax profondo e addormentamento.",
+   "whenUsed": {
+    "timeOfDay": "La sera, meditazione, prima di dormire.",
+    "context": "Meditazione, esercizi di respirazione, relax, il letto.",
+    "duration": "20–90 min."
+   },
+   "expectedEffect": "Senso di calma e spazio; un sottofondo fluido che aiuta la calma interiore e l’addormentamento."
+  }
  },
  "thi": {
   "title": "Valutazione THI",

@@ -1967,7 +1967,107 @@
     "Archivo 'Neurobiología detallada y terapia del insomnio en pacientes con tinnitus crónico'"
    ]
   },
-  "recommendedNoiseNote": "Cada sonido tiene un ruido de fondo seleccionado, optimizado para este tipo de uso. "
+  "recommendedNoiseNote": "Cada sonido tiene un ruido de fondo seleccionado, optimizado para este tipo de uso. ",
+  "ocean": {
+   "title": "Olas del mar",
+   "definition": "Olas del mar y oleaje: un sonido lento y rítmico con un rico cuerpo de bajas frecuencias. El ritmo lento de las olas se acerca a la respiración tranquila, por lo que muchos lo encuentran muy relajante. El espectro amplio y suave llena el silencio en el que el tinnitus destaca más.",
+   "whenUsed": {
+    "timeOfDay": "Por la noche y al acostarse; también para relajarse de día.",
+    "context": "En la cama o en un lugar tranquilo; con auriculares en un entorno ruidoso.",
+    "duration": "20–90 min; usa el temporizador de sueño para toda la noche."
+   },
+   "expectedEffect": "Sensación de calma y respiración más lenta; un silencio menos contrastado en el que destaque el sonido. Bueno para relajarse por la noche."
+  },
+  "river": {
+   "title": "Río",
+   "definition": "Un río y un arroyo que fluyen: un sonido de agua constante y suave en el rango medio-alto. Más claro y activo que las olas, sin picos bruscos. Bueno para enmascarar el tinnitus más agudo y para confort de fondo durante el día.",
+   "whenUsed": {
+    "timeOfDay": "Durante el día y la noche.",
+    "context": "Trabajo, lectura, concentración o relajación ligera.",
+    "duration": "30–120 min según la actividad."
+   },
+   "expectedEffect": "Un fondo uniforme que suaviza el silencio y ayuda a la concentración o la calma, sin distraer."
+  },
+  "waterfall": {
+   "title": "Cascada",
+   "definition": "Sonido de cascada: un sonido de agua denso y pleno, cercano al ruido blanco o rosa natural. Fuerte efecto de enmascaramiento por su amplio espectro y nivel constante. Adecuado cuando el tinnitus es más intrusivo o el entorno es ruidoso.",
+   "whenUsed": {
+    "timeOfDay": "En cualquier momento, sobre todo con tinnitus más fuerte.",
+    "context": "Entorno ruidoso, concentración o enmascarar un sonido intrusivo.",
+    "duration": "20–90 min; mantén un nivel cómodo."
+   },
+   "expectedEffect": "Enmascaramiento fuerte y uniforme que hace el tinnitus menos perceptible. Mantén el volumen moderado por su densidad."
+  },
+  "underwater": {
+   "title": "Bajo el agua",
+   "definition": "Sonidos amortiguados, como bajo el agua: un fondo cálido, de baja frecuencia y envolvente, sin agudos. La sensación es de aislamiento y calma. Una opción suave para oídos sensibles y para conciliar el sueño.",
+   "whenUsed": {
+    "timeOfDay": "Por la noche y al acostarse.",
+    "context": "En la cama, una habitación tranquila, relajación.",
+    "duration": "20–90 min; temporizador nocturno."
+   },
+   "expectedEffect": "Sensación de envoltura y aislamiento del ruido exterior; un nivel suave y bajo, amable con oídos sensibles."
+  },
+  "rain": {
+   "title": "Lluvia",
+   "definition": "Lluvia y gotas: un sonido natural, ligeramente irregular y de textura agradable. Uno de los sonidos preferidos para dormir y relajarse. El amplio espectro enmascara bien y el suave ritmo de las gotas calma.",
+   "whenUsed": {
+    "timeOfDay": "Por la noche, al acostarse y para relajarse de día.",
+    "context": "En la cama, leyendo, trabajando o descansando.",
+    "duration": "20–120 min; temporizador de sueño."
+   },
+   "expectedEffect": "Un fondo familiar y relajante que muchos asocian con el confort y el sueño; suaviza el silencio alrededor del tinnitus."
+  },
+  "wind": {
+   "title": "Viento",
+   "definition": "Viento y brisa: un sonido suave y respirante con cambios lentos de intensidad. Más delicado y menos acuoso que la lluvia. Adecuado para una relajación ligera y para quienes prefieren un fondo más fino y neutro.",
+   "whenUsed": {
+    "timeOfDay": "Durante el día y la noche.",
+    "context": "Relajación, concentración, respiración meditativa.",
+    "duration": "20–90 min."
+   },
+   "expectedEffect": "Un fondo ligero y discreto; sensación de espacio y calma, sin sonidos bruscos."
+  },
+  "forest": {
+   "title": "Bosque",
+   "definition": "Bosque y pájaros: un sonido natural y vivo con ligeros detalles (hojas, pájaros lejanos). Más rico en detalle que los ruidos puros. Adecuado para relajarse de día y sentir la presencia de la naturaleza.",
+   "whenUsed": {
+    "timeOfDay": "Por la mañana y durante el día.",
+    "context": "Relajación, un paseo, descanso, concentración.",
+    "duration": "20–90 min."
+   },
+   "expectedEffect": "Sensación de un entorno natural tranquilo; aparta suavemente la atención del tinnitus sin ser monótono."
+  },
+  "fire": {
+   "title": "Fuego",
+   "definition": "Fuego de chimenea: un sonido cálido con un crepitar suave y un cuerpo grave. Acogedor y familiar, con una ligera irregularidad que muchos encuentran agradable por la noche. Adecuado para relajarse y dormir en los meses fríos.",
+   "whenUsed": {
+    "timeOfDay": "Por la noche y al acostarse.",
+    "context": "Descanso, lectura, una velada acogedora, la cama.",
+    "duration": "20–90 min; temporizador nocturno."
+   },
+   "expectedEffect": "Sensación de calidez y confort; un fondo suave que suaviza el silencio y favorece la relajación."
+  },
+  "noise": {
+   "title": "Ruido",
+   "definition": "Ruido marrón y rosa: un fondo uniforme y técnico, sin melodía. Son los sonidos de enmascaramiento más estudiados: el espectro amplio y constante cubre por igual las frecuencias en las que se oye el tinnitus. El marrón es más profundo; el rosa, más equilibrado.",
+   "whenUsed": {
+    "timeOfDay": "En cualquier momento, sobre todo para dormir y concentrarse.",
+    "context": "Enmascaramiento, concentración, entorno ruidoso, conciliar el sueño.",
+    "duration": "20–120 min; temporizador nocturno."
+   },
+   "expectedEffect": "Enmascaramiento estable y uniforme que hace el tinnitus menos perceptible. Sin detalles que distraigan."
+  },
+  "ambient": {
+   "title": "Ambiente",
+   "definition": "Tonos ambientales profundos: capas de sonido lentas y envolventes, sin melodía clara. Crean un ambiente tranquilo y sensación de espacio. Adecuados para meditar, relajarse profundamente y conciliar el sueño.",
+   "whenUsed": {
+    "timeOfDay": "Por la noche, meditación, al acostarse.",
+    "context": "Meditación, ejercicios de respiración, relajación, la cama.",
+    "duration": "20–90 min."
+   },
+   "expectedEffect": "Sensación de calma y espacio; un fondo fluido que ayuda a la calma interior y a conciliar el sueño."
+  }
  },
  "thi": {
   "title": "Evaluación THI",
