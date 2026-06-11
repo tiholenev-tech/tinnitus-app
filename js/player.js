@@ -1175,6 +1175,9 @@ window.Player = (function () {
       app.innerHTML = buildPlayerHtml(sound, true);
       bindEvents(app);
     }
+    // Player е fullscreen overlay → скрий глобалния хедър (иначе пресветва
+    // през fade-in анимацията на плеъра). Маха се в stopAudioAndCleanup.
+    document.body.classList.add('pl-open');
 
     // Sync volumes ВЕДНАГА (без значение от async pipeline).
     if (window.AudioEngine) {
@@ -1289,6 +1292,8 @@ window.Player = (function () {
   // Idempotent guard: ако activeSoundId е null и нямa subscriber, return.
   // Втори call (popstate след close) → no-op.
   function stopAudioAndCleanup() {
+    // Винаги връщай глобалния хедър (преди guard-а — дори при повторно викане).
+    document.body.classList.remove('pl-open');
     if (!activeSoundId && !noiseChangedHandler) return;
 
     stopProgressTick();
@@ -1362,6 +1367,7 @@ window.Player = (function () {
       app.innerHTML = buildPlayerHtml(sound, true);
       bindEvents(app);
     }
+    document.body.classList.add('pl-open');
     startProgressTick();
   }
 
