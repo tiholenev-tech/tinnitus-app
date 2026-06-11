@@ -64,3 +64,11 @@ CREATE TABLE IF NOT EXISTS epay_payments (
   INDEX idx_user (user_id),
   CONSTRAINT fk_epay_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=100000 DEFAULT CHARSET=utf8mb4;
+
+-- Stripe webhook idempotency — пазим id-тата на вече обработените събития, за да
+-- не отключим достъп два пъти при повторно изпратен (replay) webhook. Виж
+-- api/stripe_webhook.php: INSERT IGNORE преди обработката.
+CREATE TABLE IF NOT EXISTS stripe_events (
+  event_id   VARCHAR(255) NOT NULL PRIMARY KEY,
+  seen_at    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
