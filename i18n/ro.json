@@ -279,7 +279,9 @@
     "noLayer2": "Fără fundal",
     "resetMix": "Resetează setările",
     "resetMixAria": "Restabilește mixul audio original",
-    "resetMixDone": "Mix original restabilit"
+    "resetMixDone": "Mix original restabilit",
+    "prevAria": "Sunetul anterior",
+    "nextAria": "Sunetul următor"
    }
   },
   "noises": {

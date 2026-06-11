@@ -129,6 +129,53 @@ window.Player = (function () {
     return sound ? t(sound.title_key, sound.bg_title || sound.id) : '';
   }
 
+  // ============================================================
+  // PREV/NEXT навигация между звуци (без излизане от плеъра)
+  // ============================================================
+  // Връща подреден масив от sound id-та = списъкът, към който принадлежи
+  // звукът. Преизползва CategoryView.getSoundsForCategory (същата подредба по
+  // профил-скор като списъка). Приоритет: категорията, от която идва
+  // потребителят (lastCategoryView) ако звукът е в нея; иначе елемент-
+  // категорията на самия звук (category_audio). Така редът съвпада с видяното.
+  function getNavList(soundId) {
+    if (!soundId) return [];
+    var sound = findSound(soundId);
+    if (!sound) return [];
+    var getCat = window.CategoryView && window.CategoryView.getSoundsForCategory;
+    if (!getCat) return [];
+
+    var list = null;
+    var catId = (window.AppState && window.AppState.lastCategoryView &&
+      window.AppState.lastCategoryView.catId) || null;
+    if (catId) {
+      var fromCat = getCat(catId) || [];
+      for (var i = 0; i < fromCat.length; i++) {
+        if (fromCat[i].id === soundId) { list = fromCat; break; }
+      }
+    }
+    if (!list && sound.category_audio) {
+      list = getCat(sound.category_audio) || [];
+    }
+    if (!list || !list.length) return [];
+
+    var ids = [];
+    for (var j = 0; j < list.length; j++) ids.push(list[j].id);
+    return ids;
+  }
+
+  function navigateSound(dir) {
+    if (!activeSoundId) return;
+    var ids = getNavList(activeSoundId);
+    if (!ids.length) return;
+    var idx = ids.indexOf(activeSoundId);
+    if (idx === -1) return;
+    var newIdx = idx + dir;
+    if (newIdx < 0 || newIdx >= ids.length) return;  // ръб — стрелката е disabled
+    if (window.Haptics && window.Haptics.light) window.Haptics.light();
+    // replace:true → системната „назад" излиза към категорията, не трак по трак.
+    openCore(ids[newIdx], { replace: true });
+  }
+
   function soundSubtitle(sound) {
     return sound ? t(sound.subtitle_key, sound.category || '') : '';
   }
@@ -207,7 +254,14 @@ window.Player = (function () {
     reset: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"' +
       ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
       '<polyline points="1 4 1 10 7 10"/>' +
-      '<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>'
+      '<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>',
+    // Prev/next навигация между звуци (chevron наляво/надясно).
+    navPrev: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"' +
+      ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<polyline points="15 18 9 12 15 6"/></svg>',
+    navNext: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"' +
+      ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<polyline points="9 18 15 12 9 6"/></svg>'
   };
 
   // ============================================================
@@ -288,6 +342,12 @@ window.Player = (function () {
       : t('ui.components.player.playAria', 'Пусни');
     var sleepAria = t('ui.components.player.sleepAria', 'Нощен режим');
     var sosAria = t('ui.components.player.sosAria', 'SOS дишане');
+    // PREV/NEXT навигация: подреденият списък, към който принадлежи звукът.
+    // Стрелките се disable-ват на ръбовете (първи/последен).
+    var navIds = getNavList(sound.id);
+    var navIdx = navIds.indexOf(sound.id);
+    var hasPrev = navIdx > 0;
+    var hasNext = navIdx !== -1 && navIdx < navIds.length - 1;
     // PACK A change 1: favorite state определя heart icon variant + aria.
     var isFav = !!(window.Favorites && window.Favorites.has &&
       sound && window.Favorites.has(sound.id));
@@ -315,12 +375,22 @@ window.Player = (function () {
           '</button>' +
         '</header>' +
 
-        // PLAYER-ART: category-specific анимация вместо generic orb.
-        // PlayerArt.build връща full <div class="pl-art pa-<variant>">...</div>.
-        // Fallback на orb ако модулът липсва.
-        ((window.PlayerArt && window.PlayerArt.build)
-          ? window.PlayerArt.build(sound)
-          : '<div class="pl-art" aria-hidden="true"><div class="pl-art-orb"></div></div>') +
+        // PLAYER-ART + PREV/NEXT навигация: артуоркът е флакиран от 2 стрелки
+        // (‹ ›) за смяна на звук без излизане. Стрелките се disable-ват на
+        // ръбовете на списъка. PlayerArt.build връща full <div class="pl-art …">.
+        '<div class="pl-art-nav">' +
+          '<button class="pl-nav-arrow pl-nav-prev" type="button" data-action="prev-sound"' +
+            ' aria-label="' + escapeHtml(t('ui.components.player.prevAria', 'Предишен звук')) + '"' +
+            (hasPrev ? '' : ' disabled') + '>' + SVG.navPrev +
+          '</button>' +
+          ((window.PlayerArt && window.PlayerArt.build)
+            ? window.PlayerArt.build(sound)
+            : '<div class="pl-art" aria-hidden="true"><div class="pl-art-orb"></div></div>') +
+          '<button class="pl-nav-arrow pl-nav-next" type="button" data-action="next-sound"' +
+            ' aria-label="' + escapeHtml(t('ui.components.player.nextAria', 'Следващ звук')) + '"' +
+            (hasNext ? '' : ' disabled') + '>' + SVG.navNext +
+          '</button>' +
+        '</div>' +
 
         '<div class="pl-info">' +
           '<h1 class="pl-title">' + escapeHtml(title) + '</h1>' +
@@ -340,7 +410,7 @@ window.Player = (function () {
               // „Върни настройките" — малка кръгла иконка ВДЯСНО на L1 реда,
               // симетрично на chevron-а (›) на L2 реда. Връща оригиналния микс.
               '<button class="pl-layer-reset" type="button" data-action="reset-mix"' +
-                ' aria-label="' + escapeHtml(t('components.player.resetMixAria',
+                ' aria-label="' + escapeHtml(t('ui.components.player.resetMixAria',
                   'Върни оригиналния микс на звуците')) + '">' +
                 SVG.reset +
               '</button>' +
@@ -536,6 +606,8 @@ window.Player = (function () {
     else if (action === 'info') openSoundInfo();
     else if (action === 'favorite') toggleFavorite();
     else if (action === 'reset-mix') resetMix();
+    else if (action === 'prev-sound') navigateSound(-1);
+    else if (action === 'next-sound') navigateSound(1);
   }
 
   // „Върни настройките": връща оригиналния микс — изтрива user override-а за
@@ -608,7 +680,7 @@ window.Player = (function () {
     persist('auralis-master-volume', toMaster);
 
     if (window.Toast) {
-      var msg = t('components.player.resetMixDone', 'Върнат оригинален микс');
+      var msg = t('ui.components.player.resetMixDone', 'Върнат оригинален микс');
       if (window.Toast.success) window.Toast.success(msg);
       else if (window.Toast.show) window.Toast.show(msg, { durationMs: 1800 });
     }
@@ -1061,7 +1133,8 @@ window.Player = (function () {
     }
   }
 
-  function openCore(soundId) {
+  function openCore(soundId, opts) {
+    opts = opts || {};
     var sound = findSound(soundId);
     if (!sound) return;
 
@@ -1082,7 +1155,13 @@ window.Player = (function () {
     if (window.AppState && window.AppState.transition) {
       window.AppState.transition('player');
     }
-    history.pushState({ phase: 'player', soundId: soundId }, '');
+    // PREV/NEXT навигация: REPLACE текущия player history entry (не push) — така
+    // системната „назад" стрелка излиза към категорията, не минава трак по трак.
+    if (opts.replace) {
+      history.replaceState({ phase: 'player', soundId: soundId }, '');
+    } else {
+      history.pushState({ phase: 'player', soundId: soundId }, '');
+    }
 
     var app = el('app');
     if (app) {
@@ -1158,8 +1237,9 @@ window.Player = (function () {
     }
 
     // Mix-hint popup при ВСЕКИ нов звук (Тихол) — напомня за точката на
-    // смесване. Показва се само при НОВ звук (не при re-open на същия).
-    if (soundId !== prevSoundId) showMixHint();
+    // смесване. Показва се само при НОВ звук (не при re-open на същия), и НЕ
+    // при prev/next навигация (иначе изскача на всеки трак — досадно).
+    if (soundId !== prevSoundId && !opts.replace) showMixHint();
 
     startProgressTick();
   }

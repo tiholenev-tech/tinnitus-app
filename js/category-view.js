@@ -628,6 +628,9 @@ window.CategoryView = (function () {
     open: open,
     openFromPopstate: openFromPopstate,
     close: close,
-    render: render
+    render: render,
+    // Експонирано за Player prev/next навигация — подреденият списък звуци
+    // за дадена категория (същата подредба по профил-скор като списъка).
+    getSoundsForCategory: getSoundsForCategory
   };
 })();

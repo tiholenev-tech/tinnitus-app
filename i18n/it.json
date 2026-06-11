@@ -279,7 +279,9 @@
     "noLayer2": "Senza sfondo",
     "resetMix": "Ripristina impostazioni",
     "resetMixAria": "Ripristina il mix audio originale",
-    "resetMixDone": "Mix originale ripristinato"
+    "resetMixDone": "Mix originale ripristinato",
+    "prevAria": "Suono precedente",
+    "nextAria": "Suono successivo"
    }
   },
   "noises": {
