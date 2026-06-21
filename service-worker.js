@@ -19,7 +19,7 @@
 // CACHE_AUDIO бамп също защото старите URLs (audio/library/* и
 // library_staging_loop_ready/*) са персистнали → нови URLs
 // (library_staging_normalized/*) не са в стария cache + 503 offline.
-var VERSION = '1.0.138';
+var VERSION = '1.0.139';
 var CACHE_SHELL = 'auralis-shell-v' + VERSION;
 var CACHE_I18N = 'auralis-i18n-v' + VERSION;
 var CACHE_AUDIO = 'auralis-audio-v3';
@@ -53,6 +53,7 @@ var SHELL_FILES = [
   '/js/account.js',
   '/js/paywall.js',
   '/js/trial-banner.js',
+  '/js/grandfather-backup.js',
   '/js/profile-config.js',
   '/js/app.js',
   '/js/toast.js',

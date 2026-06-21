@@ -22,7 +22,8 @@
     logout:  '/api/logout.php',
     checkout: '/api/checkout.php',
     epay:    '/api/epay_checkout.php',
-    deviceInit: '/api/device_init.php'
+    deviceInit: '/api/device_init.php',
+    gfBackup: '/api/grandfather_backup.php'
   };
 
   var state = { ready: false, loggedIn: false, email: null, paid: false, trialLeft: null, rev: 0 };
@@ -31,7 +32,7 @@
   // window.Entitlement = server-side истина за достъпа. fail-open: докато не е
   // зареден (или при мрежова грешка) entitled=true → заварен НИКОГА не се заключва.
   var DEVICE_KEY = 'auralis_device_token';
-  window.Entitlement = { loaded: false, entitled: true, status: 'none', daysLeft: null, paid: false, lifetime: false };
+  window.Entitlement = { loaded: false, entitled: true, status: 'none', daysLeft: null, paid: false, lifetime: false, emailBackup: false };
 
   function genToken() {
     try {
@@ -75,7 +76,8 @@
       status: r.status || 'none',
       daysLeft: (typeof r.trial_days_left !== 'undefined') ? r.trial_days_left : null,
       paid: !!r.paid,
-      lifetime: !!r.lifetime
+      lifetime: !!r.lifetime,
+      emailBackup: !!r.email_backup
     };
     try { window.dispatchEvent(new CustomEvent('auralis-entitlement', { detail: window.Entitlement })); } catch (e) {}
   }
@@ -88,6 +90,14 @@
   function refreshEntitlement() {
     return getJSON(API.me + '?device=' + encodeURIComponent(deviceToken())).then(function (r) {
       applyEntitlement(r); return r;
+    });
+  }
+
+  // Имейл-backup на заварен (lifetime) достъп → възстановим при wipe.
+  function grandfatherBackup(email) {
+    return postJSON(API.gfBackup, { device: deviceToken(), email: email }).then(function (r) {
+      if (r && r.__status === 200) applyEntitlement(r);
+      return r;
     });
   }
   var pushTimer = null, pendingDirty = false, suspendHook = false;
@@ -482,6 +492,7 @@
     deviceToken: deviceToken,
     entitlement: function () { return window.Entitlement; },
     refreshEntitlement: refreshEntitlement,
+    grandfatherBackup: grandfatherBackup,
     startCheckout: startCheckout,
     startEpay: startEpay
   };

@@ -259,6 +259,9 @@ function entitlement_payload(?array $user, ?array $device): array {
         'lifetime'        => $lifetime,
         'paid'            => $paid,
         'trial_days_left' => $trialLeft,
+        // има ли вече свързан имейл-акаунт (backup на достъпа)? → за да решим дали
+        // да показваме „запази достъпа с имейл" модала на заварени анонимни.
+        'email_backup'    => ($user !== null) || !empty($device['linked_user_id'] ?? null),
     ];
 }
 
