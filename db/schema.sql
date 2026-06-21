@@ -11,9 +11,37 @@ CREATE TABLE IF NOT EXISTS users (
   trial_started_at DATETIME NULL,
   paid             TINYINT(1) NOT NULL DEFAULT 0,
   paid_at          DATETIME NULL,
+  is_lifetime      TINYINT(1) NOT NULL DEFAULT 0,  -- заварен/grandfathered → достъп завинаги
   last_seen_at     DATETIME NULL,
   trial_ip         VARCHAR(45) NULL,
   INDEX idx_trial_ip (trial_ip)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Устройства (anon-first flow): entitlement на ниво устройство преди да има имейл.
+-- Анонимен trial живее тук; заварените анонимни (без имейл) се claim-ват като
+-- lifetime от клиента (api/device_init.php). При плащане device се свързва с user.
+CREATE TABLE IF NOT EXISTS devices (
+  id               BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  device_token     CHAR(64) NOT NULL UNIQUE,
+  status           ENUM('trial','lifetime','paid') NOT NULL DEFAULT 'trial',
+  trial_started_at DATETIME NULL,
+  linked_user_id   BIGINT UNSIGNED NULL,
+  trial_ip         VARCHAR(45) NULL,
+  created_at       DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  last_seen_at     DATETIME NULL,
+  INDEX idx_trial_ip (trial_ip),
+  INDEX idx_linked_user (linked_user_id),
+  CONSTRAINT fk_devices_user FOREIGN KEY (linked_user_id) REFERENCES users(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Имейл напомняния за trial (ден 7/12/14) — idempotency, за да не пращаме два пъти.
+CREATE TABLE IF NOT EXISTS sent_reminders (
+  id        BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  user_id   BIGINT UNSIGNED NOT NULL,
+  day       INT NOT NULL,
+  sent_at   DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE KEY uniq_user_day (user_id, day),
+  CONSTRAINT fk_reminder_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Magic link токени (пазим само sha256 хеш, не суровия токен)
@@ -59,6 +87,7 @@ CREATE TABLE IF NOT EXISTS epay_payments (
   amount      VARCHAR(16) NOT NULL,
   currency    VARCHAR(8) NOT NULL DEFAULT 'EUR',
   status      VARCHAR(16) NOT NULL DEFAULT 'pending',
+  device_token CHAR(64) NULL,  -- за анонимно EasyPay плащане → свързване на устройство
   created_at  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   paid_at     DATETIME NULL,
   INDEX idx_user (user_id),

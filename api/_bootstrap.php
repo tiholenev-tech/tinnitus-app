@@ -8,6 +8,10 @@
 
 declare(strict_types=1);
 
+// ── Timezone (одит-критика #6): PHP И MySQL да са на UTC, за да няма ±1 ден
+//    разминаване в trial сметката (NOW() vs time()/strtotime()). ─────────────
+date_default_timezone_set('UTC');
+
 // ── Config ───────────────────────────────────────────────────────────────
 function cfg(): array {
     static $c = null;
@@ -35,6 +39,8 @@ function db(): PDO {
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_EMULATE_PREPARES   => false,
         ]);
+        // Timezone fix: NOW() в DB да е UTC, консистентно с PHP (UTC по-горе).
+        $pdo->exec("SET time_zone = '+00:00'");
     }
     return $pdo;
 }
@@ -185,4 +191,107 @@ function smtp_send(array $m, string $to, string $subject, string $body): bool {
 function mail_fail($fp, string $where): bool { @fclose($fp); mail_log("smtp fail @ $where"); return false; }
 function mail_log(string $s): void {
     @file_put_contents(__DIR__ . '/../logs/mail.log', gmdate('c') . "\t$s\n", FILE_APPEND | LOCK_EX);
+}
+
+// ── Anon-first flow: устройства, entitlement, заварени ──────────────────────
+// (Виж db/migration_2026-06-18_devices.sql.)
+
+// Device token — четем го от заглавка или body/query. Клиентът го генерира
+// (random hex) и пази в localStorage. Валидираме формата (анти-боклук).
+function client_device_token(?array $body = null): string {
+    $t = (string) ($_SERVER['HTTP_X_DEVICE_TOKEN'] ?? '');
+    if ($t === '' && $body !== null) $t = (string) ($body['device'] ?? ($body['token'] ?? ''));
+    if ($t === '') $t = (string) ($_GET['device'] ?? '');
+    $t = strtolower(trim($t));
+    return preg_match('/^[a-f0-9]{16,64}$/', $t) ? $t : '';
+}
+
+function get_device(string $token): ?array {
+    if ($token === '') return null;
+    $st = db()->prepare('SELECT * FROM devices WHERE device_token = ? LIMIT 1');
+    $st->execute([$token]);
+    return $st->fetch() ?: null;
+}
+
+// В grace прозореца ли сме (claim на заварени анонимни устройства)?
+function grandfather_grace_active(): bool {
+    $cut  = (string) (cfg()['app']['migration_cutoff'] ?? '');
+    $days = (int) (cfg()['app']['grandfather_grace_days'] ?? 0);
+    if ($cut === '' || $days <= 0) return false;
+    $cutTs = strtotime($cut . ' UTC');
+    if ($cutTs === false) return false;
+    return time() <= ($cutTs + $days * 86400);
+}
+
+// Остатък от trial (дни, закръглено нагоре). null = няма стартиран trial.
+function trial_days_left(?string $startedAt): ?int {
+    if (empty($startedAt)) return null;
+    $days    = (int) cfg()['app']['trial_days'];
+    $elapsed = (time() - strtotime((string)$startedAt . ' UTC')) / 86400;
+    return max(0, (int) ceil($days - $elapsed));
+}
+
+// Единен entitlement (server-side истина) — комбинира сесиен user + устройство.
+// Връща най-щедрия достъп между двата (lifetime > paid > активен trial).
+function entitlement_payload(?array $user, ?array $device): array {
+    $lifetime = (bool) (($user['is_lifetime'] ?? 0))
+              || (($device['status'] ?? '') === 'lifetime');
+    $paid     = (bool) (($user['paid'] ?? 0))
+              || (($device['status'] ?? '') === 'paid');
+
+    // trial — взимаме по-благоприятния (повече оставащи дни) от user / device.
+    $uLeft = trial_days_left($user['trial_started_at']   ?? null);
+    $dLeft = trial_days_left($device['trial_started_at'] ?? null);
+    $trialLeft = null;
+    foreach ([$uLeft, $dLeft] as $v) {
+        if ($v !== null && ($trialLeft === null || $v > $trialLeft)) $trialLeft = $v;
+    }
+
+    if ($lifetime)              { $status = 'lifetime'; $entitled = true; $trialLeft = null; }
+    elseif ($paid)             { $status = 'paid';     $entitled = true; $trialLeft = null; }
+    elseif ($trialLeft === null) { $status = 'none';   $entitled = true; }   // още нестартирал
+    elseif ($trialLeft > 0)    { $status = 'trial';    $entitled = true; }
+    else                       { $status = 'expired';  $entitled = false; }
+
+    return [
+        'entitled'        => $entitled,
+        'status'          => $status,
+        'lifetime'        => $lifetime,
+        'paid'            => $paid,
+        'trial_days_left' => $trialLeft,
+        // има ли вече свързан имейл-акаунт (backup на достъпа)? → за да решим дали
+        // да показваме „запази достъпа с имейл" модала на заварени анонимни.
+        'email_backup'    => ($user !== null) || !empty($device['linked_user_id'] ?? null),
+    ];
+}
+
+// Find-or-create на user по имейл (без да пипа paid). За EasyPay, където имейлът
+// се събира преди плащане (notify-ът после маркира paid).
+function find_or_create_user(string $email): ?int {
+    $email = strtolower(trim($email));
+    if (!valid_email($email)) return null;
+    $pdo = db();
+    $pdo->prepare('INSERT INTO users (email) VALUES (?)
+                   ON DUPLICATE KEY UPDATE last_seen_at = NOW()')
+        ->execute([$email]);
+    $st = $pdo->prepare('SELECT id FROM users WHERE email = ? LIMIT 1');
+    $st->execute([$email]);
+    $id = $st->fetchColumn();
+    return $id ? (int) $id : null;
+}
+
+// Find-or-create на ПЛАТЕН user по имейл (Stripe webhook: плащането е анонимно и
+// имейлът идва от Stripe Checkout).
+function find_or_create_paid_user(string $email): ?int {
+    $id = find_or_create_user($email);
+    if ($id) db()->prepare('UPDATE users SET paid = 1, paid_at = NOW() WHERE id = ?')->execute([$id]);
+    return $id;
+}
+
+// Свързване на устройство към платил потребител (възстановим на друго устройство).
+function link_device_to_user(string $deviceToken, int $userId): void {
+    if ($deviceToken === '' || $userId <= 0) return;
+    db()->prepare('UPDATE devices SET status = "paid", linked_user_id = ?, last_seen_at = NOW()
+                   WHERE device_token = ?')
+        ->execute([$userId, $deviceToken]);
 }
