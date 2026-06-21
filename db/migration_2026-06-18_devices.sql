@@ -4,20 +4,22 @@
 -- добавя нови таблици/колони. Пусни ВЕДНЪЖ на сървъра при деплой:
 --   mysql --defaults-file=/etc/mysql/debian.cnf auralis < db/migration_2026-06-18_devices.sql
 --
--- 🛡️ ЗАЩИТА НА ЗАВАРЕНИ: този скрипт маркира ВСИЧКИ съществуващи users като
---    lifetime (виж най-долу). Анонимните заварени (без имейл) се хващат
---    клиент-side → api/device_init.php (claim в grace прозореца).
+-- 🛡️ ЗАЩИТА НА ЗАВАРЕНИ: маркира ВСИЧКИ съществуващи users като lifetime (долу).
+--    Анонимните заварени (без имейл) се хващат клиент-side → api/device_init.php.
 --
--- Idempotent (MariaDB: ADD COLUMN/CREATE IF NOT EXISTS) — безопасно при повтор,
--- НО UPDATE-ът за lifetime в края използва @cutoff = момента на пускане → пусни
--- скрипта ВЕДНЪЖ при деплой (повторно пускане няма да навреди на заварени, но
--- може да маркира lifetime устройства/хора, създадени между двете пускания).
+-- СЪВМЕСТИМОСТ: работи и на MySQL (Oracle), и на MariaDB. НЕ ползва
+-- `ADD COLUMN IF NOT EXISTS` (това е само MariaDB) — вместо това проверява
+-- information_schema + PREPARE, за да е idempotent на ДВАТА engine-а.
 
 SET NAMES utf8mb4;
 
--- ── users: флаг за „заварен завинаги" (имейл-акаунти) ───────────────────────
-ALTER TABLE users
-  ADD COLUMN IF NOT EXISTS is_lifetime TINYINT(1) NOT NULL DEFAULT 0;
+-- ── users.is_lifetime (добави само ако липсва) ──────────────────────────────
+SET @need := (SELECT COUNT(*) = 0 FROM information_schema.COLUMNS
+  WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'users' AND COLUMN_NAME = 'is_lifetime');
+SET @sql := IF(@need,
+  'ALTER TABLE users ADD COLUMN is_lifetime TINYINT(1) NOT NULL DEFAULT 0',
+  'SELECT 1');
+PREPARE st FROM @sql; EXECUTE st; DEALLOCATE PREPARE st;
 
 -- ── devices: entitlement на ниво устройство (анонимни + claim на заварени) ───
 CREATE TABLE IF NOT EXISTS devices (
@@ -34,9 +36,13 @@ CREATE TABLE IF NOT EXISTS devices (
   CONSTRAINT fk_devices_user FOREIGN KEY (linked_user_id) REFERENCES users(id) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- ── epay_payments: връзка към устройство (за анонимно EasyPay плащане) ───────
-ALTER TABLE epay_payments
-  ADD COLUMN IF NOT EXISTS device_token CHAR(64) NULL;
+-- ── epay_payments.device_token (добави само ако липсва) ─────────────────────
+SET @need := (SELECT COUNT(*) = 0 FROM information_schema.COLUMNS
+  WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'epay_payments' AND COLUMN_NAME = 'device_token');
+SET @sql := IF(@need,
+  'ALTER TABLE epay_payments ADD COLUMN device_token CHAR(64) NULL',
+  'SELECT 1');
+PREPARE st FROM @sql; EXECUTE st; DEALLOCATE PREPARE st;
 
 -- ── sent_reminders: idempotency за имейл напомнянията (ден 7/12/14) ──────────
 CREATE TABLE IF NOT EXISTS sent_reminders (
@@ -49,7 +55,6 @@ CREATE TABLE IF NOT EXISTS sent_reminders (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ── 🛡️ GRANDFATHER: всеки СЪЩЕСТВУВАЩ имейл-акаунт → lifetime завинаги ───────
--- @cutoff = моментът на пускане на миграцията. Всичко създадено преди него е
--- заварено (паунд преди paywall-а). Часовникът важи само за нови след деплой.
+-- @cutoff = моментът на пускане. Всичко създадено преди него е заварено.
 SET @cutoff = NOW();
 UPDATE users SET is_lifetime = 1 WHERE created_at < @cutoff;
