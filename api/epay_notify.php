@@ -34,12 +34,14 @@ foreach (preg_split('/\r\n|\r|\n/', $data) as $line) {
     if ($inv === '' || !ctype_digit($inv)) continue;
 
     if ($status === 'PAID') {
-        $st = $pdo->prepare('SELECT user_id FROM epay_payments WHERE invoice = ? LIMIT 1');
+        $st = $pdo->prepare('SELECT user_id, device_token FROM epay_payments WHERE invoice = ? LIMIT 1');
         $st->execute([$inv]);
         $row = $st->fetch();
         if ($row) {
             $pdo->prepare('UPDATE epay_payments SET status = "paid", paid_at = NOW() WHERE invoice = ?')->execute([$inv]);
             $pdo->prepare('UPDATE users SET paid = 1, paid_at = NOW() WHERE id = ?')->execute([(int) $row['user_id']]);
+            // свържи устройството (възстановим достъп при смяна на устройство)
+            if (!empty($row['device_token'])) link_device_to_user((string) $row['device_token'], (int) $row['user_id']);
         }
     } elseif ($status !== '') {
         $pdo->prepare('UPDATE epay_payments SET status = ? WHERE invoice = ?')->execute([strtolower($status), $inv]);

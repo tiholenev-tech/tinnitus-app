@@ -21,10 +21,75 @@
     sync:    '/api/sync.php',
     logout:  '/api/logout.php',
     checkout: '/api/checkout.php',
-    epay:    '/api/epay_checkout.php'
+    epay:    '/api/epay_checkout.php',
+    deviceInit: '/api/device_init.php'
   };
 
   var state = { ready: false, loggedIn: false, email: null, paid: false, trialLeft: null, rev: 0 };
+
+  // ── Device token + entitlement (anon-first flow) ────────────────────────────
+  // window.Entitlement = server-side истина за достъпа. fail-open: докато не е
+  // зареден (или при мрежова грешка) entitled=true → заварен НИКОГА не се заключва.
+  var DEVICE_KEY = 'auralis_device_token';
+  window.Entitlement = { loaded: false, entitled: true, status: 'none', daysLeft: null, paid: false, lifetime: false };
+
+  function genToken() {
+    try {
+      var a = new Uint8Array(32), c = window.crypto || window.msCrypto;
+      c.getRandomValues(a);
+      return Array.prototype.map.call(a, function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
+    } catch (e) {
+      var s = ''; for (var i = 0; i < 64; i++) s += '0123456789abcdef'[Math.floor(Math.random() * 16)]; return s;
+    }
+  }
+  function deviceToken() {
+    var t = null;
+    try { t = localStorage.getItem(DEVICE_KEY); } catch (e) {}
+    if (!t || !/^[a-f0-9]{16,64}$/.test(t)) {
+      t = genToken();
+      try { localStorage.setItem(DEVICE_KEY, t); } catch (e) {}
+    }
+    return t;
+  }
+
+  // 🛡️ Заварен ли е (стари localStorage маркери на реално ползване)? Нова
+  // инсталация на първи boot (преди онбординг) НЯМА нито един от тези.
+  function detectLegacy() {
+    try {
+      if (localStorage.getItem('auralis-grandfathered') === '1') return true;
+      if (window.AppState && AppState.isQuizDone && AppState.isQuizDone()) return true;
+      var keys = ['auralis-onboarding-done', 'auralis-quiz-done', 'auralis-quiz-answers',
+        'auralis-quiz-profile', 'auralis-pitch-tests', 'auralis-program-start-date',
+        'auralis-diary-entries', 'auralis_diary_entries', 'auralis-thi-baseline',
+        'auralis_analytics_sessions', 'auralis_trial_start', 'auralis_favorites'];
+      for (var i = 0; i < keys.length; i++) { if (localStorage.getItem(keys[i])) return true; }
+    } catch (e) {}
+    return false;
+  }
+
+  function applyEntitlement(r) {
+    if (!r || r.__status !== 200) return;
+    window.Entitlement = {
+      loaded: true,
+      entitled: (r.entitled !== false),
+      status: r.status || 'none',
+      daysLeft: (typeof r.trial_days_left !== 'undefined') ? r.trial_days_left : null,
+      paid: !!r.paid,
+      lifetime: !!r.lifetime
+    };
+    try { window.dispatchEvent(new CustomEvent('auralis-entitlement', { detail: window.Entitlement })); } catch (e) {}
+  }
+
+  // Boot: регистрира устройството на сървъра (idempotent) → връща entitlement.
+  function initDevice() {
+    return postJSON(API.deviceInit, { token: deviceToken(), legacy: detectLegacy() })
+      .then(function (r) { applyEntitlement(r); return r; });
+  }
+  function refreshEntitlement() {
+    return getJSON(API.me + '?device=' + encodeURIComponent(deviceToken())).then(function (r) {
+      applyEntitlement(r); return r;
+    });
+  }
   var pushTimer = null, pendingDirty = false, suspendHook = false;
   var PUSH_DEBOUNCE = 2500;
 
@@ -107,12 +172,13 @@
   }
 
   function checkSession() {
-    return getJSON(API.me).then(function (r) {
+    return getJSON(API.me + '?device=' + encodeURIComponent(deviceToken())).then(function (r) {
       state.ready    = true;
       state.loggedIn = !!(r && r.logged_in);
       state.email    = (r && r.email) || null;
       state.paid     = !!(r && r.paid);
       state.trialLeft = (r && typeof r.trial_days_left !== 'undefined') ? r.trial_days_left : null;
+      applyEntitlement(r);
       return state.loggedIn;
     });
   }
@@ -150,23 +216,27 @@
       if (document.visibilityState === 'hidden') flush();
     });
 
-    if (loginParam === 'ok') {
-      stripParam('login');
-      checkSession().then(function (ok) {
-        if (ok) { toast(t('ui.account.loginOk','Влязохте успешно ✓')); pullAndReload(); }
-        else    { toast(t('ui.account.loginFail','Входът не беше успешен. Опитайте пак.')); }
-      });
-    } else if (paidParam === 'ok') {
-      stripParam('paid');
-      confirmPaid(4);
-    } else if (paidParam === 'cancel') {
-      stripParam('paid');
-      toast(t('ui.account.payCancelled','Плащането е отменено.'));
-      checkSession();
-    } else {
-      if (loginParam === 'fail') { stripParam('login'); toast(t('ui.account.linkExpired','Връзката е изтекла или невалидна.')); }
-      checkSession(); // тихо — за статус в Настройки + активиране на push
-    }
+    // initDevice() първо: регистрира устройството (трал/lifetime) + entitlement,
+    // после обработваме login/paid/статус. Така paywall-ът има server-side истина.
+    initDevice().then(function () {
+      if (loginParam === 'ok') {
+        stripParam('login');
+        checkSession().then(function (ok) {
+          if (ok) { toast(t('ui.account.loginOk','Влязохте успешно ✓')); pullAndReload(); }
+          else    { toast(t('ui.account.loginFail','Входът не беше успешен. Опитайте пак.')); }
+        });
+      } else if (paidParam === 'ok') {
+        stripParam('paid');
+        confirmPaid(4);
+      } else if (paidParam === 'cancel') {
+        stripParam('paid');
+        toast(t('ui.account.payCancelled','Плащането е отменено.'));
+        checkSession();
+      } else {
+        if (loginParam === 'fail') { stripParam('login'); toast(t('ui.account.linkExpired','Връзката е изтекла или невалидна.')); }
+        checkSession(); // тихо — за статус в Настройки + активиране на push
+      }
+    });
   }
 
   function flush() {
@@ -191,7 +261,7 @@
 
   // ── Плащане (Stripe Checkout) ───────────────────────────────────────────────
   function startCheckout() {
-    return postJSON(API.checkout, {}).then(function (r) {
+    return postJSON(API.checkout, { device: deviceToken() }).then(function (r) {
       if (r && r.url) { try { location.href = r.url; } catch (e) {} return { redirect: true }; }
       if (r && r.already_paid) { state.paid = true; toast(t('ui.account.alreadyPaid','Вече имате пълен достъп ✓')); return { paid: true }; }
       return { notReady: true };
@@ -209,10 +279,13 @@
   }
 
   // ── Плащане през ePay.bg / EasyPay (БГ) ─────────────────────────────────────
-  function startEpay() {
-    return postJSON(API.epay, {}).then(function (r) {
+  function startEpay(email) {
+    var body = { device: deviceToken() };
+    if (email) body.email = email;
+    return postJSON(API.epay, body).then(function (r) {
       if (r && r.submit_url && r.fields) { submitForm(r.submit_url, r.fields); return { redirect: true }; }
       if (r && r.already_paid) { state.paid = true; toast(t('ui.account.alreadyPaid','Вече имате пълен достъп ✓')); return { paid: true }; }
+      if (r && r.error === 'email_required') return { needEmail: true };
       return { notReady: true };
     });
   }
@@ -405,7 +478,12 @@
     status: function () { return { loggedIn: state.loggedIn, email: state.email, paid: state.paid, trialLeft: state.trialLeft }; },
     isLoggedIn: function () { return state.loggedIn; },
     pushNow: pushNow,
-    logout: logout
+    logout: logout,
+    deviceToken: deviceToken,
+    entitlement: function () { return window.Entitlement; },
+    refreshEntitlement: refreshEntitlement,
+    startCheckout: startCheckout,
+    startEpay: startEpay
   };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

@@ -10,22 +10,33 @@ require __DIR__ . '/_stripe.php';
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') json_out(405, ['error' => 'method']);
 
-$u = require_user();
-if ((int) $u['paid'] === 1) json_out(200, ['already_paid' => true]);
-if (!stripe_configured())   json_out(503, ['error' => 'payments_not_configured']);
+// Anon-first: НЕ изискваме сесия. Плащаш с device_token; имейлът се хваща от
+// Stripe Checkout и се обработва във webhook-а (find-or-create user по имейл).
+$in     = read_json();
+$u      = current_user();                  // по избор (ако вече е логнат)
+$device = get_device(client_device_token($in));
+
+$ent = entitlement_payload($u, $device);
+if ($ent['paid'] || $ent['lifetime']) json_out(200, ['already_paid' => true]);
+if (!stripe_configured())             json_out(503, ['error' => 'payments_not_configured']);
+if (!$u && !$device)                  json_out(400, ['error' => 'no_device']);
 
 $base = rtrim((string) cfg()['app']['base_url'], '/');
 $s    = stripe_cfg();
+
+// Референция за webhook-а: предпочитаме user (ако логнат), иначе устройство.
+$ref = $u ? ('u:' . $u['id']) : ('d:' . $device['device_token']);
 
 $params = [
     'mode'                  => 'payment',
     'success_url'           => $base . '/app.html?paid=ok',
     'cancel_url'            => $base . '/app.html?paid=cancel',
-    'customer_email'        => $u['email'],
-    'client_reference_id'   => (string) $u['id'],
+    'client_reference_id'   => $ref,
     'allow_promotion_codes' => 'true',
-    'metadata[user_id]'     => (string) $u['id'],
 ];
+if ($u) $params['customer_email'] = $u['email'];   // иначе Stripe събира имейла
+if ($u)      $params['metadata[user_id]']      = (string) $u['id'];
+if ($device) $params['metadata[device_token]'] = (string) $device['device_token'];
 
 if (!empty($s['price_id'])) {
     $params['line_items[0][price]']    = $s['price_id'];

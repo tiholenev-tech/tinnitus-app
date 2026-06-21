@@ -38,10 +38,31 @@ if ($eventId !== '') {
 
 if ($type === 'checkout.session.completed') {
     $obj  = $event['data']['object'] ?? [];
-    $uid  = $obj['client_reference_id'] ?? ($obj['metadata']['user_id'] ?? null);
     $paid = ($obj['payment_status'] ?? '') === 'paid' || ($obj['status'] ?? '') === 'complete';
-    if ($uid && $paid) {
-        db()->prepare('UPDATE users SET paid = 1, paid_at = NOW() WHERE id = ?')->execute([(int) $uid]);
+
+    if ($paid) {
+        $ref    = (string) ($obj['client_reference_id'] ?? '');
+        $email  = (string) ($obj['customer_details']['email'] ?? ($obj['customer_email'] ?? ''));
+        $devTok = (string) ($obj['metadata']['device_token'] ?? '');
+
+        $userId = null;
+
+        if (strpos($ref, 'u:') === 0) {
+            // логнат потребител — имаме user_id директно
+            $userId = (int) substr($ref, 2);
+        } elseif (ctype_digit($ref) && $ref !== '') {
+            // back-compat: стар формат (plain user_id)
+            $userId = (int) $ref;
+        } else {
+            // анонимно плащане (ref "d:token") — създаваме/намираме user по имейл
+            if (strpos($ref, 'd:') === 0 && $devTok === '') $devTok = substr($ref, 2);
+            if ($email !== '') $userId = find_or_create_paid_user($email);
+        }
+
+        if ($userId) {
+            db()->prepare('UPDATE users SET paid = 1, paid_at = NOW() WHERE id = ?')->execute([$userId]);
+            if ($devTok !== '') link_device_to_user($devTok, $userId);
+        }
     }
 }
 

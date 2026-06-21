@@ -39,7 +39,9 @@ window.AppStateManager = (function () {
     'analytics.sessions':  'auralis_analytics_sessions',
     'analytics.summary':   'auralis_analytics_summary',
     'tour.done':           'auralis_tour_done',
-    'trial.start':         'auralis_trial_start',
+    // 'trial.start' (auralis_trial_start) премахнат: trial-ът е server-side вече
+    // (devices.trial_started_at). Старият ключ остава само като legacy маркер за
+    // разпознаване на заварени устройства — виж js/account.js detectLegacy().
     'audio.crossfade':     'auralis_audio_crossfade',
     'audio.l2DefaultVol':  'auralis_audio_l2_default_vol',
     'audio.sleepFade':     'auralis_audio_sleep_fade'

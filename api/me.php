@@ -1,26 +1,18 @@
 <?php
 /**
- * GET → статус на текущата сесия: logged_in, email, paid, остатък от trial.
+ * GET ?device=token → статус + entitlement (server-side истина).
+ * Комбинира сесиен потребител (ако има) с устройство (anon-first). Връща и
+ * логин полета (за account.js / settings.js), и entitlement полета (за paywall).
  */
 declare(strict_types=1);
 require __DIR__ . '/_bootstrap.php';
 
-$u = current_user();
-if (!$u) json_out(200, ['logged_in' => false]);
+$u      = current_user();
+$device = get_device(client_device_token());
 
-$trialDays = (int) cfg()['app']['trial_days'];
-$trialLeft = null;
-if (!empty($u['trial_started_at'])) {
-    $elapsed   = (time() - strtotime((string)$u['trial_started_at'])) / 86400;
-    $trialLeft = max(0, (int) ceil($trialDays - $elapsed));
-}
+$ent = entitlement_payload($u, $device);
 
-$entitled = ((bool) $u['paid']) || ($trialLeft !== null && $trialLeft > 0);
-
-json_out(200, [
-    'logged_in'       => true,
-    'email'           => $u['email'],
-    'paid'            => (bool) $u['paid'],
-    'trial_days_left' => $trialLeft,
-    'entitled'        => $entitled,
-]);
+json_out(200, array_merge([
+    'logged_in'       => (bool) $u,
+    'email'           => $u['email'] ?? null,
+], $ent));
